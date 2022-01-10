@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: sql-update-kube
+  name: sql-update-kube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: sql-update-kube
+  template:
+    metadata:
+      labels:
+        run: sql-update-kube
+    spec:
+      hostname: sql-update-kube
+      containers:
+        - name: sql-update-kube
+          image: latonaio/sql-update-kube
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/aion/Data
+            - name: ui
+              mountPath: /var/lib/aion/UI/sql-update-kube/public/
+          env:
+            - name: RMQ_USER
+              value: "guest"
+            - name: RMQ_PASS
+              value: "guest"
+            - name: RMQ_ADDRESS
+              value: "192.168.xxx.xxx"
+            - name: RMQ_PORT
+              value: "32094"
+            - name: RMQ_VHOST
+              value: "xxx-test"
+            - name: RMQ_QUEUE_FROM
+              value: "sql-update-kube"
+            - name: RMQ_QUEUE_TO
+              value: ""
+            - name: BASE_URL
+              value: "https://xxxxxxxx/xxxxxxxx/"
+            - name: DB_USER
+              value: "xxxxxxxx"
+            - name: DB_NAME
+              value: "xxxxxxxx"
+            - name: DB_PASS
+              value: "xxxxxxxx"
+            - name: DB_ADDRESS
+              value: "192.168.xxx.xxx"
+            - name: DB_PORT
+              value: "30000"
+          resources:
+            limits:
+              cpu: "1"
+              memory: "200Mi"
+            requests:
+              cpu: "0.5"
+              memory: "100Mi"
+      volumes:
+      - name: data
+        hostPath:
+          path: /var/lib/aion/default/Data
+      - name: ui
+        hostPath:
+          path: /var/lib/aion/UI/sql-update-kube/public/
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: sql-update-kube
+  name: sql-update-kube
+spec:
+  selector:
+    run: sql-update-kube
+  type: ClusterIP
+  ports:
+    - name: dummy
+      port: 40101
+      protocol: TCP
+      targetPort: 12345

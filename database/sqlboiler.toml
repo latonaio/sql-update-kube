@@ -1,0 +1,11 @@
+no-tests = true
+output = "models"
+wipe = false
+
+[mysql]
+dbname = "xxxxxxxx"
+host = "192.168.xxx.xxx"
+pass = "xxxxxxxx"
+port = 30000
+sslmode = "false"
+user = "xxxxxxxx"
