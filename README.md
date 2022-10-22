@@ -54,7 +54,7 @@ kubectl apply - f 等で Deployment作成後、以下のコマンドで Pod が�
 $ kubectl get pods
 ```
 
-### 複数外部キーへの対応
+## 複数外部キーへの対応
 本マイクロサービスで、複数の外部キーが存在するSQLの登録更新を行うためには、登録更新モジュールとして利用している、[SQLBOILER](https://github.com/volatiletech/sqlboiler)に、以下のソースコードを追加した上で、使用する必要があります。  
 SQLBOILERの、boilingcore / boilingcore.goにおける、func Newの配下に、以下のソースコードを配置して、使用してください。  
 
