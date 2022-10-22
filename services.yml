@@ -14,11 +14,12 @@ spec:
       labels:
         run: sql-update-kube
     spec:
+      nodeName: mysql-data
       hostname: sql-update-kube
       containers:
         - name: sql-update-kube
           image: latonaio/sql-update-kube
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           volumeMounts:
             - name: data
               mountPath: /var/lib/aion/Data
@@ -26,31 +27,29 @@ spec:
               mountPath: /var/lib/aion/UI/sql-update-kube/public/
           env:
             - name: RMQ_USER
-              value: "guest"
+              value: "XXXXXXXXXXX"
             - name: RMQ_PASS
-              value: "guest"
+              value: "XXXXXXXXXXX"
             - name: RMQ_ADDRESS
-              value: "192.168.xxx.xxx"
+              value: "rabbitmq"
             - name: RMQ_PORT
-              value: "32094"
+              value: "5672"
             - name: RMQ_VHOST
-              value: "xxx-test"
+              value: "sap"
             - name: RMQ_QUEUE_FROM
               value: "sql-update-kube"
             - name: RMQ_QUEUE_TO
-              value: ""
-            - name: BASE_URL
-              value: "https://xxxxxxxx/xxxxxxxx/"
+              value: "sql-update-kube"
             - name: DB_USER
-              value: "xxxxxxxx"
+              value: "XXXXXXXXXXX"
             - name: DB_NAME
-              value: "xxxxxxxx"
+              value: "DataPlatformMastersAndTransactionsMysqlKube"
             - name: DB_PASS
-              value: "xxxxxxxx"
+              value: "XXXXXXXXXXX"
             - name: DB_ADDRESS
-              value: "192.168.xxx.xxx"
+              value: "data-platform-masters-and-transactions-mysql-kube"
             - name: DB_PORT
-              value: "30000"
+              value: "3306"
           resources:
             limits:
               cpu: "1"
@@ -59,12 +58,12 @@ spec:
               cpu: "0.5"
               memory: "100Mi"
       volumes:
-      - name: data
-        hostPath:
-          path: /var/lib/aion/default/Data
-      - name: ui
-        hostPath:
-          path: /var/lib/aion/UI/sql-update-kube/public/
+        - name: data
+          hostPath:
+            path: /var/lib/aion/default/Data
+        - name: ui
+          hostPath:
+            path: /var/lib/aion/UI/sql-update-kube/public/
 ---
 apiVersion: v1
 kind: Service

@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"sql-update-kube/config"
 	"sql-update-kube/database"
 	"sql-update-kube/database/models"
@@ -12,6 +13,11 @@ import (
 	rabbitmq "github.com/latonaio/rabbitmq-golang-client"
 	"github.com/volatiletech/sqlboiler/v4/boil"
 )
+
+func getBodyHeader(data map[string]interface{}) string {
+	id := fmt.Sprintf("%v", data["runtime_session_id"])
+	return id
+}
 
 func main() {
 	l := logger.NewLogger()
@@ -23,7 +29,7 @@ func main() {
 		return
 	}
 
-	rmq, err := rabbitmq.NewRabbitmqClient(c.RMQ.URL(), c.RMQ.QueueFrom(), nil)
+	rmq, err := rabbitmq.NewRabbitmqClient(c.RMQ.URL(), c.RMQ.QueueFrom(), c.RMQ.QueueTo())
 	if err != nil {
 		l.Fatal(err.Error())
 	}
@@ -37,10 +43,26 @@ func main() {
 
 	for msg := range iter {
 		data := msg.Data()
-		str, _ := json.Marshal(msg.Data()["message"])
-		f := data["function"].(string)
+		sessionId := getBodyHeader(data)
+		rmq.AddSendTemp(map[string]interface{}{"runtime_session_id": sessionId})
+		// l.AddHeaderInfo(map[string]interface{}{"runtime_session_id": sessionId})
 		msg.Success()
-
+		str, err := json.Marshal(data["message"])
+		if err != nil {
+			l.Error(err.Error())
+			rmq.Send(c.RMQ.QueueTo()[0], data)
+			continue
+		}
+		row, ok := data["function"]
+		if !ok {
+			rmq.Send(c.RMQ.QueueTo()[0], data)
+			continue
+		}
+		f, ok := row.(string)
+		if !ok {
+			rmq.Send(c.RMQ.QueueTo()[0], data)
+			continue
+		}
 		switch f {
 		case "XXXXXXXXXXXXXXXXXXX":
 			pms := &[]models.XXXXXXXXXXXXXXXXXXXDatum{}
@@ -68,6 +90,9 @@ func main() {
 			}
 		default:
 			l.Error("catch unknown function %s", f)
+			rmq.Send(c.RMQ.QueueTo()[0], data)
+			continue
 		}
+		rmq.Send(c.RMQ.QueueTo()[0], map[string]interface{}{"status": "create new row"})
 	}
 }

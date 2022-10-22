@@ -1,11 +1,11 @@
 no-tests = true
 output = "models"
-wipe = false
+wipe = true
 
 [mysql]
-dbname = "xxxxxxxx"
-host = "192.168.xxx.xxx"
-pass = "xxxxxxxx"
-port = 30000
+dbname = "DataPlatformMastersAndTransactionsMysqlKube"
+host = "XXXXXXXXXXX"
+port = 30010
+user = "XXXXXXXXXXX"
+pass = "XXXXXXXXXXX"
 sslmode = "false"
-user = "xxxxxxxx"

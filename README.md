@@ -53,3 +53,88 @@ kubectl apply - f 等で Deployment作成後、以下のコマンドで Pod が�
 ```
 $ kubectl get pods
 ```
+
+### 複数外部キーへの対応
+本マイクロサービスで、複数の外部キーが存在するSQLの登録更新を行うためには、登録更新モジュールとして利用している、[SQLBOILER](https://github.com/volatiletech/sqlboiler)に、以下のソースコードを追加した上で、使用する必要があります。  
+SQLBOILERの、boilingcore / boilingcore.goにおける、func Newの配下に、以下のソースコードを配置して、使用してください。  
+
+```
+for i, t := range s.Tables {
+        var fkeys []drivers.ForeignKey
+        var toonerelationships []drivers.ToOneRelationship
+        var tomanyrelationships []drivers.ToManyRelationship
+        var relalias_foreigns, relalias_tor_locals, relalias_tmr_locals []string
+
+        // eliminate duplicates, if there are multi-column ForeignKeys
+        if len(t.FKeys) > 1 {
+            for j, fk := range t.FKeys {
+                exists := false
+                relalias_foreign := s.Config.Aliases.Table(t.Name).Relationship(fk.Name).Foreign
+                if j == 0 {
+                    relalias_foreigns = append(relalias_foreigns, relalias_foreign)
+                    fkeys = append(fkeys, fk)
+                    continue
+                }
+                for _, rf := range relalias_foreigns {
+                    if rf == relalias_foreign {
+                        exists = true
+                        break
+                    }
+                }
+                if !exists {
+                    relalias_foreigns = append(relalias_foreigns, relalias_foreign)
+                    fkeys = append(fkeys, fk)
+                }
+            }
+            s.Tables[i].FKeys = fkeys
+        }
+
+        // eliminate duplicates, if there are multi-column ToOneRelationships
+        if len(t.ToOneRelationships) > 1 {
+            for j, tor := range t.ToOneRelationships {
+                exists := false
+                relalias_tor_local := s.Config.Aliases.Table(tor.ForeignTable).Relationship(tor.Name).Local
+                if j == 0 {
+                    relalias_tor_locals = append(relalias_tor_locals, relalias_tor_local)
+                    toonerelationships = append(toonerelationships, tor)
+                    continue
+                }
+                for _, rol := range relalias_tor_locals {
+                    if rol == relalias_tor_local {
+                        exists = true
+                        break
+                    }
+                }
+                if !exists {
+                    relalias_tor_locals = append(relalias_tor_locals, relalias_tor_local)
+                    toonerelationships = append(toonerelationships, tor)
+                }
+            }
+            s.Tables[i].ToOneRelationships = toonerelationships
+        }
+
+        // eliminate duplicates, if there are multi-column ToManyRelationships
+        if len(t.ToManyRelationships) > 1 {
+            for j, tmr := range t.ToManyRelationships {
+                exists := false
+                relalias_tmr_local := s.Config.Aliases.ManyRelationship(tmr.ForeignTable, tmr.Name, tmr.JoinTable, tmr.JoinLocalFKeyName).Local
+                if j == 0 {
+                    relalias_tmr_locals = append(relalias_tmr_locals, relalias_tmr_local)
+                    tomanyrelationships = append(tomanyrelationships, tmr)
+                    continue
+                }
+                for _, rml := range relalias_tmr_locals {
+                    if rml == relalias_tmr_local {
+                        exists = true
+                        break
+                    }
+                }
+                if !exists {
+                    relalias_tmr_locals = append(relalias_tmr_locals, relalias_tmr_local)
+                    tomanyrelationships = append(tomanyrelationships, tmr)
+                }
+            }
+            s.Tables[i].ToManyRelationships = tomanyrelationships
+        }
+    }
+```
