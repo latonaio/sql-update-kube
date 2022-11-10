@@ -30,6 +30,8 @@ spec:
               value: "sql-update-kube"
             - name : "RMQ_QUEUE_TO"
               value: "nestjs-data-connection-request-control-manager-consume"
+            - name: "MYSQL_DB_NAME"
+              value: "DataPlatformMastersAndTransactionsMysqlKube"
           envFrom:
             - configMapRef:
                 name: env-config
