@@ -26,37 +26,15 @@ spec:
             - name: ui
               mountPath: /var/lib/aion/UI/sql-update-kube/public/
           env:
-            - name: RMQ_USER
-              value: "XXXXXXXXXXX"
-            - name: RMQ_PASS
-              value: "XXXXXXXXXXX"
-            - name: RMQ_ADDRESS
-              value: "rabbitmq"
-            - name: RMQ_PORT
-              value: "5672"
-            - name: RMQ_VHOST
-              value: "sap"
-            - name: RMQ_QUEUE_FROM
+            - name : "RMQ_QUEUE_FROM"
               value: "sql-update-kube"
-            - name: RMQ_QUEUE_TO
-              value: "sql-update-kube"
-            - name: DB_USER
-              value: "XXXXXXXXXXX"
-            - name: DB_NAME
-              value: "DataPlatformMastersAndTransactionsMysqlKube"
-            - name: DB_PASS
-              value: "XXXXXXXXXXX"
-            - name: DB_ADDRESS
-              value: "data-platform-masters-and-transactions-mysql-kube"
-            - name: DB_PORT
-              value: "3306"
-          resources:
-            limits:
-              cpu: "1"
-              memory: "200Mi"
-            requests:
-              cpu: "0.5"
-              memory: "100Mi"
+            - name : "RMQ_QUEUE_TO"
+              value: "nestjs-data-connection-request-control-manager-consume"
+          envFrom:
+            - configMapRef:
+                name: env-config
+            - secretRef:
+                name: env-secret
       volumes:
         - name: data
           hostPath:
