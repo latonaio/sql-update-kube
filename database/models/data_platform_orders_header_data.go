@@ -25,7 +25,7 @@ import (
 // DataPlatformOrdersHeaderDatum is an object representing the database table.
 type DataPlatformOrdersHeaderDatum struct {
 	OrderID                         int          `boil:"OrderID" json:"OrderID" toml:"OrderID" yaml:"OrderID"`
-	OrderDate                       time.Time    `boil:"OrderDate" json:"OrderDate" toml:"OrderDate" yaml:"OrderDate"`
+	OrderDate                       string    `boil:"OrderDate" json:"OrderDate" toml:"OrderDate" yaml:"OrderDate"`
 	OrderType                       string       `boil:"OrderType" json:"OrderType" toml:"OrderType" yaml:"OrderType"`
 	Buyer                           int          `boil:"Buyer" json:"Buyer" toml:"Buyer" yaml:"Buyer"`
 	Seller                          int          `boil:"Seller" json:"Seller" toml:"Seller" yaml:"Seller"`
@@ -247,44 +247,6 @@ func (w whereHelperfloat32) NIN(slice []float32) qm.QueryMod {
 	}
 	return qm.WhereNotIn(fmt.Sprintf("%s NOT IN ?", w.field), values...)
 }
-
-type whereHelpernull_Float32 struct{ field string }
-
-func (w whereHelpernull_Float32) EQ(x null.Float32) qm.QueryMod {
-	return qmhelper.WhereNullEQ(w.field, false, x)
-}
-func (w whereHelpernull_Float32) NEQ(x null.Float32) qm.QueryMod {
-	return qmhelper.WhereNullEQ(w.field, true, x)
-}
-func (w whereHelpernull_Float32) LT(x null.Float32) qm.QueryMod {
-	return qmhelper.Where(w.field, qmhelper.LT, x)
-}
-func (w whereHelpernull_Float32) LTE(x null.Float32) qm.QueryMod {
-	return qmhelper.Where(w.field, qmhelper.LTE, x)
-}
-func (w whereHelpernull_Float32) GT(x null.Float32) qm.QueryMod {
-	return qmhelper.Where(w.field, qmhelper.GT, x)
-}
-func (w whereHelpernull_Float32) GTE(x null.Float32) qm.QueryMod {
-	return qmhelper.Where(w.field, qmhelper.GTE, x)
-}
-func (w whereHelpernull_Float32) IN(slice []float32) qm.QueryMod {
-	values := make([]interface{}, 0, len(slice))
-	for _, value := range slice {
-		values = append(values, value)
-	}
-	return qm.WhereIn(fmt.Sprintf("%s IN ?", w.field), values...)
-}
-func (w whereHelpernull_Float32) NIN(slice []float32) qm.QueryMod {
-	values := make([]interface{}, 0, len(slice))
-	for _, value := range slice {
-		values = append(values, value)
-	}
-	return qm.WhereNotIn(fmt.Sprintf("%s NOT IN ?", w.field), values...)
-}
-
-func (w whereHelpernull_Float32) IsNull() qm.QueryMod    { return qmhelper.WhereIsNull(w.field) }
-func (w whereHelpernull_Float32) IsNotNull() qm.QueryMod { return qmhelper.WhereIsNotNull(w.field) }
 
 var DataPlatformOrdersHeaderDatumWhere = struct {
 	OrderID                         whereHelperint

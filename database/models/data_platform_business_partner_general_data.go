@@ -287,6 +287,10 @@ var DataPlatformBusinessPartnerGeneralDatumRels = struct {
 	BusinessPartnerDataPlatformBusinessPartnerRoleData                                   string
 	BusinessPartnerDataPlatformBusinessPartnerSupplierData                               string
 	PartnerFunctionBusinessPartnerDataPlatformBusinessPartnerSupplierPartnerFunctionData string
+	BuyerDataPlatformDeliveryDocumentHeaderData                                          string
+	DeliverFromPartyDataPlatformDeliveryDocumentHeaderData                               string
+	DeliverToPartyDataPlatformDeliveryDocumentHeaderData                                 string
+	SellerDataPlatformDeliveryDocumentHeaderData                                         string
 	BuyerDataPlatformOrdersHeaderData                                                    string
 	SellerDataPlatformOrdersHeaderData                                                   string
 	BusinessPartnerDataPlatformOrdersHeaderPartnerData                                   string
@@ -305,6 +309,10 @@ var DataPlatformBusinessPartnerGeneralDatumRels = struct {
 	BusinessPartnerDataPlatformBusinessPartnerRoleData:                                   "BusinessPartnerDataPlatformBusinessPartnerRoleData",
 	BusinessPartnerDataPlatformBusinessPartnerSupplierData:                               "BusinessPartnerDataPlatformBusinessPartnerSupplierData",
 	PartnerFunctionBusinessPartnerDataPlatformBusinessPartnerSupplierPartnerFunctionData: "PartnerFunctionBusinessPartnerDataPlatformBusinessPartnerSupplierPartnerFunctionData",
+	BuyerDataPlatformDeliveryDocumentHeaderData:                                          "BuyerDataPlatformDeliveryDocumentHeaderData",
+	DeliverFromPartyDataPlatformDeliveryDocumentHeaderData:                               "DeliverFromPartyDataPlatformDeliveryDocumentHeaderData",
+	DeliverToPartyDataPlatformDeliveryDocumentHeaderData:                                 "DeliverToPartyDataPlatformDeliveryDocumentHeaderData",
+	SellerDataPlatformDeliveryDocumentHeaderData:                                         "SellerDataPlatformDeliveryDocumentHeaderData",
 	BuyerDataPlatformOrdersHeaderData:                                                    "BuyerDataPlatformOrdersHeaderData",
 	SellerDataPlatformOrdersHeaderData:                                                   "SellerDataPlatformOrdersHeaderData",
 	BusinessPartnerDataPlatformOrdersHeaderPartnerData:                                   "BusinessPartnerDataPlatformOrdersHeaderPartnerData",
@@ -326,6 +334,10 @@ type dataPlatformBusinessPartnerGeneralDatumR struct {
 	BusinessPartnerDataPlatformBusinessPartnerRoleData                                   DataPlatformBusinessPartnerRoleDatumSlice                    `boil:"BusinessPartnerDataPlatformBusinessPartnerRoleData" json:"BusinessPartnerDataPlatformBusinessPartnerRoleData" toml:"BusinessPartnerDataPlatformBusinessPartnerRoleData" yaml:"BusinessPartnerDataPlatformBusinessPartnerRoleData"`
 	BusinessPartnerDataPlatformBusinessPartnerSupplierData                               DataPlatformBusinessPartnerSupplierDatumSlice                `boil:"BusinessPartnerDataPlatformBusinessPartnerSupplierData" json:"BusinessPartnerDataPlatformBusinessPartnerSupplierData" toml:"BusinessPartnerDataPlatformBusinessPartnerSupplierData" yaml:"BusinessPartnerDataPlatformBusinessPartnerSupplierData"`
 	PartnerFunctionBusinessPartnerDataPlatformBusinessPartnerSupplierPartnerFunctionData DataPlatformBusinessPartnerSupplierPartnerFunctionDatumSlice `boil:"PartnerFunctionBusinessPartnerDataPlatformBusinessPartnerSupplierPartnerFunctionData" json:"PartnerFunctionBusinessPartnerDataPlatformBusinessPartnerSupplierPartnerFunctionData" toml:"PartnerFunctionBusinessPartnerDataPlatformBusinessPartnerSupplierPartnerFunctionData" yaml:"PartnerFunctionBusinessPartnerDataPlatformBusinessPartnerSupplierPartnerFunctionData"`
+	BuyerDataPlatformDeliveryDocumentHeaderData                                          DataPlatformDeliveryDocumentHeaderDatumSlice                 `boil:"BuyerDataPlatformDeliveryDocumentHeaderData" json:"BuyerDataPlatformDeliveryDocumentHeaderData" toml:"BuyerDataPlatformDeliveryDocumentHeaderData" yaml:"BuyerDataPlatformDeliveryDocumentHeaderData"`
+	DeliverFromPartyDataPlatformDeliveryDocumentHeaderData                               DataPlatformDeliveryDocumentHeaderDatumSlice                 `boil:"DeliverFromPartyDataPlatformDeliveryDocumentHeaderData" json:"DeliverFromPartyDataPlatformDeliveryDocumentHeaderData" toml:"DeliverFromPartyDataPlatformDeliveryDocumentHeaderData" yaml:"DeliverFromPartyDataPlatformDeliveryDocumentHeaderData"`
+	DeliverToPartyDataPlatformDeliveryDocumentHeaderData                                 DataPlatformDeliveryDocumentHeaderDatumSlice                 `boil:"DeliverToPartyDataPlatformDeliveryDocumentHeaderData" json:"DeliverToPartyDataPlatformDeliveryDocumentHeaderData" toml:"DeliverToPartyDataPlatformDeliveryDocumentHeaderData" yaml:"DeliverToPartyDataPlatformDeliveryDocumentHeaderData"`
+	SellerDataPlatformDeliveryDocumentHeaderData                                         DataPlatformDeliveryDocumentHeaderDatumSlice                 `boil:"SellerDataPlatformDeliveryDocumentHeaderData" json:"SellerDataPlatformDeliveryDocumentHeaderData" toml:"SellerDataPlatformDeliveryDocumentHeaderData" yaml:"SellerDataPlatformDeliveryDocumentHeaderData"`
 	BuyerDataPlatformOrdersHeaderData                                                    DataPlatformOrdersHeaderDatumSlice                           `boil:"BuyerDataPlatformOrdersHeaderData" json:"BuyerDataPlatformOrdersHeaderData" toml:"BuyerDataPlatformOrdersHeaderData" yaml:"BuyerDataPlatformOrdersHeaderData"`
 	SellerDataPlatformOrdersHeaderData                                                   DataPlatformOrdersHeaderDatumSlice                           `boil:"SellerDataPlatformOrdersHeaderData" json:"SellerDataPlatformOrdersHeaderData" toml:"SellerDataPlatformOrdersHeaderData" yaml:"SellerDataPlatformOrdersHeaderData"`
 	BusinessPartnerDataPlatformOrdersHeaderPartnerData                                   DataPlatformOrdersHeaderPartnerDatumSlice                    `boil:"BusinessPartnerDataPlatformOrdersHeaderPartnerData" json:"BusinessPartnerDataPlatformOrdersHeaderPartnerData" toml:"BusinessPartnerDataPlatformOrdersHeaderPartnerData" yaml:"BusinessPartnerDataPlatformOrdersHeaderPartnerData"`
@@ -414,6 +426,34 @@ func (r *dataPlatformBusinessPartnerGeneralDatumR) GetPartnerFunctionBusinessPar
 		return nil
 	}
 	return r.PartnerFunctionBusinessPartnerDataPlatformBusinessPartnerSupplierPartnerFunctionData
+}
+
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBuyerDataPlatformDeliveryDocumentHeaderData() DataPlatformDeliveryDocumentHeaderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.BuyerDataPlatformDeliveryDocumentHeaderData
+}
+
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetDeliverFromPartyDataPlatformDeliveryDocumentHeaderData() DataPlatformDeliveryDocumentHeaderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DeliverFromPartyDataPlatformDeliveryDocumentHeaderData
+}
+
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetDeliverToPartyDataPlatformDeliveryDocumentHeaderData() DataPlatformDeliveryDocumentHeaderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DeliverToPartyDataPlatformDeliveryDocumentHeaderData
+}
+
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetSellerDataPlatformDeliveryDocumentHeaderData() DataPlatformDeliveryDocumentHeaderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.SellerDataPlatformDeliveryDocumentHeaderData
 }
 
 func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBuyerDataPlatformOrdersHeaderData() DataPlatformOrdersHeaderDatumSlice {
@@ -881,6 +921,62 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) PartnerFunctionBusinessPartner
 	)
 
 	return DataPlatformBusinessPartnerSupplierPartnerFunctionData(queryMods...)
+}
+
+// BuyerDataPlatformDeliveryDocumentHeaderData retrieves all the data_platform_delivery_document_header_datum's DataPlatformDeliveryDocumentHeaderData with an executor via Buyer column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) BuyerDataPlatformDeliveryDocumentHeaderData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentHeaderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_header_data`.`Buyer`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformDeliveryDocumentHeaderData(queryMods...)
+}
+
+// DeliverFromPartyDataPlatformDeliveryDocumentHeaderData retrieves all the data_platform_delivery_document_header_datum's DataPlatformDeliveryDocumentHeaderData with an executor via DeliverFromParty column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) DeliverFromPartyDataPlatformDeliveryDocumentHeaderData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentHeaderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_header_data`.`DeliverFromParty`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformDeliveryDocumentHeaderData(queryMods...)
+}
+
+// DeliverToPartyDataPlatformDeliveryDocumentHeaderData retrieves all the data_platform_delivery_document_header_datum's DataPlatformDeliveryDocumentHeaderData with an executor via DeliverToParty column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) DeliverToPartyDataPlatformDeliveryDocumentHeaderData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentHeaderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_header_data`.`DeliverToParty`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformDeliveryDocumentHeaderData(queryMods...)
+}
+
+// SellerDataPlatformDeliveryDocumentHeaderData retrieves all the data_platform_delivery_document_header_datum's DataPlatformDeliveryDocumentHeaderData with an executor via Seller column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) SellerDataPlatformDeliveryDocumentHeaderData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentHeaderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_header_data`.`Seller`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformDeliveryDocumentHeaderData(queryMods...)
 }
 
 // BuyerDataPlatformOrdersHeaderData retrieves all the data_platform_orders_header_datum's DataPlatformOrdersHeaderData with an executor via Buyer column.
@@ -2254,6 +2350,462 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadPartnerFunctionBusinessPartn
 					foreign.R = &dataPlatformBusinessPartnerSupplierPartnerFunctionDatumR{}
 				}
 				foreign.R.PartnerFunctionBusinessPartnerDataPlatformBusinessPartnerGeneralDatum = local
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadBuyerDataPlatformDeliveryDocumentHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadBuyerDataPlatformDeliveryDocumentHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDatum
+	var object *DataPlatformBusinessPartnerGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.BusinessPartner) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_header_data`),
+		qm.WhereIn(`data_platform_delivery_document_header_data.Buyer in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_header_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_header_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_header_data")
+	}
+
+	if len(dataPlatformDeliveryDocumentHeaderDatumAfterSelectHooks) != 0 {
+		for _, obj := range resultSlice {
+			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
+				return err
+			}
+		}
+	}
+	if singular {
+		object.R.BuyerDataPlatformDeliveryDocumentHeaderData = resultSlice
+		for _, foreign := range resultSlice {
+			if foreign.R == nil {
+				foreign.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+			}
+			foreign.R.BuyerDataPlatformBusinessPartnerGeneralDatum = object
+		}
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.BusinessPartner, foreign.Buyer) {
+				local.R.BuyerDataPlatformDeliveryDocumentHeaderData = append(local.R.BuyerDataPlatformDeliveryDocumentHeaderData, foreign)
+				if foreign.R == nil {
+					foreign.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+				}
+				foreign.R.BuyerDataPlatformBusinessPartnerGeneralDatum = local
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDeliverFromPartyDataPlatformDeliveryDocumentHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadDeliverFromPartyDataPlatformDeliveryDocumentHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDatum
+	var object *DataPlatformBusinessPartnerGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.BusinessPartner) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_header_data`),
+		qm.WhereIn(`data_platform_delivery_document_header_data.DeliverFromParty in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_header_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_header_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_header_data")
+	}
+
+	if len(dataPlatformDeliveryDocumentHeaderDatumAfterSelectHooks) != 0 {
+		for _, obj := range resultSlice {
+			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
+				return err
+			}
+		}
+	}
+	if singular {
+		object.R.DeliverFromPartyDataPlatformDeliveryDocumentHeaderData = resultSlice
+		for _, foreign := range resultSlice {
+			if foreign.R == nil {
+				foreign.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+			}
+			foreign.R.DeliverFromPartyDataPlatformBusinessPartnerGeneralDatum = object
+		}
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.BusinessPartner, foreign.DeliverFromParty) {
+				local.R.DeliverFromPartyDataPlatformDeliveryDocumentHeaderData = append(local.R.DeliverFromPartyDataPlatformDeliveryDocumentHeaderData, foreign)
+				if foreign.R == nil {
+					foreign.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+				}
+				foreign.R.DeliverFromPartyDataPlatformBusinessPartnerGeneralDatum = local
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDeliverToPartyDataPlatformDeliveryDocumentHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadDeliverToPartyDataPlatformDeliveryDocumentHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDatum
+	var object *DataPlatformBusinessPartnerGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.BusinessPartner) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_header_data`),
+		qm.WhereIn(`data_platform_delivery_document_header_data.DeliverToParty in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_header_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_header_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_header_data")
+	}
+
+	if len(dataPlatformDeliveryDocumentHeaderDatumAfterSelectHooks) != 0 {
+		for _, obj := range resultSlice {
+			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
+				return err
+			}
+		}
+	}
+	if singular {
+		object.R.DeliverToPartyDataPlatformDeliveryDocumentHeaderData = resultSlice
+		for _, foreign := range resultSlice {
+			if foreign.R == nil {
+				foreign.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+			}
+			foreign.R.DeliverToPartyDataPlatformBusinessPartnerGeneralDatum = object
+		}
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.BusinessPartner, foreign.DeliverToParty) {
+				local.R.DeliverToPartyDataPlatformDeliveryDocumentHeaderData = append(local.R.DeliverToPartyDataPlatformDeliveryDocumentHeaderData, foreign)
+				if foreign.R == nil {
+					foreign.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+				}
+				foreign.R.DeliverToPartyDataPlatformBusinessPartnerGeneralDatum = local
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadSellerDataPlatformDeliveryDocumentHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadSellerDataPlatformDeliveryDocumentHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDatum
+	var object *DataPlatformBusinessPartnerGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.BusinessPartner) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_header_data`),
+		qm.WhereIn(`data_platform_delivery_document_header_data.Seller in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_header_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_header_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_header_data")
+	}
+
+	if len(dataPlatformDeliveryDocumentHeaderDatumAfterSelectHooks) != 0 {
+		for _, obj := range resultSlice {
+			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
+				return err
+			}
+		}
+	}
+	if singular {
+		object.R.SellerDataPlatformDeliveryDocumentHeaderData = resultSlice
+		for _, foreign := range resultSlice {
+			if foreign.R == nil {
+				foreign.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+			}
+			foreign.R.SellerDataPlatformBusinessPartnerGeneralDatum = object
+		}
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.BusinessPartner, foreign.Seller) {
+				local.R.SellerDataPlatformDeliveryDocumentHeaderData = append(local.R.SellerDataPlatformDeliveryDocumentHeaderData, foreign)
+				if foreign.R == nil {
+					foreign.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+				}
+				foreign.R.SellerDataPlatformBusinessPartnerGeneralDatum = local
 				break
 			}
 		}
@@ -3703,6 +4255,514 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) RemovePartnerFunctionBusinessP
 				o.R.PartnerFunctionBusinessPartnerDataPlatformBusinessPartnerSupplierPartnerFunctionData[i] = o.R.PartnerFunctionBusinessPartnerDataPlatformBusinessPartnerSupplierPartnerFunctionData[ln-1]
 			}
 			o.R.PartnerFunctionBusinessPartnerDataPlatformBusinessPartnerSupplierPartnerFunctionData = o.R.PartnerFunctionBusinessPartnerDataPlatformBusinessPartnerSupplierPartnerFunctionData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddBuyerDataPlatformDeliveryDocumentHeaderData adds the given related objects to the existing relationships
+// of the data_platform_business_partner_general_datum, optionally inserting them as new records.
+// Appends related to o.R.BuyerDataPlatformDeliveryDocumentHeaderData.
+// Sets related.R.BuyerDataPlatformBusinessPartnerGeneralDatum appropriately.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddBuyerDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Buyer, o.BusinessPartner)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_header_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Buyer"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentHeaderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.DeliveryDocument}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Buyer, o.BusinessPartner)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
+			BuyerDataPlatformDeliveryDocumentHeaderData: related,
+		}
+	} else {
+		o.R.BuyerDataPlatformDeliveryDocumentHeaderData = append(o.R.BuyerDataPlatformDeliveryDocumentHeaderData, related...)
+	}
+
+	for _, rel := range related {
+		if rel.R == nil {
+			rel.R = &dataPlatformDeliveryDocumentHeaderDatumR{
+				BuyerDataPlatformBusinessPartnerGeneralDatum: o,
+			}
+		} else {
+			rel.R.BuyerDataPlatformBusinessPartnerGeneralDatum = o
+		}
+	}
+	return nil
+}
+
+// SetBuyerDataPlatformDeliveryDocumentHeaderData removes all previously related items of the
+// data_platform_business_partner_general_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.BuyerDataPlatformBusinessPartnerGeneralDatum's BuyerDataPlatformDeliveryDocumentHeaderData accordingly.
+// Replaces o.R.BuyerDataPlatformDeliveryDocumentHeaderData with related.
+// Sets related.R.BuyerDataPlatformBusinessPartnerGeneralDatum's BuyerDataPlatformDeliveryDocumentHeaderData accordingly.
+func (o *DataPlatformBusinessPartnerGeneralDatum) SetBuyerDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	query := "update `data_platform_delivery_document_header_data` set `Buyer` = null where `Buyer` = ?"
+	values := []interface{}{o.BusinessPartner}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		for _, rel := range o.R.BuyerDataPlatformDeliveryDocumentHeaderData {
+			queries.SetScanner(&rel.Buyer, nil)
+			if rel.R == nil {
+				continue
+			}
+
+			rel.R.BuyerDataPlatformBusinessPartnerGeneralDatum = nil
+		}
+		o.R.BuyerDataPlatformDeliveryDocumentHeaderData = nil
+	}
+
+	return o.AddBuyerDataPlatformDeliveryDocumentHeaderData(ctx, exec, insert, related...)
+}
+
+// RemoveBuyerDataPlatformDeliveryDocumentHeaderData relationships from objects passed in.
+// Removes related items from R.BuyerDataPlatformDeliveryDocumentHeaderData (uses pointer comparison, removal does not keep order)
+// Sets related.R.BuyerDataPlatformBusinessPartnerGeneralDatum.
+func (o *DataPlatformBusinessPartnerGeneralDatum) RemoveBuyerDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Buyer, nil)
+		if rel.R != nil {
+			rel.R.BuyerDataPlatformBusinessPartnerGeneralDatum = nil
+		}
+		if _, err = rel.Update(ctx, exec, boil.Whitelist("Buyer")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.BuyerDataPlatformDeliveryDocumentHeaderData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.BuyerDataPlatformDeliveryDocumentHeaderData)
+			if ln > 1 && i < ln-1 {
+				o.R.BuyerDataPlatformDeliveryDocumentHeaderData[i] = o.R.BuyerDataPlatformDeliveryDocumentHeaderData[ln-1]
+			}
+			o.R.BuyerDataPlatformDeliveryDocumentHeaderData = o.R.BuyerDataPlatformDeliveryDocumentHeaderData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddDeliverFromPartyDataPlatformDeliveryDocumentHeaderData adds the given related objects to the existing relationships
+// of the data_platform_business_partner_general_datum, optionally inserting them as new records.
+// Appends related to o.R.DeliverFromPartyDataPlatformDeliveryDocumentHeaderData.
+// Sets related.R.DeliverFromPartyDataPlatformBusinessPartnerGeneralDatum appropriately.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddDeliverFromPartyDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.DeliverFromParty, o.BusinessPartner)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_header_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DeliverFromParty"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentHeaderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.DeliveryDocument}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.DeliverFromParty, o.BusinessPartner)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
+			DeliverFromPartyDataPlatformDeliveryDocumentHeaderData: related,
+		}
+	} else {
+		o.R.DeliverFromPartyDataPlatformDeliveryDocumentHeaderData = append(o.R.DeliverFromPartyDataPlatformDeliveryDocumentHeaderData, related...)
+	}
+
+	for _, rel := range related {
+		if rel.R == nil {
+			rel.R = &dataPlatformDeliveryDocumentHeaderDatumR{
+				DeliverFromPartyDataPlatformBusinessPartnerGeneralDatum: o,
+			}
+		} else {
+			rel.R.DeliverFromPartyDataPlatformBusinessPartnerGeneralDatum = o
+		}
+	}
+	return nil
+}
+
+// SetDeliverFromPartyDataPlatformDeliveryDocumentHeaderData removes all previously related items of the
+// data_platform_business_partner_general_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.DeliverFromPartyDataPlatformBusinessPartnerGeneralDatum's DeliverFromPartyDataPlatformDeliveryDocumentHeaderData accordingly.
+// Replaces o.R.DeliverFromPartyDataPlatformDeliveryDocumentHeaderData with related.
+// Sets related.R.DeliverFromPartyDataPlatformBusinessPartnerGeneralDatum's DeliverFromPartyDataPlatformDeliveryDocumentHeaderData accordingly.
+func (o *DataPlatformBusinessPartnerGeneralDatum) SetDeliverFromPartyDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	query := "update `data_platform_delivery_document_header_data` set `DeliverFromParty` = null where `DeliverFromParty` = ?"
+	values := []interface{}{o.BusinessPartner}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		for _, rel := range o.R.DeliverFromPartyDataPlatformDeliveryDocumentHeaderData {
+			queries.SetScanner(&rel.DeliverFromParty, nil)
+			if rel.R == nil {
+				continue
+			}
+
+			rel.R.DeliverFromPartyDataPlatformBusinessPartnerGeneralDatum = nil
+		}
+		o.R.DeliverFromPartyDataPlatformDeliveryDocumentHeaderData = nil
+	}
+
+	return o.AddDeliverFromPartyDataPlatformDeliveryDocumentHeaderData(ctx, exec, insert, related...)
+}
+
+// RemoveDeliverFromPartyDataPlatformDeliveryDocumentHeaderData relationships from objects passed in.
+// Removes related items from R.DeliverFromPartyDataPlatformDeliveryDocumentHeaderData (uses pointer comparison, removal does not keep order)
+// Sets related.R.DeliverFromPartyDataPlatformBusinessPartnerGeneralDatum.
+func (o *DataPlatformBusinessPartnerGeneralDatum) RemoveDeliverFromPartyDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.DeliverFromParty, nil)
+		if rel.R != nil {
+			rel.R.DeliverFromPartyDataPlatformBusinessPartnerGeneralDatum = nil
+		}
+		if _, err = rel.Update(ctx, exec, boil.Whitelist("DeliverFromParty")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.DeliverFromPartyDataPlatformDeliveryDocumentHeaderData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.DeliverFromPartyDataPlatformDeliveryDocumentHeaderData)
+			if ln > 1 && i < ln-1 {
+				o.R.DeliverFromPartyDataPlatformDeliveryDocumentHeaderData[i] = o.R.DeliverFromPartyDataPlatformDeliveryDocumentHeaderData[ln-1]
+			}
+			o.R.DeliverFromPartyDataPlatformDeliveryDocumentHeaderData = o.R.DeliverFromPartyDataPlatformDeliveryDocumentHeaderData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddDeliverToPartyDataPlatformDeliveryDocumentHeaderData adds the given related objects to the existing relationships
+// of the data_platform_business_partner_general_datum, optionally inserting them as new records.
+// Appends related to o.R.DeliverToPartyDataPlatformDeliveryDocumentHeaderData.
+// Sets related.R.DeliverToPartyDataPlatformBusinessPartnerGeneralDatum appropriately.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddDeliverToPartyDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.DeliverToParty, o.BusinessPartner)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_header_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DeliverToParty"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentHeaderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.DeliveryDocument}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.DeliverToParty, o.BusinessPartner)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
+			DeliverToPartyDataPlatformDeliveryDocumentHeaderData: related,
+		}
+	} else {
+		o.R.DeliverToPartyDataPlatformDeliveryDocumentHeaderData = append(o.R.DeliverToPartyDataPlatformDeliveryDocumentHeaderData, related...)
+	}
+
+	for _, rel := range related {
+		if rel.R == nil {
+			rel.R = &dataPlatformDeliveryDocumentHeaderDatumR{
+				DeliverToPartyDataPlatformBusinessPartnerGeneralDatum: o,
+			}
+		} else {
+			rel.R.DeliverToPartyDataPlatformBusinessPartnerGeneralDatum = o
+		}
+	}
+	return nil
+}
+
+// SetDeliverToPartyDataPlatformDeliveryDocumentHeaderData removes all previously related items of the
+// data_platform_business_partner_general_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.DeliverToPartyDataPlatformBusinessPartnerGeneralDatum's DeliverToPartyDataPlatformDeliveryDocumentHeaderData accordingly.
+// Replaces o.R.DeliverToPartyDataPlatformDeliveryDocumentHeaderData with related.
+// Sets related.R.DeliverToPartyDataPlatformBusinessPartnerGeneralDatum's DeliverToPartyDataPlatformDeliveryDocumentHeaderData accordingly.
+func (o *DataPlatformBusinessPartnerGeneralDatum) SetDeliverToPartyDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	query := "update `data_platform_delivery_document_header_data` set `DeliverToParty` = null where `DeliverToParty` = ?"
+	values := []interface{}{o.BusinessPartner}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		for _, rel := range o.R.DeliverToPartyDataPlatformDeliveryDocumentHeaderData {
+			queries.SetScanner(&rel.DeliverToParty, nil)
+			if rel.R == nil {
+				continue
+			}
+
+			rel.R.DeliverToPartyDataPlatformBusinessPartnerGeneralDatum = nil
+		}
+		o.R.DeliverToPartyDataPlatformDeliveryDocumentHeaderData = nil
+	}
+
+	return o.AddDeliverToPartyDataPlatformDeliveryDocumentHeaderData(ctx, exec, insert, related...)
+}
+
+// RemoveDeliverToPartyDataPlatformDeliveryDocumentHeaderData relationships from objects passed in.
+// Removes related items from R.DeliverToPartyDataPlatformDeliveryDocumentHeaderData (uses pointer comparison, removal does not keep order)
+// Sets related.R.DeliverToPartyDataPlatformBusinessPartnerGeneralDatum.
+func (o *DataPlatformBusinessPartnerGeneralDatum) RemoveDeliverToPartyDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.DeliverToParty, nil)
+		if rel.R != nil {
+			rel.R.DeliverToPartyDataPlatformBusinessPartnerGeneralDatum = nil
+		}
+		if _, err = rel.Update(ctx, exec, boil.Whitelist("DeliverToParty")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.DeliverToPartyDataPlatformDeliveryDocumentHeaderData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.DeliverToPartyDataPlatformDeliveryDocumentHeaderData)
+			if ln > 1 && i < ln-1 {
+				o.R.DeliverToPartyDataPlatformDeliveryDocumentHeaderData[i] = o.R.DeliverToPartyDataPlatformDeliveryDocumentHeaderData[ln-1]
+			}
+			o.R.DeliverToPartyDataPlatformDeliveryDocumentHeaderData = o.R.DeliverToPartyDataPlatformDeliveryDocumentHeaderData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddSellerDataPlatformDeliveryDocumentHeaderData adds the given related objects to the existing relationships
+// of the data_platform_business_partner_general_datum, optionally inserting them as new records.
+// Appends related to o.R.SellerDataPlatformDeliveryDocumentHeaderData.
+// Sets related.R.SellerDataPlatformBusinessPartnerGeneralDatum appropriately.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddSellerDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Seller, o.BusinessPartner)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_header_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Seller"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentHeaderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.DeliveryDocument}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Seller, o.BusinessPartner)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
+			SellerDataPlatformDeliveryDocumentHeaderData: related,
+		}
+	} else {
+		o.R.SellerDataPlatformDeliveryDocumentHeaderData = append(o.R.SellerDataPlatformDeliveryDocumentHeaderData, related...)
+	}
+
+	for _, rel := range related {
+		if rel.R == nil {
+			rel.R = &dataPlatformDeliveryDocumentHeaderDatumR{
+				SellerDataPlatformBusinessPartnerGeneralDatum: o,
+			}
+		} else {
+			rel.R.SellerDataPlatformBusinessPartnerGeneralDatum = o
+		}
+	}
+	return nil
+}
+
+// SetSellerDataPlatformDeliveryDocumentHeaderData removes all previously related items of the
+// data_platform_business_partner_general_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.SellerDataPlatformBusinessPartnerGeneralDatum's SellerDataPlatformDeliveryDocumentHeaderData accordingly.
+// Replaces o.R.SellerDataPlatformDeliveryDocumentHeaderData with related.
+// Sets related.R.SellerDataPlatformBusinessPartnerGeneralDatum's SellerDataPlatformDeliveryDocumentHeaderData accordingly.
+func (o *DataPlatformBusinessPartnerGeneralDatum) SetSellerDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	query := "update `data_platform_delivery_document_header_data` set `Seller` = null where `Seller` = ?"
+	values := []interface{}{o.BusinessPartner}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		for _, rel := range o.R.SellerDataPlatformDeliveryDocumentHeaderData {
+			queries.SetScanner(&rel.Seller, nil)
+			if rel.R == nil {
+				continue
+			}
+
+			rel.R.SellerDataPlatformBusinessPartnerGeneralDatum = nil
+		}
+		o.R.SellerDataPlatformDeliveryDocumentHeaderData = nil
+	}
+
+	return o.AddSellerDataPlatformDeliveryDocumentHeaderData(ctx, exec, insert, related...)
+}
+
+// RemoveSellerDataPlatformDeliveryDocumentHeaderData relationships from objects passed in.
+// Removes related items from R.SellerDataPlatformDeliveryDocumentHeaderData (uses pointer comparison, removal does not keep order)
+// Sets related.R.SellerDataPlatformBusinessPartnerGeneralDatum.
+func (o *DataPlatformBusinessPartnerGeneralDatum) RemoveSellerDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Seller, nil)
+		if rel.R != nil {
+			rel.R.SellerDataPlatformBusinessPartnerGeneralDatum = nil
+		}
+		if _, err = rel.Update(ctx, exec, boil.Whitelist("Seller")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.SellerDataPlatformDeliveryDocumentHeaderData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.SellerDataPlatformDeliveryDocumentHeaderData)
+			if ln > 1 && i < ln-1 {
+				o.R.SellerDataPlatformDeliveryDocumentHeaderData[i] = o.R.SellerDataPlatformDeliveryDocumentHeaderData[ln-1]
+			}
+			o.R.SellerDataPlatformDeliveryDocumentHeaderData = o.R.SellerDataPlatformDeliveryDocumentHeaderData[:ln-1]
 			break
 		}
 	}

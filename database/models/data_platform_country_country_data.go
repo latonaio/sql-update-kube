@@ -62,6 +62,7 @@ var DataPlatformCountryCountryDatumRels = struct {
 	DepartureCountryDataPlatformBusinessPartnerCustomerTaxData string
 	CountryDataPlatformBusinessPartnerGeneralData              string
 	DepartureCountryDataPlatformBusinessPartnerSupplierTaxData string
+	FinInstCountryDataPlatformFinInstMasterGeneralData         string
 	CountryDataPlatformOrdersHeaderPartnerData                 string
 	CountryDataPlatformProductMasterTaxData                    string
 }{
@@ -69,6 +70,7 @@ var DataPlatformCountryCountryDatumRels = struct {
 	DepartureCountryDataPlatformBusinessPartnerCustomerTaxData: "DepartureCountryDataPlatformBusinessPartnerCustomerTaxData",
 	CountryDataPlatformBusinessPartnerGeneralData:              "CountryDataPlatformBusinessPartnerGeneralData",
 	DepartureCountryDataPlatformBusinessPartnerSupplierTaxData: "DepartureCountryDataPlatformBusinessPartnerSupplierTaxData",
+	FinInstCountryDataPlatformFinInstMasterGeneralData:         "FinInstCountryDataPlatformFinInstMasterGeneralData",
 	CountryDataPlatformOrdersHeaderPartnerData:                 "CountryDataPlatformOrdersHeaderPartnerData",
 	CountryDataPlatformProductMasterTaxData:                    "CountryDataPlatformProductMasterTaxData",
 }
@@ -79,6 +81,7 @@ type dataPlatformCountryCountryDatumR struct {
 	DepartureCountryDataPlatformBusinessPartnerCustomerTaxData DataPlatformBusinessPartnerCustomerTaxDatumSlice `boil:"DepartureCountryDataPlatformBusinessPartnerCustomerTaxData" json:"DepartureCountryDataPlatformBusinessPartnerCustomerTaxData" toml:"DepartureCountryDataPlatformBusinessPartnerCustomerTaxData" yaml:"DepartureCountryDataPlatformBusinessPartnerCustomerTaxData"`
 	CountryDataPlatformBusinessPartnerGeneralData              DataPlatformBusinessPartnerGeneralDatumSlice     `boil:"CountryDataPlatformBusinessPartnerGeneralData" json:"CountryDataPlatformBusinessPartnerGeneralData" toml:"CountryDataPlatformBusinessPartnerGeneralData" yaml:"CountryDataPlatformBusinessPartnerGeneralData"`
 	DepartureCountryDataPlatformBusinessPartnerSupplierTaxData DataPlatformBusinessPartnerSupplierTaxDatumSlice `boil:"DepartureCountryDataPlatformBusinessPartnerSupplierTaxData" json:"DepartureCountryDataPlatformBusinessPartnerSupplierTaxData" toml:"DepartureCountryDataPlatformBusinessPartnerSupplierTaxData" yaml:"DepartureCountryDataPlatformBusinessPartnerSupplierTaxData"`
+	FinInstCountryDataPlatformFinInstMasterGeneralData         DataPlatformFinInstMasterGeneralDatumSlice       `boil:"FinInstCountryDataPlatformFinInstMasterGeneralData" json:"FinInstCountryDataPlatformFinInstMasterGeneralData" toml:"FinInstCountryDataPlatformFinInstMasterGeneralData" yaml:"FinInstCountryDataPlatformFinInstMasterGeneralData"`
 	CountryDataPlatformOrdersHeaderPartnerData                 DataPlatformOrdersHeaderPartnerDatumSlice        `boil:"CountryDataPlatformOrdersHeaderPartnerData" json:"CountryDataPlatformOrdersHeaderPartnerData" toml:"CountryDataPlatformOrdersHeaderPartnerData" yaml:"CountryDataPlatformOrdersHeaderPartnerData"`
 	CountryDataPlatformProductMasterTaxData                    DataPlatformProductMasterTaxDatumSlice           `boil:"CountryDataPlatformProductMasterTaxData" json:"CountryDataPlatformProductMasterTaxData" toml:"CountryDataPlatformProductMasterTaxData" yaml:"CountryDataPlatformProductMasterTaxData"`
 }
@@ -114,6 +117,13 @@ func (r *dataPlatformCountryCountryDatumR) GetDepartureCountryDataPlatformBusine
 		return nil
 	}
 	return r.DepartureCountryDataPlatformBusinessPartnerSupplierTaxData
+}
+
+func (r *dataPlatformCountryCountryDatumR) GetFinInstCountryDataPlatformFinInstMasterGeneralData() DataPlatformFinInstMasterGeneralDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.FinInstCountryDataPlatformFinInstMasterGeneralData
 }
 
 func (r *dataPlatformCountryCountryDatumR) GetCountryDataPlatformOrdersHeaderPartnerData() DataPlatformOrdersHeaderPartnerDatumSlice {
@@ -470,6 +480,20 @@ func (o *DataPlatformCountryCountryDatum) DepartureCountryDataPlatformBusinessPa
 	)
 
 	return DataPlatformBusinessPartnerSupplierTaxData(queryMods...)
+}
+
+// FinInstCountryDataPlatformFinInstMasterGeneralData retrieves all the data_platform_fin_inst_master_general_datum's DataPlatformFinInstMasterGeneralData with an executor via FinInstCountry column.
+func (o *DataPlatformCountryCountryDatum) FinInstCountryDataPlatformFinInstMasterGeneralData(mods ...qm.QueryMod) dataPlatformFinInstMasterGeneralDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_fin_inst_master_general_data`.`FinInstCountry`=?", o.Country),
+	)
+
+	return DataPlatformFinInstMasterGeneralData(queryMods...)
 }
 
 // CountryDataPlatformOrdersHeaderPartnerData retrieves all the data_platform_orders_header_partner_datum's DataPlatformOrdersHeaderPartnerData with an executor via Country column.
@@ -962,6 +986,120 @@ func (dataPlatformCountryCountryDatumL) LoadDepartureCountryDataPlatformBusiness
 	return nil
 }
 
+// LoadFinInstCountryDataPlatformFinInstMasterGeneralData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformCountryCountryDatumL) LoadFinInstCountryDataPlatformFinInstMasterGeneralData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformCountryCountryDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformCountryCountryDatum
+	var object *DataPlatformCountryCountryDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformCountryCountryDatum.(*DataPlatformCountryCountryDatum)
+		if !ok {
+			object = new(DataPlatformCountryCountryDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformCountryCountryDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformCountryCountryDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformCountryCountryDatum.(*[]*DataPlatformCountryCountryDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformCountryCountryDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformCountryCountryDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformCountryCountryDatumR{}
+		}
+		args = append(args, object.Country)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformCountryCountryDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Country {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Country)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_fin_inst_master_general_data`),
+		qm.WhereIn(`data_platform_fin_inst_master_general_data.FinInstCountry in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_fin_inst_master_general_data")
+	}
+
+	var resultSlice []*DataPlatformFinInstMasterGeneralDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_fin_inst_master_general_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_fin_inst_master_general_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_fin_inst_master_general_data")
+	}
+
+	if len(dataPlatformFinInstMasterGeneralDatumAfterSelectHooks) != 0 {
+		for _, obj := range resultSlice {
+			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
+				return err
+			}
+		}
+	}
+	if singular {
+		object.R.FinInstCountryDataPlatformFinInstMasterGeneralData = resultSlice
+		for _, foreign := range resultSlice {
+			if foreign.R == nil {
+				foreign.R = &dataPlatformFinInstMasterGeneralDatumR{}
+			}
+			foreign.R.FinInstCountryDataPlatformCountryCountryDatum = object
+		}
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Country == foreign.FinInstCountry {
+				local.R.FinInstCountryDataPlatformFinInstMasterGeneralData = append(local.R.FinInstCountryDataPlatformFinInstMasterGeneralData, foreign)
+				if foreign.R == nil {
+					foreign.R = &dataPlatformFinInstMasterGeneralDatumR{}
+				}
+				foreign.R.FinInstCountryDataPlatformCountryCountryDatum = local
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // LoadCountryDataPlatformOrdersHeaderPartnerData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
 func (dataPlatformCountryCountryDatumL) LoadCountryDataPlatformOrdersHeaderPartnerData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformCountryCountryDatum interface{}, mods queries.Applicator) error {
@@ -1391,6 +1529,59 @@ func (o *DataPlatformCountryCountryDatum) AddDepartureCountryDataPlatformBusines
 			}
 		} else {
 			rel.R.DepartureCountryDataPlatformCountryCountryDatum = o
+		}
+	}
+	return nil
+}
+
+// AddFinInstCountryDataPlatformFinInstMasterGeneralData adds the given related objects to the existing relationships
+// of the data_platform_country_country_datum, optionally inserting them as new records.
+// Appends related to o.R.FinInstCountryDataPlatformFinInstMasterGeneralData.
+// Sets related.R.FinInstCountryDataPlatformCountryCountryDatum appropriately.
+func (o *DataPlatformCountryCountryDatum) AddFinInstCountryDataPlatformFinInstMasterGeneralData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformFinInstMasterGeneralDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.FinInstCountry = o.Country
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_fin_inst_master_general_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"FinInstCountry"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformFinInstMasterGeneralDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Country, rel.FinInstCountry, rel.FinInstCode}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.FinInstCountry = o.Country
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformCountryCountryDatumR{
+			FinInstCountryDataPlatformFinInstMasterGeneralData: related,
+		}
+	} else {
+		o.R.FinInstCountryDataPlatformFinInstMasterGeneralData = append(o.R.FinInstCountryDataPlatformFinInstMasterGeneralData, related...)
+	}
+
+	for _, rel := range related {
+		if rel.R == nil {
+			rel.R = &dataPlatformFinInstMasterGeneralDatumR{
+				FinInstCountryDataPlatformCountryCountryDatum: o,
+			}
+		} else {
+			rel.R.FinInstCountryDataPlatformCountryCountryDatum = o
 		}
 	}
 	return nil

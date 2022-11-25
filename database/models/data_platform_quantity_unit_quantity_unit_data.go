@@ -51,11 +51,13 @@ var DataPlatformQuantityUnitQuantityUnitDatumWhere = struct {
 
 // DataPlatformQuantityUnitQuantityUnitDatumRels is where relationship names are stored.
 var DataPlatformQuantityUnitQuantityUnitDatumRels = struct {
+	HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData    string
 	InventoryUnitDataPlatformProductMasterBPPlantData         string
 	IssuingDeliveryUnitDataPlatformProductMasterBPPlantData   string
 	ReceivingDeliveryUnitDataPlatformProductMasterBPPlantData string
 	QuantityUnitDataPlatformQuantityUnitTextData              string
 }{
+	HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData:    "HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData",
 	InventoryUnitDataPlatformProductMasterBPPlantData:         "InventoryUnitDataPlatformProductMasterBPPlantData",
 	IssuingDeliveryUnitDataPlatformProductMasterBPPlantData:   "IssuingDeliveryUnitDataPlatformProductMasterBPPlantData",
 	ReceivingDeliveryUnitDataPlatformProductMasterBPPlantData: "ReceivingDeliveryUnitDataPlatformProductMasterBPPlantData",
@@ -64,15 +66,23 @@ var DataPlatformQuantityUnitQuantityUnitDatumRels = struct {
 
 // dataPlatformQuantityUnitQuantityUnitDatumR is where relationships are stored.
 type dataPlatformQuantityUnitQuantityUnitDatumR struct {
-	InventoryUnitDataPlatformProductMasterBPPlantData         DataPlatformProductMasterBPPlantDatumSlice `boil:"InventoryUnitDataPlatformProductMasterBPPlantData" json:"InventoryUnitDataPlatformProductMasterBPPlantData" toml:"InventoryUnitDataPlatformProductMasterBPPlantData" yaml:"InventoryUnitDataPlatformProductMasterBPPlantData"`
-	IssuingDeliveryUnitDataPlatformProductMasterBPPlantData   DataPlatformProductMasterBPPlantDatumSlice `boil:"IssuingDeliveryUnitDataPlatformProductMasterBPPlantData" json:"IssuingDeliveryUnitDataPlatformProductMasterBPPlantData" toml:"IssuingDeliveryUnitDataPlatformProductMasterBPPlantData" yaml:"IssuingDeliveryUnitDataPlatformProductMasterBPPlantData"`
-	ReceivingDeliveryUnitDataPlatformProductMasterBPPlantData DataPlatformProductMasterBPPlantDatumSlice `boil:"ReceivingDeliveryUnitDataPlatformProductMasterBPPlantData" json:"ReceivingDeliveryUnitDataPlatformProductMasterBPPlantData" toml:"ReceivingDeliveryUnitDataPlatformProductMasterBPPlantData" yaml:"ReceivingDeliveryUnitDataPlatformProductMasterBPPlantData"`
-	QuantityUnitDataPlatformQuantityUnitTextData              DataPlatformQuantityUnitTextDatumSlice     `boil:"QuantityUnitDataPlatformQuantityUnitTextData" json:"QuantityUnitDataPlatformQuantityUnitTextData" toml:"QuantityUnitDataPlatformQuantityUnitTextData" yaml:"QuantityUnitDataPlatformQuantityUnitTextData"`
+	HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData    DataPlatformDeliveryDocumentHeaderDatumSlice `boil:"HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData" json:"HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData" toml:"HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData" yaml:"HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData"`
+	InventoryUnitDataPlatformProductMasterBPPlantData         DataPlatformProductMasterBPPlantDatumSlice   `boil:"InventoryUnitDataPlatformProductMasterBPPlantData" json:"InventoryUnitDataPlatformProductMasterBPPlantData" toml:"InventoryUnitDataPlatformProductMasterBPPlantData" yaml:"InventoryUnitDataPlatformProductMasterBPPlantData"`
+	IssuingDeliveryUnitDataPlatformProductMasterBPPlantData   DataPlatformProductMasterBPPlantDatumSlice   `boil:"IssuingDeliveryUnitDataPlatformProductMasterBPPlantData" json:"IssuingDeliveryUnitDataPlatformProductMasterBPPlantData" toml:"IssuingDeliveryUnitDataPlatformProductMasterBPPlantData" yaml:"IssuingDeliveryUnitDataPlatformProductMasterBPPlantData"`
+	ReceivingDeliveryUnitDataPlatformProductMasterBPPlantData DataPlatformProductMasterBPPlantDatumSlice   `boil:"ReceivingDeliveryUnitDataPlatformProductMasterBPPlantData" json:"ReceivingDeliveryUnitDataPlatformProductMasterBPPlantData" toml:"ReceivingDeliveryUnitDataPlatformProductMasterBPPlantData" yaml:"ReceivingDeliveryUnitDataPlatformProductMasterBPPlantData"`
+	QuantityUnitDataPlatformQuantityUnitTextData              DataPlatformQuantityUnitTextDatumSlice       `boil:"QuantityUnitDataPlatformQuantityUnitTextData" json:"QuantityUnitDataPlatformQuantityUnitTextData" toml:"QuantityUnitDataPlatformQuantityUnitTextData" yaml:"QuantityUnitDataPlatformQuantityUnitTextData"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformQuantityUnitQuantityUnitDatumR) NewStruct() *dataPlatformQuantityUnitQuantityUnitDatumR {
 	return &dataPlatformQuantityUnitQuantityUnitDatumR{}
+}
+
+func (r *dataPlatformQuantityUnitQuantityUnitDatumR) GetHeaderWeightUnitDataPlatformDeliveryDocumentHeaderData() DataPlatformDeliveryDocumentHeaderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData
 }
 
 func (r *dataPlatformQuantityUnitQuantityUnitDatumR) GetInventoryUnitDataPlatformProductMasterBPPlantData() DataPlatformProductMasterBPPlantDatumSlice {
@@ -392,6 +402,20 @@ func (q dataPlatformQuantityUnitQuantityUnitDatumQuery) Exists(ctx context.Conte
 	return count > 0, nil
 }
 
+// HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData retrieves all the data_platform_delivery_document_header_datum's DataPlatformDeliveryDocumentHeaderData with an executor via HeaderWeightUnit column.
+func (o *DataPlatformQuantityUnitQuantityUnitDatum) HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentHeaderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_header_data`.`HeaderWeightUnit`=?", o.QuantityUnit),
+	)
+
+	return DataPlatformDeliveryDocumentHeaderData(queryMods...)
+}
+
 // InventoryUnitDataPlatformProductMasterBPPlantData retrieves all the data_platform_product_master_bp_plant_datum's DataPlatformProductMasterBPPlantData with an executor via InventoryUnit column.
 func (o *DataPlatformQuantityUnitQuantityUnitDatum) InventoryUnitDataPlatformProductMasterBPPlantData(mods ...qm.QueryMod) dataPlatformProductMasterBPPlantDatumQuery {
 	var queryMods []qm.QueryMod
@@ -446,6 +470,120 @@ func (o *DataPlatformQuantityUnitQuantityUnitDatum) QuantityUnitDataPlatformQuan
 	)
 
 	return DataPlatformQuantityUnitTextData(queryMods...)
+}
+
+// LoadHeaderWeightUnitDataPlatformDeliveryDocumentHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformQuantityUnitQuantityUnitDatumL) LoadHeaderWeightUnitDataPlatformDeliveryDocumentHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformQuantityUnitQuantityUnitDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformQuantityUnitQuantityUnitDatum
+	var object *DataPlatformQuantityUnitQuantityUnitDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformQuantityUnitQuantityUnitDatum.(*DataPlatformQuantityUnitQuantityUnitDatum)
+		if !ok {
+			object = new(DataPlatformQuantityUnitQuantityUnitDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformQuantityUnitQuantityUnitDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformQuantityUnitQuantityUnitDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformQuantityUnitQuantityUnitDatum.(*[]*DataPlatformQuantityUnitQuantityUnitDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformQuantityUnitQuantityUnitDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformQuantityUnitQuantityUnitDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformQuantityUnitQuantityUnitDatumR{}
+		}
+		args = append(args, object.QuantityUnit)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformQuantityUnitQuantityUnitDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.QuantityUnit) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.QuantityUnit)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_header_data`),
+		qm.WhereIn(`data_platform_delivery_document_header_data.HeaderWeightUnit in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_header_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_header_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_header_data")
+	}
+
+	if len(dataPlatformDeliveryDocumentHeaderDatumAfterSelectHooks) != 0 {
+		for _, obj := range resultSlice {
+			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
+				return err
+			}
+		}
+	}
+	if singular {
+		object.R.HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData = resultSlice
+		for _, foreign := range resultSlice {
+			if foreign.R == nil {
+				foreign.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+			}
+			foreign.R.HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum = object
+		}
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.QuantityUnit, foreign.HeaderWeightUnit) {
+				local.R.HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData = append(local.R.HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData, foreign)
+				if foreign.R == nil {
+					foreign.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+				}
+				foreign.R.HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum = local
+				break
+			}
+		}
+	}
+
+	return nil
 }
 
 // LoadInventoryUnitDataPlatformProductMasterBPPlantData allows an eager lookup of values, cached into the
@@ -898,6 +1036,133 @@ func (dataPlatformQuantityUnitQuantityUnitDatumL) LoadQuantityUnitDataPlatformQu
 				foreign.R.QuantityUnitDataPlatformQuantityUnitQuantityUnitDatum = local
 				break
 			}
+		}
+	}
+
+	return nil
+}
+
+// AddHeaderWeightUnitDataPlatformDeliveryDocumentHeaderData adds the given related objects to the existing relationships
+// of the data_platform_quantity_unit_quantity_unit_datum, optionally inserting them as new records.
+// Appends related to o.R.HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData.
+// Sets related.R.HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum appropriately.
+func (o *DataPlatformQuantityUnitQuantityUnitDatum) AddHeaderWeightUnitDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.HeaderWeightUnit, o.QuantityUnit)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_header_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"HeaderWeightUnit"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentHeaderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.QuantityUnit, rel.DeliveryDocument}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.HeaderWeightUnit, o.QuantityUnit)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformQuantityUnitQuantityUnitDatumR{
+			HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData: related,
+		}
+	} else {
+		o.R.HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData = append(o.R.HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData, related...)
+	}
+
+	for _, rel := range related {
+		if rel.R == nil {
+			rel.R = &dataPlatformDeliveryDocumentHeaderDatumR{
+				HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum: o,
+			}
+		} else {
+			rel.R.HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum = o
+		}
+	}
+	return nil
+}
+
+// SetHeaderWeightUnitDataPlatformDeliveryDocumentHeaderData removes all previously related items of the
+// data_platform_quantity_unit_quantity_unit_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum's HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData accordingly.
+// Replaces o.R.HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData with related.
+// Sets related.R.HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum's HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData accordingly.
+func (o *DataPlatformQuantityUnitQuantityUnitDatum) SetHeaderWeightUnitDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	query := "update `data_platform_delivery_document_header_data` set `HeaderWeightUnit` = null where `HeaderWeightUnit` = ?"
+	values := []interface{}{o.QuantityUnit}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		for _, rel := range o.R.HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData {
+			queries.SetScanner(&rel.HeaderWeightUnit, nil)
+			if rel.R == nil {
+				continue
+			}
+
+			rel.R.HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum = nil
+		}
+		o.R.HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData = nil
+	}
+
+	return o.AddHeaderWeightUnitDataPlatformDeliveryDocumentHeaderData(ctx, exec, insert, related...)
+}
+
+// RemoveHeaderWeightUnitDataPlatformDeliveryDocumentHeaderData relationships from objects passed in.
+// Removes related items from R.HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData (uses pointer comparison, removal does not keep order)
+// Sets related.R.HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum.
+func (o *DataPlatformQuantityUnitQuantityUnitDatum) RemoveHeaderWeightUnitDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.HeaderWeightUnit, nil)
+		if rel.R != nil {
+			rel.R.HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum = nil
+		}
+		if _, err = rel.Update(ctx, exec, boil.Whitelist("HeaderWeightUnit")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData)
+			if ln > 1 && i < ln-1 {
+				o.R.HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData[i] = o.R.HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData[ln-1]
+			}
+			o.R.HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData = o.R.HeaderWeightUnitDataPlatformDeliveryDocumentHeaderData[:ln-1]
+			break
 		}
 	}
 

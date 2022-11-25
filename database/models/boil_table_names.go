@@ -20,12 +20,13 @@ var TableNames = struct {
 	DataPlatformBusinessPartnerSupplierTaxData             string
 	DataPlatformCountryCountryData                         string
 	DataPlatformCurrencyCurrencyData                       string
+	DataPlatformDeliveryDocumentHeaderData                 string
 	DataPlatformDistributionChannelDistributionChannelData string
 	DataPlatformDistributionChannelTextData                string
 	DataPlatformDistrictDistrictData                       string
 	DataPlatformDivisionDivisionData                       string
 	DataPlatformDocTypeDocTypeData                         string
-	DataPlatformFinInstMasterBusinessPartnerData           string
+	DataPlatformFinInstMasterBranchData                    string
 	DataPlatformFinInstMasterGeneralData                   string
 	DataPlatformGeneralLedgerAccountChartOfAccountsData    string
 	DataPlatformGeneralLedgerAccountTextData               string
@@ -83,12 +84,13 @@ var TableNames = struct {
 	DataPlatformBusinessPartnerSupplierTaxData:             "data_platform_business_partner_supplier_tax_data",
 	DataPlatformCountryCountryData:                         "data_platform_country_country_data",
 	DataPlatformCurrencyCurrencyData:                       "data_platform_currency_currency_data",
+	DataPlatformDeliveryDocumentHeaderData:                 "data_platform_delivery_document_header_data",
 	DataPlatformDistributionChannelDistributionChannelData: "data_platform_distribution_channel_distribution_channel_data",
 	DataPlatformDistributionChannelTextData:                "data_platform_distribution_channel_text_data",
 	DataPlatformDistrictDistrictData:                       "data_platform_district_district_data",
 	DataPlatformDivisionDivisionData:                       "data_platform_division_division_data",
 	DataPlatformDocTypeDocTypeData:                         "data_platform_doc_type_doc_type_data",
-	DataPlatformFinInstMasterBusinessPartnerData:           "data_platform_fin_inst_master_business_partner_data",
+	DataPlatformFinInstMasterBranchData:                    "data_platform_fin_inst_master_branch_data",
 	DataPlatformFinInstMasterGeneralData:                   "data_platform_fin_inst_master_general_data",
 	DataPlatformGeneralLedgerAccountChartOfAccountsData:    "data_platform_general_ledger_account_chart_of_accounts_data",
 	DataPlatformGeneralLedgerAccountTextData:               "data_platform_general_ledger_account_text_data",

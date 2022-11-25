@@ -24,115 +24,90 @@ import (
 
 // DataPlatformFinInstMasterGeneralDatum is an object representing the database table.
 type DataPlatformFinInstMasterGeneralDatum struct {
-	FinInstCountry              string      `boil:"FinInstCountry" json:"FinInstCountry" toml:"FinInstCountry" yaml:"FinInstCountry"`
-	FinInstNumber               string      `boil:"FinInstNumber" json:"FinInstNumber" toml:"FinInstNumber" yaml:"FinInstNumber"`
-	FinInstName                 null.String `boil:"FinInstName" json:"FinInstName,omitempty" toml:"FinInstName" yaml:"FinInstName,omitempty"`
-	FinInstAdditionalName       null.String `boil:"FinInstAdditionalName" json:"FinInstAdditionalName,omitempty" toml:"FinInstAdditionalName" yaml:"FinInstAdditionalName,omitempty"`
-	FinInstBranchName           null.String `boil:"FinInstBranchName" json:"FinInstBranchName,omitempty" toml:"FinInstBranchName" yaml:"FinInstBranchName,omitempty"`
-	FinInstAdditionalBranchName null.String `boil:"FinInstAdditionalBranchName" json:"FinInstAdditionalBranchName,omitempty" toml:"FinInstAdditionalBranchName" yaml:"FinInstAdditionalBranchName,omitempty"`
-	FinInstFullName             null.String `boil:"FinInstFullName" json:"FinInstFullName,omitempty" toml:"FinInstFullName" yaml:"FinInstFullName,omitempty"`
-	FinInstAdditionalFullName   null.String `boil:"FinInstAdditionalFullName" json:"FinInstAdditionalFullName,omitempty" toml:"FinInstAdditionalFullName" yaml:"FinInstAdditionalFullName,omitempty"`
-	AddressID                   null.Int    `boil:"AddressID" json:"AddressID,omitempty" toml:"AddressID" yaml:"AddressID,omitempty"`
-	SWIFTCode                   null.String `boil:"SWIFTCode" json:"SWIFTCode,omitempty" toml:"SWIFTCode" yaml:"SWIFTCode,omitempty"`
-	IsMarkedForDeletion         null.Bool   `boil:"IsMarkedForDeletion" json:"IsMarkedForDeletion,omitempty" toml:"IsMarkedForDeletion" yaml:"IsMarkedForDeletion,omitempty"`
+	FinInstCountry      string      `boil:"FinInstCountry" json:"FinInstCountry" toml:"FinInstCountry" yaml:"FinInstCountry"`
+	FinInstCode         string      `boil:"FinInstCode" json:"FinInstCode" toml:"FinInstCode" yaml:"FinInstCode"`
+	FinInstName         null.String `boil:"FinInstName" json:"FinInstName,omitempty" toml:"FinInstName" yaml:"FinInstName,omitempty"`
+	FinInstFullName     null.String `boil:"FinInstFullName" json:"FinInstFullName,omitempty" toml:"FinInstFullName" yaml:"FinInstFullName,omitempty"`
+	AddressID           null.Int    `boil:"AddressID" json:"AddressID,omitempty" toml:"AddressID" yaml:"AddressID,omitempty"`
+	SWIFTCode           null.String `boil:"SWIFTCode" json:"SWIFTCode,omitempty" toml:"SWIFTCode" yaml:"SWIFTCode,omitempty"`
+	IsMarkedForDeletion null.Bool   `boil:"IsMarkedForDeletion" json:"IsMarkedForDeletion,omitempty" toml:"IsMarkedForDeletion" yaml:"IsMarkedForDeletion,omitempty"`
 
 	R *dataPlatformFinInstMasterGeneralDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
 	L dataPlatformFinInstMasterGeneralDatumL  `boil:"-" json:"-" toml:"-" yaml:"-"`
 }
 
 var DataPlatformFinInstMasterGeneralDatumColumns = struct {
-	FinInstCountry              string
-	FinInstNumber               string
-	FinInstName                 string
-	FinInstAdditionalName       string
-	FinInstBranchName           string
-	FinInstAdditionalBranchName string
-	FinInstFullName             string
-	FinInstAdditionalFullName   string
-	AddressID                   string
-	SWIFTCode                   string
-	IsMarkedForDeletion         string
+	FinInstCountry      string
+	FinInstCode         string
+	FinInstName         string
+	FinInstFullName     string
+	AddressID           string
+	SWIFTCode           string
+	IsMarkedForDeletion string
 }{
-	FinInstCountry:              "FinInstCountry",
-	FinInstNumber:               "FinInstNumber",
-	FinInstName:                 "FinInstName",
-	FinInstAdditionalName:       "FinInstAdditionalName",
-	FinInstBranchName:           "FinInstBranchName",
-	FinInstAdditionalBranchName: "FinInstAdditionalBranchName",
-	FinInstFullName:             "FinInstFullName",
-	FinInstAdditionalFullName:   "FinInstAdditionalFullName",
-	AddressID:                   "AddressID",
-	SWIFTCode:                   "SWIFTCode",
-	IsMarkedForDeletion:         "IsMarkedForDeletion",
+	FinInstCountry:      "FinInstCountry",
+	FinInstCode:         "FinInstCode",
+	FinInstName:         "FinInstName",
+	FinInstFullName:     "FinInstFullName",
+	AddressID:           "AddressID",
+	SWIFTCode:           "SWIFTCode",
+	IsMarkedForDeletion: "IsMarkedForDeletion",
 }
 
 var DataPlatformFinInstMasterGeneralDatumTableColumns = struct {
-	FinInstCountry              string
-	FinInstNumber               string
-	FinInstName                 string
-	FinInstAdditionalName       string
-	FinInstBranchName           string
-	FinInstAdditionalBranchName string
-	FinInstFullName             string
-	FinInstAdditionalFullName   string
-	AddressID                   string
-	SWIFTCode                   string
-	IsMarkedForDeletion         string
+	FinInstCountry      string
+	FinInstCode         string
+	FinInstName         string
+	FinInstFullName     string
+	AddressID           string
+	SWIFTCode           string
+	IsMarkedForDeletion string
 }{
-	FinInstCountry:              "data_platform_fin_inst_master_general_data.FinInstCountry",
-	FinInstNumber:               "data_platform_fin_inst_master_general_data.FinInstNumber",
-	FinInstName:                 "data_platform_fin_inst_master_general_data.FinInstName",
-	FinInstAdditionalName:       "data_platform_fin_inst_master_general_data.FinInstAdditionalName",
-	FinInstBranchName:           "data_platform_fin_inst_master_general_data.FinInstBranchName",
-	FinInstAdditionalBranchName: "data_platform_fin_inst_master_general_data.FinInstAdditionalBranchName",
-	FinInstFullName:             "data_platform_fin_inst_master_general_data.FinInstFullName",
-	FinInstAdditionalFullName:   "data_platform_fin_inst_master_general_data.FinInstAdditionalFullName",
-	AddressID:                   "data_platform_fin_inst_master_general_data.AddressID",
-	SWIFTCode:                   "data_platform_fin_inst_master_general_data.SWIFTCode",
-	IsMarkedForDeletion:         "data_platform_fin_inst_master_general_data.IsMarkedForDeletion",
+	FinInstCountry:      "data_platform_fin_inst_master_general_data.FinInstCountry",
+	FinInstCode:         "data_platform_fin_inst_master_general_data.FinInstCode",
+	FinInstName:         "data_platform_fin_inst_master_general_data.FinInstName",
+	FinInstFullName:     "data_platform_fin_inst_master_general_data.FinInstFullName",
+	AddressID:           "data_platform_fin_inst_master_general_data.AddressID",
+	SWIFTCode:           "data_platform_fin_inst_master_general_data.SWIFTCode",
+	IsMarkedForDeletion: "data_platform_fin_inst_master_general_data.IsMarkedForDeletion",
 }
 
 // Generated where
 
 var DataPlatformFinInstMasterGeneralDatumWhere = struct {
-	FinInstCountry              whereHelperstring
-	FinInstNumber               whereHelperstring
-	FinInstName                 whereHelpernull_String
-	FinInstAdditionalName       whereHelpernull_String
-	FinInstBranchName           whereHelpernull_String
-	FinInstAdditionalBranchName whereHelpernull_String
-	FinInstFullName             whereHelpernull_String
-	FinInstAdditionalFullName   whereHelpernull_String
-	AddressID                   whereHelpernull_Int
-	SWIFTCode                   whereHelpernull_String
-	IsMarkedForDeletion         whereHelpernull_Bool
+	FinInstCountry      whereHelperstring
+	FinInstCode         whereHelperstring
+	FinInstName         whereHelpernull_String
+	FinInstFullName     whereHelpernull_String
+	AddressID           whereHelpernull_Int
+	SWIFTCode           whereHelpernull_String
+	IsMarkedForDeletion whereHelpernull_Bool
 }{
-	FinInstCountry:              whereHelperstring{field: "`data_platform_fin_inst_master_general_data`.`FinInstCountry`"},
-	FinInstNumber:               whereHelperstring{field: "`data_platform_fin_inst_master_general_data`.`FinInstNumber`"},
-	FinInstName:                 whereHelpernull_String{field: "`data_platform_fin_inst_master_general_data`.`FinInstName`"},
-	FinInstAdditionalName:       whereHelpernull_String{field: "`data_platform_fin_inst_master_general_data`.`FinInstAdditionalName`"},
-	FinInstBranchName:           whereHelpernull_String{field: "`data_platform_fin_inst_master_general_data`.`FinInstBranchName`"},
-	FinInstAdditionalBranchName: whereHelpernull_String{field: "`data_platform_fin_inst_master_general_data`.`FinInstAdditionalBranchName`"},
-	FinInstFullName:             whereHelpernull_String{field: "`data_platform_fin_inst_master_general_data`.`FinInstFullName`"},
-	FinInstAdditionalFullName:   whereHelpernull_String{field: "`data_platform_fin_inst_master_general_data`.`FinInstAdditionalFullName`"},
-	AddressID:                   whereHelpernull_Int{field: "`data_platform_fin_inst_master_general_data`.`AddressID`"},
-	SWIFTCode:                   whereHelpernull_String{field: "`data_platform_fin_inst_master_general_data`.`SWIFTCode`"},
-	IsMarkedForDeletion:         whereHelpernull_Bool{field: "`data_platform_fin_inst_master_general_data`.`IsMarkedForDeletion`"},
+	FinInstCountry:      whereHelperstring{field: "`data_platform_fin_inst_master_general_data`.`FinInstCountry`"},
+	FinInstCode:         whereHelperstring{field: "`data_platform_fin_inst_master_general_data`.`FinInstCode`"},
+	FinInstName:         whereHelpernull_String{field: "`data_platform_fin_inst_master_general_data`.`FinInstName`"},
+	FinInstFullName:     whereHelpernull_String{field: "`data_platform_fin_inst_master_general_data`.`FinInstFullName`"},
+	AddressID:           whereHelpernull_Int{field: "`data_platform_fin_inst_master_general_data`.`AddressID`"},
+	SWIFTCode:           whereHelpernull_String{field: "`data_platform_fin_inst_master_general_data`.`SWIFTCode`"},
+	IsMarkedForDeletion: whereHelpernull_Bool{field: "`data_platform_fin_inst_master_general_data`.`IsMarkedForDeletion`"},
 }
 
 // DataPlatformFinInstMasterGeneralDatumRels is where relationship names are stored.
 var DataPlatformFinInstMasterGeneralDatumRels = struct {
-	AddressIDDataPlatformAddressAddressDatum                   string
-	FinInstCountryDataPlatformFinInstMasterBusinessPartnerData string
+	AddressIDDataPlatformAddressAddressDatum       string
+	FinInstCountryDataPlatformCountryCountryDatum  string
+	FinInstCodeDataPlatformFinInstMasterBranchData string
 }{
-	AddressIDDataPlatformAddressAddressDatum:                   "AddressIDDataPlatformAddressAddressDatum",
-	FinInstCountryDataPlatformFinInstMasterBusinessPartnerData: "FinInstCountryDataPlatformFinInstMasterBusinessPartnerData",
+	AddressIDDataPlatformAddressAddressDatum:       "AddressIDDataPlatformAddressAddressDatum",
+	FinInstCountryDataPlatformCountryCountryDatum:  "FinInstCountryDataPlatformCountryCountryDatum",
+	FinInstCodeDataPlatformFinInstMasterBranchData: "FinInstCodeDataPlatformFinInstMasterBranchData",
 }
 
 // dataPlatformFinInstMasterGeneralDatumR is where relationships are stored.
 type dataPlatformFinInstMasterGeneralDatumR struct {
-	AddressIDDataPlatformAddressAddressDatum                   *DataPlatformAddressAddressDatum                   `boil:"AddressIDDataPlatformAddressAddressDatum" json:"AddressIDDataPlatformAddressAddressDatum" toml:"AddressIDDataPlatformAddressAddressDatum" yaml:"AddressIDDataPlatformAddressAddressDatum"`
-	FinInstCountryDataPlatformFinInstMasterBusinessPartnerData DataPlatformFinInstMasterBusinessPartnerDatumSlice `boil:"FinInstCountryDataPlatformFinInstMasterBusinessPartnerData" json:"FinInstCountryDataPlatformFinInstMasterBusinessPartnerData" toml:"FinInstCountryDataPlatformFinInstMasterBusinessPartnerData" yaml:"FinInstCountryDataPlatformFinInstMasterBusinessPartnerData"`
+	AddressIDDataPlatformAddressAddressDatum       *DataPlatformAddressAddressDatum          `boil:"AddressIDDataPlatformAddressAddressDatum" json:"AddressIDDataPlatformAddressAddressDatum" toml:"AddressIDDataPlatformAddressAddressDatum" yaml:"AddressIDDataPlatformAddressAddressDatum"`
+	FinInstCountryDataPlatformCountryCountryDatum  *DataPlatformCountryCountryDatum          `boil:"FinInstCountryDataPlatformCountryCountryDatum" json:"FinInstCountryDataPlatformCountryCountryDatum" toml:"FinInstCountryDataPlatformCountryCountryDatum" yaml:"FinInstCountryDataPlatformCountryCountryDatum"`
+	FinInstCodeDataPlatformFinInstMasterBranchData DataPlatformFinInstMasterBranchDatumSlice `boil:"FinInstCodeDataPlatformFinInstMasterBranchData" json:"FinInstCodeDataPlatformFinInstMasterBranchData" toml:"FinInstCodeDataPlatformFinInstMasterBranchData" yaml:"FinInstCodeDataPlatformFinInstMasterBranchData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -147,21 +122,28 @@ func (r *dataPlatformFinInstMasterGeneralDatumR) GetAddressIDDataPlatformAddress
 	return r.AddressIDDataPlatformAddressAddressDatum
 }
 
-func (r *dataPlatformFinInstMasterGeneralDatumR) GetFinInstCountryDataPlatformFinInstMasterBusinessPartnerData() DataPlatformFinInstMasterBusinessPartnerDatumSlice {
+func (r *dataPlatformFinInstMasterGeneralDatumR) GetFinInstCountryDataPlatformCountryCountryDatum() *DataPlatformCountryCountryDatum {
 	if r == nil {
 		return nil
 	}
-	return r.FinInstCountryDataPlatformFinInstMasterBusinessPartnerData
+	return r.FinInstCountryDataPlatformCountryCountryDatum
+}
+
+func (r *dataPlatformFinInstMasterGeneralDatumR) GetFinInstCodeDataPlatformFinInstMasterBranchData() DataPlatformFinInstMasterBranchDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.FinInstCodeDataPlatformFinInstMasterBranchData
 }
 
 // dataPlatformFinInstMasterGeneralDatumL is where Load methods for each relationship are stored.
 type dataPlatformFinInstMasterGeneralDatumL struct{}
 
 var (
-	dataPlatformFinInstMasterGeneralDatumAllColumns            = []string{"FinInstCountry", "FinInstNumber", "FinInstName", "FinInstAdditionalName", "FinInstBranchName", "FinInstAdditionalBranchName", "FinInstFullName", "FinInstAdditionalFullName", "AddressID", "SWIFTCode", "IsMarkedForDeletion"}
-	dataPlatformFinInstMasterGeneralDatumColumnsWithoutDefault = []string{"FinInstCountry", "FinInstNumber", "FinInstName", "FinInstAdditionalName", "FinInstBranchName", "FinInstAdditionalBranchName", "FinInstFullName", "FinInstAdditionalFullName", "AddressID", "SWIFTCode", "IsMarkedForDeletion"}
+	dataPlatformFinInstMasterGeneralDatumAllColumns            = []string{"FinInstCountry", "FinInstCode", "FinInstName", "FinInstFullName", "AddressID", "SWIFTCode", "IsMarkedForDeletion"}
+	dataPlatformFinInstMasterGeneralDatumColumnsWithoutDefault = []string{"FinInstCountry", "FinInstCode", "FinInstName", "FinInstFullName", "AddressID", "SWIFTCode", "IsMarkedForDeletion"}
 	dataPlatformFinInstMasterGeneralDatumColumnsWithDefault    = []string{}
-	dataPlatformFinInstMasterGeneralDatumPrimaryKeyColumns     = []string{"FinInstCountry", "FinInstNumber"}
+	dataPlatformFinInstMasterGeneralDatumPrimaryKeyColumns     = []string{"FinInstCountry", "FinInstCode"}
 	dataPlatformFinInstMasterGeneralDatumGeneratedColumns      = []string{}
 )
 
@@ -454,18 +436,29 @@ func (o *DataPlatformFinInstMasterGeneralDatum) AddressIDDataPlatformAddressAddr
 	return DataPlatformAddressAddressData(queryMods...)
 }
 
-// FinInstCountryDataPlatformFinInstMasterBusinessPartnerData retrieves all the data_platform_fin_inst_master_business_partner_datum's DataPlatformFinInstMasterBusinessPartnerData with an executor via FinInstCountry column.
-func (o *DataPlatformFinInstMasterGeneralDatum) FinInstCountryDataPlatformFinInstMasterBusinessPartnerData(mods ...qm.QueryMod) dataPlatformFinInstMasterBusinessPartnerDatumQuery {
+// FinInstCountryDataPlatformCountryCountryDatum pointed to by the foreign key.
+func (o *DataPlatformFinInstMasterGeneralDatum) FinInstCountryDataPlatformCountryCountryDatum(mods ...qm.QueryMod) dataPlatformCountryCountryDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`Country` = ?", o.FinInstCountry),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformCountryCountryData(queryMods...)
+}
+
+// FinInstCodeDataPlatformFinInstMasterBranchData retrieves all the data_platform_fin_inst_master_branch_datum's DataPlatformFinInstMasterBranchData with an executor via FinInstCode column.
+func (o *DataPlatformFinInstMasterGeneralDatum) FinInstCodeDataPlatformFinInstMasterBranchData(mods ...qm.QueryMod) dataPlatformFinInstMasterBranchDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_fin_inst_master_business_partner_data`.`FinInstCountry`=?", o.FinInstCountry),
+		qm.Where("`data_platform_fin_inst_master_branch_data`.`FinInstCode`=?", o.FinInstCode),
 	)
 
-	return DataPlatformFinInstMasterBusinessPartnerData(queryMods...)
+	return DataPlatformFinInstMasterBranchData(queryMods...)
 }
 
 // LoadAddressIDDataPlatformAddressAddressDatum allows an eager lookup of values, cached into the
@@ -592,9 +585,9 @@ func (dataPlatformFinInstMasterGeneralDatumL) LoadAddressIDDataPlatformAddressAd
 	return nil
 }
 
-// LoadFinInstCountryDataPlatformFinInstMasterBusinessPartnerData allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformFinInstMasterGeneralDatumL) LoadFinInstCountryDataPlatformFinInstMasterBusinessPartnerData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformFinInstMasterGeneralDatum interface{}, mods queries.Applicator) error {
+// LoadFinInstCountryDataPlatformCountryCountryDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformFinInstMasterGeneralDatumL) LoadFinInstCountryDataPlatformCountryCountryDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformFinInstMasterGeneralDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformFinInstMasterGeneralDatum
 	var object *DataPlatformFinInstMasterGeneralDatum
 
@@ -626,6 +619,7 @@ func (dataPlatformFinInstMasterGeneralDatumL) LoadFinInstCountryDataPlatformFinI
 			object.R = &dataPlatformFinInstMasterGeneralDatumR{}
 		}
 		args = append(args, object.FinInstCountry)
+
 	} else {
 	Outer:
 		for _, obj := range slice {
@@ -640,6 +634,7 @@ func (dataPlatformFinInstMasterGeneralDatumL) LoadFinInstCountryDataPlatformFinI
 			}
 
 			args = append(args, obj.FinInstCountry)
+
 		}
 	}
 
@@ -648,8 +643,8 @@ func (dataPlatformFinInstMasterGeneralDatumL) LoadFinInstCountryDataPlatformFinI
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_fin_inst_master_business_partner_data`),
-		qm.WhereIn(`data_platform_fin_inst_master_business_partner_data.FinInstCountry in ?`, args...),
+		qm.From(`data_platform_country_country_data`),
+		qm.WhereIn(`data_platform_country_country_data.Country in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -657,22 +652,140 @@ func (dataPlatformFinInstMasterGeneralDatumL) LoadFinInstCountryDataPlatformFinI
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_fin_inst_master_business_partner_data")
+		return errors.Wrap(err, "failed to eager load DataPlatformCountryCountryDatum")
 	}
 
-	var resultSlice []*DataPlatformFinInstMasterBusinessPartnerDatum
+	var resultSlice []*DataPlatformCountryCountryDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_fin_inst_master_business_partner_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformCountryCountryDatum")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_fin_inst_master_business_partner_data")
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_country_country_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_fin_inst_master_business_partner_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_country_country_data")
 	}
 
-	if len(dataPlatformFinInstMasterBusinessPartnerDatumAfterSelectHooks) != 0 {
+	if len(dataPlatformCountryCountryDatumAfterSelectHooks) != 0 {
+		for _, obj := range resultSlice {
+			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
+				return err
+			}
+		}
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.FinInstCountryDataPlatformCountryCountryDatum = foreign
+		if foreign.R == nil {
+			foreign.R = &dataPlatformCountryCountryDatumR{}
+		}
+		foreign.R.FinInstCountryDataPlatformFinInstMasterGeneralData = append(foreign.R.FinInstCountryDataPlatformFinInstMasterGeneralData, object)
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.FinInstCountry == foreign.Country {
+				local.R.FinInstCountryDataPlatformCountryCountryDatum = foreign
+				if foreign.R == nil {
+					foreign.R = &dataPlatformCountryCountryDatumR{}
+				}
+				foreign.R.FinInstCountryDataPlatformFinInstMasterGeneralData = append(foreign.R.FinInstCountryDataPlatformFinInstMasterGeneralData, local)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadFinInstCodeDataPlatformFinInstMasterBranchData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformFinInstMasterGeneralDatumL) LoadFinInstCodeDataPlatformFinInstMasterBranchData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformFinInstMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformFinInstMasterGeneralDatum
+	var object *DataPlatformFinInstMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformFinInstMasterGeneralDatum.(*DataPlatformFinInstMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformFinInstMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformFinInstMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformFinInstMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformFinInstMasterGeneralDatum.(*[]*DataPlatformFinInstMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformFinInstMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformFinInstMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformFinInstMasterGeneralDatumR{}
+		}
+		args = append(args, object.FinInstCode)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformFinInstMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.FinInstCode {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.FinInstCode)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_fin_inst_master_branch_data`),
+		qm.WhereIn(`data_platform_fin_inst_master_branch_data.FinInstCode in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_fin_inst_master_branch_data")
+	}
+
+	var resultSlice []*DataPlatformFinInstMasterBranchDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_fin_inst_master_branch_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_fin_inst_master_branch_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_fin_inst_master_branch_data")
+	}
+
+	if len(dataPlatformFinInstMasterBranchDatumAfterSelectHooks) != 0 {
 		for _, obj := range resultSlice {
 			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
 				return err
@@ -680,24 +793,24 @@ func (dataPlatformFinInstMasterGeneralDatumL) LoadFinInstCountryDataPlatformFinI
 		}
 	}
 	if singular {
-		object.R.FinInstCountryDataPlatformFinInstMasterBusinessPartnerData = resultSlice
+		object.R.FinInstCodeDataPlatformFinInstMasterBranchData = resultSlice
 		for _, foreign := range resultSlice {
 			if foreign.R == nil {
-				foreign.R = &dataPlatformFinInstMasterBusinessPartnerDatumR{}
+				foreign.R = &dataPlatformFinInstMasterBranchDatumR{}
 			}
-			foreign.R.FinInstCountryDataPlatformFinInstMasterGeneralDatum = object
+			foreign.R.FinInstCodeDataPlatformFinInstMasterGeneralDatum = object
 		}
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
-			if local.FinInstCountry == foreign.FinInstCountry {
-				local.R.FinInstCountryDataPlatformFinInstMasterBusinessPartnerData = append(local.R.FinInstCountryDataPlatformFinInstMasterBusinessPartnerData, foreign)
+			if local.FinInstCode == foreign.FinInstCode {
+				local.R.FinInstCodeDataPlatformFinInstMasterBranchData = append(local.R.FinInstCodeDataPlatformFinInstMasterBranchData, foreign)
 				if foreign.R == nil {
-					foreign.R = &dataPlatformFinInstMasterBusinessPartnerDatumR{}
+					foreign.R = &dataPlatformFinInstMasterBranchDatumR{}
 				}
-				foreign.R.FinInstCountryDataPlatformFinInstMasterGeneralDatum = local
+				foreign.R.FinInstCodeDataPlatformFinInstMasterGeneralDatum = local
 				break
 			}
 		}
@@ -722,7 +835,7 @@ func (o *DataPlatformFinInstMasterGeneralDatum) SetAddressIDDataPlatformAddressA
 		strmangle.SetParamNames("`", "`", 0, []string{"AddressID"}),
 		strmangle.WhereClause("`", "`", 0, dataPlatformFinInstMasterGeneralDatumPrimaryKeyColumns),
 	)
-	values := []interface{}{related.AddressID, o.FinInstCountry, o.FinInstNumber}
+	values := []interface{}{related.AddressID, o.FinInstCountry, o.FinInstCode}
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -786,25 +899,72 @@ func (o *DataPlatformFinInstMasterGeneralDatum) RemoveAddressIDDataPlatformAddre
 	return nil
 }
 
-// AddFinInstCountryDataPlatformFinInstMasterBusinessPartnerData adds the given related objects to the existing relationships
+// SetFinInstCountryDataPlatformCountryCountryDatum of the dataPlatformFinInstMasterGeneralDatum to the related item.
+// Sets o.R.FinInstCountryDataPlatformCountryCountryDatum to related.
+// Adds o to related.R.FinInstCountryDataPlatformFinInstMasterGeneralData.
+func (o *DataPlatformFinInstMasterGeneralDatum) SetFinInstCountryDataPlatformCountryCountryDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformCountryCountryDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_fin_inst_master_general_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"FinInstCountry"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformFinInstMasterGeneralDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.Country, o.FinInstCountry, o.FinInstCode}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.FinInstCountry = related.Country
+	if o.R == nil {
+		o.R = &dataPlatformFinInstMasterGeneralDatumR{
+			FinInstCountryDataPlatformCountryCountryDatum: related,
+		}
+	} else {
+		o.R.FinInstCountryDataPlatformCountryCountryDatum = related
+	}
+
+	if related.R == nil {
+		related.R = &dataPlatformCountryCountryDatumR{
+			FinInstCountryDataPlatformFinInstMasterGeneralData: DataPlatformFinInstMasterGeneralDatumSlice{o},
+		}
+	} else {
+		related.R.FinInstCountryDataPlatformFinInstMasterGeneralData = append(related.R.FinInstCountryDataPlatformFinInstMasterGeneralData, o)
+	}
+
+	return nil
+}
+
+// AddFinInstCodeDataPlatformFinInstMasterBranchData adds the given related objects to the existing relationships
 // of the data_platform_fin_inst_master_general_datum, optionally inserting them as new records.
-// Appends related to o.R.FinInstCountryDataPlatformFinInstMasterBusinessPartnerData.
-// Sets related.R.FinInstCountryDataPlatformFinInstMasterGeneralDatum appropriately.
-func (o *DataPlatformFinInstMasterGeneralDatum) AddFinInstCountryDataPlatformFinInstMasterBusinessPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformFinInstMasterBusinessPartnerDatum) error {
+// Appends related to o.R.FinInstCodeDataPlatformFinInstMasterBranchData.
+// Sets related.R.FinInstCodeDataPlatformFinInstMasterGeneralDatum appropriately.
+func (o *DataPlatformFinInstMasterGeneralDatum) AddFinInstCodeDataPlatformFinInstMasterBranchData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformFinInstMasterBranchDatum) error {
 	var err error
 	for _, rel := range related {
 		if insert {
-			rel.FinInstCountry = o.FinInstCountry
+			rel.FinInstCode = o.FinInstCode
 			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
 				return errors.Wrap(err, "failed to insert into foreign table")
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_fin_inst_master_business_partner_data` SET %s WHERE %s",
-				strmangle.SetParamNames("`", "`", 0, []string{"FinInstCountry"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformFinInstMasterBusinessPartnerDatumPrimaryKeyColumns),
+				"UPDATE `data_platform_fin_inst_master_branch_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"FinInstCode"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformFinInstMasterBranchDatumPrimaryKeyColumns),
 			)
-			values := []interface{}{o.FinInstCountry, rel.FinInstCountry, rel.FinInstNumber, rel.FinInstBusinessPartner, rel.ValidityEndDate}
+			values := []interface{}{o.FinInstCode, rel.FinInstCountry, rel.FinInstCode}
 
 			if boil.IsDebug(ctx) {
 				writer := boil.DebugWriterFrom(ctx)
@@ -815,25 +975,25 @@ func (o *DataPlatformFinInstMasterGeneralDatum) AddFinInstCountryDataPlatformFin
 				return errors.Wrap(err, "failed to update foreign table")
 			}
 
-			rel.FinInstCountry = o.FinInstCountry
+			rel.FinInstCode = o.FinInstCode
 		}
 	}
 
 	if o.R == nil {
 		o.R = &dataPlatformFinInstMasterGeneralDatumR{
-			FinInstCountryDataPlatformFinInstMasterBusinessPartnerData: related,
+			FinInstCodeDataPlatformFinInstMasterBranchData: related,
 		}
 	} else {
-		o.R.FinInstCountryDataPlatformFinInstMasterBusinessPartnerData = append(o.R.FinInstCountryDataPlatformFinInstMasterBusinessPartnerData, related...)
+		o.R.FinInstCodeDataPlatformFinInstMasterBranchData = append(o.R.FinInstCodeDataPlatformFinInstMasterBranchData, related...)
 	}
 
 	for _, rel := range related {
 		if rel.R == nil {
-			rel.R = &dataPlatformFinInstMasterBusinessPartnerDatumR{
-				FinInstCountryDataPlatformFinInstMasterGeneralDatum: o,
+			rel.R = &dataPlatformFinInstMasterBranchDatumR{
+				FinInstCodeDataPlatformFinInstMasterGeneralDatum: o,
 			}
 		} else {
-			rel.R.FinInstCountryDataPlatformFinInstMasterGeneralDatum = o
+			rel.R.FinInstCodeDataPlatformFinInstMasterGeneralDatum = o
 		}
 	}
 	return nil
@@ -852,7 +1012,7 @@ func DataPlatformFinInstMasterGeneralData(mods ...qm.QueryMod) dataPlatformFinIn
 
 // FindDataPlatformFinInstMasterGeneralDatum retrieves a single record by ID with an executor.
 // If selectCols is empty Find will return all columns.
-func FindDataPlatformFinInstMasterGeneralDatum(ctx context.Context, exec boil.ContextExecutor, finInstCountry string, finInstNumber string, selectCols ...string) (*DataPlatformFinInstMasterGeneralDatum, error) {
+func FindDataPlatformFinInstMasterGeneralDatum(ctx context.Context, exec boil.ContextExecutor, finInstCountry string, finInstCode string, selectCols ...string) (*DataPlatformFinInstMasterGeneralDatum, error) {
 	dataPlatformFinInstMasterGeneralDatumObj := &DataPlatformFinInstMasterGeneralDatum{}
 
 	sel := "*"
@@ -860,10 +1020,10 @@ func FindDataPlatformFinInstMasterGeneralDatum(ctx context.Context, exec boil.Co
 		sel = strings.Join(strmangle.IdentQuoteSlice(dialect.LQ, dialect.RQ, selectCols), ",")
 	}
 	query := fmt.Sprintf(
-		"select %s from `data_platform_fin_inst_master_general_data` where `FinInstCountry`=? AND `FinInstNumber`=?", sel,
+		"select %s from `data_platform_fin_inst_master_general_data` where `FinInstCountry`=? AND `FinInstCode`=?", sel,
 	)
 
-	q := queries.Raw(query, finInstCountry, finInstNumber)
+	q := queries.Raw(query, finInstCountry, finInstCode)
 
 	err := q.Bind(ctx, exec, dataPlatformFinInstMasterGeneralDatumObj)
 	if err != nil {
@@ -953,7 +1113,7 @@ func (o *DataPlatformFinInstMasterGeneralDatum) Insert(ctx context.Context, exec
 
 	identifierCols = []interface{}{
 		o.FinInstCountry,
-		o.FinInstNumber,
+		o.FinInstCode,
 	}
 
 	if boil.IsDebug(ctx) {
@@ -1252,7 +1412,7 @@ func (o *DataPlatformFinInstMasterGeneralDatum) Delete(ctx context.Context, exec
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformFinInstMasterGeneralDatumPrimaryKeyMapping)
-	sql := "DELETE FROM `data_platform_fin_inst_master_general_data` WHERE `FinInstCountry`=? AND `FinInstNumber`=?"
+	sql := "DELETE FROM `data_platform_fin_inst_master_general_data` WHERE `FinInstCountry`=? AND `FinInstCode`=?"
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -1349,7 +1509,7 @@ func (o DataPlatformFinInstMasterGeneralDatumSlice) DeleteAll(ctx context.Contex
 // Reload refetches the object from the database
 // using the primary keys with an executor.
 func (o *DataPlatformFinInstMasterGeneralDatum) Reload(ctx context.Context, exec boil.ContextExecutor) error {
-	ret, err := FindDataPlatformFinInstMasterGeneralDatum(ctx, exec, o.FinInstCountry, o.FinInstNumber)
+	ret, err := FindDataPlatformFinInstMasterGeneralDatum(ctx, exec, o.FinInstCountry, o.FinInstCode)
 	if err != nil {
 		return err
 	}
@@ -1388,16 +1548,16 @@ func (o *DataPlatformFinInstMasterGeneralDatumSlice) ReloadAll(ctx context.Conte
 }
 
 // DataPlatformFinInstMasterGeneralDatumExists checks if the DataPlatformFinInstMasterGeneralDatum row exists.
-func DataPlatformFinInstMasterGeneralDatumExists(ctx context.Context, exec boil.ContextExecutor, finInstCountry string, finInstNumber string) (bool, error) {
+func DataPlatformFinInstMasterGeneralDatumExists(ctx context.Context, exec boil.ContextExecutor, finInstCountry string, finInstCode string) (bool, error) {
 	var exists bool
-	sql := "select exists(select 1 from `data_platform_fin_inst_master_general_data` where `FinInstCountry`=? AND `FinInstNumber`=? limit 1)"
+	sql := "select exists(select 1 from `data_platform_fin_inst_master_general_data` where `FinInstCountry`=? AND `FinInstCode`=? limit 1)"
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
 		fmt.Fprintln(writer, sql)
-		fmt.Fprintln(writer, finInstCountry, finInstNumber)
+		fmt.Fprintln(writer, finInstCountry, finInstCode)
 	}
-	row := exec.QueryRowContext(ctx, sql, finInstCountry, finInstNumber)
+	row := exec.QueryRowContext(ctx, sql, finInstCountry, finInstCode)
 
 	err := row.Scan(&exists)
 	if err != nil {
@@ -1409,5 +1569,5 @@ func DataPlatformFinInstMasterGeneralDatumExists(ctx context.Context, exec boil.
 
 // Exists checks if the DataPlatformFinInstMasterGeneralDatum row exists.
 func (o *DataPlatformFinInstMasterGeneralDatum) Exists(ctx context.Context, exec boil.ContextExecutor) (bool, error) {
-	return DataPlatformFinInstMasterGeneralDatumExists(ctx, exec, o.FinInstCountry, o.FinInstNumber)
+	return DataPlatformFinInstMasterGeneralDatumExists(ctx, exec, o.FinInstCountry, o.FinInstCode)
 }
