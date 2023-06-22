@@ -23,7 +23,7 @@ import (
 
 // DataPlatformTimeZoneTimeZoneDatum is an object representing the database table.
 type DataPlatformTimeZoneTimeZoneDatum struct {
-	Timezone            string  `boil:"Timezone" json:"Timezone" toml:"Timezone" yaml:"Timezone"`
+	TimeZone            string  `boil:"TimeZone" json:"TimeZone" toml:"TimeZone" yaml:"TimeZone"`
 	Country             string  `boil:"Country" json:"Country" toml:"Country" yaml:"Country"`
 	GlobalRegion        string  `boil:"GlobalRegion" json:"GlobalRegion" toml:"GlobalRegion" yaml:"GlobalRegion"`
 	OffSetPlusMinusFlag string  `boil:"OffSetPlusMinusFlag" json:"OffSetPlusMinusFlag" toml:"OffSetPlusMinusFlag" yaml:"OffSetPlusMinusFlag"`
@@ -34,13 +34,13 @@ type DataPlatformTimeZoneTimeZoneDatum struct {
 }
 
 var DataPlatformTimeZoneTimeZoneDatumColumns = struct {
-	Timezone            string
+	TimeZone            string
 	Country             string
 	GlobalRegion        string
 	OffSetPlusMinusFlag string
 	OffSetTime          string
 }{
-	Timezone:            "Timezone",
+	TimeZone:            "TimeZone",
 	Country:             "Country",
 	GlobalRegion:        "GlobalRegion",
 	OffSetPlusMinusFlag: "OffSetPlusMinusFlag",
@@ -48,13 +48,13 @@ var DataPlatformTimeZoneTimeZoneDatumColumns = struct {
 }
 
 var DataPlatformTimeZoneTimeZoneDatumTableColumns = struct {
-	Timezone            string
+	TimeZone            string
 	Country             string
 	GlobalRegion        string
 	OffSetPlusMinusFlag string
 	OffSetTime          string
 }{
-	Timezone:            "data_platform_time_zone_time_zone_data.Timezone",
+	TimeZone:            "data_platform_time_zone_time_zone_data.TimeZone",
 	Country:             "data_platform_time_zone_time_zone_data.Country",
 	GlobalRegion:        "data_platform_time_zone_time_zone_data.GlobalRegion",
 	OffSetPlusMinusFlag: "data_platform_time_zone_time_zone_data.OffSetPlusMinusFlag",
@@ -64,13 +64,13 @@ var DataPlatformTimeZoneTimeZoneDatumTableColumns = struct {
 // Generated where
 
 var DataPlatformTimeZoneTimeZoneDatumWhere = struct {
-	Timezone            whereHelperstring
+	TimeZone            whereHelperstring
 	Country             whereHelperstring
 	GlobalRegion        whereHelperstring
 	OffSetPlusMinusFlag whereHelperstring
 	OffSetTime          whereHelperfloat32
 }{
-	Timezone:            whereHelperstring{field: "`data_platform_time_zone_time_zone_data`.`Timezone`"},
+	TimeZone:            whereHelperstring{field: "`data_platform_time_zone_time_zone_data`.`TimeZone`"},
 	Country:             whereHelperstring{field: "`data_platform_time_zone_time_zone_data`.`Country`"},
 	GlobalRegion:        whereHelperstring{field: "`data_platform_time_zone_time_zone_data`.`GlobalRegion`"},
 	OffSetPlusMinusFlag: whereHelperstring{field: "`data_platform_time_zone_time_zone_data`.`OffSetPlusMinusFlag`"},
@@ -79,10 +79,14 @@ var DataPlatformTimeZoneTimeZoneDatumWhere = struct {
 
 // DataPlatformTimeZoneTimeZoneDatumRels is where relationship names are stored.
 var DataPlatformTimeZoneTimeZoneDatumRels = struct {
-}{}
+	TimeZoneDataPlatformTimeZoneTimeZoneTextData string
+}{
+	TimeZoneDataPlatformTimeZoneTimeZoneTextData: "TimeZoneDataPlatformTimeZoneTimeZoneTextData",
+}
 
 // dataPlatformTimeZoneTimeZoneDatumR is where relationships are stored.
 type dataPlatformTimeZoneTimeZoneDatumR struct {
+	TimeZoneDataPlatformTimeZoneTimeZoneTextData DataPlatformTimeZoneTimeZoneTextDatumSlice `boil:"TimeZoneDataPlatformTimeZoneTimeZoneTextData" json:"TimeZoneDataPlatformTimeZoneTimeZoneTextData" toml:"TimeZoneDataPlatformTimeZoneTimeZoneTextData" yaml:"TimeZoneDataPlatformTimeZoneTimeZoneTextData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -90,14 +94,21 @@ func (*dataPlatformTimeZoneTimeZoneDatumR) NewStruct() *dataPlatformTimeZoneTime
 	return &dataPlatformTimeZoneTimeZoneDatumR{}
 }
 
+func (r *dataPlatformTimeZoneTimeZoneDatumR) GetTimeZoneDataPlatformTimeZoneTimeZoneTextData() DataPlatformTimeZoneTimeZoneTextDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.TimeZoneDataPlatformTimeZoneTimeZoneTextData
+}
+
 // dataPlatformTimeZoneTimeZoneDatumL is where Load methods for each relationship are stored.
 type dataPlatformTimeZoneTimeZoneDatumL struct{}
 
 var (
-	dataPlatformTimeZoneTimeZoneDatumAllColumns            = []string{"Timezone", "Country", "GlobalRegion", "OffSetPlusMinusFlag", "OffSetTime"}
-	dataPlatformTimeZoneTimeZoneDatumColumnsWithoutDefault = []string{"Timezone", "Country", "GlobalRegion", "OffSetPlusMinusFlag", "OffSetTime"}
+	dataPlatformTimeZoneTimeZoneDatumAllColumns            = []string{"TimeZone", "Country", "GlobalRegion", "OffSetPlusMinusFlag", "OffSetTime"}
+	dataPlatformTimeZoneTimeZoneDatumColumnsWithoutDefault = []string{"TimeZone", "Country", "GlobalRegion", "OffSetPlusMinusFlag", "OffSetTime"}
 	dataPlatformTimeZoneTimeZoneDatumColumnsWithDefault    = []string{}
-	dataPlatformTimeZoneTimeZoneDatumPrimaryKeyColumns     = []string{"Timezone"}
+	dataPlatformTimeZoneTimeZoneDatumPrimaryKeyColumns     = []string{"TimeZone"}
 	dataPlatformTimeZoneTimeZoneDatumGeneratedColumns      = []string{}
 )
 
@@ -105,8 +116,6 @@ type (
 	// DataPlatformTimeZoneTimeZoneDatumSlice is an alias for a slice of pointers to DataPlatformTimeZoneTimeZoneDatum.
 	// This should almost always be used instead of []DataPlatformTimeZoneTimeZoneDatum.
 	DataPlatformTimeZoneTimeZoneDatumSlice []*DataPlatformTimeZoneTimeZoneDatum
-	// DataPlatformTimeZoneTimeZoneDatumHook is the signature for custom DataPlatformTimeZoneTimeZoneDatum hook methods
-	DataPlatformTimeZoneTimeZoneDatumHook func(context.Context, boil.ContextExecutor, *DataPlatformTimeZoneTimeZoneDatum) error
 
 	dataPlatformTimeZoneTimeZoneDatumQuery struct {
 		*queries.Query
@@ -134,179 +143,6 @@ var (
 	_ = qmhelper.Where
 )
 
-var dataPlatformTimeZoneTimeZoneDatumAfterSelectHooks []DataPlatformTimeZoneTimeZoneDatumHook
-
-var dataPlatformTimeZoneTimeZoneDatumBeforeInsertHooks []DataPlatformTimeZoneTimeZoneDatumHook
-var dataPlatformTimeZoneTimeZoneDatumAfterInsertHooks []DataPlatformTimeZoneTimeZoneDatumHook
-
-var dataPlatformTimeZoneTimeZoneDatumBeforeUpdateHooks []DataPlatformTimeZoneTimeZoneDatumHook
-var dataPlatformTimeZoneTimeZoneDatumAfterUpdateHooks []DataPlatformTimeZoneTimeZoneDatumHook
-
-var dataPlatformTimeZoneTimeZoneDatumBeforeDeleteHooks []DataPlatformTimeZoneTimeZoneDatumHook
-var dataPlatformTimeZoneTimeZoneDatumAfterDeleteHooks []DataPlatformTimeZoneTimeZoneDatumHook
-
-var dataPlatformTimeZoneTimeZoneDatumBeforeUpsertHooks []DataPlatformTimeZoneTimeZoneDatumHook
-var dataPlatformTimeZoneTimeZoneDatumAfterUpsertHooks []DataPlatformTimeZoneTimeZoneDatumHook
-
-// doAfterSelectHooks executes all "after Select" hooks.
-func (o *DataPlatformTimeZoneTimeZoneDatum) doAfterSelectHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformTimeZoneTimeZoneDatumAfterSelectHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeInsertHooks executes all "before insert" hooks.
-func (o *DataPlatformTimeZoneTimeZoneDatum) doBeforeInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformTimeZoneTimeZoneDatumBeforeInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterInsertHooks executes all "after Insert" hooks.
-func (o *DataPlatformTimeZoneTimeZoneDatum) doAfterInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformTimeZoneTimeZoneDatumAfterInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpdateHooks executes all "before Update" hooks.
-func (o *DataPlatformTimeZoneTimeZoneDatum) doBeforeUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformTimeZoneTimeZoneDatumBeforeUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpdateHooks executes all "after Update" hooks.
-func (o *DataPlatformTimeZoneTimeZoneDatum) doAfterUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformTimeZoneTimeZoneDatumAfterUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeDeleteHooks executes all "before Delete" hooks.
-func (o *DataPlatformTimeZoneTimeZoneDatum) doBeforeDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformTimeZoneTimeZoneDatumBeforeDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterDeleteHooks executes all "after Delete" hooks.
-func (o *DataPlatformTimeZoneTimeZoneDatum) doAfterDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformTimeZoneTimeZoneDatumAfterDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpsertHooks executes all "before Upsert" hooks.
-func (o *DataPlatformTimeZoneTimeZoneDatum) doBeforeUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformTimeZoneTimeZoneDatumBeforeUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpsertHooks executes all "after Upsert" hooks.
-func (o *DataPlatformTimeZoneTimeZoneDatum) doAfterUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformTimeZoneTimeZoneDatumAfterUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// AddDataPlatformTimeZoneTimeZoneDatumHook registers your hook function for all future operations.
-func AddDataPlatformTimeZoneTimeZoneDatumHook(hookPoint boil.HookPoint, dataPlatformTimeZoneTimeZoneDatumHook DataPlatformTimeZoneTimeZoneDatumHook) {
-	switch hookPoint {
-	case boil.AfterSelectHook:
-		dataPlatformTimeZoneTimeZoneDatumAfterSelectHooks = append(dataPlatformTimeZoneTimeZoneDatumAfterSelectHooks, dataPlatformTimeZoneTimeZoneDatumHook)
-	case boil.BeforeInsertHook:
-		dataPlatformTimeZoneTimeZoneDatumBeforeInsertHooks = append(dataPlatformTimeZoneTimeZoneDatumBeforeInsertHooks, dataPlatformTimeZoneTimeZoneDatumHook)
-	case boil.AfterInsertHook:
-		dataPlatformTimeZoneTimeZoneDatumAfterInsertHooks = append(dataPlatformTimeZoneTimeZoneDatumAfterInsertHooks, dataPlatformTimeZoneTimeZoneDatumHook)
-	case boil.BeforeUpdateHook:
-		dataPlatformTimeZoneTimeZoneDatumBeforeUpdateHooks = append(dataPlatformTimeZoneTimeZoneDatumBeforeUpdateHooks, dataPlatformTimeZoneTimeZoneDatumHook)
-	case boil.AfterUpdateHook:
-		dataPlatformTimeZoneTimeZoneDatumAfterUpdateHooks = append(dataPlatformTimeZoneTimeZoneDatumAfterUpdateHooks, dataPlatformTimeZoneTimeZoneDatumHook)
-	case boil.BeforeDeleteHook:
-		dataPlatformTimeZoneTimeZoneDatumBeforeDeleteHooks = append(dataPlatformTimeZoneTimeZoneDatumBeforeDeleteHooks, dataPlatformTimeZoneTimeZoneDatumHook)
-	case boil.AfterDeleteHook:
-		dataPlatformTimeZoneTimeZoneDatumAfterDeleteHooks = append(dataPlatformTimeZoneTimeZoneDatumAfterDeleteHooks, dataPlatformTimeZoneTimeZoneDatumHook)
-	case boil.BeforeUpsertHook:
-		dataPlatformTimeZoneTimeZoneDatumBeforeUpsertHooks = append(dataPlatformTimeZoneTimeZoneDatumBeforeUpsertHooks, dataPlatformTimeZoneTimeZoneDatumHook)
-	case boil.AfterUpsertHook:
-		dataPlatformTimeZoneTimeZoneDatumAfterUpsertHooks = append(dataPlatformTimeZoneTimeZoneDatumAfterUpsertHooks, dataPlatformTimeZoneTimeZoneDatumHook)
-	}
-}
-
 // One returns a single dataPlatformTimeZoneTimeZoneDatum record from the query.
 func (q dataPlatformTimeZoneTimeZoneDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformTimeZoneTimeZoneDatum, error) {
 	o := &DataPlatformTimeZoneTimeZoneDatum{}
@@ -321,10 +157,6 @@ func (q dataPlatformTimeZoneTimeZoneDatumQuery) One(ctx context.Context, exec bo
 		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_time_zone_time_zone_data")
 	}
 
-	if err := o.doAfterSelectHooks(ctx, exec); err != nil {
-		return o, err
-	}
-
 	return o, nil
 }
 
@@ -335,14 +167,6 @@ func (q dataPlatformTimeZoneTimeZoneDatumQuery) All(ctx context.Context, exec bo
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
 		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformTimeZoneTimeZoneDatum slice")
-	}
-
-	if len(dataPlatformTimeZoneTimeZoneDatumAfterSelectHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterSelectHooks(ctx, exec); err != nil {
-				return o, err
-			}
-		}
 	}
 
 	return o, nil
@@ -379,6 +203,160 @@ func (q dataPlatformTimeZoneTimeZoneDatumQuery) Exists(ctx context.Context, exec
 	return count > 0, nil
 }
 
+// TimeZoneDataPlatformTimeZoneTimeZoneTextData retrieves all the data_platform_time_zone_time_zone_text_datum's DataPlatformTimeZoneTimeZoneTextData with an executor via TimeZone column.
+func (o *DataPlatformTimeZoneTimeZoneDatum) TimeZoneDataPlatformTimeZoneTimeZoneTextData(mods ...qm.QueryMod) dataPlatformTimeZoneTimeZoneTextDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_time_zone_time_zone_text_data`.`TimeZone`=?", o.TimeZone),
+	)
+
+	return DataPlatformTimeZoneTimeZoneTextData(queryMods...)
+}
+
+// LoadTimeZoneDataPlatformTimeZoneTimeZoneTextData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformTimeZoneTimeZoneDatumL) LoadTimeZoneDataPlatformTimeZoneTimeZoneTextData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformTimeZoneTimeZoneDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformTimeZoneTimeZoneDatum
+	var object *DataPlatformTimeZoneTimeZoneDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformTimeZoneTimeZoneDatum.(*DataPlatformTimeZoneTimeZoneDatum)
+		if !ok {
+			object = new(DataPlatformTimeZoneTimeZoneDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformTimeZoneTimeZoneDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformTimeZoneTimeZoneDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformTimeZoneTimeZoneDatum.(*[]*DataPlatformTimeZoneTimeZoneDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformTimeZoneTimeZoneDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformTimeZoneTimeZoneDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformTimeZoneTimeZoneDatumR{}
+		}
+		args = append(args, object.TimeZone)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformTimeZoneTimeZoneDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.TimeZone {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.TimeZone)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_time_zone_time_zone_text_data`),
+		qm.WhereIn(`data_platform_time_zone_time_zone_text_data.TimeZone in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_time_zone_time_zone_text_data")
+	}
+
+	var resultSlice []*DataPlatformTimeZoneTimeZoneTextDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_time_zone_time_zone_text_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_time_zone_time_zone_text_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_time_zone_time_zone_text_data")
+	}
+
+	if singular {
+		object.R.TimeZoneDataPlatformTimeZoneTimeZoneTextData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.TimeZone == foreign.TimeZone {
+				local.R.TimeZoneDataPlatformTimeZoneTimeZoneTextData = append(local.R.TimeZoneDataPlatformTimeZoneTimeZoneTextData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// AddTimeZoneDataPlatformTimeZoneTimeZoneTextData adds the given related objects to the existing relationships
+// of the data_platform_time_zone_time_zone_datum, optionally inserting them as new records.
+// Appends related to o.R.TimeZoneDataPlatformTimeZoneTimeZoneTextData.
+func (o *DataPlatformTimeZoneTimeZoneDatum) AddTimeZoneDataPlatformTimeZoneTimeZoneTextData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformTimeZoneTimeZoneTextDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.TimeZone = o.TimeZone
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_time_zone_time_zone_text_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"TimeZone"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformTimeZoneTimeZoneTextDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.TimeZone, rel.TimeZone, rel.Language}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.TimeZone = o.TimeZone
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformTimeZoneTimeZoneDatumR{
+			TimeZoneDataPlatformTimeZoneTimeZoneTextData: related,
+		}
+	} else {
+		o.R.TimeZoneDataPlatformTimeZoneTimeZoneTextData = append(o.R.TimeZoneDataPlatformTimeZoneTimeZoneTextData, related...)
+	}
+
+	return nil
+}
+
 // DataPlatformTimeZoneTimeZoneData retrieves all the records using an executor.
 func DataPlatformTimeZoneTimeZoneData(mods ...qm.QueryMod) dataPlatformTimeZoneTimeZoneDatumQuery {
 	mods = append(mods, qm.From("`data_platform_time_zone_time_zone_data`"))
@@ -392,7 +370,7 @@ func DataPlatformTimeZoneTimeZoneData(mods ...qm.QueryMod) dataPlatformTimeZoneT
 
 // FindDataPlatformTimeZoneTimeZoneDatum retrieves a single record by ID with an executor.
 // If selectCols is empty Find will return all columns.
-func FindDataPlatformTimeZoneTimeZoneDatum(ctx context.Context, exec boil.ContextExecutor, timezone string, selectCols ...string) (*DataPlatformTimeZoneTimeZoneDatum, error) {
+func FindDataPlatformTimeZoneTimeZoneDatum(ctx context.Context, exec boil.ContextExecutor, timeZone string, selectCols ...string) (*DataPlatformTimeZoneTimeZoneDatum, error) {
 	dataPlatformTimeZoneTimeZoneDatumObj := &DataPlatformTimeZoneTimeZoneDatum{}
 
 	sel := "*"
@@ -400,10 +378,10 @@ func FindDataPlatformTimeZoneTimeZoneDatum(ctx context.Context, exec boil.Contex
 		sel = strings.Join(strmangle.IdentQuoteSlice(dialect.LQ, dialect.RQ, selectCols), ",")
 	}
 	query := fmt.Sprintf(
-		"select %s from `data_platform_time_zone_time_zone_data` where `Timezone`=?", sel,
+		"select %s from `data_platform_time_zone_time_zone_data` where `TimeZone`=?", sel,
 	)
 
-	q := queries.Raw(query, timezone)
+	q := queries.Raw(query, timeZone)
 
 	err := q.Bind(ctx, exec, dataPlatformTimeZoneTimeZoneDatumObj)
 	if err != nil {
@@ -411,10 +389,6 @@ func FindDataPlatformTimeZoneTimeZoneDatum(ctx context.Context, exec boil.Contex
 			return nil, sql.ErrNoRows
 		}
 		return nil, errors.Wrap(err, "models: unable to select from data_platform_time_zone_time_zone_data")
-	}
-
-	if err = dataPlatformTimeZoneTimeZoneDatumObj.doAfterSelectHooks(ctx, exec); err != nil {
-		return dataPlatformTimeZoneTimeZoneDatumObj, err
 	}
 
 	return dataPlatformTimeZoneTimeZoneDatumObj, nil
@@ -428,10 +402,6 @@ func (o *DataPlatformTimeZoneTimeZoneDatum) Insert(ctx context.Context, exec boi
 	}
 
 	var err error
-
-	if err := o.doBeforeInsertHooks(ctx, exec); err != nil {
-		return err
-	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformTimeZoneTimeZoneDatumColumnsWithDefault, o)
 
@@ -492,7 +462,7 @@ func (o *DataPlatformTimeZoneTimeZoneDatum) Insert(ctx context.Context, exec boi
 	}
 
 	identifierCols = []interface{}{
-		o.Timezone,
+		o.TimeZone,
 	}
 
 	if boil.IsDebug(ctx) {
@@ -512,17 +482,14 @@ CacheNoHooks:
 		dataPlatformTimeZoneTimeZoneDatumInsertCacheMut.Unlock()
 	}
 
-	return o.doAfterInsertHooks(ctx, exec)
+	return nil
 }
 
 // Update uses an executor to update the DataPlatformTimeZoneTimeZoneDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformTimeZoneTimeZoneDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) (int64, error) {
+func (o *DataPlatformTimeZoneTimeZoneDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
-	if err = o.doBeforeUpdateHooks(ctx, exec); err != nil {
-		return 0, err
-	}
 	key := makeCacheKey(columns, nil)
 	dataPlatformTimeZoneTimeZoneDatumUpdateCacheMut.RLock()
 	cache, cached := dataPlatformTimeZoneTimeZoneDatumUpdateCache[key]
@@ -538,7 +505,7 @@ func (o *DataPlatformTimeZoneTimeZoneDatum) Update(ctx context.Context, exec boi
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return 0, errors.New("models: unable to update data_platform_time_zone_time_zone_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_time_zone_time_zone_data, could not build whitelist")
 		}
 
 		cache.query = fmt.Sprintf("UPDATE `data_platform_time_zone_time_zone_data` SET %s WHERE %s",
@@ -547,7 +514,7 @@ func (o *DataPlatformTimeZoneTimeZoneDatum) Update(ctx context.Context, exec boi
 		)
 		cache.valueMapping, err = queries.BindMapping(dataPlatformTimeZoneTimeZoneDatumType, dataPlatformTimeZoneTimeZoneDatumMapping, append(wl, dataPlatformTimeZoneTimeZoneDatumPrimaryKeyColumns...))
 		if err != nil {
-			return 0, err
+			return err
 		}
 	}
 
@@ -558,15 +525,9 @@ func (o *DataPlatformTimeZoneTimeZoneDatum) Update(ctx context.Context, exec boi
 		fmt.Fprintln(writer, cache.query)
 		fmt.Fprintln(writer, values)
 	}
-	var result sql.Result
-	result, err = exec.ExecContext(ctx, cache.query, values...)
+	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update data_platform_time_zone_time_zone_data row")
-	}
-
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by update for data_platform_time_zone_time_zone_data")
+		return errors.Wrap(err, "models: unable to update data_platform_time_zone_time_zone_data row")
 	}
 
 	if !cached {
@@ -575,35 +536,30 @@ func (o *DataPlatformTimeZoneTimeZoneDatum) Update(ctx context.Context, exec boi
 		dataPlatformTimeZoneTimeZoneDatumUpdateCacheMut.Unlock()
 	}
 
-	return rowsAff, o.doAfterUpdateHooks(ctx, exec)
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformTimeZoneTimeZoneDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (q dataPlatformTimeZoneTimeZoneDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all for data_platform_time_zone_time_zone_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_time_zone_time_zone_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected for data_platform_time_zone_time_zone_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformTimeZoneTimeZoneDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (o DataPlatformTimeZoneTimeZoneDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
-		return 0, nil
+		return nil
 	}
 
 	if len(cols) == 0 {
-		return 0, errors.New("models: update all requires at least one column argument")
+		return errors.New("models: update all requires at least one column argument")
 	}
 
 	colNames := make([]string, len(cols))
@@ -631,20 +587,16 @@ func (o DataPlatformTimeZoneTimeZoneDatumSlice) UpdateAll(ctx context.Context, e
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all in dataPlatformTimeZoneTimeZoneDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformTimeZoneTimeZoneDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected all in update all dataPlatformTimeZoneTimeZoneDatum")
-	}
-	return rowsAff, nil
+	return nil
 }
 
 var mySQLDataPlatformTimeZoneTimeZoneDatumUniqueColumns = []string{
-	"Timezone",
+	"TimeZone",
 }
 
 // Upsert attempts an insert using an executor, and does an update or ignore on conflict.
@@ -652,10 +604,6 @@ var mySQLDataPlatformTimeZoneTimeZoneDatumUniqueColumns = []string{
 func (o *DataPlatformTimeZoneTimeZoneDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
 		return errors.New("models: no data_platform_time_zone_time_zone_data provided for upsert")
-	}
-
-	if err := o.doBeforeUpsertHooks(ctx, exec); err != nil {
-		return err
 	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformTimeZoneTimeZoneDatumColumnsWithDefault, o)
@@ -778,78 +726,52 @@ CacheNoHooks:
 		dataPlatformTimeZoneTimeZoneDatumUpsertCacheMut.Unlock()
 	}
 
-	return o.doAfterUpsertHooks(ctx, exec)
+	return nil
 }
 
 // Delete deletes a single DataPlatformTimeZoneTimeZoneDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformTimeZoneTimeZoneDatum) Delete(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o *DataPlatformTimeZoneTimeZoneDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return 0, errors.New("models: no DataPlatformTimeZoneTimeZoneDatum provided for delete")
-	}
-
-	if err := o.doBeforeDeleteHooks(ctx, exec); err != nil {
-		return 0, err
+		return errors.New("models: no DataPlatformTimeZoneTimeZoneDatum provided for delete")
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformTimeZoneTimeZoneDatumPrimaryKeyMapping)
-	sql := "DELETE FROM `data_platform_time_zone_time_zone_data` WHERE `Timezone`=?"
+	sql := "DELETE FROM `data_platform_time_zone_time_zone_data` WHERE `TimeZone`=?"
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete from data_platform_time_zone_time_zone_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_time_zone_time_zone_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by delete for data_platform_time_zone_time_zone_data")
-	}
-
-	if err := o.doAfterDeleteHooks(ctx, exec); err != nil {
-		return 0, err
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformTimeZoneTimeZoneDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (q dataPlatformTimeZoneTimeZoneDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return 0, errors.New("models: no dataPlatformTimeZoneTimeZoneDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformTimeZoneTimeZoneDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from data_platform_time_zone_time_zone_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_time_zone_time_zone_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_time_zone_time_zone_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformTimeZoneTimeZoneDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o DataPlatformTimeZoneTimeZoneDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
-		return 0, nil
-	}
-
-	if len(dataPlatformTimeZoneTimeZoneDatumBeforeDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doBeforeDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
+		return nil
 	}
 
 	var args []interface{}
@@ -866,31 +788,18 @@ func (o DataPlatformTimeZoneTimeZoneDatumSlice) DeleteAll(ctx context.Context, e
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from dataPlatformTimeZoneTimeZoneDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformTimeZoneTimeZoneDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_time_zone_time_zone_data")
-	}
-
-	if len(dataPlatformTimeZoneTimeZoneDatumAfterDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // Reload refetches the object from the database
 // using the primary keys with an executor.
 func (o *DataPlatformTimeZoneTimeZoneDatum) Reload(ctx context.Context, exec boil.ContextExecutor) error {
-	ret, err := FindDataPlatformTimeZoneTimeZoneDatum(ctx, exec, o.Timezone)
+	ret, err := FindDataPlatformTimeZoneTimeZoneDatum(ctx, exec, o.TimeZone)
 	if err != nil {
 		return err
 	}
@@ -929,16 +838,16 @@ func (o *DataPlatformTimeZoneTimeZoneDatumSlice) ReloadAll(ctx context.Context, 
 }
 
 // DataPlatformTimeZoneTimeZoneDatumExists checks if the DataPlatformTimeZoneTimeZoneDatum row exists.
-func DataPlatformTimeZoneTimeZoneDatumExists(ctx context.Context, exec boil.ContextExecutor, timezone string) (bool, error) {
+func DataPlatformTimeZoneTimeZoneDatumExists(ctx context.Context, exec boil.ContextExecutor, timeZone string) (bool, error) {
 	var exists bool
-	sql := "select exists(select 1 from `data_platform_time_zone_time_zone_data` where `Timezone`=? limit 1)"
+	sql := "select exists(select 1 from `data_platform_time_zone_time_zone_data` where `TimeZone`=? limit 1)"
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
 		fmt.Fprintln(writer, sql)
-		fmt.Fprintln(writer, timezone)
+		fmt.Fprintln(writer, timeZone)
 	}
-	row := exec.QueryRowContext(ctx, sql, timezone)
+	row := exec.QueryRowContext(ctx, sql, timeZone)
 
 	err := row.Scan(&exists)
 	if err != nil {
@@ -950,5 +859,5 @@ func DataPlatformTimeZoneTimeZoneDatumExists(ctx context.Context, exec boil.Cont
 
 // Exists checks if the DataPlatformTimeZoneTimeZoneDatum row exists.
 func (o *DataPlatformTimeZoneTimeZoneDatum) Exists(ctx context.Context, exec boil.ContextExecutor) (bool, error) {
-	return DataPlatformTimeZoneTimeZoneDatumExists(ctx, exec, o.Timezone)
+	return DataPlatformTimeZoneTimeZoneDatumExists(ctx, exec, o.TimeZone)
 }

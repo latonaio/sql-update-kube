@@ -103,8 +103,6 @@ type (
 	// DataPlatformDistributionChannelTextDatumSlice is an alias for a slice of pointers to DataPlatformDistributionChannelTextDatum.
 	// This should almost always be used instead of []DataPlatformDistributionChannelTextDatum.
 	DataPlatformDistributionChannelTextDatumSlice []*DataPlatformDistributionChannelTextDatum
-	// DataPlatformDistributionChannelTextDatumHook is the signature for custom DataPlatformDistributionChannelTextDatum hook methods
-	DataPlatformDistributionChannelTextDatumHook func(context.Context, boil.ContextExecutor, *DataPlatformDistributionChannelTextDatum) error
 
 	dataPlatformDistributionChannelTextDatumQuery struct {
 		*queries.Query
@@ -132,179 +130,6 @@ var (
 	_ = qmhelper.Where
 )
 
-var dataPlatformDistributionChannelTextDatumAfterSelectHooks []DataPlatformDistributionChannelTextDatumHook
-
-var dataPlatformDistributionChannelTextDatumBeforeInsertHooks []DataPlatformDistributionChannelTextDatumHook
-var dataPlatformDistributionChannelTextDatumAfterInsertHooks []DataPlatformDistributionChannelTextDatumHook
-
-var dataPlatformDistributionChannelTextDatumBeforeUpdateHooks []DataPlatformDistributionChannelTextDatumHook
-var dataPlatformDistributionChannelTextDatumAfterUpdateHooks []DataPlatformDistributionChannelTextDatumHook
-
-var dataPlatformDistributionChannelTextDatumBeforeDeleteHooks []DataPlatformDistributionChannelTextDatumHook
-var dataPlatformDistributionChannelTextDatumAfterDeleteHooks []DataPlatformDistributionChannelTextDatumHook
-
-var dataPlatformDistributionChannelTextDatumBeforeUpsertHooks []DataPlatformDistributionChannelTextDatumHook
-var dataPlatformDistributionChannelTextDatumAfterUpsertHooks []DataPlatformDistributionChannelTextDatumHook
-
-// doAfterSelectHooks executes all "after Select" hooks.
-func (o *DataPlatformDistributionChannelTextDatum) doAfterSelectHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDistributionChannelTextDatumAfterSelectHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeInsertHooks executes all "before insert" hooks.
-func (o *DataPlatformDistributionChannelTextDatum) doBeforeInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDistributionChannelTextDatumBeforeInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterInsertHooks executes all "after Insert" hooks.
-func (o *DataPlatformDistributionChannelTextDatum) doAfterInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDistributionChannelTextDatumAfterInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpdateHooks executes all "before Update" hooks.
-func (o *DataPlatformDistributionChannelTextDatum) doBeforeUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDistributionChannelTextDatumBeforeUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpdateHooks executes all "after Update" hooks.
-func (o *DataPlatformDistributionChannelTextDatum) doAfterUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDistributionChannelTextDatumAfterUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeDeleteHooks executes all "before Delete" hooks.
-func (o *DataPlatformDistributionChannelTextDatum) doBeforeDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDistributionChannelTextDatumBeforeDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterDeleteHooks executes all "after Delete" hooks.
-func (o *DataPlatformDistributionChannelTextDatum) doAfterDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDistributionChannelTextDatumAfterDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpsertHooks executes all "before Upsert" hooks.
-func (o *DataPlatformDistributionChannelTextDatum) doBeforeUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDistributionChannelTextDatumBeforeUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpsertHooks executes all "after Upsert" hooks.
-func (o *DataPlatformDistributionChannelTextDatum) doAfterUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDistributionChannelTextDatumAfterUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// AddDataPlatformDistributionChannelTextDatumHook registers your hook function for all future operations.
-func AddDataPlatformDistributionChannelTextDatumHook(hookPoint boil.HookPoint, dataPlatformDistributionChannelTextDatumHook DataPlatformDistributionChannelTextDatumHook) {
-	switch hookPoint {
-	case boil.AfterSelectHook:
-		dataPlatformDistributionChannelTextDatumAfterSelectHooks = append(dataPlatformDistributionChannelTextDatumAfterSelectHooks, dataPlatformDistributionChannelTextDatumHook)
-	case boil.BeforeInsertHook:
-		dataPlatformDistributionChannelTextDatumBeforeInsertHooks = append(dataPlatformDistributionChannelTextDatumBeforeInsertHooks, dataPlatformDistributionChannelTextDatumHook)
-	case boil.AfterInsertHook:
-		dataPlatformDistributionChannelTextDatumAfterInsertHooks = append(dataPlatformDistributionChannelTextDatumAfterInsertHooks, dataPlatformDistributionChannelTextDatumHook)
-	case boil.BeforeUpdateHook:
-		dataPlatformDistributionChannelTextDatumBeforeUpdateHooks = append(dataPlatformDistributionChannelTextDatumBeforeUpdateHooks, dataPlatformDistributionChannelTextDatumHook)
-	case boil.AfterUpdateHook:
-		dataPlatformDistributionChannelTextDatumAfterUpdateHooks = append(dataPlatformDistributionChannelTextDatumAfterUpdateHooks, dataPlatformDistributionChannelTextDatumHook)
-	case boil.BeforeDeleteHook:
-		dataPlatformDistributionChannelTextDatumBeforeDeleteHooks = append(dataPlatformDistributionChannelTextDatumBeforeDeleteHooks, dataPlatformDistributionChannelTextDatumHook)
-	case boil.AfterDeleteHook:
-		dataPlatformDistributionChannelTextDatumAfterDeleteHooks = append(dataPlatformDistributionChannelTextDatumAfterDeleteHooks, dataPlatformDistributionChannelTextDatumHook)
-	case boil.BeforeUpsertHook:
-		dataPlatformDistributionChannelTextDatumBeforeUpsertHooks = append(dataPlatformDistributionChannelTextDatumBeforeUpsertHooks, dataPlatformDistributionChannelTextDatumHook)
-	case boil.AfterUpsertHook:
-		dataPlatformDistributionChannelTextDatumAfterUpsertHooks = append(dataPlatformDistributionChannelTextDatumAfterUpsertHooks, dataPlatformDistributionChannelTextDatumHook)
-	}
-}
-
 // One returns a single dataPlatformDistributionChannelTextDatum record from the query.
 func (q dataPlatformDistributionChannelTextDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformDistributionChannelTextDatum, error) {
 	o := &DataPlatformDistributionChannelTextDatum{}
@@ -319,10 +144,6 @@ func (q dataPlatformDistributionChannelTextDatumQuery) One(ctx context.Context, 
 		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_distribution_channel_text_data")
 	}
 
-	if err := o.doAfterSelectHooks(ctx, exec); err != nil {
-		return o, err
-	}
-
 	return o, nil
 }
 
@@ -333,14 +154,6 @@ func (q dataPlatformDistributionChannelTextDatumQuery) All(ctx context.Context, 
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
 		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformDistributionChannelTextDatum slice")
-	}
-
-	if len(dataPlatformDistributionChannelTextDatumAfterSelectHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterSelectHooks(ctx, exec); err != nil {
-				return o, err
-			}
-		}
 	}
 
 	return o, nil
@@ -470,14 +283,6 @@ func (dataPlatformDistributionChannelTextDatumL) LoadDistributionChannelDataPlat
 		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_distribution_channel_distribution_channel_data")
 	}
 
-	if len(dataPlatformDistributionChannelDistributionChannelDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
 	if len(resultSlice) == 0 {
 		return nil
 	}
@@ -485,10 +290,6 @@ func (dataPlatformDistributionChannelTextDatumL) LoadDistributionChannelDataPlat
 	if singular {
 		foreign := resultSlice[0]
 		object.R.DistributionChannelDataPlatformDistributionChannelDistributionChannelDatum = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformDistributionChannelDistributionChannelDatumR{}
-		}
-		foreign.R.DistributionChannelDataPlatformDistributionChannelTextData = append(foreign.R.DistributionChannelDataPlatformDistributionChannelTextData, object)
 		return nil
 	}
 
@@ -496,10 +297,6 @@ func (dataPlatformDistributionChannelTextDatumL) LoadDistributionChannelDataPlat
 		for _, foreign := range resultSlice {
 			if local.DistributionChannel == foreign.DistributionChannel {
 				local.R.DistributionChannelDataPlatformDistributionChannelDistributionChannelDatum = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformDistributionChannelDistributionChannelDatumR{}
-				}
-				foreign.R.DistributionChannelDataPlatformDistributionChannelTextData = append(foreign.R.DistributionChannelDataPlatformDistributionChannelTextData, local)
 				break
 			}
 		}
@@ -510,7 +307,6 @@ func (dataPlatformDistributionChannelTextDatumL) LoadDistributionChannelDataPlat
 
 // SetDistributionChannelDataPlatformDistributionChannelDistributionChannelDatum of the dataPlatformDistributionChannelTextDatum to the related item.
 // Sets o.R.DistributionChannelDataPlatformDistributionChannelDistributionChannelDatum to related.
-// Adds o to related.R.DistributionChannelDataPlatformDistributionChannelTextData.
 func (o *DataPlatformDistributionChannelTextDatum) SetDistributionChannelDataPlatformDistributionChannelDistributionChannelDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformDistributionChannelDistributionChannelDatum) error {
 	var err error
 	if insert {
@@ -542,14 +338,6 @@ func (o *DataPlatformDistributionChannelTextDatum) SetDistributionChannelDataPla
 		}
 	} else {
 		o.R.DistributionChannelDataPlatformDistributionChannelDistributionChannelDatum = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformDistributionChannelDistributionChannelDatumR{
-			DistributionChannelDataPlatformDistributionChannelTextData: DataPlatformDistributionChannelTextDatumSlice{o},
-		}
-	} else {
-		related.R.DistributionChannelDataPlatformDistributionChannelTextData = append(related.R.DistributionChannelDataPlatformDistributionChannelTextData, o)
 	}
 
 	return nil
@@ -589,10 +377,6 @@ func FindDataPlatformDistributionChannelTextDatum(ctx context.Context, exec boil
 		return nil, errors.Wrap(err, "models: unable to select from data_platform_distribution_channel_text_data")
 	}
 
-	if err = dataPlatformDistributionChannelTextDatumObj.doAfterSelectHooks(ctx, exec); err != nil {
-		return dataPlatformDistributionChannelTextDatumObj, err
-	}
-
 	return dataPlatformDistributionChannelTextDatumObj, nil
 }
 
@@ -604,10 +388,6 @@ func (o *DataPlatformDistributionChannelTextDatum) Insert(ctx context.Context, e
 	}
 
 	var err error
-
-	if err := o.doBeforeInsertHooks(ctx, exec); err != nil {
-		return err
-	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformDistributionChannelTextDatumColumnsWithDefault, o)
 
@@ -689,17 +469,14 @@ CacheNoHooks:
 		dataPlatformDistributionChannelTextDatumInsertCacheMut.Unlock()
 	}
 
-	return o.doAfterInsertHooks(ctx, exec)
+	return nil
 }
 
 // Update uses an executor to update the DataPlatformDistributionChannelTextDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformDistributionChannelTextDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) (int64, error) {
+func (o *DataPlatformDistributionChannelTextDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
-	if err = o.doBeforeUpdateHooks(ctx, exec); err != nil {
-		return 0, err
-	}
 	key := makeCacheKey(columns, nil)
 	dataPlatformDistributionChannelTextDatumUpdateCacheMut.RLock()
 	cache, cached := dataPlatformDistributionChannelTextDatumUpdateCache[key]
@@ -715,7 +492,7 @@ func (o *DataPlatformDistributionChannelTextDatum) Update(ctx context.Context, e
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return 0, errors.New("models: unable to update data_platform_distribution_channel_text_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_distribution_channel_text_data, could not build whitelist")
 		}
 
 		cache.query = fmt.Sprintf("UPDATE `data_platform_distribution_channel_text_data` SET %s WHERE %s",
@@ -724,7 +501,7 @@ func (o *DataPlatformDistributionChannelTextDatum) Update(ctx context.Context, e
 		)
 		cache.valueMapping, err = queries.BindMapping(dataPlatformDistributionChannelTextDatumType, dataPlatformDistributionChannelTextDatumMapping, append(wl, dataPlatformDistributionChannelTextDatumPrimaryKeyColumns...))
 		if err != nil {
-			return 0, err
+			return err
 		}
 	}
 
@@ -735,15 +512,9 @@ func (o *DataPlatformDistributionChannelTextDatum) Update(ctx context.Context, e
 		fmt.Fprintln(writer, cache.query)
 		fmt.Fprintln(writer, values)
 	}
-	var result sql.Result
-	result, err = exec.ExecContext(ctx, cache.query, values...)
+	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update data_platform_distribution_channel_text_data row")
-	}
-
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by update for data_platform_distribution_channel_text_data")
+		return errors.Wrap(err, "models: unable to update data_platform_distribution_channel_text_data row")
 	}
 
 	if !cached {
@@ -752,35 +523,30 @@ func (o *DataPlatformDistributionChannelTextDatum) Update(ctx context.Context, e
 		dataPlatformDistributionChannelTextDatumUpdateCacheMut.Unlock()
 	}
 
-	return rowsAff, o.doAfterUpdateHooks(ctx, exec)
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformDistributionChannelTextDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (q dataPlatformDistributionChannelTextDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all for data_platform_distribution_channel_text_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_distribution_channel_text_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected for data_platform_distribution_channel_text_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformDistributionChannelTextDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (o DataPlatformDistributionChannelTextDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
-		return 0, nil
+		return nil
 	}
 
 	if len(cols) == 0 {
-		return 0, errors.New("models: update all requires at least one column argument")
+		return errors.New("models: update all requires at least one column argument")
 	}
 
 	colNames := make([]string, len(cols))
@@ -808,16 +574,12 @@ func (o DataPlatformDistributionChannelTextDatumSlice) UpdateAll(ctx context.Con
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all in dataPlatformDistributionChannelTextDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformDistributionChannelTextDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected all in update all dataPlatformDistributionChannelTextDatum")
-	}
-	return rowsAff, nil
+	return nil
 }
 
 var mySQLDataPlatformDistributionChannelTextDatumUniqueColumns = []string{}
@@ -827,10 +589,6 @@ var mySQLDataPlatformDistributionChannelTextDatumUniqueColumns = []string{}
 func (o *DataPlatformDistributionChannelTextDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
 		return errors.New("models: no data_platform_distribution_channel_text_data provided for upsert")
-	}
-
-	if err := o.doBeforeUpsertHooks(ctx, exec); err != nil {
-		return err
 	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformDistributionChannelTextDatumColumnsWithDefault, o)
@@ -953,18 +711,14 @@ CacheNoHooks:
 		dataPlatformDistributionChannelTextDatumUpsertCacheMut.Unlock()
 	}
 
-	return o.doAfterUpsertHooks(ctx, exec)
+	return nil
 }
 
 // Delete deletes a single DataPlatformDistributionChannelTextDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformDistributionChannelTextDatum) Delete(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o *DataPlatformDistributionChannelTextDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return 0, errors.New("models: no DataPlatformDistributionChannelTextDatum provided for delete")
-	}
-
-	if err := o.doBeforeDeleteHooks(ctx, exec); err != nil {
-		return 0, err
+		return errors.New("models: no DataPlatformDistributionChannelTextDatum provided for delete")
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformDistributionChannelTextDatumPrimaryKeyMapping)
@@ -975,56 +729,34 @@ func (o *DataPlatformDistributionChannelTextDatum) Delete(ctx context.Context, e
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete from data_platform_distribution_channel_text_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_distribution_channel_text_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by delete for data_platform_distribution_channel_text_data")
-	}
-
-	if err := o.doAfterDeleteHooks(ctx, exec); err != nil {
-		return 0, err
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformDistributionChannelTextDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (q dataPlatformDistributionChannelTextDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return 0, errors.New("models: no dataPlatformDistributionChannelTextDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformDistributionChannelTextDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from data_platform_distribution_channel_text_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_distribution_channel_text_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_distribution_channel_text_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformDistributionChannelTextDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o DataPlatformDistributionChannelTextDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
-		return 0, nil
-	}
-
-	if len(dataPlatformDistributionChannelTextDatumBeforeDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doBeforeDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
+		return nil
 	}
 
 	var args []interface{}
@@ -1041,25 +773,12 @@ func (o DataPlatformDistributionChannelTextDatumSlice) DeleteAll(ctx context.Con
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from dataPlatformDistributionChannelTextDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformDistributionChannelTextDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_distribution_channel_text_data")
-	}
-
-	if len(dataPlatformDistributionChannelTextDatumAfterDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // Reload refetches the object from the database

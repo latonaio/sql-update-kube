@@ -73,26 +73,15 @@ var DataPlatformNumberRangeLatestNumberDatumWhere = struct {
 
 // DataPlatformNumberRangeLatestNumberDatumRels is where relationship names are stored.
 var DataPlatformNumberRangeLatestNumberDatumRels = struct {
-	FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum string
-}{
-	FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum: "FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum",
-}
+}{}
 
 // dataPlatformNumberRangeLatestNumberDatumR is where relationships are stored.
 type dataPlatformNumberRangeLatestNumberDatumR struct {
-	FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum *DataPlatformNumberRangeNumberRangeDatum `boil:"FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum" json:"FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum" toml:"FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum" yaml:"FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformNumberRangeLatestNumberDatumR) NewStruct() *dataPlatformNumberRangeLatestNumberDatumR {
 	return &dataPlatformNumberRangeLatestNumberDatumR{}
-}
-
-func (r *dataPlatformNumberRangeLatestNumberDatumR) GetFieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum() *DataPlatformNumberRangeNumberRangeDatum {
-	if r == nil {
-		return nil
-	}
-	return r.FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum
 }
 
 // dataPlatformNumberRangeLatestNumberDatumL is where Load methods for each relationship are stored.
@@ -110,8 +99,6 @@ type (
 	// DataPlatformNumberRangeLatestNumberDatumSlice is an alias for a slice of pointers to DataPlatformNumberRangeLatestNumberDatum.
 	// This should almost always be used instead of []DataPlatformNumberRangeLatestNumberDatum.
 	DataPlatformNumberRangeLatestNumberDatumSlice []*DataPlatformNumberRangeLatestNumberDatum
-	// DataPlatformNumberRangeLatestNumberDatumHook is the signature for custom DataPlatformNumberRangeLatestNumberDatum hook methods
-	DataPlatformNumberRangeLatestNumberDatumHook func(context.Context, boil.ContextExecutor, *DataPlatformNumberRangeLatestNumberDatum) error
 
 	dataPlatformNumberRangeLatestNumberDatumQuery struct {
 		*queries.Query
@@ -139,179 +126,6 @@ var (
 	_ = qmhelper.Where
 )
 
-var dataPlatformNumberRangeLatestNumberDatumAfterSelectHooks []DataPlatformNumberRangeLatestNumberDatumHook
-
-var dataPlatformNumberRangeLatestNumberDatumBeforeInsertHooks []DataPlatformNumberRangeLatestNumberDatumHook
-var dataPlatformNumberRangeLatestNumberDatumAfterInsertHooks []DataPlatformNumberRangeLatestNumberDatumHook
-
-var dataPlatformNumberRangeLatestNumberDatumBeforeUpdateHooks []DataPlatformNumberRangeLatestNumberDatumHook
-var dataPlatformNumberRangeLatestNumberDatumAfterUpdateHooks []DataPlatformNumberRangeLatestNumberDatumHook
-
-var dataPlatformNumberRangeLatestNumberDatumBeforeDeleteHooks []DataPlatformNumberRangeLatestNumberDatumHook
-var dataPlatformNumberRangeLatestNumberDatumAfterDeleteHooks []DataPlatformNumberRangeLatestNumberDatumHook
-
-var dataPlatformNumberRangeLatestNumberDatumBeforeUpsertHooks []DataPlatformNumberRangeLatestNumberDatumHook
-var dataPlatformNumberRangeLatestNumberDatumAfterUpsertHooks []DataPlatformNumberRangeLatestNumberDatumHook
-
-// doAfterSelectHooks executes all "after Select" hooks.
-func (o *DataPlatformNumberRangeLatestNumberDatum) doAfterSelectHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformNumberRangeLatestNumberDatumAfterSelectHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeInsertHooks executes all "before insert" hooks.
-func (o *DataPlatformNumberRangeLatestNumberDatum) doBeforeInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformNumberRangeLatestNumberDatumBeforeInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterInsertHooks executes all "after Insert" hooks.
-func (o *DataPlatformNumberRangeLatestNumberDatum) doAfterInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformNumberRangeLatestNumberDatumAfterInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpdateHooks executes all "before Update" hooks.
-func (o *DataPlatformNumberRangeLatestNumberDatum) doBeforeUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformNumberRangeLatestNumberDatumBeforeUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpdateHooks executes all "after Update" hooks.
-func (o *DataPlatformNumberRangeLatestNumberDatum) doAfterUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformNumberRangeLatestNumberDatumAfterUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeDeleteHooks executes all "before Delete" hooks.
-func (o *DataPlatformNumberRangeLatestNumberDatum) doBeforeDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformNumberRangeLatestNumberDatumBeforeDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterDeleteHooks executes all "after Delete" hooks.
-func (o *DataPlatformNumberRangeLatestNumberDatum) doAfterDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformNumberRangeLatestNumberDatumAfterDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpsertHooks executes all "before Upsert" hooks.
-func (o *DataPlatformNumberRangeLatestNumberDatum) doBeforeUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformNumberRangeLatestNumberDatumBeforeUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpsertHooks executes all "after Upsert" hooks.
-func (o *DataPlatformNumberRangeLatestNumberDatum) doAfterUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformNumberRangeLatestNumberDatumAfterUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// AddDataPlatformNumberRangeLatestNumberDatumHook registers your hook function for all future operations.
-func AddDataPlatformNumberRangeLatestNumberDatumHook(hookPoint boil.HookPoint, dataPlatformNumberRangeLatestNumberDatumHook DataPlatformNumberRangeLatestNumberDatumHook) {
-	switch hookPoint {
-	case boil.AfterSelectHook:
-		dataPlatformNumberRangeLatestNumberDatumAfterSelectHooks = append(dataPlatformNumberRangeLatestNumberDatumAfterSelectHooks, dataPlatformNumberRangeLatestNumberDatumHook)
-	case boil.BeforeInsertHook:
-		dataPlatformNumberRangeLatestNumberDatumBeforeInsertHooks = append(dataPlatformNumberRangeLatestNumberDatumBeforeInsertHooks, dataPlatformNumberRangeLatestNumberDatumHook)
-	case boil.AfterInsertHook:
-		dataPlatformNumberRangeLatestNumberDatumAfterInsertHooks = append(dataPlatformNumberRangeLatestNumberDatumAfterInsertHooks, dataPlatformNumberRangeLatestNumberDatumHook)
-	case boil.BeforeUpdateHook:
-		dataPlatformNumberRangeLatestNumberDatumBeforeUpdateHooks = append(dataPlatformNumberRangeLatestNumberDatumBeforeUpdateHooks, dataPlatformNumberRangeLatestNumberDatumHook)
-	case boil.AfterUpdateHook:
-		dataPlatformNumberRangeLatestNumberDatumAfterUpdateHooks = append(dataPlatformNumberRangeLatestNumberDatumAfterUpdateHooks, dataPlatformNumberRangeLatestNumberDatumHook)
-	case boil.BeforeDeleteHook:
-		dataPlatformNumberRangeLatestNumberDatumBeforeDeleteHooks = append(dataPlatformNumberRangeLatestNumberDatumBeforeDeleteHooks, dataPlatformNumberRangeLatestNumberDatumHook)
-	case boil.AfterDeleteHook:
-		dataPlatformNumberRangeLatestNumberDatumAfterDeleteHooks = append(dataPlatformNumberRangeLatestNumberDatumAfterDeleteHooks, dataPlatformNumberRangeLatestNumberDatumHook)
-	case boil.BeforeUpsertHook:
-		dataPlatformNumberRangeLatestNumberDatumBeforeUpsertHooks = append(dataPlatformNumberRangeLatestNumberDatumBeforeUpsertHooks, dataPlatformNumberRangeLatestNumberDatumHook)
-	case boil.AfterUpsertHook:
-		dataPlatformNumberRangeLatestNumberDatumAfterUpsertHooks = append(dataPlatformNumberRangeLatestNumberDatumAfterUpsertHooks, dataPlatformNumberRangeLatestNumberDatumHook)
-	}
-}
-
 // One returns a single dataPlatformNumberRangeLatestNumberDatum record from the query.
 func (q dataPlatformNumberRangeLatestNumberDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformNumberRangeLatestNumberDatum, error) {
 	o := &DataPlatformNumberRangeLatestNumberDatum{}
@@ -326,10 +140,6 @@ func (q dataPlatformNumberRangeLatestNumberDatumQuery) One(ctx context.Context, 
 		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_number_range_latest_number_data")
 	}
 
-	if err := o.doAfterSelectHooks(ctx, exec); err != nil {
-		return o, err
-	}
-
 	return o, nil
 }
 
@@ -340,14 +150,6 @@ func (q dataPlatformNumberRangeLatestNumberDatumQuery) All(ctx context.Context, 
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
 		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformNumberRangeLatestNumberDatum slice")
-	}
-
-	if len(dataPlatformNumberRangeLatestNumberDatumAfterSelectHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterSelectHooks(ctx, exec); err != nil {
-				return o, err
-			}
-		}
 	}
 
 	return o, nil
@@ -384,184 +186,6 @@ func (q dataPlatformNumberRangeLatestNumberDatumQuery) Exists(ctx context.Contex
 	return count > 0, nil
 }
 
-// FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum pointed to by the foreign key.
-func (o *DataPlatformNumberRangeLatestNumberDatum) FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum(mods ...qm.QueryMod) dataPlatformNumberRangeNumberRangeDatumQuery {
-	queryMods := []qm.QueryMod{
-		qm.Where("`FieldNameWithNumberRange` = ?", o.FieldNameWithNumberRange),
-	}
-
-	queryMods = append(queryMods, mods...)
-
-	return DataPlatformNumberRangeNumberRangeData(queryMods...)
-}
-
-// LoadFieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformNumberRangeLatestNumberDatumL) LoadFieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformNumberRangeLatestNumberDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformNumberRangeLatestNumberDatum
-	var object *DataPlatformNumberRangeLatestNumberDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformNumberRangeLatestNumberDatum.(*DataPlatformNumberRangeLatestNumberDatum)
-		if !ok {
-			object = new(DataPlatformNumberRangeLatestNumberDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformNumberRangeLatestNumberDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformNumberRangeLatestNumberDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformNumberRangeLatestNumberDatum.(*[]*DataPlatformNumberRangeLatestNumberDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformNumberRangeLatestNumberDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformNumberRangeLatestNumberDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformNumberRangeLatestNumberDatumR{}
-		}
-		args = append(args, object.FieldNameWithNumberRange)
-
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformNumberRangeLatestNumberDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.FieldNameWithNumberRange {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.FieldNameWithNumberRange)
-
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_number_range_number_range_data`),
-		qm.WhereIn(`data_platform_number_range_number_range_data.FieldNameWithNumberRange in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load DataPlatformNumberRangeNumberRangeDatum")
-	}
-
-	var resultSlice []*DataPlatformNumberRangeNumberRangeDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformNumberRangeNumberRangeDatum")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results of eager load for data_platform_number_range_number_range_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_number_range_number_range_data")
-	}
-
-	if len(dataPlatformNumberRangeNumberRangeDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
-	if len(resultSlice) == 0 {
-		return nil
-	}
-
-	if singular {
-		foreign := resultSlice[0]
-		object.R.FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformNumberRangeNumberRangeDatumR{}
-		}
-		foreign.R.FieldNameWithNumberRangeDataPlatformNumberRangeLatestNumberData = append(foreign.R.FieldNameWithNumberRangeDataPlatformNumberRangeLatestNumberData, object)
-		return nil
-	}
-
-	for _, local := range slice {
-		for _, foreign := range resultSlice {
-			if local.FieldNameWithNumberRange == foreign.FieldNameWithNumberRange {
-				local.R.FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformNumberRangeNumberRangeDatumR{}
-				}
-				foreign.R.FieldNameWithNumberRangeDataPlatformNumberRangeLatestNumberData = append(foreign.R.FieldNameWithNumberRangeDataPlatformNumberRangeLatestNumberData, local)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// SetFieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum of the dataPlatformNumberRangeLatestNumberDatum to the related item.
-// Sets o.R.FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum to related.
-// Adds o to related.R.FieldNameWithNumberRangeDataPlatformNumberRangeLatestNumberData.
-func (o *DataPlatformNumberRangeLatestNumberDatum) SetFieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformNumberRangeNumberRangeDatum) error {
-	var err error
-	if insert {
-		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
-			return errors.Wrap(err, "failed to insert into foreign table")
-		}
-	}
-
-	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_number_range_latest_number_data` SET %s WHERE %s",
-		strmangle.SetParamNames("`", "`", 0, []string{"FieldNameWithNumberRange"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformNumberRangeLatestNumberDatumPrimaryKeyColumns),
-	)
-	values := []interface{}{related.FieldNameWithNumberRange, o.NumberRangeID, o.ServiceLabel, o.FieldNameWithNumberRange}
-
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, updateQuery)
-		fmt.Fprintln(writer, values)
-	}
-	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-		return errors.Wrap(err, "failed to update local table")
-	}
-
-	o.FieldNameWithNumberRange = related.FieldNameWithNumberRange
-	if o.R == nil {
-		o.R = &dataPlatformNumberRangeLatestNumberDatumR{
-			FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum: related,
-		}
-	} else {
-		o.R.FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformNumberRangeNumberRangeDatumR{
-			FieldNameWithNumberRangeDataPlatformNumberRangeLatestNumberData: DataPlatformNumberRangeLatestNumberDatumSlice{o},
-		}
-	} else {
-		related.R.FieldNameWithNumberRangeDataPlatformNumberRangeLatestNumberData = append(related.R.FieldNameWithNumberRangeDataPlatformNumberRangeLatestNumberData, o)
-	}
-
-	return nil
-}
-
 // DataPlatformNumberRangeLatestNumberData retrieves all the records using an executor.
 func DataPlatformNumberRangeLatestNumberData(mods ...qm.QueryMod) dataPlatformNumberRangeLatestNumberDatumQuery {
 	mods = append(mods, qm.From("`data_platform_number_range_latest_number_data`"))
@@ -596,10 +220,6 @@ func FindDataPlatformNumberRangeLatestNumberDatum(ctx context.Context, exec boil
 		return nil, errors.Wrap(err, "models: unable to select from data_platform_number_range_latest_number_data")
 	}
 
-	if err = dataPlatformNumberRangeLatestNumberDatumObj.doAfterSelectHooks(ctx, exec); err != nil {
-		return dataPlatformNumberRangeLatestNumberDatumObj, err
-	}
-
 	return dataPlatformNumberRangeLatestNumberDatumObj, nil
 }
 
@@ -611,10 +231,6 @@ func (o *DataPlatformNumberRangeLatestNumberDatum) Insert(ctx context.Context, e
 	}
 
 	var err error
-
-	if err := o.doBeforeInsertHooks(ctx, exec); err != nil {
-		return err
-	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformNumberRangeLatestNumberDatumColumnsWithDefault, o)
 
@@ -697,17 +313,14 @@ CacheNoHooks:
 		dataPlatformNumberRangeLatestNumberDatumInsertCacheMut.Unlock()
 	}
 
-	return o.doAfterInsertHooks(ctx, exec)
+	return nil
 }
 
 // Update uses an executor to update the DataPlatformNumberRangeLatestNumberDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformNumberRangeLatestNumberDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) (int64, error) {
+func (o *DataPlatformNumberRangeLatestNumberDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
-	if err = o.doBeforeUpdateHooks(ctx, exec); err != nil {
-		return 0, err
-	}
 	key := makeCacheKey(columns, nil)
 	dataPlatformNumberRangeLatestNumberDatumUpdateCacheMut.RLock()
 	cache, cached := dataPlatformNumberRangeLatestNumberDatumUpdateCache[key]
@@ -723,7 +336,7 @@ func (o *DataPlatformNumberRangeLatestNumberDatum) Update(ctx context.Context, e
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return 0, errors.New("models: unable to update data_platform_number_range_latest_number_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_number_range_latest_number_data, could not build whitelist")
 		}
 
 		cache.query = fmt.Sprintf("UPDATE `data_platform_number_range_latest_number_data` SET %s WHERE %s",
@@ -732,7 +345,7 @@ func (o *DataPlatformNumberRangeLatestNumberDatum) Update(ctx context.Context, e
 		)
 		cache.valueMapping, err = queries.BindMapping(dataPlatformNumberRangeLatestNumberDatumType, dataPlatformNumberRangeLatestNumberDatumMapping, append(wl, dataPlatformNumberRangeLatestNumberDatumPrimaryKeyColumns...))
 		if err != nil {
-			return 0, err
+			return err
 		}
 	}
 
@@ -743,15 +356,9 @@ func (o *DataPlatformNumberRangeLatestNumberDatum) Update(ctx context.Context, e
 		fmt.Fprintln(writer, cache.query)
 		fmt.Fprintln(writer, values)
 	}
-	var result sql.Result
-	result, err = exec.ExecContext(ctx, cache.query, values...)
+	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update data_platform_number_range_latest_number_data row")
-	}
-
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by update for data_platform_number_range_latest_number_data")
+		return errors.Wrap(err, "models: unable to update data_platform_number_range_latest_number_data row")
 	}
 
 	if !cached {
@@ -760,35 +367,30 @@ func (o *DataPlatformNumberRangeLatestNumberDatum) Update(ctx context.Context, e
 		dataPlatformNumberRangeLatestNumberDatumUpdateCacheMut.Unlock()
 	}
 
-	return rowsAff, o.doAfterUpdateHooks(ctx, exec)
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformNumberRangeLatestNumberDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (q dataPlatformNumberRangeLatestNumberDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all for data_platform_number_range_latest_number_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_number_range_latest_number_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected for data_platform_number_range_latest_number_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformNumberRangeLatestNumberDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (o DataPlatformNumberRangeLatestNumberDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
-		return 0, nil
+		return nil
 	}
 
 	if len(cols) == 0 {
-		return 0, errors.New("models: update all requires at least one column argument")
+		return errors.New("models: update all requires at least one column argument")
 	}
 
 	colNames := make([]string, len(cols))
@@ -816,16 +418,12 @@ func (o DataPlatformNumberRangeLatestNumberDatumSlice) UpdateAll(ctx context.Con
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all in dataPlatformNumberRangeLatestNumberDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformNumberRangeLatestNumberDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected all in update all dataPlatformNumberRangeLatestNumberDatum")
-	}
-	return rowsAff, nil
+	return nil
 }
 
 var mySQLDataPlatformNumberRangeLatestNumberDatumUniqueColumns = []string{}
@@ -835,10 +433,6 @@ var mySQLDataPlatformNumberRangeLatestNumberDatumUniqueColumns = []string{}
 func (o *DataPlatformNumberRangeLatestNumberDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
 		return errors.New("models: no data_platform_number_range_latest_number_data provided for upsert")
-	}
-
-	if err := o.doBeforeUpsertHooks(ctx, exec); err != nil {
-		return err
 	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformNumberRangeLatestNumberDatumColumnsWithDefault, o)
@@ -961,18 +555,14 @@ CacheNoHooks:
 		dataPlatformNumberRangeLatestNumberDatumUpsertCacheMut.Unlock()
 	}
 
-	return o.doAfterUpsertHooks(ctx, exec)
+	return nil
 }
 
 // Delete deletes a single DataPlatformNumberRangeLatestNumberDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformNumberRangeLatestNumberDatum) Delete(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o *DataPlatformNumberRangeLatestNumberDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return 0, errors.New("models: no DataPlatformNumberRangeLatestNumberDatum provided for delete")
-	}
-
-	if err := o.doBeforeDeleteHooks(ctx, exec); err != nil {
-		return 0, err
+		return errors.New("models: no DataPlatformNumberRangeLatestNumberDatum provided for delete")
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformNumberRangeLatestNumberDatumPrimaryKeyMapping)
@@ -983,56 +573,34 @@ func (o *DataPlatformNumberRangeLatestNumberDatum) Delete(ctx context.Context, e
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete from data_platform_number_range_latest_number_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_number_range_latest_number_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by delete for data_platform_number_range_latest_number_data")
-	}
-
-	if err := o.doAfterDeleteHooks(ctx, exec); err != nil {
-		return 0, err
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformNumberRangeLatestNumberDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (q dataPlatformNumberRangeLatestNumberDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return 0, errors.New("models: no dataPlatformNumberRangeLatestNumberDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformNumberRangeLatestNumberDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from data_platform_number_range_latest_number_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_number_range_latest_number_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_number_range_latest_number_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformNumberRangeLatestNumberDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o DataPlatformNumberRangeLatestNumberDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
-		return 0, nil
-	}
-
-	if len(dataPlatformNumberRangeLatestNumberDatumBeforeDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doBeforeDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
+		return nil
 	}
 
 	var args []interface{}
@@ -1049,25 +617,12 @@ func (o DataPlatformNumberRangeLatestNumberDatumSlice) DeleteAll(ctx context.Con
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from dataPlatformNumberRangeLatestNumberDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformNumberRangeLatestNumberDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_number_range_latest_number_data")
-	}
-
-	if len(dataPlatformNumberRangeLatestNumberDatumAfterDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // Reload refetches the object from the database

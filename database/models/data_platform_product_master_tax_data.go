@@ -25,9 +25,8 @@ import (
 // DataPlatformProductMasterTaxDatum is an object representing the database table.
 type DataPlatformProductMasterTaxDatum struct {
 	Product                  string      `boil:"Product" json:"Product" toml:"Product" yaml:"Product"`
-	BusinessPartner          int         `boil:"BusinessPartner" json:"BusinessPartner" toml:"BusinessPartner" yaml:"BusinessPartner"`
 	Country                  string      `boil:"Country" json:"Country" toml:"Country" yaml:"Country"`
-	TaxCategory              string      `boil:"TaxCategory" json:"TaxCategory" toml:"TaxCategory" yaml:"TaxCategory"`
+	ProductTaxCategory       string      `boil:"ProductTaxCategory" json:"ProductTaxCategory" toml:"ProductTaxCategory" yaml:"ProductTaxCategory"`
 	ProductTaxClassification null.String `boil:"ProductTaxClassification" json:"ProductTaxClassification,omitempty" toml:"ProductTaxClassification" yaml:"ProductTaxClassification,omitempty"`
 
 	R *dataPlatformProductMasterTaxDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
@@ -36,29 +35,25 @@ type DataPlatformProductMasterTaxDatum struct {
 
 var DataPlatformProductMasterTaxDatumColumns = struct {
 	Product                  string
-	BusinessPartner          string
 	Country                  string
-	TaxCategory              string
+	ProductTaxCategory       string
 	ProductTaxClassification string
 }{
 	Product:                  "Product",
-	BusinessPartner:          "BusinessPartner",
 	Country:                  "Country",
-	TaxCategory:              "TaxCategory",
+	ProductTaxCategory:       "ProductTaxCategory",
 	ProductTaxClassification: "ProductTaxClassification",
 }
 
 var DataPlatformProductMasterTaxDatumTableColumns = struct {
 	Product                  string
-	BusinessPartner          string
 	Country                  string
-	TaxCategory              string
+	ProductTaxCategory       string
 	ProductTaxClassification string
 }{
 	Product:                  "data_platform_product_master_tax_data.Product",
-	BusinessPartner:          "data_platform_product_master_tax_data.BusinessPartner",
 	Country:                  "data_platform_product_master_tax_data.Country",
-	TaxCategory:              "data_platform_product_master_tax_data.TaxCategory",
+	ProductTaxCategory:       "data_platform_product_master_tax_data.ProductTaxCategory",
 	ProductTaxClassification: "data_platform_product_master_tax_data.ProductTaxClassification",
 }
 
@@ -66,31 +61,22 @@ var DataPlatformProductMasterTaxDatumTableColumns = struct {
 
 var DataPlatformProductMasterTaxDatumWhere = struct {
 	Product                  whereHelperstring
-	BusinessPartner          whereHelperint
 	Country                  whereHelperstring
-	TaxCategory              whereHelperstring
+	ProductTaxCategory       whereHelperstring
 	ProductTaxClassification whereHelpernull_String
 }{
 	Product:                  whereHelperstring{field: "`data_platform_product_master_tax_data`.`Product`"},
-	BusinessPartner:          whereHelperint{field: "`data_platform_product_master_tax_data`.`BusinessPartner`"},
 	Country:                  whereHelperstring{field: "`data_platform_product_master_tax_data`.`Country`"},
-	TaxCategory:              whereHelperstring{field: "`data_platform_product_master_tax_data`.`TaxCategory`"},
+	ProductTaxCategory:       whereHelperstring{field: "`data_platform_product_master_tax_data`.`ProductTaxCategory`"},
 	ProductTaxClassification: whereHelpernull_String{field: "`data_platform_product_master_tax_data`.`ProductTaxClassification`"},
 }
 
 // DataPlatformProductMasterTaxDatumRels is where relationship names are stored.
 var DataPlatformProductMasterTaxDatumRels = struct {
-	CountryDataPlatformCountryCountryDatum                       string
-	BusinessPartnerDataPlatformProductMasterBusinessPartnerDatum string
-}{
-	CountryDataPlatformCountryCountryDatum:                       "CountryDataPlatformCountryCountryDatum",
-	BusinessPartnerDataPlatformProductMasterBusinessPartnerDatum: "BusinessPartnerDataPlatformProductMasterBusinessPartnerDatum",
-}
+}{}
 
 // dataPlatformProductMasterTaxDatumR is where relationships are stored.
 type dataPlatformProductMasterTaxDatumR struct {
-	CountryDataPlatformCountryCountryDatum                       *DataPlatformCountryCountryDatum               `boil:"CountryDataPlatformCountryCountryDatum" json:"CountryDataPlatformCountryCountryDatum" toml:"CountryDataPlatformCountryCountryDatum" yaml:"CountryDataPlatformCountryCountryDatum"`
-	BusinessPartnerDataPlatformProductMasterBusinessPartnerDatum *DataPlatformProductMasterBusinessPartnerDatum `boil:"BusinessPartnerDataPlatformProductMasterBusinessPartnerDatum" json:"BusinessPartnerDataPlatformProductMasterBusinessPartnerDatum" toml:"BusinessPartnerDataPlatformProductMasterBusinessPartnerDatum" yaml:"BusinessPartnerDataPlatformProductMasterBusinessPartnerDatum"`
 }
 
 // NewStruct creates a new relationship struct
@@ -98,28 +84,14 @@ func (*dataPlatformProductMasterTaxDatumR) NewStruct() *dataPlatformProductMaste
 	return &dataPlatformProductMasterTaxDatumR{}
 }
 
-func (r *dataPlatformProductMasterTaxDatumR) GetCountryDataPlatformCountryCountryDatum() *DataPlatformCountryCountryDatum {
-	if r == nil {
-		return nil
-	}
-	return r.CountryDataPlatformCountryCountryDatum
-}
-
-func (r *dataPlatformProductMasterTaxDatumR) GetBusinessPartnerDataPlatformProductMasterBusinessPartnerDatum() *DataPlatformProductMasterBusinessPartnerDatum {
-	if r == nil {
-		return nil
-	}
-	return r.BusinessPartnerDataPlatformProductMasterBusinessPartnerDatum
-}
-
 // dataPlatformProductMasterTaxDatumL is where Load methods for each relationship are stored.
 type dataPlatformProductMasterTaxDatumL struct{}
 
 var (
-	dataPlatformProductMasterTaxDatumAllColumns            = []string{"Product", "BusinessPartner", "Country", "TaxCategory", "ProductTaxClassification"}
-	dataPlatformProductMasterTaxDatumColumnsWithoutDefault = []string{"Product", "BusinessPartner", "Country", "TaxCategory", "ProductTaxClassification"}
+	dataPlatformProductMasterTaxDatumAllColumns            = []string{"Product", "Country", "ProductTaxCategory", "ProductTaxClassification"}
+	dataPlatformProductMasterTaxDatumColumnsWithoutDefault = []string{"Product", "Country", "ProductTaxCategory", "ProductTaxClassification"}
 	dataPlatformProductMasterTaxDatumColumnsWithDefault    = []string{}
-	dataPlatformProductMasterTaxDatumPrimaryKeyColumns     = []string{"Product", "BusinessPartner", "Country", "TaxCategory"}
+	dataPlatformProductMasterTaxDatumPrimaryKeyColumns     = []string{"Product", "Country", "ProductTaxCategory"}
 	dataPlatformProductMasterTaxDatumGeneratedColumns      = []string{}
 )
 
@@ -127,8 +99,6 @@ type (
 	// DataPlatformProductMasterTaxDatumSlice is an alias for a slice of pointers to DataPlatformProductMasterTaxDatum.
 	// This should almost always be used instead of []DataPlatformProductMasterTaxDatum.
 	DataPlatformProductMasterTaxDatumSlice []*DataPlatformProductMasterTaxDatum
-	// DataPlatformProductMasterTaxDatumHook is the signature for custom DataPlatformProductMasterTaxDatum hook methods
-	DataPlatformProductMasterTaxDatumHook func(context.Context, boil.ContextExecutor, *DataPlatformProductMasterTaxDatum) error
 
 	dataPlatformProductMasterTaxDatumQuery struct {
 		*queries.Query
@@ -156,179 +126,6 @@ var (
 	_ = qmhelper.Where
 )
 
-var dataPlatformProductMasterTaxDatumAfterSelectHooks []DataPlatformProductMasterTaxDatumHook
-
-var dataPlatformProductMasterTaxDatumBeforeInsertHooks []DataPlatformProductMasterTaxDatumHook
-var dataPlatformProductMasterTaxDatumAfterInsertHooks []DataPlatformProductMasterTaxDatumHook
-
-var dataPlatformProductMasterTaxDatumBeforeUpdateHooks []DataPlatformProductMasterTaxDatumHook
-var dataPlatformProductMasterTaxDatumAfterUpdateHooks []DataPlatformProductMasterTaxDatumHook
-
-var dataPlatformProductMasterTaxDatumBeforeDeleteHooks []DataPlatformProductMasterTaxDatumHook
-var dataPlatformProductMasterTaxDatumAfterDeleteHooks []DataPlatformProductMasterTaxDatumHook
-
-var dataPlatformProductMasterTaxDatumBeforeUpsertHooks []DataPlatformProductMasterTaxDatumHook
-var dataPlatformProductMasterTaxDatumAfterUpsertHooks []DataPlatformProductMasterTaxDatumHook
-
-// doAfterSelectHooks executes all "after Select" hooks.
-func (o *DataPlatformProductMasterTaxDatum) doAfterSelectHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductMasterTaxDatumAfterSelectHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeInsertHooks executes all "before insert" hooks.
-func (o *DataPlatformProductMasterTaxDatum) doBeforeInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductMasterTaxDatumBeforeInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterInsertHooks executes all "after Insert" hooks.
-func (o *DataPlatformProductMasterTaxDatum) doAfterInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductMasterTaxDatumAfterInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpdateHooks executes all "before Update" hooks.
-func (o *DataPlatformProductMasterTaxDatum) doBeforeUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductMasterTaxDatumBeforeUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpdateHooks executes all "after Update" hooks.
-func (o *DataPlatformProductMasterTaxDatum) doAfterUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductMasterTaxDatumAfterUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeDeleteHooks executes all "before Delete" hooks.
-func (o *DataPlatformProductMasterTaxDatum) doBeforeDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductMasterTaxDatumBeforeDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterDeleteHooks executes all "after Delete" hooks.
-func (o *DataPlatformProductMasterTaxDatum) doAfterDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductMasterTaxDatumAfterDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpsertHooks executes all "before Upsert" hooks.
-func (o *DataPlatformProductMasterTaxDatum) doBeforeUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductMasterTaxDatumBeforeUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpsertHooks executes all "after Upsert" hooks.
-func (o *DataPlatformProductMasterTaxDatum) doAfterUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductMasterTaxDatumAfterUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// AddDataPlatformProductMasterTaxDatumHook registers your hook function for all future operations.
-func AddDataPlatformProductMasterTaxDatumHook(hookPoint boil.HookPoint, dataPlatformProductMasterTaxDatumHook DataPlatformProductMasterTaxDatumHook) {
-	switch hookPoint {
-	case boil.AfterSelectHook:
-		dataPlatformProductMasterTaxDatumAfterSelectHooks = append(dataPlatformProductMasterTaxDatumAfterSelectHooks, dataPlatformProductMasterTaxDatumHook)
-	case boil.BeforeInsertHook:
-		dataPlatformProductMasterTaxDatumBeforeInsertHooks = append(dataPlatformProductMasterTaxDatumBeforeInsertHooks, dataPlatformProductMasterTaxDatumHook)
-	case boil.AfterInsertHook:
-		dataPlatformProductMasterTaxDatumAfterInsertHooks = append(dataPlatformProductMasterTaxDatumAfterInsertHooks, dataPlatformProductMasterTaxDatumHook)
-	case boil.BeforeUpdateHook:
-		dataPlatformProductMasterTaxDatumBeforeUpdateHooks = append(dataPlatformProductMasterTaxDatumBeforeUpdateHooks, dataPlatformProductMasterTaxDatumHook)
-	case boil.AfterUpdateHook:
-		dataPlatformProductMasterTaxDatumAfterUpdateHooks = append(dataPlatformProductMasterTaxDatumAfterUpdateHooks, dataPlatformProductMasterTaxDatumHook)
-	case boil.BeforeDeleteHook:
-		dataPlatformProductMasterTaxDatumBeforeDeleteHooks = append(dataPlatformProductMasterTaxDatumBeforeDeleteHooks, dataPlatformProductMasterTaxDatumHook)
-	case boil.AfterDeleteHook:
-		dataPlatformProductMasterTaxDatumAfterDeleteHooks = append(dataPlatformProductMasterTaxDatumAfterDeleteHooks, dataPlatformProductMasterTaxDatumHook)
-	case boil.BeforeUpsertHook:
-		dataPlatformProductMasterTaxDatumBeforeUpsertHooks = append(dataPlatformProductMasterTaxDatumBeforeUpsertHooks, dataPlatformProductMasterTaxDatumHook)
-	case boil.AfterUpsertHook:
-		dataPlatformProductMasterTaxDatumAfterUpsertHooks = append(dataPlatformProductMasterTaxDatumAfterUpsertHooks, dataPlatformProductMasterTaxDatumHook)
-	}
-}
-
 // One returns a single dataPlatformProductMasterTaxDatum record from the query.
 func (q dataPlatformProductMasterTaxDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformProductMasterTaxDatum, error) {
 	o := &DataPlatformProductMasterTaxDatum{}
@@ -343,10 +140,6 @@ func (q dataPlatformProductMasterTaxDatumQuery) One(ctx context.Context, exec bo
 		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_product_master_tax_data")
 	}
 
-	if err := o.doAfterSelectHooks(ctx, exec); err != nil {
-		return o, err
-	}
-
 	return o, nil
 }
 
@@ -357,14 +150,6 @@ func (q dataPlatformProductMasterTaxDatumQuery) All(ctx context.Context, exec bo
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
 		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformProductMasterTaxDatum slice")
-	}
-
-	if len(dataPlatformProductMasterTaxDatumAfterSelectHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterSelectHooks(ctx, exec); err != nil {
-				return o, err
-			}
-		}
 	}
 
 	return o, nil
@@ -401,362 +186,6 @@ func (q dataPlatformProductMasterTaxDatumQuery) Exists(ctx context.Context, exec
 	return count > 0, nil
 }
 
-// CountryDataPlatformCountryCountryDatum pointed to by the foreign key.
-func (o *DataPlatformProductMasterTaxDatum) CountryDataPlatformCountryCountryDatum(mods ...qm.QueryMod) dataPlatformCountryCountryDatumQuery {
-	queryMods := []qm.QueryMod{
-		qm.Where("`Country` = ?", o.Country),
-	}
-
-	queryMods = append(queryMods, mods...)
-
-	return DataPlatformCountryCountryData(queryMods...)
-}
-
-// BusinessPartnerDataPlatformProductMasterBusinessPartnerDatum pointed to by the foreign key.
-func (o *DataPlatformProductMasterTaxDatum) BusinessPartnerDataPlatformProductMasterBusinessPartnerDatum(mods ...qm.QueryMod) dataPlatformProductMasterBusinessPartnerDatumQuery {
-	queryMods := []qm.QueryMod{
-		qm.Where("`BusinessPartner` = ?", o.BusinessPartner),
-	}
-
-	queryMods = append(queryMods, mods...)
-
-	return DataPlatformProductMasterBusinessPartnerData(queryMods...)
-}
-
-// LoadCountryDataPlatformCountryCountryDatum allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformProductMasterTaxDatumL) LoadCountryDataPlatformCountryCountryDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterTaxDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformProductMasterTaxDatum
-	var object *DataPlatformProductMasterTaxDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformProductMasterTaxDatum.(*DataPlatformProductMasterTaxDatum)
-		if !ok {
-			object = new(DataPlatformProductMasterTaxDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterTaxDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterTaxDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformProductMasterTaxDatum.(*[]*DataPlatformProductMasterTaxDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterTaxDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterTaxDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformProductMasterTaxDatumR{}
-		}
-		args = append(args, object.Country)
-
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformProductMasterTaxDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.Country {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.Country)
-
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_country_country_data`),
-		qm.WhereIn(`data_platform_country_country_data.Country in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load DataPlatformCountryCountryDatum")
-	}
-
-	var resultSlice []*DataPlatformCountryCountryDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformCountryCountryDatum")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results of eager load for data_platform_country_country_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_country_country_data")
-	}
-
-	if len(dataPlatformCountryCountryDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
-	if len(resultSlice) == 0 {
-		return nil
-	}
-
-	if singular {
-		foreign := resultSlice[0]
-		object.R.CountryDataPlatformCountryCountryDatum = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformCountryCountryDatumR{}
-		}
-		foreign.R.CountryDataPlatformProductMasterTaxData = append(foreign.R.CountryDataPlatformProductMasterTaxData, object)
-		return nil
-	}
-
-	for _, local := range slice {
-		for _, foreign := range resultSlice {
-			if local.Country == foreign.Country {
-				local.R.CountryDataPlatformCountryCountryDatum = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformCountryCountryDatumR{}
-				}
-				foreign.R.CountryDataPlatformProductMasterTaxData = append(foreign.R.CountryDataPlatformProductMasterTaxData, local)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// LoadBusinessPartnerDataPlatformProductMasterBusinessPartnerDatum allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformProductMasterTaxDatumL) LoadBusinessPartnerDataPlatformProductMasterBusinessPartnerDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterTaxDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformProductMasterTaxDatum
-	var object *DataPlatformProductMasterTaxDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformProductMasterTaxDatum.(*DataPlatformProductMasterTaxDatum)
-		if !ok {
-			object = new(DataPlatformProductMasterTaxDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterTaxDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterTaxDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformProductMasterTaxDatum.(*[]*DataPlatformProductMasterTaxDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterTaxDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterTaxDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformProductMasterTaxDatumR{}
-		}
-		args = append(args, object.BusinessPartner)
-
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformProductMasterTaxDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.BusinessPartner {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.BusinessPartner)
-
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_product_master_business_partner_data`),
-		qm.WhereIn(`data_platform_product_master_business_partner_data.BusinessPartner in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load DataPlatformProductMasterBusinessPartnerDatum")
-	}
-
-	var resultSlice []*DataPlatformProductMasterBusinessPartnerDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformProductMasterBusinessPartnerDatum")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results of eager load for data_platform_product_master_business_partner_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_business_partner_data")
-	}
-
-	if len(dataPlatformProductMasterBusinessPartnerDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
-	if len(resultSlice) == 0 {
-		return nil
-	}
-
-	if singular {
-		foreign := resultSlice[0]
-		object.R.BusinessPartnerDataPlatformProductMasterBusinessPartnerDatum = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformProductMasterBusinessPartnerDatumR{}
-		}
-		foreign.R.BusinessPartnerDataPlatformProductMasterTaxData = append(foreign.R.BusinessPartnerDataPlatformProductMasterTaxData, object)
-		return nil
-	}
-
-	for _, local := range slice {
-		for _, foreign := range resultSlice {
-			if local.BusinessPartner == foreign.BusinessPartner {
-				local.R.BusinessPartnerDataPlatformProductMasterBusinessPartnerDatum = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformProductMasterBusinessPartnerDatumR{}
-				}
-				foreign.R.BusinessPartnerDataPlatformProductMasterTaxData = append(foreign.R.BusinessPartnerDataPlatformProductMasterTaxData, local)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// SetCountryDataPlatformCountryCountryDatum of the dataPlatformProductMasterTaxDatum to the related item.
-// Sets o.R.CountryDataPlatformCountryCountryDatum to related.
-// Adds o to related.R.CountryDataPlatformProductMasterTaxData.
-func (o *DataPlatformProductMasterTaxDatum) SetCountryDataPlatformCountryCountryDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformCountryCountryDatum) error {
-	var err error
-	if insert {
-		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
-			return errors.Wrap(err, "failed to insert into foreign table")
-		}
-	}
-
-	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_product_master_tax_data` SET %s WHERE %s",
-		strmangle.SetParamNames("`", "`", 0, []string{"Country"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterTaxDatumPrimaryKeyColumns),
-	)
-	values := []interface{}{related.Country, o.Product, o.BusinessPartner, o.Country, o.TaxCategory}
-
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, updateQuery)
-		fmt.Fprintln(writer, values)
-	}
-	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-		return errors.Wrap(err, "failed to update local table")
-	}
-
-	o.Country = related.Country
-	if o.R == nil {
-		o.R = &dataPlatformProductMasterTaxDatumR{
-			CountryDataPlatformCountryCountryDatum: related,
-		}
-	} else {
-		o.R.CountryDataPlatformCountryCountryDatum = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformCountryCountryDatumR{
-			CountryDataPlatformProductMasterTaxData: DataPlatformProductMasterTaxDatumSlice{o},
-		}
-	} else {
-		related.R.CountryDataPlatformProductMasterTaxData = append(related.R.CountryDataPlatformProductMasterTaxData, o)
-	}
-
-	return nil
-}
-
-// SetBusinessPartnerDataPlatformProductMasterBusinessPartnerDatum of the dataPlatformProductMasterTaxDatum to the related item.
-// Sets o.R.BusinessPartnerDataPlatformProductMasterBusinessPartnerDatum to related.
-// Adds o to related.R.BusinessPartnerDataPlatformProductMasterTaxData.
-func (o *DataPlatformProductMasterTaxDatum) SetBusinessPartnerDataPlatformProductMasterBusinessPartnerDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformProductMasterBusinessPartnerDatum) error {
-	var err error
-	if insert {
-		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
-			return errors.Wrap(err, "failed to insert into foreign table")
-		}
-	}
-
-	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_product_master_tax_data` SET %s WHERE %s",
-		strmangle.SetParamNames("`", "`", 0, []string{"BusinessPartner"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterTaxDatumPrimaryKeyColumns),
-	)
-	values := []interface{}{related.BusinessPartner, o.Product, o.BusinessPartner, o.Country, o.TaxCategory}
-
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, updateQuery)
-		fmt.Fprintln(writer, values)
-	}
-	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-		return errors.Wrap(err, "failed to update local table")
-	}
-
-	o.BusinessPartner = related.BusinessPartner
-	if o.R == nil {
-		o.R = &dataPlatformProductMasterTaxDatumR{
-			BusinessPartnerDataPlatformProductMasterBusinessPartnerDatum: related,
-		}
-	} else {
-		o.R.BusinessPartnerDataPlatformProductMasterBusinessPartnerDatum = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformProductMasterBusinessPartnerDatumR{
-			BusinessPartnerDataPlatformProductMasterTaxData: DataPlatformProductMasterTaxDatumSlice{o},
-		}
-	} else {
-		related.R.BusinessPartnerDataPlatformProductMasterTaxData = append(related.R.BusinessPartnerDataPlatformProductMasterTaxData, o)
-	}
-
-	return nil
-}
-
 // DataPlatformProductMasterTaxData retrieves all the records using an executor.
 func DataPlatformProductMasterTaxData(mods ...qm.QueryMod) dataPlatformProductMasterTaxDatumQuery {
 	mods = append(mods, qm.From("`data_platform_product_master_tax_data`"))
@@ -770,7 +199,7 @@ func DataPlatformProductMasterTaxData(mods ...qm.QueryMod) dataPlatformProductMa
 
 // FindDataPlatformProductMasterTaxDatum retrieves a single record by ID with an executor.
 // If selectCols is empty Find will return all columns.
-func FindDataPlatformProductMasterTaxDatum(ctx context.Context, exec boil.ContextExecutor, product string, businessPartner int, country string, taxCategory string, selectCols ...string) (*DataPlatformProductMasterTaxDatum, error) {
+func FindDataPlatformProductMasterTaxDatum(ctx context.Context, exec boil.ContextExecutor, product string, country string, productTaxCategory string, selectCols ...string) (*DataPlatformProductMasterTaxDatum, error) {
 	dataPlatformProductMasterTaxDatumObj := &DataPlatformProductMasterTaxDatum{}
 
 	sel := "*"
@@ -778,10 +207,10 @@ func FindDataPlatformProductMasterTaxDatum(ctx context.Context, exec boil.Contex
 		sel = strings.Join(strmangle.IdentQuoteSlice(dialect.LQ, dialect.RQ, selectCols), ",")
 	}
 	query := fmt.Sprintf(
-		"select %s from `data_platform_product_master_tax_data` where `Product`=? AND `BusinessPartner`=? AND `Country`=? AND `TaxCategory`=?", sel,
+		"select %s from `data_platform_product_master_tax_data` where `Product`=? AND `Country`=? AND `ProductTaxCategory`=?", sel,
 	)
 
-	q := queries.Raw(query, product, businessPartner, country, taxCategory)
+	q := queries.Raw(query, product, country, productTaxCategory)
 
 	err := q.Bind(ctx, exec, dataPlatformProductMasterTaxDatumObj)
 	if err != nil {
@@ -789,10 +218,6 @@ func FindDataPlatformProductMasterTaxDatum(ctx context.Context, exec boil.Contex
 			return nil, sql.ErrNoRows
 		}
 		return nil, errors.Wrap(err, "models: unable to select from data_platform_product_master_tax_data")
-	}
-
-	if err = dataPlatformProductMasterTaxDatumObj.doAfterSelectHooks(ctx, exec); err != nil {
-		return dataPlatformProductMasterTaxDatumObj, err
 	}
 
 	return dataPlatformProductMasterTaxDatumObj, nil
@@ -806,10 +231,6 @@ func (o *DataPlatformProductMasterTaxDatum) Insert(ctx context.Context, exec boi
 	}
 
 	var err error
-
-	if err := o.doBeforeInsertHooks(ctx, exec); err != nil {
-		return err
-	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformProductMasterTaxDatumColumnsWithDefault, o)
 
@@ -871,9 +292,8 @@ func (o *DataPlatformProductMasterTaxDatum) Insert(ctx context.Context, exec boi
 
 	identifierCols = []interface{}{
 		o.Product,
-		o.BusinessPartner,
 		o.Country,
-		o.TaxCategory,
+		o.ProductTaxCategory,
 	}
 
 	if boil.IsDebug(ctx) {
@@ -893,17 +313,14 @@ CacheNoHooks:
 		dataPlatformProductMasterTaxDatumInsertCacheMut.Unlock()
 	}
 
-	return o.doAfterInsertHooks(ctx, exec)
+	return nil
 }
 
 // Update uses an executor to update the DataPlatformProductMasterTaxDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformProductMasterTaxDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) (int64, error) {
+func (o *DataPlatformProductMasterTaxDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
-	if err = o.doBeforeUpdateHooks(ctx, exec); err != nil {
-		return 0, err
-	}
 	key := makeCacheKey(columns, nil)
 	dataPlatformProductMasterTaxDatumUpdateCacheMut.RLock()
 	cache, cached := dataPlatformProductMasterTaxDatumUpdateCache[key]
@@ -919,7 +336,7 @@ func (o *DataPlatformProductMasterTaxDatum) Update(ctx context.Context, exec boi
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return 0, errors.New("models: unable to update data_platform_product_master_tax_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_product_master_tax_data, could not build whitelist")
 		}
 
 		cache.query = fmt.Sprintf("UPDATE `data_platform_product_master_tax_data` SET %s WHERE %s",
@@ -928,7 +345,7 @@ func (o *DataPlatformProductMasterTaxDatum) Update(ctx context.Context, exec boi
 		)
 		cache.valueMapping, err = queries.BindMapping(dataPlatformProductMasterTaxDatumType, dataPlatformProductMasterTaxDatumMapping, append(wl, dataPlatformProductMasterTaxDatumPrimaryKeyColumns...))
 		if err != nil {
-			return 0, err
+			return err
 		}
 	}
 
@@ -939,15 +356,9 @@ func (o *DataPlatformProductMasterTaxDatum) Update(ctx context.Context, exec boi
 		fmt.Fprintln(writer, cache.query)
 		fmt.Fprintln(writer, values)
 	}
-	var result sql.Result
-	result, err = exec.ExecContext(ctx, cache.query, values...)
+	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update data_platform_product_master_tax_data row")
-	}
-
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by update for data_platform_product_master_tax_data")
+		return errors.Wrap(err, "models: unable to update data_platform_product_master_tax_data row")
 	}
 
 	if !cached {
@@ -956,35 +367,30 @@ func (o *DataPlatformProductMasterTaxDatum) Update(ctx context.Context, exec boi
 		dataPlatformProductMasterTaxDatumUpdateCacheMut.Unlock()
 	}
 
-	return rowsAff, o.doAfterUpdateHooks(ctx, exec)
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformProductMasterTaxDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (q dataPlatformProductMasterTaxDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all for data_platform_product_master_tax_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_product_master_tax_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected for data_platform_product_master_tax_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformProductMasterTaxDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (o DataPlatformProductMasterTaxDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
-		return 0, nil
+		return nil
 	}
 
 	if len(cols) == 0 {
-		return 0, errors.New("models: update all requires at least one column argument")
+		return errors.New("models: update all requires at least one column argument")
 	}
 
 	colNames := make([]string, len(cols))
@@ -1012,16 +418,12 @@ func (o DataPlatformProductMasterTaxDatumSlice) UpdateAll(ctx context.Context, e
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all in dataPlatformProductMasterTaxDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformProductMasterTaxDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected all in update all dataPlatformProductMasterTaxDatum")
-	}
-	return rowsAff, nil
+	return nil
 }
 
 var mySQLDataPlatformProductMasterTaxDatumUniqueColumns = []string{}
@@ -1031,10 +433,6 @@ var mySQLDataPlatformProductMasterTaxDatumUniqueColumns = []string{}
 func (o *DataPlatformProductMasterTaxDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
 		return errors.New("models: no data_platform_product_master_tax_data provided for upsert")
-	}
-
-	if err := o.doBeforeUpsertHooks(ctx, exec); err != nil {
-		return err
 	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformProductMasterTaxDatumColumnsWithDefault, o)
@@ -1157,78 +555,52 @@ CacheNoHooks:
 		dataPlatformProductMasterTaxDatumUpsertCacheMut.Unlock()
 	}
 
-	return o.doAfterUpsertHooks(ctx, exec)
+	return nil
 }
 
 // Delete deletes a single DataPlatformProductMasterTaxDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformProductMasterTaxDatum) Delete(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o *DataPlatformProductMasterTaxDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return 0, errors.New("models: no DataPlatformProductMasterTaxDatum provided for delete")
-	}
-
-	if err := o.doBeforeDeleteHooks(ctx, exec); err != nil {
-		return 0, err
+		return errors.New("models: no DataPlatformProductMasterTaxDatum provided for delete")
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformProductMasterTaxDatumPrimaryKeyMapping)
-	sql := "DELETE FROM `data_platform_product_master_tax_data` WHERE `Product`=? AND `BusinessPartner`=? AND `Country`=? AND `TaxCategory`=?"
+	sql := "DELETE FROM `data_platform_product_master_tax_data` WHERE `Product`=? AND `Country`=? AND `ProductTaxCategory`=?"
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete from data_platform_product_master_tax_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_product_master_tax_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by delete for data_platform_product_master_tax_data")
-	}
-
-	if err := o.doAfterDeleteHooks(ctx, exec); err != nil {
-		return 0, err
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformProductMasterTaxDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (q dataPlatformProductMasterTaxDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return 0, errors.New("models: no dataPlatformProductMasterTaxDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformProductMasterTaxDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from data_platform_product_master_tax_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_product_master_tax_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_product_master_tax_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformProductMasterTaxDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o DataPlatformProductMasterTaxDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
-		return 0, nil
-	}
-
-	if len(dataPlatformProductMasterTaxDatumBeforeDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doBeforeDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
+		return nil
 	}
 
 	var args []interface{}
@@ -1245,31 +617,18 @@ func (o DataPlatformProductMasterTaxDatumSlice) DeleteAll(ctx context.Context, e
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from dataPlatformProductMasterTaxDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformProductMasterTaxDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_product_master_tax_data")
-	}
-
-	if len(dataPlatformProductMasterTaxDatumAfterDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // Reload refetches the object from the database
 // using the primary keys with an executor.
 func (o *DataPlatformProductMasterTaxDatum) Reload(ctx context.Context, exec boil.ContextExecutor) error {
-	ret, err := FindDataPlatformProductMasterTaxDatum(ctx, exec, o.Product, o.BusinessPartner, o.Country, o.TaxCategory)
+	ret, err := FindDataPlatformProductMasterTaxDatum(ctx, exec, o.Product, o.Country, o.ProductTaxCategory)
 	if err != nil {
 		return err
 	}
@@ -1308,16 +667,16 @@ func (o *DataPlatformProductMasterTaxDatumSlice) ReloadAll(ctx context.Context, 
 }
 
 // DataPlatformProductMasterTaxDatumExists checks if the DataPlatformProductMasterTaxDatum row exists.
-func DataPlatformProductMasterTaxDatumExists(ctx context.Context, exec boil.ContextExecutor, product string, businessPartner int, country string, taxCategory string) (bool, error) {
+func DataPlatformProductMasterTaxDatumExists(ctx context.Context, exec boil.ContextExecutor, product string, country string, productTaxCategory string) (bool, error) {
 	var exists bool
-	sql := "select exists(select 1 from `data_platform_product_master_tax_data` where `Product`=? AND `BusinessPartner`=? AND `Country`=? AND `TaxCategory`=? limit 1)"
+	sql := "select exists(select 1 from `data_platform_product_master_tax_data` where `Product`=? AND `Country`=? AND `ProductTaxCategory`=? limit 1)"
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
 		fmt.Fprintln(writer, sql)
-		fmt.Fprintln(writer, product, businessPartner, country, taxCategory)
+		fmt.Fprintln(writer, product, country, productTaxCategory)
 	}
-	row := exec.QueryRowContext(ctx, sql, product, businessPartner, country, taxCategory)
+	row := exec.QueryRowContext(ctx, sql, product, country, productTaxCategory)
 
 	err := row.Scan(&exists)
 	if err != nil {
@@ -1329,5 +688,5 @@ func DataPlatformProductMasterTaxDatumExists(ctx context.Context, exec boil.Cont
 
 // Exists checks if the DataPlatformProductMasterTaxDatum row exists.
 func (o *DataPlatformProductMasterTaxDatum) Exists(ctx context.Context, exec boil.ContextExecutor) (bool, error) {
-	return DataPlatformProductMasterTaxDatumExists(ctx, exec, o.Product, o.BusinessPartner, o.Country, o.TaxCategory)
+	return DataPlatformProductMasterTaxDatumExists(ctx, exec, o.Product, o.Country, o.ProductTaxCategory)
 }

@@ -124,8 +124,6 @@ type (
 	// DataPlatformGeneralLedgerAccountTextDatumSlice is an alias for a slice of pointers to DataPlatformGeneralLedgerAccountTextDatum.
 	// This should almost always be used instead of []DataPlatformGeneralLedgerAccountTextDatum.
 	DataPlatformGeneralLedgerAccountTextDatumSlice []*DataPlatformGeneralLedgerAccountTextDatum
-	// DataPlatformGeneralLedgerAccountTextDatumHook is the signature for custom DataPlatformGeneralLedgerAccountTextDatum hook methods
-	DataPlatformGeneralLedgerAccountTextDatumHook func(context.Context, boil.ContextExecutor, *DataPlatformGeneralLedgerAccountTextDatum) error
 
 	dataPlatformGeneralLedgerAccountTextDatumQuery struct {
 		*queries.Query
@@ -153,179 +151,6 @@ var (
 	_ = qmhelper.Where
 )
 
-var dataPlatformGeneralLedgerAccountTextDatumAfterSelectHooks []DataPlatformGeneralLedgerAccountTextDatumHook
-
-var dataPlatformGeneralLedgerAccountTextDatumBeforeInsertHooks []DataPlatformGeneralLedgerAccountTextDatumHook
-var dataPlatformGeneralLedgerAccountTextDatumAfterInsertHooks []DataPlatformGeneralLedgerAccountTextDatumHook
-
-var dataPlatformGeneralLedgerAccountTextDatumBeforeUpdateHooks []DataPlatformGeneralLedgerAccountTextDatumHook
-var dataPlatformGeneralLedgerAccountTextDatumAfterUpdateHooks []DataPlatformGeneralLedgerAccountTextDatumHook
-
-var dataPlatformGeneralLedgerAccountTextDatumBeforeDeleteHooks []DataPlatformGeneralLedgerAccountTextDatumHook
-var dataPlatformGeneralLedgerAccountTextDatumAfterDeleteHooks []DataPlatformGeneralLedgerAccountTextDatumHook
-
-var dataPlatformGeneralLedgerAccountTextDatumBeforeUpsertHooks []DataPlatformGeneralLedgerAccountTextDatumHook
-var dataPlatformGeneralLedgerAccountTextDatumAfterUpsertHooks []DataPlatformGeneralLedgerAccountTextDatumHook
-
-// doAfterSelectHooks executes all "after Select" hooks.
-func (o *DataPlatformGeneralLedgerAccountTextDatum) doAfterSelectHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformGeneralLedgerAccountTextDatumAfterSelectHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeInsertHooks executes all "before insert" hooks.
-func (o *DataPlatformGeneralLedgerAccountTextDatum) doBeforeInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformGeneralLedgerAccountTextDatumBeforeInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterInsertHooks executes all "after Insert" hooks.
-func (o *DataPlatformGeneralLedgerAccountTextDatum) doAfterInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformGeneralLedgerAccountTextDatumAfterInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpdateHooks executes all "before Update" hooks.
-func (o *DataPlatformGeneralLedgerAccountTextDatum) doBeforeUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformGeneralLedgerAccountTextDatumBeforeUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpdateHooks executes all "after Update" hooks.
-func (o *DataPlatformGeneralLedgerAccountTextDatum) doAfterUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformGeneralLedgerAccountTextDatumAfterUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeDeleteHooks executes all "before Delete" hooks.
-func (o *DataPlatformGeneralLedgerAccountTextDatum) doBeforeDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformGeneralLedgerAccountTextDatumBeforeDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterDeleteHooks executes all "after Delete" hooks.
-func (o *DataPlatformGeneralLedgerAccountTextDatum) doAfterDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformGeneralLedgerAccountTextDatumAfterDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpsertHooks executes all "before Upsert" hooks.
-func (o *DataPlatformGeneralLedgerAccountTextDatum) doBeforeUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformGeneralLedgerAccountTextDatumBeforeUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpsertHooks executes all "after Upsert" hooks.
-func (o *DataPlatformGeneralLedgerAccountTextDatum) doAfterUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformGeneralLedgerAccountTextDatumAfterUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// AddDataPlatformGeneralLedgerAccountTextDatumHook registers your hook function for all future operations.
-func AddDataPlatformGeneralLedgerAccountTextDatumHook(hookPoint boil.HookPoint, dataPlatformGeneralLedgerAccountTextDatumHook DataPlatformGeneralLedgerAccountTextDatumHook) {
-	switch hookPoint {
-	case boil.AfterSelectHook:
-		dataPlatformGeneralLedgerAccountTextDatumAfterSelectHooks = append(dataPlatformGeneralLedgerAccountTextDatumAfterSelectHooks, dataPlatformGeneralLedgerAccountTextDatumHook)
-	case boil.BeforeInsertHook:
-		dataPlatformGeneralLedgerAccountTextDatumBeforeInsertHooks = append(dataPlatformGeneralLedgerAccountTextDatumBeforeInsertHooks, dataPlatformGeneralLedgerAccountTextDatumHook)
-	case boil.AfterInsertHook:
-		dataPlatformGeneralLedgerAccountTextDatumAfterInsertHooks = append(dataPlatformGeneralLedgerAccountTextDatumAfterInsertHooks, dataPlatformGeneralLedgerAccountTextDatumHook)
-	case boil.BeforeUpdateHook:
-		dataPlatformGeneralLedgerAccountTextDatumBeforeUpdateHooks = append(dataPlatformGeneralLedgerAccountTextDatumBeforeUpdateHooks, dataPlatformGeneralLedgerAccountTextDatumHook)
-	case boil.AfterUpdateHook:
-		dataPlatformGeneralLedgerAccountTextDatumAfterUpdateHooks = append(dataPlatformGeneralLedgerAccountTextDatumAfterUpdateHooks, dataPlatformGeneralLedgerAccountTextDatumHook)
-	case boil.BeforeDeleteHook:
-		dataPlatformGeneralLedgerAccountTextDatumBeforeDeleteHooks = append(dataPlatformGeneralLedgerAccountTextDatumBeforeDeleteHooks, dataPlatformGeneralLedgerAccountTextDatumHook)
-	case boil.AfterDeleteHook:
-		dataPlatformGeneralLedgerAccountTextDatumAfterDeleteHooks = append(dataPlatformGeneralLedgerAccountTextDatumAfterDeleteHooks, dataPlatformGeneralLedgerAccountTextDatumHook)
-	case boil.BeforeUpsertHook:
-		dataPlatformGeneralLedgerAccountTextDatumBeforeUpsertHooks = append(dataPlatformGeneralLedgerAccountTextDatumBeforeUpsertHooks, dataPlatformGeneralLedgerAccountTextDatumHook)
-	case boil.AfterUpsertHook:
-		dataPlatformGeneralLedgerAccountTextDatumAfterUpsertHooks = append(dataPlatformGeneralLedgerAccountTextDatumAfterUpsertHooks, dataPlatformGeneralLedgerAccountTextDatumHook)
-	}
-}
-
 // One returns a single dataPlatformGeneralLedgerAccountTextDatum record from the query.
 func (q dataPlatformGeneralLedgerAccountTextDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformGeneralLedgerAccountTextDatum, error) {
 	o := &DataPlatformGeneralLedgerAccountTextDatum{}
@@ -340,10 +165,6 @@ func (q dataPlatformGeneralLedgerAccountTextDatumQuery) One(ctx context.Context,
 		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_general_ledger_account_text_data")
 	}
 
-	if err := o.doAfterSelectHooks(ctx, exec); err != nil {
-		return o, err
-	}
-
 	return o, nil
 }
 
@@ -354,14 +175,6 @@ func (q dataPlatformGeneralLedgerAccountTextDatumQuery) All(ctx context.Context,
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
 		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformGeneralLedgerAccountTextDatum slice")
-	}
-
-	if len(dataPlatformGeneralLedgerAccountTextDatumAfterSelectHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterSelectHooks(ctx, exec); err != nil {
-				return o, err
-			}
-		}
 	}
 
 	return o, nil
@@ -491,14 +304,6 @@ func (dataPlatformGeneralLedgerAccountTextDatumL) LoadChartOfAccount(ctx context
 		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_general_ledger_account_chart_of_accounts_data")
 	}
 
-	if len(dataPlatformGeneralLedgerAccountChartOfAccountsDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
 	if len(resultSlice) == 0 {
 		return nil
 	}
@@ -506,10 +311,6 @@ func (dataPlatformGeneralLedgerAccountTextDatumL) LoadChartOfAccount(ctx context
 	if singular {
 		foreign := resultSlice[0]
 		object.R.ChartOfAccount = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformGeneralLedgerAccountChartOfAccountsDatumR{}
-		}
-		foreign.R.ChartOfAccountDataPlatformGeneralLedgerAccountTextData = append(foreign.R.ChartOfAccountDataPlatformGeneralLedgerAccountTextData, object)
 		return nil
 	}
 
@@ -517,10 +318,6 @@ func (dataPlatformGeneralLedgerAccountTextDatumL) LoadChartOfAccount(ctx context
 		for _, foreign := range resultSlice {
 			if local.ChartOfAccounts == foreign.ChartOfAccounts {
 				local.R.ChartOfAccount = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformGeneralLedgerAccountChartOfAccountsDatumR{}
-				}
-				foreign.R.ChartOfAccountDataPlatformGeneralLedgerAccountTextData = append(foreign.R.ChartOfAccountDataPlatformGeneralLedgerAccountTextData, local)
 				break
 			}
 		}
@@ -531,7 +328,6 @@ func (dataPlatformGeneralLedgerAccountTextDatumL) LoadChartOfAccount(ctx context
 
 // SetChartOfAccount of the dataPlatformGeneralLedgerAccountTextDatum to the related item.
 // Sets o.R.ChartOfAccount to related.
-// Adds o to related.R.ChartOfAccountDataPlatformGeneralLedgerAccountTextData.
 func (o *DataPlatformGeneralLedgerAccountTextDatum) SetChartOfAccount(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformGeneralLedgerAccountChartOfAccountsDatum) error {
 	var err error
 	if insert {
@@ -563,14 +359,6 @@ func (o *DataPlatformGeneralLedgerAccountTextDatum) SetChartOfAccount(ctx contex
 		}
 	} else {
 		o.R.ChartOfAccount = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformGeneralLedgerAccountChartOfAccountsDatumR{
-			ChartOfAccountDataPlatformGeneralLedgerAccountTextData: DataPlatformGeneralLedgerAccountTextDatumSlice{o},
-		}
-	} else {
-		related.R.ChartOfAccountDataPlatformGeneralLedgerAccountTextData = append(related.R.ChartOfAccountDataPlatformGeneralLedgerAccountTextData, o)
 	}
 
 	return nil
@@ -610,10 +398,6 @@ func FindDataPlatformGeneralLedgerAccountTextDatum(ctx context.Context, exec boi
 		return nil, errors.Wrap(err, "models: unable to select from data_platform_general_ledger_account_text_data")
 	}
 
-	if err = dataPlatformGeneralLedgerAccountTextDatumObj.doAfterSelectHooks(ctx, exec); err != nil {
-		return dataPlatformGeneralLedgerAccountTextDatumObj, err
-	}
-
 	return dataPlatformGeneralLedgerAccountTextDatumObj, nil
 }
 
@@ -625,10 +409,6 @@ func (o *DataPlatformGeneralLedgerAccountTextDatum) Insert(ctx context.Context, 
 	}
 
 	var err error
-
-	if err := o.doBeforeInsertHooks(ctx, exec); err != nil {
-		return err
-	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformGeneralLedgerAccountTextDatumColumnsWithDefault, o)
 
@@ -711,17 +491,14 @@ CacheNoHooks:
 		dataPlatformGeneralLedgerAccountTextDatumInsertCacheMut.Unlock()
 	}
 
-	return o.doAfterInsertHooks(ctx, exec)
+	return nil
 }
 
 // Update uses an executor to update the DataPlatformGeneralLedgerAccountTextDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformGeneralLedgerAccountTextDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) (int64, error) {
+func (o *DataPlatformGeneralLedgerAccountTextDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
-	if err = o.doBeforeUpdateHooks(ctx, exec); err != nil {
-		return 0, err
-	}
 	key := makeCacheKey(columns, nil)
 	dataPlatformGeneralLedgerAccountTextDatumUpdateCacheMut.RLock()
 	cache, cached := dataPlatformGeneralLedgerAccountTextDatumUpdateCache[key]
@@ -737,7 +514,7 @@ func (o *DataPlatformGeneralLedgerAccountTextDatum) Update(ctx context.Context, 
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return 0, errors.New("models: unable to update data_platform_general_ledger_account_text_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_general_ledger_account_text_data, could not build whitelist")
 		}
 
 		cache.query = fmt.Sprintf("UPDATE `data_platform_general_ledger_account_text_data` SET %s WHERE %s",
@@ -746,7 +523,7 @@ func (o *DataPlatformGeneralLedgerAccountTextDatum) Update(ctx context.Context, 
 		)
 		cache.valueMapping, err = queries.BindMapping(dataPlatformGeneralLedgerAccountTextDatumType, dataPlatformGeneralLedgerAccountTextDatumMapping, append(wl, dataPlatformGeneralLedgerAccountTextDatumPrimaryKeyColumns...))
 		if err != nil {
-			return 0, err
+			return err
 		}
 	}
 
@@ -757,15 +534,9 @@ func (o *DataPlatformGeneralLedgerAccountTextDatum) Update(ctx context.Context, 
 		fmt.Fprintln(writer, cache.query)
 		fmt.Fprintln(writer, values)
 	}
-	var result sql.Result
-	result, err = exec.ExecContext(ctx, cache.query, values...)
+	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update data_platform_general_ledger_account_text_data row")
-	}
-
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by update for data_platform_general_ledger_account_text_data")
+		return errors.Wrap(err, "models: unable to update data_platform_general_ledger_account_text_data row")
 	}
 
 	if !cached {
@@ -774,35 +545,30 @@ func (o *DataPlatformGeneralLedgerAccountTextDatum) Update(ctx context.Context, 
 		dataPlatformGeneralLedgerAccountTextDatumUpdateCacheMut.Unlock()
 	}
 
-	return rowsAff, o.doAfterUpdateHooks(ctx, exec)
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformGeneralLedgerAccountTextDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (q dataPlatformGeneralLedgerAccountTextDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all for data_platform_general_ledger_account_text_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_general_ledger_account_text_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected for data_platform_general_ledger_account_text_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformGeneralLedgerAccountTextDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (o DataPlatformGeneralLedgerAccountTextDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
-		return 0, nil
+		return nil
 	}
 
 	if len(cols) == 0 {
-		return 0, errors.New("models: update all requires at least one column argument")
+		return errors.New("models: update all requires at least one column argument")
 	}
 
 	colNames := make([]string, len(cols))
@@ -830,16 +596,12 @@ func (o DataPlatformGeneralLedgerAccountTextDatumSlice) UpdateAll(ctx context.Co
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all in dataPlatformGeneralLedgerAccountTextDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformGeneralLedgerAccountTextDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected all in update all dataPlatformGeneralLedgerAccountTextDatum")
-	}
-	return rowsAff, nil
+	return nil
 }
 
 var mySQLDataPlatformGeneralLedgerAccountTextDatumUniqueColumns = []string{}
@@ -849,10 +611,6 @@ var mySQLDataPlatformGeneralLedgerAccountTextDatumUniqueColumns = []string{}
 func (o *DataPlatformGeneralLedgerAccountTextDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
 		return errors.New("models: no data_platform_general_ledger_account_text_data provided for upsert")
-	}
-
-	if err := o.doBeforeUpsertHooks(ctx, exec); err != nil {
-		return err
 	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformGeneralLedgerAccountTextDatumColumnsWithDefault, o)
@@ -975,18 +733,14 @@ CacheNoHooks:
 		dataPlatformGeneralLedgerAccountTextDatumUpsertCacheMut.Unlock()
 	}
 
-	return o.doAfterUpsertHooks(ctx, exec)
+	return nil
 }
 
 // Delete deletes a single DataPlatformGeneralLedgerAccountTextDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformGeneralLedgerAccountTextDatum) Delete(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o *DataPlatformGeneralLedgerAccountTextDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return 0, errors.New("models: no DataPlatformGeneralLedgerAccountTextDatum provided for delete")
-	}
-
-	if err := o.doBeforeDeleteHooks(ctx, exec); err != nil {
-		return 0, err
+		return errors.New("models: no DataPlatformGeneralLedgerAccountTextDatum provided for delete")
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformGeneralLedgerAccountTextDatumPrimaryKeyMapping)
@@ -997,56 +751,34 @@ func (o *DataPlatformGeneralLedgerAccountTextDatum) Delete(ctx context.Context, 
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete from data_platform_general_ledger_account_text_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_general_ledger_account_text_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by delete for data_platform_general_ledger_account_text_data")
-	}
-
-	if err := o.doAfterDeleteHooks(ctx, exec); err != nil {
-		return 0, err
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformGeneralLedgerAccountTextDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (q dataPlatformGeneralLedgerAccountTextDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return 0, errors.New("models: no dataPlatformGeneralLedgerAccountTextDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformGeneralLedgerAccountTextDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from data_platform_general_ledger_account_text_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_general_ledger_account_text_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_general_ledger_account_text_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformGeneralLedgerAccountTextDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o DataPlatformGeneralLedgerAccountTextDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
-		return 0, nil
-	}
-
-	if len(dataPlatformGeneralLedgerAccountTextDatumBeforeDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doBeforeDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
+		return nil
 	}
 
 	var args []interface{}
@@ -1063,25 +795,12 @@ func (o DataPlatformGeneralLedgerAccountTextDatumSlice) DeleteAll(ctx context.Co
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from dataPlatformGeneralLedgerAccountTextDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformGeneralLedgerAccountTextDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_general_ledger_account_text_data")
-	}
-
-	if len(dataPlatformGeneralLedgerAccountTextDatumAfterDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // Reload refetches the object from the database

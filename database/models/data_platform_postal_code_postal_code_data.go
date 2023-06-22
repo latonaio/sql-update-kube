@@ -23,44 +23,51 @@ import (
 
 // DataPlatformPostalCodePostalCodeDatum is an object representing the database table.
 type DataPlatformPostalCodePostalCodeDatum struct {
-	PostalCode  string `boil:"PostalCode" json:"PostalCode" toml:"PostalCode" yaml:"PostalCode"`
-	LocalRegion string `boil:"LocalRegion" json:"LocalRegion" toml:"LocalRegion" yaml:"LocalRegion"`
-	Country     string `boil:"Country" json:"Country" toml:"Country" yaml:"Country"`
+	PostalCode   string `boil:"PostalCode" json:"PostalCode" toml:"PostalCode" yaml:"PostalCode"`
+	LocalRegion  string `boil:"LocalRegion" json:"LocalRegion" toml:"LocalRegion" yaml:"LocalRegion"`
+	Country      string `boil:"Country" json:"Country" toml:"Country" yaml:"Country"`
+	GlobalRegion string `boil:"GlobalRegion" json:"GlobalRegion" toml:"GlobalRegion" yaml:"GlobalRegion"`
 
 	R *dataPlatformPostalCodePostalCodeDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
 	L dataPlatformPostalCodePostalCodeDatumL  `boil:"-" json:"-" toml:"-" yaml:"-"`
 }
 
 var DataPlatformPostalCodePostalCodeDatumColumns = struct {
-	PostalCode  string
-	LocalRegion string
-	Country     string
+	PostalCode   string
+	LocalRegion  string
+	Country      string
+	GlobalRegion string
 }{
-	PostalCode:  "PostalCode",
-	LocalRegion: "LocalRegion",
-	Country:     "Country",
+	PostalCode:   "PostalCode",
+	LocalRegion:  "LocalRegion",
+	Country:      "Country",
+	GlobalRegion: "GlobalRegion",
 }
 
 var DataPlatformPostalCodePostalCodeDatumTableColumns = struct {
-	PostalCode  string
-	LocalRegion string
-	Country     string
+	PostalCode   string
+	LocalRegion  string
+	Country      string
+	GlobalRegion string
 }{
-	PostalCode:  "data_platform_postal_code_postal_code_data.PostalCode",
-	LocalRegion: "data_platform_postal_code_postal_code_data.LocalRegion",
-	Country:     "data_platform_postal_code_postal_code_data.Country",
+	PostalCode:   "data_platform_postal_code_postal_code_data.PostalCode",
+	LocalRegion:  "data_platform_postal_code_postal_code_data.LocalRegion",
+	Country:      "data_platform_postal_code_postal_code_data.Country",
+	GlobalRegion: "data_platform_postal_code_postal_code_data.GlobalRegion",
 }
 
 // Generated where
 
 var DataPlatformPostalCodePostalCodeDatumWhere = struct {
-	PostalCode  whereHelperstring
-	LocalRegion whereHelperstring
-	Country     whereHelperstring
+	PostalCode   whereHelperstring
+	LocalRegion  whereHelperstring
+	Country      whereHelperstring
+	GlobalRegion whereHelperstring
 }{
-	PostalCode:  whereHelperstring{field: "`data_platform_postal_code_postal_code_data`.`PostalCode`"},
-	LocalRegion: whereHelperstring{field: "`data_platform_postal_code_postal_code_data`.`LocalRegion`"},
-	Country:     whereHelperstring{field: "`data_platform_postal_code_postal_code_data`.`Country`"},
+	PostalCode:   whereHelperstring{field: "`data_platform_postal_code_postal_code_data`.`PostalCode`"},
+	LocalRegion:  whereHelperstring{field: "`data_platform_postal_code_postal_code_data`.`LocalRegion`"},
+	Country:      whereHelperstring{field: "`data_platform_postal_code_postal_code_data`.`Country`"},
+	GlobalRegion: whereHelperstring{field: "`data_platform_postal_code_postal_code_data`.`GlobalRegion`"},
 }
 
 // DataPlatformPostalCodePostalCodeDatumRels is where relationship names are stored.
@@ -80,8 +87,8 @@ func (*dataPlatformPostalCodePostalCodeDatumR) NewStruct() *dataPlatformPostalCo
 type dataPlatformPostalCodePostalCodeDatumL struct{}
 
 var (
-	dataPlatformPostalCodePostalCodeDatumAllColumns            = []string{"PostalCode", "LocalRegion", "Country"}
-	dataPlatformPostalCodePostalCodeDatumColumnsWithoutDefault = []string{"PostalCode", "LocalRegion", "Country"}
+	dataPlatformPostalCodePostalCodeDatumAllColumns            = []string{"PostalCode", "LocalRegion", "Country", "GlobalRegion"}
+	dataPlatformPostalCodePostalCodeDatumColumnsWithoutDefault = []string{"PostalCode", "LocalRegion", "Country", "GlobalRegion"}
 	dataPlatformPostalCodePostalCodeDatumColumnsWithDefault    = []string{}
 	dataPlatformPostalCodePostalCodeDatumPrimaryKeyColumns     = []string{"PostalCode", "LocalRegion", "Country"}
 	dataPlatformPostalCodePostalCodeDatumGeneratedColumns      = []string{}
@@ -91,8 +98,6 @@ type (
 	// DataPlatformPostalCodePostalCodeDatumSlice is an alias for a slice of pointers to DataPlatformPostalCodePostalCodeDatum.
 	// This should almost always be used instead of []DataPlatformPostalCodePostalCodeDatum.
 	DataPlatformPostalCodePostalCodeDatumSlice []*DataPlatformPostalCodePostalCodeDatum
-	// DataPlatformPostalCodePostalCodeDatumHook is the signature for custom DataPlatformPostalCodePostalCodeDatum hook methods
-	DataPlatformPostalCodePostalCodeDatumHook func(context.Context, boil.ContextExecutor, *DataPlatformPostalCodePostalCodeDatum) error
 
 	dataPlatformPostalCodePostalCodeDatumQuery struct {
 		*queries.Query
@@ -120,179 +125,6 @@ var (
 	_ = qmhelper.Where
 )
 
-var dataPlatformPostalCodePostalCodeDatumAfterSelectHooks []DataPlatformPostalCodePostalCodeDatumHook
-
-var dataPlatformPostalCodePostalCodeDatumBeforeInsertHooks []DataPlatformPostalCodePostalCodeDatumHook
-var dataPlatformPostalCodePostalCodeDatumAfterInsertHooks []DataPlatformPostalCodePostalCodeDatumHook
-
-var dataPlatformPostalCodePostalCodeDatumBeforeUpdateHooks []DataPlatformPostalCodePostalCodeDatumHook
-var dataPlatformPostalCodePostalCodeDatumAfterUpdateHooks []DataPlatformPostalCodePostalCodeDatumHook
-
-var dataPlatformPostalCodePostalCodeDatumBeforeDeleteHooks []DataPlatformPostalCodePostalCodeDatumHook
-var dataPlatformPostalCodePostalCodeDatumAfterDeleteHooks []DataPlatformPostalCodePostalCodeDatumHook
-
-var dataPlatformPostalCodePostalCodeDatumBeforeUpsertHooks []DataPlatformPostalCodePostalCodeDatumHook
-var dataPlatformPostalCodePostalCodeDatumAfterUpsertHooks []DataPlatformPostalCodePostalCodeDatumHook
-
-// doAfterSelectHooks executes all "after Select" hooks.
-func (o *DataPlatformPostalCodePostalCodeDatum) doAfterSelectHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPostalCodePostalCodeDatumAfterSelectHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeInsertHooks executes all "before insert" hooks.
-func (o *DataPlatformPostalCodePostalCodeDatum) doBeforeInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPostalCodePostalCodeDatumBeforeInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterInsertHooks executes all "after Insert" hooks.
-func (o *DataPlatformPostalCodePostalCodeDatum) doAfterInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPostalCodePostalCodeDatumAfterInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpdateHooks executes all "before Update" hooks.
-func (o *DataPlatformPostalCodePostalCodeDatum) doBeforeUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPostalCodePostalCodeDatumBeforeUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpdateHooks executes all "after Update" hooks.
-func (o *DataPlatformPostalCodePostalCodeDatum) doAfterUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPostalCodePostalCodeDatumAfterUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeDeleteHooks executes all "before Delete" hooks.
-func (o *DataPlatformPostalCodePostalCodeDatum) doBeforeDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPostalCodePostalCodeDatumBeforeDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterDeleteHooks executes all "after Delete" hooks.
-func (o *DataPlatformPostalCodePostalCodeDatum) doAfterDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPostalCodePostalCodeDatumAfterDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpsertHooks executes all "before Upsert" hooks.
-func (o *DataPlatformPostalCodePostalCodeDatum) doBeforeUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPostalCodePostalCodeDatumBeforeUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpsertHooks executes all "after Upsert" hooks.
-func (o *DataPlatformPostalCodePostalCodeDatum) doAfterUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPostalCodePostalCodeDatumAfterUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// AddDataPlatformPostalCodePostalCodeDatumHook registers your hook function for all future operations.
-func AddDataPlatformPostalCodePostalCodeDatumHook(hookPoint boil.HookPoint, dataPlatformPostalCodePostalCodeDatumHook DataPlatformPostalCodePostalCodeDatumHook) {
-	switch hookPoint {
-	case boil.AfterSelectHook:
-		dataPlatformPostalCodePostalCodeDatumAfterSelectHooks = append(dataPlatformPostalCodePostalCodeDatumAfterSelectHooks, dataPlatformPostalCodePostalCodeDatumHook)
-	case boil.BeforeInsertHook:
-		dataPlatformPostalCodePostalCodeDatumBeforeInsertHooks = append(dataPlatformPostalCodePostalCodeDatumBeforeInsertHooks, dataPlatformPostalCodePostalCodeDatumHook)
-	case boil.AfterInsertHook:
-		dataPlatformPostalCodePostalCodeDatumAfterInsertHooks = append(dataPlatformPostalCodePostalCodeDatumAfterInsertHooks, dataPlatformPostalCodePostalCodeDatumHook)
-	case boil.BeforeUpdateHook:
-		dataPlatformPostalCodePostalCodeDatumBeforeUpdateHooks = append(dataPlatformPostalCodePostalCodeDatumBeforeUpdateHooks, dataPlatformPostalCodePostalCodeDatumHook)
-	case boil.AfterUpdateHook:
-		dataPlatformPostalCodePostalCodeDatumAfterUpdateHooks = append(dataPlatformPostalCodePostalCodeDatumAfterUpdateHooks, dataPlatformPostalCodePostalCodeDatumHook)
-	case boil.BeforeDeleteHook:
-		dataPlatformPostalCodePostalCodeDatumBeforeDeleteHooks = append(dataPlatformPostalCodePostalCodeDatumBeforeDeleteHooks, dataPlatformPostalCodePostalCodeDatumHook)
-	case boil.AfterDeleteHook:
-		dataPlatformPostalCodePostalCodeDatumAfterDeleteHooks = append(dataPlatformPostalCodePostalCodeDatumAfterDeleteHooks, dataPlatformPostalCodePostalCodeDatumHook)
-	case boil.BeforeUpsertHook:
-		dataPlatformPostalCodePostalCodeDatumBeforeUpsertHooks = append(dataPlatformPostalCodePostalCodeDatumBeforeUpsertHooks, dataPlatformPostalCodePostalCodeDatumHook)
-	case boil.AfterUpsertHook:
-		dataPlatformPostalCodePostalCodeDatumAfterUpsertHooks = append(dataPlatformPostalCodePostalCodeDatumAfterUpsertHooks, dataPlatformPostalCodePostalCodeDatumHook)
-	}
-}
-
 // One returns a single dataPlatformPostalCodePostalCodeDatum record from the query.
 func (q dataPlatformPostalCodePostalCodeDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformPostalCodePostalCodeDatum, error) {
 	o := &DataPlatformPostalCodePostalCodeDatum{}
@@ -307,10 +139,6 @@ func (q dataPlatformPostalCodePostalCodeDatumQuery) One(ctx context.Context, exe
 		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_postal_code_postal_code_data")
 	}
 
-	if err := o.doAfterSelectHooks(ctx, exec); err != nil {
-		return o, err
-	}
-
 	return o, nil
 }
 
@@ -321,14 +149,6 @@ func (q dataPlatformPostalCodePostalCodeDatumQuery) All(ctx context.Context, exe
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
 		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformPostalCodePostalCodeDatum slice")
-	}
-
-	if len(dataPlatformPostalCodePostalCodeDatumAfterSelectHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterSelectHooks(ctx, exec); err != nil {
-				return o, err
-			}
-		}
 	}
 
 	return o, nil
@@ -399,10 +219,6 @@ func FindDataPlatformPostalCodePostalCodeDatum(ctx context.Context, exec boil.Co
 		return nil, errors.Wrap(err, "models: unable to select from data_platform_postal_code_postal_code_data")
 	}
 
-	if err = dataPlatformPostalCodePostalCodeDatumObj.doAfterSelectHooks(ctx, exec); err != nil {
-		return dataPlatformPostalCodePostalCodeDatumObj, err
-	}
-
 	return dataPlatformPostalCodePostalCodeDatumObj, nil
 }
 
@@ -414,10 +230,6 @@ func (o *DataPlatformPostalCodePostalCodeDatum) Insert(ctx context.Context, exec
 	}
 
 	var err error
-
-	if err := o.doBeforeInsertHooks(ctx, exec); err != nil {
-		return err
-	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformPostalCodePostalCodeDatumColumnsWithDefault, o)
 
@@ -500,17 +312,14 @@ CacheNoHooks:
 		dataPlatformPostalCodePostalCodeDatumInsertCacheMut.Unlock()
 	}
 
-	return o.doAfterInsertHooks(ctx, exec)
+	return nil
 }
 
 // Update uses an executor to update the DataPlatformPostalCodePostalCodeDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformPostalCodePostalCodeDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) (int64, error) {
+func (o *DataPlatformPostalCodePostalCodeDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
-	if err = o.doBeforeUpdateHooks(ctx, exec); err != nil {
-		return 0, err
-	}
 	key := makeCacheKey(columns, nil)
 	dataPlatformPostalCodePostalCodeDatumUpdateCacheMut.RLock()
 	cache, cached := dataPlatformPostalCodePostalCodeDatumUpdateCache[key]
@@ -526,7 +335,7 @@ func (o *DataPlatformPostalCodePostalCodeDatum) Update(ctx context.Context, exec
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return 0, errors.New("models: unable to update data_platform_postal_code_postal_code_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_postal_code_postal_code_data, could not build whitelist")
 		}
 
 		cache.query = fmt.Sprintf("UPDATE `data_platform_postal_code_postal_code_data` SET %s WHERE %s",
@@ -535,7 +344,7 @@ func (o *DataPlatformPostalCodePostalCodeDatum) Update(ctx context.Context, exec
 		)
 		cache.valueMapping, err = queries.BindMapping(dataPlatformPostalCodePostalCodeDatumType, dataPlatformPostalCodePostalCodeDatumMapping, append(wl, dataPlatformPostalCodePostalCodeDatumPrimaryKeyColumns...))
 		if err != nil {
-			return 0, err
+			return err
 		}
 	}
 
@@ -546,15 +355,9 @@ func (o *DataPlatformPostalCodePostalCodeDatum) Update(ctx context.Context, exec
 		fmt.Fprintln(writer, cache.query)
 		fmt.Fprintln(writer, values)
 	}
-	var result sql.Result
-	result, err = exec.ExecContext(ctx, cache.query, values...)
+	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update data_platform_postal_code_postal_code_data row")
-	}
-
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by update for data_platform_postal_code_postal_code_data")
+		return errors.Wrap(err, "models: unable to update data_platform_postal_code_postal_code_data row")
 	}
 
 	if !cached {
@@ -563,35 +366,30 @@ func (o *DataPlatformPostalCodePostalCodeDatum) Update(ctx context.Context, exec
 		dataPlatformPostalCodePostalCodeDatumUpdateCacheMut.Unlock()
 	}
 
-	return rowsAff, o.doAfterUpdateHooks(ctx, exec)
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformPostalCodePostalCodeDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (q dataPlatformPostalCodePostalCodeDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all for data_platform_postal_code_postal_code_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_postal_code_postal_code_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected for data_platform_postal_code_postal_code_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformPostalCodePostalCodeDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (o DataPlatformPostalCodePostalCodeDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
-		return 0, nil
+		return nil
 	}
 
 	if len(cols) == 0 {
-		return 0, errors.New("models: update all requires at least one column argument")
+		return errors.New("models: update all requires at least one column argument")
 	}
 
 	colNames := make([]string, len(cols))
@@ -619,16 +417,12 @@ func (o DataPlatformPostalCodePostalCodeDatumSlice) UpdateAll(ctx context.Contex
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all in dataPlatformPostalCodePostalCodeDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformPostalCodePostalCodeDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected all in update all dataPlatformPostalCodePostalCodeDatum")
-	}
-	return rowsAff, nil
+	return nil
 }
 
 var mySQLDataPlatformPostalCodePostalCodeDatumUniqueColumns = []string{}
@@ -638,10 +432,6 @@ var mySQLDataPlatformPostalCodePostalCodeDatumUniqueColumns = []string{}
 func (o *DataPlatformPostalCodePostalCodeDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
 		return errors.New("models: no data_platform_postal_code_postal_code_data provided for upsert")
-	}
-
-	if err := o.doBeforeUpsertHooks(ctx, exec); err != nil {
-		return err
 	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformPostalCodePostalCodeDatumColumnsWithDefault, o)
@@ -764,18 +554,14 @@ CacheNoHooks:
 		dataPlatformPostalCodePostalCodeDatumUpsertCacheMut.Unlock()
 	}
 
-	return o.doAfterUpsertHooks(ctx, exec)
+	return nil
 }
 
 // Delete deletes a single DataPlatformPostalCodePostalCodeDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformPostalCodePostalCodeDatum) Delete(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o *DataPlatformPostalCodePostalCodeDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return 0, errors.New("models: no DataPlatformPostalCodePostalCodeDatum provided for delete")
-	}
-
-	if err := o.doBeforeDeleteHooks(ctx, exec); err != nil {
-		return 0, err
+		return errors.New("models: no DataPlatformPostalCodePostalCodeDatum provided for delete")
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformPostalCodePostalCodeDatumPrimaryKeyMapping)
@@ -786,56 +572,34 @@ func (o *DataPlatformPostalCodePostalCodeDatum) Delete(ctx context.Context, exec
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete from data_platform_postal_code_postal_code_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_postal_code_postal_code_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by delete for data_platform_postal_code_postal_code_data")
-	}
-
-	if err := o.doAfterDeleteHooks(ctx, exec); err != nil {
-		return 0, err
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformPostalCodePostalCodeDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (q dataPlatformPostalCodePostalCodeDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return 0, errors.New("models: no dataPlatformPostalCodePostalCodeDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformPostalCodePostalCodeDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from data_platform_postal_code_postal_code_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_postal_code_postal_code_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_postal_code_postal_code_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformPostalCodePostalCodeDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o DataPlatformPostalCodePostalCodeDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
-		return 0, nil
-	}
-
-	if len(dataPlatformPostalCodePostalCodeDatumBeforeDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doBeforeDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
+		return nil
 	}
 
 	var args []interface{}
@@ -852,25 +616,12 @@ func (o DataPlatformPostalCodePostalCodeDatumSlice) DeleteAll(ctx context.Contex
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from dataPlatformPostalCodePostalCodeDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformPostalCodePostalCodeDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_postal_code_postal_code_data")
-	}
-
-	if len(dataPlatformPostalCodePostalCodeDatumAfterDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // Reload refetches the object from the database

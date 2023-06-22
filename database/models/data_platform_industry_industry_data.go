@@ -51,36 +51,15 @@ var DataPlatformIndustryIndustryDatumWhere = struct {
 
 // DataPlatformIndustryIndustryDatumRels is where relationship names are stored.
 var DataPlatformIndustryIndustryDatumRels = struct {
-	IndustryDataPlatformBusinessPartnerGeneralData string
-	IndustryDataPlatformIndustryTextData           string
-}{
-	IndustryDataPlatformBusinessPartnerGeneralData: "IndustryDataPlatformBusinessPartnerGeneralData",
-	IndustryDataPlatformIndustryTextData:           "IndustryDataPlatformIndustryTextData",
-}
+}{}
 
 // dataPlatformIndustryIndustryDatumR is where relationships are stored.
 type dataPlatformIndustryIndustryDatumR struct {
-	IndustryDataPlatformBusinessPartnerGeneralData DataPlatformBusinessPartnerGeneralDatumSlice `boil:"IndustryDataPlatformBusinessPartnerGeneralData" json:"IndustryDataPlatformBusinessPartnerGeneralData" toml:"IndustryDataPlatformBusinessPartnerGeneralData" yaml:"IndustryDataPlatformBusinessPartnerGeneralData"`
-	IndustryDataPlatformIndustryTextData           DataPlatformIndustryTextDatumSlice           `boil:"IndustryDataPlatformIndustryTextData" json:"IndustryDataPlatformIndustryTextData" toml:"IndustryDataPlatformIndustryTextData" yaml:"IndustryDataPlatformIndustryTextData"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformIndustryIndustryDatumR) NewStruct() *dataPlatformIndustryIndustryDatumR {
 	return &dataPlatformIndustryIndustryDatumR{}
-}
-
-func (r *dataPlatformIndustryIndustryDatumR) GetIndustryDataPlatformBusinessPartnerGeneralData() DataPlatformBusinessPartnerGeneralDatumSlice {
-	if r == nil {
-		return nil
-	}
-	return r.IndustryDataPlatformBusinessPartnerGeneralData
-}
-
-func (r *dataPlatformIndustryIndustryDatumR) GetIndustryDataPlatformIndustryTextData() DataPlatformIndustryTextDatumSlice {
-	if r == nil {
-		return nil
-	}
-	return r.IndustryDataPlatformIndustryTextData
 }
 
 // dataPlatformIndustryIndustryDatumL is where Load methods for each relationship are stored.
@@ -98,8 +77,6 @@ type (
 	// DataPlatformIndustryIndustryDatumSlice is an alias for a slice of pointers to DataPlatformIndustryIndustryDatum.
 	// This should almost always be used instead of []DataPlatformIndustryIndustryDatum.
 	DataPlatformIndustryIndustryDatumSlice []*DataPlatformIndustryIndustryDatum
-	// DataPlatformIndustryIndustryDatumHook is the signature for custom DataPlatformIndustryIndustryDatum hook methods
-	DataPlatformIndustryIndustryDatumHook func(context.Context, boil.ContextExecutor, *DataPlatformIndustryIndustryDatum) error
 
 	dataPlatformIndustryIndustryDatumQuery struct {
 		*queries.Query
@@ -127,179 +104,6 @@ var (
 	_ = qmhelper.Where
 )
 
-var dataPlatformIndustryIndustryDatumAfterSelectHooks []DataPlatformIndustryIndustryDatumHook
-
-var dataPlatformIndustryIndustryDatumBeforeInsertHooks []DataPlatformIndustryIndustryDatumHook
-var dataPlatformIndustryIndustryDatumAfterInsertHooks []DataPlatformIndustryIndustryDatumHook
-
-var dataPlatformIndustryIndustryDatumBeforeUpdateHooks []DataPlatformIndustryIndustryDatumHook
-var dataPlatformIndustryIndustryDatumAfterUpdateHooks []DataPlatformIndustryIndustryDatumHook
-
-var dataPlatformIndustryIndustryDatumBeforeDeleteHooks []DataPlatformIndustryIndustryDatumHook
-var dataPlatformIndustryIndustryDatumAfterDeleteHooks []DataPlatformIndustryIndustryDatumHook
-
-var dataPlatformIndustryIndustryDatumBeforeUpsertHooks []DataPlatformIndustryIndustryDatumHook
-var dataPlatformIndustryIndustryDatumAfterUpsertHooks []DataPlatformIndustryIndustryDatumHook
-
-// doAfterSelectHooks executes all "after Select" hooks.
-func (o *DataPlatformIndustryIndustryDatum) doAfterSelectHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformIndustryIndustryDatumAfterSelectHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeInsertHooks executes all "before insert" hooks.
-func (o *DataPlatformIndustryIndustryDatum) doBeforeInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformIndustryIndustryDatumBeforeInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterInsertHooks executes all "after Insert" hooks.
-func (o *DataPlatformIndustryIndustryDatum) doAfterInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformIndustryIndustryDatumAfterInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpdateHooks executes all "before Update" hooks.
-func (o *DataPlatformIndustryIndustryDatum) doBeforeUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformIndustryIndustryDatumBeforeUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpdateHooks executes all "after Update" hooks.
-func (o *DataPlatformIndustryIndustryDatum) doAfterUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformIndustryIndustryDatumAfterUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeDeleteHooks executes all "before Delete" hooks.
-func (o *DataPlatformIndustryIndustryDatum) doBeforeDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformIndustryIndustryDatumBeforeDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterDeleteHooks executes all "after Delete" hooks.
-func (o *DataPlatformIndustryIndustryDatum) doAfterDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformIndustryIndustryDatumAfterDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpsertHooks executes all "before Upsert" hooks.
-func (o *DataPlatformIndustryIndustryDatum) doBeforeUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformIndustryIndustryDatumBeforeUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpsertHooks executes all "after Upsert" hooks.
-func (o *DataPlatformIndustryIndustryDatum) doAfterUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformIndustryIndustryDatumAfterUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// AddDataPlatformIndustryIndustryDatumHook registers your hook function for all future operations.
-func AddDataPlatformIndustryIndustryDatumHook(hookPoint boil.HookPoint, dataPlatformIndustryIndustryDatumHook DataPlatformIndustryIndustryDatumHook) {
-	switch hookPoint {
-	case boil.AfterSelectHook:
-		dataPlatformIndustryIndustryDatumAfterSelectHooks = append(dataPlatformIndustryIndustryDatumAfterSelectHooks, dataPlatformIndustryIndustryDatumHook)
-	case boil.BeforeInsertHook:
-		dataPlatformIndustryIndustryDatumBeforeInsertHooks = append(dataPlatformIndustryIndustryDatumBeforeInsertHooks, dataPlatformIndustryIndustryDatumHook)
-	case boil.AfterInsertHook:
-		dataPlatformIndustryIndustryDatumAfterInsertHooks = append(dataPlatformIndustryIndustryDatumAfterInsertHooks, dataPlatformIndustryIndustryDatumHook)
-	case boil.BeforeUpdateHook:
-		dataPlatformIndustryIndustryDatumBeforeUpdateHooks = append(dataPlatformIndustryIndustryDatumBeforeUpdateHooks, dataPlatformIndustryIndustryDatumHook)
-	case boil.AfterUpdateHook:
-		dataPlatformIndustryIndustryDatumAfterUpdateHooks = append(dataPlatformIndustryIndustryDatumAfterUpdateHooks, dataPlatformIndustryIndustryDatumHook)
-	case boil.BeforeDeleteHook:
-		dataPlatformIndustryIndustryDatumBeforeDeleteHooks = append(dataPlatformIndustryIndustryDatumBeforeDeleteHooks, dataPlatformIndustryIndustryDatumHook)
-	case boil.AfterDeleteHook:
-		dataPlatformIndustryIndustryDatumAfterDeleteHooks = append(dataPlatformIndustryIndustryDatumAfterDeleteHooks, dataPlatformIndustryIndustryDatumHook)
-	case boil.BeforeUpsertHook:
-		dataPlatformIndustryIndustryDatumBeforeUpsertHooks = append(dataPlatformIndustryIndustryDatumBeforeUpsertHooks, dataPlatformIndustryIndustryDatumHook)
-	case boil.AfterUpsertHook:
-		dataPlatformIndustryIndustryDatumAfterUpsertHooks = append(dataPlatformIndustryIndustryDatumAfterUpsertHooks, dataPlatformIndustryIndustryDatumHook)
-	}
-}
-
 // One returns a single dataPlatformIndustryIndustryDatum record from the query.
 func (q dataPlatformIndustryIndustryDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformIndustryIndustryDatum, error) {
 	o := &DataPlatformIndustryIndustryDatum{}
@@ -314,10 +118,6 @@ func (q dataPlatformIndustryIndustryDatumQuery) One(ctx context.Context, exec bo
 		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_industry_industry_data")
 	}
 
-	if err := o.doAfterSelectHooks(ctx, exec); err != nil {
-		return o, err
-	}
-
 	return o, nil
 }
 
@@ -328,14 +128,6 @@ func (q dataPlatformIndustryIndustryDatumQuery) All(ctx context.Context, exec bo
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
 		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformIndustryIndustryDatum slice")
-	}
-
-	if len(dataPlatformIndustryIndustryDatumAfterSelectHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterSelectHooks(ctx, exec); err != nil {
-				return o, err
-			}
-		}
 	}
 
 	return o, nil
@@ -372,442 +164,6 @@ func (q dataPlatformIndustryIndustryDatumQuery) Exists(ctx context.Context, exec
 	return count > 0, nil
 }
 
-// IndustryDataPlatformBusinessPartnerGeneralData retrieves all the data_platform_business_partner_general_datum's DataPlatformBusinessPartnerGeneralData with an executor via Industry column.
-func (o *DataPlatformIndustryIndustryDatum) IndustryDataPlatformBusinessPartnerGeneralData(mods ...qm.QueryMod) dataPlatformBusinessPartnerGeneralDatumQuery {
-	var queryMods []qm.QueryMod
-	if len(mods) != 0 {
-		queryMods = append(queryMods, mods...)
-	}
-
-	queryMods = append(queryMods,
-		qm.Where("`data_platform_business_partner_general_data`.`Industry`=?", o.Industry),
-	)
-
-	return DataPlatformBusinessPartnerGeneralData(queryMods...)
-}
-
-// IndustryDataPlatformIndustryTextData retrieves all the data_platform_industry_text_datum's DataPlatformIndustryTextData with an executor via Industry column.
-func (o *DataPlatformIndustryIndustryDatum) IndustryDataPlatformIndustryTextData(mods ...qm.QueryMod) dataPlatformIndustryTextDatumQuery {
-	var queryMods []qm.QueryMod
-	if len(mods) != 0 {
-		queryMods = append(queryMods, mods...)
-	}
-
-	queryMods = append(queryMods,
-		qm.Where("`data_platform_industry_text_data`.`Industry`=?", o.Industry),
-	)
-
-	return DataPlatformIndustryTextData(queryMods...)
-}
-
-// LoadIndustryDataPlatformBusinessPartnerGeneralData allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformIndustryIndustryDatumL) LoadIndustryDataPlatformBusinessPartnerGeneralData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformIndustryIndustryDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformIndustryIndustryDatum
-	var object *DataPlatformIndustryIndustryDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformIndustryIndustryDatum.(*DataPlatformIndustryIndustryDatum)
-		if !ok {
-			object = new(DataPlatformIndustryIndustryDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformIndustryIndustryDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformIndustryIndustryDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformIndustryIndustryDatum.(*[]*DataPlatformIndustryIndustryDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformIndustryIndustryDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformIndustryIndustryDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformIndustryIndustryDatumR{}
-		}
-		args = append(args, object.Industry)
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformIndustryIndustryDatumR{}
-			}
-
-			for _, a := range args {
-				if queries.Equal(a, obj.Industry) {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.Industry)
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_business_partner_general_data`),
-		qm.WhereIn(`data_platform_business_partner_general_data.Industry in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_business_partner_general_data")
-	}
-
-	var resultSlice []*DataPlatformBusinessPartnerGeneralDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_business_partner_general_data")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_business_partner_general_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_business_partner_general_data")
-	}
-
-	if len(dataPlatformBusinessPartnerGeneralDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-	if singular {
-		object.R.IndustryDataPlatformBusinessPartnerGeneralData = resultSlice
-		for _, foreign := range resultSlice {
-			if foreign.R == nil {
-				foreign.R = &dataPlatformBusinessPartnerGeneralDatumR{}
-			}
-			foreign.R.IndustryDataPlatformIndustryIndustryDatum = object
-		}
-		return nil
-	}
-
-	for _, foreign := range resultSlice {
-		for _, local := range slice {
-			if queries.Equal(local.Industry, foreign.Industry) {
-				local.R.IndustryDataPlatformBusinessPartnerGeneralData = append(local.R.IndustryDataPlatformBusinessPartnerGeneralData, foreign)
-				if foreign.R == nil {
-					foreign.R = &dataPlatformBusinessPartnerGeneralDatumR{}
-				}
-				foreign.R.IndustryDataPlatformIndustryIndustryDatum = local
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// LoadIndustryDataPlatformIndustryTextData allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformIndustryIndustryDatumL) LoadIndustryDataPlatformIndustryTextData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformIndustryIndustryDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformIndustryIndustryDatum
-	var object *DataPlatformIndustryIndustryDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformIndustryIndustryDatum.(*DataPlatformIndustryIndustryDatum)
-		if !ok {
-			object = new(DataPlatformIndustryIndustryDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformIndustryIndustryDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformIndustryIndustryDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformIndustryIndustryDatum.(*[]*DataPlatformIndustryIndustryDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformIndustryIndustryDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformIndustryIndustryDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformIndustryIndustryDatumR{}
-		}
-		args = append(args, object.Industry)
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformIndustryIndustryDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.Industry {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.Industry)
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_industry_text_data`),
-		qm.WhereIn(`data_platform_industry_text_data.Industry in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_industry_text_data")
-	}
-
-	var resultSlice []*DataPlatformIndustryTextDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_industry_text_data")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_industry_text_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_industry_text_data")
-	}
-
-	if len(dataPlatformIndustryTextDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-	if singular {
-		object.R.IndustryDataPlatformIndustryTextData = resultSlice
-		for _, foreign := range resultSlice {
-			if foreign.R == nil {
-				foreign.R = &dataPlatformIndustryTextDatumR{}
-			}
-			foreign.R.IndustryDataPlatformIndustryIndustryDatum = object
-		}
-		return nil
-	}
-
-	for _, foreign := range resultSlice {
-		for _, local := range slice {
-			if local.Industry == foreign.Industry {
-				local.R.IndustryDataPlatformIndustryTextData = append(local.R.IndustryDataPlatformIndustryTextData, foreign)
-				if foreign.R == nil {
-					foreign.R = &dataPlatformIndustryTextDatumR{}
-				}
-				foreign.R.IndustryDataPlatformIndustryIndustryDatum = local
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// AddIndustryDataPlatformBusinessPartnerGeneralData adds the given related objects to the existing relationships
-// of the data_platform_industry_industry_datum, optionally inserting them as new records.
-// Appends related to o.R.IndustryDataPlatformBusinessPartnerGeneralData.
-// Sets related.R.IndustryDataPlatformIndustryIndustryDatum appropriately.
-func (o *DataPlatformIndustryIndustryDatum) AddIndustryDataPlatformBusinessPartnerGeneralData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformBusinessPartnerGeneralDatum) error {
-	var err error
-	for _, rel := range related {
-		if insert {
-			queries.Assign(&rel.Industry, o.Industry)
-			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
-				return errors.Wrap(err, "failed to insert into foreign table")
-			}
-		} else {
-			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_business_partner_general_data` SET %s WHERE %s",
-				strmangle.SetParamNames("`", "`", 0, []string{"Industry"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformBusinessPartnerGeneralDatumPrimaryKeyColumns),
-			)
-			values := []interface{}{o.Industry, rel.BusinessPartner}
-
-			if boil.IsDebug(ctx) {
-				writer := boil.DebugWriterFrom(ctx)
-				fmt.Fprintln(writer, updateQuery)
-				fmt.Fprintln(writer, values)
-			}
-			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-				return errors.Wrap(err, "failed to update foreign table")
-			}
-
-			queries.Assign(&rel.Industry, o.Industry)
-		}
-	}
-
-	if o.R == nil {
-		o.R = &dataPlatformIndustryIndustryDatumR{
-			IndustryDataPlatformBusinessPartnerGeneralData: related,
-		}
-	} else {
-		o.R.IndustryDataPlatformBusinessPartnerGeneralData = append(o.R.IndustryDataPlatformBusinessPartnerGeneralData, related...)
-	}
-
-	for _, rel := range related {
-		if rel.R == nil {
-			rel.R = &dataPlatformBusinessPartnerGeneralDatumR{
-				IndustryDataPlatformIndustryIndustryDatum: o,
-			}
-		} else {
-			rel.R.IndustryDataPlatformIndustryIndustryDatum = o
-		}
-	}
-	return nil
-}
-
-// SetIndustryDataPlatformBusinessPartnerGeneralData removes all previously related items of the
-// data_platform_industry_industry_datum replacing them completely with the passed
-// in related items, optionally inserting them as new records.
-// Sets o.R.IndustryDataPlatformIndustryIndustryDatum's IndustryDataPlatformBusinessPartnerGeneralData accordingly.
-// Replaces o.R.IndustryDataPlatformBusinessPartnerGeneralData with related.
-// Sets related.R.IndustryDataPlatformIndustryIndustryDatum's IndustryDataPlatformBusinessPartnerGeneralData accordingly.
-func (o *DataPlatformIndustryIndustryDatum) SetIndustryDataPlatformBusinessPartnerGeneralData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformBusinessPartnerGeneralDatum) error {
-	query := "update `data_platform_business_partner_general_data` set `Industry` = null where `Industry` = ?"
-	values := []interface{}{o.Industry}
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, query)
-		fmt.Fprintln(writer, values)
-	}
-	_, err := exec.ExecContext(ctx, query, values...)
-	if err != nil {
-		return errors.Wrap(err, "failed to remove relationships before set")
-	}
-
-	if o.R != nil {
-		for _, rel := range o.R.IndustryDataPlatformBusinessPartnerGeneralData {
-			queries.SetScanner(&rel.Industry, nil)
-			if rel.R == nil {
-				continue
-			}
-
-			rel.R.IndustryDataPlatformIndustryIndustryDatum = nil
-		}
-		o.R.IndustryDataPlatformBusinessPartnerGeneralData = nil
-	}
-
-	return o.AddIndustryDataPlatformBusinessPartnerGeneralData(ctx, exec, insert, related...)
-}
-
-// RemoveIndustryDataPlatformBusinessPartnerGeneralData relationships from objects passed in.
-// Removes related items from R.IndustryDataPlatformBusinessPartnerGeneralData (uses pointer comparison, removal does not keep order)
-// Sets related.R.IndustryDataPlatformIndustryIndustryDatum.
-func (o *DataPlatformIndustryIndustryDatum) RemoveIndustryDataPlatformBusinessPartnerGeneralData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformBusinessPartnerGeneralDatum) error {
-	if len(related) == 0 {
-		return nil
-	}
-
-	var err error
-	for _, rel := range related {
-		queries.SetScanner(&rel.Industry, nil)
-		if rel.R != nil {
-			rel.R.IndustryDataPlatformIndustryIndustryDatum = nil
-		}
-		if _, err = rel.Update(ctx, exec, boil.Whitelist("Industry")); err != nil {
-			return err
-		}
-	}
-	if o.R == nil {
-		return nil
-	}
-
-	for _, rel := range related {
-		for i, ri := range o.R.IndustryDataPlatformBusinessPartnerGeneralData {
-			if rel != ri {
-				continue
-			}
-
-			ln := len(o.R.IndustryDataPlatformBusinessPartnerGeneralData)
-			if ln > 1 && i < ln-1 {
-				o.R.IndustryDataPlatformBusinessPartnerGeneralData[i] = o.R.IndustryDataPlatformBusinessPartnerGeneralData[ln-1]
-			}
-			o.R.IndustryDataPlatformBusinessPartnerGeneralData = o.R.IndustryDataPlatformBusinessPartnerGeneralData[:ln-1]
-			break
-		}
-	}
-
-	return nil
-}
-
-// AddIndustryDataPlatformIndustryTextData adds the given related objects to the existing relationships
-// of the data_platform_industry_industry_datum, optionally inserting them as new records.
-// Appends related to o.R.IndustryDataPlatformIndustryTextData.
-// Sets related.R.IndustryDataPlatformIndustryIndustryDatum appropriately.
-func (o *DataPlatformIndustryIndustryDatum) AddIndustryDataPlatformIndustryTextData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformIndustryTextDatum) error {
-	var err error
-	for _, rel := range related {
-		if insert {
-			rel.Industry = o.Industry
-			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
-				return errors.Wrap(err, "failed to insert into foreign table")
-			}
-		} else {
-			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_industry_text_data` SET %s WHERE %s",
-				strmangle.SetParamNames("`", "`", 0, []string{"Industry"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformIndustryTextDatumPrimaryKeyColumns),
-			)
-			values := []interface{}{o.Industry, rel.Industry, rel.Language}
-
-			if boil.IsDebug(ctx) {
-				writer := boil.DebugWriterFrom(ctx)
-				fmt.Fprintln(writer, updateQuery)
-				fmt.Fprintln(writer, values)
-			}
-			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-				return errors.Wrap(err, "failed to update foreign table")
-			}
-
-			rel.Industry = o.Industry
-		}
-	}
-
-	if o.R == nil {
-		o.R = &dataPlatformIndustryIndustryDatumR{
-			IndustryDataPlatformIndustryTextData: related,
-		}
-	} else {
-		o.R.IndustryDataPlatformIndustryTextData = append(o.R.IndustryDataPlatformIndustryTextData, related...)
-	}
-
-	for _, rel := range related {
-		if rel.R == nil {
-			rel.R = &dataPlatformIndustryTextDatumR{
-				IndustryDataPlatformIndustryIndustryDatum: o,
-			}
-		} else {
-			rel.R.IndustryDataPlatformIndustryIndustryDatum = o
-		}
-	}
-	return nil
-}
-
 // DataPlatformIndustryIndustryData retrieves all the records using an executor.
 func DataPlatformIndustryIndustryData(mods ...qm.QueryMod) dataPlatformIndustryIndustryDatumQuery {
 	mods = append(mods, qm.From("`data_platform_industry_industry_data`"))
@@ -842,10 +198,6 @@ func FindDataPlatformIndustryIndustryDatum(ctx context.Context, exec boil.Contex
 		return nil, errors.Wrap(err, "models: unable to select from data_platform_industry_industry_data")
 	}
 
-	if err = dataPlatformIndustryIndustryDatumObj.doAfterSelectHooks(ctx, exec); err != nil {
-		return dataPlatformIndustryIndustryDatumObj, err
-	}
-
 	return dataPlatformIndustryIndustryDatumObj, nil
 }
 
@@ -857,10 +209,6 @@ func (o *DataPlatformIndustryIndustryDatum) Insert(ctx context.Context, exec boi
 	}
 
 	var err error
-
-	if err := o.doBeforeInsertHooks(ctx, exec); err != nil {
-		return err
-	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformIndustryIndustryDatumColumnsWithDefault, o)
 
@@ -941,17 +289,14 @@ CacheNoHooks:
 		dataPlatformIndustryIndustryDatumInsertCacheMut.Unlock()
 	}
 
-	return o.doAfterInsertHooks(ctx, exec)
+	return nil
 }
 
 // Update uses an executor to update the DataPlatformIndustryIndustryDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformIndustryIndustryDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) (int64, error) {
+func (o *DataPlatformIndustryIndustryDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
-	if err = o.doBeforeUpdateHooks(ctx, exec); err != nil {
-		return 0, err
-	}
 	key := makeCacheKey(columns, nil)
 	dataPlatformIndustryIndustryDatumUpdateCacheMut.RLock()
 	cache, cached := dataPlatformIndustryIndustryDatumUpdateCache[key]
@@ -967,7 +312,7 @@ func (o *DataPlatformIndustryIndustryDatum) Update(ctx context.Context, exec boi
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return 0, errors.New("models: unable to update data_platform_industry_industry_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_industry_industry_data, could not build whitelist")
 		}
 
 		cache.query = fmt.Sprintf("UPDATE `data_platform_industry_industry_data` SET %s WHERE %s",
@@ -976,7 +321,7 @@ func (o *DataPlatformIndustryIndustryDatum) Update(ctx context.Context, exec boi
 		)
 		cache.valueMapping, err = queries.BindMapping(dataPlatformIndustryIndustryDatumType, dataPlatformIndustryIndustryDatumMapping, append(wl, dataPlatformIndustryIndustryDatumPrimaryKeyColumns...))
 		if err != nil {
-			return 0, err
+			return err
 		}
 	}
 
@@ -987,15 +332,9 @@ func (o *DataPlatformIndustryIndustryDatum) Update(ctx context.Context, exec boi
 		fmt.Fprintln(writer, cache.query)
 		fmt.Fprintln(writer, values)
 	}
-	var result sql.Result
-	result, err = exec.ExecContext(ctx, cache.query, values...)
+	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update data_platform_industry_industry_data row")
-	}
-
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by update for data_platform_industry_industry_data")
+		return errors.Wrap(err, "models: unable to update data_platform_industry_industry_data row")
 	}
 
 	if !cached {
@@ -1004,35 +343,30 @@ func (o *DataPlatformIndustryIndustryDatum) Update(ctx context.Context, exec boi
 		dataPlatformIndustryIndustryDatumUpdateCacheMut.Unlock()
 	}
 
-	return rowsAff, o.doAfterUpdateHooks(ctx, exec)
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformIndustryIndustryDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (q dataPlatformIndustryIndustryDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all for data_platform_industry_industry_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_industry_industry_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected for data_platform_industry_industry_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformIndustryIndustryDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (o DataPlatformIndustryIndustryDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
-		return 0, nil
+		return nil
 	}
 
 	if len(cols) == 0 {
-		return 0, errors.New("models: update all requires at least one column argument")
+		return errors.New("models: update all requires at least one column argument")
 	}
 
 	colNames := make([]string, len(cols))
@@ -1060,16 +394,12 @@ func (o DataPlatformIndustryIndustryDatumSlice) UpdateAll(ctx context.Context, e
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all in dataPlatformIndustryIndustryDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformIndustryIndustryDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected all in update all dataPlatformIndustryIndustryDatum")
-	}
-	return rowsAff, nil
+	return nil
 }
 
 var mySQLDataPlatformIndustryIndustryDatumUniqueColumns = []string{
@@ -1081,10 +411,6 @@ var mySQLDataPlatformIndustryIndustryDatumUniqueColumns = []string{
 func (o *DataPlatformIndustryIndustryDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
 		return errors.New("models: no data_platform_industry_industry_data provided for upsert")
-	}
-
-	if err := o.doBeforeUpsertHooks(ctx, exec); err != nil {
-		return err
 	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformIndustryIndustryDatumColumnsWithDefault, o)
@@ -1207,18 +533,14 @@ CacheNoHooks:
 		dataPlatformIndustryIndustryDatumUpsertCacheMut.Unlock()
 	}
 
-	return o.doAfterUpsertHooks(ctx, exec)
+	return nil
 }
 
 // Delete deletes a single DataPlatformIndustryIndustryDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformIndustryIndustryDatum) Delete(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o *DataPlatformIndustryIndustryDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return 0, errors.New("models: no DataPlatformIndustryIndustryDatum provided for delete")
-	}
-
-	if err := o.doBeforeDeleteHooks(ctx, exec); err != nil {
-		return 0, err
+		return errors.New("models: no DataPlatformIndustryIndustryDatum provided for delete")
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformIndustryIndustryDatumPrimaryKeyMapping)
@@ -1229,56 +551,34 @@ func (o *DataPlatformIndustryIndustryDatum) Delete(ctx context.Context, exec boi
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete from data_platform_industry_industry_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_industry_industry_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by delete for data_platform_industry_industry_data")
-	}
-
-	if err := o.doAfterDeleteHooks(ctx, exec); err != nil {
-		return 0, err
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformIndustryIndustryDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (q dataPlatformIndustryIndustryDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return 0, errors.New("models: no dataPlatformIndustryIndustryDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformIndustryIndustryDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from data_platform_industry_industry_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_industry_industry_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_industry_industry_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformIndustryIndustryDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o DataPlatformIndustryIndustryDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
-		return 0, nil
-	}
-
-	if len(dataPlatformIndustryIndustryDatumBeforeDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doBeforeDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
+		return nil
 	}
 
 	var args []interface{}
@@ -1295,25 +595,12 @@ func (o DataPlatformIndustryIndustryDatumSlice) DeleteAll(ctx context.Context, e
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from dataPlatformIndustryIndustryDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformIndustryIndustryDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_industry_industry_data")
-	}
-
-	if len(dataPlatformIndustryIndustryDatumAfterDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // Reload refetches the object from the database

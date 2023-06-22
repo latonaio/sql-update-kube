@@ -29,9 +29,9 @@ type DataPlatformPlantStorageLocationDatum struct {
 	StorageLocation              string      `boil:"StorageLocation" json:"StorageLocation" toml:"StorageLocation" yaml:"StorageLocation"`
 	StorageLocationFullName      null.String `boil:"StorageLocationFullName" json:"StorageLocationFullName,omitempty" toml:"StorageLocationFullName" yaml:"StorageLocationFullName,omitempty"`
 	StorageLocationName          string      `boil:"StorageLocationName" json:"StorageLocationName" toml:"StorageLocationName" yaml:"StorageLocationName"`
-	CreationDate                 time.Time   `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
+	CreationDate                 string      `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
 	CreationTime                 string      `boil:"CreationTime" json:"CreationTime" toml:"CreationTime" yaml:"CreationTime"`
-	LastChangeDate               time.Time   `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
+	LastChangeDate               string      `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
 	LastChangeTime               string      `boil:"LastChangeTime" json:"LastChangeTime" toml:"LastChangeTime" yaml:"LastChangeTime"`
 	SearchTerm1                  null.String `boil:"SearchTerm1" json:"SearchTerm1,omitempty" toml:"SearchTerm1" yaml:"SearchTerm1,omitempty"`
 	SearchTerm2                  null.String `boil:"SearchTerm2" json:"SearchTerm2,omitempty" toml:"SearchTerm2" yaml:"SearchTerm2,omitempty"`
@@ -125,9 +125,9 @@ var DataPlatformPlantStorageLocationDatumWhere = struct {
 	StorageLocation              whereHelperstring
 	StorageLocationFullName      whereHelpernull_String
 	StorageLocationName          whereHelperstring
-	CreationDate                 whereHelpertime_Time
+	CreationDate                 whereHelperstring
 	CreationTime                 whereHelperstring
-	LastChangeDate               whereHelpertime_Time
+	LastChangeDate               whereHelperstring
 	LastChangeTime               whereHelperstring
 	SearchTerm1                  whereHelpernull_String
 	SearchTerm2                  whereHelpernull_String
@@ -142,9 +142,9 @@ var DataPlatformPlantStorageLocationDatumWhere = struct {
 	StorageLocation:              whereHelperstring{field: "`data_platform_plant_storage_location_data`.`StorageLocation`"},
 	StorageLocationFullName:      whereHelpernull_String{field: "`data_platform_plant_storage_location_data`.`StorageLocationFullName`"},
 	StorageLocationName:          whereHelperstring{field: "`data_platform_plant_storage_location_data`.`StorageLocationName`"},
-	CreationDate:                 whereHelpertime_Time{field: "`data_platform_plant_storage_location_data`.`CreationDate`"},
+	CreationDate:                 whereHelperstring{field: "`data_platform_plant_storage_location_data`.`CreationDate`"},
 	CreationTime:                 whereHelperstring{field: "`data_platform_plant_storage_location_data`.`CreationTime`"},
-	LastChangeDate:               whereHelpertime_Time{field: "`data_platform_plant_storage_location_data`.`LastChangeDate`"},
+	LastChangeDate:               whereHelperstring{field: "`data_platform_plant_storage_location_data`.`LastChangeDate`"},
 	LastChangeTime:               whereHelperstring{field: "`data_platform_plant_storage_location_data`.`LastChangeTime`"},
 	SearchTerm1:                  whereHelpernull_String{field: "`data_platform_plant_storage_location_data`.`SearchTerm1`"},
 	SearchTerm2:                  whereHelpernull_String{field: "`data_platform_plant_storage_location_data`.`SearchTerm2`"},
@@ -157,17 +157,20 @@ var DataPlatformPlantStorageLocationDatumWhere = struct {
 
 // DataPlatformPlantStorageLocationDatumRels is where relationship names are stored.
 var DataPlatformPlantStorageLocationDatumRels = struct {
-	BusinessPartnerDataPlatformPlantGeneralDatum        string
-	BusinessPartnerDataPlatformProductMasterBPPlantData string
+	StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData string
+	ProductDeliverToPartyDataPlatformPlannedOrderItemData                 string
+	BusinessPartnerDataPlatformProductStockProductStockByBtches           string
 }{
-	BusinessPartnerDataPlatformPlantGeneralDatum:        "BusinessPartnerDataPlatformPlantGeneralDatum",
-	BusinessPartnerDataPlatformProductMasterBPPlantData: "BusinessPartnerDataPlatformProductMasterBPPlantData",
+	StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData: "StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData",
+	ProductDeliverToPartyDataPlatformPlannedOrderItemData:                 "ProductDeliverToPartyDataPlatformPlannedOrderItemData",
+	BusinessPartnerDataPlatformProductStockProductStockByBtches:           "BusinessPartnerDataPlatformProductStockProductStockByBtches",
 }
 
 // dataPlatformPlantStorageLocationDatumR is where relationships are stored.
 type dataPlatformPlantStorageLocationDatumR struct {
-	BusinessPartnerDataPlatformPlantGeneralDatum        *DataPlatformPlantGeneralDatum             `boil:"BusinessPartnerDataPlatformPlantGeneralDatum" json:"BusinessPartnerDataPlatformPlantGeneralDatum" toml:"BusinessPartnerDataPlatformPlantGeneralDatum" yaml:"BusinessPartnerDataPlatformPlantGeneralDatum"`
-	BusinessPartnerDataPlatformProductMasterBPPlantData DataPlatformProductMasterBPPlantDatumSlice `boil:"BusinessPartnerDataPlatformProductMasterBPPlantData" json:"BusinessPartnerDataPlatformProductMasterBPPlantData" toml:"BusinessPartnerDataPlatformProductMasterBPPlantData" yaml:"BusinessPartnerDataPlatformProductMasterBPPlantData"`
+	StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData DataPlatformPlannedOrderComponentDatumSlice     `boil:"StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData" json:"StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData" toml:"StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData" yaml:"StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData"`
+	ProductDeliverToPartyDataPlatformPlannedOrderItemData                 DataPlatformPlannedOrderItemDatumSlice          `boil:"ProductDeliverToPartyDataPlatformPlannedOrderItemData" json:"ProductDeliverToPartyDataPlatformPlannedOrderItemData" toml:"ProductDeliverToPartyDataPlatformPlannedOrderItemData" yaml:"ProductDeliverToPartyDataPlatformPlannedOrderItemData"`
+	BusinessPartnerDataPlatformProductStockProductStockByBtches           DataPlatformProductStockProductStockByBTCHSlice `boil:"BusinessPartnerDataPlatformProductStockProductStockByBtches" json:"BusinessPartnerDataPlatformProductStockProductStockByBtches" toml:"BusinessPartnerDataPlatformProductStockProductStockByBtches" yaml:"BusinessPartnerDataPlatformProductStockProductStockByBtches"`
 }
 
 // NewStruct creates a new relationship struct
@@ -175,18 +178,25 @@ func (*dataPlatformPlantStorageLocationDatumR) NewStruct() *dataPlatformPlantSto
 	return &dataPlatformPlantStorageLocationDatumR{}
 }
 
-func (r *dataPlatformPlantStorageLocationDatumR) GetBusinessPartnerDataPlatformPlantGeneralDatum() *DataPlatformPlantGeneralDatum {
+func (r *dataPlatformPlantStorageLocationDatumR) GetStockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData() DataPlatformPlannedOrderComponentDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.BusinessPartnerDataPlatformPlantGeneralDatum
+	return r.StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData
 }
 
-func (r *dataPlatformPlantStorageLocationDatumR) GetBusinessPartnerDataPlatformProductMasterBPPlantData() DataPlatformProductMasterBPPlantDatumSlice {
+func (r *dataPlatformPlantStorageLocationDatumR) GetProductDeliverToPartyDataPlatformPlannedOrderItemData() DataPlatformPlannedOrderItemDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.BusinessPartnerDataPlatformProductMasterBPPlantData
+	return r.ProductDeliverToPartyDataPlatformPlannedOrderItemData
+}
+
+func (r *dataPlatformPlantStorageLocationDatumR) GetBusinessPartnerDataPlatformProductStockProductStockByBtches() DataPlatformProductStockProductStockByBTCHSlice {
+	if r == nil {
+		return nil
+	}
+	return r.BusinessPartnerDataPlatformProductStockProductStockByBtches
 }
 
 // dataPlatformPlantStorageLocationDatumL is where Load methods for each relationship are stored.
@@ -204,8 +214,6 @@ type (
 	// DataPlatformPlantStorageLocationDatumSlice is an alias for a slice of pointers to DataPlatformPlantStorageLocationDatum.
 	// This should almost always be used instead of []DataPlatformPlantStorageLocationDatum.
 	DataPlatformPlantStorageLocationDatumSlice []*DataPlatformPlantStorageLocationDatum
-	// DataPlatformPlantStorageLocationDatumHook is the signature for custom DataPlatformPlantStorageLocationDatum hook methods
-	DataPlatformPlantStorageLocationDatumHook func(context.Context, boil.ContextExecutor, *DataPlatformPlantStorageLocationDatum) error
 
 	dataPlatformPlantStorageLocationDatumQuery struct {
 		*queries.Query
@@ -233,179 +241,6 @@ var (
 	_ = qmhelper.Where
 )
 
-var dataPlatformPlantStorageLocationDatumAfterSelectHooks []DataPlatformPlantStorageLocationDatumHook
-
-var dataPlatformPlantStorageLocationDatumBeforeInsertHooks []DataPlatformPlantStorageLocationDatumHook
-var dataPlatformPlantStorageLocationDatumAfterInsertHooks []DataPlatformPlantStorageLocationDatumHook
-
-var dataPlatformPlantStorageLocationDatumBeforeUpdateHooks []DataPlatformPlantStorageLocationDatumHook
-var dataPlatformPlantStorageLocationDatumAfterUpdateHooks []DataPlatformPlantStorageLocationDatumHook
-
-var dataPlatformPlantStorageLocationDatumBeforeDeleteHooks []DataPlatformPlantStorageLocationDatumHook
-var dataPlatformPlantStorageLocationDatumAfterDeleteHooks []DataPlatformPlantStorageLocationDatumHook
-
-var dataPlatformPlantStorageLocationDatumBeforeUpsertHooks []DataPlatformPlantStorageLocationDatumHook
-var dataPlatformPlantStorageLocationDatumAfterUpsertHooks []DataPlatformPlantStorageLocationDatumHook
-
-// doAfterSelectHooks executes all "after Select" hooks.
-func (o *DataPlatformPlantStorageLocationDatum) doAfterSelectHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPlantStorageLocationDatumAfterSelectHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeInsertHooks executes all "before insert" hooks.
-func (o *DataPlatformPlantStorageLocationDatum) doBeforeInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPlantStorageLocationDatumBeforeInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterInsertHooks executes all "after Insert" hooks.
-func (o *DataPlatformPlantStorageLocationDatum) doAfterInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPlantStorageLocationDatumAfterInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpdateHooks executes all "before Update" hooks.
-func (o *DataPlatformPlantStorageLocationDatum) doBeforeUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPlantStorageLocationDatumBeforeUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpdateHooks executes all "after Update" hooks.
-func (o *DataPlatformPlantStorageLocationDatum) doAfterUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPlantStorageLocationDatumAfterUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeDeleteHooks executes all "before Delete" hooks.
-func (o *DataPlatformPlantStorageLocationDatum) doBeforeDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPlantStorageLocationDatumBeforeDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterDeleteHooks executes all "after Delete" hooks.
-func (o *DataPlatformPlantStorageLocationDatum) doAfterDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPlantStorageLocationDatumAfterDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpsertHooks executes all "before Upsert" hooks.
-func (o *DataPlatformPlantStorageLocationDatum) doBeforeUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPlantStorageLocationDatumBeforeUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpsertHooks executes all "after Upsert" hooks.
-func (o *DataPlatformPlantStorageLocationDatum) doAfterUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPlantStorageLocationDatumAfterUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// AddDataPlatformPlantStorageLocationDatumHook registers your hook function for all future operations.
-func AddDataPlatformPlantStorageLocationDatumHook(hookPoint boil.HookPoint, dataPlatformPlantStorageLocationDatumHook DataPlatformPlantStorageLocationDatumHook) {
-	switch hookPoint {
-	case boil.AfterSelectHook:
-		dataPlatformPlantStorageLocationDatumAfterSelectHooks = append(dataPlatformPlantStorageLocationDatumAfterSelectHooks, dataPlatformPlantStorageLocationDatumHook)
-	case boil.BeforeInsertHook:
-		dataPlatformPlantStorageLocationDatumBeforeInsertHooks = append(dataPlatformPlantStorageLocationDatumBeforeInsertHooks, dataPlatformPlantStorageLocationDatumHook)
-	case boil.AfterInsertHook:
-		dataPlatformPlantStorageLocationDatumAfterInsertHooks = append(dataPlatformPlantStorageLocationDatumAfterInsertHooks, dataPlatformPlantStorageLocationDatumHook)
-	case boil.BeforeUpdateHook:
-		dataPlatformPlantStorageLocationDatumBeforeUpdateHooks = append(dataPlatformPlantStorageLocationDatumBeforeUpdateHooks, dataPlatformPlantStorageLocationDatumHook)
-	case boil.AfterUpdateHook:
-		dataPlatformPlantStorageLocationDatumAfterUpdateHooks = append(dataPlatformPlantStorageLocationDatumAfterUpdateHooks, dataPlatformPlantStorageLocationDatumHook)
-	case boil.BeforeDeleteHook:
-		dataPlatformPlantStorageLocationDatumBeforeDeleteHooks = append(dataPlatformPlantStorageLocationDatumBeforeDeleteHooks, dataPlatformPlantStorageLocationDatumHook)
-	case boil.AfterDeleteHook:
-		dataPlatformPlantStorageLocationDatumAfterDeleteHooks = append(dataPlatformPlantStorageLocationDatumAfterDeleteHooks, dataPlatformPlantStorageLocationDatumHook)
-	case boil.BeforeUpsertHook:
-		dataPlatformPlantStorageLocationDatumBeforeUpsertHooks = append(dataPlatformPlantStorageLocationDatumBeforeUpsertHooks, dataPlatformPlantStorageLocationDatumHook)
-	case boil.AfterUpsertHook:
-		dataPlatformPlantStorageLocationDatumAfterUpsertHooks = append(dataPlatformPlantStorageLocationDatumAfterUpsertHooks, dataPlatformPlantStorageLocationDatumHook)
-	}
-}
-
 // One returns a single dataPlatformPlantStorageLocationDatum record from the query.
 func (q dataPlatformPlantStorageLocationDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformPlantStorageLocationDatum, error) {
 	o := &DataPlatformPlantStorageLocationDatum{}
@@ -420,10 +255,6 @@ func (q dataPlatformPlantStorageLocationDatumQuery) One(ctx context.Context, exe
 		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_plant_storage_location_data")
 	}
 
-	if err := o.doAfterSelectHooks(ctx, exec); err != nil {
-		return o, err
-	}
-
 	return o, nil
 }
 
@@ -434,14 +265,6 @@ func (q dataPlatformPlantStorageLocationDatumQuery) All(ctx context.Context, exe
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
 		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformPlantStorageLocationDatum slice")
-	}
-
-	if len(dataPlatformPlantStorageLocationDatumAfterSelectHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterSelectHooks(ctx, exec); err != nil {
-				return o, err
-			}
-		}
 	}
 
 	return o, nil
@@ -478,34 +301,51 @@ func (q dataPlatformPlantStorageLocationDatumQuery) Exists(ctx context.Context, 
 	return count > 0, nil
 }
 
-// BusinessPartnerDataPlatformPlantGeneralDatum pointed to by the foreign key.
-func (o *DataPlatformPlantStorageLocationDatum) BusinessPartnerDataPlatformPlantGeneralDatum(mods ...qm.QueryMod) dataPlatformPlantGeneralDatumQuery {
-	queryMods := []qm.QueryMod{
-		qm.Where("`BusinessPartner` = ?", o.BusinessPartner),
-	}
-
-	queryMods = append(queryMods, mods...)
-
-	return DataPlatformPlantGeneralData(queryMods...)
-}
-
-// BusinessPartnerDataPlatformProductMasterBPPlantData retrieves all the data_platform_product_master_bp_plant_datum's DataPlatformProductMasterBPPlantData with an executor via BusinessPartner column.
-func (o *DataPlatformPlantStorageLocationDatum) BusinessPartnerDataPlatformProductMasterBPPlantData(mods ...qm.QueryMod) dataPlatformProductMasterBPPlantDatumQuery {
+// StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData retrieves all the data_platform_planned_order_component_datum's DataPlatformPlannedOrderComponentData with an executor via StockConfirmationBusinessPartner column.
+func (o *DataPlatformPlantStorageLocationDatum) StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData(mods ...qm.QueryMod) dataPlatformPlannedOrderComponentDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_product_master_bp_plant_data`.`BusinessPartner`=?", o.BusinessPartner),
+		qm.Where("`data_platform_planned_order_component_data`.`StockConfirmationBusinessPartner`=?", o.BusinessPartner),
 	)
 
-	return DataPlatformProductMasterBPPlantData(queryMods...)
+	return DataPlatformPlannedOrderComponentData(queryMods...)
 }
 
-// LoadBusinessPartnerDataPlatformPlantGeneralDatum allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformPlantStorageLocationDatumL) LoadBusinessPartnerDataPlatformPlantGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPlantStorageLocationDatum interface{}, mods queries.Applicator) error {
+// ProductDeliverToPartyDataPlatformPlannedOrderItemData retrieves all the data_platform_planned_order_item_datum's DataPlatformPlannedOrderItemData with an executor via ProductDeliverToParty column.
+func (o *DataPlatformPlantStorageLocationDatum) ProductDeliverToPartyDataPlatformPlannedOrderItemData(mods ...qm.QueryMod) dataPlatformPlannedOrderItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_planned_order_item_data`.`ProductDeliverToParty`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformPlannedOrderItemData(queryMods...)
+}
+
+// BusinessPartnerDataPlatformProductStockProductStockByBtches retrieves all the data_platform_product_stock_product_stock_by_btch's DataPlatformProductStockProductStockByBtches with an executor via BusinessPartner column.
+func (o *DataPlatformPlantStorageLocationDatum) BusinessPartnerDataPlatformProductStockProductStockByBtches(mods ...qm.QueryMod) dataPlatformProductStockProductStockByBTCHQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_product_stock_product_stock_by_btch`.`BusinessPartner`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformProductStockProductStockByBtches(queryMods...)
+}
+
+// LoadStockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformPlantStorageLocationDatumL) LoadStockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPlantStorageLocationDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformPlantStorageLocationDatum
 	var object *DataPlatformPlantStorageLocationDatum
 
@@ -537,7 +377,6 @@ func (dataPlatformPlantStorageLocationDatumL) LoadBusinessPartnerDataPlatformPla
 			object.R = &dataPlatformPlantStorageLocationDatumR{}
 		}
 		args = append(args, object.BusinessPartner)
-
 	} else {
 	Outer:
 		for _, obj := range slice {
@@ -546,13 +385,12 @@ func (dataPlatformPlantStorageLocationDatumL) LoadBusinessPartnerDataPlatformPla
 			}
 
 			for _, a := range args {
-				if a == obj.BusinessPartner {
+				if queries.Equal(a, obj.BusinessPartner) {
 					continue Outer
 				}
 			}
 
 			args = append(args, obj.BusinessPartner)
-
 		}
 	}
 
@@ -561,8 +399,8 @@ func (dataPlatformPlantStorageLocationDatumL) LoadBusinessPartnerDataPlatformPla
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_plant_general_data`),
-		qm.WhereIn(`data_platform_plant_general_data.BusinessPartner in ?`, args...),
+		qm.From(`data_platform_planned_order_component_data`),
+		qm.WhereIn(`data_platform_planned_order_component_data.StockConfirmationBusinessPartner in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -570,51 +408,30 @@ func (dataPlatformPlantStorageLocationDatumL) LoadBusinessPartnerDataPlatformPla
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load DataPlatformPlantGeneralDatum")
+		return errors.Wrap(err, "failed to eager load data_platform_planned_order_component_data")
 	}
 
-	var resultSlice []*DataPlatformPlantGeneralDatum
+	var resultSlice []*DataPlatformPlannedOrderComponentDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformPlantGeneralDatum")
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_planned_order_component_data")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results of eager load for data_platform_plant_general_data")
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_planned_order_component_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_plant_general_data")
-	}
-
-	if len(dataPlatformPlantGeneralDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
-	if len(resultSlice) == 0 {
-		return nil
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_planned_order_component_data")
 	}
 
 	if singular {
-		foreign := resultSlice[0]
-		object.R.BusinessPartnerDataPlatformPlantGeneralDatum = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformPlantGeneralDatumR{}
-		}
-		foreign.R.BusinessPartnerDataPlatformPlantStorageLocationData = append(foreign.R.BusinessPartnerDataPlatformPlantStorageLocationData, object)
+		object.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData = resultSlice
 		return nil
 	}
 
-	for _, local := range slice {
-		for _, foreign := range resultSlice {
-			if local.BusinessPartner == foreign.BusinessPartner {
-				local.R.BusinessPartnerDataPlatformPlantGeneralDatum = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformPlantGeneralDatumR{}
-				}
-				foreign.R.BusinessPartnerDataPlatformPlantStorageLocationData = append(foreign.R.BusinessPartnerDataPlatformPlantStorageLocationData, local)
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.BusinessPartner, foreign.StockConfirmationBusinessPartner) {
+				local.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData = append(local.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData, foreign)
 				break
 			}
 		}
@@ -623,9 +440,106 @@ func (dataPlatformPlantStorageLocationDatumL) LoadBusinessPartnerDataPlatformPla
 	return nil
 }
 
-// LoadBusinessPartnerDataPlatformProductMasterBPPlantData allows an eager lookup of values, cached into the
+// LoadProductDeliverToPartyDataPlatformPlannedOrderItemData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformPlantStorageLocationDatumL) LoadBusinessPartnerDataPlatformProductMasterBPPlantData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPlantStorageLocationDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformPlantStorageLocationDatumL) LoadProductDeliverToPartyDataPlatformPlannedOrderItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPlantStorageLocationDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformPlantStorageLocationDatum
+	var object *DataPlatformPlantStorageLocationDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformPlantStorageLocationDatum.(*DataPlatformPlantStorageLocationDatum)
+		if !ok {
+			object = new(DataPlatformPlantStorageLocationDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformPlantStorageLocationDatum.(*[]*DataPlatformPlantStorageLocationDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformPlantStorageLocationDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformPlantStorageLocationDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.BusinessPartner) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_planned_order_item_data`),
+		qm.WhereIn(`data_platform_planned_order_item_data.ProductDeliverToParty in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_planned_order_item_data")
+	}
+
+	var resultSlice []*DataPlatformPlannedOrderItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_planned_order_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_planned_order_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_planned_order_item_data")
+	}
+
+	if singular {
+		object.R.ProductDeliverToPartyDataPlatformPlannedOrderItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.BusinessPartner, foreign.ProductDeliverToParty) {
+				local.R.ProductDeliverToPartyDataPlatformPlannedOrderItemData = append(local.R.ProductDeliverToPartyDataPlatformPlannedOrderItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadBusinessPartnerDataPlatformProductStockProductStockByBtches allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformPlantStorageLocationDatumL) LoadBusinessPartnerDataPlatformProductStockProductStockByBtches(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPlantStorageLocationDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformPlantStorageLocationDatum
 	var object *DataPlatformPlantStorageLocationDatum
 
@@ -679,8 +593,8 @@ func (dataPlatformPlantStorageLocationDatumL) LoadBusinessPartnerDataPlatformPro
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_product_master_bp_plant_data`),
-		qm.WhereIn(`data_platform_product_master_bp_plant_data.BusinessPartner in ?`, args...),
+		qm.From(`data_platform_product_stock_product_stock_by_btch`),
+		qm.WhereIn(`data_platform_product_stock_product_stock_by_btch.BusinessPartner in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -688,47 +602,30 @@ func (dataPlatformPlantStorageLocationDatumL) LoadBusinessPartnerDataPlatformPro
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_product_master_bp_plant_data")
+		return errors.Wrap(err, "failed to eager load data_platform_product_stock_product_stock_by_btch")
 	}
 
-	var resultSlice []*DataPlatformProductMasterBPPlantDatum
+	var resultSlice []*DataPlatformProductStockProductStockByBTCH
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_master_bp_plant_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_stock_product_stock_by_btch")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_master_bp_plant_data")
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_stock_product_stock_by_btch")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_bp_plant_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_stock_product_stock_by_btch")
 	}
 
-	if len(dataPlatformProductMasterBPPlantDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
 	if singular {
-		object.R.BusinessPartnerDataPlatformProductMasterBPPlantData = resultSlice
-		for _, foreign := range resultSlice {
-			if foreign.R == nil {
-				foreign.R = &dataPlatformProductMasterBPPlantDatumR{}
-			}
-			foreign.R.BusinessPartnerDataPlatformPlantStorageLocationDatum = object
-		}
+		object.R.BusinessPartnerDataPlatformProductStockProductStockByBtches = resultSlice
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
 			if local.BusinessPartner == foreign.BusinessPartner {
-				local.R.BusinessPartnerDataPlatformProductMasterBPPlantData = append(local.R.BusinessPartnerDataPlatformProductMasterBPPlantData, foreign)
-				if foreign.R == nil {
-					foreign.R = &dataPlatformProductMasterBPPlantDatumR{}
-				}
-				foreign.R.BusinessPartnerDataPlatformPlantStorageLocationDatum = local
+				local.R.BusinessPartnerDataPlatformProductStockProductStockByBtches = append(local.R.BusinessPartnerDataPlatformProductStockProductStockByBtches, foreign)
 				break
 			}
 		}
@@ -737,58 +634,218 @@ func (dataPlatformPlantStorageLocationDatumL) LoadBusinessPartnerDataPlatformPro
 	return nil
 }
 
-// SetBusinessPartnerDataPlatformPlantGeneralDatum of the dataPlatformPlantStorageLocationDatum to the related item.
-// Sets o.R.BusinessPartnerDataPlatformPlantGeneralDatum to related.
-// Adds o to related.R.BusinessPartnerDataPlatformPlantStorageLocationData.
-func (o *DataPlatformPlantStorageLocationDatum) SetBusinessPartnerDataPlatformPlantGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformPlantGeneralDatum) error {
+// AddStockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData adds the given related objects to the existing relationships
+// of the data_platform_plant_storage_location_datum, optionally inserting them as new records.
+// Appends related to o.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData.
+func (o *DataPlatformPlantStorageLocationDatum) AddStockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderComponentDatum) error {
 	var err error
-	if insert {
-		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
-			return errors.Wrap(err, "failed to insert into foreign table")
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.StockConfirmationBusinessPartner, o.BusinessPartner)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_planned_order_component_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"StockConfirmationBusinessPartner"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformPlannedOrderComponentDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.PlannedOrder, rel.PlannedOrderItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.StockConfirmationBusinessPartner, o.BusinessPartner)
 		}
 	}
 
-	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_plant_storage_location_data` SET %s WHERE %s",
-		strmangle.SetParamNames("`", "`", 0, []string{"BusinessPartner"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformPlantStorageLocationDatumPrimaryKeyColumns),
-	)
-	values := []interface{}{related.BusinessPartner, o.BusinessPartner, o.Plant, o.StorageLocation}
-
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, updateQuery)
-		fmt.Fprintln(writer, values)
-	}
-	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-		return errors.Wrap(err, "failed to update local table")
-	}
-
-	o.BusinessPartner = related.BusinessPartner
 	if o.R == nil {
 		o.R = &dataPlatformPlantStorageLocationDatumR{
-			BusinessPartnerDataPlatformPlantGeneralDatum: related,
+			StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData: related,
 		}
 	} else {
-		o.R.BusinessPartnerDataPlatformPlantGeneralDatum = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformPlantGeneralDatumR{
-			BusinessPartnerDataPlatformPlantStorageLocationData: DataPlatformPlantStorageLocationDatumSlice{o},
-		}
-	} else {
-		related.R.BusinessPartnerDataPlatformPlantStorageLocationData = append(related.R.BusinessPartnerDataPlatformPlantStorageLocationData, o)
+		o.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData = append(o.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData, related...)
 	}
 
 	return nil
 }
 
-// AddBusinessPartnerDataPlatformProductMasterBPPlantData adds the given related objects to the existing relationships
+// SetStockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData removes all previously related items of the
+// data_platform_plant_storage_location_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.StockConfirmationBusinessPartnerDataPlatformPlantStorageLocationDatum's StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData accordingly.
+// Replaces o.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData with related.
+func (o *DataPlatformPlantStorageLocationDatum) SetStockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderComponentDatum) error {
+	query := "update `data_platform_planned_order_component_data` set `StockConfirmationBusinessPartner` = null where `StockConfirmationBusinessPartner` = ?"
+	values := []interface{}{o.BusinessPartner}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData = nil
+	}
+
+	return o.AddStockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData(ctx, exec, insert, related...)
+}
+
+// RemoveStockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData relationships from objects passed in.
+// Removes related items from R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformPlantStorageLocationDatum) RemoveStockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformPlannedOrderComponentDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.StockConfirmationBusinessPartner, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("StockConfirmationBusinessPartner")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData)
+			if ln > 1 && i < ln-1 {
+				o.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData[i] = o.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData[ln-1]
+			}
+			o.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData = o.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderComponentData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddProductDeliverToPartyDataPlatformPlannedOrderItemData adds the given related objects to the existing relationships
 // of the data_platform_plant_storage_location_datum, optionally inserting them as new records.
-// Appends related to o.R.BusinessPartnerDataPlatformProductMasterBPPlantData.
-// Sets related.R.BusinessPartnerDataPlatformPlantStorageLocationDatum appropriately.
-func (o *DataPlatformPlantStorageLocationDatum) AddBusinessPartnerDataPlatformProductMasterBPPlantData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductMasterBPPlantDatum) error {
+// Appends related to o.R.ProductDeliverToPartyDataPlatformPlannedOrderItemData.
+func (o *DataPlatformPlantStorageLocationDatum) AddProductDeliverToPartyDataPlatformPlannedOrderItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.ProductDeliverToParty, o.BusinessPartner)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_planned_order_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"ProductDeliverToParty"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformPlannedOrderItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.PlannedOrder, rel.PlannedOrderItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.ProductDeliverToParty, o.BusinessPartner)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformPlantStorageLocationDatumR{
+			ProductDeliverToPartyDataPlatformPlannedOrderItemData: related,
+		}
+	} else {
+		o.R.ProductDeliverToPartyDataPlatformPlannedOrderItemData = append(o.R.ProductDeliverToPartyDataPlatformPlannedOrderItemData, related...)
+	}
+
+	return nil
+}
+
+// SetProductDeliverToPartyDataPlatformPlannedOrderItemData removes all previously related items of the
+// data_platform_plant_storage_location_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.ProductDeliverToPartyDataPlatformPlantStorageLocationDatum's ProductDeliverToPartyDataPlatformPlannedOrderItemData accordingly.
+// Replaces o.R.ProductDeliverToPartyDataPlatformPlannedOrderItemData with related.
+func (o *DataPlatformPlantStorageLocationDatum) SetProductDeliverToPartyDataPlatformPlannedOrderItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderItemDatum) error {
+	query := "update `data_platform_planned_order_item_data` set `ProductDeliverToParty` = null where `ProductDeliverToParty` = ?"
+	values := []interface{}{o.BusinessPartner}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.ProductDeliverToPartyDataPlatformPlannedOrderItemData = nil
+	}
+
+	return o.AddProductDeliverToPartyDataPlatformPlannedOrderItemData(ctx, exec, insert, related...)
+}
+
+// RemoveProductDeliverToPartyDataPlatformPlannedOrderItemData relationships from objects passed in.
+// Removes related items from R.ProductDeliverToPartyDataPlatformPlannedOrderItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformPlantStorageLocationDatum) RemoveProductDeliverToPartyDataPlatformPlannedOrderItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformPlannedOrderItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.ProductDeliverToParty, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("ProductDeliverToParty")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.ProductDeliverToPartyDataPlatformPlannedOrderItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.ProductDeliverToPartyDataPlatformPlannedOrderItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.ProductDeliverToPartyDataPlatformPlannedOrderItemData[i] = o.R.ProductDeliverToPartyDataPlatformPlannedOrderItemData[ln-1]
+			}
+			o.R.ProductDeliverToPartyDataPlatformPlannedOrderItemData = o.R.ProductDeliverToPartyDataPlatformPlannedOrderItemData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddBusinessPartnerDataPlatformProductStockProductStockByBtches adds the given related objects to the existing relationships
+// of the data_platform_plant_storage_location_datum, optionally inserting them as new records.
+// Appends related to o.R.BusinessPartnerDataPlatformProductStockProductStockByBtches.
+func (o *DataPlatformPlantStorageLocationDatum) AddBusinessPartnerDataPlatformProductStockProductStockByBtches(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductStockProductStockByBTCH) error {
 	var err error
 	for _, rel := range related {
 		if insert {
@@ -798,11 +855,11 @@ func (o *DataPlatformPlantStorageLocationDatum) AddBusinessPartnerDataPlatformPr
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_product_master_bp_plant_data` SET %s WHERE %s",
+				"UPDATE `data_platform_product_stock_product_stock_by_btch` SET %s WHERE %s",
 				strmangle.SetParamNames("`", "`", 0, []string{"BusinessPartner"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterBPPlantDatumPrimaryKeyColumns),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductStockProductStockByBTCHPrimaryKeyColumns),
 			)
-			values := []interface{}{o.BusinessPartner, rel.Product, rel.BusinessPartner, rel.Plant}
+			values := []interface{}{o.BusinessPartner, rel.Product, rel.BusinessPartner, rel.Plant, rel.Batch}
 
 			if boil.IsDebug(ctx) {
 				writer := boil.DebugWriterFrom(ctx)
@@ -819,21 +876,12 @@ func (o *DataPlatformPlantStorageLocationDatum) AddBusinessPartnerDataPlatformPr
 
 	if o.R == nil {
 		o.R = &dataPlatformPlantStorageLocationDatumR{
-			BusinessPartnerDataPlatformProductMasterBPPlantData: related,
+			BusinessPartnerDataPlatformProductStockProductStockByBtches: related,
 		}
 	} else {
-		o.R.BusinessPartnerDataPlatformProductMasterBPPlantData = append(o.R.BusinessPartnerDataPlatformProductMasterBPPlantData, related...)
+		o.R.BusinessPartnerDataPlatformProductStockProductStockByBtches = append(o.R.BusinessPartnerDataPlatformProductStockProductStockByBtches, related...)
 	}
 
-	for _, rel := range related {
-		if rel.R == nil {
-			rel.R = &dataPlatformProductMasterBPPlantDatumR{
-				BusinessPartnerDataPlatformPlantStorageLocationDatum: o,
-			}
-		} else {
-			rel.R.BusinessPartnerDataPlatformPlantStorageLocationDatum = o
-		}
-	}
 	return nil
 }
 
@@ -871,10 +919,6 @@ func FindDataPlatformPlantStorageLocationDatum(ctx context.Context, exec boil.Co
 		return nil, errors.Wrap(err, "models: unable to select from data_platform_plant_storage_location_data")
 	}
 
-	if err = dataPlatformPlantStorageLocationDatumObj.doAfterSelectHooks(ctx, exec); err != nil {
-		return dataPlatformPlantStorageLocationDatumObj, err
-	}
-
 	return dataPlatformPlantStorageLocationDatumObj, nil
 }
 
@@ -886,10 +930,6 @@ func (o *DataPlatformPlantStorageLocationDatum) Insert(ctx context.Context, exec
 	}
 
 	var err error
-
-	if err := o.doBeforeInsertHooks(ctx, exec); err != nil {
-		return err
-	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformPlantStorageLocationDatumColumnsWithDefault, o)
 
@@ -972,17 +1012,14 @@ CacheNoHooks:
 		dataPlatformPlantStorageLocationDatumInsertCacheMut.Unlock()
 	}
 
-	return o.doAfterInsertHooks(ctx, exec)
+	return nil
 }
 
 // Update uses an executor to update the DataPlatformPlantStorageLocationDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformPlantStorageLocationDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) (int64, error) {
+func (o *DataPlatformPlantStorageLocationDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
-	if err = o.doBeforeUpdateHooks(ctx, exec); err != nil {
-		return 0, err
-	}
 	key := makeCacheKey(columns, nil)
 	dataPlatformPlantStorageLocationDatumUpdateCacheMut.RLock()
 	cache, cached := dataPlatformPlantStorageLocationDatumUpdateCache[key]
@@ -998,7 +1035,7 @@ func (o *DataPlatformPlantStorageLocationDatum) Update(ctx context.Context, exec
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return 0, errors.New("models: unable to update data_platform_plant_storage_location_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_plant_storage_location_data, could not build whitelist")
 		}
 
 		cache.query = fmt.Sprintf("UPDATE `data_platform_plant_storage_location_data` SET %s WHERE %s",
@@ -1007,7 +1044,7 @@ func (o *DataPlatformPlantStorageLocationDatum) Update(ctx context.Context, exec
 		)
 		cache.valueMapping, err = queries.BindMapping(dataPlatformPlantStorageLocationDatumType, dataPlatformPlantStorageLocationDatumMapping, append(wl, dataPlatformPlantStorageLocationDatumPrimaryKeyColumns...))
 		if err != nil {
-			return 0, err
+			return err
 		}
 	}
 
@@ -1018,15 +1055,9 @@ func (o *DataPlatformPlantStorageLocationDatum) Update(ctx context.Context, exec
 		fmt.Fprintln(writer, cache.query)
 		fmt.Fprintln(writer, values)
 	}
-	var result sql.Result
-	result, err = exec.ExecContext(ctx, cache.query, values...)
+	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update data_platform_plant_storage_location_data row")
-	}
-
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by update for data_platform_plant_storage_location_data")
+		return errors.Wrap(err, "models: unable to update data_platform_plant_storage_location_data row")
 	}
 
 	if !cached {
@@ -1035,35 +1066,30 @@ func (o *DataPlatformPlantStorageLocationDatum) Update(ctx context.Context, exec
 		dataPlatformPlantStorageLocationDatumUpdateCacheMut.Unlock()
 	}
 
-	return rowsAff, o.doAfterUpdateHooks(ctx, exec)
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformPlantStorageLocationDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (q dataPlatformPlantStorageLocationDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all for data_platform_plant_storage_location_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_plant_storage_location_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected for data_platform_plant_storage_location_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformPlantStorageLocationDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (o DataPlatformPlantStorageLocationDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
-		return 0, nil
+		return nil
 	}
 
 	if len(cols) == 0 {
-		return 0, errors.New("models: update all requires at least one column argument")
+		return errors.New("models: update all requires at least one column argument")
 	}
 
 	colNames := make([]string, len(cols))
@@ -1091,16 +1117,12 @@ func (o DataPlatformPlantStorageLocationDatumSlice) UpdateAll(ctx context.Contex
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all in dataPlatformPlantStorageLocationDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformPlantStorageLocationDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected all in update all dataPlatformPlantStorageLocationDatum")
-	}
-	return rowsAff, nil
+	return nil
 }
 
 var mySQLDataPlatformPlantStorageLocationDatumUniqueColumns = []string{}
@@ -1110,10 +1132,6 @@ var mySQLDataPlatformPlantStorageLocationDatumUniqueColumns = []string{}
 func (o *DataPlatformPlantStorageLocationDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
 		return errors.New("models: no data_platform_plant_storage_location_data provided for upsert")
-	}
-
-	if err := o.doBeforeUpsertHooks(ctx, exec); err != nil {
-		return err
 	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformPlantStorageLocationDatumColumnsWithDefault, o)
@@ -1236,18 +1254,14 @@ CacheNoHooks:
 		dataPlatformPlantStorageLocationDatumUpsertCacheMut.Unlock()
 	}
 
-	return o.doAfterUpsertHooks(ctx, exec)
+	return nil
 }
 
 // Delete deletes a single DataPlatformPlantStorageLocationDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformPlantStorageLocationDatum) Delete(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o *DataPlatformPlantStorageLocationDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return 0, errors.New("models: no DataPlatformPlantStorageLocationDatum provided for delete")
-	}
-
-	if err := o.doBeforeDeleteHooks(ctx, exec); err != nil {
-		return 0, err
+		return errors.New("models: no DataPlatformPlantStorageLocationDatum provided for delete")
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformPlantStorageLocationDatumPrimaryKeyMapping)
@@ -1258,56 +1272,34 @@ func (o *DataPlatformPlantStorageLocationDatum) Delete(ctx context.Context, exec
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete from data_platform_plant_storage_location_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_plant_storage_location_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by delete for data_platform_plant_storage_location_data")
-	}
-
-	if err := o.doAfterDeleteHooks(ctx, exec); err != nil {
-		return 0, err
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformPlantStorageLocationDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (q dataPlatformPlantStorageLocationDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return 0, errors.New("models: no dataPlatformPlantStorageLocationDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformPlantStorageLocationDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from data_platform_plant_storage_location_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_plant_storage_location_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_plant_storage_location_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformPlantStorageLocationDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o DataPlatformPlantStorageLocationDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
-		return 0, nil
-	}
-
-	if len(dataPlatformPlantStorageLocationDatumBeforeDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doBeforeDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
+		return nil
 	}
 
 	var args []interface{}
@@ -1324,25 +1316,12 @@ func (o DataPlatformPlantStorageLocationDatumSlice) DeleteAll(ctx context.Contex
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from dataPlatformPlantStorageLocationDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformPlantStorageLocationDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_plant_storage_location_data")
-	}
-
-	if len(dataPlatformPlantStorageLocationDatumAfterDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // Reload refetches the object from the database

@@ -66,17 +66,14 @@ var DataPlatformPartnerFunctionPartnerFunctionTextDatumWhere = struct {
 
 // DataPlatformPartnerFunctionPartnerFunctionTextDatumRels is where relationship names are stored.
 var DataPlatformPartnerFunctionPartnerFunctionTextDatumRels = struct {
-	LanguageDataPlatformLanguageLanguageDatum                      string
-	PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum string
+	LanguageDataPlatformLanguageLanguageDatum string
 }{
-	LanguageDataPlatformLanguageLanguageDatum:                      "LanguageDataPlatformLanguageLanguageDatum",
-	PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum: "PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum",
+	LanguageDataPlatformLanguageLanguageDatum: "LanguageDataPlatformLanguageLanguageDatum",
 }
 
 // dataPlatformPartnerFunctionPartnerFunctionTextDatumR is where relationships are stored.
 type dataPlatformPartnerFunctionPartnerFunctionTextDatumR struct {
-	LanguageDataPlatformLanguageLanguageDatum                      *DataPlatformLanguageLanguageDatum               `boil:"LanguageDataPlatformLanguageLanguageDatum" json:"LanguageDataPlatformLanguageLanguageDatum" toml:"LanguageDataPlatformLanguageLanguageDatum" yaml:"LanguageDataPlatformLanguageLanguageDatum"`
-	PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum *DataPlatformPartnerFunctionPartnerFunctionDatum `boil:"PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum" json:"PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum" toml:"PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum" yaml:"PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum"`
+	LanguageDataPlatformLanguageLanguageDatum *DataPlatformLanguageLanguageDatum `boil:"LanguageDataPlatformLanguageLanguageDatum" json:"LanguageDataPlatformLanguageLanguageDatum" toml:"LanguageDataPlatformLanguageLanguageDatum" yaml:"LanguageDataPlatformLanguageLanguageDatum"`
 }
 
 // NewStruct creates a new relationship struct
@@ -89,13 +86,6 @@ func (r *dataPlatformPartnerFunctionPartnerFunctionTextDatumR) GetLanguageDataPl
 		return nil
 	}
 	return r.LanguageDataPlatformLanguageLanguageDatum
-}
-
-func (r *dataPlatformPartnerFunctionPartnerFunctionTextDatumR) GetPartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum() *DataPlatformPartnerFunctionPartnerFunctionDatum {
-	if r == nil {
-		return nil
-	}
-	return r.PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum
 }
 
 // dataPlatformPartnerFunctionPartnerFunctionTextDatumL is where Load methods for each relationship are stored.
@@ -113,8 +103,6 @@ type (
 	// DataPlatformPartnerFunctionPartnerFunctionTextDatumSlice is an alias for a slice of pointers to DataPlatformPartnerFunctionPartnerFunctionTextDatum.
 	// This should almost always be used instead of []DataPlatformPartnerFunctionPartnerFunctionTextDatum.
 	DataPlatformPartnerFunctionPartnerFunctionTextDatumSlice []*DataPlatformPartnerFunctionPartnerFunctionTextDatum
-	// DataPlatformPartnerFunctionPartnerFunctionTextDatumHook is the signature for custom DataPlatformPartnerFunctionPartnerFunctionTextDatum hook methods
-	DataPlatformPartnerFunctionPartnerFunctionTextDatumHook func(context.Context, boil.ContextExecutor, *DataPlatformPartnerFunctionPartnerFunctionTextDatum) error
 
 	dataPlatformPartnerFunctionPartnerFunctionTextDatumQuery struct {
 		*queries.Query
@@ -142,179 +130,6 @@ var (
 	_ = qmhelper.Where
 )
 
-var dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterSelectHooks []DataPlatformPartnerFunctionPartnerFunctionTextDatumHook
-
-var dataPlatformPartnerFunctionPartnerFunctionTextDatumBeforeInsertHooks []DataPlatformPartnerFunctionPartnerFunctionTextDatumHook
-var dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterInsertHooks []DataPlatformPartnerFunctionPartnerFunctionTextDatumHook
-
-var dataPlatformPartnerFunctionPartnerFunctionTextDatumBeforeUpdateHooks []DataPlatformPartnerFunctionPartnerFunctionTextDatumHook
-var dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterUpdateHooks []DataPlatformPartnerFunctionPartnerFunctionTextDatumHook
-
-var dataPlatformPartnerFunctionPartnerFunctionTextDatumBeforeDeleteHooks []DataPlatformPartnerFunctionPartnerFunctionTextDatumHook
-var dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterDeleteHooks []DataPlatformPartnerFunctionPartnerFunctionTextDatumHook
-
-var dataPlatformPartnerFunctionPartnerFunctionTextDatumBeforeUpsertHooks []DataPlatformPartnerFunctionPartnerFunctionTextDatumHook
-var dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterUpsertHooks []DataPlatformPartnerFunctionPartnerFunctionTextDatumHook
-
-// doAfterSelectHooks executes all "after Select" hooks.
-func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) doAfterSelectHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterSelectHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeInsertHooks executes all "before insert" hooks.
-func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) doBeforeInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPartnerFunctionPartnerFunctionTextDatumBeforeInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterInsertHooks executes all "after Insert" hooks.
-func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) doAfterInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpdateHooks executes all "before Update" hooks.
-func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) doBeforeUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPartnerFunctionPartnerFunctionTextDatumBeforeUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpdateHooks executes all "after Update" hooks.
-func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) doAfterUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeDeleteHooks executes all "before Delete" hooks.
-func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) doBeforeDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPartnerFunctionPartnerFunctionTextDatumBeforeDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterDeleteHooks executes all "after Delete" hooks.
-func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) doAfterDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpsertHooks executes all "before Upsert" hooks.
-func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) doBeforeUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPartnerFunctionPartnerFunctionTextDatumBeforeUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpsertHooks executes all "after Upsert" hooks.
-func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) doAfterUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// AddDataPlatformPartnerFunctionPartnerFunctionTextDatumHook registers your hook function for all future operations.
-func AddDataPlatformPartnerFunctionPartnerFunctionTextDatumHook(hookPoint boil.HookPoint, dataPlatformPartnerFunctionPartnerFunctionTextDatumHook DataPlatformPartnerFunctionPartnerFunctionTextDatumHook) {
-	switch hookPoint {
-	case boil.AfterSelectHook:
-		dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterSelectHooks = append(dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterSelectHooks, dataPlatformPartnerFunctionPartnerFunctionTextDatumHook)
-	case boil.BeforeInsertHook:
-		dataPlatformPartnerFunctionPartnerFunctionTextDatumBeforeInsertHooks = append(dataPlatformPartnerFunctionPartnerFunctionTextDatumBeforeInsertHooks, dataPlatformPartnerFunctionPartnerFunctionTextDatumHook)
-	case boil.AfterInsertHook:
-		dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterInsertHooks = append(dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterInsertHooks, dataPlatformPartnerFunctionPartnerFunctionTextDatumHook)
-	case boil.BeforeUpdateHook:
-		dataPlatformPartnerFunctionPartnerFunctionTextDatumBeforeUpdateHooks = append(dataPlatformPartnerFunctionPartnerFunctionTextDatumBeforeUpdateHooks, dataPlatformPartnerFunctionPartnerFunctionTextDatumHook)
-	case boil.AfterUpdateHook:
-		dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterUpdateHooks = append(dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterUpdateHooks, dataPlatformPartnerFunctionPartnerFunctionTextDatumHook)
-	case boil.BeforeDeleteHook:
-		dataPlatformPartnerFunctionPartnerFunctionTextDatumBeforeDeleteHooks = append(dataPlatformPartnerFunctionPartnerFunctionTextDatumBeforeDeleteHooks, dataPlatformPartnerFunctionPartnerFunctionTextDatumHook)
-	case boil.AfterDeleteHook:
-		dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterDeleteHooks = append(dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterDeleteHooks, dataPlatformPartnerFunctionPartnerFunctionTextDatumHook)
-	case boil.BeforeUpsertHook:
-		dataPlatformPartnerFunctionPartnerFunctionTextDatumBeforeUpsertHooks = append(dataPlatformPartnerFunctionPartnerFunctionTextDatumBeforeUpsertHooks, dataPlatformPartnerFunctionPartnerFunctionTextDatumHook)
-	case boil.AfterUpsertHook:
-		dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterUpsertHooks = append(dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterUpsertHooks, dataPlatformPartnerFunctionPartnerFunctionTextDatumHook)
-	}
-}
-
 // One returns a single dataPlatformPartnerFunctionPartnerFunctionTextDatum record from the query.
 func (q dataPlatformPartnerFunctionPartnerFunctionTextDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformPartnerFunctionPartnerFunctionTextDatum, error) {
 	o := &DataPlatformPartnerFunctionPartnerFunctionTextDatum{}
@@ -329,10 +144,6 @@ func (q dataPlatformPartnerFunctionPartnerFunctionTextDatumQuery) One(ctx contex
 		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_partner_function_partner_function_text_data")
 	}
 
-	if err := o.doAfterSelectHooks(ctx, exec); err != nil {
-		return o, err
-	}
-
 	return o, nil
 }
 
@@ -343,14 +154,6 @@ func (q dataPlatformPartnerFunctionPartnerFunctionTextDatumQuery) All(ctx contex
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
 		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformPartnerFunctionPartnerFunctionTextDatum slice")
-	}
-
-	if len(dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterSelectHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterSelectHooks(ctx, exec); err != nil {
-				return o, err
-			}
-		}
 	}
 
 	return o, nil
@@ -396,17 +199,6 @@ func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) LanguageDataPlatfo
 	queryMods = append(queryMods, mods...)
 
 	return DataPlatformLanguageLanguageData(queryMods...)
-}
-
-// PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum pointed to by the foreign key.
-func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum(mods ...qm.QueryMod) dataPlatformPartnerFunctionPartnerFunctionDatumQuery {
-	queryMods := []qm.QueryMod{
-		qm.Where("`PartnerFunction` = ?", o.PartnerFunction),
-	}
-
-	queryMods = append(queryMods, mods...)
-
-	return DataPlatformPartnerFunctionPartnerFunctionData(queryMods...)
 }
 
 // LoadLanguageDataPlatformLanguageLanguageDatum allows an eager lookup of values, cached into the
@@ -491,14 +283,6 @@ func (dataPlatformPartnerFunctionPartnerFunctionTextDatumL) LoadLanguageDataPlat
 		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_language_language_data")
 	}
 
-	if len(dataPlatformLanguageLanguageDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
 	if len(resultSlice) == 0 {
 		return nil
 	}
@@ -506,10 +290,6 @@ func (dataPlatformPartnerFunctionPartnerFunctionTextDatumL) LoadLanguageDataPlat
 	if singular {
 		foreign := resultSlice[0]
 		object.R.LanguageDataPlatformLanguageLanguageDatum = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformLanguageLanguageDatumR{}
-		}
-		foreign.R.LanguageDataPlatformPartnerFunctionPartnerFunctionTextData = append(foreign.R.LanguageDataPlatformPartnerFunctionPartnerFunctionTextData, object)
 		return nil
 	}
 
@@ -517,130 +297,6 @@ func (dataPlatformPartnerFunctionPartnerFunctionTextDatumL) LoadLanguageDataPlat
 		for _, foreign := range resultSlice {
 			if local.Language == foreign.Language {
 				local.R.LanguageDataPlatformLanguageLanguageDatum = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformLanguageLanguageDatumR{}
-				}
-				foreign.R.LanguageDataPlatformPartnerFunctionPartnerFunctionTextData = append(foreign.R.LanguageDataPlatformPartnerFunctionPartnerFunctionTextData, local)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// LoadPartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformPartnerFunctionPartnerFunctionTextDatumL) LoadPartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPartnerFunctionPartnerFunctionTextDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformPartnerFunctionPartnerFunctionTextDatum
-	var object *DataPlatformPartnerFunctionPartnerFunctionTextDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformPartnerFunctionPartnerFunctionTextDatum.(*DataPlatformPartnerFunctionPartnerFunctionTextDatum)
-		if !ok {
-			object = new(DataPlatformPartnerFunctionPartnerFunctionTextDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformPartnerFunctionPartnerFunctionTextDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformPartnerFunctionPartnerFunctionTextDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformPartnerFunctionPartnerFunctionTextDatum.(*[]*DataPlatformPartnerFunctionPartnerFunctionTextDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformPartnerFunctionPartnerFunctionTextDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformPartnerFunctionPartnerFunctionTextDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformPartnerFunctionPartnerFunctionTextDatumR{}
-		}
-		args = append(args, object.PartnerFunction)
-
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformPartnerFunctionPartnerFunctionTextDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.PartnerFunction {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.PartnerFunction)
-
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_partner_function_partner_function_data`),
-		qm.WhereIn(`data_platform_partner_function_partner_function_data.PartnerFunction in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load DataPlatformPartnerFunctionPartnerFunctionDatum")
-	}
-
-	var resultSlice []*DataPlatformPartnerFunctionPartnerFunctionDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformPartnerFunctionPartnerFunctionDatum")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results of eager load for data_platform_partner_function_partner_function_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_partner_function_partner_function_data")
-	}
-
-	if len(dataPlatformPartnerFunctionPartnerFunctionDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
-	if len(resultSlice) == 0 {
-		return nil
-	}
-
-	if singular {
-		foreign := resultSlice[0]
-		object.R.PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformPartnerFunctionPartnerFunctionDatumR{}
-		}
-		foreign.R.PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionTextData = append(foreign.R.PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionTextData, object)
-		return nil
-	}
-
-	for _, local := range slice {
-		for _, foreign := range resultSlice {
-			if local.PartnerFunction == foreign.PartnerFunction {
-				local.R.PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformPartnerFunctionPartnerFunctionDatumR{}
-				}
-				foreign.R.PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionTextData = append(foreign.R.PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionTextData, local)
 				break
 			}
 		}
@@ -651,7 +307,6 @@ func (dataPlatformPartnerFunctionPartnerFunctionTextDatumL) LoadPartnerFunctionD
 
 // SetLanguageDataPlatformLanguageLanguageDatum of the dataPlatformPartnerFunctionPartnerFunctionTextDatum to the related item.
 // Sets o.R.LanguageDataPlatformLanguageLanguageDatum to related.
-// Adds o to related.R.LanguageDataPlatformPartnerFunctionPartnerFunctionTextData.
 func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) SetLanguageDataPlatformLanguageLanguageDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformLanguageLanguageDatum) error {
 	var err error
 	if insert {
@@ -683,61 +338,6 @@ func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) SetLanguageDataPla
 		}
 	} else {
 		o.R.LanguageDataPlatformLanguageLanguageDatum = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformLanguageLanguageDatumR{
-			LanguageDataPlatformPartnerFunctionPartnerFunctionTextData: DataPlatformPartnerFunctionPartnerFunctionTextDatumSlice{o},
-		}
-	} else {
-		related.R.LanguageDataPlatformPartnerFunctionPartnerFunctionTextData = append(related.R.LanguageDataPlatformPartnerFunctionPartnerFunctionTextData, o)
-	}
-
-	return nil
-}
-
-// SetPartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum of the dataPlatformPartnerFunctionPartnerFunctionTextDatum to the related item.
-// Sets o.R.PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum to related.
-// Adds o to related.R.PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionTextData.
-func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) SetPartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformPartnerFunctionPartnerFunctionDatum) error {
-	var err error
-	if insert {
-		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
-			return errors.Wrap(err, "failed to insert into foreign table")
-		}
-	}
-
-	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_partner_function_partner_function_text_data` SET %s WHERE %s",
-		strmangle.SetParamNames("`", "`", 0, []string{"PartnerFunction"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformPartnerFunctionPartnerFunctionTextDatumPrimaryKeyColumns),
-	)
-	values := []interface{}{related.PartnerFunction, o.PartnerFunction, o.Language}
-
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, updateQuery)
-		fmt.Fprintln(writer, values)
-	}
-	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-		return errors.Wrap(err, "failed to update local table")
-	}
-
-	o.PartnerFunction = related.PartnerFunction
-	if o.R == nil {
-		o.R = &dataPlatformPartnerFunctionPartnerFunctionTextDatumR{
-			PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum: related,
-		}
-	} else {
-		o.R.PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformPartnerFunctionPartnerFunctionDatumR{
-			PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionTextData: DataPlatformPartnerFunctionPartnerFunctionTextDatumSlice{o},
-		}
-	} else {
-		related.R.PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionTextData = append(related.R.PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionTextData, o)
 	}
 
 	return nil
@@ -777,10 +377,6 @@ func FindDataPlatformPartnerFunctionPartnerFunctionTextDatum(ctx context.Context
 		return nil, errors.Wrap(err, "models: unable to select from data_platform_partner_function_partner_function_text_data")
 	}
 
-	if err = dataPlatformPartnerFunctionPartnerFunctionTextDatumObj.doAfterSelectHooks(ctx, exec); err != nil {
-		return dataPlatformPartnerFunctionPartnerFunctionTextDatumObj, err
-	}
-
 	return dataPlatformPartnerFunctionPartnerFunctionTextDatumObj, nil
 }
 
@@ -792,10 +388,6 @@ func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) Insert(ctx context
 	}
 
 	var err error
-
-	if err := o.doBeforeInsertHooks(ctx, exec); err != nil {
-		return err
-	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformPartnerFunctionPartnerFunctionTextDatumColumnsWithDefault, o)
 
@@ -877,17 +469,14 @@ CacheNoHooks:
 		dataPlatformPartnerFunctionPartnerFunctionTextDatumInsertCacheMut.Unlock()
 	}
 
-	return o.doAfterInsertHooks(ctx, exec)
+	return nil
 }
 
 // Update uses an executor to update the DataPlatformPartnerFunctionPartnerFunctionTextDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) (int64, error) {
+func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
-	if err = o.doBeforeUpdateHooks(ctx, exec); err != nil {
-		return 0, err
-	}
 	key := makeCacheKey(columns, nil)
 	dataPlatformPartnerFunctionPartnerFunctionTextDatumUpdateCacheMut.RLock()
 	cache, cached := dataPlatformPartnerFunctionPartnerFunctionTextDatumUpdateCache[key]
@@ -903,7 +492,7 @@ func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) Update(ctx context
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return 0, errors.New("models: unable to update data_platform_partner_function_partner_function_text_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_partner_function_partner_function_text_data, could not build whitelist")
 		}
 
 		cache.query = fmt.Sprintf("UPDATE `data_platform_partner_function_partner_function_text_data` SET %s WHERE %s",
@@ -912,7 +501,7 @@ func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) Update(ctx context
 		)
 		cache.valueMapping, err = queries.BindMapping(dataPlatformPartnerFunctionPartnerFunctionTextDatumType, dataPlatformPartnerFunctionPartnerFunctionTextDatumMapping, append(wl, dataPlatformPartnerFunctionPartnerFunctionTextDatumPrimaryKeyColumns...))
 		if err != nil {
-			return 0, err
+			return err
 		}
 	}
 
@@ -923,15 +512,9 @@ func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) Update(ctx context
 		fmt.Fprintln(writer, cache.query)
 		fmt.Fprintln(writer, values)
 	}
-	var result sql.Result
-	result, err = exec.ExecContext(ctx, cache.query, values...)
+	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update data_platform_partner_function_partner_function_text_data row")
-	}
-
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by update for data_platform_partner_function_partner_function_text_data")
+		return errors.Wrap(err, "models: unable to update data_platform_partner_function_partner_function_text_data row")
 	}
 
 	if !cached {
@@ -940,35 +523,30 @@ func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) Update(ctx context
 		dataPlatformPartnerFunctionPartnerFunctionTextDatumUpdateCacheMut.Unlock()
 	}
 
-	return rowsAff, o.doAfterUpdateHooks(ctx, exec)
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformPartnerFunctionPartnerFunctionTextDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (q dataPlatformPartnerFunctionPartnerFunctionTextDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all for data_platform_partner_function_partner_function_text_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_partner_function_partner_function_text_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected for data_platform_partner_function_partner_function_text_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformPartnerFunctionPartnerFunctionTextDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (o DataPlatformPartnerFunctionPartnerFunctionTextDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
-		return 0, nil
+		return nil
 	}
 
 	if len(cols) == 0 {
-		return 0, errors.New("models: update all requires at least one column argument")
+		return errors.New("models: update all requires at least one column argument")
 	}
 
 	colNames := make([]string, len(cols))
@@ -996,16 +574,12 @@ func (o DataPlatformPartnerFunctionPartnerFunctionTextDatumSlice) UpdateAll(ctx 
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all in dataPlatformPartnerFunctionPartnerFunctionTextDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformPartnerFunctionPartnerFunctionTextDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected all in update all dataPlatformPartnerFunctionPartnerFunctionTextDatum")
-	}
-	return rowsAff, nil
+	return nil
 }
 
 var mySQLDataPlatformPartnerFunctionPartnerFunctionTextDatumUniqueColumns = []string{}
@@ -1015,10 +589,6 @@ var mySQLDataPlatformPartnerFunctionPartnerFunctionTextDatumUniqueColumns = []st
 func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
 		return errors.New("models: no data_platform_partner_function_partner_function_text_data provided for upsert")
-	}
-
-	if err := o.doBeforeUpsertHooks(ctx, exec); err != nil {
-		return err
 	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformPartnerFunctionPartnerFunctionTextDatumColumnsWithDefault, o)
@@ -1141,18 +711,14 @@ CacheNoHooks:
 		dataPlatformPartnerFunctionPartnerFunctionTextDatumUpsertCacheMut.Unlock()
 	}
 
-	return o.doAfterUpsertHooks(ctx, exec)
+	return nil
 }
 
 // Delete deletes a single DataPlatformPartnerFunctionPartnerFunctionTextDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) Delete(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return 0, errors.New("models: no DataPlatformPartnerFunctionPartnerFunctionTextDatum provided for delete")
-	}
-
-	if err := o.doBeforeDeleteHooks(ctx, exec); err != nil {
-		return 0, err
+		return errors.New("models: no DataPlatformPartnerFunctionPartnerFunctionTextDatum provided for delete")
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformPartnerFunctionPartnerFunctionTextDatumPrimaryKeyMapping)
@@ -1163,56 +729,34 @@ func (o *DataPlatformPartnerFunctionPartnerFunctionTextDatum) Delete(ctx context
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete from data_platform_partner_function_partner_function_text_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_partner_function_partner_function_text_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by delete for data_platform_partner_function_partner_function_text_data")
-	}
-
-	if err := o.doAfterDeleteHooks(ctx, exec); err != nil {
-		return 0, err
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformPartnerFunctionPartnerFunctionTextDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (q dataPlatformPartnerFunctionPartnerFunctionTextDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return 0, errors.New("models: no dataPlatformPartnerFunctionPartnerFunctionTextDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformPartnerFunctionPartnerFunctionTextDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from data_platform_partner_function_partner_function_text_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_partner_function_partner_function_text_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_partner_function_partner_function_text_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformPartnerFunctionPartnerFunctionTextDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o DataPlatformPartnerFunctionPartnerFunctionTextDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
-		return 0, nil
-	}
-
-	if len(dataPlatformPartnerFunctionPartnerFunctionTextDatumBeforeDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doBeforeDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
+		return nil
 	}
 
 	var args []interface{}
@@ -1229,25 +773,12 @@ func (o DataPlatformPartnerFunctionPartnerFunctionTextDatumSlice) DeleteAll(ctx 
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from dataPlatformPartnerFunctionPartnerFunctionTextDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformPartnerFunctionPartnerFunctionTextDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_partner_function_partner_function_text_data")
-	}
-
-	if len(dataPlatformPartnerFunctionPartnerFunctionTextDatumAfterDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // Reload refetches the object from the database

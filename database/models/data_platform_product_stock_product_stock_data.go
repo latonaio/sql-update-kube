@@ -24,69 +24,44 @@ import (
 
 // DataPlatformProductStockProductStockDatum is an object representing the database table.
 type DataPlatformProductStockProductStockDatum struct {
-	BusinessPartner           string      `boil:"BusinessPartner" json:"BusinessPartner" toml:"BusinessPartner" yaml:"BusinessPartner"`
 	Product                   string      `boil:"Product" json:"Product" toml:"Product" yaml:"Product"`
+	BusinessPartner           int         `boil:"BusinessPartner" json:"BusinessPartner" toml:"BusinessPartner" yaml:"BusinessPartner"`
 	Plant                     string      `boil:"Plant" json:"Plant" toml:"Plant" yaml:"Plant"`
-	StorageLocation           string      `boil:"StorageLocation" json:"StorageLocation" toml:"StorageLocation" yaml:"StorageLocation"`
-	Batch                     null.String `boil:"Batch" json:"Batch,omitempty" toml:"Batch" yaml:"Batch,omitempty"`
-	OrderID                   null.String `boil:"OrderID" json:"OrderID,omitempty" toml:"OrderID" yaml:"OrderID,omitempty"`
-	OrderItem                 null.String `boil:"OrderItem" json:"OrderItem,omitempty" toml:"OrderItem" yaml:"OrderItem,omitempty"`
-	Project                   null.String `boil:"Project" json:"Project,omitempty" toml:"Project" yaml:"Project,omitempty"`
 	InventoryStockType        null.String `boil:"InventoryStockType" json:"InventoryStockType,omitempty" toml:"InventoryStockType" yaml:"InventoryStockType,omitempty"`
 	InventorySpecialStockType null.String `boil:"InventorySpecialStockType" json:"InventorySpecialStockType,omitempty" toml:"InventorySpecialStockType" yaml:"InventorySpecialStockType,omitempty"`
-	ProductStock              null.String `boil:"ProductStock" json:"ProductStock,omitempty" toml:"ProductStock" yaml:"ProductStock,omitempty"`
+	ProductStock              float32     `boil:"ProductStock" json:"ProductStock" toml:"ProductStock" yaml:"ProductStock"`
 
 	R *dataPlatformProductStockProductStockDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
 	L dataPlatformProductStockProductStockDatumL  `boil:"-" json:"-" toml:"-" yaml:"-"`
 }
 
 var DataPlatformProductStockProductStockDatumColumns = struct {
-	BusinessPartner           string
 	Product                   string
+	BusinessPartner           string
 	Plant                     string
-	StorageLocation           string
-	Batch                     string
-	OrderID                   string
-	OrderItem                 string
-	Project                   string
 	InventoryStockType        string
 	InventorySpecialStockType string
 	ProductStock              string
 }{
-	BusinessPartner:           "BusinessPartner",
 	Product:                   "Product",
+	BusinessPartner:           "BusinessPartner",
 	Plant:                     "Plant",
-	StorageLocation:           "StorageLocation",
-	Batch:                     "Batch",
-	OrderID:                   "OrderID",
-	OrderItem:                 "OrderItem",
-	Project:                   "Project",
 	InventoryStockType:        "InventoryStockType",
 	InventorySpecialStockType: "InventorySpecialStockType",
 	ProductStock:              "ProductStock",
 }
 
 var DataPlatformProductStockProductStockDatumTableColumns = struct {
-	BusinessPartner           string
 	Product                   string
+	BusinessPartner           string
 	Plant                     string
-	StorageLocation           string
-	Batch                     string
-	OrderID                   string
-	OrderItem                 string
-	Project                   string
 	InventoryStockType        string
 	InventorySpecialStockType string
 	ProductStock              string
 }{
-	BusinessPartner:           "data_platform_product_stock_product_stock_data.BusinessPartner",
 	Product:                   "data_platform_product_stock_product_stock_data.Product",
+	BusinessPartner:           "data_platform_product_stock_product_stock_data.BusinessPartner",
 	Plant:                     "data_platform_product_stock_product_stock_data.Plant",
-	StorageLocation:           "data_platform_product_stock_product_stock_data.StorageLocation",
-	Batch:                     "data_platform_product_stock_product_stock_data.Batch",
-	OrderID:                   "data_platform_product_stock_product_stock_data.OrderID",
-	OrderItem:                 "data_platform_product_stock_product_stock_data.OrderItem",
-	Project:                   "data_platform_product_stock_product_stock_data.Project",
 	InventoryStockType:        "data_platform_product_stock_product_stock_data.InventoryStockType",
 	InventorySpecialStockType: "data_platform_product_stock_product_stock_data.InventorySpecialStockType",
 	ProductStock:              "data_platform_product_stock_product_stock_data.ProductStock",
@@ -95,37 +70,34 @@ var DataPlatformProductStockProductStockDatumTableColumns = struct {
 // Generated where
 
 var DataPlatformProductStockProductStockDatumWhere = struct {
-	BusinessPartner           whereHelperstring
 	Product                   whereHelperstring
+	BusinessPartner           whereHelperint
 	Plant                     whereHelperstring
-	StorageLocation           whereHelperstring
-	Batch                     whereHelpernull_String
-	OrderID                   whereHelpernull_String
-	OrderItem                 whereHelpernull_String
-	Project                   whereHelpernull_String
 	InventoryStockType        whereHelpernull_String
 	InventorySpecialStockType whereHelpernull_String
-	ProductStock              whereHelpernull_String
+	ProductStock              whereHelperfloat32
 }{
-	BusinessPartner:           whereHelperstring{field: "`data_platform_product_stock_product_stock_data`.`BusinessPartner`"},
 	Product:                   whereHelperstring{field: "`data_platform_product_stock_product_stock_data`.`Product`"},
+	BusinessPartner:           whereHelperint{field: "`data_platform_product_stock_product_stock_data`.`BusinessPartner`"},
 	Plant:                     whereHelperstring{field: "`data_platform_product_stock_product_stock_data`.`Plant`"},
-	StorageLocation:           whereHelperstring{field: "`data_platform_product_stock_product_stock_data`.`StorageLocation`"},
-	Batch:                     whereHelpernull_String{field: "`data_platform_product_stock_product_stock_data`.`Batch`"},
-	OrderID:                   whereHelpernull_String{field: "`data_platform_product_stock_product_stock_data`.`OrderID`"},
-	OrderItem:                 whereHelpernull_String{field: "`data_platform_product_stock_product_stock_data`.`OrderItem`"},
-	Project:                   whereHelpernull_String{field: "`data_platform_product_stock_product_stock_data`.`Project`"},
 	InventoryStockType:        whereHelpernull_String{field: "`data_platform_product_stock_product_stock_data`.`InventoryStockType`"},
 	InventorySpecialStockType: whereHelpernull_String{field: "`data_platform_product_stock_product_stock_data`.`InventorySpecialStockType`"},
-	ProductStock:              whereHelpernull_String{field: "`data_platform_product_stock_product_stock_data`.`ProductStock`"},
+	ProductStock:              whereHelperfloat32{field: "`data_platform_product_stock_product_stock_data`.`ProductStock`"},
 }
 
 // DataPlatformProductStockProductStockDatumRels is where relationship names are stored.
 var DataPlatformProductStockProductStockDatumRels = struct {
-}{}
+	BusinessPartnerDataPlatformProductMasterBPPlantDatum                string
+	BusinessPartnerDataPlatformProductStockProductStockAvailabilityData string
+}{
+	BusinessPartnerDataPlatformProductMasterBPPlantDatum:                "BusinessPartnerDataPlatformProductMasterBPPlantDatum",
+	BusinessPartnerDataPlatformProductStockProductStockAvailabilityData: "BusinessPartnerDataPlatformProductStockProductStockAvailabilityData",
+}
 
 // dataPlatformProductStockProductStockDatumR is where relationships are stored.
 type dataPlatformProductStockProductStockDatumR struct {
+	BusinessPartnerDataPlatformProductMasterBPPlantDatum                *DataPlatformProductMasterBPPlantDatum                     `boil:"BusinessPartnerDataPlatformProductMasterBPPlantDatum" json:"BusinessPartnerDataPlatformProductMasterBPPlantDatum" toml:"BusinessPartnerDataPlatformProductMasterBPPlantDatum" yaml:"BusinessPartnerDataPlatformProductMasterBPPlantDatum"`
+	BusinessPartnerDataPlatformProductStockProductStockAvailabilityData DataPlatformProductStockProductStockAvailabilityDatumSlice `boil:"BusinessPartnerDataPlatformProductStockProductStockAvailabilityData" json:"BusinessPartnerDataPlatformProductStockProductStockAvailabilityData" toml:"BusinessPartnerDataPlatformProductStockProductStockAvailabilityData" yaml:"BusinessPartnerDataPlatformProductStockProductStockAvailabilityData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -133,14 +105,28 @@ func (*dataPlatformProductStockProductStockDatumR) NewStruct() *dataPlatformProd
 	return &dataPlatformProductStockProductStockDatumR{}
 }
 
+func (r *dataPlatformProductStockProductStockDatumR) GetBusinessPartnerDataPlatformProductMasterBPPlantDatum() *DataPlatformProductMasterBPPlantDatum {
+	if r == nil {
+		return nil
+	}
+	return r.BusinessPartnerDataPlatformProductMasterBPPlantDatum
+}
+
+func (r *dataPlatformProductStockProductStockDatumR) GetBusinessPartnerDataPlatformProductStockProductStockAvailabilityData() DataPlatformProductStockProductStockAvailabilityDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.BusinessPartnerDataPlatformProductStockProductStockAvailabilityData
+}
+
 // dataPlatformProductStockProductStockDatumL is where Load methods for each relationship are stored.
 type dataPlatformProductStockProductStockDatumL struct{}
 
 var (
-	dataPlatformProductStockProductStockDatumAllColumns            = []string{"BusinessPartner", "Product", "Plant", "StorageLocation", "Batch", "OrderID", "OrderItem", "Project", "InventoryStockType", "InventorySpecialStockType", "ProductStock"}
-	dataPlatformProductStockProductStockDatumColumnsWithoutDefault = []string{"BusinessPartner", "Product", "Plant", "StorageLocation", "Batch", "OrderID", "OrderItem", "Project", "InventoryStockType", "InventorySpecialStockType", "ProductStock"}
+	dataPlatformProductStockProductStockDatumAllColumns            = []string{"Product", "BusinessPartner", "Plant", "InventoryStockType", "InventorySpecialStockType", "ProductStock"}
+	dataPlatformProductStockProductStockDatumColumnsWithoutDefault = []string{"Product", "BusinessPartner", "Plant", "InventoryStockType", "InventorySpecialStockType", "ProductStock"}
 	dataPlatformProductStockProductStockDatumColumnsWithDefault    = []string{}
-	dataPlatformProductStockProductStockDatumPrimaryKeyColumns     = []string{"BusinessPartner", "Product", "Plant", "StorageLocation"}
+	dataPlatformProductStockProductStockDatumPrimaryKeyColumns     = []string{"Product", "BusinessPartner", "Plant"}
 	dataPlatformProductStockProductStockDatumGeneratedColumns      = []string{}
 )
 
@@ -148,8 +134,6 @@ type (
 	// DataPlatformProductStockProductStockDatumSlice is an alias for a slice of pointers to DataPlatformProductStockProductStockDatum.
 	// This should almost always be used instead of []DataPlatformProductStockProductStockDatum.
 	DataPlatformProductStockProductStockDatumSlice []*DataPlatformProductStockProductStockDatum
-	// DataPlatformProductStockProductStockDatumHook is the signature for custom DataPlatformProductStockProductStockDatum hook methods
-	DataPlatformProductStockProductStockDatumHook func(context.Context, boil.ContextExecutor, *DataPlatformProductStockProductStockDatum) error
 
 	dataPlatformProductStockProductStockDatumQuery struct {
 		*queries.Query
@@ -177,179 +161,6 @@ var (
 	_ = qmhelper.Where
 )
 
-var dataPlatformProductStockProductStockDatumAfterSelectHooks []DataPlatformProductStockProductStockDatumHook
-
-var dataPlatformProductStockProductStockDatumBeforeInsertHooks []DataPlatformProductStockProductStockDatumHook
-var dataPlatformProductStockProductStockDatumAfterInsertHooks []DataPlatformProductStockProductStockDatumHook
-
-var dataPlatformProductStockProductStockDatumBeforeUpdateHooks []DataPlatformProductStockProductStockDatumHook
-var dataPlatformProductStockProductStockDatumAfterUpdateHooks []DataPlatformProductStockProductStockDatumHook
-
-var dataPlatformProductStockProductStockDatumBeforeDeleteHooks []DataPlatformProductStockProductStockDatumHook
-var dataPlatformProductStockProductStockDatumAfterDeleteHooks []DataPlatformProductStockProductStockDatumHook
-
-var dataPlatformProductStockProductStockDatumBeforeUpsertHooks []DataPlatformProductStockProductStockDatumHook
-var dataPlatformProductStockProductStockDatumAfterUpsertHooks []DataPlatformProductStockProductStockDatumHook
-
-// doAfterSelectHooks executes all "after Select" hooks.
-func (o *DataPlatformProductStockProductStockDatum) doAfterSelectHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductStockProductStockDatumAfterSelectHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeInsertHooks executes all "before insert" hooks.
-func (o *DataPlatformProductStockProductStockDatum) doBeforeInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductStockProductStockDatumBeforeInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterInsertHooks executes all "after Insert" hooks.
-func (o *DataPlatformProductStockProductStockDatum) doAfterInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductStockProductStockDatumAfterInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpdateHooks executes all "before Update" hooks.
-func (o *DataPlatformProductStockProductStockDatum) doBeforeUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductStockProductStockDatumBeforeUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpdateHooks executes all "after Update" hooks.
-func (o *DataPlatformProductStockProductStockDatum) doAfterUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductStockProductStockDatumAfterUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeDeleteHooks executes all "before Delete" hooks.
-func (o *DataPlatformProductStockProductStockDatum) doBeforeDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductStockProductStockDatumBeforeDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterDeleteHooks executes all "after Delete" hooks.
-func (o *DataPlatformProductStockProductStockDatum) doAfterDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductStockProductStockDatumAfterDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpsertHooks executes all "before Upsert" hooks.
-func (o *DataPlatformProductStockProductStockDatum) doBeforeUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductStockProductStockDatumBeforeUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpsertHooks executes all "after Upsert" hooks.
-func (o *DataPlatformProductStockProductStockDatum) doAfterUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductStockProductStockDatumAfterUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// AddDataPlatformProductStockProductStockDatumHook registers your hook function for all future operations.
-func AddDataPlatformProductStockProductStockDatumHook(hookPoint boil.HookPoint, dataPlatformProductStockProductStockDatumHook DataPlatformProductStockProductStockDatumHook) {
-	switch hookPoint {
-	case boil.AfterSelectHook:
-		dataPlatformProductStockProductStockDatumAfterSelectHooks = append(dataPlatformProductStockProductStockDatumAfterSelectHooks, dataPlatformProductStockProductStockDatumHook)
-	case boil.BeforeInsertHook:
-		dataPlatformProductStockProductStockDatumBeforeInsertHooks = append(dataPlatformProductStockProductStockDatumBeforeInsertHooks, dataPlatformProductStockProductStockDatumHook)
-	case boil.AfterInsertHook:
-		dataPlatformProductStockProductStockDatumAfterInsertHooks = append(dataPlatformProductStockProductStockDatumAfterInsertHooks, dataPlatformProductStockProductStockDatumHook)
-	case boil.BeforeUpdateHook:
-		dataPlatformProductStockProductStockDatumBeforeUpdateHooks = append(dataPlatformProductStockProductStockDatumBeforeUpdateHooks, dataPlatformProductStockProductStockDatumHook)
-	case boil.AfterUpdateHook:
-		dataPlatformProductStockProductStockDatumAfterUpdateHooks = append(dataPlatformProductStockProductStockDatumAfterUpdateHooks, dataPlatformProductStockProductStockDatumHook)
-	case boil.BeforeDeleteHook:
-		dataPlatformProductStockProductStockDatumBeforeDeleteHooks = append(dataPlatformProductStockProductStockDatumBeforeDeleteHooks, dataPlatformProductStockProductStockDatumHook)
-	case boil.AfterDeleteHook:
-		dataPlatformProductStockProductStockDatumAfterDeleteHooks = append(dataPlatformProductStockProductStockDatumAfterDeleteHooks, dataPlatformProductStockProductStockDatumHook)
-	case boil.BeforeUpsertHook:
-		dataPlatformProductStockProductStockDatumBeforeUpsertHooks = append(dataPlatformProductStockProductStockDatumBeforeUpsertHooks, dataPlatformProductStockProductStockDatumHook)
-	case boil.AfterUpsertHook:
-		dataPlatformProductStockProductStockDatumAfterUpsertHooks = append(dataPlatformProductStockProductStockDatumAfterUpsertHooks, dataPlatformProductStockProductStockDatumHook)
-	}
-}
-
 // One returns a single dataPlatformProductStockProductStockDatum record from the query.
 func (q dataPlatformProductStockProductStockDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformProductStockProductStockDatum, error) {
 	o := &DataPlatformProductStockProductStockDatum{}
@@ -364,10 +175,6 @@ func (q dataPlatformProductStockProductStockDatumQuery) One(ctx context.Context,
 		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_product_stock_product_stock_data")
 	}
 
-	if err := o.doAfterSelectHooks(ctx, exec); err != nil {
-		return o, err
-	}
-
 	return o, nil
 }
 
@@ -378,14 +185,6 @@ func (q dataPlatformProductStockProductStockDatumQuery) All(ctx context.Context,
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
 		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformProductStockProductStockDatum slice")
-	}
-
-	if len(dataPlatformProductStockProductStockDatumAfterSelectHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterSelectHooks(ctx, exec); err != nil {
-				return o, err
-			}
-		}
 	}
 
 	return o, nil
@@ -422,6 +221,313 @@ func (q dataPlatformProductStockProductStockDatumQuery) Exists(ctx context.Conte
 	return count > 0, nil
 }
 
+// BusinessPartnerDataPlatformProductMasterBPPlantDatum pointed to by the foreign key.
+func (o *DataPlatformProductStockProductStockDatum) BusinessPartnerDataPlatformProductMasterBPPlantDatum(mods ...qm.QueryMod) dataPlatformProductMasterBPPlantDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`BusinessPartner` = ?", o.BusinessPartner),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformProductMasterBPPlantData(queryMods...)
+}
+
+// BusinessPartnerDataPlatformProductStockProductStockAvailabilityData retrieves all the data_platform_product_stock_product_stock_availability_datum's DataPlatformProductStockProductStockAvailabilityData with an executor via BusinessPartner column.
+func (o *DataPlatformProductStockProductStockDatum) BusinessPartnerDataPlatformProductStockProductStockAvailabilityData(mods ...qm.QueryMod) dataPlatformProductStockProductStockAvailabilityDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_product_stock_product_stock_availability_data`.`BusinessPartner`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformProductStockProductStockAvailabilityData(queryMods...)
+}
+
+// LoadBusinessPartnerDataPlatformProductMasterBPPlantDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformProductStockProductStockDatumL) LoadBusinessPartnerDataPlatformProductMasterBPPlantDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductStockProductStockDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductStockProductStockDatum
+	var object *DataPlatformProductStockProductStockDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductStockProductStockDatum.(*DataPlatformProductStockProductStockDatum)
+		if !ok {
+			object = new(DataPlatformProductStockProductStockDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductStockProductStockDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductStockProductStockDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductStockProductStockDatum.(*[]*DataPlatformProductStockProductStockDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductStockProductStockDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductStockProductStockDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductStockProductStockDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductStockProductStockDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_master_bp_plant_data`),
+		qm.WhereIn(`data_platform_product_master_bp_plant_data.BusinessPartner in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformProductMasterBPPlantDatum")
+	}
+
+	var resultSlice []*DataPlatformProductMasterBPPlantDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformProductMasterBPPlantDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_product_master_bp_plant_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_bp_plant_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.BusinessPartnerDataPlatformProductMasterBPPlantDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.BusinessPartner == foreign.BusinessPartner {
+				local.R.BusinessPartnerDataPlatformProductMasterBPPlantDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadBusinessPartnerDataPlatformProductStockProductStockAvailabilityData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductStockProductStockDatumL) LoadBusinessPartnerDataPlatformProductStockProductStockAvailabilityData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductStockProductStockDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductStockProductStockDatum
+	var object *DataPlatformProductStockProductStockDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductStockProductStockDatum.(*DataPlatformProductStockProductStockDatum)
+		if !ok {
+			object = new(DataPlatformProductStockProductStockDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductStockProductStockDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductStockProductStockDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductStockProductStockDatum.(*[]*DataPlatformProductStockProductStockDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductStockProductStockDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductStockProductStockDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductStockProductStockDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductStockProductStockDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_stock_product_stock_availability_data`),
+		qm.WhereIn(`data_platform_product_stock_product_stock_availability_data.BusinessPartner in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_product_stock_product_stock_availability_data")
+	}
+
+	var resultSlice []*DataPlatformProductStockProductStockAvailabilityDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_stock_product_stock_availability_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_stock_product_stock_availability_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_stock_product_stock_availability_data")
+	}
+
+	if singular {
+		object.R.BusinessPartnerDataPlatformProductStockProductStockAvailabilityData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BusinessPartner == foreign.BusinessPartner {
+				local.R.BusinessPartnerDataPlatformProductStockProductStockAvailabilityData = append(local.R.BusinessPartnerDataPlatformProductStockProductStockAvailabilityData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// SetBusinessPartnerDataPlatformProductMasterBPPlantDatum of the dataPlatformProductStockProductStockDatum to the related item.
+// Sets o.R.BusinessPartnerDataPlatformProductMasterBPPlantDatum to related.
+func (o *DataPlatformProductStockProductStockDatum) SetBusinessPartnerDataPlatformProductMasterBPPlantDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformProductMasterBPPlantDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_product_stock_product_stock_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"BusinessPartner"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformProductStockProductStockDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.BusinessPartner, o.Product, o.BusinessPartner, o.Plant}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.BusinessPartner = related.BusinessPartner
+	if o.R == nil {
+		o.R = &dataPlatformProductStockProductStockDatumR{
+			BusinessPartnerDataPlatformProductMasterBPPlantDatum: related,
+		}
+	} else {
+		o.R.BusinessPartnerDataPlatformProductMasterBPPlantDatum = related
+	}
+
+	return nil
+}
+
+// AddBusinessPartnerDataPlatformProductStockProductStockAvailabilityData adds the given related objects to the existing relationships
+// of the data_platform_product_stock_product_stock_datum, optionally inserting them as new records.
+// Appends related to o.R.BusinessPartnerDataPlatformProductStockProductStockAvailabilityData.
+func (o *DataPlatformProductStockProductStockDatum) AddBusinessPartnerDataPlatformProductStockProductStockAvailabilityData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductStockProductStockAvailabilityDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.BusinessPartner = o.BusinessPartner
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_product_stock_product_stock_availability_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"BusinessPartner"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductStockProductStockAvailabilityDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.Product, rel.BusinessPartner, rel.Plant, rel.ProductStockAvailabilityDate}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.BusinessPartner = o.BusinessPartner
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductStockProductStockDatumR{
+			BusinessPartnerDataPlatformProductStockProductStockAvailabilityData: related,
+		}
+	} else {
+		o.R.BusinessPartnerDataPlatformProductStockProductStockAvailabilityData = append(o.R.BusinessPartnerDataPlatformProductStockProductStockAvailabilityData, related...)
+	}
+
+	return nil
+}
+
 // DataPlatformProductStockProductStockData retrieves all the records using an executor.
 func DataPlatformProductStockProductStockData(mods ...qm.QueryMod) dataPlatformProductStockProductStockDatumQuery {
 	mods = append(mods, qm.From("`data_platform_product_stock_product_stock_data`"))
@@ -435,7 +541,7 @@ func DataPlatformProductStockProductStockData(mods ...qm.QueryMod) dataPlatformP
 
 // FindDataPlatformProductStockProductStockDatum retrieves a single record by ID with an executor.
 // If selectCols is empty Find will return all columns.
-func FindDataPlatformProductStockProductStockDatum(ctx context.Context, exec boil.ContextExecutor, businessPartner string, product string, plant string, storageLocation string, selectCols ...string) (*DataPlatformProductStockProductStockDatum, error) {
+func FindDataPlatformProductStockProductStockDatum(ctx context.Context, exec boil.ContextExecutor, product string, businessPartner int, plant string, selectCols ...string) (*DataPlatformProductStockProductStockDatum, error) {
 	dataPlatformProductStockProductStockDatumObj := &DataPlatformProductStockProductStockDatum{}
 
 	sel := "*"
@@ -443,10 +549,10 @@ func FindDataPlatformProductStockProductStockDatum(ctx context.Context, exec boi
 		sel = strings.Join(strmangle.IdentQuoteSlice(dialect.LQ, dialect.RQ, selectCols), ",")
 	}
 	query := fmt.Sprintf(
-		"select %s from `data_platform_product_stock_product_stock_data` where `BusinessPartner`=? AND `Product`=? AND `Plant`=? AND `StorageLocation`=?", sel,
+		"select %s from `data_platform_product_stock_product_stock_data` where `Product`=? AND `BusinessPartner`=? AND `Plant`=?", sel,
 	)
 
-	q := queries.Raw(query, businessPartner, product, plant, storageLocation)
+	q := queries.Raw(query, product, businessPartner, plant)
 
 	err := q.Bind(ctx, exec, dataPlatformProductStockProductStockDatumObj)
 	if err != nil {
@@ -454,10 +560,6 @@ func FindDataPlatformProductStockProductStockDatum(ctx context.Context, exec boi
 			return nil, sql.ErrNoRows
 		}
 		return nil, errors.Wrap(err, "models: unable to select from data_platform_product_stock_product_stock_data")
-	}
-
-	if err = dataPlatformProductStockProductStockDatumObj.doAfterSelectHooks(ctx, exec); err != nil {
-		return dataPlatformProductStockProductStockDatumObj, err
 	}
 
 	return dataPlatformProductStockProductStockDatumObj, nil
@@ -471,10 +573,6 @@ func (o *DataPlatformProductStockProductStockDatum) Insert(ctx context.Context, 
 	}
 
 	var err error
-
-	if err := o.doBeforeInsertHooks(ctx, exec); err != nil {
-		return err
-	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformProductStockProductStockDatumColumnsWithDefault, o)
 
@@ -535,10 +633,9 @@ func (o *DataPlatformProductStockProductStockDatum) Insert(ctx context.Context, 
 	}
 
 	identifierCols = []interface{}{
-		o.BusinessPartner,
 		o.Product,
+		o.BusinessPartner,
 		o.Plant,
-		o.StorageLocation,
 	}
 
 	if boil.IsDebug(ctx) {
@@ -558,17 +655,14 @@ CacheNoHooks:
 		dataPlatformProductStockProductStockDatumInsertCacheMut.Unlock()
 	}
 
-	return o.doAfterInsertHooks(ctx, exec)
+	return nil
 }
 
 // Update uses an executor to update the DataPlatformProductStockProductStockDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformProductStockProductStockDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) (int64, error) {
+func (o *DataPlatformProductStockProductStockDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
-	if err = o.doBeforeUpdateHooks(ctx, exec); err != nil {
-		return 0, err
-	}
 	key := makeCacheKey(columns, nil)
 	dataPlatformProductStockProductStockDatumUpdateCacheMut.RLock()
 	cache, cached := dataPlatformProductStockProductStockDatumUpdateCache[key]
@@ -584,7 +678,7 @@ func (o *DataPlatformProductStockProductStockDatum) Update(ctx context.Context, 
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return 0, errors.New("models: unable to update data_platform_product_stock_product_stock_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_product_stock_product_stock_data, could not build whitelist")
 		}
 
 		cache.query = fmt.Sprintf("UPDATE `data_platform_product_stock_product_stock_data` SET %s WHERE %s",
@@ -593,7 +687,7 @@ func (o *DataPlatformProductStockProductStockDatum) Update(ctx context.Context, 
 		)
 		cache.valueMapping, err = queries.BindMapping(dataPlatformProductStockProductStockDatumType, dataPlatformProductStockProductStockDatumMapping, append(wl, dataPlatformProductStockProductStockDatumPrimaryKeyColumns...))
 		if err != nil {
-			return 0, err
+			return err
 		}
 	}
 
@@ -604,15 +698,9 @@ func (o *DataPlatformProductStockProductStockDatum) Update(ctx context.Context, 
 		fmt.Fprintln(writer, cache.query)
 		fmt.Fprintln(writer, values)
 	}
-	var result sql.Result
-	result, err = exec.ExecContext(ctx, cache.query, values...)
+	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update data_platform_product_stock_product_stock_data row")
-	}
-
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by update for data_platform_product_stock_product_stock_data")
+		return errors.Wrap(err, "models: unable to update data_platform_product_stock_product_stock_data row")
 	}
 
 	if !cached {
@@ -621,35 +709,30 @@ func (o *DataPlatformProductStockProductStockDatum) Update(ctx context.Context, 
 		dataPlatformProductStockProductStockDatumUpdateCacheMut.Unlock()
 	}
 
-	return rowsAff, o.doAfterUpdateHooks(ctx, exec)
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformProductStockProductStockDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (q dataPlatformProductStockProductStockDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all for data_platform_product_stock_product_stock_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_product_stock_product_stock_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected for data_platform_product_stock_product_stock_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformProductStockProductStockDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (o DataPlatformProductStockProductStockDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
-		return 0, nil
+		return nil
 	}
 
 	if len(cols) == 0 {
-		return 0, errors.New("models: update all requires at least one column argument")
+		return errors.New("models: update all requires at least one column argument")
 	}
 
 	colNames := make([]string, len(cols))
@@ -677,16 +760,12 @@ func (o DataPlatformProductStockProductStockDatumSlice) UpdateAll(ctx context.Co
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all in dataPlatformProductStockProductStockDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformProductStockProductStockDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected all in update all dataPlatformProductStockProductStockDatum")
-	}
-	return rowsAff, nil
+	return nil
 }
 
 var mySQLDataPlatformProductStockProductStockDatumUniqueColumns = []string{}
@@ -696,10 +775,6 @@ var mySQLDataPlatformProductStockProductStockDatumUniqueColumns = []string{}
 func (o *DataPlatformProductStockProductStockDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
 		return errors.New("models: no data_platform_product_stock_product_stock_data provided for upsert")
-	}
-
-	if err := o.doBeforeUpsertHooks(ctx, exec); err != nil {
-		return err
 	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformProductStockProductStockDatumColumnsWithDefault, o)
@@ -822,78 +897,52 @@ CacheNoHooks:
 		dataPlatformProductStockProductStockDatumUpsertCacheMut.Unlock()
 	}
 
-	return o.doAfterUpsertHooks(ctx, exec)
+	return nil
 }
 
 // Delete deletes a single DataPlatformProductStockProductStockDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformProductStockProductStockDatum) Delete(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o *DataPlatformProductStockProductStockDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return 0, errors.New("models: no DataPlatformProductStockProductStockDatum provided for delete")
-	}
-
-	if err := o.doBeforeDeleteHooks(ctx, exec); err != nil {
-		return 0, err
+		return errors.New("models: no DataPlatformProductStockProductStockDatum provided for delete")
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformProductStockProductStockDatumPrimaryKeyMapping)
-	sql := "DELETE FROM `data_platform_product_stock_product_stock_data` WHERE `BusinessPartner`=? AND `Product`=? AND `Plant`=? AND `StorageLocation`=?"
+	sql := "DELETE FROM `data_platform_product_stock_product_stock_data` WHERE `Product`=? AND `BusinessPartner`=? AND `Plant`=?"
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete from data_platform_product_stock_product_stock_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_product_stock_product_stock_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by delete for data_platform_product_stock_product_stock_data")
-	}
-
-	if err := o.doAfterDeleteHooks(ctx, exec); err != nil {
-		return 0, err
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformProductStockProductStockDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (q dataPlatformProductStockProductStockDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return 0, errors.New("models: no dataPlatformProductStockProductStockDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformProductStockProductStockDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from data_platform_product_stock_product_stock_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_product_stock_product_stock_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_product_stock_product_stock_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformProductStockProductStockDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o DataPlatformProductStockProductStockDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
-		return 0, nil
-	}
-
-	if len(dataPlatformProductStockProductStockDatumBeforeDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doBeforeDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
+		return nil
 	}
 
 	var args []interface{}
@@ -910,31 +959,18 @@ func (o DataPlatformProductStockProductStockDatumSlice) DeleteAll(ctx context.Co
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from dataPlatformProductStockProductStockDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformProductStockProductStockDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_product_stock_product_stock_data")
-	}
-
-	if len(dataPlatformProductStockProductStockDatumAfterDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // Reload refetches the object from the database
 // using the primary keys with an executor.
 func (o *DataPlatformProductStockProductStockDatum) Reload(ctx context.Context, exec boil.ContextExecutor) error {
-	ret, err := FindDataPlatformProductStockProductStockDatum(ctx, exec, o.BusinessPartner, o.Product, o.Plant, o.StorageLocation)
+	ret, err := FindDataPlatformProductStockProductStockDatum(ctx, exec, o.Product, o.BusinessPartner, o.Plant)
 	if err != nil {
 		return err
 	}
@@ -973,16 +1009,16 @@ func (o *DataPlatformProductStockProductStockDatumSlice) ReloadAll(ctx context.C
 }
 
 // DataPlatformProductStockProductStockDatumExists checks if the DataPlatformProductStockProductStockDatum row exists.
-func DataPlatformProductStockProductStockDatumExists(ctx context.Context, exec boil.ContextExecutor, businessPartner string, product string, plant string, storageLocation string) (bool, error) {
+func DataPlatformProductStockProductStockDatumExists(ctx context.Context, exec boil.ContextExecutor, product string, businessPartner int, plant string) (bool, error) {
 	var exists bool
-	sql := "select exists(select 1 from `data_platform_product_stock_product_stock_data` where `BusinessPartner`=? AND `Product`=? AND `Plant`=? AND `StorageLocation`=? limit 1)"
+	sql := "select exists(select 1 from `data_platform_product_stock_product_stock_data` where `Product`=? AND `BusinessPartner`=? AND `Plant`=? limit 1)"
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
 		fmt.Fprintln(writer, sql)
-		fmt.Fprintln(writer, businessPartner, product, plant, storageLocation)
+		fmt.Fprintln(writer, product, businessPartner, plant)
 	}
-	row := exec.QueryRowContext(ctx, sql, businessPartner, product, plant, storageLocation)
+	row := exec.QueryRowContext(ctx, sql, product, businessPartner, plant)
 
 	err := row.Scan(&exists)
 	if err != nil {
@@ -994,5 +1030,5 @@ func DataPlatformProductStockProductStockDatumExists(ctx context.Context, exec b
 
 // Exists checks if the DataPlatformProductStockProductStockDatum row exists.
 func (o *DataPlatformProductStockProductStockDatum) Exists(ctx context.Context, exec boil.ContextExecutor) (bool, error) {
-	return DataPlatformProductStockProductStockDatumExists(ctx, exec, o.BusinessPartner, o.Product, o.Plant, o.StorageLocation)
+	return DataPlatformProductStockProductStockDatumExists(ctx, exec, o.Product, o.BusinessPartner, o.Plant)
 }

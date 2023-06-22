@@ -66,36 +66,15 @@ var DataPlatformProductMasterProductDescriptionDatumWhere = struct {
 
 // DataPlatformProductMasterProductDescriptionDatumRels is where relationship names are stored.
 var DataPlatformProductMasterProductDescriptionDatumRels = struct {
-	LanguageDataPlatformLanguageLanguageDatum    string
-	ProductDataPlatformProductMasterGeneralDatum string
-}{
-	LanguageDataPlatformLanguageLanguageDatum:    "LanguageDataPlatformLanguageLanguageDatum",
-	ProductDataPlatformProductMasterGeneralDatum: "ProductDataPlatformProductMasterGeneralDatum",
-}
+}{}
 
 // dataPlatformProductMasterProductDescriptionDatumR is where relationships are stored.
 type dataPlatformProductMasterProductDescriptionDatumR struct {
-	LanguageDataPlatformLanguageLanguageDatum    *DataPlatformLanguageLanguageDatum     `boil:"LanguageDataPlatformLanguageLanguageDatum" json:"LanguageDataPlatformLanguageLanguageDatum" toml:"LanguageDataPlatformLanguageLanguageDatum" yaml:"LanguageDataPlatformLanguageLanguageDatum"`
-	ProductDataPlatformProductMasterGeneralDatum *DataPlatformProductMasterGeneralDatum `boil:"ProductDataPlatformProductMasterGeneralDatum" json:"ProductDataPlatformProductMasterGeneralDatum" toml:"ProductDataPlatformProductMasterGeneralDatum" yaml:"ProductDataPlatformProductMasterGeneralDatum"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformProductMasterProductDescriptionDatumR) NewStruct() *dataPlatformProductMasterProductDescriptionDatumR {
 	return &dataPlatformProductMasterProductDescriptionDatumR{}
-}
-
-func (r *dataPlatformProductMasterProductDescriptionDatumR) GetLanguageDataPlatformLanguageLanguageDatum() *DataPlatformLanguageLanguageDatum {
-	if r == nil {
-		return nil
-	}
-	return r.LanguageDataPlatformLanguageLanguageDatum
-}
-
-func (r *dataPlatformProductMasterProductDescriptionDatumR) GetProductDataPlatformProductMasterGeneralDatum() *DataPlatformProductMasterGeneralDatum {
-	if r == nil {
-		return nil
-	}
-	return r.ProductDataPlatformProductMasterGeneralDatum
 }
 
 // dataPlatformProductMasterProductDescriptionDatumL is where Load methods for each relationship are stored.
@@ -113,8 +92,6 @@ type (
 	// DataPlatformProductMasterProductDescriptionDatumSlice is an alias for a slice of pointers to DataPlatformProductMasterProductDescriptionDatum.
 	// This should almost always be used instead of []DataPlatformProductMasterProductDescriptionDatum.
 	DataPlatformProductMasterProductDescriptionDatumSlice []*DataPlatformProductMasterProductDescriptionDatum
-	// DataPlatformProductMasterProductDescriptionDatumHook is the signature for custom DataPlatformProductMasterProductDescriptionDatum hook methods
-	DataPlatformProductMasterProductDescriptionDatumHook func(context.Context, boil.ContextExecutor, *DataPlatformProductMasterProductDescriptionDatum) error
 
 	dataPlatformProductMasterProductDescriptionDatumQuery struct {
 		*queries.Query
@@ -142,179 +119,6 @@ var (
 	_ = qmhelper.Where
 )
 
-var dataPlatformProductMasterProductDescriptionDatumAfterSelectHooks []DataPlatformProductMasterProductDescriptionDatumHook
-
-var dataPlatformProductMasterProductDescriptionDatumBeforeInsertHooks []DataPlatformProductMasterProductDescriptionDatumHook
-var dataPlatformProductMasterProductDescriptionDatumAfterInsertHooks []DataPlatformProductMasterProductDescriptionDatumHook
-
-var dataPlatformProductMasterProductDescriptionDatumBeforeUpdateHooks []DataPlatformProductMasterProductDescriptionDatumHook
-var dataPlatformProductMasterProductDescriptionDatumAfterUpdateHooks []DataPlatformProductMasterProductDescriptionDatumHook
-
-var dataPlatformProductMasterProductDescriptionDatumBeforeDeleteHooks []DataPlatformProductMasterProductDescriptionDatumHook
-var dataPlatformProductMasterProductDescriptionDatumAfterDeleteHooks []DataPlatformProductMasterProductDescriptionDatumHook
-
-var dataPlatformProductMasterProductDescriptionDatumBeforeUpsertHooks []DataPlatformProductMasterProductDescriptionDatumHook
-var dataPlatformProductMasterProductDescriptionDatumAfterUpsertHooks []DataPlatformProductMasterProductDescriptionDatumHook
-
-// doAfterSelectHooks executes all "after Select" hooks.
-func (o *DataPlatformProductMasterProductDescriptionDatum) doAfterSelectHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductMasterProductDescriptionDatumAfterSelectHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeInsertHooks executes all "before insert" hooks.
-func (o *DataPlatformProductMasterProductDescriptionDatum) doBeforeInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductMasterProductDescriptionDatumBeforeInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterInsertHooks executes all "after Insert" hooks.
-func (o *DataPlatformProductMasterProductDescriptionDatum) doAfterInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductMasterProductDescriptionDatumAfterInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpdateHooks executes all "before Update" hooks.
-func (o *DataPlatformProductMasterProductDescriptionDatum) doBeforeUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductMasterProductDescriptionDatumBeforeUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpdateHooks executes all "after Update" hooks.
-func (o *DataPlatformProductMasterProductDescriptionDatum) doAfterUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductMasterProductDescriptionDatumAfterUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeDeleteHooks executes all "before Delete" hooks.
-func (o *DataPlatformProductMasterProductDescriptionDatum) doBeforeDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductMasterProductDescriptionDatumBeforeDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterDeleteHooks executes all "after Delete" hooks.
-func (o *DataPlatformProductMasterProductDescriptionDatum) doAfterDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductMasterProductDescriptionDatumAfterDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpsertHooks executes all "before Upsert" hooks.
-func (o *DataPlatformProductMasterProductDescriptionDatum) doBeforeUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductMasterProductDescriptionDatumBeforeUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpsertHooks executes all "after Upsert" hooks.
-func (o *DataPlatformProductMasterProductDescriptionDatum) doAfterUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductMasterProductDescriptionDatumAfterUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// AddDataPlatformProductMasterProductDescriptionDatumHook registers your hook function for all future operations.
-func AddDataPlatformProductMasterProductDescriptionDatumHook(hookPoint boil.HookPoint, dataPlatformProductMasterProductDescriptionDatumHook DataPlatformProductMasterProductDescriptionDatumHook) {
-	switch hookPoint {
-	case boil.AfterSelectHook:
-		dataPlatformProductMasterProductDescriptionDatumAfterSelectHooks = append(dataPlatformProductMasterProductDescriptionDatumAfterSelectHooks, dataPlatformProductMasterProductDescriptionDatumHook)
-	case boil.BeforeInsertHook:
-		dataPlatformProductMasterProductDescriptionDatumBeforeInsertHooks = append(dataPlatformProductMasterProductDescriptionDatumBeforeInsertHooks, dataPlatformProductMasterProductDescriptionDatumHook)
-	case boil.AfterInsertHook:
-		dataPlatformProductMasterProductDescriptionDatumAfterInsertHooks = append(dataPlatformProductMasterProductDescriptionDatumAfterInsertHooks, dataPlatformProductMasterProductDescriptionDatumHook)
-	case boil.BeforeUpdateHook:
-		dataPlatformProductMasterProductDescriptionDatumBeforeUpdateHooks = append(dataPlatformProductMasterProductDescriptionDatumBeforeUpdateHooks, dataPlatformProductMasterProductDescriptionDatumHook)
-	case boil.AfterUpdateHook:
-		dataPlatformProductMasterProductDescriptionDatumAfterUpdateHooks = append(dataPlatformProductMasterProductDescriptionDatumAfterUpdateHooks, dataPlatformProductMasterProductDescriptionDatumHook)
-	case boil.BeforeDeleteHook:
-		dataPlatformProductMasterProductDescriptionDatumBeforeDeleteHooks = append(dataPlatformProductMasterProductDescriptionDatumBeforeDeleteHooks, dataPlatformProductMasterProductDescriptionDatumHook)
-	case boil.AfterDeleteHook:
-		dataPlatformProductMasterProductDescriptionDatumAfterDeleteHooks = append(dataPlatformProductMasterProductDescriptionDatumAfterDeleteHooks, dataPlatformProductMasterProductDescriptionDatumHook)
-	case boil.BeforeUpsertHook:
-		dataPlatformProductMasterProductDescriptionDatumBeforeUpsertHooks = append(dataPlatformProductMasterProductDescriptionDatumBeforeUpsertHooks, dataPlatformProductMasterProductDescriptionDatumHook)
-	case boil.AfterUpsertHook:
-		dataPlatformProductMasterProductDescriptionDatumAfterUpsertHooks = append(dataPlatformProductMasterProductDescriptionDatumAfterUpsertHooks, dataPlatformProductMasterProductDescriptionDatumHook)
-	}
-}
-
 // One returns a single dataPlatformProductMasterProductDescriptionDatum record from the query.
 func (q dataPlatformProductMasterProductDescriptionDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformProductMasterProductDescriptionDatum, error) {
 	o := &DataPlatformProductMasterProductDescriptionDatum{}
@@ -329,10 +133,6 @@ func (q dataPlatformProductMasterProductDescriptionDatumQuery) One(ctx context.C
 		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_product_master_product_description_data")
 	}
 
-	if err := o.doAfterSelectHooks(ctx, exec); err != nil {
-		return o, err
-	}
-
 	return o, nil
 }
 
@@ -343,14 +143,6 @@ func (q dataPlatformProductMasterProductDescriptionDatumQuery) All(ctx context.C
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
 		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformProductMasterProductDescriptionDatum slice")
-	}
-
-	if len(dataPlatformProductMasterProductDescriptionDatumAfterSelectHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterSelectHooks(ctx, exec); err != nil {
-				return o, err
-			}
-		}
 	}
 
 	return o, nil
@@ -387,362 +179,6 @@ func (q dataPlatformProductMasterProductDescriptionDatumQuery) Exists(ctx contex
 	return count > 0, nil
 }
 
-// LanguageDataPlatformLanguageLanguageDatum pointed to by the foreign key.
-func (o *DataPlatformProductMasterProductDescriptionDatum) LanguageDataPlatformLanguageLanguageDatum(mods ...qm.QueryMod) dataPlatformLanguageLanguageDatumQuery {
-	queryMods := []qm.QueryMod{
-		qm.Where("`Language` = ?", o.Language),
-	}
-
-	queryMods = append(queryMods, mods...)
-
-	return DataPlatformLanguageLanguageData(queryMods...)
-}
-
-// ProductDataPlatformProductMasterGeneralDatum pointed to by the foreign key.
-func (o *DataPlatformProductMasterProductDescriptionDatum) ProductDataPlatformProductMasterGeneralDatum(mods ...qm.QueryMod) dataPlatformProductMasterGeneralDatumQuery {
-	queryMods := []qm.QueryMod{
-		qm.Where("`Product` = ?", o.Product),
-	}
-
-	queryMods = append(queryMods, mods...)
-
-	return DataPlatformProductMasterGeneralData(queryMods...)
-}
-
-// LoadLanguageDataPlatformLanguageLanguageDatum allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformProductMasterProductDescriptionDatumL) LoadLanguageDataPlatformLanguageLanguageDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterProductDescriptionDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformProductMasterProductDescriptionDatum
-	var object *DataPlatformProductMasterProductDescriptionDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformProductMasterProductDescriptionDatum.(*DataPlatformProductMasterProductDescriptionDatum)
-		if !ok {
-			object = new(DataPlatformProductMasterProductDescriptionDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterProductDescriptionDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterProductDescriptionDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformProductMasterProductDescriptionDatum.(*[]*DataPlatformProductMasterProductDescriptionDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterProductDescriptionDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterProductDescriptionDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformProductMasterProductDescriptionDatumR{}
-		}
-		args = append(args, object.Language)
-
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformProductMasterProductDescriptionDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.Language {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.Language)
-
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_language_language_data`),
-		qm.WhereIn(`data_platform_language_language_data.Language in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load DataPlatformLanguageLanguageDatum")
-	}
-
-	var resultSlice []*DataPlatformLanguageLanguageDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformLanguageLanguageDatum")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results of eager load for data_platform_language_language_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_language_language_data")
-	}
-
-	if len(dataPlatformLanguageLanguageDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
-	if len(resultSlice) == 0 {
-		return nil
-	}
-
-	if singular {
-		foreign := resultSlice[0]
-		object.R.LanguageDataPlatformLanguageLanguageDatum = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformLanguageLanguageDatumR{}
-		}
-		foreign.R.LanguageDataPlatformProductMasterProductDescriptionData = append(foreign.R.LanguageDataPlatformProductMasterProductDescriptionData, object)
-		return nil
-	}
-
-	for _, local := range slice {
-		for _, foreign := range resultSlice {
-			if local.Language == foreign.Language {
-				local.R.LanguageDataPlatformLanguageLanguageDatum = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformLanguageLanguageDatumR{}
-				}
-				foreign.R.LanguageDataPlatformProductMasterProductDescriptionData = append(foreign.R.LanguageDataPlatformProductMasterProductDescriptionData, local)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// LoadProductDataPlatformProductMasterGeneralDatum allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformProductMasterProductDescriptionDatumL) LoadProductDataPlatformProductMasterGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterProductDescriptionDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformProductMasterProductDescriptionDatum
-	var object *DataPlatformProductMasterProductDescriptionDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformProductMasterProductDescriptionDatum.(*DataPlatformProductMasterProductDescriptionDatum)
-		if !ok {
-			object = new(DataPlatformProductMasterProductDescriptionDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterProductDescriptionDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterProductDescriptionDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformProductMasterProductDescriptionDatum.(*[]*DataPlatformProductMasterProductDescriptionDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterProductDescriptionDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterProductDescriptionDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformProductMasterProductDescriptionDatumR{}
-		}
-		args = append(args, object.Product)
-
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformProductMasterProductDescriptionDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.Product {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.Product)
-
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_product_master_general_data`),
-		qm.WhereIn(`data_platform_product_master_general_data.Product in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load DataPlatformProductMasterGeneralDatum")
-	}
-
-	var resultSlice []*DataPlatformProductMasterGeneralDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformProductMasterGeneralDatum")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results of eager load for data_platform_product_master_general_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_general_data")
-	}
-
-	if len(dataPlatformProductMasterGeneralDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
-	if len(resultSlice) == 0 {
-		return nil
-	}
-
-	if singular {
-		foreign := resultSlice[0]
-		object.R.ProductDataPlatformProductMasterGeneralDatum = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformProductMasterGeneralDatumR{}
-		}
-		foreign.R.ProductDataPlatformProductMasterProductDescriptionData = append(foreign.R.ProductDataPlatformProductMasterProductDescriptionData, object)
-		return nil
-	}
-
-	for _, local := range slice {
-		for _, foreign := range resultSlice {
-			if local.Product == foreign.Product {
-				local.R.ProductDataPlatformProductMasterGeneralDatum = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformProductMasterGeneralDatumR{}
-				}
-				foreign.R.ProductDataPlatformProductMasterProductDescriptionData = append(foreign.R.ProductDataPlatformProductMasterProductDescriptionData, local)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// SetLanguageDataPlatformLanguageLanguageDatum of the dataPlatformProductMasterProductDescriptionDatum to the related item.
-// Sets o.R.LanguageDataPlatformLanguageLanguageDatum to related.
-// Adds o to related.R.LanguageDataPlatformProductMasterProductDescriptionData.
-func (o *DataPlatformProductMasterProductDescriptionDatum) SetLanguageDataPlatformLanguageLanguageDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformLanguageLanguageDatum) error {
-	var err error
-	if insert {
-		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
-			return errors.Wrap(err, "failed to insert into foreign table")
-		}
-	}
-
-	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_product_master_product_description_data` SET %s WHERE %s",
-		strmangle.SetParamNames("`", "`", 0, []string{"Language"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterProductDescriptionDatumPrimaryKeyColumns),
-	)
-	values := []interface{}{related.Language, o.Product, o.Language}
-
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, updateQuery)
-		fmt.Fprintln(writer, values)
-	}
-	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-		return errors.Wrap(err, "failed to update local table")
-	}
-
-	o.Language = related.Language
-	if o.R == nil {
-		o.R = &dataPlatformProductMasterProductDescriptionDatumR{
-			LanguageDataPlatformLanguageLanguageDatum: related,
-		}
-	} else {
-		o.R.LanguageDataPlatformLanguageLanguageDatum = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformLanguageLanguageDatumR{
-			LanguageDataPlatformProductMasterProductDescriptionData: DataPlatformProductMasterProductDescriptionDatumSlice{o},
-		}
-	} else {
-		related.R.LanguageDataPlatformProductMasterProductDescriptionData = append(related.R.LanguageDataPlatformProductMasterProductDescriptionData, o)
-	}
-
-	return nil
-}
-
-// SetProductDataPlatformProductMasterGeneralDatum of the dataPlatformProductMasterProductDescriptionDatum to the related item.
-// Sets o.R.ProductDataPlatformProductMasterGeneralDatum to related.
-// Adds o to related.R.ProductDataPlatformProductMasterProductDescriptionData.
-func (o *DataPlatformProductMasterProductDescriptionDatum) SetProductDataPlatformProductMasterGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformProductMasterGeneralDatum) error {
-	var err error
-	if insert {
-		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
-			return errors.Wrap(err, "failed to insert into foreign table")
-		}
-	}
-
-	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_product_master_product_description_data` SET %s WHERE %s",
-		strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterProductDescriptionDatumPrimaryKeyColumns),
-	)
-	values := []interface{}{related.Product, o.Product, o.Language}
-
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, updateQuery)
-		fmt.Fprintln(writer, values)
-	}
-	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-		return errors.Wrap(err, "failed to update local table")
-	}
-
-	o.Product = related.Product
-	if o.R == nil {
-		o.R = &dataPlatformProductMasterProductDescriptionDatumR{
-			ProductDataPlatformProductMasterGeneralDatum: related,
-		}
-	} else {
-		o.R.ProductDataPlatformProductMasterGeneralDatum = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformProductMasterGeneralDatumR{
-			ProductDataPlatformProductMasterProductDescriptionData: DataPlatformProductMasterProductDescriptionDatumSlice{o},
-		}
-	} else {
-		related.R.ProductDataPlatformProductMasterProductDescriptionData = append(related.R.ProductDataPlatformProductMasterProductDescriptionData, o)
-	}
-
-	return nil
-}
-
 // DataPlatformProductMasterProductDescriptionData retrieves all the records using an executor.
 func DataPlatformProductMasterProductDescriptionData(mods ...qm.QueryMod) dataPlatformProductMasterProductDescriptionDatumQuery {
 	mods = append(mods, qm.From("`data_platform_product_master_product_description_data`"))
@@ -777,10 +213,6 @@ func FindDataPlatformProductMasterProductDescriptionDatum(ctx context.Context, e
 		return nil, errors.Wrap(err, "models: unable to select from data_platform_product_master_product_description_data")
 	}
 
-	if err = dataPlatformProductMasterProductDescriptionDatumObj.doAfterSelectHooks(ctx, exec); err != nil {
-		return dataPlatformProductMasterProductDescriptionDatumObj, err
-	}
-
 	return dataPlatformProductMasterProductDescriptionDatumObj, nil
 }
 
@@ -792,10 +224,6 @@ func (o *DataPlatformProductMasterProductDescriptionDatum) Insert(ctx context.Co
 	}
 
 	var err error
-
-	if err := o.doBeforeInsertHooks(ctx, exec); err != nil {
-		return err
-	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformProductMasterProductDescriptionDatumColumnsWithDefault, o)
 
@@ -877,17 +305,14 @@ CacheNoHooks:
 		dataPlatformProductMasterProductDescriptionDatumInsertCacheMut.Unlock()
 	}
 
-	return o.doAfterInsertHooks(ctx, exec)
+	return nil
 }
 
 // Update uses an executor to update the DataPlatformProductMasterProductDescriptionDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformProductMasterProductDescriptionDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) (int64, error) {
+func (o *DataPlatformProductMasterProductDescriptionDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
-	if err = o.doBeforeUpdateHooks(ctx, exec); err != nil {
-		return 0, err
-	}
 	key := makeCacheKey(columns, nil)
 	dataPlatformProductMasterProductDescriptionDatumUpdateCacheMut.RLock()
 	cache, cached := dataPlatformProductMasterProductDescriptionDatumUpdateCache[key]
@@ -903,7 +328,7 @@ func (o *DataPlatformProductMasterProductDescriptionDatum) Update(ctx context.Co
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return 0, errors.New("models: unable to update data_platform_product_master_product_description_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_product_master_product_description_data, could not build whitelist")
 		}
 
 		cache.query = fmt.Sprintf("UPDATE `data_platform_product_master_product_description_data` SET %s WHERE %s",
@@ -912,7 +337,7 @@ func (o *DataPlatformProductMasterProductDescriptionDatum) Update(ctx context.Co
 		)
 		cache.valueMapping, err = queries.BindMapping(dataPlatformProductMasterProductDescriptionDatumType, dataPlatformProductMasterProductDescriptionDatumMapping, append(wl, dataPlatformProductMasterProductDescriptionDatumPrimaryKeyColumns...))
 		if err != nil {
-			return 0, err
+			return err
 		}
 	}
 
@@ -923,15 +348,9 @@ func (o *DataPlatformProductMasterProductDescriptionDatum) Update(ctx context.Co
 		fmt.Fprintln(writer, cache.query)
 		fmt.Fprintln(writer, values)
 	}
-	var result sql.Result
-	result, err = exec.ExecContext(ctx, cache.query, values...)
+	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update data_platform_product_master_product_description_data row")
-	}
-
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by update for data_platform_product_master_product_description_data")
+		return errors.Wrap(err, "models: unable to update data_platform_product_master_product_description_data row")
 	}
 
 	if !cached {
@@ -940,35 +359,30 @@ func (o *DataPlatformProductMasterProductDescriptionDatum) Update(ctx context.Co
 		dataPlatformProductMasterProductDescriptionDatumUpdateCacheMut.Unlock()
 	}
 
-	return rowsAff, o.doAfterUpdateHooks(ctx, exec)
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformProductMasterProductDescriptionDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (q dataPlatformProductMasterProductDescriptionDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all for data_platform_product_master_product_description_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_product_master_product_description_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected for data_platform_product_master_product_description_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformProductMasterProductDescriptionDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (o DataPlatformProductMasterProductDescriptionDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
-		return 0, nil
+		return nil
 	}
 
 	if len(cols) == 0 {
-		return 0, errors.New("models: update all requires at least one column argument")
+		return errors.New("models: update all requires at least one column argument")
 	}
 
 	colNames := make([]string, len(cols))
@@ -996,16 +410,12 @@ func (o DataPlatformProductMasterProductDescriptionDatumSlice) UpdateAll(ctx con
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all in dataPlatformProductMasterProductDescriptionDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformProductMasterProductDescriptionDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected all in update all dataPlatformProductMasterProductDescriptionDatum")
-	}
-	return rowsAff, nil
+	return nil
 }
 
 var mySQLDataPlatformProductMasterProductDescriptionDatumUniqueColumns = []string{}
@@ -1015,10 +425,6 @@ var mySQLDataPlatformProductMasterProductDescriptionDatumUniqueColumns = []strin
 func (o *DataPlatformProductMasterProductDescriptionDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
 		return errors.New("models: no data_platform_product_master_product_description_data provided for upsert")
-	}
-
-	if err := o.doBeforeUpsertHooks(ctx, exec); err != nil {
-		return err
 	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformProductMasterProductDescriptionDatumColumnsWithDefault, o)
@@ -1141,18 +547,14 @@ CacheNoHooks:
 		dataPlatformProductMasterProductDescriptionDatumUpsertCacheMut.Unlock()
 	}
 
-	return o.doAfterUpsertHooks(ctx, exec)
+	return nil
 }
 
 // Delete deletes a single DataPlatformProductMasterProductDescriptionDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformProductMasterProductDescriptionDatum) Delete(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o *DataPlatformProductMasterProductDescriptionDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return 0, errors.New("models: no DataPlatformProductMasterProductDescriptionDatum provided for delete")
-	}
-
-	if err := o.doBeforeDeleteHooks(ctx, exec); err != nil {
-		return 0, err
+		return errors.New("models: no DataPlatformProductMasterProductDescriptionDatum provided for delete")
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformProductMasterProductDescriptionDatumPrimaryKeyMapping)
@@ -1163,56 +565,34 @@ func (o *DataPlatformProductMasterProductDescriptionDatum) Delete(ctx context.Co
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete from data_platform_product_master_product_description_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_product_master_product_description_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by delete for data_platform_product_master_product_description_data")
-	}
-
-	if err := o.doAfterDeleteHooks(ctx, exec); err != nil {
-		return 0, err
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformProductMasterProductDescriptionDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (q dataPlatformProductMasterProductDescriptionDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return 0, errors.New("models: no dataPlatformProductMasterProductDescriptionDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformProductMasterProductDescriptionDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from data_platform_product_master_product_description_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_product_master_product_description_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_product_master_product_description_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformProductMasterProductDescriptionDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o DataPlatformProductMasterProductDescriptionDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
-		return 0, nil
-	}
-
-	if len(dataPlatformProductMasterProductDescriptionDatumBeforeDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doBeforeDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
+		return nil
 	}
 
 	var args []interface{}
@@ -1229,25 +609,12 @@ func (o DataPlatformProductMasterProductDescriptionDatumSlice) DeleteAll(ctx con
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from dataPlatformProductMasterProductDescriptionDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformProductMasterProductDescriptionDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_product_master_product_description_data")
-	}
-
-	if len(dataPlatformProductMasterProductDescriptionDatumAfterDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // Reload refetches the object from the database

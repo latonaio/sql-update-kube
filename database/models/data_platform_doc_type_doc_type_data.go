@@ -51,15 +51,36 @@ var DataPlatformDocTypeDocTypeDatumWhere = struct {
 
 // DataPlatformDocTypeDocTypeDatumRels is where relationship names are stored.
 var DataPlatformDocTypeDocTypeDatumRels = struct {
-}{}
+	DocTypeDataPlatformDeliveryDocumentHeaderDocData string
+	DocTypeDataPlatformEquipmentMasterGeneralDocData string
+}{
+	DocTypeDataPlatformDeliveryDocumentHeaderDocData: "DocTypeDataPlatformDeliveryDocumentHeaderDocData",
+	DocTypeDataPlatformEquipmentMasterGeneralDocData: "DocTypeDataPlatformEquipmentMasterGeneralDocData",
+}
 
 // dataPlatformDocTypeDocTypeDatumR is where relationships are stored.
 type dataPlatformDocTypeDocTypeDatumR struct {
+	DocTypeDataPlatformDeliveryDocumentHeaderDocData DataPlatformDeliveryDocumentHeaderDocDatumSlice `boil:"DocTypeDataPlatformDeliveryDocumentHeaderDocData" json:"DocTypeDataPlatformDeliveryDocumentHeaderDocData" toml:"DocTypeDataPlatformDeliveryDocumentHeaderDocData" yaml:"DocTypeDataPlatformDeliveryDocumentHeaderDocData"`
+	DocTypeDataPlatformEquipmentMasterGeneralDocData DataPlatformEquipmentMasterGeneralDocDatumSlice `boil:"DocTypeDataPlatformEquipmentMasterGeneralDocData" json:"DocTypeDataPlatformEquipmentMasterGeneralDocData" toml:"DocTypeDataPlatformEquipmentMasterGeneralDocData" yaml:"DocTypeDataPlatformEquipmentMasterGeneralDocData"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformDocTypeDocTypeDatumR) NewStruct() *dataPlatformDocTypeDocTypeDatumR {
 	return &dataPlatformDocTypeDocTypeDatumR{}
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformDeliveryDocumentHeaderDocData() DataPlatformDeliveryDocumentHeaderDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformDeliveryDocumentHeaderDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformEquipmentMasterGeneralDocData() DataPlatformEquipmentMasterGeneralDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformEquipmentMasterGeneralDocData
 }
 
 // dataPlatformDocTypeDocTypeDatumL is where Load methods for each relationship are stored.
@@ -77,8 +98,6 @@ type (
 	// DataPlatformDocTypeDocTypeDatumSlice is an alias for a slice of pointers to DataPlatformDocTypeDocTypeDatum.
 	// This should almost always be used instead of []DataPlatformDocTypeDocTypeDatum.
 	DataPlatformDocTypeDocTypeDatumSlice []*DataPlatformDocTypeDocTypeDatum
-	// DataPlatformDocTypeDocTypeDatumHook is the signature for custom DataPlatformDocTypeDocTypeDatum hook methods
-	DataPlatformDocTypeDocTypeDatumHook func(context.Context, boil.ContextExecutor, *DataPlatformDocTypeDocTypeDatum) error
 
 	dataPlatformDocTypeDocTypeDatumQuery struct {
 		*queries.Query
@@ -106,179 +125,6 @@ var (
 	_ = qmhelper.Where
 )
 
-var dataPlatformDocTypeDocTypeDatumAfterSelectHooks []DataPlatformDocTypeDocTypeDatumHook
-
-var dataPlatformDocTypeDocTypeDatumBeforeInsertHooks []DataPlatformDocTypeDocTypeDatumHook
-var dataPlatformDocTypeDocTypeDatumAfterInsertHooks []DataPlatformDocTypeDocTypeDatumHook
-
-var dataPlatformDocTypeDocTypeDatumBeforeUpdateHooks []DataPlatformDocTypeDocTypeDatumHook
-var dataPlatformDocTypeDocTypeDatumAfterUpdateHooks []DataPlatformDocTypeDocTypeDatumHook
-
-var dataPlatformDocTypeDocTypeDatumBeforeDeleteHooks []DataPlatformDocTypeDocTypeDatumHook
-var dataPlatformDocTypeDocTypeDatumAfterDeleteHooks []DataPlatformDocTypeDocTypeDatumHook
-
-var dataPlatformDocTypeDocTypeDatumBeforeUpsertHooks []DataPlatformDocTypeDocTypeDatumHook
-var dataPlatformDocTypeDocTypeDatumAfterUpsertHooks []DataPlatformDocTypeDocTypeDatumHook
-
-// doAfterSelectHooks executes all "after Select" hooks.
-func (o *DataPlatformDocTypeDocTypeDatum) doAfterSelectHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDocTypeDocTypeDatumAfterSelectHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeInsertHooks executes all "before insert" hooks.
-func (o *DataPlatformDocTypeDocTypeDatum) doBeforeInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDocTypeDocTypeDatumBeforeInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterInsertHooks executes all "after Insert" hooks.
-func (o *DataPlatformDocTypeDocTypeDatum) doAfterInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDocTypeDocTypeDatumAfterInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpdateHooks executes all "before Update" hooks.
-func (o *DataPlatformDocTypeDocTypeDatum) doBeforeUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDocTypeDocTypeDatumBeforeUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpdateHooks executes all "after Update" hooks.
-func (o *DataPlatformDocTypeDocTypeDatum) doAfterUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDocTypeDocTypeDatumAfterUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeDeleteHooks executes all "before Delete" hooks.
-func (o *DataPlatformDocTypeDocTypeDatum) doBeforeDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDocTypeDocTypeDatumBeforeDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterDeleteHooks executes all "after Delete" hooks.
-func (o *DataPlatformDocTypeDocTypeDatum) doAfterDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDocTypeDocTypeDatumAfterDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpsertHooks executes all "before Upsert" hooks.
-func (o *DataPlatformDocTypeDocTypeDatum) doBeforeUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDocTypeDocTypeDatumBeforeUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpsertHooks executes all "after Upsert" hooks.
-func (o *DataPlatformDocTypeDocTypeDatum) doAfterUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDocTypeDocTypeDatumAfterUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// AddDataPlatformDocTypeDocTypeDatumHook registers your hook function for all future operations.
-func AddDataPlatformDocTypeDocTypeDatumHook(hookPoint boil.HookPoint, dataPlatformDocTypeDocTypeDatumHook DataPlatformDocTypeDocTypeDatumHook) {
-	switch hookPoint {
-	case boil.AfterSelectHook:
-		dataPlatformDocTypeDocTypeDatumAfterSelectHooks = append(dataPlatformDocTypeDocTypeDatumAfterSelectHooks, dataPlatformDocTypeDocTypeDatumHook)
-	case boil.BeforeInsertHook:
-		dataPlatformDocTypeDocTypeDatumBeforeInsertHooks = append(dataPlatformDocTypeDocTypeDatumBeforeInsertHooks, dataPlatformDocTypeDocTypeDatumHook)
-	case boil.AfterInsertHook:
-		dataPlatformDocTypeDocTypeDatumAfterInsertHooks = append(dataPlatformDocTypeDocTypeDatumAfterInsertHooks, dataPlatformDocTypeDocTypeDatumHook)
-	case boil.BeforeUpdateHook:
-		dataPlatformDocTypeDocTypeDatumBeforeUpdateHooks = append(dataPlatformDocTypeDocTypeDatumBeforeUpdateHooks, dataPlatformDocTypeDocTypeDatumHook)
-	case boil.AfterUpdateHook:
-		dataPlatformDocTypeDocTypeDatumAfterUpdateHooks = append(dataPlatformDocTypeDocTypeDatumAfterUpdateHooks, dataPlatformDocTypeDocTypeDatumHook)
-	case boil.BeforeDeleteHook:
-		dataPlatformDocTypeDocTypeDatumBeforeDeleteHooks = append(dataPlatformDocTypeDocTypeDatumBeforeDeleteHooks, dataPlatformDocTypeDocTypeDatumHook)
-	case boil.AfterDeleteHook:
-		dataPlatformDocTypeDocTypeDatumAfterDeleteHooks = append(dataPlatformDocTypeDocTypeDatumAfterDeleteHooks, dataPlatformDocTypeDocTypeDatumHook)
-	case boil.BeforeUpsertHook:
-		dataPlatformDocTypeDocTypeDatumBeforeUpsertHooks = append(dataPlatformDocTypeDocTypeDatumBeforeUpsertHooks, dataPlatformDocTypeDocTypeDatumHook)
-	case boil.AfterUpsertHook:
-		dataPlatformDocTypeDocTypeDatumAfterUpsertHooks = append(dataPlatformDocTypeDocTypeDatumAfterUpsertHooks, dataPlatformDocTypeDocTypeDatumHook)
-	}
-}
-
 // One returns a single dataPlatformDocTypeDocTypeDatum record from the query.
 func (q dataPlatformDocTypeDocTypeDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformDocTypeDocTypeDatum, error) {
 	o := &DataPlatformDocTypeDocTypeDatum{}
@@ -293,10 +139,6 @@ func (q dataPlatformDocTypeDocTypeDatumQuery) One(ctx context.Context, exec boil
 		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_doc_type_doc_type_data")
 	}
 
-	if err := o.doAfterSelectHooks(ctx, exec); err != nil {
-		return o, err
-	}
-
 	return o, nil
 }
 
@@ -307,14 +149,6 @@ func (q dataPlatformDocTypeDocTypeDatumQuery) All(ctx context.Context, exec boil
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
 		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformDocTypeDocTypeDatum slice")
-	}
-
-	if len(dataPlatformDocTypeDocTypeDatumAfterSelectHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterSelectHooks(ctx, exec); err != nil {
-				return o, err
-			}
-		}
 	}
 
 	return o, nil
@@ -351,6 +185,314 @@ func (q dataPlatformDocTypeDocTypeDatumQuery) Exists(ctx context.Context, exec b
 	return count > 0, nil
 }
 
+// DocTypeDataPlatformDeliveryDocumentHeaderDocData retrieves all the data_platform_delivery_document_header_doc_datum's DataPlatformDeliveryDocumentHeaderDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformDeliveryDocumentHeaderDocData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentHeaderDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_header_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformDeliveryDocumentHeaderDocData(queryMods...)
+}
+
+// DocTypeDataPlatformEquipmentMasterGeneralDocData retrieves all the data_platform_equipment_master_general_doc_datum's DataPlatformEquipmentMasterGeneralDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformEquipmentMasterGeneralDocData(mods ...qm.QueryMod) dataPlatformEquipmentMasterGeneralDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_equipment_master_general_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformEquipmentMasterGeneralDocData(queryMods...)
+}
+
+// LoadDocTypeDataPlatformDeliveryDocumentHeaderDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformDeliveryDocumentHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_header_doc_data`),
+		qm.WhereIn(`data_platform_delivery_document_header_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_header_doc_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentHeaderDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_header_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_header_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_header_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformDeliveryDocumentHeaderDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformDeliveryDocumentHeaderDocData = append(local.R.DocTypeDataPlatformDeliveryDocumentHeaderDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformEquipmentMasterGeneralDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformEquipmentMasterGeneralDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_equipment_master_general_doc_data`),
+		qm.WhereIn(`data_platform_equipment_master_general_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_equipment_master_general_doc_data")
+	}
+
+	var resultSlice []*DataPlatformEquipmentMasterGeneralDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_equipment_master_general_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_equipment_master_general_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_equipment_master_general_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformEquipmentMasterGeneralDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformEquipmentMasterGeneralDocData = append(local.R.DocTypeDataPlatformEquipmentMasterGeneralDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformDeliveryDocumentHeaderDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformDeliveryDocumentHeaderDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformDeliveryDocumentHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_header_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentHeaderDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.DeliveryDocument, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformDeliveryDocumentHeaderDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformDeliveryDocumentHeaderDocData = append(o.R.DocTypeDataPlatformDeliveryDocumentHeaderDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformEquipmentMasterGeneralDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformEquipmentMasterGeneralDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformEquipmentMasterGeneralDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformEquipmentMasterGeneralDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_equipment_master_general_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformEquipmentMasterGeneralDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.Equipment, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformEquipmentMasterGeneralDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformEquipmentMasterGeneralDocData = append(o.R.DocTypeDataPlatformEquipmentMasterGeneralDocData, related...)
+	}
+
+	return nil
+}
+
 // DataPlatformDocTypeDocTypeData retrieves all the records using an executor.
 func DataPlatformDocTypeDocTypeData(mods ...qm.QueryMod) dataPlatformDocTypeDocTypeDatumQuery {
 	mods = append(mods, qm.From("`data_platform_doc_type_doc_type_data`"))
@@ -385,10 +527,6 @@ func FindDataPlatformDocTypeDocTypeDatum(ctx context.Context, exec boil.ContextE
 		return nil, errors.Wrap(err, "models: unable to select from data_platform_doc_type_doc_type_data")
 	}
 
-	if err = dataPlatformDocTypeDocTypeDatumObj.doAfterSelectHooks(ctx, exec); err != nil {
-		return dataPlatformDocTypeDocTypeDatumObj, err
-	}
-
 	return dataPlatformDocTypeDocTypeDatumObj, nil
 }
 
@@ -400,10 +538,6 @@ func (o *DataPlatformDocTypeDocTypeDatum) Insert(ctx context.Context, exec boil.
 	}
 
 	var err error
-
-	if err := o.doBeforeInsertHooks(ctx, exec); err != nil {
-		return err
-	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformDocTypeDocTypeDatumColumnsWithDefault, o)
 
@@ -484,17 +618,14 @@ CacheNoHooks:
 		dataPlatformDocTypeDocTypeDatumInsertCacheMut.Unlock()
 	}
 
-	return o.doAfterInsertHooks(ctx, exec)
+	return nil
 }
 
 // Update uses an executor to update the DataPlatformDocTypeDocTypeDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformDocTypeDocTypeDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) (int64, error) {
+func (o *DataPlatformDocTypeDocTypeDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
-	if err = o.doBeforeUpdateHooks(ctx, exec); err != nil {
-		return 0, err
-	}
 	key := makeCacheKey(columns, nil)
 	dataPlatformDocTypeDocTypeDatumUpdateCacheMut.RLock()
 	cache, cached := dataPlatformDocTypeDocTypeDatumUpdateCache[key]
@@ -510,7 +641,7 @@ func (o *DataPlatformDocTypeDocTypeDatum) Update(ctx context.Context, exec boil.
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return 0, errors.New("models: unable to update data_platform_doc_type_doc_type_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_doc_type_doc_type_data, could not build whitelist")
 		}
 
 		cache.query = fmt.Sprintf("UPDATE `data_platform_doc_type_doc_type_data` SET %s WHERE %s",
@@ -519,7 +650,7 @@ func (o *DataPlatformDocTypeDocTypeDatum) Update(ctx context.Context, exec boil.
 		)
 		cache.valueMapping, err = queries.BindMapping(dataPlatformDocTypeDocTypeDatumType, dataPlatformDocTypeDocTypeDatumMapping, append(wl, dataPlatformDocTypeDocTypeDatumPrimaryKeyColumns...))
 		if err != nil {
-			return 0, err
+			return err
 		}
 	}
 
@@ -530,15 +661,9 @@ func (o *DataPlatformDocTypeDocTypeDatum) Update(ctx context.Context, exec boil.
 		fmt.Fprintln(writer, cache.query)
 		fmt.Fprintln(writer, values)
 	}
-	var result sql.Result
-	result, err = exec.ExecContext(ctx, cache.query, values...)
+	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update data_platform_doc_type_doc_type_data row")
-	}
-
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by update for data_platform_doc_type_doc_type_data")
+		return errors.Wrap(err, "models: unable to update data_platform_doc_type_doc_type_data row")
 	}
 
 	if !cached {
@@ -547,35 +672,30 @@ func (o *DataPlatformDocTypeDocTypeDatum) Update(ctx context.Context, exec boil.
 		dataPlatformDocTypeDocTypeDatumUpdateCacheMut.Unlock()
 	}
 
-	return rowsAff, o.doAfterUpdateHooks(ctx, exec)
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformDocTypeDocTypeDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (q dataPlatformDocTypeDocTypeDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all for data_platform_doc_type_doc_type_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_doc_type_doc_type_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected for data_platform_doc_type_doc_type_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformDocTypeDocTypeDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (o DataPlatformDocTypeDocTypeDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
-		return 0, nil
+		return nil
 	}
 
 	if len(cols) == 0 {
-		return 0, errors.New("models: update all requires at least one column argument")
+		return errors.New("models: update all requires at least one column argument")
 	}
 
 	colNames := make([]string, len(cols))
@@ -603,16 +723,12 @@ func (o DataPlatformDocTypeDocTypeDatumSlice) UpdateAll(ctx context.Context, exe
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all in dataPlatformDocTypeDocTypeDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformDocTypeDocTypeDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected all in update all dataPlatformDocTypeDocTypeDatum")
-	}
-	return rowsAff, nil
+	return nil
 }
 
 var mySQLDataPlatformDocTypeDocTypeDatumUniqueColumns = []string{
@@ -624,10 +740,6 @@ var mySQLDataPlatformDocTypeDocTypeDatumUniqueColumns = []string{
 func (o *DataPlatformDocTypeDocTypeDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
 		return errors.New("models: no data_platform_doc_type_doc_type_data provided for upsert")
-	}
-
-	if err := o.doBeforeUpsertHooks(ctx, exec); err != nil {
-		return err
 	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformDocTypeDocTypeDatumColumnsWithDefault, o)
@@ -750,18 +862,14 @@ CacheNoHooks:
 		dataPlatformDocTypeDocTypeDatumUpsertCacheMut.Unlock()
 	}
 
-	return o.doAfterUpsertHooks(ctx, exec)
+	return nil
 }
 
 // Delete deletes a single DataPlatformDocTypeDocTypeDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformDocTypeDocTypeDatum) Delete(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o *DataPlatformDocTypeDocTypeDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return 0, errors.New("models: no DataPlatformDocTypeDocTypeDatum provided for delete")
-	}
-
-	if err := o.doBeforeDeleteHooks(ctx, exec); err != nil {
-		return 0, err
+		return errors.New("models: no DataPlatformDocTypeDocTypeDatum provided for delete")
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformDocTypeDocTypeDatumPrimaryKeyMapping)
@@ -772,56 +880,34 @@ func (o *DataPlatformDocTypeDocTypeDatum) Delete(ctx context.Context, exec boil.
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete from data_platform_doc_type_doc_type_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_doc_type_doc_type_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by delete for data_platform_doc_type_doc_type_data")
-	}
-
-	if err := o.doAfterDeleteHooks(ctx, exec); err != nil {
-		return 0, err
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformDocTypeDocTypeDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (q dataPlatformDocTypeDocTypeDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return 0, errors.New("models: no dataPlatformDocTypeDocTypeDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformDocTypeDocTypeDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from data_platform_doc_type_doc_type_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_doc_type_doc_type_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_doc_type_doc_type_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformDocTypeDocTypeDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o DataPlatformDocTypeDocTypeDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
-		return 0, nil
-	}
-
-	if len(dataPlatformDocTypeDocTypeDatumBeforeDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doBeforeDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
+		return nil
 	}
 
 	var args []interface{}
@@ -838,25 +924,12 @@ func (o DataPlatformDocTypeDocTypeDatumSlice) DeleteAll(ctx context.Context, exe
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from dataPlatformDocTypeDocTypeDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformDocTypeDocTypeDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_doc_type_doc_type_data")
-	}
-
-	if len(dataPlatformDocTypeDocTypeDatumAfterDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // Reload refetches the object from the database

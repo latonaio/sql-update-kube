@@ -14,7 +14,7 @@ spec:
       labels:
         run: sql-update-kube
     spec:
-      nodeName: mysql-data
+      nodeName: worker
       hostname: sql-update-kube
       containers:
         - name: sql-update-kube

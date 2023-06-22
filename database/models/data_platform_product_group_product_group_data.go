@@ -51,15 +51,26 @@ var DataPlatformProductGroupProductGroupDatumWhere = struct {
 
 // DataPlatformProductGroupProductGroupDatumRels is where relationship names are stored.
 var DataPlatformProductGroupProductGroupDatumRels = struct {
-}{}
+	ProductGroupDataPlatformDeliveryDocumentItemData string
+}{
+	ProductGroupDataPlatformDeliveryDocumentItemData: "ProductGroupDataPlatformDeliveryDocumentItemData",
+}
 
 // dataPlatformProductGroupProductGroupDatumR is where relationships are stored.
 type dataPlatformProductGroupProductGroupDatumR struct {
+	ProductGroupDataPlatformDeliveryDocumentItemData DataPlatformDeliveryDocumentItemDatumSlice `boil:"ProductGroupDataPlatformDeliveryDocumentItemData" json:"ProductGroupDataPlatformDeliveryDocumentItemData" toml:"ProductGroupDataPlatformDeliveryDocumentItemData" yaml:"ProductGroupDataPlatformDeliveryDocumentItemData"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformProductGroupProductGroupDatumR) NewStruct() *dataPlatformProductGroupProductGroupDatumR {
 	return &dataPlatformProductGroupProductGroupDatumR{}
+}
+
+func (r *dataPlatformProductGroupProductGroupDatumR) GetProductGroupDataPlatformDeliveryDocumentItemData() DataPlatformDeliveryDocumentItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductGroupDataPlatformDeliveryDocumentItemData
 }
 
 // dataPlatformProductGroupProductGroupDatumL is where Load methods for each relationship are stored.
@@ -77,8 +88,6 @@ type (
 	// DataPlatformProductGroupProductGroupDatumSlice is an alias for a slice of pointers to DataPlatformProductGroupProductGroupDatum.
 	// This should almost always be used instead of []DataPlatformProductGroupProductGroupDatum.
 	DataPlatformProductGroupProductGroupDatumSlice []*DataPlatformProductGroupProductGroupDatum
-	// DataPlatformProductGroupProductGroupDatumHook is the signature for custom DataPlatformProductGroupProductGroupDatum hook methods
-	DataPlatformProductGroupProductGroupDatumHook func(context.Context, boil.ContextExecutor, *DataPlatformProductGroupProductGroupDatum) error
 
 	dataPlatformProductGroupProductGroupDatumQuery struct {
 		*queries.Query
@@ -106,179 +115,6 @@ var (
 	_ = qmhelper.Where
 )
 
-var dataPlatformProductGroupProductGroupDatumAfterSelectHooks []DataPlatformProductGroupProductGroupDatumHook
-
-var dataPlatformProductGroupProductGroupDatumBeforeInsertHooks []DataPlatformProductGroupProductGroupDatumHook
-var dataPlatformProductGroupProductGroupDatumAfterInsertHooks []DataPlatformProductGroupProductGroupDatumHook
-
-var dataPlatformProductGroupProductGroupDatumBeforeUpdateHooks []DataPlatformProductGroupProductGroupDatumHook
-var dataPlatformProductGroupProductGroupDatumAfterUpdateHooks []DataPlatformProductGroupProductGroupDatumHook
-
-var dataPlatformProductGroupProductGroupDatumBeforeDeleteHooks []DataPlatformProductGroupProductGroupDatumHook
-var dataPlatformProductGroupProductGroupDatumAfterDeleteHooks []DataPlatformProductGroupProductGroupDatumHook
-
-var dataPlatformProductGroupProductGroupDatumBeforeUpsertHooks []DataPlatformProductGroupProductGroupDatumHook
-var dataPlatformProductGroupProductGroupDatumAfterUpsertHooks []DataPlatformProductGroupProductGroupDatumHook
-
-// doAfterSelectHooks executes all "after Select" hooks.
-func (o *DataPlatformProductGroupProductGroupDatum) doAfterSelectHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductGroupProductGroupDatumAfterSelectHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeInsertHooks executes all "before insert" hooks.
-func (o *DataPlatformProductGroupProductGroupDatum) doBeforeInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductGroupProductGroupDatumBeforeInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterInsertHooks executes all "after Insert" hooks.
-func (o *DataPlatformProductGroupProductGroupDatum) doAfterInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductGroupProductGroupDatumAfterInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpdateHooks executes all "before Update" hooks.
-func (o *DataPlatformProductGroupProductGroupDatum) doBeforeUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductGroupProductGroupDatumBeforeUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpdateHooks executes all "after Update" hooks.
-func (o *DataPlatformProductGroupProductGroupDatum) doAfterUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductGroupProductGroupDatumAfterUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeDeleteHooks executes all "before Delete" hooks.
-func (o *DataPlatformProductGroupProductGroupDatum) doBeforeDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductGroupProductGroupDatumBeforeDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterDeleteHooks executes all "after Delete" hooks.
-func (o *DataPlatformProductGroupProductGroupDatum) doAfterDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductGroupProductGroupDatumAfterDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpsertHooks executes all "before Upsert" hooks.
-func (o *DataPlatformProductGroupProductGroupDatum) doBeforeUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductGroupProductGroupDatumBeforeUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpsertHooks executes all "after Upsert" hooks.
-func (o *DataPlatformProductGroupProductGroupDatum) doAfterUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformProductGroupProductGroupDatumAfterUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// AddDataPlatformProductGroupProductGroupDatumHook registers your hook function for all future operations.
-func AddDataPlatformProductGroupProductGroupDatumHook(hookPoint boil.HookPoint, dataPlatformProductGroupProductGroupDatumHook DataPlatformProductGroupProductGroupDatumHook) {
-	switch hookPoint {
-	case boil.AfterSelectHook:
-		dataPlatformProductGroupProductGroupDatumAfterSelectHooks = append(dataPlatformProductGroupProductGroupDatumAfterSelectHooks, dataPlatformProductGroupProductGroupDatumHook)
-	case boil.BeforeInsertHook:
-		dataPlatformProductGroupProductGroupDatumBeforeInsertHooks = append(dataPlatformProductGroupProductGroupDatumBeforeInsertHooks, dataPlatformProductGroupProductGroupDatumHook)
-	case boil.AfterInsertHook:
-		dataPlatformProductGroupProductGroupDatumAfterInsertHooks = append(dataPlatformProductGroupProductGroupDatumAfterInsertHooks, dataPlatformProductGroupProductGroupDatumHook)
-	case boil.BeforeUpdateHook:
-		dataPlatformProductGroupProductGroupDatumBeforeUpdateHooks = append(dataPlatformProductGroupProductGroupDatumBeforeUpdateHooks, dataPlatformProductGroupProductGroupDatumHook)
-	case boil.AfterUpdateHook:
-		dataPlatformProductGroupProductGroupDatumAfterUpdateHooks = append(dataPlatformProductGroupProductGroupDatumAfterUpdateHooks, dataPlatformProductGroupProductGroupDatumHook)
-	case boil.BeforeDeleteHook:
-		dataPlatformProductGroupProductGroupDatumBeforeDeleteHooks = append(dataPlatformProductGroupProductGroupDatumBeforeDeleteHooks, dataPlatformProductGroupProductGroupDatumHook)
-	case boil.AfterDeleteHook:
-		dataPlatformProductGroupProductGroupDatumAfterDeleteHooks = append(dataPlatformProductGroupProductGroupDatumAfterDeleteHooks, dataPlatformProductGroupProductGroupDatumHook)
-	case boil.BeforeUpsertHook:
-		dataPlatformProductGroupProductGroupDatumBeforeUpsertHooks = append(dataPlatformProductGroupProductGroupDatumBeforeUpsertHooks, dataPlatformProductGroupProductGroupDatumHook)
-	case boil.AfterUpsertHook:
-		dataPlatformProductGroupProductGroupDatumAfterUpsertHooks = append(dataPlatformProductGroupProductGroupDatumAfterUpsertHooks, dataPlatformProductGroupProductGroupDatumHook)
-	}
-}
-
 // One returns a single dataPlatformProductGroupProductGroupDatum record from the query.
 func (q dataPlatformProductGroupProductGroupDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformProductGroupProductGroupDatum, error) {
 	o := &DataPlatformProductGroupProductGroupDatum{}
@@ -293,10 +129,6 @@ func (q dataPlatformProductGroupProductGroupDatumQuery) One(ctx context.Context,
 		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_product_group_product_group_data")
 	}
 
-	if err := o.doAfterSelectHooks(ctx, exec); err != nil {
-		return o, err
-	}
-
 	return o, nil
 }
 
@@ -307,14 +139,6 @@ func (q dataPlatformProductGroupProductGroupDatumQuery) All(ctx context.Context,
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
 		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformProductGroupProductGroupDatum slice")
-	}
-
-	if len(dataPlatformProductGroupProductGroupDatumAfterSelectHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterSelectHooks(ctx, exec); err != nil {
-				return o, err
-			}
-		}
 	}
 
 	return o, nil
@@ -351,6 +175,221 @@ func (q dataPlatformProductGroupProductGroupDatumQuery) Exists(ctx context.Conte
 	return count > 0, nil
 }
 
+// ProductGroupDataPlatformDeliveryDocumentItemData retrieves all the data_platform_delivery_document_item_datum's DataPlatformDeliveryDocumentItemData with an executor via ProductGroup column.
+func (o *DataPlatformProductGroupProductGroupDatum) ProductGroupDataPlatformDeliveryDocumentItemData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_item_data`.`ProductGroup`=?", o.ProductGroup),
+	)
+
+	return DataPlatformDeliveryDocumentItemData(queryMods...)
+}
+
+// LoadProductGroupDataPlatformDeliveryDocumentItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductGroupProductGroupDatumL) LoadProductGroupDataPlatformDeliveryDocumentItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductGroupProductGroupDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductGroupProductGroupDatum
+	var object *DataPlatformProductGroupProductGroupDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductGroupProductGroupDatum.(*DataPlatformProductGroupProductGroupDatum)
+		if !ok {
+			object = new(DataPlatformProductGroupProductGroupDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductGroupProductGroupDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductGroupProductGroupDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductGroupProductGroupDatum.(*[]*DataPlatformProductGroupProductGroupDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductGroupProductGroupDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductGroupProductGroupDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductGroupProductGroupDatumR{}
+		}
+		args = append(args, object.ProductGroup)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductGroupProductGroupDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.ProductGroup) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.ProductGroup)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_item_data`),
+		qm.WhereIn(`data_platform_delivery_document_item_data.ProductGroup in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_item_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_item_data")
+	}
+
+	if singular {
+		object.R.ProductGroupDataPlatformDeliveryDocumentItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.ProductGroup, foreign.ProductGroup) {
+				local.R.ProductGroupDataPlatformDeliveryDocumentItemData = append(local.R.ProductGroupDataPlatformDeliveryDocumentItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// AddProductGroupDataPlatformDeliveryDocumentItemData adds the given related objects to the existing relationships
+// of the data_platform_product_group_product_group_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductGroupDataPlatformDeliveryDocumentItemData.
+func (o *DataPlatformProductGroupProductGroupDatum) AddProductGroupDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.ProductGroup, o.ProductGroup)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"ProductGroup"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.ProductGroup, rel.DeliveryDocument, rel.DeliveryDocumentItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.ProductGroup, o.ProductGroup)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductGroupProductGroupDatumR{
+			ProductGroupDataPlatformDeliveryDocumentItemData: related,
+		}
+	} else {
+		o.R.ProductGroupDataPlatformDeliveryDocumentItemData = append(o.R.ProductGroupDataPlatformDeliveryDocumentItemData, related...)
+	}
+
+	return nil
+}
+
+// SetProductGroupDataPlatformDeliveryDocumentItemData removes all previously related items of the
+// data_platform_product_group_product_group_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.ProductGroupDataPlatformProductGroupProductGroupDatum's ProductGroupDataPlatformDeliveryDocumentItemData accordingly.
+// Replaces o.R.ProductGroupDataPlatformDeliveryDocumentItemData with related.
+func (o *DataPlatformProductGroupProductGroupDatum) SetProductGroupDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	query := "update `data_platform_delivery_document_item_data` set `ProductGroup` = null where `ProductGroup` = ?"
+	values := []interface{}{o.ProductGroup}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.ProductGroupDataPlatformDeliveryDocumentItemData = nil
+	}
+
+	return o.AddProductGroupDataPlatformDeliveryDocumentItemData(ctx, exec, insert, related...)
+}
+
+// RemoveProductGroupDataPlatformDeliveryDocumentItemData relationships from objects passed in.
+// Removes related items from R.ProductGroupDataPlatformDeliveryDocumentItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformProductGroupProductGroupDatum) RemoveProductGroupDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.ProductGroup, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("ProductGroup")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.ProductGroupDataPlatformDeliveryDocumentItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.ProductGroupDataPlatformDeliveryDocumentItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.ProductGroupDataPlatformDeliveryDocumentItemData[i] = o.R.ProductGroupDataPlatformDeliveryDocumentItemData[ln-1]
+			}
+			o.R.ProductGroupDataPlatformDeliveryDocumentItemData = o.R.ProductGroupDataPlatformDeliveryDocumentItemData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
 // DataPlatformProductGroupProductGroupData retrieves all the records using an executor.
 func DataPlatformProductGroupProductGroupData(mods ...qm.QueryMod) dataPlatformProductGroupProductGroupDatumQuery {
 	mods = append(mods, qm.From("`data_platform_product_group_product_group_data`"))
@@ -385,10 +424,6 @@ func FindDataPlatformProductGroupProductGroupDatum(ctx context.Context, exec boi
 		return nil, errors.Wrap(err, "models: unable to select from data_platform_product_group_product_group_data")
 	}
 
-	if err = dataPlatformProductGroupProductGroupDatumObj.doAfterSelectHooks(ctx, exec); err != nil {
-		return dataPlatformProductGroupProductGroupDatumObj, err
-	}
-
 	return dataPlatformProductGroupProductGroupDatumObj, nil
 }
 
@@ -400,10 +435,6 @@ func (o *DataPlatformProductGroupProductGroupDatum) Insert(ctx context.Context, 
 	}
 
 	var err error
-
-	if err := o.doBeforeInsertHooks(ctx, exec); err != nil {
-		return err
-	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformProductGroupProductGroupDatumColumnsWithDefault, o)
 
@@ -484,17 +515,14 @@ CacheNoHooks:
 		dataPlatformProductGroupProductGroupDatumInsertCacheMut.Unlock()
 	}
 
-	return o.doAfterInsertHooks(ctx, exec)
+	return nil
 }
 
 // Update uses an executor to update the DataPlatformProductGroupProductGroupDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformProductGroupProductGroupDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) (int64, error) {
+func (o *DataPlatformProductGroupProductGroupDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
-	if err = o.doBeforeUpdateHooks(ctx, exec); err != nil {
-		return 0, err
-	}
 	key := makeCacheKey(columns, nil)
 	dataPlatformProductGroupProductGroupDatumUpdateCacheMut.RLock()
 	cache, cached := dataPlatformProductGroupProductGroupDatumUpdateCache[key]
@@ -510,7 +538,7 @@ func (o *DataPlatformProductGroupProductGroupDatum) Update(ctx context.Context, 
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return 0, errors.New("models: unable to update data_platform_product_group_product_group_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_product_group_product_group_data, could not build whitelist")
 		}
 
 		cache.query = fmt.Sprintf("UPDATE `data_platform_product_group_product_group_data` SET %s WHERE %s",
@@ -519,7 +547,7 @@ func (o *DataPlatformProductGroupProductGroupDatum) Update(ctx context.Context, 
 		)
 		cache.valueMapping, err = queries.BindMapping(dataPlatformProductGroupProductGroupDatumType, dataPlatformProductGroupProductGroupDatumMapping, append(wl, dataPlatformProductGroupProductGroupDatumPrimaryKeyColumns...))
 		if err != nil {
-			return 0, err
+			return err
 		}
 	}
 
@@ -530,15 +558,9 @@ func (o *DataPlatformProductGroupProductGroupDatum) Update(ctx context.Context, 
 		fmt.Fprintln(writer, cache.query)
 		fmt.Fprintln(writer, values)
 	}
-	var result sql.Result
-	result, err = exec.ExecContext(ctx, cache.query, values...)
+	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update data_platform_product_group_product_group_data row")
-	}
-
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by update for data_platform_product_group_product_group_data")
+		return errors.Wrap(err, "models: unable to update data_platform_product_group_product_group_data row")
 	}
 
 	if !cached {
@@ -547,35 +569,30 @@ func (o *DataPlatformProductGroupProductGroupDatum) Update(ctx context.Context, 
 		dataPlatformProductGroupProductGroupDatumUpdateCacheMut.Unlock()
 	}
 
-	return rowsAff, o.doAfterUpdateHooks(ctx, exec)
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformProductGroupProductGroupDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (q dataPlatformProductGroupProductGroupDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all for data_platform_product_group_product_group_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_product_group_product_group_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected for data_platform_product_group_product_group_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformProductGroupProductGroupDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (o DataPlatformProductGroupProductGroupDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
-		return 0, nil
+		return nil
 	}
 
 	if len(cols) == 0 {
-		return 0, errors.New("models: update all requires at least one column argument")
+		return errors.New("models: update all requires at least one column argument")
 	}
 
 	colNames := make([]string, len(cols))
@@ -603,16 +620,12 @@ func (o DataPlatformProductGroupProductGroupDatumSlice) UpdateAll(ctx context.Co
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all in dataPlatformProductGroupProductGroupDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformProductGroupProductGroupDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected all in update all dataPlatformProductGroupProductGroupDatum")
-	}
-	return rowsAff, nil
+	return nil
 }
 
 var mySQLDataPlatformProductGroupProductGroupDatumUniqueColumns = []string{
@@ -624,10 +637,6 @@ var mySQLDataPlatformProductGroupProductGroupDatumUniqueColumns = []string{
 func (o *DataPlatformProductGroupProductGroupDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
 		return errors.New("models: no data_platform_product_group_product_group_data provided for upsert")
-	}
-
-	if err := o.doBeforeUpsertHooks(ctx, exec); err != nil {
-		return err
 	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformProductGroupProductGroupDatumColumnsWithDefault, o)
@@ -750,18 +759,14 @@ CacheNoHooks:
 		dataPlatformProductGroupProductGroupDatumUpsertCacheMut.Unlock()
 	}
 
-	return o.doAfterUpsertHooks(ctx, exec)
+	return nil
 }
 
 // Delete deletes a single DataPlatformProductGroupProductGroupDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformProductGroupProductGroupDatum) Delete(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o *DataPlatformProductGroupProductGroupDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return 0, errors.New("models: no DataPlatformProductGroupProductGroupDatum provided for delete")
-	}
-
-	if err := o.doBeforeDeleteHooks(ctx, exec); err != nil {
-		return 0, err
+		return errors.New("models: no DataPlatformProductGroupProductGroupDatum provided for delete")
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformProductGroupProductGroupDatumPrimaryKeyMapping)
@@ -772,56 +777,34 @@ func (o *DataPlatformProductGroupProductGroupDatum) Delete(ctx context.Context, 
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete from data_platform_product_group_product_group_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_product_group_product_group_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by delete for data_platform_product_group_product_group_data")
-	}
-
-	if err := o.doAfterDeleteHooks(ctx, exec); err != nil {
-		return 0, err
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformProductGroupProductGroupDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (q dataPlatformProductGroupProductGroupDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return 0, errors.New("models: no dataPlatformProductGroupProductGroupDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformProductGroupProductGroupDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from data_platform_product_group_product_group_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_product_group_product_group_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_product_group_product_group_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformProductGroupProductGroupDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o DataPlatformProductGroupProductGroupDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
-		return 0, nil
-	}
-
-	if len(dataPlatformProductGroupProductGroupDatumBeforeDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doBeforeDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
+		return nil
 	}
 
 	var args []interface{}
@@ -838,25 +821,12 @@ func (o DataPlatformProductGroupProductGroupDatumSlice) DeleteAll(ctx context.Co
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from dataPlatformProductGroupProductGroupDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformProductGroupProductGroupDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_product_group_product_group_data")
-	}
-
-	if len(dataPlatformProductGroupProductGroupDatumAfterDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // Reload refetches the object from the database

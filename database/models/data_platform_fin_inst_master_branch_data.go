@@ -108,36 +108,15 @@ var DataPlatformFinInstMasterBranchDatumWhere = struct {
 
 // DataPlatformFinInstMasterBranchDatumRels is where relationship names are stored.
 var DataPlatformFinInstMasterBranchDatumRels = struct {
-	AddressIDDataPlatformAddressAddressDatum         string
-	FinInstCodeDataPlatformFinInstMasterGeneralDatum string
-}{
-	AddressIDDataPlatformAddressAddressDatum:         "AddressIDDataPlatformAddressAddressDatum",
-	FinInstCodeDataPlatformFinInstMasterGeneralDatum: "FinInstCodeDataPlatformFinInstMasterGeneralDatum",
-}
+}{}
 
 // dataPlatformFinInstMasterBranchDatumR is where relationships are stored.
 type dataPlatformFinInstMasterBranchDatumR struct {
-	AddressIDDataPlatformAddressAddressDatum         *DataPlatformAddressAddressDatum       `boil:"AddressIDDataPlatformAddressAddressDatum" json:"AddressIDDataPlatformAddressAddressDatum" toml:"AddressIDDataPlatformAddressAddressDatum" yaml:"AddressIDDataPlatformAddressAddressDatum"`
-	FinInstCodeDataPlatformFinInstMasterGeneralDatum *DataPlatformFinInstMasterGeneralDatum `boil:"FinInstCodeDataPlatformFinInstMasterGeneralDatum" json:"FinInstCodeDataPlatformFinInstMasterGeneralDatum" toml:"FinInstCodeDataPlatformFinInstMasterGeneralDatum" yaml:"FinInstCodeDataPlatformFinInstMasterGeneralDatum"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformFinInstMasterBranchDatumR) NewStruct() *dataPlatformFinInstMasterBranchDatumR {
 	return &dataPlatformFinInstMasterBranchDatumR{}
-}
-
-func (r *dataPlatformFinInstMasterBranchDatumR) GetAddressIDDataPlatformAddressAddressDatum() *DataPlatformAddressAddressDatum {
-	if r == nil {
-		return nil
-	}
-	return r.AddressIDDataPlatformAddressAddressDatum
-}
-
-func (r *dataPlatformFinInstMasterBranchDatumR) GetFinInstCodeDataPlatformFinInstMasterGeneralDatum() *DataPlatformFinInstMasterGeneralDatum {
-	if r == nil {
-		return nil
-	}
-	return r.FinInstCodeDataPlatformFinInstMasterGeneralDatum
 }
 
 // dataPlatformFinInstMasterBranchDatumL is where Load methods for each relationship are stored.
@@ -155,8 +134,6 @@ type (
 	// DataPlatformFinInstMasterBranchDatumSlice is an alias for a slice of pointers to DataPlatformFinInstMasterBranchDatum.
 	// This should almost always be used instead of []DataPlatformFinInstMasterBranchDatum.
 	DataPlatformFinInstMasterBranchDatumSlice []*DataPlatformFinInstMasterBranchDatum
-	// DataPlatformFinInstMasterBranchDatumHook is the signature for custom DataPlatformFinInstMasterBranchDatum hook methods
-	DataPlatformFinInstMasterBranchDatumHook func(context.Context, boil.ContextExecutor, *DataPlatformFinInstMasterBranchDatum) error
 
 	dataPlatformFinInstMasterBranchDatumQuery struct {
 		*queries.Query
@@ -184,179 +161,6 @@ var (
 	_ = qmhelper.Where
 )
 
-var dataPlatformFinInstMasterBranchDatumAfterSelectHooks []DataPlatformFinInstMasterBranchDatumHook
-
-var dataPlatformFinInstMasterBranchDatumBeforeInsertHooks []DataPlatformFinInstMasterBranchDatumHook
-var dataPlatformFinInstMasterBranchDatumAfterInsertHooks []DataPlatformFinInstMasterBranchDatumHook
-
-var dataPlatformFinInstMasterBranchDatumBeforeUpdateHooks []DataPlatformFinInstMasterBranchDatumHook
-var dataPlatformFinInstMasterBranchDatumAfterUpdateHooks []DataPlatformFinInstMasterBranchDatumHook
-
-var dataPlatformFinInstMasterBranchDatumBeforeDeleteHooks []DataPlatformFinInstMasterBranchDatumHook
-var dataPlatformFinInstMasterBranchDatumAfterDeleteHooks []DataPlatformFinInstMasterBranchDatumHook
-
-var dataPlatformFinInstMasterBranchDatumBeforeUpsertHooks []DataPlatformFinInstMasterBranchDatumHook
-var dataPlatformFinInstMasterBranchDatumAfterUpsertHooks []DataPlatformFinInstMasterBranchDatumHook
-
-// doAfterSelectHooks executes all "after Select" hooks.
-func (o *DataPlatformFinInstMasterBranchDatum) doAfterSelectHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformFinInstMasterBranchDatumAfterSelectHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeInsertHooks executes all "before insert" hooks.
-func (o *DataPlatformFinInstMasterBranchDatum) doBeforeInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformFinInstMasterBranchDatumBeforeInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterInsertHooks executes all "after Insert" hooks.
-func (o *DataPlatformFinInstMasterBranchDatum) doAfterInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformFinInstMasterBranchDatumAfterInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpdateHooks executes all "before Update" hooks.
-func (o *DataPlatformFinInstMasterBranchDatum) doBeforeUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformFinInstMasterBranchDatumBeforeUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpdateHooks executes all "after Update" hooks.
-func (o *DataPlatformFinInstMasterBranchDatum) doAfterUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformFinInstMasterBranchDatumAfterUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeDeleteHooks executes all "before Delete" hooks.
-func (o *DataPlatformFinInstMasterBranchDatum) doBeforeDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformFinInstMasterBranchDatumBeforeDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterDeleteHooks executes all "after Delete" hooks.
-func (o *DataPlatformFinInstMasterBranchDatum) doAfterDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformFinInstMasterBranchDatumAfterDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpsertHooks executes all "before Upsert" hooks.
-func (o *DataPlatformFinInstMasterBranchDatum) doBeforeUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformFinInstMasterBranchDatumBeforeUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpsertHooks executes all "after Upsert" hooks.
-func (o *DataPlatformFinInstMasterBranchDatum) doAfterUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformFinInstMasterBranchDatumAfterUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// AddDataPlatformFinInstMasterBranchDatumHook registers your hook function for all future operations.
-func AddDataPlatformFinInstMasterBranchDatumHook(hookPoint boil.HookPoint, dataPlatformFinInstMasterBranchDatumHook DataPlatformFinInstMasterBranchDatumHook) {
-	switch hookPoint {
-	case boil.AfterSelectHook:
-		dataPlatformFinInstMasterBranchDatumAfterSelectHooks = append(dataPlatformFinInstMasterBranchDatumAfterSelectHooks, dataPlatformFinInstMasterBranchDatumHook)
-	case boil.BeforeInsertHook:
-		dataPlatformFinInstMasterBranchDatumBeforeInsertHooks = append(dataPlatformFinInstMasterBranchDatumBeforeInsertHooks, dataPlatformFinInstMasterBranchDatumHook)
-	case boil.AfterInsertHook:
-		dataPlatformFinInstMasterBranchDatumAfterInsertHooks = append(dataPlatformFinInstMasterBranchDatumAfterInsertHooks, dataPlatformFinInstMasterBranchDatumHook)
-	case boil.BeforeUpdateHook:
-		dataPlatformFinInstMasterBranchDatumBeforeUpdateHooks = append(dataPlatformFinInstMasterBranchDatumBeforeUpdateHooks, dataPlatformFinInstMasterBranchDatumHook)
-	case boil.AfterUpdateHook:
-		dataPlatformFinInstMasterBranchDatumAfterUpdateHooks = append(dataPlatformFinInstMasterBranchDatumAfterUpdateHooks, dataPlatformFinInstMasterBranchDatumHook)
-	case boil.BeforeDeleteHook:
-		dataPlatformFinInstMasterBranchDatumBeforeDeleteHooks = append(dataPlatformFinInstMasterBranchDatumBeforeDeleteHooks, dataPlatformFinInstMasterBranchDatumHook)
-	case boil.AfterDeleteHook:
-		dataPlatformFinInstMasterBranchDatumAfterDeleteHooks = append(dataPlatformFinInstMasterBranchDatumAfterDeleteHooks, dataPlatformFinInstMasterBranchDatumHook)
-	case boil.BeforeUpsertHook:
-		dataPlatformFinInstMasterBranchDatumBeforeUpsertHooks = append(dataPlatformFinInstMasterBranchDatumBeforeUpsertHooks, dataPlatformFinInstMasterBranchDatumHook)
-	case boil.AfterUpsertHook:
-		dataPlatformFinInstMasterBranchDatumAfterUpsertHooks = append(dataPlatformFinInstMasterBranchDatumAfterUpsertHooks, dataPlatformFinInstMasterBranchDatumHook)
-	}
-}
-
 // One returns a single dataPlatformFinInstMasterBranchDatum record from the query.
 func (q dataPlatformFinInstMasterBranchDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformFinInstMasterBranchDatum, error) {
 	o := &DataPlatformFinInstMasterBranchDatum{}
@@ -371,10 +175,6 @@ func (q dataPlatformFinInstMasterBranchDatumQuery) One(ctx context.Context, exec
 		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_fin_inst_master_branch_data")
 	}
 
-	if err := o.doAfterSelectHooks(ctx, exec); err != nil {
-		return o, err
-	}
-
 	return o, nil
 }
 
@@ -385,14 +185,6 @@ func (q dataPlatformFinInstMasterBranchDatumQuery) All(ctx context.Context, exec
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
 		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformFinInstMasterBranchDatum slice")
-	}
-
-	if len(dataPlatformFinInstMasterBranchDatumAfterSelectHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterSelectHooks(ctx, exec); err != nil {
-				return o, err
-			}
-		}
 	}
 
 	return o, nil
@@ -429,399 +221,6 @@ func (q dataPlatformFinInstMasterBranchDatumQuery) Exists(ctx context.Context, e
 	return count > 0, nil
 }
 
-// AddressIDDataPlatformAddressAddressDatum pointed to by the foreign key.
-func (o *DataPlatformFinInstMasterBranchDatum) AddressIDDataPlatformAddressAddressDatum(mods ...qm.QueryMod) dataPlatformAddressAddressDatumQuery {
-	queryMods := []qm.QueryMod{
-		qm.Where("`AddressID` = ?", o.AddressID),
-	}
-
-	queryMods = append(queryMods, mods...)
-
-	return DataPlatformAddressAddressData(queryMods...)
-}
-
-// FinInstCodeDataPlatformFinInstMasterGeneralDatum pointed to by the foreign key.
-func (o *DataPlatformFinInstMasterBranchDatum) FinInstCodeDataPlatformFinInstMasterGeneralDatum(mods ...qm.QueryMod) dataPlatformFinInstMasterGeneralDatumQuery {
-	queryMods := []qm.QueryMod{
-		qm.Where("`FinInstCode` = ?", o.FinInstCode),
-	}
-
-	queryMods = append(queryMods, mods...)
-
-	return DataPlatformFinInstMasterGeneralData(queryMods...)
-}
-
-// LoadAddressIDDataPlatformAddressAddressDatum allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformFinInstMasterBranchDatumL) LoadAddressIDDataPlatformAddressAddressDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformFinInstMasterBranchDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformFinInstMasterBranchDatum
-	var object *DataPlatformFinInstMasterBranchDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformFinInstMasterBranchDatum.(*DataPlatformFinInstMasterBranchDatum)
-		if !ok {
-			object = new(DataPlatformFinInstMasterBranchDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformFinInstMasterBranchDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformFinInstMasterBranchDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformFinInstMasterBranchDatum.(*[]*DataPlatformFinInstMasterBranchDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformFinInstMasterBranchDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformFinInstMasterBranchDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformFinInstMasterBranchDatumR{}
-		}
-		if !queries.IsNil(object.AddressID) {
-			args = append(args, object.AddressID)
-		}
-
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformFinInstMasterBranchDatumR{}
-			}
-
-			for _, a := range args {
-				if queries.Equal(a, obj.AddressID) {
-					continue Outer
-				}
-			}
-
-			if !queries.IsNil(obj.AddressID) {
-				args = append(args, obj.AddressID)
-			}
-
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_address_address_data`),
-		qm.WhereIn(`data_platform_address_address_data.AddressID in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load DataPlatformAddressAddressDatum")
-	}
-
-	var resultSlice []*DataPlatformAddressAddressDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformAddressAddressDatum")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results of eager load for data_platform_address_address_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_address_address_data")
-	}
-
-	if len(dataPlatformAddressAddressDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
-	if len(resultSlice) == 0 {
-		return nil
-	}
-
-	if singular {
-		foreign := resultSlice[0]
-		object.R.AddressIDDataPlatformAddressAddressDatum = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformAddressAddressDatumR{}
-		}
-		foreign.R.AddressIDDataPlatformFinInstMasterBranchData = append(foreign.R.AddressIDDataPlatformFinInstMasterBranchData, object)
-		return nil
-	}
-
-	for _, local := range slice {
-		for _, foreign := range resultSlice {
-			if queries.Equal(local.AddressID, foreign.AddressID) {
-				local.R.AddressIDDataPlatformAddressAddressDatum = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformAddressAddressDatumR{}
-				}
-				foreign.R.AddressIDDataPlatformFinInstMasterBranchData = append(foreign.R.AddressIDDataPlatformFinInstMasterBranchData, local)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// LoadFinInstCodeDataPlatformFinInstMasterGeneralDatum allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformFinInstMasterBranchDatumL) LoadFinInstCodeDataPlatformFinInstMasterGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformFinInstMasterBranchDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformFinInstMasterBranchDatum
-	var object *DataPlatformFinInstMasterBranchDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformFinInstMasterBranchDatum.(*DataPlatformFinInstMasterBranchDatum)
-		if !ok {
-			object = new(DataPlatformFinInstMasterBranchDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformFinInstMasterBranchDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformFinInstMasterBranchDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformFinInstMasterBranchDatum.(*[]*DataPlatformFinInstMasterBranchDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformFinInstMasterBranchDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformFinInstMasterBranchDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformFinInstMasterBranchDatumR{}
-		}
-		args = append(args, object.FinInstCode)
-
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformFinInstMasterBranchDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.FinInstCode {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.FinInstCode)
-
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_fin_inst_master_general_data`),
-		qm.WhereIn(`data_platform_fin_inst_master_general_data.FinInstCode in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load DataPlatformFinInstMasterGeneralDatum")
-	}
-
-	var resultSlice []*DataPlatformFinInstMasterGeneralDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformFinInstMasterGeneralDatum")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results of eager load for data_platform_fin_inst_master_general_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_fin_inst_master_general_data")
-	}
-
-	if len(dataPlatformFinInstMasterGeneralDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
-	if len(resultSlice) == 0 {
-		return nil
-	}
-
-	if singular {
-		foreign := resultSlice[0]
-		object.R.FinInstCodeDataPlatformFinInstMasterGeneralDatum = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformFinInstMasterGeneralDatumR{}
-		}
-		foreign.R.FinInstCodeDataPlatformFinInstMasterBranchData = append(foreign.R.FinInstCodeDataPlatformFinInstMasterBranchData, object)
-		return nil
-	}
-
-	for _, local := range slice {
-		for _, foreign := range resultSlice {
-			if local.FinInstCode == foreign.FinInstCode {
-				local.R.FinInstCodeDataPlatformFinInstMasterGeneralDatum = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformFinInstMasterGeneralDatumR{}
-				}
-				foreign.R.FinInstCodeDataPlatformFinInstMasterBranchData = append(foreign.R.FinInstCodeDataPlatformFinInstMasterBranchData, local)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// SetAddressIDDataPlatformAddressAddressDatum of the dataPlatformFinInstMasterBranchDatum to the related item.
-// Sets o.R.AddressIDDataPlatformAddressAddressDatum to related.
-// Adds o to related.R.AddressIDDataPlatformFinInstMasterBranchData.
-func (o *DataPlatformFinInstMasterBranchDatum) SetAddressIDDataPlatformAddressAddressDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformAddressAddressDatum) error {
-	var err error
-	if insert {
-		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
-			return errors.Wrap(err, "failed to insert into foreign table")
-		}
-	}
-
-	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_fin_inst_master_branch_data` SET %s WHERE %s",
-		strmangle.SetParamNames("`", "`", 0, []string{"AddressID"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformFinInstMasterBranchDatumPrimaryKeyColumns),
-	)
-	values := []interface{}{related.AddressID, o.FinInstCountry, o.FinInstCode}
-
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, updateQuery)
-		fmt.Fprintln(writer, values)
-	}
-	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-		return errors.Wrap(err, "failed to update local table")
-	}
-
-	queries.Assign(&o.AddressID, related.AddressID)
-	if o.R == nil {
-		o.R = &dataPlatformFinInstMasterBranchDatumR{
-			AddressIDDataPlatformAddressAddressDatum: related,
-		}
-	} else {
-		o.R.AddressIDDataPlatformAddressAddressDatum = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformAddressAddressDatumR{
-			AddressIDDataPlatformFinInstMasterBranchData: DataPlatformFinInstMasterBranchDatumSlice{o},
-		}
-	} else {
-		related.R.AddressIDDataPlatformFinInstMasterBranchData = append(related.R.AddressIDDataPlatformFinInstMasterBranchData, o)
-	}
-
-	return nil
-}
-
-// RemoveAddressIDDataPlatformAddressAddressDatum relationship.
-// Sets o.R.AddressIDDataPlatformAddressAddressDatum to nil.
-// Removes o from all passed in related items' relationships struct.
-func (o *DataPlatformFinInstMasterBranchDatum) RemoveAddressIDDataPlatformAddressAddressDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformAddressAddressDatum) error {
-	var err error
-
-	queries.SetScanner(&o.AddressID, nil)
-	if _, err = o.Update(ctx, exec, boil.Whitelist("AddressID")); err != nil {
-		return errors.Wrap(err, "failed to update local table")
-	}
-
-	if o.R != nil {
-		o.R.AddressIDDataPlatformAddressAddressDatum = nil
-	}
-	if related == nil || related.R == nil {
-		return nil
-	}
-
-	for i, ri := range related.R.AddressIDDataPlatformFinInstMasterBranchData {
-		if queries.Equal(o.AddressID, ri.AddressID) {
-			continue
-		}
-
-		ln := len(related.R.AddressIDDataPlatformFinInstMasterBranchData)
-		if ln > 1 && i < ln-1 {
-			related.R.AddressIDDataPlatformFinInstMasterBranchData[i] = related.R.AddressIDDataPlatformFinInstMasterBranchData[ln-1]
-		}
-		related.R.AddressIDDataPlatformFinInstMasterBranchData = related.R.AddressIDDataPlatformFinInstMasterBranchData[:ln-1]
-		break
-	}
-	return nil
-}
-
-// SetFinInstCodeDataPlatformFinInstMasterGeneralDatum of the dataPlatformFinInstMasterBranchDatum to the related item.
-// Sets o.R.FinInstCodeDataPlatformFinInstMasterGeneralDatum to related.
-// Adds o to related.R.FinInstCodeDataPlatformFinInstMasterBranchData.
-func (o *DataPlatformFinInstMasterBranchDatum) SetFinInstCodeDataPlatformFinInstMasterGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformFinInstMasterGeneralDatum) error {
-	var err error
-	if insert {
-		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
-			return errors.Wrap(err, "failed to insert into foreign table")
-		}
-	}
-
-	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_fin_inst_master_branch_data` SET %s WHERE %s",
-		strmangle.SetParamNames("`", "`", 0, []string{"FinInstCode"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformFinInstMasterBranchDatumPrimaryKeyColumns),
-	)
-	values := []interface{}{related.FinInstCode, o.FinInstCountry, o.FinInstCode}
-
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, updateQuery)
-		fmt.Fprintln(writer, values)
-	}
-	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-		return errors.Wrap(err, "failed to update local table")
-	}
-
-	o.FinInstCode = related.FinInstCode
-	if o.R == nil {
-		o.R = &dataPlatformFinInstMasterBranchDatumR{
-			FinInstCodeDataPlatformFinInstMasterGeneralDatum: related,
-		}
-	} else {
-		o.R.FinInstCodeDataPlatformFinInstMasterGeneralDatum = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformFinInstMasterGeneralDatumR{
-			FinInstCodeDataPlatformFinInstMasterBranchData: DataPlatformFinInstMasterBranchDatumSlice{o},
-		}
-	} else {
-		related.R.FinInstCodeDataPlatformFinInstMasterBranchData = append(related.R.FinInstCodeDataPlatformFinInstMasterBranchData, o)
-	}
-
-	return nil
-}
-
 // DataPlatformFinInstMasterBranchData retrieves all the records using an executor.
 func DataPlatformFinInstMasterBranchData(mods ...qm.QueryMod) dataPlatformFinInstMasterBranchDatumQuery {
 	mods = append(mods, qm.From("`data_platform_fin_inst_master_branch_data`"))
@@ -856,10 +255,6 @@ func FindDataPlatformFinInstMasterBranchDatum(ctx context.Context, exec boil.Con
 		return nil, errors.Wrap(err, "models: unable to select from data_platform_fin_inst_master_branch_data")
 	}
 
-	if err = dataPlatformFinInstMasterBranchDatumObj.doAfterSelectHooks(ctx, exec); err != nil {
-		return dataPlatformFinInstMasterBranchDatumObj, err
-	}
-
 	return dataPlatformFinInstMasterBranchDatumObj, nil
 }
 
@@ -871,10 +266,6 @@ func (o *DataPlatformFinInstMasterBranchDatum) Insert(ctx context.Context, exec 
 	}
 
 	var err error
-
-	if err := o.doBeforeInsertHooks(ctx, exec); err != nil {
-		return err
-	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformFinInstMasterBranchDatumColumnsWithDefault, o)
 
@@ -956,17 +347,14 @@ CacheNoHooks:
 		dataPlatformFinInstMasterBranchDatumInsertCacheMut.Unlock()
 	}
 
-	return o.doAfterInsertHooks(ctx, exec)
+	return nil
 }
 
 // Update uses an executor to update the DataPlatformFinInstMasterBranchDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformFinInstMasterBranchDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) (int64, error) {
+func (o *DataPlatformFinInstMasterBranchDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
-	if err = o.doBeforeUpdateHooks(ctx, exec); err != nil {
-		return 0, err
-	}
 	key := makeCacheKey(columns, nil)
 	dataPlatformFinInstMasterBranchDatumUpdateCacheMut.RLock()
 	cache, cached := dataPlatformFinInstMasterBranchDatumUpdateCache[key]
@@ -982,7 +370,7 @@ func (o *DataPlatformFinInstMasterBranchDatum) Update(ctx context.Context, exec 
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return 0, errors.New("models: unable to update data_platform_fin_inst_master_branch_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_fin_inst_master_branch_data, could not build whitelist")
 		}
 
 		cache.query = fmt.Sprintf("UPDATE `data_platform_fin_inst_master_branch_data` SET %s WHERE %s",
@@ -991,7 +379,7 @@ func (o *DataPlatformFinInstMasterBranchDatum) Update(ctx context.Context, exec 
 		)
 		cache.valueMapping, err = queries.BindMapping(dataPlatformFinInstMasterBranchDatumType, dataPlatformFinInstMasterBranchDatumMapping, append(wl, dataPlatformFinInstMasterBranchDatumPrimaryKeyColumns...))
 		if err != nil {
-			return 0, err
+			return err
 		}
 	}
 
@@ -1002,15 +390,9 @@ func (o *DataPlatformFinInstMasterBranchDatum) Update(ctx context.Context, exec 
 		fmt.Fprintln(writer, cache.query)
 		fmt.Fprintln(writer, values)
 	}
-	var result sql.Result
-	result, err = exec.ExecContext(ctx, cache.query, values...)
+	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update data_platform_fin_inst_master_branch_data row")
-	}
-
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by update for data_platform_fin_inst_master_branch_data")
+		return errors.Wrap(err, "models: unable to update data_platform_fin_inst_master_branch_data row")
 	}
 
 	if !cached {
@@ -1019,35 +401,30 @@ func (o *DataPlatformFinInstMasterBranchDatum) Update(ctx context.Context, exec 
 		dataPlatformFinInstMasterBranchDatumUpdateCacheMut.Unlock()
 	}
 
-	return rowsAff, o.doAfterUpdateHooks(ctx, exec)
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformFinInstMasterBranchDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (q dataPlatformFinInstMasterBranchDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all for data_platform_fin_inst_master_branch_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_fin_inst_master_branch_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected for data_platform_fin_inst_master_branch_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformFinInstMasterBranchDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (o DataPlatformFinInstMasterBranchDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
-		return 0, nil
+		return nil
 	}
 
 	if len(cols) == 0 {
-		return 0, errors.New("models: update all requires at least one column argument")
+		return errors.New("models: update all requires at least one column argument")
 	}
 
 	colNames := make([]string, len(cols))
@@ -1075,16 +452,12 @@ func (o DataPlatformFinInstMasterBranchDatumSlice) UpdateAll(ctx context.Context
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all in dataPlatformFinInstMasterBranchDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformFinInstMasterBranchDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected all in update all dataPlatformFinInstMasterBranchDatum")
-	}
-	return rowsAff, nil
+	return nil
 }
 
 var mySQLDataPlatformFinInstMasterBranchDatumUniqueColumns = []string{}
@@ -1094,10 +467,6 @@ var mySQLDataPlatformFinInstMasterBranchDatumUniqueColumns = []string{}
 func (o *DataPlatformFinInstMasterBranchDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
 		return errors.New("models: no data_platform_fin_inst_master_branch_data provided for upsert")
-	}
-
-	if err := o.doBeforeUpsertHooks(ctx, exec); err != nil {
-		return err
 	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformFinInstMasterBranchDatumColumnsWithDefault, o)
@@ -1220,18 +589,14 @@ CacheNoHooks:
 		dataPlatformFinInstMasterBranchDatumUpsertCacheMut.Unlock()
 	}
 
-	return o.doAfterUpsertHooks(ctx, exec)
+	return nil
 }
 
 // Delete deletes a single DataPlatformFinInstMasterBranchDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformFinInstMasterBranchDatum) Delete(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o *DataPlatformFinInstMasterBranchDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return 0, errors.New("models: no DataPlatformFinInstMasterBranchDatum provided for delete")
-	}
-
-	if err := o.doBeforeDeleteHooks(ctx, exec); err != nil {
-		return 0, err
+		return errors.New("models: no DataPlatformFinInstMasterBranchDatum provided for delete")
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformFinInstMasterBranchDatumPrimaryKeyMapping)
@@ -1242,56 +607,34 @@ func (o *DataPlatformFinInstMasterBranchDatum) Delete(ctx context.Context, exec 
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete from data_platform_fin_inst_master_branch_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_fin_inst_master_branch_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by delete for data_platform_fin_inst_master_branch_data")
-	}
-
-	if err := o.doAfterDeleteHooks(ctx, exec); err != nil {
-		return 0, err
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformFinInstMasterBranchDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (q dataPlatformFinInstMasterBranchDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return 0, errors.New("models: no dataPlatformFinInstMasterBranchDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformFinInstMasterBranchDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from data_platform_fin_inst_master_branch_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_fin_inst_master_branch_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_fin_inst_master_branch_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformFinInstMasterBranchDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o DataPlatformFinInstMasterBranchDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
-		return 0, nil
-	}
-
-	if len(dataPlatformFinInstMasterBranchDatumBeforeDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doBeforeDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
+		return nil
 	}
 
 	var args []interface{}
@@ -1308,25 +651,12 @@ func (o DataPlatformFinInstMasterBranchDatumSlice) DeleteAll(ctx context.Context
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from dataPlatformFinInstMasterBranchDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformFinInstMasterBranchDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_fin_inst_master_branch_data")
-	}
-
-	if len(dataPlatformFinInstMasterBranchDatumAfterDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // Reload refetches the object from the database

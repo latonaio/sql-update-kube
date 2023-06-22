@@ -103,8 +103,6 @@ type (
 	// DataPlatformPaymentTermsPaymentTermsTextDatumSlice is an alias for a slice of pointers to DataPlatformPaymentTermsPaymentTermsTextDatum.
 	// This should almost always be used instead of []DataPlatformPaymentTermsPaymentTermsTextDatum.
 	DataPlatformPaymentTermsPaymentTermsTextDatumSlice []*DataPlatformPaymentTermsPaymentTermsTextDatum
-	// DataPlatformPaymentTermsPaymentTermsTextDatumHook is the signature for custom DataPlatformPaymentTermsPaymentTermsTextDatum hook methods
-	DataPlatformPaymentTermsPaymentTermsTextDatumHook func(context.Context, boil.ContextExecutor, *DataPlatformPaymentTermsPaymentTermsTextDatum) error
 
 	dataPlatformPaymentTermsPaymentTermsTextDatumQuery struct {
 		*queries.Query
@@ -132,179 +130,6 @@ var (
 	_ = qmhelper.Where
 )
 
-var dataPlatformPaymentTermsPaymentTermsTextDatumAfterSelectHooks []DataPlatformPaymentTermsPaymentTermsTextDatumHook
-
-var dataPlatformPaymentTermsPaymentTermsTextDatumBeforeInsertHooks []DataPlatformPaymentTermsPaymentTermsTextDatumHook
-var dataPlatformPaymentTermsPaymentTermsTextDatumAfterInsertHooks []DataPlatformPaymentTermsPaymentTermsTextDatumHook
-
-var dataPlatformPaymentTermsPaymentTermsTextDatumBeforeUpdateHooks []DataPlatformPaymentTermsPaymentTermsTextDatumHook
-var dataPlatformPaymentTermsPaymentTermsTextDatumAfterUpdateHooks []DataPlatformPaymentTermsPaymentTermsTextDatumHook
-
-var dataPlatformPaymentTermsPaymentTermsTextDatumBeforeDeleteHooks []DataPlatformPaymentTermsPaymentTermsTextDatumHook
-var dataPlatformPaymentTermsPaymentTermsTextDatumAfterDeleteHooks []DataPlatformPaymentTermsPaymentTermsTextDatumHook
-
-var dataPlatformPaymentTermsPaymentTermsTextDatumBeforeUpsertHooks []DataPlatformPaymentTermsPaymentTermsTextDatumHook
-var dataPlatformPaymentTermsPaymentTermsTextDatumAfterUpsertHooks []DataPlatformPaymentTermsPaymentTermsTextDatumHook
-
-// doAfterSelectHooks executes all "after Select" hooks.
-func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) doAfterSelectHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPaymentTermsPaymentTermsTextDatumAfterSelectHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeInsertHooks executes all "before insert" hooks.
-func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) doBeforeInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPaymentTermsPaymentTermsTextDatumBeforeInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterInsertHooks executes all "after Insert" hooks.
-func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) doAfterInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPaymentTermsPaymentTermsTextDatumAfterInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpdateHooks executes all "before Update" hooks.
-func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) doBeforeUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPaymentTermsPaymentTermsTextDatumBeforeUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpdateHooks executes all "after Update" hooks.
-func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) doAfterUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPaymentTermsPaymentTermsTextDatumAfterUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeDeleteHooks executes all "before Delete" hooks.
-func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) doBeforeDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPaymentTermsPaymentTermsTextDatumBeforeDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterDeleteHooks executes all "after Delete" hooks.
-func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) doAfterDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPaymentTermsPaymentTermsTextDatumAfterDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpsertHooks executes all "before Upsert" hooks.
-func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) doBeforeUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPaymentTermsPaymentTermsTextDatumBeforeUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpsertHooks executes all "after Upsert" hooks.
-func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) doAfterUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformPaymentTermsPaymentTermsTextDatumAfterUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// AddDataPlatformPaymentTermsPaymentTermsTextDatumHook registers your hook function for all future operations.
-func AddDataPlatformPaymentTermsPaymentTermsTextDatumHook(hookPoint boil.HookPoint, dataPlatformPaymentTermsPaymentTermsTextDatumHook DataPlatformPaymentTermsPaymentTermsTextDatumHook) {
-	switch hookPoint {
-	case boil.AfterSelectHook:
-		dataPlatformPaymentTermsPaymentTermsTextDatumAfterSelectHooks = append(dataPlatformPaymentTermsPaymentTermsTextDatumAfterSelectHooks, dataPlatformPaymentTermsPaymentTermsTextDatumHook)
-	case boil.BeforeInsertHook:
-		dataPlatformPaymentTermsPaymentTermsTextDatumBeforeInsertHooks = append(dataPlatformPaymentTermsPaymentTermsTextDatumBeforeInsertHooks, dataPlatformPaymentTermsPaymentTermsTextDatumHook)
-	case boil.AfterInsertHook:
-		dataPlatformPaymentTermsPaymentTermsTextDatumAfterInsertHooks = append(dataPlatformPaymentTermsPaymentTermsTextDatumAfterInsertHooks, dataPlatformPaymentTermsPaymentTermsTextDatumHook)
-	case boil.BeforeUpdateHook:
-		dataPlatformPaymentTermsPaymentTermsTextDatumBeforeUpdateHooks = append(dataPlatformPaymentTermsPaymentTermsTextDatumBeforeUpdateHooks, dataPlatformPaymentTermsPaymentTermsTextDatumHook)
-	case boil.AfterUpdateHook:
-		dataPlatformPaymentTermsPaymentTermsTextDatumAfterUpdateHooks = append(dataPlatformPaymentTermsPaymentTermsTextDatumAfterUpdateHooks, dataPlatformPaymentTermsPaymentTermsTextDatumHook)
-	case boil.BeforeDeleteHook:
-		dataPlatformPaymentTermsPaymentTermsTextDatumBeforeDeleteHooks = append(dataPlatformPaymentTermsPaymentTermsTextDatumBeforeDeleteHooks, dataPlatformPaymentTermsPaymentTermsTextDatumHook)
-	case boil.AfterDeleteHook:
-		dataPlatformPaymentTermsPaymentTermsTextDatumAfterDeleteHooks = append(dataPlatformPaymentTermsPaymentTermsTextDatumAfterDeleteHooks, dataPlatformPaymentTermsPaymentTermsTextDatumHook)
-	case boil.BeforeUpsertHook:
-		dataPlatformPaymentTermsPaymentTermsTextDatumBeforeUpsertHooks = append(dataPlatformPaymentTermsPaymentTermsTextDatumBeforeUpsertHooks, dataPlatformPaymentTermsPaymentTermsTextDatumHook)
-	case boil.AfterUpsertHook:
-		dataPlatformPaymentTermsPaymentTermsTextDatumAfterUpsertHooks = append(dataPlatformPaymentTermsPaymentTermsTextDatumAfterUpsertHooks, dataPlatformPaymentTermsPaymentTermsTextDatumHook)
-	}
-}
-
 // One returns a single dataPlatformPaymentTermsPaymentTermsTextDatum record from the query.
 func (q dataPlatformPaymentTermsPaymentTermsTextDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformPaymentTermsPaymentTermsTextDatum, error) {
 	o := &DataPlatformPaymentTermsPaymentTermsTextDatum{}
@@ -319,10 +144,6 @@ func (q dataPlatformPaymentTermsPaymentTermsTextDatumQuery) One(ctx context.Cont
 		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_payment_terms_payment_terms_text_data")
 	}
 
-	if err := o.doAfterSelectHooks(ctx, exec); err != nil {
-		return o, err
-	}
-
 	return o, nil
 }
 
@@ -333,14 +154,6 @@ func (q dataPlatformPaymentTermsPaymentTermsTextDatumQuery) All(ctx context.Cont
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
 		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformPaymentTermsPaymentTermsTextDatum slice")
-	}
-
-	if len(dataPlatformPaymentTermsPaymentTermsTextDatumAfterSelectHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterSelectHooks(ctx, exec); err != nil {
-				return o, err
-			}
-		}
 	}
 
 	return o, nil
@@ -470,14 +283,6 @@ func (dataPlatformPaymentTermsPaymentTermsTextDatumL) LoadPaymentTerm(ctx contex
 		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_payment_terms_payment_terms_data")
 	}
 
-	if len(dataPlatformPaymentTermsPaymentTermsDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
 	if len(resultSlice) == 0 {
 		return nil
 	}
@@ -485,10 +290,6 @@ func (dataPlatformPaymentTermsPaymentTermsTextDatumL) LoadPaymentTerm(ctx contex
 	if singular {
 		foreign := resultSlice[0]
 		object.R.PaymentTerm = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformPaymentTermsPaymentTermsDatumR{}
-		}
-		foreign.R.PaymentTermDataPlatformPaymentTermsPaymentTermsTextData = append(foreign.R.PaymentTermDataPlatformPaymentTermsPaymentTermsTextData, object)
 		return nil
 	}
 
@@ -496,10 +297,6 @@ func (dataPlatformPaymentTermsPaymentTermsTextDatumL) LoadPaymentTerm(ctx contex
 		for _, foreign := range resultSlice {
 			if local.PaymentTerms == foreign.PaymentTerms {
 				local.R.PaymentTerm = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformPaymentTermsPaymentTermsDatumR{}
-				}
-				foreign.R.PaymentTermDataPlatformPaymentTermsPaymentTermsTextData = append(foreign.R.PaymentTermDataPlatformPaymentTermsPaymentTermsTextData, local)
 				break
 			}
 		}
@@ -510,7 +307,6 @@ func (dataPlatformPaymentTermsPaymentTermsTextDatumL) LoadPaymentTerm(ctx contex
 
 // SetPaymentTerm of the dataPlatformPaymentTermsPaymentTermsTextDatum to the related item.
 // Sets o.R.PaymentTerm to related.
-// Adds o to related.R.PaymentTermDataPlatformPaymentTermsPaymentTermsTextData.
 func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) SetPaymentTerm(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformPaymentTermsPaymentTermsDatum) error {
 	var err error
 	if insert {
@@ -542,14 +338,6 @@ func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) SetPaymentTerm(ctx conte
 		}
 	} else {
 		o.R.PaymentTerm = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformPaymentTermsPaymentTermsDatumR{
-			PaymentTermDataPlatformPaymentTermsPaymentTermsTextData: DataPlatformPaymentTermsPaymentTermsTextDatumSlice{o},
-		}
-	} else {
-		related.R.PaymentTermDataPlatformPaymentTermsPaymentTermsTextData = append(related.R.PaymentTermDataPlatformPaymentTermsPaymentTermsTextData, o)
 	}
 
 	return nil
@@ -589,10 +377,6 @@ func FindDataPlatformPaymentTermsPaymentTermsTextDatum(ctx context.Context, exec
 		return nil, errors.Wrap(err, "models: unable to select from data_platform_payment_terms_payment_terms_text_data")
 	}
 
-	if err = dataPlatformPaymentTermsPaymentTermsTextDatumObj.doAfterSelectHooks(ctx, exec); err != nil {
-		return dataPlatformPaymentTermsPaymentTermsTextDatumObj, err
-	}
-
 	return dataPlatformPaymentTermsPaymentTermsTextDatumObj, nil
 }
 
@@ -604,10 +388,6 @@ func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) Insert(ctx context.Conte
 	}
 
 	var err error
-
-	if err := o.doBeforeInsertHooks(ctx, exec); err != nil {
-		return err
-	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformPaymentTermsPaymentTermsTextDatumColumnsWithDefault, o)
 
@@ -689,17 +469,14 @@ CacheNoHooks:
 		dataPlatformPaymentTermsPaymentTermsTextDatumInsertCacheMut.Unlock()
 	}
 
-	return o.doAfterInsertHooks(ctx, exec)
+	return nil
 }
 
 // Update uses an executor to update the DataPlatformPaymentTermsPaymentTermsTextDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) (int64, error) {
+func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
-	if err = o.doBeforeUpdateHooks(ctx, exec); err != nil {
-		return 0, err
-	}
 	key := makeCacheKey(columns, nil)
 	dataPlatformPaymentTermsPaymentTermsTextDatumUpdateCacheMut.RLock()
 	cache, cached := dataPlatformPaymentTermsPaymentTermsTextDatumUpdateCache[key]
@@ -715,7 +492,7 @@ func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) Update(ctx context.Conte
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return 0, errors.New("models: unable to update data_platform_payment_terms_payment_terms_text_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_payment_terms_payment_terms_text_data, could not build whitelist")
 		}
 
 		cache.query = fmt.Sprintf("UPDATE `data_platform_payment_terms_payment_terms_text_data` SET %s WHERE %s",
@@ -724,7 +501,7 @@ func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) Update(ctx context.Conte
 		)
 		cache.valueMapping, err = queries.BindMapping(dataPlatformPaymentTermsPaymentTermsTextDatumType, dataPlatformPaymentTermsPaymentTermsTextDatumMapping, append(wl, dataPlatformPaymentTermsPaymentTermsTextDatumPrimaryKeyColumns...))
 		if err != nil {
-			return 0, err
+			return err
 		}
 	}
 
@@ -735,15 +512,9 @@ func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) Update(ctx context.Conte
 		fmt.Fprintln(writer, cache.query)
 		fmt.Fprintln(writer, values)
 	}
-	var result sql.Result
-	result, err = exec.ExecContext(ctx, cache.query, values...)
+	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update data_platform_payment_terms_payment_terms_text_data row")
-	}
-
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by update for data_platform_payment_terms_payment_terms_text_data")
+		return errors.Wrap(err, "models: unable to update data_platform_payment_terms_payment_terms_text_data row")
 	}
 
 	if !cached {
@@ -752,35 +523,30 @@ func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) Update(ctx context.Conte
 		dataPlatformPaymentTermsPaymentTermsTextDatumUpdateCacheMut.Unlock()
 	}
 
-	return rowsAff, o.doAfterUpdateHooks(ctx, exec)
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformPaymentTermsPaymentTermsTextDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (q dataPlatformPaymentTermsPaymentTermsTextDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all for data_platform_payment_terms_payment_terms_text_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_payment_terms_payment_terms_text_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected for data_platform_payment_terms_payment_terms_text_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformPaymentTermsPaymentTermsTextDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (o DataPlatformPaymentTermsPaymentTermsTextDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
-		return 0, nil
+		return nil
 	}
 
 	if len(cols) == 0 {
-		return 0, errors.New("models: update all requires at least one column argument")
+		return errors.New("models: update all requires at least one column argument")
 	}
 
 	colNames := make([]string, len(cols))
@@ -808,16 +574,12 @@ func (o DataPlatformPaymentTermsPaymentTermsTextDatumSlice) UpdateAll(ctx contex
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all in dataPlatformPaymentTermsPaymentTermsTextDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformPaymentTermsPaymentTermsTextDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected all in update all dataPlatformPaymentTermsPaymentTermsTextDatum")
-	}
-	return rowsAff, nil
+	return nil
 }
 
 var mySQLDataPlatformPaymentTermsPaymentTermsTextDatumUniqueColumns = []string{}
@@ -827,10 +589,6 @@ var mySQLDataPlatformPaymentTermsPaymentTermsTextDatumUniqueColumns = []string{}
 func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
 		return errors.New("models: no data_platform_payment_terms_payment_terms_text_data provided for upsert")
-	}
-
-	if err := o.doBeforeUpsertHooks(ctx, exec); err != nil {
-		return err
 	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformPaymentTermsPaymentTermsTextDatumColumnsWithDefault, o)
@@ -953,18 +711,14 @@ CacheNoHooks:
 		dataPlatformPaymentTermsPaymentTermsTextDatumUpsertCacheMut.Unlock()
 	}
 
-	return o.doAfterUpsertHooks(ctx, exec)
+	return nil
 }
 
 // Delete deletes a single DataPlatformPaymentTermsPaymentTermsTextDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) Delete(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return 0, errors.New("models: no DataPlatformPaymentTermsPaymentTermsTextDatum provided for delete")
-	}
-
-	if err := o.doBeforeDeleteHooks(ctx, exec); err != nil {
-		return 0, err
+		return errors.New("models: no DataPlatformPaymentTermsPaymentTermsTextDatum provided for delete")
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformPaymentTermsPaymentTermsTextDatumPrimaryKeyMapping)
@@ -975,56 +729,34 @@ func (o *DataPlatformPaymentTermsPaymentTermsTextDatum) Delete(ctx context.Conte
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete from data_platform_payment_terms_payment_terms_text_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_payment_terms_payment_terms_text_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by delete for data_platform_payment_terms_payment_terms_text_data")
-	}
-
-	if err := o.doAfterDeleteHooks(ctx, exec); err != nil {
-		return 0, err
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformPaymentTermsPaymentTermsTextDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (q dataPlatformPaymentTermsPaymentTermsTextDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return 0, errors.New("models: no dataPlatformPaymentTermsPaymentTermsTextDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformPaymentTermsPaymentTermsTextDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from data_platform_payment_terms_payment_terms_text_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_payment_terms_payment_terms_text_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_payment_terms_payment_terms_text_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformPaymentTermsPaymentTermsTextDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o DataPlatformPaymentTermsPaymentTermsTextDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
-		return 0, nil
-	}
-
-	if len(dataPlatformPaymentTermsPaymentTermsTextDatumBeforeDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doBeforeDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
+		return nil
 	}
 
 	var args []interface{}
@@ -1041,25 +773,12 @@ func (o DataPlatformPaymentTermsPaymentTermsTextDatumSlice) DeleteAll(ctx contex
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from dataPlatformPaymentTermsPaymentTermsTextDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformPaymentTermsPaymentTermsTextDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_payment_terms_payment_terms_text_data")
-	}
-
-	if len(dataPlatformPaymentTermsPaymentTermsTextDatumAfterDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // Reload refetches the object from the database

@@ -24,360 +24,382 @@ import (
 
 // DataPlatformOrdersHeaderDatum is an object representing the database table.
 type DataPlatformOrdersHeaderDatum struct {
-	OrderID                         int          `boil:"OrderID" json:"OrderID" toml:"OrderID" yaml:"OrderID"`
-	OrderDate                       string    `boil:"OrderDate" json:"OrderDate" toml:"OrderDate" yaml:"OrderDate"`
-	OrderType                       string       `boil:"OrderType" json:"OrderType" toml:"OrderType" yaml:"OrderType"`
-	Buyer                           int          `boil:"Buyer" json:"Buyer" toml:"Buyer" yaml:"Buyer"`
-	Seller                          int          `boil:"Seller" json:"Seller" toml:"Seller" yaml:"Seller"`
-	CreationDate                    time.Time    `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
-	LastChangeDate                  time.Time    `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
-	ContractType                    null.String  `boil:"ContractType" json:"ContractType,omitempty" toml:"ContractType" yaml:"ContractType,omitempty"`
-	VaridityStartDate               null.Time    `boil:"VaridityStartDate" json:"VaridityStartDate,omitempty" toml:"VaridityStartDate" yaml:"VaridityStartDate,omitempty"`
-	VaridityEndDate                 null.Time    `boil:"VaridityEndDate" json:"VaridityEndDate,omitempty" toml:"VaridityEndDate" yaml:"VaridityEndDate,omitempty"`
-	InvoiceScheduleStartDate        null.Time    `boil:"InvoiceScheduleStartDate" json:"InvoiceScheduleStartDate,omitempty" toml:"InvoiceScheduleStartDate" yaml:"InvoiceScheduleStartDate,omitempty"`
-	InvoiceScheduleEndDate          null.Time    `boil:"InvoiceScheduleEndDate" json:"InvoiceScheduleEndDate,omitempty" toml:"InvoiceScheduleEndDate" yaml:"InvoiceScheduleEndDate,omitempty"`
-	TotalNetAmount                  float32      `boil:"TotalNetAmount" json:"TotalNetAmount" toml:"TotalNetAmount" yaml:"TotalNetAmount"`
-	TotalTaxAmount                  float32      `boil:"TotalTaxAmount" json:"TotalTaxAmount" toml:"TotalTaxAmount" yaml:"TotalTaxAmount"`
-	TotalGrossAmount                float32      `boil:"TotalGrossAmount" json:"TotalGrossAmount" toml:"TotalGrossAmount" yaml:"TotalGrossAmount"`
-	OverallDeliveryStatus           string       `boil:"OverallDeliveryStatus" json:"OverallDeliveryStatus" toml:"OverallDeliveryStatus" yaml:"OverallDeliveryStatus"`
-	TotalBlockStatus                null.Bool    `boil:"TotalBlockStatus" json:"TotalBlockStatus,omitempty" toml:"TotalBlockStatus" yaml:"TotalBlockStatus,omitempty"`
-	OverallOrdReltdBillgStatus      string       `boil:"OverallOrdReltdBillgStatus" json:"OverallOrdReltdBillgStatus" toml:"OverallOrdReltdBillgStatus" yaml:"OverallOrdReltdBillgStatus"`
-	OverallDocReferenceStatus       string       `boil:"OverallDocReferenceStatus" json:"OverallDocReferenceStatus" toml:"OverallDocReferenceStatus" yaml:"OverallDocReferenceStatus"`
-	TransactionCurrency             string       `boil:"TransactionCurrency" json:"TransactionCurrency" toml:"TransactionCurrency" yaml:"TransactionCurrency"`
-	PricingDate                     time.Time    `boil:"PricingDate" json:"PricingDate" toml:"PricingDate" yaml:"PricingDate"`
-	PriceDetnExchangeRate           null.Float32 `boil:"PriceDetnExchangeRate" json:"PriceDetnExchangeRate,omitempty" toml:"PriceDetnExchangeRate" yaml:"PriceDetnExchangeRate,omitempty"`
-	RequestedDeliveryDate           time.Time    `boil:"RequestedDeliveryDate" json:"RequestedDeliveryDate" toml:"RequestedDeliveryDate" yaml:"RequestedDeliveryDate"`
-	HeaderCompleteDeliveryIsDefined null.Bool    `boil:"HeaderCompleteDeliveryIsDefined" json:"HeaderCompleteDeliveryIsDefined,omitempty" toml:"HeaderCompleteDeliveryIsDefined" yaml:"HeaderCompleteDeliveryIsDefined,omitempty"`
-	HeaderBillingBlockReason        null.Bool    `boil:"HeaderBillingBlockReason" json:"HeaderBillingBlockReason,omitempty" toml:"HeaderBillingBlockReason" yaml:"HeaderBillingBlockReason,omitempty"`
-	DeliveryBlockReason             null.Bool    `boil:"DeliveryBlockReason" json:"DeliveryBlockReason,omitempty" toml:"DeliveryBlockReason" yaml:"DeliveryBlockReason,omitempty"`
-	Incoterms                       null.String  `boil:"Incoterms" json:"Incoterms,omitempty" toml:"Incoterms" yaml:"Incoterms,omitempty"`
-	PaymentTerms                    string       `boil:"PaymentTerms" json:"PaymentTerms" toml:"PaymentTerms" yaml:"PaymentTerms"`
-	PaymentMethod                   string       `boil:"PaymentMethod" json:"PaymentMethod" toml:"PaymentMethod" yaml:"PaymentMethod"`
-	ReferenceDocument               null.Int     `boil:"ReferenceDocument" json:"ReferenceDocument,omitempty" toml:"ReferenceDocument" yaml:"ReferenceDocument,omitempty"`
-	ReferenceDocumentItem           null.Int     `boil:"ReferenceDocumentItem" json:"ReferenceDocumentItem,omitempty" toml:"ReferenceDocumentItem" yaml:"ReferenceDocumentItem,omitempty"`
-	BPAccountAssignmentGroup        string       `boil:"BPAccountAssignmentGroup" json:"BPAccountAssignmentGroup" toml:"BPAccountAssignmentGroup" yaml:"BPAccountAssignmentGroup"`
-	AccountingExchangeRate          null.Float32 `boil:"AccountingExchangeRate" json:"AccountingExchangeRate,omitempty" toml:"AccountingExchangeRate" yaml:"AccountingExchangeRate,omitempty"`
-	BillingDocumentDate             time.Time    `boil:"BillingDocumentDate" json:"BillingDocumentDate" toml:"BillingDocumentDate" yaml:"BillingDocumentDate"`
-	IsExportImportDelivery          null.Bool    `boil:"IsExportImportDelivery" json:"IsExportImportDelivery,omitempty" toml:"IsExportImportDelivery" yaml:"IsExportImportDelivery,omitempty"`
-	HeaderText                      null.String  `boil:"HeaderText" json:"HeaderText,omitempty" toml:"HeaderText" yaml:"HeaderText,omitempty"`
+	OrderID                          int          `boil:"OrderID" json:"OrderID" toml:"OrderID" yaml:"OrderID"`
+	OrderDate                        string       `boil:"OrderDate" json:"OrderDate" toml:"OrderDate" yaml:"OrderDate"`
+	OrderType                        string       `boil:"OrderType" json:"OrderType" toml:"OrderType" yaml:"OrderType"`
+	SupplyChainRelationshipID        int          `boil:"SupplyChainRelationshipID" json:"SupplyChainRelationshipID" toml:"SupplyChainRelationshipID" yaml:"SupplyChainRelationshipID"`
+	SupplyChainRelationshipBillingID null.Int     `boil:"SupplyChainRelationshipBillingID" json:"SupplyChainRelationshipBillingID,omitempty" toml:"SupplyChainRelationshipBillingID" yaml:"SupplyChainRelationshipBillingID,omitempty"`
+	SupplyChainRelationshipPaymentID null.Int     `boil:"SupplyChainRelationshipPaymentID" json:"SupplyChainRelationshipPaymentID,omitempty" toml:"SupplyChainRelationshipPaymentID" yaml:"SupplyChainRelationshipPaymentID,omitempty"`
+	Buyer                            int          `boil:"Buyer" json:"Buyer" toml:"Buyer" yaml:"Buyer"`
+	Seller                           int          `boil:"Seller" json:"Seller" toml:"Seller" yaml:"Seller"`
+	BillToParty                      null.Int     `boil:"BillToParty" json:"BillToParty,omitempty" toml:"BillToParty" yaml:"BillToParty,omitempty"`
+	BillFromParty                    null.Int     `boil:"BillFromParty" json:"BillFromParty,omitempty" toml:"BillFromParty" yaml:"BillFromParty,omitempty"`
+	BillToCountry                    null.String  `boil:"BillToCountry" json:"BillToCountry,omitempty" toml:"BillToCountry" yaml:"BillToCountry,omitempty"`
+	BillFromCountry                  null.String  `boil:"BillFromCountry" json:"BillFromCountry,omitempty" toml:"BillFromCountry" yaml:"BillFromCountry,omitempty"`
+	Payer                            null.Int     `boil:"Payer" json:"Payer,omitempty" toml:"Payer" yaml:"Payer,omitempty"`
+	Payee                            null.Int     `boil:"Payee" json:"Payee,omitempty" toml:"Payee" yaml:"Payee,omitempty"`
+	CreationDate                     string       `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
+	LastChangeDate                   string       `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
+	ContractType                     null.String  `boil:"ContractType" json:"ContractType,omitempty" toml:"ContractType" yaml:"ContractType,omitempty"`
+	OrderValidityStartDate           null.String  `boil:"OrderValidityStartDate" json:"OrderValidityStartDate,omitempty" toml:"OrderValidityStartDate" yaml:"OrderValidityStartDate,omitempty"`
+	OrderValidityEndDate             null.String  `boil:"OrderValidityEndDate" json:"OrderValidityEndDate,omitempty" toml:"OrderValidityEndDate" yaml:"OrderValidityEndDate,omitempty"`
+	InvoicePeriodStartDate           null.String  `boil:"InvoicePeriodStartDate" json:"InvoicePeriodStartDate,omitempty" toml:"InvoicePeriodStartDate" yaml:"InvoicePeriodStartDate,omitempty"`
+	InvoicePeriodEndDate             null.String  `boil:"InvoicePeriodEndDate" json:"InvoicePeriodEndDate,omitempty" toml:"InvoicePeriodEndDate" yaml:"InvoicePeriodEndDate,omitempty"`
+	TotalNetAmount                   float32      `boil:"TotalNetAmount" json:"TotalNetAmount" toml:"TotalNetAmount" yaml:"TotalNetAmount"`
+	TotalTaxAmount                   float32      `boil:"TotalTaxAmount" json:"TotalTaxAmount" toml:"TotalTaxAmount" yaml:"TotalTaxAmount"`
+	TotalGrossAmount                 float32      `boil:"TotalGrossAmount" json:"TotalGrossAmount" toml:"TotalGrossAmount" yaml:"TotalGrossAmount"`
+	HeaderDeliveryStatus             string       `boil:"HeaderDeliveryStatus" json:"HeaderDeliveryStatus" toml:"HeaderDeliveryStatus" yaml:"HeaderDeliveryStatus"`
+	HeaderBillingStatus              string       `boil:"HeaderBillingStatus" json:"HeaderBillingStatus" toml:"HeaderBillingStatus" yaml:"HeaderBillingStatus"`
+	HeaderDocReferenceStatus         string       `boil:"HeaderDocReferenceStatus" json:"HeaderDocReferenceStatus" toml:"HeaderDocReferenceStatus" yaml:"HeaderDocReferenceStatus"`
+	TransactionCurrency              string       `boil:"TransactionCurrency" json:"TransactionCurrency" toml:"TransactionCurrency" yaml:"TransactionCurrency"`
+	PricingDate                      string       `boil:"PricingDate" json:"PricingDate" toml:"PricingDate" yaml:"PricingDate"`
+	PriceDetnExchangeRate            null.Float32 `boil:"PriceDetnExchangeRate" json:"PriceDetnExchangeRate,omitempty" toml:"PriceDetnExchangeRate" yaml:"PriceDetnExchangeRate,omitempty"`
+	RequestedDeliveryDate            string       `boil:"RequestedDeliveryDate" json:"RequestedDeliveryDate" toml:"RequestedDeliveryDate" yaml:"RequestedDeliveryDate"`
+	RequestedDeliveryTime            string       `boil:"RequestedDeliveryTime" json:"RequestedDeliveryTime" toml:"RequestedDeliveryTime" yaml:"RequestedDeliveryTime"`
+	HeaderCompleteDeliveryIsDefined  null.Bool    `boil:"HeaderCompleteDeliveryIsDefined" json:"HeaderCompleteDeliveryIsDefined,omitempty" toml:"HeaderCompleteDeliveryIsDefined" yaml:"HeaderCompleteDeliveryIsDefined,omitempty"`
+	Incoterms                        null.String  `boil:"Incoterms" json:"Incoterms,omitempty" toml:"Incoterms" yaml:"Incoterms,omitempty"`
+	PaymentTerms                     string       `boil:"PaymentTerms" json:"PaymentTerms" toml:"PaymentTerms" yaml:"PaymentTerms"`
+	PaymentMethod                    string       `boil:"PaymentMethod" json:"PaymentMethod" toml:"PaymentMethod" yaml:"PaymentMethod"`
+	ReferenceDocument                null.Int     `boil:"ReferenceDocument" json:"ReferenceDocument,omitempty" toml:"ReferenceDocument" yaml:"ReferenceDocument,omitempty"`
+	ReferenceDocumentItem            null.Int     `boil:"ReferenceDocumentItem" json:"ReferenceDocumentItem,omitempty" toml:"ReferenceDocumentItem" yaml:"ReferenceDocumentItem,omitempty"`
+	AccountAssignmentGroup           string       `boil:"AccountAssignmentGroup" json:"AccountAssignmentGroup" toml:"AccountAssignmentGroup" yaml:"AccountAssignmentGroup"`
+	AccountingExchangeRate           null.Float32 `boil:"AccountingExchangeRate" json:"AccountingExchangeRate,omitempty" toml:"AccountingExchangeRate" yaml:"AccountingExchangeRate,omitempty"`
+	InvoiceDocumentDate              string       `boil:"InvoiceDocumentDate" json:"InvoiceDocumentDate" toml:"InvoiceDocumentDate" yaml:"InvoiceDocumentDate"`
+	IsExportImport                   null.Bool    `boil:"IsExportImport" json:"IsExportImport,omitempty" toml:"IsExportImport" yaml:"IsExportImport,omitempty"`
+	HeaderText                       null.String  `boil:"HeaderText" json:"HeaderText,omitempty" toml:"HeaderText" yaml:"HeaderText,omitempty"`
+	HeaderBlockStatus                null.Bool    `boil:"HeaderBlockStatus" json:"HeaderBlockStatus,omitempty" toml:"HeaderBlockStatus" yaml:"HeaderBlockStatus,omitempty"`
+	HeaderDeliveryBlockStatus        null.Bool    `boil:"HeaderDeliveryBlockStatus" json:"HeaderDeliveryBlockStatus,omitempty" toml:"HeaderDeliveryBlockStatus" yaml:"HeaderDeliveryBlockStatus,omitempty"`
+	HeaderBillingBlockStatus         null.Bool    `boil:"HeaderBillingBlockStatus" json:"HeaderBillingBlockStatus,omitempty" toml:"HeaderBillingBlockStatus" yaml:"HeaderBillingBlockStatus,omitempty"`
+	IsCancelled                      null.Bool    `boil:"IsCancelled" json:"IsCancelled,omitempty" toml:"IsCancelled" yaml:"IsCancelled,omitempty"`
+	IsMarkedForDeletion              null.Bool    `boil:"IsMarkedForDeletion" json:"IsMarkedForDeletion,omitempty" toml:"IsMarkedForDeletion" yaml:"IsMarkedForDeletion,omitempty"`
 
 	R *dataPlatformOrdersHeaderDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
 	L dataPlatformOrdersHeaderDatumL  `boil:"-" json:"-" toml:"-" yaml:"-"`
 }
 
 var DataPlatformOrdersHeaderDatumColumns = struct {
-	OrderID                         string
-	OrderDate                       string
-	OrderType                       string
-	Buyer                           string
-	Seller                          string
-	CreationDate                    string
-	LastChangeDate                  string
-	ContractType                    string
-	VaridityStartDate               string
-	VaridityEndDate                 string
-	InvoiceScheduleStartDate        string
-	InvoiceScheduleEndDate          string
-	TotalNetAmount                  string
-	TotalTaxAmount                  string
-	TotalGrossAmount                string
-	OverallDeliveryStatus           string
-	TotalBlockStatus                string
-	OverallOrdReltdBillgStatus      string
-	OverallDocReferenceStatus       string
-	TransactionCurrency             string
-	PricingDate                     string
-	PriceDetnExchangeRate           string
-	RequestedDeliveryDate           string
-	HeaderCompleteDeliveryIsDefined string
-	HeaderBillingBlockReason        string
-	DeliveryBlockReason             string
-	Incoterms                       string
-	PaymentTerms                    string
-	PaymentMethod                   string
-	ReferenceDocument               string
-	ReferenceDocumentItem           string
-	BPAccountAssignmentGroup        string
-	AccountingExchangeRate          string
-	BillingDocumentDate             string
-	IsExportImportDelivery          string
-	HeaderText                      string
+	OrderID                          string
+	OrderDate                        string
+	OrderType                        string
+	SupplyChainRelationshipID        string
+	SupplyChainRelationshipBillingID string
+	SupplyChainRelationshipPaymentID string
+	Buyer                            string
+	Seller                           string
+	BillToParty                      string
+	BillFromParty                    string
+	BillToCountry                    string
+	BillFromCountry                  string
+	Payer                            string
+	Payee                            string
+	CreationDate                     string
+	LastChangeDate                   string
+	ContractType                     string
+	OrderValidityStartDate           string
+	OrderValidityEndDate             string
+	InvoicePeriodStartDate           string
+	InvoicePeriodEndDate             string
+	TotalNetAmount                   string
+	TotalTaxAmount                   string
+	TotalGrossAmount                 string
+	HeaderDeliveryStatus             string
+	HeaderBillingStatus              string
+	HeaderDocReferenceStatus         string
+	TransactionCurrency              string
+	PricingDate                      string
+	PriceDetnExchangeRate            string
+	RequestedDeliveryDate            string
+	RequestedDeliveryTime            string
+	HeaderCompleteDeliveryIsDefined  string
+	Incoterms                        string
+	PaymentTerms                     string
+	PaymentMethod                    string
+	ReferenceDocument                string
+	ReferenceDocumentItem            string
+	AccountAssignmentGroup           string
+	AccountingExchangeRate           string
+	InvoiceDocumentDate              string
+	IsExportImport                   string
+	HeaderText                       string
+	HeaderBlockStatus                string
+	HeaderDeliveryBlockStatus        string
+	HeaderBillingBlockStatus         string
+	IsCancelled                      string
+	IsMarkedForDeletion              string
 }{
-	OrderID:                         "OrderID",
-	OrderDate:                       "OrderDate",
-	OrderType:                       "OrderType",
-	Buyer:                           "Buyer",
-	Seller:                          "Seller",
-	CreationDate:                    "CreationDate",
-	LastChangeDate:                  "LastChangeDate",
-	ContractType:                    "ContractType",
-	VaridityStartDate:               "VaridityStartDate",
-	VaridityEndDate:                 "VaridityEndDate",
-	InvoiceScheduleStartDate:        "InvoiceScheduleStartDate",
-	InvoiceScheduleEndDate:          "InvoiceScheduleEndDate",
-	TotalNetAmount:                  "TotalNetAmount",
-	TotalTaxAmount:                  "TotalTaxAmount",
-	TotalGrossAmount:                "TotalGrossAmount",
-	OverallDeliveryStatus:           "OverallDeliveryStatus",
-	TotalBlockStatus:                "TotalBlockStatus",
-	OverallOrdReltdBillgStatus:      "OverallOrdReltdBillgStatus",
-	OverallDocReferenceStatus:       "OverallDocReferenceStatus",
-	TransactionCurrency:             "TransactionCurrency",
-	PricingDate:                     "PricingDate",
-	PriceDetnExchangeRate:           "PriceDetnExchangeRate",
-	RequestedDeliveryDate:           "RequestedDeliveryDate",
-	HeaderCompleteDeliveryIsDefined: "HeaderCompleteDeliveryIsDefined",
-	HeaderBillingBlockReason:        "HeaderBillingBlockReason",
-	DeliveryBlockReason:             "DeliveryBlockReason",
-	Incoterms:                       "Incoterms",
-	PaymentTerms:                    "PaymentTerms",
-	PaymentMethod:                   "PaymentMethod",
-	ReferenceDocument:               "ReferenceDocument",
-	ReferenceDocumentItem:           "ReferenceDocumentItem",
-	BPAccountAssignmentGroup:        "BPAccountAssignmentGroup",
-	AccountingExchangeRate:          "AccountingExchangeRate",
-	BillingDocumentDate:             "BillingDocumentDate",
-	IsExportImportDelivery:          "IsExportImportDelivery",
-	HeaderText:                      "HeaderText",
+	OrderID:                          "OrderID",
+	OrderDate:                        "OrderDate",
+	OrderType:                        "OrderType",
+	SupplyChainRelationshipID:        "SupplyChainRelationshipID",
+	SupplyChainRelationshipBillingID: "SupplyChainRelationshipBillingID",
+	SupplyChainRelationshipPaymentID: "SupplyChainRelationshipPaymentID",
+	Buyer:                            "Buyer",
+	Seller:                           "Seller",
+	BillToParty:                      "BillToParty",
+	BillFromParty:                    "BillFromParty",
+	BillToCountry:                    "BillToCountry",
+	BillFromCountry:                  "BillFromCountry",
+	Payer:                            "Payer",
+	Payee:                            "Payee",
+	CreationDate:                     "CreationDate",
+	LastChangeDate:                   "LastChangeDate",
+	ContractType:                     "ContractType",
+	OrderValidityStartDate:           "OrderValidityStartDate",
+	OrderValidityEndDate:             "OrderValidityEndDate",
+	InvoicePeriodStartDate:           "InvoicePeriodStartDate",
+	InvoicePeriodEndDate:             "InvoicePeriodEndDate",
+	TotalNetAmount:                   "TotalNetAmount",
+	TotalTaxAmount:                   "TotalTaxAmount",
+	TotalGrossAmount:                 "TotalGrossAmount",
+	HeaderDeliveryStatus:             "HeaderDeliveryStatus",
+	HeaderBillingStatus:              "HeaderBillingStatus",
+	HeaderDocReferenceStatus:         "HeaderDocReferenceStatus",
+	TransactionCurrency:              "TransactionCurrency",
+	PricingDate:                      "PricingDate",
+	PriceDetnExchangeRate:            "PriceDetnExchangeRate",
+	RequestedDeliveryDate:            "RequestedDeliveryDate",
+	RequestedDeliveryTime:            "RequestedDeliveryTime",
+	HeaderCompleteDeliveryIsDefined:  "HeaderCompleteDeliveryIsDefined",
+	Incoterms:                        "Incoterms",
+	PaymentTerms:                     "PaymentTerms",
+	PaymentMethod:                    "PaymentMethod",
+	ReferenceDocument:                "ReferenceDocument",
+	ReferenceDocumentItem:            "ReferenceDocumentItem",
+	AccountAssignmentGroup:           "AccountAssignmentGroup",
+	AccountingExchangeRate:           "AccountingExchangeRate",
+	InvoiceDocumentDate:              "InvoiceDocumentDate",
+	IsExportImport:                   "IsExportImport",
+	HeaderText:                       "HeaderText",
+	HeaderBlockStatus:                "HeaderBlockStatus",
+	HeaderDeliveryBlockStatus:        "HeaderDeliveryBlockStatus",
+	HeaderBillingBlockStatus:         "HeaderBillingBlockStatus",
+	IsCancelled:                      "IsCancelled",
+	IsMarkedForDeletion:              "IsMarkedForDeletion",
 }
 
 var DataPlatformOrdersHeaderDatumTableColumns = struct {
-	OrderID                         string
-	OrderDate                       string
-	OrderType                       string
-	Buyer                           string
-	Seller                          string
-	CreationDate                    string
-	LastChangeDate                  string
-	ContractType                    string
-	VaridityStartDate               string
-	VaridityEndDate                 string
-	InvoiceScheduleStartDate        string
-	InvoiceScheduleEndDate          string
-	TotalNetAmount                  string
-	TotalTaxAmount                  string
-	TotalGrossAmount                string
-	OverallDeliveryStatus           string
-	TotalBlockStatus                string
-	OverallOrdReltdBillgStatus      string
-	OverallDocReferenceStatus       string
-	TransactionCurrency             string
-	PricingDate                     string
-	PriceDetnExchangeRate           string
-	RequestedDeliveryDate           string
-	HeaderCompleteDeliveryIsDefined string
-	HeaderBillingBlockReason        string
-	DeliveryBlockReason             string
-	Incoterms                       string
-	PaymentTerms                    string
-	PaymentMethod                   string
-	ReferenceDocument               string
-	ReferenceDocumentItem           string
-	BPAccountAssignmentGroup        string
-	AccountingExchangeRate          string
-	BillingDocumentDate             string
-	IsExportImportDelivery          string
-	HeaderText                      string
+	OrderID                          string
+	OrderDate                        string
+	OrderType                        string
+	SupplyChainRelationshipID        string
+	SupplyChainRelationshipBillingID string
+	SupplyChainRelationshipPaymentID string
+	Buyer                            string
+	Seller                           string
+	BillToParty                      string
+	BillFromParty                    string
+	BillToCountry                    string
+	BillFromCountry                  string
+	Payer                            string
+	Payee                            string
+	CreationDate                     string
+	LastChangeDate                   string
+	ContractType                     string
+	OrderValidityStartDate           string
+	OrderValidityEndDate             string
+	InvoicePeriodStartDate           string
+	InvoicePeriodEndDate             string
+	TotalNetAmount                   string
+	TotalTaxAmount                   string
+	TotalGrossAmount                 string
+	HeaderDeliveryStatus             string
+	HeaderBillingStatus              string
+	HeaderDocReferenceStatus         string
+	TransactionCurrency              string
+	PricingDate                      string
+	PriceDetnExchangeRate            string
+	RequestedDeliveryDate            string
+	RequestedDeliveryTime            string
+	HeaderCompleteDeliveryIsDefined  string
+	Incoterms                        string
+	PaymentTerms                     string
+	PaymentMethod                    string
+	ReferenceDocument                string
+	ReferenceDocumentItem            string
+	AccountAssignmentGroup           string
+	AccountingExchangeRate           string
+	InvoiceDocumentDate              string
+	IsExportImport                   string
+	HeaderText                       string
+	HeaderBlockStatus                string
+	HeaderDeliveryBlockStatus        string
+	HeaderBillingBlockStatus         string
+	IsCancelled                      string
+	IsMarkedForDeletion              string
 }{
-	OrderID:                         "data_platform_orders_header_data.OrderID",
-	OrderDate:                       "data_platform_orders_header_data.OrderDate",
-	OrderType:                       "data_platform_orders_header_data.OrderType",
-	Buyer:                           "data_platform_orders_header_data.Buyer",
-	Seller:                          "data_platform_orders_header_data.Seller",
-	CreationDate:                    "data_platform_orders_header_data.CreationDate",
-	LastChangeDate:                  "data_platform_orders_header_data.LastChangeDate",
-	ContractType:                    "data_platform_orders_header_data.ContractType",
-	VaridityStartDate:               "data_platform_orders_header_data.VaridityStartDate",
-	VaridityEndDate:                 "data_platform_orders_header_data.VaridityEndDate",
-	InvoiceScheduleStartDate:        "data_platform_orders_header_data.InvoiceScheduleStartDate",
-	InvoiceScheduleEndDate:          "data_platform_orders_header_data.InvoiceScheduleEndDate",
-	TotalNetAmount:                  "data_platform_orders_header_data.TotalNetAmount",
-	TotalTaxAmount:                  "data_platform_orders_header_data.TotalTaxAmount",
-	TotalGrossAmount:                "data_platform_orders_header_data.TotalGrossAmount",
-	OverallDeliveryStatus:           "data_platform_orders_header_data.OverallDeliveryStatus",
-	TotalBlockStatus:                "data_platform_orders_header_data.TotalBlockStatus",
-	OverallOrdReltdBillgStatus:      "data_platform_orders_header_data.OverallOrdReltdBillgStatus",
-	OverallDocReferenceStatus:       "data_platform_orders_header_data.OverallDocReferenceStatus",
-	TransactionCurrency:             "data_platform_orders_header_data.TransactionCurrency",
-	PricingDate:                     "data_platform_orders_header_data.PricingDate",
-	PriceDetnExchangeRate:           "data_platform_orders_header_data.PriceDetnExchangeRate",
-	RequestedDeliveryDate:           "data_platform_orders_header_data.RequestedDeliveryDate",
-	HeaderCompleteDeliveryIsDefined: "data_platform_orders_header_data.HeaderCompleteDeliveryIsDefined",
-	HeaderBillingBlockReason:        "data_platform_orders_header_data.HeaderBillingBlockReason",
-	DeliveryBlockReason:             "data_platform_orders_header_data.DeliveryBlockReason",
-	Incoterms:                       "data_platform_orders_header_data.Incoterms",
-	PaymentTerms:                    "data_platform_orders_header_data.PaymentTerms",
-	PaymentMethod:                   "data_platform_orders_header_data.PaymentMethod",
-	ReferenceDocument:               "data_platform_orders_header_data.ReferenceDocument",
-	ReferenceDocumentItem:           "data_platform_orders_header_data.ReferenceDocumentItem",
-	BPAccountAssignmentGroup:        "data_platform_orders_header_data.BPAccountAssignmentGroup",
-	AccountingExchangeRate:          "data_platform_orders_header_data.AccountingExchangeRate",
-	BillingDocumentDate:             "data_platform_orders_header_data.BillingDocumentDate",
-	IsExportImportDelivery:          "data_platform_orders_header_data.IsExportImportDelivery",
-	HeaderText:                      "data_platform_orders_header_data.HeaderText",
+	OrderID:                          "data_platform_orders_header_data.OrderID",
+	OrderDate:                        "data_platform_orders_header_data.OrderDate",
+	OrderType:                        "data_platform_orders_header_data.OrderType",
+	SupplyChainRelationshipID:        "data_platform_orders_header_data.SupplyChainRelationshipID",
+	SupplyChainRelationshipBillingID: "data_platform_orders_header_data.SupplyChainRelationshipBillingID",
+	SupplyChainRelationshipPaymentID: "data_platform_orders_header_data.SupplyChainRelationshipPaymentID",
+	Buyer:                            "data_platform_orders_header_data.Buyer",
+	Seller:                           "data_platform_orders_header_data.Seller",
+	BillToParty:                      "data_platform_orders_header_data.BillToParty",
+	BillFromParty:                    "data_platform_orders_header_data.BillFromParty",
+	BillToCountry:                    "data_platform_orders_header_data.BillToCountry",
+	BillFromCountry:                  "data_platform_orders_header_data.BillFromCountry",
+	Payer:                            "data_platform_orders_header_data.Payer",
+	Payee:                            "data_platform_orders_header_data.Payee",
+	CreationDate:                     "data_platform_orders_header_data.CreationDate",
+	LastChangeDate:                   "data_platform_orders_header_data.LastChangeDate",
+	ContractType:                     "data_platform_orders_header_data.ContractType",
+	OrderValidityStartDate:           "data_platform_orders_header_data.OrderValidityStartDate",
+	OrderValidityEndDate:             "data_platform_orders_header_data.OrderValidityEndDate",
+	InvoicePeriodStartDate:           "data_platform_orders_header_data.InvoicePeriodStartDate",
+	InvoicePeriodEndDate:             "data_platform_orders_header_data.InvoicePeriodEndDate",
+	TotalNetAmount:                   "data_platform_orders_header_data.TotalNetAmount",
+	TotalTaxAmount:                   "data_platform_orders_header_data.TotalTaxAmount",
+	TotalGrossAmount:                 "data_platform_orders_header_data.TotalGrossAmount",
+	HeaderDeliveryStatus:             "data_platform_orders_header_data.HeaderDeliveryStatus",
+	HeaderBillingStatus:              "data_platform_orders_header_data.HeaderBillingStatus",
+	HeaderDocReferenceStatus:         "data_platform_orders_header_data.HeaderDocReferenceStatus",
+	TransactionCurrency:              "data_platform_orders_header_data.TransactionCurrency",
+	PricingDate:                      "data_platform_orders_header_data.PricingDate",
+	PriceDetnExchangeRate:            "data_platform_orders_header_data.PriceDetnExchangeRate",
+	RequestedDeliveryDate:            "data_platform_orders_header_data.RequestedDeliveryDate",
+	RequestedDeliveryTime:            "data_platform_orders_header_data.RequestedDeliveryTime",
+	HeaderCompleteDeliveryIsDefined:  "data_platform_orders_header_data.HeaderCompleteDeliveryIsDefined",
+	Incoterms:                        "data_platform_orders_header_data.Incoterms",
+	PaymentTerms:                     "data_platform_orders_header_data.PaymentTerms",
+	PaymentMethod:                    "data_platform_orders_header_data.PaymentMethod",
+	ReferenceDocument:                "data_platform_orders_header_data.ReferenceDocument",
+	ReferenceDocumentItem:            "data_platform_orders_header_data.ReferenceDocumentItem",
+	AccountAssignmentGroup:           "data_platform_orders_header_data.AccountAssignmentGroup",
+	AccountingExchangeRate:           "data_platform_orders_header_data.AccountingExchangeRate",
+	InvoiceDocumentDate:              "data_platform_orders_header_data.InvoiceDocumentDate",
+	IsExportImport:                   "data_platform_orders_header_data.IsExportImport",
+	HeaderText:                       "data_platform_orders_header_data.HeaderText",
+	HeaderBlockStatus:                "data_platform_orders_header_data.HeaderBlockStatus",
+	HeaderDeliveryBlockStatus:        "data_platform_orders_header_data.HeaderDeliveryBlockStatus",
+	HeaderBillingBlockStatus:         "data_platform_orders_header_data.HeaderBillingBlockStatus",
+	IsCancelled:                      "data_platform_orders_header_data.IsCancelled",
+	IsMarkedForDeletion:              "data_platform_orders_header_data.IsMarkedForDeletion",
 }
 
 // Generated where
 
-type whereHelperfloat32 struct{ field string }
-
-func (w whereHelperfloat32) EQ(x float32) qm.QueryMod { return qmhelper.Where(w.field, qmhelper.EQ, x) }
-func (w whereHelperfloat32) NEQ(x float32) qm.QueryMod {
-	return qmhelper.Where(w.field, qmhelper.NEQ, x)
-}
-func (w whereHelperfloat32) LT(x float32) qm.QueryMod { return qmhelper.Where(w.field, qmhelper.LT, x) }
-func (w whereHelperfloat32) LTE(x float32) qm.QueryMod {
-	return qmhelper.Where(w.field, qmhelper.LTE, x)
-}
-func (w whereHelperfloat32) GT(x float32) qm.QueryMod { return qmhelper.Where(w.field, qmhelper.GT, x) }
-func (w whereHelperfloat32) GTE(x float32) qm.QueryMod {
-	return qmhelper.Where(w.field, qmhelper.GTE, x)
-}
-func (w whereHelperfloat32) IN(slice []float32) qm.QueryMod {
-	values := make([]interface{}, 0, len(slice))
-	for _, value := range slice {
-		values = append(values, value)
-	}
-	return qm.WhereIn(fmt.Sprintf("%s IN ?", w.field), values...)
-}
-func (w whereHelperfloat32) NIN(slice []float32) qm.QueryMod {
-	values := make([]interface{}, 0, len(slice))
-	for _, value := range slice {
-		values = append(values, value)
-	}
-	return qm.WhereNotIn(fmt.Sprintf("%s NOT IN ?", w.field), values...)
-}
-
 var DataPlatformOrdersHeaderDatumWhere = struct {
-	OrderID                         whereHelperint
-	OrderDate                       whereHelpertime_Time
-	OrderType                       whereHelperstring
-	Buyer                           whereHelperint
-	Seller                          whereHelperint
-	CreationDate                    whereHelpertime_Time
-	LastChangeDate                  whereHelpertime_Time
-	ContractType                    whereHelpernull_String
-	VaridityStartDate               whereHelpernull_Time
-	VaridityEndDate                 whereHelpernull_Time
-	InvoiceScheduleStartDate        whereHelpernull_Time
-	InvoiceScheduleEndDate          whereHelpernull_Time
-	TotalNetAmount                  whereHelperfloat32
-	TotalTaxAmount                  whereHelperfloat32
-	TotalGrossAmount                whereHelperfloat32
-	OverallDeliveryStatus           whereHelperstring
-	TotalBlockStatus                whereHelpernull_Bool
-	OverallOrdReltdBillgStatus      whereHelperstring
-	OverallDocReferenceStatus       whereHelperstring
-	TransactionCurrency             whereHelperstring
-	PricingDate                     whereHelpertime_Time
-	PriceDetnExchangeRate           whereHelpernull_Float32
-	RequestedDeliveryDate           whereHelpertime_Time
-	HeaderCompleteDeliveryIsDefined whereHelpernull_Bool
-	HeaderBillingBlockReason        whereHelpernull_Bool
-	DeliveryBlockReason             whereHelpernull_Bool
-	Incoterms                       whereHelpernull_String
-	PaymentTerms                    whereHelperstring
-	PaymentMethod                   whereHelperstring
-	ReferenceDocument               whereHelpernull_Int
-	ReferenceDocumentItem           whereHelpernull_Int
-	BPAccountAssignmentGroup        whereHelperstring
-	AccountingExchangeRate          whereHelpernull_Float32
-	BillingDocumentDate             whereHelpertime_Time
-	IsExportImportDelivery          whereHelpernull_Bool
-	HeaderText                      whereHelpernull_String
+	OrderID                          whereHelperint
+	OrderDate                        whereHelperstring
+	OrderType                        whereHelperstring
+	SupplyChainRelationshipID        whereHelperint
+	SupplyChainRelationshipBillingID whereHelpernull_Int
+	SupplyChainRelationshipPaymentID whereHelpernull_Int
+	Buyer                            whereHelperint
+	Seller                           whereHelperint
+	BillToParty                      whereHelpernull_Int
+	BillFromParty                    whereHelpernull_Int
+	BillToCountry                    whereHelpernull_String
+	BillFromCountry                  whereHelpernull_String
+	Payer                            whereHelpernull_Int
+	Payee                            whereHelpernull_Int
+	CreationDate                     whereHelperstring
+	LastChangeDate                   whereHelperstring
+	ContractType                     whereHelpernull_String
+	OrderValidityStartDate           whereHelpernull_String
+	OrderValidityEndDate             whereHelpernull_String
+	InvoicePeriodStartDate           whereHelpernull_String
+	InvoicePeriodEndDate             whereHelpernull_String
+	TotalNetAmount                   whereHelperfloat32
+	TotalTaxAmount                   whereHelperfloat32
+	TotalGrossAmount                 whereHelperfloat32
+	HeaderDeliveryStatus             whereHelperstring
+	HeaderBillingStatus              whereHelperstring
+	HeaderDocReferenceStatus         whereHelperstring
+	TransactionCurrency              whereHelperstring
+	PricingDate                      whereHelperstring
+	PriceDetnExchangeRate            whereHelpernull_Float32
+	RequestedDeliveryDate            whereHelperstring
+	RequestedDeliveryTime            whereHelperstring
+	HeaderCompleteDeliveryIsDefined  whereHelpernull_Bool
+	Incoterms                        whereHelpernull_String
+	PaymentTerms                     whereHelperstring
+	PaymentMethod                    whereHelperstring
+	ReferenceDocument                whereHelpernull_Int
+	ReferenceDocumentItem            whereHelpernull_Int
+	AccountAssignmentGroup           whereHelperstring
+	AccountingExchangeRate           whereHelpernull_Float32
+	InvoiceDocumentDate              whereHelperstring
+	IsExportImport                   whereHelpernull_Bool
+	HeaderText                       whereHelpernull_String
+	HeaderBlockStatus                whereHelpernull_Bool
+	HeaderDeliveryBlockStatus        whereHelpernull_Bool
+	HeaderBillingBlockStatus         whereHelpernull_Bool
+	IsCancelled                      whereHelpernull_Bool
+	IsMarkedForDeletion              whereHelpernull_Bool
 }{
-	OrderID:                         whereHelperint{field: "`data_platform_orders_header_data`.`OrderID`"},
-	OrderDate:                       whereHelpertime_Time{field: "`data_platform_orders_header_data`.`OrderDate`"},
-	OrderType:                       whereHelperstring{field: "`data_platform_orders_header_data`.`OrderType`"},
-	Buyer:                           whereHelperint{field: "`data_platform_orders_header_data`.`Buyer`"},
-	Seller:                          whereHelperint{field: "`data_platform_orders_header_data`.`Seller`"},
-	CreationDate:                    whereHelpertime_Time{field: "`data_platform_orders_header_data`.`CreationDate`"},
-	LastChangeDate:                  whereHelpertime_Time{field: "`data_platform_orders_header_data`.`LastChangeDate`"},
-	ContractType:                    whereHelpernull_String{field: "`data_platform_orders_header_data`.`ContractType`"},
-	VaridityStartDate:               whereHelpernull_Time{field: "`data_platform_orders_header_data`.`VaridityStartDate`"},
-	VaridityEndDate:                 whereHelpernull_Time{field: "`data_platform_orders_header_data`.`VaridityEndDate`"},
-	InvoiceScheduleStartDate:        whereHelpernull_Time{field: "`data_platform_orders_header_data`.`InvoiceScheduleStartDate`"},
-	InvoiceScheduleEndDate:          whereHelpernull_Time{field: "`data_platform_orders_header_data`.`InvoiceScheduleEndDate`"},
-	TotalNetAmount:                  whereHelperfloat32{field: "`data_platform_orders_header_data`.`TotalNetAmount`"},
-	TotalTaxAmount:                  whereHelperfloat32{field: "`data_platform_orders_header_data`.`TotalTaxAmount`"},
-	TotalGrossAmount:                whereHelperfloat32{field: "`data_platform_orders_header_data`.`TotalGrossAmount`"},
-	OverallDeliveryStatus:           whereHelperstring{field: "`data_platform_orders_header_data`.`OverallDeliveryStatus`"},
-	TotalBlockStatus:                whereHelpernull_Bool{field: "`data_platform_orders_header_data`.`TotalBlockStatus`"},
-	OverallOrdReltdBillgStatus:      whereHelperstring{field: "`data_platform_orders_header_data`.`OverallOrdReltdBillgStatus`"},
-	OverallDocReferenceStatus:       whereHelperstring{field: "`data_platform_orders_header_data`.`OverallDocReferenceStatus`"},
-	TransactionCurrency:             whereHelperstring{field: "`data_platform_orders_header_data`.`TransactionCurrency`"},
-	PricingDate:                     whereHelpertime_Time{field: "`data_platform_orders_header_data`.`PricingDate`"},
-	PriceDetnExchangeRate:           whereHelpernull_Float32{field: "`data_platform_orders_header_data`.`PriceDetnExchangeRate`"},
-	RequestedDeliveryDate:           whereHelpertime_Time{field: "`data_platform_orders_header_data`.`RequestedDeliveryDate`"},
-	HeaderCompleteDeliveryIsDefined: whereHelpernull_Bool{field: "`data_platform_orders_header_data`.`HeaderCompleteDeliveryIsDefined`"},
-	HeaderBillingBlockReason:        whereHelpernull_Bool{field: "`data_platform_orders_header_data`.`HeaderBillingBlockReason`"},
-	DeliveryBlockReason:             whereHelpernull_Bool{field: "`data_platform_orders_header_data`.`DeliveryBlockReason`"},
-	Incoterms:                       whereHelpernull_String{field: "`data_platform_orders_header_data`.`Incoterms`"},
-	PaymentTerms:                    whereHelperstring{field: "`data_platform_orders_header_data`.`PaymentTerms`"},
-	PaymentMethod:                   whereHelperstring{field: "`data_platform_orders_header_data`.`PaymentMethod`"},
-	ReferenceDocument:               whereHelpernull_Int{field: "`data_platform_orders_header_data`.`ReferenceDocument`"},
-	ReferenceDocumentItem:           whereHelpernull_Int{field: "`data_platform_orders_header_data`.`ReferenceDocumentItem`"},
-	BPAccountAssignmentGroup:        whereHelperstring{field: "`data_platform_orders_header_data`.`BPAccountAssignmentGroup`"},
-	AccountingExchangeRate:          whereHelpernull_Float32{field: "`data_platform_orders_header_data`.`AccountingExchangeRate`"},
-	BillingDocumentDate:             whereHelpertime_Time{field: "`data_platform_orders_header_data`.`BillingDocumentDate`"},
-	IsExportImportDelivery:          whereHelpernull_Bool{field: "`data_platform_orders_header_data`.`IsExportImportDelivery`"},
-	HeaderText:                      whereHelpernull_String{field: "`data_platform_orders_header_data`.`HeaderText`"},
+	OrderID:                          whereHelperint{field: "`data_platform_orders_header_data`.`OrderID`"},
+	OrderDate:                        whereHelperstring{field: "`data_platform_orders_header_data`.`OrderDate`"},
+	OrderType:                        whereHelperstring{field: "`data_platform_orders_header_data`.`OrderType`"},
+	SupplyChainRelationshipID:        whereHelperint{field: "`data_platform_orders_header_data`.`SupplyChainRelationshipID`"},
+	SupplyChainRelationshipBillingID: whereHelpernull_Int{field: "`data_platform_orders_header_data`.`SupplyChainRelationshipBillingID`"},
+	SupplyChainRelationshipPaymentID: whereHelpernull_Int{field: "`data_platform_orders_header_data`.`SupplyChainRelationshipPaymentID`"},
+	Buyer:                            whereHelperint{field: "`data_platform_orders_header_data`.`Buyer`"},
+	Seller:                           whereHelperint{field: "`data_platform_orders_header_data`.`Seller`"},
+	BillToParty:                      whereHelpernull_Int{field: "`data_platform_orders_header_data`.`BillToParty`"},
+	BillFromParty:                    whereHelpernull_Int{field: "`data_platform_orders_header_data`.`BillFromParty`"},
+	BillToCountry:                    whereHelpernull_String{field: "`data_platform_orders_header_data`.`BillToCountry`"},
+	BillFromCountry:                  whereHelpernull_String{field: "`data_platform_orders_header_data`.`BillFromCountry`"},
+	Payer:                            whereHelpernull_Int{field: "`data_platform_orders_header_data`.`Payer`"},
+	Payee:                            whereHelpernull_Int{field: "`data_platform_orders_header_data`.`Payee`"},
+	CreationDate:                     whereHelperstring{field: "`data_platform_orders_header_data`.`CreationDate`"},
+	LastChangeDate:                   whereHelperstring{field: "`data_platform_orders_header_data`.`LastChangeDate`"},
+	ContractType:                     whereHelpernull_String{field: "`data_platform_orders_header_data`.`ContractType`"},
+	OrderValidityStartDate:           whereHelpernull_String{field: "`data_platform_orders_header_data`.`OrderValidityStartDate`"},
+	OrderValidityEndDate:             whereHelpernull_String{field: "`data_platform_orders_header_data`.`OrderValidityEndDate`"},
+	InvoicePeriodStartDate:           whereHelpernull_String{field: "`data_platform_orders_header_data`.`InvoicePeriodStartDate`"},
+	InvoicePeriodEndDate:             whereHelpernull_String{field: "`data_platform_orders_header_data`.`InvoicePeriodEndDate`"},
+	TotalNetAmount:                   whereHelperfloat32{field: "`data_platform_orders_header_data`.`TotalNetAmount`"},
+	TotalTaxAmount:                   whereHelperfloat32{field: "`data_platform_orders_header_data`.`TotalTaxAmount`"},
+	TotalGrossAmount:                 whereHelperfloat32{field: "`data_platform_orders_header_data`.`TotalGrossAmount`"},
+	HeaderDeliveryStatus:             whereHelperstring{field: "`data_platform_orders_header_data`.`HeaderDeliveryStatus`"},
+	HeaderBillingStatus:              whereHelperstring{field: "`data_platform_orders_header_data`.`HeaderBillingStatus`"},
+	HeaderDocReferenceStatus:         whereHelperstring{field: "`data_platform_orders_header_data`.`HeaderDocReferenceStatus`"},
+	TransactionCurrency:              whereHelperstring{field: "`data_platform_orders_header_data`.`TransactionCurrency`"},
+	PricingDate:                      whereHelperstring{field: "`data_platform_orders_header_data`.`PricingDate`"},
+	PriceDetnExchangeRate:            whereHelpernull_Float32{field: "`data_platform_orders_header_data`.`PriceDetnExchangeRate`"},
+	RequestedDeliveryDate:            whereHelperstring{field: "`data_platform_orders_header_data`.`RequestedDeliveryDate`"},
+	RequestedDeliveryTime:            whereHelperstring{field: "`data_platform_orders_header_data`.`RequestedDeliveryTime`"},
+	HeaderCompleteDeliveryIsDefined:  whereHelpernull_Bool{field: "`data_platform_orders_header_data`.`HeaderCompleteDeliveryIsDefined`"},
+	Incoterms:                        whereHelpernull_String{field: "`data_platform_orders_header_data`.`Incoterms`"},
+	PaymentTerms:                     whereHelperstring{field: "`data_platform_orders_header_data`.`PaymentTerms`"},
+	PaymentMethod:                    whereHelperstring{field: "`data_platform_orders_header_data`.`PaymentMethod`"},
+	ReferenceDocument:                whereHelpernull_Int{field: "`data_platform_orders_header_data`.`ReferenceDocument`"},
+	ReferenceDocumentItem:            whereHelpernull_Int{field: "`data_platform_orders_header_data`.`ReferenceDocumentItem`"},
+	AccountAssignmentGroup:           whereHelperstring{field: "`data_platform_orders_header_data`.`AccountAssignmentGroup`"},
+	AccountingExchangeRate:           whereHelpernull_Float32{field: "`data_platform_orders_header_data`.`AccountingExchangeRate`"},
+	InvoiceDocumentDate:              whereHelperstring{field: "`data_platform_orders_header_data`.`InvoiceDocumentDate`"},
+	IsExportImport:                   whereHelpernull_Bool{field: "`data_platform_orders_header_data`.`IsExportImport`"},
+	HeaderText:                       whereHelpernull_String{field: "`data_platform_orders_header_data`.`HeaderText`"},
+	HeaderBlockStatus:                whereHelpernull_Bool{field: "`data_platform_orders_header_data`.`HeaderBlockStatus`"},
+	HeaderDeliveryBlockStatus:        whereHelpernull_Bool{field: "`data_platform_orders_header_data`.`HeaderDeliveryBlockStatus`"},
+	HeaderBillingBlockStatus:         whereHelpernull_Bool{field: "`data_platform_orders_header_data`.`HeaderBillingBlockStatus`"},
+	IsCancelled:                      whereHelpernull_Bool{field: "`data_platform_orders_header_data`.`IsCancelled`"},
+	IsMarkedForDeletion:              whereHelpernull_Bool{field: "`data_platform_orders_header_data`.`IsMarkedForDeletion`"},
 }
 
 // DataPlatformOrdersHeaderDatumRels is where relationship names are stored.
 var DataPlatformOrdersHeaderDatumRels = struct {
-	BuyerDataPlatformBusinessPartnerGeneralDatum             string
-	Incoterm                                                 string
-	PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum string
 	PaymentTerm                                              string
-	SellerDataPlatformBusinessPartnerGeneralDatum            string
-	TransactionCurrencyDataPlatformCurrencyCurrencyDatum     string
-	OrderIDDataPlatformOrdersHeaderPartnerData               string
+	PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum string
+	Incoterm                                                 string
 }{
-	BuyerDataPlatformBusinessPartnerGeneralDatum: "BuyerDataPlatformBusinessPartnerGeneralDatum",
-	Incoterm: "Incoterm",
-	PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum: "PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum",
 	PaymentTerm: "PaymentTerm",
-	SellerDataPlatformBusinessPartnerGeneralDatum:        "SellerDataPlatformBusinessPartnerGeneralDatum",
-	TransactionCurrencyDataPlatformCurrencyCurrencyDatum: "TransactionCurrencyDataPlatformCurrencyCurrencyDatum",
-	OrderIDDataPlatformOrdersHeaderPartnerData:           "OrderIDDataPlatformOrdersHeaderPartnerData",
+	PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum: "PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum",
+	Incoterm: "Incoterm",
 }
 
 // dataPlatformOrdersHeaderDatumR is where relationships are stored.
 type dataPlatformOrdersHeaderDatumR struct {
-	BuyerDataPlatformBusinessPartnerGeneralDatum             *DataPlatformBusinessPartnerGeneralDatum     `boil:"BuyerDataPlatformBusinessPartnerGeneralDatum" json:"BuyerDataPlatformBusinessPartnerGeneralDatum" toml:"BuyerDataPlatformBusinessPartnerGeneralDatum" yaml:"BuyerDataPlatformBusinessPartnerGeneralDatum"`
-	Incoterm                                                 *DataPlatformIncotermsIncotermsDatum         `boil:"Incoterm" json:"Incoterm" toml:"Incoterm" yaml:"Incoterm"`
-	PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum *DataPlatformPaymentMethodPaymentMethodDatum `boil:"PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum" json:"PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum" toml:"PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum" yaml:"PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum"`
 	PaymentTerm                                              *DataPlatformPaymentTermsPaymentTermsDatum   `boil:"PaymentTerm" json:"PaymentTerm" toml:"PaymentTerm" yaml:"PaymentTerm"`
-	SellerDataPlatformBusinessPartnerGeneralDatum            *DataPlatformBusinessPartnerGeneralDatum     `boil:"SellerDataPlatformBusinessPartnerGeneralDatum" json:"SellerDataPlatformBusinessPartnerGeneralDatum" toml:"SellerDataPlatformBusinessPartnerGeneralDatum" yaml:"SellerDataPlatformBusinessPartnerGeneralDatum"`
-	TransactionCurrencyDataPlatformCurrencyCurrencyDatum     *DataPlatformCurrencyCurrencyDatum           `boil:"TransactionCurrencyDataPlatformCurrencyCurrencyDatum" json:"TransactionCurrencyDataPlatformCurrencyCurrencyDatum" toml:"TransactionCurrencyDataPlatformCurrencyCurrencyDatum" yaml:"TransactionCurrencyDataPlatformCurrencyCurrencyDatum"`
-	OrderIDDataPlatformOrdersHeaderPartnerData               DataPlatformOrdersHeaderPartnerDatumSlice    `boil:"OrderIDDataPlatformOrdersHeaderPartnerData" json:"OrderIDDataPlatformOrdersHeaderPartnerData" toml:"OrderIDDataPlatformOrdersHeaderPartnerData" yaml:"OrderIDDataPlatformOrdersHeaderPartnerData"`
+	PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum *DataPlatformPaymentMethodPaymentMethodDatum `boil:"PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum" json:"PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum" toml:"PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum" yaml:"PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum"`
+	Incoterm                                                 *DataPlatformIncotermsIncotermsDatum         `boil:"Incoterm" json:"Incoterm" toml:"Incoterm" yaml:"Incoterm"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformOrdersHeaderDatumR) NewStruct() *dataPlatformOrdersHeaderDatumR {
 	return &dataPlatformOrdersHeaderDatumR{}
-}
-
-func (r *dataPlatformOrdersHeaderDatumR) GetBuyerDataPlatformBusinessPartnerGeneralDatum() *DataPlatformBusinessPartnerGeneralDatum {
-	if r == nil {
-		return nil
-	}
-	return r.BuyerDataPlatformBusinessPartnerGeneralDatum
-}
-
-func (r *dataPlatformOrdersHeaderDatumR) GetIncoterm() *DataPlatformIncotermsIncotermsDatum {
-	if r == nil {
-		return nil
-	}
-	return r.Incoterm
-}
-
-func (r *dataPlatformOrdersHeaderDatumR) GetPaymentMethodDataPlatformPaymentMethodPaymentMethodDatum() *DataPlatformPaymentMethodPaymentMethodDatum {
-	if r == nil {
-		return nil
-	}
-	return r.PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum
 }
 
 func (r *dataPlatformOrdersHeaderDatumR) GetPaymentTerm() *DataPlatformPaymentTermsPaymentTermsDatum {
@@ -387,33 +409,26 @@ func (r *dataPlatformOrdersHeaderDatumR) GetPaymentTerm() *DataPlatformPaymentTe
 	return r.PaymentTerm
 }
 
-func (r *dataPlatformOrdersHeaderDatumR) GetSellerDataPlatformBusinessPartnerGeneralDatum() *DataPlatformBusinessPartnerGeneralDatum {
+func (r *dataPlatformOrdersHeaderDatumR) GetPaymentMethodDataPlatformPaymentMethodPaymentMethodDatum() *DataPlatformPaymentMethodPaymentMethodDatum {
 	if r == nil {
 		return nil
 	}
-	return r.SellerDataPlatformBusinessPartnerGeneralDatum
+	return r.PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum
 }
 
-func (r *dataPlatformOrdersHeaderDatumR) GetTransactionCurrencyDataPlatformCurrencyCurrencyDatum() *DataPlatformCurrencyCurrencyDatum {
+func (r *dataPlatformOrdersHeaderDatumR) GetIncoterm() *DataPlatformIncotermsIncotermsDatum {
 	if r == nil {
 		return nil
 	}
-	return r.TransactionCurrencyDataPlatformCurrencyCurrencyDatum
-}
-
-func (r *dataPlatformOrdersHeaderDatumR) GetOrderIDDataPlatformOrdersHeaderPartnerData() DataPlatformOrdersHeaderPartnerDatumSlice {
-	if r == nil {
-		return nil
-	}
-	return r.OrderIDDataPlatformOrdersHeaderPartnerData
+	return r.Incoterm
 }
 
 // dataPlatformOrdersHeaderDatumL is where Load methods for each relationship are stored.
 type dataPlatformOrdersHeaderDatumL struct{}
 
 var (
-	dataPlatformOrdersHeaderDatumAllColumns            = []string{"OrderID", "OrderDate", "OrderType", "Buyer", "Seller", "CreationDate", "LastChangeDate", "ContractType", "VaridityStartDate", "VaridityEndDate", "InvoiceScheduleStartDate", "InvoiceScheduleEndDate", "TotalNetAmount", "TotalTaxAmount", "TotalGrossAmount", "OverallDeliveryStatus", "TotalBlockStatus", "OverallOrdReltdBillgStatus", "OverallDocReferenceStatus", "TransactionCurrency", "PricingDate", "PriceDetnExchangeRate", "RequestedDeliveryDate", "HeaderCompleteDeliveryIsDefined", "HeaderBillingBlockReason", "DeliveryBlockReason", "Incoterms", "PaymentTerms", "PaymentMethod", "ReferenceDocument", "ReferenceDocumentItem", "BPAccountAssignmentGroup", "AccountingExchangeRate", "BillingDocumentDate", "IsExportImportDelivery", "HeaderText"}
-	dataPlatformOrdersHeaderDatumColumnsWithoutDefault = []string{"OrderID", "OrderDate", "OrderType", "Buyer", "Seller", "CreationDate", "LastChangeDate", "ContractType", "VaridityStartDate", "VaridityEndDate", "InvoiceScheduleStartDate", "InvoiceScheduleEndDate", "TotalNetAmount", "TotalTaxAmount", "TotalGrossAmount", "OverallDeliveryStatus", "TotalBlockStatus", "OverallOrdReltdBillgStatus", "OverallDocReferenceStatus", "TransactionCurrency", "PricingDate", "PriceDetnExchangeRate", "RequestedDeliveryDate", "HeaderCompleteDeliveryIsDefined", "HeaderBillingBlockReason", "DeliveryBlockReason", "Incoterms", "PaymentTerms", "PaymentMethod", "ReferenceDocument", "ReferenceDocumentItem", "BPAccountAssignmentGroup", "AccountingExchangeRate", "BillingDocumentDate", "IsExportImportDelivery", "HeaderText"}
+	dataPlatformOrdersHeaderDatumAllColumns            = []string{"OrderID", "OrderDate", "OrderType", "SupplyChainRelationshipID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "Buyer", "Seller", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "CreationDate", "LastChangeDate", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "InvoicePeriodStartDate", "InvoicePeriodEndDate", "TotalNetAmount", "TotalTaxAmount", "TotalGrossAmount", "HeaderDeliveryStatus", "HeaderBillingStatus", "HeaderDocReferenceStatus", "TransactionCurrency", "PricingDate", "PriceDetnExchangeRate", "RequestedDeliveryDate", "RequestedDeliveryTime", "HeaderCompleteDeliveryIsDefined", "Incoterms", "PaymentTerms", "PaymentMethod", "ReferenceDocument", "ReferenceDocumentItem", "AccountAssignmentGroup", "AccountingExchangeRate", "InvoiceDocumentDate", "IsExportImport", "HeaderText", "HeaderBlockStatus", "HeaderDeliveryBlockStatus", "HeaderBillingBlockStatus", "IsCancelled", "IsMarkedForDeletion"}
+	dataPlatformOrdersHeaderDatumColumnsWithoutDefault = []string{"OrderID", "OrderDate", "OrderType", "SupplyChainRelationshipID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "Buyer", "Seller", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "CreationDate", "LastChangeDate", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "InvoicePeriodStartDate", "InvoicePeriodEndDate", "TotalNetAmount", "TotalTaxAmount", "TotalGrossAmount", "HeaderDeliveryStatus", "HeaderBillingStatus", "HeaderDocReferenceStatus", "TransactionCurrency", "PricingDate", "PriceDetnExchangeRate", "RequestedDeliveryDate", "RequestedDeliveryTime", "HeaderCompleteDeliveryIsDefined", "Incoterms", "PaymentTerms", "PaymentMethod", "ReferenceDocument", "ReferenceDocumentItem", "AccountAssignmentGroup", "AccountingExchangeRate", "InvoiceDocumentDate", "IsExportImport", "HeaderText", "HeaderBlockStatus", "HeaderDeliveryBlockStatus", "HeaderBillingBlockStatus", "IsCancelled", "IsMarkedForDeletion"}
 	dataPlatformOrdersHeaderDatumColumnsWithDefault    = []string{}
 	dataPlatformOrdersHeaderDatumPrimaryKeyColumns     = []string{"OrderID"}
 	dataPlatformOrdersHeaderDatumGeneratedColumns      = []string{}
@@ -423,8 +438,6 @@ type (
 	// DataPlatformOrdersHeaderDatumSlice is an alias for a slice of pointers to DataPlatformOrdersHeaderDatum.
 	// This should almost always be used instead of []DataPlatformOrdersHeaderDatum.
 	DataPlatformOrdersHeaderDatumSlice []*DataPlatformOrdersHeaderDatum
-	// DataPlatformOrdersHeaderDatumHook is the signature for custom DataPlatformOrdersHeaderDatum hook methods
-	DataPlatformOrdersHeaderDatumHook func(context.Context, boil.ContextExecutor, *DataPlatformOrdersHeaderDatum) error
 
 	dataPlatformOrdersHeaderDatumQuery struct {
 		*queries.Query
@@ -452,179 +465,6 @@ var (
 	_ = qmhelper.Where
 )
 
-var dataPlatformOrdersHeaderDatumAfterSelectHooks []DataPlatformOrdersHeaderDatumHook
-
-var dataPlatformOrdersHeaderDatumBeforeInsertHooks []DataPlatformOrdersHeaderDatumHook
-var dataPlatformOrdersHeaderDatumAfterInsertHooks []DataPlatformOrdersHeaderDatumHook
-
-var dataPlatformOrdersHeaderDatumBeforeUpdateHooks []DataPlatformOrdersHeaderDatumHook
-var dataPlatformOrdersHeaderDatumAfterUpdateHooks []DataPlatformOrdersHeaderDatumHook
-
-var dataPlatformOrdersHeaderDatumBeforeDeleteHooks []DataPlatformOrdersHeaderDatumHook
-var dataPlatformOrdersHeaderDatumAfterDeleteHooks []DataPlatformOrdersHeaderDatumHook
-
-var dataPlatformOrdersHeaderDatumBeforeUpsertHooks []DataPlatformOrdersHeaderDatumHook
-var dataPlatformOrdersHeaderDatumAfterUpsertHooks []DataPlatformOrdersHeaderDatumHook
-
-// doAfterSelectHooks executes all "after Select" hooks.
-func (o *DataPlatformOrdersHeaderDatum) doAfterSelectHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformOrdersHeaderDatumAfterSelectHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeInsertHooks executes all "before insert" hooks.
-func (o *DataPlatformOrdersHeaderDatum) doBeforeInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformOrdersHeaderDatumBeforeInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterInsertHooks executes all "after Insert" hooks.
-func (o *DataPlatformOrdersHeaderDatum) doAfterInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformOrdersHeaderDatumAfterInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpdateHooks executes all "before Update" hooks.
-func (o *DataPlatformOrdersHeaderDatum) doBeforeUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformOrdersHeaderDatumBeforeUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpdateHooks executes all "after Update" hooks.
-func (o *DataPlatformOrdersHeaderDatum) doAfterUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformOrdersHeaderDatumAfterUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeDeleteHooks executes all "before Delete" hooks.
-func (o *DataPlatformOrdersHeaderDatum) doBeforeDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformOrdersHeaderDatumBeforeDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterDeleteHooks executes all "after Delete" hooks.
-func (o *DataPlatformOrdersHeaderDatum) doAfterDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformOrdersHeaderDatumAfterDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpsertHooks executes all "before Upsert" hooks.
-func (o *DataPlatformOrdersHeaderDatum) doBeforeUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformOrdersHeaderDatumBeforeUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpsertHooks executes all "after Upsert" hooks.
-func (o *DataPlatformOrdersHeaderDatum) doAfterUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformOrdersHeaderDatumAfterUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// AddDataPlatformOrdersHeaderDatumHook registers your hook function for all future operations.
-func AddDataPlatformOrdersHeaderDatumHook(hookPoint boil.HookPoint, dataPlatformOrdersHeaderDatumHook DataPlatformOrdersHeaderDatumHook) {
-	switch hookPoint {
-	case boil.AfterSelectHook:
-		dataPlatformOrdersHeaderDatumAfterSelectHooks = append(dataPlatformOrdersHeaderDatumAfterSelectHooks, dataPlatformOrdersHeaderDatumHook)
-	case boil.BeforeInsertHook:
-		dataPlatformOrdersHeaderDatumBeforeInsertHooks = append(dataPlatformOrdersHeaderDatumBeforeInsertHooks, dataPlatformOrdersHeaderDatumHook)
-	case boil.AfterInsertHook:
-		dataPlatformOrdersHeaderDatumAfterInsertHooks = append(dataPlatformOrdersHeaderDatumAfterInsertHooks, dataPlatformOrdersHeaderDatumHook)
-	case boil.BeforeUpdateHook:
-		dataPlatformOrdersHeaderDatumBeforeUpdateHooks = append(dataPlatformOrdersHeaderDatumBeforeUpdateHooks, dataPlatformOrdersHeaderDatumHook)
-	case boil.AfterUpdateHook:
-		dataPlatformOrdersHeaderDatumAfterUpdateHooks = append(dataPlatformOrdersHeaderDatumAfterUpdateHooks, dataPlatformOrdersHeaderDatumHook)
-	case boil.BeforeDeleteHook:
-		dataPlatformOrdersHeaderDatumBeforeDeleteHooks = append(dataPlatformOrdersHeaderDatumBeforeDeleteHooks, dataPlatformOrdersHeaderDatumHook)
-	case boil.AfterDeleteHook:
-		dataPlatformOrdersHeaderDatumAfterDeleteHooks = append(dataPlatformOrdersHeaderDatumAfterDeleteHooks, dataPlatformOrdersHeaderDatumHook)
-	case boil.BeforeUpsertHook:
-		dataPlatformOrdersHeaderDatumBeforeUpsertHooks = append(dataPlatformOrdersHeaderDatumBeforeUpsertHooks, dataPlatformOrdersHeaderDatumHook)
-	case boil.AfterUpsertHook:
-		dataPlatformOrdersHeaderDatumAfterUpsertHooks = append(dataPlatformOrdersHeaderDatumAfterUpsertHooks, dataPlatformOrdersHeaderDatumHook)
-	}
-}
-
 // One returns a single dataPlatformOrdersHeaderDatum record from the query.
 func (q dataPlatformOrdersHeaderDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformOrdersHeaderDatum, error) {
 	o := &DataPlatformOrdersHeaderDatum{}
@@ -639,10 +479,6 @@ func (q dataPlatformOrdersHeaderDatumQuery) One(ctx context.Context, exec boil.C
 		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_orders_header_data")
 	}
 
-	if err := o.doAfterSelectHooks(ctx, exec); err != nil {
-		return o, err
-	}
-
 	return o, nil
 }
 
@@ -653,14 +489,6 @@ func (q dataPlatformOrdersHeaderDatumQuery) All(ctx context.Context, exec boil.C
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
 		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformOrdersHeaderDatum slice")
-	}
-
-	if len(dataPlatformOrdersHeaderDatumAfterSelectHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterSelectHooks(ctx, exec); err != nil {
-				return o, err
-			}
-		}
 	}
 
 	return o, nil
@@ -697,26 +525,15 @@ func (q dataPlatformOrdersHeaderDatumQuery) Exists(ctx context.Context, exec boi
 	return count > 0, nil
 }
 
-// BuyerDataPlatformBusinessPartnerGeneralDatum pointed to by the foreign key.
-func (o *DataPlatformOrdersHeaderDatum) BuyerDataPlatformBusinessPartnerGeneralDatum(mods ...qm.QueryMod) dataPlatformBusinessPartnerGeneralDatumQuery {
+// PaymentTerm pointed to by the foreign key.
+func (o *DataPlatformOrdersHeaderDatum) PaymentTerm(mods ...qm.QueryMod) dataPlatformPaymentTermsPaymentTermsDatumQuery {
 	queryMods := []qm.QueryMod{
-		qm.Where("`BusinessPartner` = ?", o.Buyer),
+		qm.Where("`PaymentTerms` = ?", o.PaymentTerms),
 	}
 
 	queryMods = append(queryMods, mods...)
 
-	return DataPlatformBusinessPartnerGeneralData(queryMods...)
-}
-
-// Incoterm pointed to by the foreign key.
-func (o *DataPlatformOrdersHeaderDatum) Incoterm(mods ...qm.QueryMod) dataPlatformIncotermsIncotermsDatumQuery {
-	queryMods := []qm.QueryMod{
-		qm.Where("`Incoterms` = ?", o.Incoterms),
-	}
-
-	queryMods = append(queryMods, mods...)
-
-	return DataPlatformIncotermsIncotermsData(queryMods...)
+	return DataPlatformPaymentTermsPaymentTermsData(queryMods...)
 }
 
 // PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum pointed to by the foreign key.
@@ -730,56 +547,20 @@ func (o *DataPlatformOrdersHeaderDatum) PaymentMethodDataPlatformPaymentMethodPa
 	return DataPlatformPaymentMethodPaymentMethodData(queryMods...)
 }
 
-// PaymentTerm pointed to by the foreign key.
-func (o *DataPlatformOrdersHeaderDatum) PaymentTerm(mods ...qm.QueryMod) dataPlatformPaymentTermsPaymentTermsDatumQuery {
+// Incoterm pointed to by the foreign key.
+func (o *DataPlatformOrdersHeaderDatum) Incoterm(mods ...qm.QueryMod) dataPlatformIncotermsIncotermsDatumQuery {
 	queryMods := []qm.QueryMod{
-		qm.Where("`PaymentTerms` = ?", o.PaymentTerms),
+		qm.Where("`Incoterms` = ?", o.Incoterms),
 	}
 
 	queryMods = append(queryMods, mods...)
 
-	return DataPlatformPaymentTermsPaymentTermsData(queryMods...)
+	return DataPlatformIncotermsIncotermsData(queryMods...)
 }
 
-// SellerDataPlatformBusinessPartnerGeneralDatum pointed to by the foreign key.
-func (o *DataPlatformOrdersHeaderDatum) SellerDataPlatformBusinessPartnerGeneralDatum(mods ...qm.QueryMod) dataPlatformBusinessPartnerGeneralDatumQuery {
-	queryMods := []qm.QueryMod{
-		qm.Where("`BusinessPartner` = ?", o.Seller),
-	}
-
-	queryMods = append(queryMods, mods...)
-
-	return DataPlatformBusinessPartnerGeneralData(queryMods...)
-}
-
-// TransactionCurrencyDataPlatformCurrencyCurrencyDatum pointed to by the foreign key.
-func (o *DataPlatformOrdersHeaderDatum) TransactionCurrencyDataPlatformCurrencyCurrencyDatum(mods ...qm.QueryMod) dataPlatformCurrencyCurrencyDatumQuery {
-	queryMods := []qm.QueryMod{
-		qm.Where("`Currency` = ?", o.TransactionCurrency),
-	}
-
-	queryMods = append(queryMods, mods...)
-
-	return DataPlatformCurrencyCurrencyData(queryMods...)
-}
-
-// OrderIDDataPlatformOrdersHeaderPartnerData retrieves all the data_platform_orders_header_partner_datum's DataPlatformOrdersHeaderPartnerData with an executor via OrderID column.
-func (o *DataPlatformOrdersHeaderDatum) OrderIDDataPlatformOrdersHeaderPartnerData(mods ...qm.QueryMod) dataPlatformOrdersHeaderPartnerDatumQuery {
-	var queryMods []qm.QueryMod
-	if len(mods) != 0 {
-		queryMods = append(queryMods, mods...)
-	}
-
-	queryMods = append(queryMods,
-		qm.Where("`data_platform_orders_header_partner_data`.`OrderID`=?", o.OrderID),
-	)
-
-	return DataPlatformOrdersHeaderPartnerData(queryMods...)
-}
-
-// LoadBuyerDataPlatformBusinessPartnerGeneralDatum allows an eager lookup of values, cached into the
+// LoadPaymentTerm allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformOrdersHeaderDatumL) LoadBuyerDataPlatformBusinessPartnerGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersHeaderDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformOrdersHeaderDatumL) LoadPaymentTerm(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersHeaderDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformOrdersHeaderDatum
 	var object *DataPlatformOrdersHeaderDatum
 
@@ -810,7 +591,7 @@ func (dataPlatformOrdersHeaderDatumL) LoadBuyerDataPlatformBusinessPartnerGenera
 		if object.R == nil {
 			object.R = &dataPlatformOrdersHeaderDatumR{}
 		}
-		args = append(args, object.Buyer)
+		args = append(args, object.PaymentTerms)
 
 	} else {
 	Outer:
@@ -820,12 +601,12 @@ func (dataPlatformOrdersHeaderDatumL) LoadBuyerDataPlatformBusinessPartnerGenera
 			}
 
 			for _, a := range args {
-				if a == obj.Buyer {
+				if a == obj.PaymentTerms {
 					continue Outer
 				}
 			}
 
-			args = append(args, obj.Buyer)
+			args = append(args, obj.PaymentTerms)
 
 		}
 	}
@@ -835,8 +616,8 @@ func (dataPlatformOrdersHeaderDatumL) LoadBuyerDataPlatformBusinessPartnerGenera
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_business_partner_general_data`),
-		qm.WhereIn(`data_platform_business_partner_general_data.BusinessPartner in ?`, args...),
+		qm.From(`data_platform_payment_terms_payment_terms_data`),
+		qm.WhereIn(`data_platform_payment_terms_payment_terms_data.PaymentTerms in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -844,27 +625,19 @@ func (dataPlatformOrdersHeaderDatumL) LoadBuyerDataPlatformBusinessPartnerGenera
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load DataPlatformBusinessPartnerGeneralDatum")
+		return errors.Wrap(err, "failed to eager load DataPlatformPaymentTermsPaymentTermsDatum")
 	}
 
-	var resultSlice []*DataPlatformBusinessPartnerGeneralDatum
+	var resultSlice []*DataPlatformPaymentTermsPaymentTermsDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformBusinessPartnerGeneralDatum")
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformPaymentTermsPaymentTermsDatum")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results of eager load for data_platform_business_partner_general_data")
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_payment_terms_payment_terms_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_business_partner_general_data")
-	}
-
-	if len(dataPlatformBusinessPartnerGeneralDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_payment_terms_payment_terms_data")
 	}
 
 	if len(resultSlice) == 0 {
@@ -873,22 +646,118 @@ func (dataPlatformOrdersHeaderDatumL) LoadBuyerDataPlatformBusinessPartnerGenera
 
 	if singular {
 		foreign := resultSlice[0]
-		object.R.BuyerDataPlatformBusinessPartnerGeneralDatum = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformBusinessPartnerGeneralDatumR{}
-		}
-		foreign.R.BuyerDataPlatformOrdersHeaderData = append(foreign.R.BuyerDataPlatformOrdersHeaderData, object)
+		object.R.PaymentTerm = foreign
 		return nil
 	}
 
 	for _, local := range slice {
 		for _, foreign := range resultSlice {
-			if local.Buyer == foreign.BusinessPartner {
-				local.R.BuyerDataPlatformBusinessPartnerGeneralDatum = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			if local.PaymentTerms == foreign.PaymentTerms {
+				local.R.PaymentTerm = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadPaymentMethodDataPlatformPaymentMethodPaymentMethodDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformOrdersHeaderDatumL) LoadPaymentMethodDataPlatformPaymentMethodPaymentMethodDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformOrdersHeaderDatum
+	var object *DataPlatformOrdersHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformOrdersHeaderDatum.(*DataPlatformOrdersHeaderDatum)
+		if !ok {
+			object = new(DataPlatformOrdersHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformOrdersHeaderDatum.(*[]*DataPlatformOrdersHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformOrdersHeaderDatumR{}
+		}
+		args = append(args, object.PaymentMethod)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformOrdersHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.PaymentMethod {
+					continue Outer
 				}
-				foreign.R.BuyerDataPlatformOrdersHeaderData = append(foreign.R.BuyerDataPlatformOrdersHeaderData, local)
+			}
+
+			args = append(args, obj.PaymentMethod)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_payment_method_payment_method_data`),
+		qm.WhereIn(`data_platform_payment_method_payment_method_data.PaymentMethod in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformPaymentMethodPaymentMethodDatum")
+	}
+
+	var resultSlice []*DataPlatformPaymentMethodPaymentMethodDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformPaymentMethodPaymentMethodDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_payment_method_payment_method_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_payment_method_payment_method_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.PaymentMethod == foreign.PaymentMethod {
+				local.R.PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum = foreign
 				break
 			}
 		}
@@ -983,14 +852,6 @@ func (dataPlatformOrdersHeaderDatumL) LoadIncoterm(ctx context.Context, e boil.C
 		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_incoterms_incoterms_data")
 	}
 
-	if len(dataPlatformIncotermsIncotermsDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
 	if len(resultSlice) == 0 {
 		return nil
 	}
@@ -998,10 +859,6 @@ func (dataPlatformOrdersHeaderDatumL) LoadIncoterm(ctx context.Context, e boil.C
 	if singular {
 		foreign := resultSlice[0]
 		object.R.Incoterm = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformIncotermsIncotermsDatumR{}
-		}
-		foreign.R.IncotermDataPlatformOrdersHeaderData = append(foreign.R.IncotermDataPlatformOrdersHeaderData, object)
 		return nil
 	}
 
@@ -1009,781 +866,9 @@ func (dataPlatformOrdersHeaderDatumL) LoadIncoterm(ctx context.Context, e boil.C
 		for _, foreign := range resultSlice {
 			if queries.Equal(local.Incoterms, foreign.Incoterms) {
 				local.R.Incoterm = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformIncotermsIncotermsDatumR{}
-				}
-				foreign.R.IncotermDataPlatformOrdersHeaderData = append(foreign.R.IncotermDataPlatformOrdersHeaderData, local)
 				break
 			}
 		}
-	}
-
-	return nil
-}
-
-// LoadPaymentMethodDataPlatformPaymentMethodPaymentMethodDatum allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformOrdersHeaderDatumL) LoadPaymentMethodDataPlatformPaymentMethodPaymentMethodDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersHeaderDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformOrdersHeaderDatum
-	var object *DataPlatformOrdersHeaderDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformOrdersHeaderDatum.(*DataPlatformOrdersHeaderDatum)
-		if !ok {
-			object = new(DataPlatformOrdersHeaderDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersHeaderDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersHeaderDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformOrdersHeaderDatum.(*[]*DataPlatformOrdersHeaderDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersHeaderDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersHeaderDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformOrdersHeaderDatumR{}
-		}
-		args = append(args, object.PaymentMethod)
-
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformOrdersHeaderDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.PaymentMethod {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.PaymentMethod)
-
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_payment_method_payment_method_data`),
-		qm.WhereIn(`data_platform_payment_method_payment_method_data.PaymentMethod in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load DataPlatformPaymentMethodPaymentMethodDatum")
-	}
-
-	var resultSlice []*DataPlatformPaymentMethodPaymentMethodDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformPaymentMethodPaymentMethodDatum")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results of eager load for data_platform_payment_method_payment_method_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_payment_method_payment_method_data")
-	}
-
-	if len(dataPlatformPaymentMethodPaymentMethodDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
-	if len(resultSlice) == 0 {
-		return nil
-	}
-
-	if singular {
-		foreign := resultSlice[0]
-		object.R.PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformPaymentMethodPaymentMethodDatumR{}
-		}
-		foreign.R.PaymentMethodDataPlatformOrdersHeaderData = append(foreign.R.PaymentMethodDataPlatformOrdersHeaderData, object)
-		return nil
-	}
-
-	for _, local := range slice {
-		for _, foreign := range resultSlice {
-			if local.PaymentMethod == foreign.PaymentMethod {
-				local.R.PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformPaymentMethodPaymentMethodDatumR{}
-				}
-				foreign.R.PaymentMethodDataPlatformOrdersHeaderData = append(foreign.R.PaymentMethodDataPlatformOrdersHeaderData, local)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// LoadPaymentTerm allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformOrdersHeaderDatumL) LoadPaymentTerm(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersHeaderDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformOrdersHeaderDatum
-	var object *DataPlatformOrdersHeaderDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformOrdersHeaderDatum.(*DataPlatformOrdersHeaderDatum)
-		if !ok {
-			object = new(DataPlatformOrdersHeaderDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersHeaderDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersHeaderDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformOrdersHeaderDatum.(*[]*DataPlatformOrdersHeaderDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersHeaderDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersHeaderDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformOrdersHeaderDatumR{}
-		}
-		args = append(args, object.PaymentTerms)
-
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformOrdersHeaderDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.PaymentTerms {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.PaymentTerms)
-
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_payment_terms_payment_terms_data`),
-		qm.WhereIn(`data_platform_payment_terms_payment_terms_data.PaymentTerms in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load DataPlatformPaymentTermsPaymentTermsDatum")
-	}
-
-	var resultSlice []*DataPlatformPaymentTermsPaymentTermsDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformPaymentTermsPaymentTermsDatum")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results of eager load for data_platform_payment_terms_payment_terms_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_payment_terms_payment_terms_data")
-	}
-
-	if len(dataPlatformPaymentTermsPaymentTermsDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
-	if len(resultSlice) == 0 {
-		return nil
-	}
-
-	if singular {
-		foreign := resultSlice[0]
-		object.R.PaymentTerm = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformPaymentTermsPaymentTermsDatumR{}
-		}
-		foreign.R.PaymentTermDataPlatformOrdersHeaderData = append(foreign.R.PaymentTermDataPlatformOrdersHeaderData, object)
-		return nil
-	}
-
-	for _, local := range slice {
-		for _, foreign := range resultSlice {
-			if local.PaymentTerms == foreign.PaymentTerms {
-				local.R.PaymentTerm = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformPaymentTermsPaymentTermsDatumR{}
-				}
-				foreign.R.PaymentTermDataPlatformOrdersHeaderData = append(foreign.R.PaymentTermDataPlatformOrdersHeaderData, local)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// LoadSellerDataPlatformBusinessPartnerGeneralDatum allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformOrdersHeaderDatumL) LoadSellerDataPlatformBusinessPartnerGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersHeaderDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformOrdersHeaderDatum
-	var object *DataPlatformOrdersHeaderDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformOrdersHeaderDatum.(*DataPlatformOrdersHeaderDatum)
-		if !ok {
-			object = new(DataPlatformOrdersHeaderDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersHeaderDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersHeaderDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformOrdersHeaderDatum.(*[]*DataPlatformOrdersHeaderDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersHeaderDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersHeaderDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformOrdersHeaderDatumR{}
-		}
-		args = append(args, object.Seller)
-
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformOrdersHeaderDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.Seller {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.Seller)
-
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_business_partner_general_data`),
-		qm.WhereIn(`data_platform_business_partner_general_data.BusinessPartner in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load DataPlatformBusinessPartnerGeneralDatum")
-	}
-
-	var resultSlice []*DataPlatformBusinessPartnerGeneralDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformBusinessPartnerGeneralDatum")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results of eager load for data_platform_business_partner_general_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_business_partner_general_data")
-	}
-
-	if len(dataPlatformBusinessPartnerGeneralDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
-	if len(resultSlice) == 0 {
-		return nil
-	}
-
-	if singular {
-		foreign := resultSlice[0]
-		object.R.SellerDataPlatformBusinessPartnerGeneralDatum = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformBusinessPartnerGeneralDatumR{}
-		}
-		foreign.R.SellerDataPlatformOrdersHeaderData = append(foreign.R.SellerDataPlatformOrdersHeaderData, object)
-		return nil
-	}
-
-	for _, local := range slice {
-		for _, foreign := range resultSlice {
-			if local.Seller == foreign.BusinessPartner {
-				local.R.SellerDataPlatformBusinessPartnerGeneralDatum = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformBusinessPartnerGeneralDatumR{}
-				}
-				foreign.R.SellerDataPlatformOrdersHeaderData = append(foreign.R.SellerDataPlatformOrdersHeaderData, local)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// LoadTransactionCurrencyDataPlatformCurrencyCurrencyDatum allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformOrdersHeaderDatumL) LoadTransactionCurrencyDataPlatformCurrencyCurrencyDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersHeaderDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformOrdersHeaderDatum
-	var object *DataPlatformOrdersHeaderDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformOrdersHeaderDatum.(*DataPlatformOrdersHeaderDatum)
-		if !ok {
-			object = new(DataPlatformOrdersHeaderDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersHeaderDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersHeaderDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformOrdersHeaderDatum.(*[]*DataPlatformOrdersHeaderDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersHeaderDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersHeaderDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformOrdersHeaderDatumR{}
-		}
-		args = append(args, object.TransactionCurrency)
-
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformOrdersHeaderDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.TransactionCurrency {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.TransactionCurrency)
-
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_currency_currency_data`),
-		qm.WhereIn(`data_platform_currency_currency_data.Currency in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load DataPlatformCurrencyCurrencyDatum")
-	}
-
-	var resultSlice []*DataPlatformCurrencyCurrencyDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformCurrencyCurrencyDatum")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results of eager load for data_platform_currency_currency_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_currency_currency_data")
-	}
-
-	if len(dataPlatformCurrencyCurrencyDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
-	if len(resultSlice) == 0 {
-		return nil
-	}
-
-	if singular {
-		foreign := resultSlice[0]
-		object.R.TransactionCurrencyDataPlatformCurrencyCurrencyDatum = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformCurrencyCurrencyDatumR{}
-		}
-		foreign.R.TransactionCurrencyDataPlatformOrdersHeaderData = append(foreign.R.TransactionCurrencyDataPlatformOrdersHeaderData, object)
-		return nil
-	}
-
-	for _, local := range slice {
-		for _, foreign := range resultSlice {
-			if local.TransactionCurrency == foreign.Currency {
-				local.R.TransactionCurrencyDataPlatformCurrencyCurrencyDatum = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformCurrencyCurrencyDatumR{}
-				}
-				foreign.R.TransactionCurrencyDataPlatformOrdersHeaderData = append(foreign.R.TransactionCurrencyDataPlatformOrdersHeaderData, local)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// LoadOrderIDDataPlatformOrdersHeaderPartnerData allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformOrdersHeaderDatumL) LoadOrderIDDataPlatformOrdersHeaderPartnerData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersHeaderDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformOrdersHeaderDatum
-	var object *DataPlatformOrdersHeaderDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformOrdersHeaderDatum.(*DataPlatformOrdersHeaderDatum)
-		if !ok {
-			object = new(DataPlatformOrdersHeaderDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersHeaderDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersHeaderDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformOrdersHeaderDatum.(*[]*DataPlatformOrdersHeaderDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersHeaderDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersHeaderDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformOrdersHeaderDatumR{}
-		}
-		args = append(args, object.OrderID)
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformOrdersHeaderDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.OrderID {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.OrderID)
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_orders_header_partner_data`),
-		qm.WhereIn(`data_platform_orders_header_partner_data.OrderID in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_orders_header_partner_data")
-	}
-
-	var resultSlice []*DataPlatformOrdersHeaderPartnerDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_header_partner_data")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_header_partner_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_header_partner_data")
-	}
-
-	if len(dataPlatformOrdersHeaderPartnerDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-	if singular {
-		object.R.OrderIDDataPlatformOrdersHeaderPartnerData = resultSlice
-		for _, foreign := range resultSlice {
-			if foreign.R == nil {
-				foreign.R = &dataPlatformOrdersHeaderPartnerDatumR{}
-			}
-			foreign.R.OrderIDDataPlatformOrdersHeaderDatum = object
-		}
-		return nil
-	}
-
-	for _, foreign := range resultSlice {
-		for _, local := range slice {
-			if local.OrderID == foreign.OrderID {
-				local.R.OrderIDDataPlatformOrdersHeaderPartnerData = append(local.R.OrderIDDataPlatformOrdersHeaderPartnerData, foreign)
-				if foreign.R == nil {
-					foreign.R = &dataPlatformOrdersHeaderPartnerDatumR{}
-				}
-				foreign.R.OrderIDDataPlatformOrdersHeaderDatum = local
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// SetBuyerDataPlatformBusinessPartnerGeneralDatum of the dataPlatformOrdersHeaderDatum to the related item.
-// Sets o.R.BuyerDataPlatformBusinessPartnerGeneralDatum to related.
-// Adds o to related.R.BuyerDataPlatformOrdersHeaderData.
-func (o *DataPlatformOrdersHeaderDatum) SetBuyerDataPlatformBusinessPartnerGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformBusinessPartnerGeneralDatum) error {
-	var err error
-	if insert {
-		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
-			return errors.Wrap(err, "failed to insert into foreign table")
-		}
-	}
-
-	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_orders_header_data` SET %s WHERE %s",
-		strmangle.SetParamNames("`", "`", 0, []string{"Buyer"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformOrdersHeaderDatumPrimaryKeyColumns),
-	)
-	values := []interface{}{related.BusinessPartner, o.OrderID}
-
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, updateQuery)
-		fmt.Fprintln(writer, values)
-	}
-	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-		return errors.Wrap(err, "failed to update local table")
-	}
-
-	o.Buyer = related.BusinessPartner
-	if o.R == nil {
-		o.R = &dataPlatformOrdersHeaderDatumR{
-			BuyerDataPlatformBusinessPartnerGeneralDatum: related,
-		}
-	} else {
-		o.R.BuyerDataPlatformBusinessPartnerGeneralDatum = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformBusinessPartnerGeneralDatumR{
-			BuyerDataPlatformOrdersHeaderData: DataPlatformOrdersHeaderDatumSlice{o},
-		}
-	} else {
-		related.R.BuyerDataPlatformOrdersHeaderData = append(related.R.BuyerDataPlatformOrdersHeaderData, o)
-	}
-
-	return nil
-}
-
-// SetIncoterm of the dataPlatformOrdersHeaderDatum to the related item.
-// Sets o.R.Incoterm to related.
-// Adds o to related.R.IncotermDataPlatformOrdersHeaderData.
-func (o *DataPlatformOrdersHeaderDatum) SetIncoterm(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformIncotermsIncotermsDatum) error {
-	var err error
-	if insert {
-		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
-			return errors.Wrap(err, "failed to insert into foreign table")
-		}
-	}
-
-	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_orders_header_data` SET %s WHERE %s",
-		strmangle.SetParamNames("`", "`", 0, []string{"Incoterms"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformOrdersHeaderDatumPrimaryKeyColumns),
-	)
-	values := []interface{}{related.Incoterms, o.OrderID}
-
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, updateQuery)
-		fmt.Fprintln(writer, values)
-	}
-	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-		return errors.Wrap(err, "failed to update local table")
-	}
-
-	queries.Assign(&o.Incoterms, related.Incoterms)
-	if o.R == nil {
-		o.R = &dataPlatformOrdersHeaderDatumR{
-			Incoterm: related,
-		}
-	} else {
-		o.R.Incoterm = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformIncotermsIncotermsDatumR{
-			IncotermDataPlatformOrdersHeaderData: DataPlatformOrdersHeaderDatumSlice{o},
-		}
-	} else {
-		related.R.IncotermDataPlatformOrdersHeaderData = append(related.R.IncotermDataPlatformOrdersHeaderData, o)
-	}
-
-	return nil
-}
-
-// RemoveIncoterm relationship.
-// Sets o.R.Incoterm to nil.
-// Removes o from all passed in related items' relationships struct.
-func (o *DataPlatformOrdersHeaderDatum) RemoveIncoterm(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformIncotermsIncotermsDatum) error {
-	var err error
-
-	queries.SetScanner(&o.Incoterms, nil)
-	if _, err = o.Update(ctx, exec, boil.Whitelist("Incoterms")); err != nil {
-		return errors.Wrap(err, "failed to update local table")
-	}
-
-	if o.R != nil {
-		o.R.Incoterm = nil
-	}
-	if related == nil || related.R == nil {
-		return nil
-	}
-
-	for i, ri := range related.R.IncotermDataPlatformOrdersHeaderData {
-		if queries.Equal(o.Incoterms, ri.Incoterms) {
-			continue
-		}
-
-		ln := len(related.R.IncotermDataPlatformOrdersHeaderData)
-		if ln > 1 && i < ln-1 {
-			related.R.IncotermDataPlatformOrdersHeaderData[i] = related.R.IncotermDataPlatformOrdersHeaderData[ln-1]
-		}
-		related.R.IncotermDataPlatformOrdersHeaderData = related.R.IncotermDataPlatformOrdersHeaderData[:ln-1]
-		break
-	}
-	return nil
-}
-
-// SetPaymentMethodDataPlatformPaymentMethodPaymentMethodDatum of the dataPlatformOrdersHeaderDatum to the related item.
-// Sets o.R.PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum to related.
-// Adds o to related.R.PaymentMethodDataPlatformOrdersHeaderData.
-func (o *DataPlatformOrdersHeaderDatum) SetPaymentMethodDataPlatformPaymentMethodPaymentMethodDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformPaymentMethodPaymentMethodDatum) error {
-	var err error
-	if insert {
-		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
-			return errors.Wrap(err, "failed to insert into foreign table")
-		}
-	}
-
-	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_orders_header_data` SET %s WHERE %s",
-		strmangle.SetParamNames("`", "`", 0, []string{"PaymentMethod"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformOrdersHeaderDatumPrimaryKeyColumns),
-	)
-	values := []interface{}{related.PaymentMethod, o.OrderID}
-
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, updateQuery)
-		fmt.Fprintln(writer, values)
-	}
-	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-		return errors.Wrap(err, "failed to update local table")
-	}
-
-	o.PaymentMethod = related.PaymentMethod
-	if o.R == nil {
-		o.R = &dataPlatformOrdersHeaderDatumR{
-			PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum: related,
-		}
-	} else {
-		o.R.PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformPaymentMethodPaymentMethodDatumR{
-			PaymentMethodDataPlatformOrdersHeaderData: DataPlatformOrdersHeaderDatumSlice{o},
-		}
-	} else {
-		related.R.PaymentMethodDataPlatformOrdersHeaderData = append(related.R.PaymentMethodDataPlatformOrdersHeaderData, o)
 	}
 
 	return nil
@@ -1791,7 +876,6 @@ func (o *DataPlatformOrdersHeaderDatum) SetPaymentMethodDataPlatformPaymentMetho
 
 // SetPaymentTerm of the dataPlatformOrdersHeaderDatum to the related item.
 // Sets o.R.PaymentTerm to related.
-// Adds o to related.R.PaymentTermDataPlatformOrdersHeaderData.
 func (o *DataPlatformOrdersHeaderDatum) SetPaymentTerm(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformPaymentTermsPaymentTermsDatum) error {
 	var err error
 	if insert {
@@ -1825,21 +909,12 @@ func (o *DataPlatformOrdersHeaderDatum) SetPaymentTerm(ctx context.Context, exec
 		o.R.PaymentTerm = related
 	}
 
-	if related.R == nil {
-		related.R = &dataPlatformPaymentTermsPaymentTermsDatumR{
-			PaymentTermDataPlatformOrdersHeaderData: DataPlatformOrdersHeaderDatumSlice{o},
-		}
-	} else {
-		related.R.PaymentTermDataPlatformOrdersHeaderData = append(related.R.PaymentTermDataPlatformOrdersHeaderData, o)
-	}
-
 	return nil
 }
 
-// SetSellerDataPlatformBusinessPartnerGeneralDatum of the dataPlatformOrdersHeaderDatum to the related item.
-// Sets o.R.SellerDataPlatformBusinessPartnerGeneralDatum to related.
-// Adds o to related.R.SellerDataPlatformOrdersHeaderData.
-func (o *DataPlatformOrdersHeaderDatum) SetSellerDataPlatformBusinessPartnerGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformBusinessPartnerGeneralDatum) error {
+// SetPaymentMethodDataPlatformPaymentMethodPaymentMethodDatum of the dataPlatformOrdersHeaderDatum to the related item.
+// Sets o.R.PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum to related.
+func (o *DataPlatformOrdersHeaderDatum) SetPaymentMethodDataPlatformPaymentMethodPaymentMethodDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformPaymentMethodPaymentMethodDatum) error {
 	var err error
 	if insert {
 		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
@@ -1849,10 +924,10 @@ func (o *DataPlatformOrdersHeaderDatum) SetSellerDataPlatformBusinessPartnerGene
 
 	updateQuery := fmt.Sprintf(
 		"UPDATE `data_platform_orders_header_data` SET %s WHERE %s",
-		strmangle.SetParamNames("`", "`", 0, []string{"Seller"}),
+		strmangle.SetParamNames("`", "`", 0, []string{"PaymentMethod"}),
 		strmangle.WhereClause("`", "`", 0, dataPlatformOrdersHeaderDatumPrimaryKeyColumns),
 	)
-	values := []interface{}{related.BusinessPartner, o.OrderID}
+	values := []interface{}{related.PaymentMethod, o.OrderID}
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -1863,30 +938,21 @@ func (o *DataPlatformOrdersHeaderDatum) SetSellerDataPlatformBusinessPartnerGene
 		return errors.Wrap(err, "failed to update local table")
 	}
 
-	o.Seller = related.BusinessPartner
+	o.PaymentMethod = related.PaymentMethod
 	if o.R == nil {
 		o.R = &dataPlatformOrdersHeaderDatumR{
-			SellerDataPlatformBusinessPartnerGeneralDatum: related,
+			PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum: related,
 		}
 	} else {
-		o.R.SellerDataPlatformBusinessPartnerGeneralDatum = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformBusinessPartnerGeneralDatumR{
-			SellerDataPlatformOrdersHeaderData: DataPlatformOrdersHeaderDatumSlice{o},
-		}
-	} else {
-		related.R.SellerDataPlatformOrdersHeaderData = append(related.R.SellerDataPlatformOrdersHeaderData, o)
+		o.R.PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum = related
 	}
 
 	return nil
 }
 
-// SetTransactionCurrencyDataPlatformCurrencyCurrencyDatum of the dataPlatformOrdersHeaderDatum to the related item.
-// Sets o.R.TransactionCurrencyDataPlatformCurrencyCurrencyDatum to related.
-// Adds o to related.R.TransactionCurrencyDataPlatformOrdersHeaderData.
-func (o *DataPlatformOrdersHeaderDatum) SetTransactionCurrencyDataPlatformCurrencyCurrencyDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformCurrencyCurrencyDatum) error {
+// SetIncoterm of the dataPlatformOrdersHeaderDatum to the related item.
+// Sets o.R.Incoterm to related.
+func (o *DataPlatformOrdersHeaderDatum) SetIncoterm(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformIncotermsIncotermsDatum) error {
 	var err error
 	if insert {
 		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
@@ -1896,10 +962,10 @@ func (o *DataPlatformOrdersHeaderDatum) SetTransactionCurrencyDataPlatformCurren
 
 	updateQuery := fmt.Sprintf(
 		"UPDATE `data_platform_orders_header_data` SET %s WHERE %s",
-		strmangle.SetParamNames("`", "`", 0, []string{"TransactionCurrency"}),
+		strmangle.SetParamNames("`", "`", 0, []string{"Incoterms"}),
 		strmangle.WhereClause("`", "`", 0, dataPlatformOrdersHeaderDatumPrimaryKeyColumns),
 	)
-	values := []interface{}{related.Currency, o.OrderID}
+	values := []interface{}{related.Incoterms, o.OrderID}
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -1910,76 +976,35 @@ func (o *DataPlatformOrdersHeaderDatum) SetTransactionCurrencyDataPlatformCurren
 		return errors.Wrap(err, "failed to update local table")
 	}
 
-	o.TransactionCurrency = related.Currency
+	queries.Assign(&o.Incoterms, related.Incoterms)
 	if o.R == nil {
 		o.R = &dataPlatformOrdersHeaderDatumR{
-			TransactionCurrencyDataPlatformCurrencyCurrencyDatum: related,
+			Incoterm: related,
 		}
 	} else {
-		o.R.TransactionCurrencyDataPlatformCurrencyCurrencyDatum = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformCurrencyCurrencyDatumR{
-			TransactionCurrencyDataPlatformOrdersHeaderData: DataPlatformOrdersHeaderDatumSlice{o},
-		}
-	} else {
-		related.R.TransactionCurrencyDataPlatformOrdersHeaderData = append(related.R.TransactionCurrencyDataPlatformOrdersHeaderData, o)
+		o.R.Incoterm = related
 	}
 
 	return nil
 }
 
-// AddOrderIDDataPlatformOrdersHeaderPartnerData adds the given related objects to the existing relationships
-// of the data_platform_orders_header_datum, optionally inserting them as new records.
-// Appends related to o.R.OrderIDDataPlatformOrdersHeaderPartnerData.
-// Sets related.R.OrderIDDataPlatformOrdersHeaderDatum appropriately.
-func (o *DataPlatformOrdersHeaderDatum) AddOrderIDDataPlatformOrdersHeaderPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersHeaderPartnerDatum) error {
+// RemoveIncoterm relationship.
+// Sets o.R.Incoterm to nil.
+func (o *DataPlatformOrdersHeaderDatum) RemoveIncoterm(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformIncotermsIncotermsDatum) error {
 	var err error
-	for _, rel := range related {
-		if insert {
-			rel.OrderID = o.OrderID
-			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
-				return errors.Wrap(err, "failed to insert into foreign table")
-			}
-		} else {
-			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_orders_header_partner_data` SET %s WHERE %s",
-				strmangle.SetParamNames("`", "`", 0, []string{"OrderID"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersHeaderPartnerDatumPrimaryKeyColumns),
-			)
-			values := []interface{}{o.OrderID, rel.OrderID, rel.PartnerFunction, rel.BusinessPartner}
 
-			if boil.IsDebug(ctx) {
-				writer := boil.DebugWriterFrom(ctx)
-				fmt.Fprintln(writer, updateQuery)
-				fmt.Fprintln(writer, values)
-			}
-			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-				return errors.Wrap(err, "failed to update foreign table")
-			}
-
-			rel.OrderID = o.OrderID
-		}
+	queries.SetScanner(&o.Incoterms, nil)
+	if err = o.Update(ctx, exec, boil.Whitelist("Incoterms")); err != nil {
+		return errors.Wrap(err, "failed to update local table")
 	}
 
-	if o.R == nil {
-		o.R = &dataPlatformOrdersHeaderDatumR{
-			OrderIDDataPlatformOrdersHeaderPartnerData: related,
-		}
-	} else {
-		o.R.OrderIDDataPlatformOrdersHeaderPartnerData = append(o.R.OrderIDDataPlatformOrdersHeaderPartnerData, related...)
+	if o.R != nil {
+		o.R.Incoterm = nil
+	}
+	if related == nil || related.R == nil {
+		return nil
 	}
 
-	for _, rel := range related {
-		if rel.R == nil {
-			rel.R = &dataPlatformOrdersHeaderPartnerDatumR{
-				OrderIDDataPlatformOrdersHeaderDatum: o,
-			}
-		} else {
-			rel.R.OrderIDDataPlatformOrdersHeaderDatum = o
-		}
-	}
 	return nil
 }
 
@@ -2017,10 +1042,6 @@ func FindDataPlatformOrdersHeaderDatum(ctx context.Context, exec boil.ContextExe
 		return nil, errors.Wrap(err, "models: unable to select from data_platform_orders_header_data")
 	}
 
-	if err = dataPlatformOrdersHeaderDatumObj.doAfterSelectHooks(ctx, exec); err != nil {
-		return dataPlatformOrdersHeaderDatumObj, err
-	}
-
 	return dataPlatformOrdersHeaderDatumObj, nil
 }
 
@@ -2032,10 +1053,6 @@ func (o *DataPlatformOrdersHeaderDatum) Insert(ctx context.Context, exec boil.Co
 	}
 
 	var err error
-
-	if err := o.doBeforeInsertHooks(ctx, exec); err != nil {
-		return err
-	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformOrdersHeaderDatumColumnsWithDefault, o)
 
@@ -2116,17 +1133,14 @@ CacheNoHooks:
 		dataPlatformOrdersHeaderDatumInsertCacheMut.Unlock()
 	}
 
-	return o.doAfterInsertHooks(ctx, exec)
+	return nil
 }
 
 // Update uses an executor to update the DataPlatformOrdersHeaderDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformOrdersHeaderDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) (int64, error) {
+func (o *DataPlatformOrdersHeaderDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
-	if err = o.doBeforeUpdateHooks(ctx, exec); err != nil {
-		return 0, err
-	}
 	key := makeCacheKey(columns, nil)
 	dataPlatformOrdersHeaderDatumUpdateCacheMut.RLock()
 	cache, cached := dataPlatformOrdersHeaderDatumUpdateCache[key]
@@ -2142,7 +1156,7 @@ func (o *DataPlatformOrdersHeaderDatum) Update(ctx context.Context, exec boil.Co
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return 0, errors.New("models: unable to update data_platform_orders_header_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_orders_header_data, could not build whitelist")
 		}
 
 		cache.query = fmt.Sprintf("UPDATE `data_platform_orders_header_data` SET %s WHERE %s",
@@ -2151,7 +1165,7 @@ func (o *DataPlatformOrdersHeaderDatum) Update(ctx context.Context, exec boil.Co
 		)
 		cache.valueMapping, err = queries.BindMapping(dataPlatformOrdersHeaderDatumType, dataPlatformOrdersHeaderDatumMapping, append(wl, dataPlatformOrdersHeaderDatumPrimaryKeyColumns...))
 		if err != nil {
-			return 0, err
+			return err
 		}
 	}
 
@@ -2162,15 +1176,9 @@ func (o *DataPlatformOrdersHeaderDatum) Update(ctx context.Context, exec boil.Co
 		fmt.Fprintln(writer, cache.query)
 		fmt.Fprintln(writer, values)
 	}
-	var result sql.Result
-	result, err = exec.ExecContext(ctx, cache.query, values...)
+	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update data_platform_orders_header_data row")
-	}
-
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by update for data_platform_orders_header_data")
+		return errors.Wrap(err, "models: unable to update data_platform_orders_header_data row")
 	}
 
 	if !cached {
@@ -2179,35 +1187,30 @@ func (o *DataPlatformOrdersHeaderDatum) Update(ctx context.Context, exec boil.Co
 		dataPlatformOrdersHeaderDatumUpdateCacheMut.Unlock()
 	}
 
-	return rowsAff, o.doAfterUpdateHooks(ctx, exec)
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformOrdersHeaderDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (q dataPlatformOrdersHeaderDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all for data_platform_orders_header_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_orders_header_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected for data_platform_orders_header_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformOrdersHeaderDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (o DataPlatformOrdersHeaderDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
-		return 0, nil
+		return nil
 	}
 
 	if len(cols) == 0 {
-		return 0, errors.New("models: update all requires at least one column argument")
+		return errors.New("models: update all requires at least one column argument")
 	}
 
 	colNames := make([]string, len(cols))
@@ -2235,16 +1238,12 @@ func (o DataPlatformOrdersHeaderDatumSlice) UpdateAll(ctx context.Context, exec 
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all in dataPlatformOrdersHeaderDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformOrdersHeaderDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected all in update all dataPlatformOrdersHeaderDatum")
-	}
-	return rowsAff, nil
+	return nil
 }
 
 var mySQLDataPlatformOrdersHeaderDatumUniqueColumns = []string{
@@ -2256,10 +1255,6 @@ var mySQLDataPlatformOrdersHeaderDatumUniqueColumns = []string{
 func (o *DataPlatformOrdersHeaderDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
 		return errors.New("models: no data_platform_orders_header_data provided for upsert")
-	}
-
-	if err := o.doBeforeUpsertHooks(ctx, exec); err != nil {
-		return err
 	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformOrdersHeaderDatumColumnsWithDefault, o)
@@ -2382,18 +1377,14 @@ CacheNoHooks:
 		dataPlatformOrdersHeaderDatumUpsertCacheMut.Unlock()
 	}
 
-	return o.doAfterUpsertHooks(ctx, exec)
+	return nil
 }
 
 // Delete deletes a single DataPlatformOrdersHeaderDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformOrdersHeaderDatum) Delete(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o *DataPlatformOrdersHeaderDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return 0, errors.New("models: no DataPlatformOrdersHeaderDatum provided for delete")
-	}
-
-	if err := o.doBeforeDeleteHooks(ctx, exec); err != nil {
-		return 0, err
+		return errors.New("models: no DataPlatformOrdersHeaderDatum provided for delete")
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformOrdersHeaderDatumPrimaryKeyMapping)
@@ -2404,56 +1395,34 @@ func (o *DataPlatformOrdersHeaderDatum) Delete(ctx context.Context, exec boil.Co
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete from data_platform_orders_header_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_orders_header_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by delete for data_platform_orders_header_data")
-	}
-
-	if err := o.doAfterDeleteHooks(ctx, exec); err != nil {
-		return 0, err
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformOrdersHeaderDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (q dataPlatformOrdersHeaderDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return 0, errors.New("models: no dataPlatformOrdersHeaderDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformOrdersHeaderDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from data_platform_orders_header_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_orders_header_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_orders_header_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformOrdersHeaderDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o DataPlatformOrdersHeaderDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
-		return 0, nil
-	}
-
-	if len(dataPlatformOrdersHeaderDatumBeforeDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doBeforeDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
+		return nil
 	}
 
 	var args []interface{}
@@ -2470,25 +1439,12 @@ func (o DataPlatformOrdersHeaderDatumSlice) DeleteAll(ctx context.Context, exec 
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from dataPlatformOrdersHeaderDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformOrdersHeaderDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_orders_header_data")
-	}
-
-	if len(dataPlatformOrdersHeaderDatumAfterDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // Reload refetches the object from the database

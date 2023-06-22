@@ -77,8 +77,6 @@ type (
 	// DataPlatformDivisionDivisionDatumSlice is an alias for a slice of pointers to DataPlatformDivisionDivisionDatum.
 	// This should almost always be used instead of []DataPlatformDivisionDivisionDatum.
 	DataPlatformDivisionDivisionDatumSlice []*DataPlatformDivisionDivisionDatum
-	// DataPlatformDivisionDivisionDatumHook is the signature for custom DataPlatformDivisionDivisionDatum hook methods
-	DataPlatformDivisionDivisionDatumHook func(context.Context, boil.ContextExecutor, *DataPlatformDivisionDivisionDatum) error
 
 	dataPlatformDivisionDivisionDatumQuery struct {
 		*queries.Query
@@ -106,179 +104,6 @@ var (
 	_ = qmhelper.Where
 )
 
-var dataPlatformDivisionDivisionDatumAfterSelectHooks []DataPlatformDivisionDivisionDatumHook
-
-var dataPlatformDivisionDivisionDatumBeforeInsertHooks []DataPlatformDivisionDivisionDatumHook
-var dataPlatformDivisionDivisionDatumAfterInsertHooks []DataPlatformDivisionDivisionDatumHook
-
-var dataPlatformDivisionDivisionDatumBeforeUpdateHooks []DataPlatformDivisionDivisionDatumHook
-var dataPlatformDivisionDivisionDatumAfterUpdateHooks []DataPlatformDivisionDivisionDatumHook
-
-var dataPlatformDivisionDivisionDatumBeforeDeleteHooks []DataPlatformDivisionDivisionDatumHook
-var dataPlatformDivisionDivisionDatumAfterDeleteHooks []DataPlatformDivisionDivisionDatumHook
-
-var dataPlatformDivisionDivisionDatumBeforeUpsertHooks []DataPlatformDivisionDivisionDatumHook
-var dataPlatformDivisionDivisionDatumAfterUpsertHooks []DataPlatformDivisionDivisionDatumHook
-
-// doAfterSelectHooks executes all "after Select" hooks.
-func (o *DataPlatformDivisionDivisionDatum) doAfterSelectHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDivisionDivisionDatumAfterSelectHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeInsertHooks executes all "before insert" hooks.
-func (o *DataPlatformDivisionDivisionDatum) doBeforeInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDivisionDivisionDatumBeforeInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterInsertHooks executes all "after Insert" hooks.
-func (o *DataPlatformDivisionDivisionDatum) doAfterInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDivisionDivisionDatumAfterInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpdateHooks executes all "before Update" hooks.
-func (o *DataPlatformDivisionDivisionDatum) doBeforeUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDivisionDivisionDatumBeforeUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpdateHooks executes all "after Update" hooks.
-func (o *DataPlatformDivisionDivisionDatum) doAfterUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDivisionDivisionDatumAfterUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeDeleteHooks executes all "before Delete" hooks.
-func (o *DataPlatformDivisionDivisionDatum) doBeforeDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDivisionDivisionDatumBeforeDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterDeleteHooks executes all "after Delete" hooks.
-func (o *DataPlatformDivisionDivisionDatum) doAfterDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDivisionDivisionDatumAfterDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpsertHooks executes all "before Upsert" hooks.
-func (o *DataPlatformDivisionDivisionDatum) doBeforeUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDivisionDivisionDatumBeforeUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpsertHooks executes all "after Upsert" hooks.
-func (o *DataPlatformDivisionDivisionDatum) doAfterUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformDivisionDivisionDatumAfterUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// AddDataPlatformDivisionDivisionDatumHook registers your hook function for all future operations.
-func AddDataPlatformDivisionDivisionDatumHook(hookPoint boil.HookPoint, dataPlatformDivisionDivisionDatumHook DataPlatformDivisionDivisionDatumHook) {
-	switch hookPoint {
-	case boil.AfterSelectHook:
-		dataPlatformDivisionDivisionDatumAfterSelectHooks = append(dataPlatformDivisionDivisionDatumAfterSelectHooks, dataPlatformDivisionDivisionDatumHook)
-	case boil.BeforeInsertHook:
-		dataPlatformDivisionDivisionDatumBeforeInsertHooks = append(dataPlatformDivisionDivisionDatumBeforeInsertHooks, dataPlatformDivisionDivisionDatumHook)
-	case boil.AfterInsertHook:
-		dataPlatformDivisionDivisionDatumAfterInsertHooks = append(dataPlatformDivisionDivisionDatumAfterInsertHooks, dataPlatformDivisionDivisionDatumHook)
-	case boil.BeforeUpdateHook:
-		dataPlatformDivisionDivisionDatumBeforeUpdateHooks = append(dataPlatformDivisionDivisionDatumBeforeUpdateHooks, dataPlatformDivisionDivisionDatumHook)
-	case boil.AfterUpdateHook:
-		dataPlatformDivisionDivisionDatumAfterUpdateHooks = append(dataPlatformDivisionDivisionDatumAfterUpdateHooks, dataPlatformDivisionDivisionDatumHook)
-	case boil.BeforeDeleteHook:
-		dataPlatformDivisionDivisionDatumBeforeDeleteHooks = append(dataPlatformDivisionDivisionDatumBeforeDeleteHooks, dataPlatformDivisionDivisionDatumHook)
-	case boil.AfterDeleteHook:
-		dataPlatformDivisionDivisionDatumAfterDeleteHooks = append(dataPlatformDivisionDivisionDatumAfterDeleteHooks, dataPlatformDivisionDivisionDatumHook)
-	case boil.BeforeUpsertHook:
-		dataPlatformDivisionDivisionDatumBeforeUpsertHooks = append(dataPlatformDivisionDivisionDatumBeforeUpsertHooks, dataPlatformDivisionDivisionDatumHook)
-	case boil.AfterUpsertHook:
-		dataPlatformDivisionDivisionDatumAfterUpsertHooks = append(dataPlatformDivisionDivisionDatumAfterUpsertHooks, dataPlatformDivisionDivisionDatumHook)
-	}
-}
-
 // One returns a single dataPlatformDivisionDivisionDatum record from the query.
 func (q dataPlatformDivisionDivisionDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformDivisionDivisionDatum, error) {
 	o := &DataPlatformDivisionDivisionDatum{}
@@ -293,10 +118,6 @@ func (q dataPlatformDivisionDivisionDatumQuery) One(ctx context.Context, exec bo
 		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_division_division_data")
 	}
 
-	if err := o.doAfterSelectHooks(ctx, exec); err != nil {
-		return o, err
-	}
-
 	return o, nil
 }
 
@@ -307,14 +128,6 @@ func (q dataPlatformDivisionDivisionDatumQuery) All(ctx context.Context, exec bo
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
 		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformDivisionDivisionDatum slice")
-	}
-
-	if len(dataPlatformDivisionDivisionDatumAfterSelectHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterSelectHooks(ctx, exec); err != nil {
-				return o, err
-			}
-		}
 	}
 
 	return o, nil
@@ -385,10 +198,6 @@ func FindDataPlatformDivisionDivisionDatum(ctx context.Context, exec boil.Contex
 		return nil, errors.Wrap(err, "models: unable to select from data_platform_division_division_data")
 	}
 
-	if err = dataPlatformDivisionDivisionDatumObj.doAfterSelectHooks(ctx, exec); err != nil {
-		return dataPlatformDivisionDivisionDatumObj, err
-	}
-
 	return dataPlatformDivisionDivisionDatumObj, nil
 }
 
@@ -400,10 +209,6 @@ func (o *DataPlatformDivisionDivisionDatum) Insert(ctx context.Context, exec boi
 	}
 
 	var err error
-
-	if err := o.doBeforeInsertHooks(ctx, exec); err != nil {
-		return err
-	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformDivisionDivisionDatumColumnsWithDefault, o)
 
@@ -484,17 +289,14 @@ CacheNoHooks:
 		dataPlatformDivisionDivisionDatumInsertCacheMut.Unlock()
 	}
 
-	return o.doAfterInsertHooks(ctx, exec)
+	return nil
 }
 
 // Update uses an executor to update the DataPlatformDivisionDivisionDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformDivisionDivisionDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) (int64, error) {
+func (o *DataPlatformDivisionDivisionDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
-	if err = o.doBeforeUpdateHooks(ctx, exec); err != nil {
-		return 0, err
-	}
 	key := makeCacheKey(columns, nil)
 	dataPlatformDivisionDivisionDatumUpdateCacheMut.RLock()
 	cache, cached := dataPlatformDivisionDivisionDatumUpdateCache[key]
@@ -510,7 +312,7 @@ func (o *DataPlatformDivisionDivisionDatum) Update(ctx context.Context, exec boi
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return 0, errors.New("models: unable to update data_platform_division_division_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_division_division_data, could not build whitelist")
 		}
 
 		cache.query = fmt.Sprintf("UPDATE `data_platform_division_division_data` SET %s WHERE %s",
@@ -519,7 +321,7 @@ func (o *DataPlatformDivisionDivisionDatum) Update(ctx context.Context, exec boi
 		)
 		cache.valueMapping, err = queries.BindMapping(dataPlatformDivisionDivisionDatumType, dataPlatformDivisionDivisionDatumMapping, append(wl, dataPlatformDivisionDivisionDatumPrimaryKeyColumns...))
 		if err != nil {
-			return 0, err
+			return err
 		}
 	}
 
@@ -530,15 +332,9 @@ func (o *DataPlatformDivisionDivisionDatum) Update(ctx context.Context, exec boi
 		fmt.Fprintln(writer, cache.query)
 		fmt.Fprintln(writer, values)
 	}
-	var result sql.Result
-	result, err = exec.ExecContext(ctx, cache.query, values...)
+	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update data_platform_division_division_data row")
-	}
-
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by update for data_platform_division_division_data")
+		return errors.Wrap(err, "models: unable to update data_platform_division_division_data row")
 	}
 
 	if !cached {
@@ -547,35 +343,30 @@ func (o *DataPlatformDivisionDivisionDatum) Update(ctx context.Context, exec boi
 		dataPlatformDivisionDivisionDatumUpdateCacheMut.Unlock()
 	}
 
-	return rowsAff, o.doAfterUpdateHooks(ctx, exec)
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformDivisionDivisionDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (q dataPlatformDivisionDivisionDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all for data_platform_division_division_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_division_division_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected for data_platform_division_division_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformDivisionDivisionDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (o DataPlatformDivisionDivisionDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
-		return 0, nil
+		return nil
 	}
 
 	if len(cols) == 0 {
-		return 0, errors.New("models: update all requires at least one column argument")
+		return errors.New("models: update all requires at least one column argument")
 	}
 
 	colNames := make([]string, len(cols))
@@ -603,16 +394,12 @@ func (o DataPlatformDivisionDivisionDatumSlice) UpdateAll(ctx context.Context, e
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all in dataPlatformDivisionDivisionDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformDivisionDivisionDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected all in update all dataPlatformDivisionDivisionDatum")
-	}
-	return rowsAff, nil
+	return nil
 }
 
 var mySQLDataPlatformDivisionDivisionDatumUniqueColumns = []string{
@@ -624,10 +411,6 @@ var mySQLDataPlatformDivisionDivisionDatumUniqueColumns = []string{
 func (o *DataPlatformDivisionDivisionDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
 		return errors.New("models: no data_platform_division_division_data provided for upsert")
-	}
-
-	if err := o.doBeforeUpsertHooks(ctx, exec); err != nil {
-		return err
 	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformDivisionDivisionDatumColumnsWithDefault, o)
@@ -750,18 +533,14 @@ CacheNoHooks:
 		dataPlatformDivisionDivisionDatumUpsertCacheMut.Unlock()
 	}
 
-	return o.doAfterUpsertHooks(ctx, exec)
+	return nil
 }
 
 // Delete deletes a single DataPlatformDivisionDivisionDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformDivisionDivisionDatum) Delete(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o *DataPlatformDivisionDivisionDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return 0, errors.New("models: no DataPlatformDivisionDivisionDatum provided for delete")
-	}
-
-	if err := o.doBeforeDeleteHooks(ctx, exec); err != nil {
-		return 0, err
+		return errors.New("models: no DataPlatformDivisionDivisionDatum provided for delete")
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformDivisionDivisionDatumPrimaryKeyMapping)
@@ -772,56 +551,34 @@ func (o *DataPlatformDivisionDivisionDatum) Delete(ctx context.Context, exec boi
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete from data_platform_division_division_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_division_division_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by delete for data_platform_division_division_data")
-	}
-
-	if err := o.doAfterDeleteHooks(ctx, exec); err != nil {
-		return 0, err
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformDivisionDivisionDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (q dataPlatformDivisionDivisionDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return 0, errors.New("models: no dataPlatformDivisionDivisionDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformDivisionDivisionDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from data_platform_division_division_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_division_division_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_division_division_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformDivisionDivisionDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o DataPlatformDivisionDivisionDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
-		return 0, nil
-	}
-
-	if len(dataPlatformDivisionDivisionDatumBeforeDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doBeforeDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
+		return nil
 	}
 
 	var args []interface{}
@@ -838,25 +595,12 @@ func (o DataPlatformDivisionDivisionDatumSlice) DeleteAll(ctx context.Context, e
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from dataPlatformDivisionDivisionDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformDivisionDivisionDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_division_division_data")
-	}
-
-	if len(dataPlatformDivisionDivisionDatumAfterDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // Reload refetches the object from the database

@@ -103,8 +103,6 @@ type (
 	// DataPlatformQuantityUnitTextDatumSlice is an alias for a slice of pointers to DataPlatformQuantityUnitTextDatum.
 	// This should almost always be used instead of []DataPlatformQuantityUnitTextDatum.
 	DataPlatformQuantityUnitTextDatumSlice []*DataPlatformQuantityUnitTextDatum
-	// DataPlatformQuantityUnitTextDatumHook is the signature for custom DataPlatformQuantityUnitTextDatum hook methods
-	DataPlatformQuantityUnitTextDatumHook func(context.Context, boil.ContextExecutor, *DataPlatformQuantityUnitTextDatum) error
 
 	dataPlatformQuantityUnitTextDatumQuery struct {
 		*queries.Query
@@ -132,179 +130,6 @@ var (
 	_ = qmhelper.Where
 )
 
-var dataPlatformQuantityUnitTextDatumAfterSelectHooks []DataPlatformQuantityUnitTextDatumHook
-
-var dataPlatformQuantityUnitTextDatumBeforeInsertHooks []DataPlatformQuantityUnitTextDatumHook
-var dataPlatformQuantityUnitTextDatumAfterInsertHooks []DataPlatformQuantityUnitTextDatumHook
-
-var dataPlatformQuantityUnitTextDatumBeforeUpdateHooks []DataPlatformQuantityUnitTextDatumHook
-var dataPlatformQuantityUnitTextDatumAfterUpdateHooks []DataPlatformQuantityUnitTextDatumHook
-
-var dataPlatformQuantityUnitTextDatumBeforeDeleteHooks []DataPlatformQuantityUnitTextDatumHook
-var dataPlatformQuantityUnitTextDatumAfterDeleteHooks []DataPlatformQuantityUnitTextDatumHook
-
-var dataPlatformQuantityUnitTextDatumBeforeUpsertHooks []DataPlatformQuantityUnitTextDatumHook
-var dataPlatformQuantityUnitTextDatumAfterUpsertHooks []DataPlatformQuantityUnitTextDatumHook
-
-// doAfterSelectHooks executes all "after Select" hooks.
-func (o *DataPlatformQuantityUnitTextDatum) doAfterSelectHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformQuantityUnitTextDatumAfterSelectHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeInsertHooks executes all "before insert" hooks.
-func (o *DataPlatformQuantityUnitTextDatum) doBeforeInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformQuantityUnitTextDatumBeforeInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterInsertHooks executes all "after Insert" hooks.
-func (o *DataPlatformQuantityUnitTextDatum) doAfterInsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformQuantityUnitTextDatumAfterInsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpdateHooks executes all "before Update" hooks.
-func (o *DataPlatformQuantityUnitTextDatum) doBeforeUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformQuantityUnitTextDatumBeforeUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpdateHooks executes all "after Update" hooks.
-func (o *DataPlatformQuantityUnitTextDatum) doAfterUpdateHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformQuantityUnitTextDatumAfterUpdateHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeDeleteHooks executes all "before Delete" hooks.
-func (o *DataPlatformQuantityUnitTextDatum) doBeforeDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformQuantityUnitTextDatumBeforeDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterDeleteHooks executes all "after Delete" hooks.
-func (o *DataPlatformQuantityUnitTextDatum) doAfterDeleteHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformQuantityUnitTextDatumAfterDeleteHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doBeforeUpsertHooks executes all "before Upsert" hooks.
-func (o *DataPlatformQuantityUnitTextDatum) doBeforeUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformQuantityUnitTextDatumBeforeUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// doAfterUpsertHooks executes all "after Upsert" hooks.
-func (o *DataPlatformQuantityUnitTextDatum) doAfterUpsertHooks(ctx context.Context, exec boil.ContextExecutor) (err error) {
-	if boil.HooksAreSkipped(ctx) {
-		return nil
-	}
-
-	for _, hook := range dataPlatformQuantityUnitTextDatumAfterUpsertHooks {
-		if err := hook(ctx, exec, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// AddDataPlatformQuantityUnitTextDatumHook registers your hook function for all future operations.
-func AddDataPlatformQuantityUnitTextDatumHook(hookPoint boil.HookPoint, dataPlatformQuantityUnitTextDatumHook DataPlatformQuantityUnitTextDatumHook) {
-	switch hookPoint {
-	case boil.AfterSelectHook:
-		dataPlatformQuantityUnitTextDatumAfterSelectHooks = append(dataPlatformQuantityUnitTextDatumAfterSelectHooks, dataPlatformQuantityUnitTextDatumHook)
-	case boil.BeforeInsertHook:
-		dataPlatformQuantityUnitTextDatumBeforeInsertHooks = append(dataPlatformQuantityUnitTextDatumBeforeInsertHooks, dataPlatformQuantityUnitTextDatumHook)
-	case boil.AfterInsertHook:
-		dataPlatformQuantityUnitTextDatumAfterInsertHooks = append(dataPlatformQuantityUnitTextDatumAfterInsertHooks, dataPlatformQuantityUnitTextDatumHook)
-	case boil.BeforeUpdateHook:
-		dataPlatformQuantityUnitTextDatumBeforeUpdateHooks = append(dataPlatformQuantityUnitTextDatumBeforeUpdateHooks, dataPlatformQuantityUnitTextDatumHook)
-	case boil.AfterUpdateHook:
-		dataPlatformQuantityUnitTextDatumAfterUpdateHooks = append(dataPlatformQuantityUnitTextDatumAfterUpdateHooks, dataPlatformQuantityUnitTextDatumHook)
-	case boil.BeforeDeleteHook:
-		dataPlatformQuantityUnitTextDatumBeforeDeleteHooks = append(dataPlatformQuantityUnitTextDatumBeforeDeleteHooks, dataPlatformQuantityUnitTextDatumHook)
-	case boil.AfterDeleteHook:
-		dataPlatformQuantityUnitTextDatumAfterDeleteHooks = append(dataPlatformQuantityUnitTextDatumAfterDeleteHooks, dataPlatformQuantityUnitTextDatumHook)
-	case boil.BeforeUpsertHook:
-		dataPlatformQuantityUnitTextDatumBeforeUpsertHooks = append(dataPlatformQuantityUnitTextDatumBeforeUpsertHooks, dataPlatformQuantityUnitTextDatumHook)
-	case boil.AfterUpsertHook:
-		dataPlatformQuantityUnitTextDatumAfterUpsertHooks = append(dataPlatformQuantityUnitTextDatumAfterUpsertHooks, dataPlatformQuantityUnitTextDatumHook)
-	}
-}
-
 // One returns a single dataPlatformQuantityUnitTextDatum record from the query.
 func (q dataPlatformQuantityUnitTextDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformQuantityUnitTextDatum, error) {
 	o := &DataPlatformQuantityUnitTextDatum{}
@@ -319,10 +144,6 @@ func (q dataPlatformQuantityUnitTextDatumQuery) One(ctx context.Context, exec bo
 		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_quantity_unit_text_data")
 	}
 
-	if err := o.doAfterSelectHooks(ctx, exec); err != nil {
-		return o, err
-	}
-
 	return o, nil
 }
 
@@ -333,14 +154,6 @@ func (q dataPlatformQuantityUnitTextDatumQuery) All(ctx context.Context, exec bo
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
 		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformQuantityUnitTextDatum slice")
-	}
-
-	if len(dataPlatformQuantityUnitTextDatumAfterSelectHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterSelectHooks(ctx, exec); err != nil {
-				return o, err
-			}
-		}
 	}
 
 	return o, nil
@@ -470,14 +283,6 @@ func (dataPlatformQuantityUnitTextDatumL) LoadQuantityUnitDataPlatformQuantityUn
 		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_quantity_unit_quantity_unit_data")
 	}
 
-	if len(dataPlatformQuantityUnitQuantityUnitDatumAfterSelectHooks) != 0 {
-		for _, obj := range resultSlice {
-			if err := obj.doAfterSelectHooks(ctx, e); err != nil {
-				return err
-			}
-		}
-	}
-
 	if len(resultSlice) == 0 {
 		return nil
 	}
@@ -485,10 +290,6 @@ func (dataPlatformQuantityUnitTextDatumL) LoadQuantityUnitDataPlatformQuantityUn
 	if singular {
 		foreign := resultSlice[0]
 		object.R.QuantityUnitDataPlatformQuantityUnitQuantityUnitDatum = foreign
-		if foreign.R == nil {
-			foreign.R = &dataPlatformQuantityUnitQuantityUnitDatumR{}
-		}
-		foreign.R.QuantityUnitDataPlatformQuantityUnitTextData = append(foreign.R.QuantityUnitDataPlatformQuantityUnitTextData, object)
 		return nil
 	}
 
@@ -496,10 +297,6 @@ func (dataPlatformQuantityUnitTextDatumL) LoadQuantityUnitDataPlatformQuantityUn
 		for _, foreign := range resultSlice {
 			if local.QuantityUnit == foreign.QuantityUnit {
 				local.R.QuantityUnitDataPlatformQuantityUnitQuantityUnitDatum = foreign
-				if foreign.R == nil {
-					foreign.R = &dataPlatformQuantityUnitQuantityUnitDatumR{}
-				}
-				foreign.R.QuantityUnitDataPlatformQuantityUnitTextData = append(foreign.R.QuantityUnitDataPlatformQuantityUnitTextData, local)
 				break
 			}
 		}
@@ -510,7 +307,6 @@ func (dataPlatformQuantityUnitTextDatumL) LoadQuantityUnitDataPlatformQuantityUn
 
 // SetQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum of the dataPlatformQuantityUnitTextDatum to the related item.
 // Sets o.R.QuantityUnitDataPlatformQuantityUnitQuantityUnitDatum to related.
-// Adds o to related.R.QuantityUnitDataPlatformQuantityUnitTextData.
 func (o *DataPlatformQuantityUnitTextDatum) SetQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformQuantityUnitQuantityUnitDatum) error {
 	var err error
 	if insert {
@@ -542,14 +338,6 @@ func (o *DataPlatformQuantityUnitTextDatum) SetQuantityUnitDataPlatformQuantityU
 		}
 	} else {
 		o.R.QuantityUnitDataPlatformQuantityUnitQuantityUnitDatum = related
-	}
-
-	if related.R == nil {
-		related.R = &dataPlatformQuantityUnitQuantityUnitDatumR{
-			QuantityUnitDataPlatformQuantityUnitTextData: DataPlatformQuantityUnitTextDatumSlice{o},
-		}
-	} else {
-		related.R.QuantityUnitDataPlatformQuantityUnitTextData = append(related.R.QuantityUnitDataPlatformQuantityUnitTextData, o)
 	}
 
 	return nil
@@ -589,10 +377,6 @@ func FindDataPlatformQuantityUnitTextDatum(ctx context.Context, exec boil.Contex
 		return nil, errors.Wrap(err, "models: unable to select from data_platform_quantity_unit_text_data")
 	}
 
-	if err = dataPlatformQuantityUnitTextDatumObj.doAfterSelectHooks(ctx, exec); err != nil {
-		return dataPlatformQuantityUnitTextDatumObj, err
-	}
-
 	return dataPlatformQuantityUnitTextDatumObj, nil
 }
 
@@ -604,10 +388,6 @@ func (o *DataPlatformQuantityUnitTextDatum) Insert(ctx context.Context, exec boi
 	}
 
 	var err error
-
-	if err := o.doBeforeInsertHooks(ctx, exec); err != nil {
-		return err
-	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformQuantityUnitTextDatumColumnsWithDefault, o)
 
@@ -689,17 +469,14 @@ CacheNoHooks:
 		dataPlatformQuantityUnitTextDatumInsertCacheMut.Unlock()
 	}
 
-	return o.doAfterInsertHooks(ctx, exec)
+	return nil
 }
 
 // Update uses an executor to update the DataPlatformQuantityUnitTextDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformQuantityUnitTextDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) (int64, error) {
+func (o *DataPlatformQuantityUnitTextDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
-	if err = o.doBeforeUpdateHooks(ctx, exec); err != nil {
-		return 0, err
-	}
 	key := makeCacheKey(columns, nil)
 	dataPlatformQuantityUnitTextDatumUpdateCacheMut.RLock()
 	cache, cached := dataPlatformQuantityUnitTextDatumUpdateCache[key]
@@ -715,7 +492,7 @@ func (o *DataPlatformQuantityUnitTextDatum) Update(ctx context.Context, exec boi
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return 0, errors.New("models: unable to update data_platform_quantity_unit_text_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_quantity_unit_text_data, could not build whitelist")
 		}
 
 		cache.query = fmt.Sprintf("UPDATE `data_platform_quantity_unit_text_data` SET %s WHERE %s",
@@ -724,7 +501,7 @@ func (o *DataPlatformQuantityUnitTextDatum) Update(ctx context.Context, exec boi
 		)
 		cache.valueMapping, err = queries.BindMapping(dataPlatformQuantityUnitTextDatumType, dataPlatformQuantityUnitTextDatumMapping, append(wl, dataPlatformQuantityUnitTextDatumPrimaryKeyColumns...))
 		if err != nil {
-			return 0, err
+			return err
 		}
 	}
 
@@ -735,15 +512,9 @@ func (o *DataPlatformQuantityUnitTextDatum) Update(ctx context.Context, exec boi
 		fmt.Fprintln(writer, cache.query)
 		fmt.Fprintln(writer, values)
 	}
-	var result sql.Result
-	result, err = exec.ExecContext(ctx, cache.query, values...)
+	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update data_platform_quantity_unit_text_data row")
-	}
-
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by update for data_platform_quantity_unit_text_data")
+		return errors.Wrap(err, "models: unable to update data_platform_quantity_unit_text_data row")
 	}
 
 	if !cached {
@@ -752,35 +523,30 @@ func (o *DataPlatformQuantityUnitTextDatum) Update(ctx context.Context, exec boi
 		dataPlatformQuantityUnitTextDatumUpdateCacheMut.Unlock()
 	}
 
-	return rowsAff, o.doAfterUpdateHooks(ctx, exec)
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformQuantityUnitTextDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (q dataPlatformQuantityUnitTextDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all for data_platform_quantity_unit_text_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_quantity_unit_text_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected for data_platform_quantity_unit_text_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformQuantityUnitTextDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) (int64, error) {
+func (o DataPlatformQuantityUnitTextDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
-		return 0, nil
+		return nil
 	}
 
 	if len(cols) == 0 {
-		return 0, errors.New("models: update all requires at least one column argument")
+		return errors.New("models: update all requires at least one column argument")
 	}
 
 	colNames := make([]string, len(cols))
@@ -808,16 +574,12 @@ func (o DataPlatformQuantityUnitTextDatumSlice) UpdateAll(ctx context.Context, e
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to update all in dataPlatformQuantityUnitTextDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformQuantityUnitTextDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to retrieve rows affected all in update all dataPlatformQuantityUnitTextDatum")
-	}
-	return rowsAff, nil
+	return nil
 }
 
 var mySQLDataPlatformQuantityUnitTextDatumUniqueColumns = []string{}
@@ -827,10 +589,6 @@ var mySQLDataPlatformQuantityUnitTextDatumUniqueColumns = []string{}
 func (o *DataPlatformQuantityUnitTextDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
 		return errors.New("models: no data_platform_quantity_unit_text_data provided for upsert")
-	}
-
-	if err := o.doBeforeUpsertHooks(ctx, exec); err != nil {
-		return err
 	}
 
 	nzDefaults := queries.NonZeroDefaultSet(dataPlatformQuantityUnitTextDatumColumnsWithDefault, o)
@@ -953,18 +711,14 @@ CacheNoHooks:
 		dataPlatformQuantityUnitTextDatumUpsertCacheMut.Unlock()
 	}
 
-	return o.doAfterUpsertHooks(ctx, exec)
+	return nil
 }
 
 // Delete deletes a single DataPlatformQuantityUnitTextDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformQuantityUnitTextDatum) Delete(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o *DataPlatformQuantityUnitTextDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return 0, errors.New("models: no DataPlatformQuantityUnitTextDatum provided for delete")
-	}
-
-	if err := o.doBeforeDeleteHooks(ctx, exec); err != nil {
-		return 0, err
+		return errors.New("models: no DataPlatformQuantityUnitTextDatum provided for delete")
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformQuantityUnitTextDatumPrimaryKeyMapping)
@@ -975,56 +729,34 @@ func (o *DataPlatformQuantityUnitTextDatum) Delete(ctx context.Context, exec boi
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args...)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete from data_platform_quantity_unit_text_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_quantity_unit_text_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by delete for data_platform_quantity_unit_text_data")
-	}
-
-	if err := o.doAfterDeleteHooks(ctx, exec); err != nil {
-		return 0, err
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformQuantityUnitTextDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (q dataPlatformQuantityUnitTextDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return 0, errors.New("models: no dataPlatformQuantityUnitTextDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformQuantityUnitTextDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
-	result, err := q.Query.ExecContext(ctx, exec)
+	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from data_platform_quantity_unit_text_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_quantity_unit_text_data")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_quantity_unit_text_data")
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformQuantityUnitTextDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+func (o DataPlatformQuantityUnitTextDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
-		return 0, nil
-	}
-
-	if len(dataPlatformQuantityUnitTextDatumBeforeDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doBeforeDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
+		return nil
 	}
 
 	var args []interface{}
@@ -1041,25 +773,12 @@ func (o DataPlatformQuantityUnitTextDatumSlice) DeleteAll(ctx context.Context, e
 		fmt.Fprintln(writer, sql)
 		fmt.Fprintln(writer, args)
 	}
-	result, err := exec.ExecContext(ctx, sql, args...)
+	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: unable to delete all from dataPlatformQuantityUnitTextDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformQuantityUnitTextDatum slice")
 	}
 
-	rowsAff, err := result.RowsAffected()
-	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to get rows affected by deleteall for data_platform_quantity_unit_text_data")
-	}
-
-	if len(dataPlatformQuantityUnitTextDatumAfterDeleteHooks) != 0 {
-		for _, obj := range o {
-			if err := obj.doAfterDeleteHooks(ctx, exec); err != nil {
-				return 0, err
-			}
-		}
-	}
-
-	return rowsAff, nil
+	return nil
 }
 
 // Reload refetches the object from the database

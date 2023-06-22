@@ -1,11 +1,16 @@
 no-tests = true
+no-back-referencing = true
+no-hooks = true
+no-rows-affected = true
 output = "models"
 wipe = true
 
 [mysql]
 dbname = "DataPlatformMastersAndTransactionsMysqlKube"
-host = "XXXXXXXXXXX"
+host = "ec2-35-80-194-134.us-west-2.compute.amazonaws.com"
 port = 30010
-user = "XXXXXXXXXXX"
-pass = "XXXXXXXXXXX"
+user = "latona"
+pass = "L@ton@2020!"
 sslmode = "false"
+
+
