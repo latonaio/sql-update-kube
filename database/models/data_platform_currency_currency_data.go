@@ -51,28 +51,35 @@ var DataPlatformCurrencyCurrencyDatumWhere = struct {
 
 // DataPlatformCurrencyCurrencyDatumRels is where relationship names are stored.
 var DataPlatformCurrencyCurrencyDatumRels = struct {
-	CurrencyDataPlatformCurrencyCurrencyTextData                          string
-	TransactionCurrencyDataPlatformDeliveryDocumentHeaderData             string
-	CurrencyDataPlatformDeliveryDocumentPartnerData                       string
-	TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData string
+	CurrencyDataPlatformBusinessPartnerGeneralData          string
+	CurrencyDataPlatformCurrencyCurrencyTextData            string
+	ConditionCurrencyDataPlatformPriceMasterPriceMasterData string
+	TransactionCurrencyDataPlatformSCRTransactionData       string
 }{
-	CurrencyDataPlatformCurrencyCurrencyTextData:                          "CurrencyDataPlatformCurrencyCurrencyTextData",
-	TransactionCurrencyDataPlatformDeliveryDocumentHeaderData:             "TransactionCurrencyDataPlatformDeliveryDocumentHeaderData",
-	CurrencyDataPlatformDeliveryDocumentPartnerData:                       "CurrencyDataPlatformDeliveryDocumentPartnerData",
-	TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData: "TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData",
+	CurrencyDataPlatformBusinessPartnerGeneralData:          "CurrencyDataPlatformBusinessPartnerGeneralData",
+	CurrencyDataPlatformCurrencyCurrencyTextData:            "CurrencyDataPlatformCurrencyCurrencyTextData",
+	ConditionCurrencyDataPlatformPriceMasterPriceMasterData: "ConditionCurrencyDataPlatformPriceMasterPriceMasterData",
+	TransactionCurrencyDataPlatformSCRTransactionData:       "TransactionCurrencyDataPlatformSCRTransactionData",
 }
 
 // dataPlatformCurrencyCurrencyDatumR is where relationships are stored.
 type dataPlatformCurrencyCurrencyDatumR struct {
-	CurrencyDataPlatformCurrencyCurrencyTextData                          DataPlatformCurrencyCurrencyTextDatumSlice               `boil:"CurrencyDataPlatformCurrencyCurrencyTextData" json:"CurrencyDataPlatformCurrencyCurrencyTextData" toml:"CurrencyDataPlatformCurrencyCurrencyTextData" yaml:"CurrencyDataPlatformCurrencyCurrencyTextData"`
-	TransactionCurrencyDataPlatformDeliveryDocumentHeaderData             DataPlatformDeliveryDocumentHeaderDatumSlice             `boil:"TransactionCurrencyDataPlatformDeliveryDocumentHeaderData" json:"TransactionCurrencyDataPlatformDeliveryDocumentHeaderData" toml:"TransactionCurrencyDataPlatformDeliveryDocumentHeaderData" yaml:"TransactionCurrencyDataPlatformDeliveryDocumentHeaderData"`
-	CurrencyDataPlatformDeliveryDocumentPartnerData                       DataPlatformDeliveryDocumentPartnerDatumSlice            `boil:"CurrencyDataPlatformDeliveryDocumentPartnerData" json:"CurrencyDataPlatformDeliveryDocumentPartnerData" toml:"CurrencyDataPlatformDeliveryDocumentPartnerData" yaml:"CurrencyDataPlatformDeliveryDocumentPartnerData"`
-	TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData DataPlatformSupplyChainRelationshipTransactionDatumSlice `boil:"TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData" json:"TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData" toml:"TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData" yaml:"TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData"`
+	CurrencyDataPlatformBusinessPartnerGeneralData          DataPlatformBusinessPartnerGeneralDatumSlice `boil:"CurrencyDataPlatformBusinessPartnerGeneralData" json:"CurrencyDataPlatformBusinessPartnerGeneralData" toml:"CurrencyDataPlatformBusinessPartnerGeneralData" yaml:"CurrencyDataPlatformBusinessPartnerGeneralData"`
+	CurrencyDataPlatformCurrencyCurrencyTextData            DataPlatformCurrencyCurrencyTextDatumSlice   `boil:"CurrencyDataPlatformCurrencyCurrencyTextData" json:"CurrencyDataPlatformCurrencyCurrencyTextData" toml:"CurrencyDataPlatformCurrencyCurrencyTextData" yaml:"CurrencyDataPlatformCurrencyCurrencyTextData"`
+	ConditionCurrencyDataPlatformPriceMasterPriceMasterData DataPlatformPriceMasterPriceMasterDatumSlice `boil:"ConditionCurrencyDataPlatformPriceMasterPriceMasterData" json:"ConditionCurrencyDataPlatformPriceMasterPriceMasterData" toml:"ConditionCurrencyDataPlatformPriceMasterPriceMasterData" yaml:"ConditionCurrencyDataPlatformPriceMasterPriceMasterData"`
+	TransactionCurrencyDataPlatformSCRTransactionData       DataPlatformSCRTransactionDatumSlice         `boil:"TransactionCurrencyDataPlatformSCRTransactionData" json:"TransactionCurrencyDataPlatformSCRTransactionData" toml:"TransactionCurrencyDataPlatformSCRTransactionData" yaml:"TransactionCurrencyDataPlatformSCRTransactionData"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformCurrencyCurrencyDatumR) NewStruct() *dataPlatformCurrencyCurrencyDatumR {
 	return &dataPlatformCurrencyCurrencyDatumR{}
+}
+
+func (r *dataPlatformCurrencyCurrencyDatumR) GetCurrencyDataPlatformBusinessPartnerGeneralData() DataPlatformBusinessPartnerGeneralDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.CurrencyDataPlatformBusinessPartnerGeneralData
 }
 
 func (r *dataPlatformCurrencyCurrencyDatumR) GetCurrencyDataPlatformCurrencyCurrencyTextData() DataPlatformCurrencyCurrencyTextDatumSlice {
@@ -82,25 +89,18 @@ func (r *dataPlatformCurrencyCurrencyDatumR) GetCurrencyDataPlatformCurrencyCurr
 	return r.CurrencyDataPlatformCurrencyCurrencyTextData
 }
 
-func (r *dataPlatformCurrencyCurrencyDatumR) GetTransactionCurrencyDataPlatformDeliveryDocumentHeaderData() DataPlatformDeliveryDocumentHeaderDatumSlice {
+func (r *dataPlatformCurrencyCurrencyDatumR) GetConditionCurrencyDataPlatformPriceMasterPriceMasterData() DataPlatformPriceMasterPriceMasterDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.TransactionCurrencyDataPlatformDeliveryDocumentHeaderData
+	return r.ConditionCurrencyDataPlatformPriceMasterPriceMasterData
 }
 
-func (r *dataPlatformCurrencyCurrencyDatumR) GetCurrencyDataPlatformDeliveryDocumentPartnerData() DataPlatformDeliveryDocumentPartnerDatumSlice {
+func (r *dataPlatformCurrencyCurrencyDatumR) GetTransactionCurrencyDataPlatformSCRTransactionData() DataPlatformSCRTransactionDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.CurrencyDataPlatformDeliveryDocumentPartnerData
-}
-
-func (r *dataPlatformCurrencyCurrencyDatumR) GetTransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData() DataPlatformSupplyChainRelationshipTransactionDatumSlice {
-	if r == nil {
-		return nil
-	}
-	return r.TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData
+	return r.TransactionCurrencyDataPlatformSCRTransactionData
 }
 
 // dataPlatformCurrencyCurrencyDatumL is where Load methods for each relationship are stored.
@@ -205,6 +205,20 @@ func (q dataPlatformCurrencyCurrencyDatumQuery) Exists(ctx context.Context, exec
 	return count > 0, nil
 }
 
+// CurrencyDataPlatformBusinessPartnerGeneralData retrieves all the data_platform_business_partner_general_datum's DataPlatformBusinessPartnerGeneralData with an executor via Currency column.
+func (o *DataPlatformCurrencyCurrencyDatum) CurrencyDataPlatformBusinessPartnerGeneralData(mods ...qm.QueryMod) dataPlatformBusinessPartnerGeneralDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_business_partner_general_data`.`Currency`=?", o.Currency),
+	)
+
+	return DataPlatformBusinessPartnerGeneralData(queryMods...)
+}
+
 // CurrencyDataPlatformCurrencyCurrencyTextData retrieves all the data_platform_currency_currency_text_datum's DataPlatformCurrencyCurrencyTextData with an executor via Currency column.
 func (o *DataPlatformCurrencyCurrencyDatum) CurrencyDataPlatformCurrencyCurrencyTextData(mods ...qm.QueryMod) dataPlatformCurrencyCurrencyTextDatumQuery {
 	var queryMods []qm.QueryMod
@@ -219,46 +233,129 @@ func (o *DataPlatformCurrencyCurrencyDatum) CurrencyDataPlatformCurrencyCurrency
 	return DataPlatformCurrencyCurrencyTextData(queryMods...)
 }
 
-// TransactionCurrencyDataPlatformDeliveryDocumentHeaderData retrieves all the data_platform_delivery_document_header_datum's DataPlatformDeliveryDocumentHeaderData with an executor via TransactionCurrency column.
-func (o *DataPlatformCurrencyCurrencyDatum) TransactionCurrencyDataPlatformDeliveryDocumentHeaderData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentHeaderDatumQuery {
+// ConditionCurrencyDataPlatformPriceMasterPriceMasterData retrieves all the data_platform_price_master_price_master_datum's DataPlatformPriceMasterPriceMasterData with an executor via ConditionCurrency column.
+func (o *DataPlatformCurrencyCurrencyDatum) ConditionCurrencyDataPlatformPriceMasterPriceMasterData(mods ...qm.QueryMod) dataPlatformPriceMasterPriceMasterDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_delivery_document_header_data`.`TransactionCurrency`=?", o.Currency),
+		qm.Where("`data_platform_price_master_price_master_data`.`ConditionCurrency`=?", o.Currency),
 	)
 
-	return DataPlatformDeliveryDocumentHeaderData(queryMods...)
+	return DataPlatformPriceMasterPriceMasterData(queryMods...)
 }
 
-// CurrencyDataPlatformDeliveryDocumentPartnerData retrieves all the data_platform_delivery_document_partner_datum's DataPlatformDeliveryDocumentPartnerData with an executor via Currency column.
-func (o *DataPlatformCurrencyCurrencyDatum) CurrencyDataPlatformDeliveryDocumentPartnerData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentPartnerDatumQuery {
+// TransactionCurrencyDataPlatformSCRTransactionData retrieves all the data_platform_scr_transaction_datum's DataPlatformSCRTransactionData with an executor via TransactionCurrency column.
+func (o *DataPlatformCurrencyCurrencyDatum) TransactionCurrencyDataPlatformSCRTransactionData(mods ...qm.QueryMod) dataPlatformSCRTransactionDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_delivery_document_partner_data`.`Currency`=?", o.Currency),
+		qm.Where("`data_platform_scr_transaction_data`.`TransactionCurrency`=?", o.Currency),
 	)
 
-	return DataPlatformDeliveryDocumentPartnerData(queryMods...)
+	return DataPlatformSCRTransactionData(queryMods...)
 }
 
-// TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData retrieves all the data_platform_supply_chain_relationship_transaction_datum's DataPlatformSupplyChainRelationshipTransactionData with an executor via TransactionCurrency column.
-func (o *DataPlatformCurrencyCurrencyDatum) TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData(mods ...qm.QueryMod) dataPlatformSupplyChainRelationshipTransactionDatumQuery {
-	var queryMods []qm.QueryMod
-	if len(mods) != 0 {
-		queryMods = append(queryMods, mods...)
+// LoadCurrencyDataPlatformBusinessPartnerGeneralData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformCurrencyCurrencyDatumL) LoadCurrencyDataPlatformBusinessPartnerGeneralData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformCurrencyCurrencyDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformCurrencyCurrencyDatum
+	var object *DataPlatformCurrencyCurrencyDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformCurrencyCurrencyDatum.(*DataPlatformCurrencyCurrencyDatum)
+		if !ok {
+			object = new(DataPlatformCurrencyCurrencyDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformCurrencyCurrencyDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformCurrencyCurrencyDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformCurrencyCurrencyDatum.(*[]*DataPlatformCurrencyCurrencyDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformCurrencyCurrencyDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformCurrencyCurrencyDatum))
+			}
+		}
 	}
 
-	queryMods = append(queryMods,
-		qm.Where("`data_platform_supply_chain_relationship_transaction_data`.`TransactionCurrency`=?", o.Currency),
-	)
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformCurrencyCurrencyDatumR{}
+		}
+		args = append(args, object.Currency)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformCurrencyCurrencyDatumR{}
+			}
 
-	return DataPlatformSupplyChainRelationshipTransactionData(queryMods...)
+			for _, a := range args {
+				if a == obj.Currency {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Currency)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_business_partner_general_data`),
+		qm.WhereIn(`data_platform_business_partner_general_data.Currency in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_business_partner_general_data")
+	}
+
+	var resultSlice []*DataPlatformBusinessPartnerGeneralDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_business_partner_general_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_business_partner_general_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_business_partner_general_data")
+	}
+
+	if singular {
+		object.R.CurrencyDataPlatformBusinessPartnerGeneralData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Currency == foreign.Currency {
+				local.R.CurrencyDataPlatformBusinessPartnerGeneralData = append(local.R.CurrencyDataPlatformBusinessPartnerGeneralData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
 }
 
 // LoadCurrencyDataPlatformCurrencyCurrencyTextData allows an eager lookup of values, cached into the
@@ -358,9 +455,9 @@ func (dataPlatformCurrencyCurrencyDatumL) LoadCurrencyDataPlatformCurrencyCurren
 	return nil
 }
 
-// LoadTransactionCurrencyDataPlatformDeliveryDocumentHeaderData allows an eager lookup of values, cached into the
+// LoadConditionCurrencyDataPlatformPriceMasterPriceMasterData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformCurrencyCurrencyDatumL) LoadTransactionCurrencyDataPlatformDeliveryDocumentHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformCurrencyCurrencyDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformCurrencyCurrencyDatumL) LoadConditionCurrencyDataPlatformPriceMasterPriceMasterData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformCurrencyCurrencyDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformCurrencyCurrencyDatum
 	var object *DataPlatformCurrencyCurrencyDatum
 
@@ -400,7 +497,7 @@ func (dataPlatformCurrencyCurrencyDatumL) LoadTransactionCurrencyDataPlatformDel
 			}
 
 			for _, a := range args {
-				if queries.Equal(a, obj.Currency) {
+				if a == obj.Currency {
 					continue Outer
 				}
 			}
@@ -414,8 +511,8 @@ func (dataPlatformCurrencyCurrencyDatumL) LoadTransactionCurrencyDataPlatformDel
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_delivery_document_header_data`),
-		qm.WhereIn(`data_platform_delivery_document_header_data.TransactionCurrency in ?`, args...),
+		qm.From(`data_platform_price_master_price_master_data`),
+		qm.WhereIn(`data_platform_price_master_price_master_data.ConditionCurrency in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -423,30 +520,30 @@ func (dataPlatformCurrencyCurrencyDatumL) LoadTransactionCurrencyDataPlatformDel
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_header_data")
+		return errors.Wrap(err, "failed to eager load data_platform_price_master_price_master_data")
 	}
 
-	var resultSlice []*DataPlatformDeliveryDocumentHeaderDatum
+	var resultSlice []*DataPlatformPriceMasterPriceMasterDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_header_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_price_master_price_master_data")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_header_data")
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_price_master_price_master_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_header_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_price_master_price_master_data")
 	}
 
 	if singular {
-		object.R.TransactionCurrencyDataPlatformDeliveryDocumentHeaderData = resultSlice
+		object.R.ConditionCurrencyDataPlatformPriceMasterPriceMasterData = resultSlice
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
-			if queries.Equal(local.Currency, foreign.TransactionCurrency) {
-				local.R.TransactionCurrencyDataPlatformDeliveryDocumentHeaderData = append(local.R.TransactionCurrencyDataPlatformDeliveryDocumentHeaderData, foreign)
+			if local.Currency == foreign.ConditionCurrency {
+				local.R.ConditionCurrencyDataPlatformPriceMasterPriceMasterData = append(local.R.ConditionCurrencyDataPlatformPriceMasterPriceMasterData, foreign)
 				break
 			}
 		}
@@ -455,9 +552,9 @@ func (dataPlatformCurrencyCurrencyDatumL) LoadTransactionCurrencyDataPlatformDel
 	return nil
 }
 
-// LoadCurrencyDataPlatformDeliveryDocumentPartnerData allows an eager lookup of values, cached into the
+// LoadTransactionCurrencyDataPlatformSCRTransactionData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformCurrencyCurrencyDatumL) LoadCurrencyDataPlatformDeliveryDocumentPartnerData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformCurrencyCurrencyDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformCurrencyCurrencyDatumL) LoadTransactionCurrencyDataPlatformSCRTransactionData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformCurrencyCurrencyDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformCurrencyCurrencyDatum
 	var object *DataPlatformCurrencyCurrencyDatum
 
@@ -497,7 +594,7 @@ func (dataPlatformCurrencyCurrencyDatumL) LoadCurrencyDataPlatformDeliveryDocume
 			}
 
 			for _, a := range args {
-				if queries.Equal(a, obj.Currency) {
+				if a == obj.Currency {
 					continue Outer
 				}
 			}
@@ -511,8 +608,8 @@ func (dataPlatformCurrencyCurrencyDatumL) LoadCurrencyDataPlatformDeliveryDocume
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_delivery_document_partner_data`),
-		qm.WhereIn(`data_platform_delivery_document_partner_data.Currency in ?`, args...),
+		qm.From(`data_platform_scr_transaction_data`),
+		qm.WhereIn(`data_platform_scr_transaction_data.TransactionCurrency in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -520,30 +617,30 @@ func (dataPlatformCurrencyCurrencyDatumL) LoadCurrencyDataPlatformDeliveryDocume
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_partner_data")
+		return errors.Wrap(err, "failed to eager load data_platform_scr_transaction_data")
 	}
 
-	var resultSlice []*DataPlatformDeliveryDocumentPartnerDatum
+	var resultSlice []*DataPlatformSCRTransactionDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_partner_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_scr_transaction_data")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_partner_data")
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_scr_transaction_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_partner_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_scr_transaction_data")
 	}
 
 	if singular {
-		object.R.CurrencyDataPlatformDeliveryDocumentPartnerData = resultSlice
+		object.R.TransactionCurrencyDataPlatformSCRTransactionData = resultSlice
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
-			if queries.Equal(local.Currency, foreign.Currency) {
-				local.R.CurrencyDataPlatformDeliveryDocumentPartnerData = append(local.R.CurrencyDataPlatformDeliveryDocumentPartnerData, foreign)
+			if local.Currency == foreign.TransactionCurrency {
+				local.R.TransactionCurrencyDataPlatformSCRTransactionData = append(local.R.TransactionCurrencyDataPlatformSCRTransactionData, foreign)
 				break
 			}
 		}
@@ -552,98 +649,44 @@ func (dataPlatformCurrencyCurrencyDatumL) LoadCurrencyDataPlatformDeliveryDocume
 	return nil
 }
 
-// LoadTransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformCurrencyCurrencyDatumL) LoadTransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformCurrencyCurrencyDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformCurrencyCurrencyDatum
-	var object *DataPlatformCurrencyCurrencyDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformCurrencyCurrencyDatum.(*DataPlatformCurrencyCurrencyDatum)
-		if !ok {
-			object = new(DataPlatformCurrencyCurrencyDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformCurrencyCurrencyDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformCurrencyCurrencyDatum))
+// AddCurrencyDataPlatformBusinessPartnerGeneralData adds the given related objects to the existing relationships
+// of the data_platform_currency_currency_datum, optionally inserting them as new records.
+// Appends related to o.R.CurrencyDataPlatformBusinessPartnerGeneralData.
+func (o *DataPlatformCurrencyCurrencyDatum) AddCurrencyDataPlatformBusinessPartnerGeneralData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformBusinessPartnerGeneralDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.Currency = o.Currency
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
 			}
-		}
-	} else {
-		s, ok := maybeDataPlatformCurrencyCurrencyDatum.(*[]*DataPlatformCurrencyCurrencyDatum)
-		if ok {
-			slice = *s
 		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformCurrencyCurrencyDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformCurrencyCurrencyDatum))
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_business_partner_general_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Currency"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformBusinessPartnerGeneralDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Currency, rel.BusinessPartner}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
 			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.Currency = o.Currency
 		}
 	}
 
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformCurrencyCurrencyDatumR{}
+	if o.R == nil {
+		o.R = &dataPlatformCurrencyCurrencyDatumR{
+			CurrencyDataPlatformBusinessPartnerGeneralData: related,
 		}
-		args = append(args, object.Currency)
 	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformCurrencyCurrencyDatumR{}
-			}
-
-			for _, a := range args {
-				if queries.Equal(a, obj.Currency) {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.Currency)
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_supply_chain_relationship_transaction_data`),
-		qm.WhereIn(`data_platform_supply_chain_relationship_transaction_data.TransactionCurrency in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_supply_chain_relationship_transaction_data")
-	}
-
-	var resultSlice []*DataPlatformSupplyChainRelationshipTransactionDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_supply_chain_relationship_transaction_data")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_supply_chain_relationship_transaction_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_supply_chain_relationship_transaction_data")
-	}
-
-	if singular {
-		object.R.TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData = resultSlice
-		return nil
-	}
-
-	for _, foreign := range resultSlice {
-		for _, local := range slice {
-			if queries.Equal(local.Currency, foreign.TransactionCurrency) {
-				local.R.TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData = append(local.R.TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData, foreign)
-				break
-			}
-		}
+		o.R.CurrencyDataPlatformBusinessPartnerGeneralData = append(o.R.CurrencyDataPlatformBusinessPartnerGeneralData, related...)
 	}
 
 	return nil
@@ -692,24 +735,24 @@ func (o *DataPlatformCurrencyCurrencyDatum) AddCurrencyDataPlatformCurrencyCurre
 	return nil
 }
 
-// AddTransactionCurrencyDataPlatformDeliveryDocumentHeaderData adds the given related objects to the existing relationships
+// AddConditionCurrencyDataPlatformPriceMasterPriceMasterData adds the given related objects to the existing relationships
 // of the data_platform_currency_currency_datum, optionally inserting them as new records.
-// Appends related to o.R.TransactionCurrencyDataPlatformDeliveryDocumentHeaderData.
-func (o *DataPlatformCurrencyCurrencyDatum) AddTransactionCurrencyDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+// Appends related to o.R.ConditionCurrencyDataPlatformPriceMasterPriceMasterData.
+func (o *DataPlatformCurrencyCurrencyDatum) AddConditionCurrencyDataPlatformPriceMasterPriceMasterData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPriceMasterPriceMasterDatum) error {
 	var err error
 	for _, rel := range related {
 		if insert {
-			queries.Assign(&rel.TransactionCurrency, o.Currency)
+			rel.ConditionCurrency = o.Currency
 			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
 				return errors.Wrap(err, "failed to insert into foreign table")
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_delivery_document_header_data` SET %s WHERE %s",
-				strmangle.SetParamNames("`", "`", 0, []string{"TransactionCurrency"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentHeaderDatumPrimaryKeyColumns),
+				"UPDATE `data_platform_price_master_price_master_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"ConditionCurrency"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformPriceMasterPriceMasterDatumPrimaryKeyColumns),
 			)
-			values := []interface{}{o.Currency, rel.DeliveryDocument}
+			values := []interface{}{o.Currency, rel.SupplyChainRelationshipID, rel.Buyer, rel.Seller, rel.ConditionRecord, rel.ConditionSequentialNumber, rel.Product, rel.ConditionValidityStartDate, rel.ConditionValidityEndDate}
 
 			if boil.IsDebug(ctx) {
 				writer := boil.DebugWriterFrom(ctx)
@@ -720,202 +763,37 @@ func (o *DataPlatformCurrencyCurrencyDatum) AddTransactionCurrencyDataPlatformDe
 				return errors.Wrap(err, "failed to update foreign table")
 			}
 
-			queries.Assign(&rel.TransactionCurrency, o.Currency)
+			rel.ConditionCurrency = o.Currency
 		}
 	}
 
 	if o.R == nil {
 		o.R = &dataPlatformCurrencyCurrencyDatumR{
-			TransactionCurrencyDataPlatformDeliveryDocumentHeaderData: related,
+			ConditionCurrencyDataPlatformPriceMasterPriceMasterData: related,
 		}
 	} else {
-		o.R.TransactionCurrencyDataPlatformDeliveryDocumentHeaderData = append(o.R.TransactionCurrencyDataPlatformDeliveryDocumentHeaderData, related...)
+		o.R.ConditionCurrencyDataPlatformPriceMasterPriceMasterData = append(o.R.ConditionCurrencyDataPlatformPriceMasterPriceMasterData, related...)
 	}
 
 	return nil
 }
 
-// SetTransactionCurrencyDataPlatformDeliveryDocumentHeaderData removes all previously related items of the
-// data_platform_currency_currency_datum replacing them completely with the passed
-// in related items, optionally inserting them as new records.
-// Sets o.R.TransactionCurrencyDataPlatformCurrencyCurrencyDatum's TransactionCurrencyDataPlatformDeliveryDocumentHeaderData accordingly.
-// Replaces o.R.TransactionCurrencyDataPlatformDeliveryDocumentHeaderData with related.
-func (o *DataPlatformCurrencyCurrencyDatum) SetTransactionCurrencyDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
-	query := "update `data_platform_delivery_document_header_data` set `TransactionCurrency` = null where `TransactionCurrency` = ?"
-	values := []interface{}{o.Currency}
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, query)
-		fmt.Fprintln(writer, values)
-	}
-	_, err := exec.ExecContext(ctx, query, values...)
-	if err != nil {
-		return errors.Wrap(err, "failed to remove relationships before set")
-	}
-
-	if o.R != nil {
-		o.R.TransactionCurrencyDataPlatformDeliveryDocumentHeaderData = nil
-	}
-
-	return o.AddTransactionCurrencyDataPlatformDeliveryDocumentHeaderData(ctx, exec, insert, related...)
-}
-
-// RemoveTransactionCurrencyDataPlatformDeliveryDocumentHeaderData relationships from objects passed in.
-// Removes related items from R.TransactionCurrencyDataPlatformDeliveryDocumentHeaderData (uses pointer comparison, removal does not keep order)
-func (o *DataPlatformCurrencyCurrencyDatum) RemoveTransactionCurrencyDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
-	if len(related) == 0 {
-		return nil
-	}
-
-	var err error
-	for _, rel := range related {
-		queries.SetScanner(&rel.TransactionCurrency, nil)
-		if err = rel.Update(ctx, exec, boil.Whitelist("TransactionCurrency")); err != nil {
-			return err
-		}
-	}
-	if o.R == nil {
-		return nil
-	}
-
-	for _, rel := range related {
-		for i, ri := range o.R.TransactionCurrencyDataPlatformDeliveryDocumentHeaderData {
-			if rel != ri {
-				continue
-			}
-
-			ln := len(o.R.TransactionCurrencyDataPlatformDeliveryDocumentHeaderData)
-			if ln > 1 && i < ln-1 {
-				o.R.TransactionCurrencyDataPlatformDeliveryDocumentHeaderData[i] = o.R.TransactionCurrencyDataPlatformDeliveryDocumentHeaderData[ln-1]
-			}
-			o.R.TransactionCurrencyDataPlatformDeliveryDocumentHeaderData = o.R.TransactionCurrencyDataPlatformDeliveryDocumentHeaderData[:ln-1]
-			break
-		}
-	}
-
-	return nil
-}
-
-// AddCurrencyDataPlatformDeliveryDocumentPartnerData adds the given related objects to the existing relationships
+// AddTransactionCurrencyDataPlatformSCRTransactionData adds the given related objects to the existing relationships
 // of the data_platform_currency_currency_datum, optionally inserting them as new records.
-// Appends related to o.R.CurrencyDataPlatformDeliveryDocumentPartnerData.
-func (o *DataPlatformCurrencyCurrencyDatum) AddCurrencyDataPlatformDeliveryDocumentPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentPartnerDatum) error {
+// Appends related to o.R.TransactionCurrencyDataPlatformSCRTransactionData.
+func (o *DataPlatformCurrencyCurrencyDatum) AddTransactionCurrencyDataPlatformSCRTransactionData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSCRTransactionDatum) error {
 	var err error
 	for _, rel := range related {
 		if insert {
-			queries.Assign(&rel.Currency, o.Currency)
+			rel.TransactionCurrency = o.Currency
 			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
 				return errors.Wrap(err, "failed to insert into foreign table")
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_delivery_document_partner_data` SET %s WHERE %s",
-				strmangle.SetParamNames("`", "`", 0, []string{"Currency"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentPartnerDatumPrimaryKeyColumns),
-			)
-			values := []interface{}{o.Currency, rel.DeliveryDocument, rel.PartnerFunction, rel.BusinessPartner}
-
-			if boil.IsDebug(ctx) {
-				writer := boil.DebugWriterFrom(ctx)
-				fmt.Fprintln(writer, updateQuery)
-				fmt.Fprintln(writer, values)
-			}
-			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-				return errors.Wrap(err, "failed to update foreign table")
-			}
-
-			queries.Assign(&rel.Currency, o.Currency)
-		}
-	}
-
-	if o.R == nil {
-		o.R = &dataPlatformCurrencyCurrencyDatumR{
-			CurrencyDataPlatformDeliveryDocumentPartnerData: related,
-		}
-	} else {
-		o.R.CurrencyDataPlatformDeliveryDocumentPartnerData = append(o.R.CurrencyDataPlatformDeliveryDocumentPartnerData, related...)
-	}
-
-	return nil
-}
-
-// SetCurrencyDataPlatformDeliveryDocumentPartnerData removes all previously related items of the
-// data_platform_currency_currency_datum replacing them completely with the passed
-// in related items, optionally inserting them as new records.
-// Sets o.R.CurrencyDataPlatformCurrencyCurrencyDatum's CurrencyDataPlatformDeliveryDocumentPartnerData accordingly.
-// Replaces o.R.CurrencyDataPlatformDeliveryDocumentPartnerData with related.
-func (o *DataPlatformCurrencyCurrencyDatum) SetCurrencyDataPlatformDeliveryDocumentPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentPartnerDatum) error {
-	query := "update `data_platform_delivery_document_partner_data` set `Currency` = null where `Currency` = ?"
-	values := []interface{}{o.Currency}
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, query)
-		fmt.Fprintln(writer, values)
-	}
-	_, err := exec.ExecContext(ctx, query, values...)
-	if err != nil {
-		return errors.Wrap(err, "failed to remove relationships before set")
-	}
-
-	if o.R != nil {
-		o.R.CurrencyDataPlatformDeliveryDocumentPartnerData = nil
-	}
-
-	return o.AddCurrencyDataPlatformDeliveryDocumentPartnerData(ctx, exec, insert, related...)
-}
-
-// RemoveCurrencyDataPlatformDeliveryDocumentPartnerData relationships from objects passed in.
-// Removes related items from R.CurrencyDataPlatformDeliveryDocumentPartnerData (uses pointer comparison, removal does not keep order)
-func (o *DataPlatformCurrencyCurrencyDatum) RemoveCurrencyDataPlatformDeliveryDocumentPartnerData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentPartnerDatum) error {
-	if len(related) == 0 {
-		return nil
-	}
-
-	var err error
-	for _, rel := range related {
-		queries.SetScanner(&rel.Currency, nil)
-		if err = rel.Update(ctx, exec, boil.Whitelist("Currency")); err != nil {
-			return err
-		}
-	}
-	if o.R == nil {
-		return nil
-	}
-
-	for _, rel := range related {
-		for i, ri := range o.R.CurrencyDataPlatformDeliveryDocumentPartnerData {
-			if rel != ri {
-				continue
-			}
-
-			ln := len(o.R.CurrencyDataPlatformDeliveryDocumentPartnerData)
-			if ln > 1 && i < ln-1 {
-				o.R.CurrencyDataPlatformDeliveryDocumentPartnerData[i] = o.R.CurrencyDataPlatformDeliveryDocumentPartnerData[ln-1]
-			}
-			o.R.CurrencyDataPlatformDeliveryDocumentPartnerData = o.R.CurrencyDataPlatformDeliveryDocumentPartnerData[:ln-1]
-			break
-		}
-	}
-
-	return nil
-}
-
-// AddTransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData adds the given related objects to the existing relationships
-// of the data_platform_currency_currency_datum, optionally inserting them as new records.
-// Appends related to o.R.TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData.
-func (o *DataPlatformCurrencyCurrencyDatum) AddTransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSupplyChainRelationshipTransactionDatum) error {
-	var err error
-	for _, rel := range related {
-		if insert {
-			queries.Assign(&rel.TransactionCurrency, o.Currency)
-			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
-				return errors.Wrap(err, "failed to insert into foreign table")
-			}
-		} else {
-			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_supply_chain_relationship_transaction_data` SET %s WHERE %s",
+				"UPDATE `data_platform_scr_transaction_data` SET %s WHERE %s",
 				strmangle.SetParamNames("`", "`", 0, []string{"TransactionCurrency"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformSupplyChainRelationshipTransactionDatumPrimaryKeyColumns),
+				strmangle.WhereClause("`", "`", 0, dataPlatformSCRTransactionDatumPrimaryKeyColumns),
 			)
 			values := []interface{}{o.Currency, rel.SupplyChainRelationshipID, rel.Buyer, rel.Seller}
 
@@ -928,77 +806,16 @@ func (o *DataPlatformCurrencyCurrencyDatum) AddTransactionCurrencyDataPlatformSu
 				return errors.Wrap(err, "failed to update foreign table")
 			}
 
-			queries.Assign(&rel.TransactionCurrency, o.Currency)
+			rel.TransactionCurrency = o.Currency
 		}
 	}
 
 	if o.R == nil {
 		o.R = &dataPlatformCurrencyCurrencyDatumR{
-			TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData: related,
+			TransactionCurrencyDataPlatformSCRTransactionData: related,
 		}
 	} else {
-		o.R.TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData = append(o.R.TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData, related...)
-	}
-
-	return nil
-}
-
-// SetTransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData removes all previously related items of the
-// data_platform_currency_currency_datum replacing them completely with the passed
-// in related items, optionally inserting them as new records.
-// Sets o.R.TransactionCurrencyDataPlatformCurrencyCurrencyDatum's TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData accordingly.
-// Replaces o.R.TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData with related.
-func (o *DataPlatformCurrencyCurrencyDatum) SetTransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSupplyChainRelationshipTransactionDatum) error {
-	query := "update `data_platform_supply_chain_relationship_transaction_data` set `TransactionCurrency` = null where `TransactionCurrency` = ?"
-	values := []interface{}{o.Currency}
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, query)
-		fmt.Fprintln(writer, values)
-	}
-	_, err := exec.ExecContext(ctx, query, values...)
-	if err != nil {
-		return errors.Wrap(err, "failed to remove relationships before set")
-	}
-
-	if o.R != nil {
-		o.R.TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData = nil
-	}
-
-	return o.AddTransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData(ctx, exec, insert, related...)
-}
-
-// RemoveTransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData relationships from objects passed in.
-// Removes related items from R.TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData (uses pointer comparison, removal does not keep order)
-func (o *DataPlatformCurrencyCurrencyDatum) RemoveTransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformSupplyChainRelationshipTransactionDatum) error {
-	if len(related) == 0 {
-		return nil
-	}
-
-	var err error
-	for _, rel := range related {
-		queries.SetScanner(&rel.TransactionCurrency, nil)
-		if err = rel.Update(ctx, exec, boil.Whitelist("TransactionCurrency")); err != nil {
-			return err
-		}
-	}
-	if o.R == nil {
-		return nil
-	}
-
-	for _, rel := range related {
-		for i, ri := range o.R.TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData {
-			if rel != ri {
-				continue
-			}
-
-			ln := len(o.R.TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData)
-			if ln > 1 && i < ln-1 {
-				o.R.TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData[i] = o.R.TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData[ln-1]
-			}
-			o.R.TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData = o.R.TransactionCurrencyDataPlatformSupplyChainRelationshipTransactionData[:ln-1]
-			break
-		}
+		o.R.TransactionCurrencyDataPlatformSCRTransactionData = append(o.R.TransactionCurrencyDataPlatformSCRTransactionData, related...)
 	}
 
 	return nil

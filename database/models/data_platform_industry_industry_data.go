@@ -51,15 +51,26 @@ var DataPlatformIndustryIndustryDatumWhere = struct {
 
 // DataPlatformIndustryIndustryDatumRels is where relationship names are stored.
 var DataPlatformIndustryIndustryDatumRels = struct {
-}{}
+	IndustryDataPlatformBusinessPartnerGeneralData string
+}{
+	IndustryDataPlatformBusinessPartnerGeneralData: "IndustryDataPlatformBusinessPartnerGeneralData",
+}
 
 // dataPlatformIndustryIndustryDatumR is where relationships are stored.
 type dataPlatformIndustryIndustryDatumR struct {
+	IndustryDataPlatformBusinessPartnerGeneralData DataPlatformBusinessPartnerGeneralDatumSlice `boil:"IndustryDataPlatformBusinessPartnerGeneralData" json:"IndustryDataPlatformBusinessPartnerGeneralData" toml:"IndustryDataPlatformBusinessPartnerGeneralData" yaml:"IndustryDataPlatformBusinessPartnerGeneralData"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformIndustryIndustryDatumR) NewStruct() *dataPlatformIndustryIndustryDatumR {
 	return &dataPlatformIndustryIndustryDatumR{}
+}
+
+func (r *dataPlatformIndustryIndustryDatumR) GetIndustryDataPlatformBusinessPartnerGeneralData() DataPlatformBusinessPartnerGeneralDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.IndustryDataPlatformBusinessPartnerGeneralData
 }
 
 // dataPlatformIndustryIndustryDatumL is where Load methods for each relationship are stored.
@@ -162,6 +173,221 @@ func (q dataPlatformIndustryIndustryDatumQuery) Exists(ctx context.Context, exec
 	}
 
 	return count > 0, nil
+}
+
+// IndustryDataPlatformBusinessPartnerGeneralData retrieves all the data_platform_business_partner_general_datum's DataPlatformBusinessPartnerGeneralData with an executor via Industry column.
+func (o *DataPlatformIndustryIndustryDatum) IndustryDataPlatformBusinessPartnerGeneralData(mods ...qm.QueryMod) dataPlatformBusinessPartnerGeneralDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_business_partner_general_data`.`Industry`=?", o.Industry),
+	)
+
+	return DataPlatformBusinessPartnerGeneralData(queryMods...)
+}
+
+// LoadIndustryDataPlatformBusinessPartnerGeneralData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformIndustryIndustryDatumL) LoadIndustryDataPlatformBusinessPartnerGeneralData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformIndustryIndustryDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformIndustryIndustryDatum
+	var object *DataPlatformIndustryIndustryDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformIndustryIndustryDatum.(*DataPlatformIndustryIndustryDatum)
+		if !ok {
+			object = new(DataPlatformIndustryIndustryDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformIndustryIndustryDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformIndustryIndustryDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformIndustryIndustryDatum.(*[]*DataPlatformIndustryIndustryDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformIndustryIndustryDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformIndustryIndustryDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformIndustryIndustryDatumR{}
+		}
+		args = append(args, object.Industry)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformIndustryIndustryDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Industry) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Industry)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_business_partner_general_data`),
+		qm.WhereIn(`data_platform_business_partner_general_data.Industry in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_business_partner_general_data")
+	}
+
+	var resultSlice []*DataPlatformBusinessPartnerGeneralDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_business_partner_general_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_business_partner_general_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_business_partner_general_data")
+	}
+
+	if singular {
+		object.R.IndustryDataPlatformBusinessPartnerGeneralData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Industry, foreign.Industry) {
+				local.R.IndustryDataPlatformBusinessPartnerGeneralData = append(local.R.IndustryDataPlatformBusinessPartnerGeneralData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// AddIndustryDataPlatformBusinessPartnerGeneralData adds the given related objects to the existing relationships
+// of the data_platform_industry_industry_datum, optionally inserting them as new records.
+// Appends related to o.R.IndustryDataPlatformBusinessPartnerGeneralData.
+func (o *DataPlatformIndustryIndustryDatum) AddIndustryDataPlatformBusinessPartnerGeneralData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformBusinessPartnerGeneralDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Industry, o.Industry)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_business_partner_general_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Industry"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformBusinessPartnerGeneralDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Industry, rel.BusinessPartner}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Industry, o.Industry)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformIndustryIndustryDatumR{
+			IndustryDataPlatformBusinessPartnerGeneralData: related,
+		}
+	} else {
+		o.R.IndustryDataPlatformBusinessPartnerGeneralData = append(o.R.IndustryDataPlatformBusinessPartnerGeneralData, related...)
+	}
+
+	return nil
+}
+
+// SetIndustryDataPlatformBusinessPartnerGeneralData removes all previously related items of the
+// data_platform_industry_industry_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.IndustryDataPlatformIndustryIndustryDatum's IndustryDataPlatformBusinessPartnerGeneralData accordingly.
+// Replaces o.R.IndustryDataPlatformBusinessPartnerGeneralData with related.
+func (o *DataPlatformIndustryIndustryDatum) SetIndustryDataPlatformBusinessPartnerGeneralData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformBusinessPartnerGeneralDatum) error {
+	query := "update `data_platform_business_partner_general_data` set `Industry` = null where `Industry` = ?"
+	values := []interface{}{o.Industry}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.IndustryDataPlatformBusinessPartnerGeneralData = nil
+	}
+
+	return o.AddIndustryDataPlatformBusinessPartnerGeneralData(ctx, exec, insert, related...)
+}
+
+// RemoveIndustryDataPlatformBusinessPartnerGeneralData relationships from objects passed in.
+// Removes related items from R.IndustryDataPlatformBusinessPartnerGeneralData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformIndustryIndustryDatum) RemoveIndustryDataPlatformBusinessPartnerGeneralData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformBusinessPartnerGeneralDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Industry, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Industry")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.IndustryDataPlatformBusinessPartnerGeneralData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.IndustryDataPlatformBusinessPartnerGeneralData)
+			if ln > 1 && i < ln-1 {
+				o.R.IndustryDataPlatformBusinessPartnerGeneralData[i] = o.R.IndustryDataPlatformBusinessPartnerGeneralData[ln-1]
+			}
+			o.R.IndustryDataPlatformBusinessPartnerGeneralData = o.R.IndustryDataPlatformBusinessPartnerGeneralData[:ln-1]
+			break
+		}
+	}
+
+	return nil
 }
 
 // DataPlatformIndustryIndustryData retrieves all the records using an executor.

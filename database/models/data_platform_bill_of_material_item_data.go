@@ -24,167 +24,167 @@ import (
 
 // DataPlatformBillOfMaterialItemDatum is an object representing the database table.
 type DataPlatformBillOfMaterialItemDatum struct {
-	BillOfMaterial                                  int          `boil:"BillOfMaterial" json:"BillOfMaterial" toml:"BillOfMaterial" yaml:"BillOfMaterial"`
-	BillOfMaterialItem                              int          `boil:"BillOfMaterialItem" json:"BillOfMaterialItem" toml:"BillOfMaterialItem" yaml:"BillOfMaterialItem"`
-	SupplyChainRelationshipID                       int          `boil:"SupplyChainRelationshipID" json:"SupplyChainRelationshipID" toml:"SupplyChainRelationshipID" yaml:"SupplyChainRelationshipID"`
-	SupplyChainRelationshipDeliveryID               int          `boil:"SupplyChainRelationshipDeliveryID" json:"SupplyChainRelationshipDeliveryID" toml:"SupplyChainRelationshipDeliveryID" yaml:"SupplyChainRelationshipDeliveryID"`
-	SupplyChainRelationshipDeliveryPlantID          int          `boil:"SupplyChainRelationshipDeliveryPlantID" json:"SupplyChainRelationshipDeliveryPlantID" toml:"SupplyChainRelationshipDeliveryPlantID" yaml:"SupplyChainRelationshipDeliveryPlantID"`
-	SupplyChainRelationshipStockConfPlantID         int          `boil:"SupplyChainRelationshipStockConfPlantID" json:"SupplyChainRelationshipStockConfPlantID" toml:"SupplyChainRelationshipStockConfPlantID" yaml:"SupplyChainRelationshipStockConfPlantID"`
-	Product                                         string       `boil:"Product" json:"Product" toml:"Product" yaml:"Product"`
-	ProductionPlantBusinessPartner                  int          `boil:"ProductionPlantBusinessPartner" json:"ProductionPlantBusinessPartner" toml:"ProductionPlantBusinessPartner" yaml:"ProductionPlantBusinessPartner"`
-	ProductionPlant                                 string       `boil:"ProductionPlant" json:"ProductionPlant" toml:"ProductionPlant" yaml:"ProductionPlant"`
-	ComponentProduct                                string       `boil:"ComponentProduct" json:"ComponentProduct" toml:"ComponentProduct" yaml:"ComponentProduct"`
-	ComponentProductBuyer                           int          `boil:"ComponentProductBuyer" json:"ComponentProductBuyer" toml:"ComponentProductBuyer" yaml:"ComponentProductBuyer"`
-	ComponentProductSeller                          int          `boil:"ComponentProductSeller" json:"ComponentProductSeller" toml:"ComponentProductSeller" yaml:"ComponentProductSeller"`
-	ComponentProductDeliverFromParty                int          `boil:"ComponentProductDeliverFromParty" json:"ComponentProductDeliverFromParty" toml:"ComponentProductDeliverFromParty" yaml:"ComponentProductDeliverFromParty"`
-	ComponentProductDeliverFromPlant                string       `boil:"ComponentProductDeliverFromPlant" json:"ComponentProductDeliverFromPlant" toml:"ComponentProductDeliverFromPlant" yaml:"ComponentProductDeliverFromPlant"`
-	ComponentProductDeliverToParty                  int          `boil:"ComponentProductDeliverToParty" json:"ComponentProductDeliverToParty" toml:"ComponentProductDeliverToParty" yaml:"ComponentProductDeliverToParty"`
-	ComponentProductDeliverToPlant                  string       `boil:"ComponentProductDeliverToPlant" json:"ComponentProductDeliverToPlant" toml:"ComponentProductDeliverToPlant" yaml:"ComponentProductDeliverToPlant"`
-	StockConfirmationBusinessPartner                int          `boil:"StockConfirmationBusinessPartner" json:"StockConfirmationBusinessPartner" toml:"StockConfirmationBusinessPartner" yaml:"StockConfirmationBusinessPartner"`
-	StockConfirmationPlant                          string       `boil:"StockConfirmationPlant" json:"StockConfirmationPlant" toml:"StockConfirmationPlant" yaml:"StockConfirmationPlant"`
-	ComponentProductStandardQuantityInBaseUnuit     float32      `boil:"ComponentProductStandardQuantityInBaseUnuit" json:"ComponentProductStandardQuantityInBaseUnuit" toml:"ComponentProductStandardQuantityInBaseUnuit" yaml:"ComponentProductStandardQuantityInBaseUnuit"`
-	ComponentProductStandardQuantityInDeliveryUnuit float32      `boil:"ComponentProductStandardQuantityInDeliveryUnuit" json:"ComponentProductStandardQuantityInDeliveryUnuit" toml:"ComponentProductStandardQuantityInDeliveryUnuit" yaml:"ComponentProductStandardQuantityInDeliveryUnuit"`
-	ComponentProductBaseUnit                        string       `boil:"ComponentProductBaseUnit" json:"ComponentProductBaseUnit" toml:"ComponentProductBaseUnit" yaml:"ComponentProductBaseUnit"`
-	ComponentProductDeliveryUnit                    string       `boil:"ComponentProductDeliveryUnit" json:"ComponentProductDeliveryUnit" toml:"ComponentProductDeliveryUnit" yaml:"ComponentProductDeliveryUnit"`
-	ComponentProductStandardScrapInPercent          null.Float32 `boil:"ComponentProductStandardScrapInPercent" json:"ComponentProductStandardScrapInPercent,omitempty" toml:"ComponentProductStandardScrapInPercent" yaml:"ComponentProductStandardScrapInPercent,omitempty"`
-	IsMarkedForBackflush                            null.Bool    `boil:"IsMarkedForBackflush" json:"IsMarkedForBackflush,omitempty" toml:"IsMarkedForBackflush" yaml:"IsMarkedForBackflush,omitempty"`
-	BillOfMaterialItemText                          null.String  `boil:"BillOfMaterialItemText" json:"BillOfMaterialItemText,omitempty" toml:"BillOfMaterialItemText" yaml:"BillOfMaterialItemText,omitempty"`
-	ValidityStartDate                               null.String  `boil:"ValidityStartDate" json:"ValidityStartDate,omitempty" toml:"ValidityStartDate" yaml:"ValidityStartDate,omitempty"`
-	ValidityEndDate                                 null.String  `boil:"ValidityEndDate" json:"ValidityEndDate,omitempty" toml:"ValidityEndDate" yaml:"ValidityEndDate,omitempty"`
-	CreationDate                                    string       `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
-	LastChangeDate                                  string       `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
-	IsMarkedForDeletion                             null.Bool    `boil:"IsMarkedForDeletion" json:"IsMarkedForDeletion,omitempty" toml:"IsMarkedForDeletion" yaml:"IsMarkedForDeletion,omitempty"`
+	BillOfMaterial                                 int          `boil:"BillOfMaterial" json:"BillOfMaterial" toml:"BillOfMaterial" yaml:"BillOfMaterial"`
+	BillOfMaterialItem                             int          `boil:"BillOfMaterialItem" json:"BillOfMaterialItem" toml:"BillOfMaterialItem" yaml:"BillOfMaterialItem"`
+	SupplyChainRelationshipID                      int          `boil:"SupplyChainRelationshipID" json:"SupplyChainRelationshipID" toml:"SupplyChainRelationshipID" yaml:"SupplyChainRelationshipID"`
+	SupplyChainRelationshipDeliveryID              int          `boil:"SupplyChainRelationshipDeliveryID" json:"SupplyChainRelationshipDeliveryID" toml:"SupplyChainRelationshipDeliveryID" yaml:"SupplyChainRelationshipDeliveryID"`
+	SupplyChainRelationshipDeliveryPlantID         int          `boil:"SupplyChainRelationshipDeliveryPlantID" json:"SupplyChainRelationshipDeliveryPlantID" toml:"SupplyChainRelationshipDeliveryPlantID" yaml:"SupplyChainRelationshipDeliveryPlantID"`
+	SupplyChainRelationshipStockConfPlantID        int          `boil:"SupplyChainRelationshipStockConfPlantID" json:"SupplyChainRelationshipStockConfPlantID" toml:"SupplyChainRelationshipStockConfPlantID" yaml:"SupplyChainRelationshipStockConfPlantID"`
+	Product                                        string       `boil:"Product" json:"Product" toml:"Product" yaml:"Product"`
+	ProductionPlantBusinessPartner                 int          `boil:"ProductionPlantBusinessPartner" json:"ProductionPlantBusinessPartner" toml:"ProductionPlantBusinessPartner" yaml:"ProductionPlantBusinessPartner"`
+	ProductionPlant                                string       `boil:"ProductionPlant" json:"ProductionPlant" toml:"ProductionPlant" yaml:"ProductionPlant"`
+	ComponentProduct                               string       `boil:"ComponentProduct" json:"ComponentProduct" toml:"ComponentProduct" yaml:"ComponentProduct"`
+	ComponentProductBuyer                          int          `boil:"ComponentProductBuyer" json:"ComponentProductBuyer" toml:"ComponentProductBuyer" yaml:"ComponentProductBuyer"`
+	ComponentProductSeller                         int          `boil:"ComponentProductSeller" json:"ComponentProductSeller" toml:"ComponentProductSeller" yaml:"ComponentProductSeller"`
+	ComponentProductDeliverToParty                 int          `boil:"ComponentProductDeliverToParty" json:"ComponentProductDeliverToParty" toml:"ComponentProductDeliverToParty" yaml:"ComponentProductDeliverToParty"`
+	ComponentProductDeliverToPlant                 string       `boil:"ComponentProductDeliverToPlant" json:"ComponentProductDeliverToPlant" toml:"ComponentProductDeliverToPlant" yaml:"ComponentProductDeliverToPlant"`
+	ComponentProductDeliverFromParty               int          `boil:"ComponentProductDeliverFromParty" json:"ComponentProductDeliverFromParty" toml:"ComponentProductDeliverFromParty" yaml:"ComponentProductDeliverFromParty"`
+	ComponentProductDeliverFromPlant               string       `boil:"ComponentProductDeliverFromPlant" json:"ComponentProductDeliverFromPlant" toml:"ComponentProductDeliverFromPlant" yaml:"ComponentProductDeliverFromPlant"`
+	StockConfirmationBusinessPartner               int          `boil:"StockConfirmationBusinessPartner" json:"StockConfirmationBusinessPartner" toml:"StockConfirmationBusinessPartner" yaml:"StockConfirmationBusinessPartner"`
+	StockConfirmationPlant                         string       `boil:"StockConfirmationPlant" json:"StockConfirmationPlant" toml:"StockConfirmationPlant" yaml:"StockConfirmationPlant"`
+	ComponentProductStandardQuantityInBaseUnit     float32      `boil:"ComponentProductStandardQuantityInBaseUnit" json:"ComponentProductStandardQuantityInBaseUnit" toml:"ComponentProductStandardQuantityInBaseUnit" yaml:"ComponentProductStandardQuantityInBaseUnit"`
+	ComponentProductStandardQuantityInDeliveryUnit float32      `boil:"ComponentProductStandardQuantityInDeliveryUnit" json:"ComponentProductStandardQuantityInDeliveryUnit" toml:"ComponentProductStandardQuantityInDeliveryUnit" yaml:"ComponentProductStandardQuantityInDeliveryUnit"`
+	ComponentProductBaseUnit                       string       `boil:"ComponentProductBaseUnit" json:"ComponentProductBaseUnit" toml:"ComponentProductBaseUnit" yaml:"ComponentProductBaseUnit"`
+	ComponentProductDeliveryUnit                   string       `boil:"ComponentProductDeliveryUnit" json:"ComponentProductDeliveryUnit" toml:"ComponentProductDeliveryUnit" yaml:"ComponentProductDeliveryUnit"`
+	ComponentProductStandardScrapInPercent         null.Float32 `boil:"ComponentProductStandardScrapInPercent" json:"ComponentProductStandardScrapInPercent,omitempty" toml:"ComponentProductStandardScrapInPercent" yaml:"ComponentProductStandardScrapInPercent,omitempty"`
+	IsMarkedForBackflush                           null.Bool    `boil:"IsMarkedForBackflush" json:"IsMarkedForBackflush,omitempty" toml:"IsMarkedForBackflush" yaml:"IsMarkedForBackflush,omitempty"`
+	BillOfMaterialItemText                         null.String  `boil:"BillOfMaterialItemText" json:"BillOfMaterialItemText,omitempty" toml:"BillOfMaterialItemText" yaml:"BillOfMaterialItemText,omitempty"`
+	ValidityStartDate                              null.String  `boil:"ValidityStartDate" json:"ValidityStartDate,omitempty" toml:"ValidityStartDate" yaml:"ValidityStartDate,omitempty"`
+	ValidityEndDate                                null.String  `boil:"ValidityEndDate" json:"ValidityEndDate,omitempty" toml:"ValidityEndDate" yaml:"ValidityEndDate,omitempty"`
+	CreationDate                                   string       `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
+	LastChangeDate                                 string       `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
+	IsMarkedForDeletion                            null.Bool    `boil:"IsMarkedForDeletion" json:"IsMarkedForDeletion,omitempty" toml:"IsMarkedForDeletion" yaml:"IsMarkedForDeletion,omitempty"`
 
 	R *dataPlatformBillOfMaterialItemDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
 	L dataPlatformBillOfMaterialItemDatumL  `boil:"-" json:"-" toml:"-" yaml:"-"`
 }
 
 var DataPlatformBillOfMaterialItemDatumColumns = struct {
-	BillOfMaterial                                  string
-	BillOfMaterialItem                              string
-	SupplyChainRelationshipID                       string
-	SupplyChainRelationshipDeliveryID               string
-	SupplyChainRelationshipDeliveryPlantID          string
-	SupplyChainRelationshipStockConfPlantID         string
-	Product                                         string
-	ProductionPlantBusinessPartner                  string
-	ProductionPlant                                 string
-	ComponentProduct                                string
-	ComponentProductBuyer                           string
-	ComponentProductSeller                          string
-	ComponentProductDeliverFromParty                string
-	ComponentProductDeliverFromPlant                string
-	ComponentProductDeliverToParty                  string
-	ComponentProductDeliverToPlant                  string
-	StockConfirmationBusinessPartner                string
-	StockConfirmationPlant                          string
-	ComponentProductStandardQuantityInBaseUnuit     string
-	ComponentProductStandardQuantityInDeliveryUnuit string
-	ComponentProductBaseUnit                        string
-	ComponentProductDeliveryUnit                    string
-	ComponentProductStandardScrapInPercent          string
-	IsMarkedForBackflush                            string
-	BillOfMaterialItemText                          string
-	ValidityStartDate                               string
-	ValidityEndDate                                 string
-	CreationDate                                    string
-	LastChangeDate                                  string
-	IsMarkedForDeletion                             string
+	BillOfMaterial                                 string
+	BillOfMaterialItem                             string
+	SupplyChainRelationshipID                      string
+	SupplyChainRelationshipDeliveryID              string
+	SupplyChainRelationshipDeliveryPlantID         string
+	SupplyChainRelationshipStockConfPlantID        string
+	Product                                        string
+	ProductionPlantBusinessPartner                 string
+	ProductionPlant                                string
+	ComponentProduct                               string
+	ComponentProductBuyer                          string
+	ComponentProductSeller                         string
+	ComponentProductDeliverToParty                 string
+	ComponentProductDeliverToPlant                 string
+	ComponentProductDeliverFromParty               string
+	ComponentProductDeliverFromPlant               string
+	StockConfirmationBusinessPartner               string
+	StockConfirmationPlant                         string
+	ComponentProductStandardQuantityInBaseUnit     string
+	ComponentProductStandardQuantityInDeliveryUnit string
+	ComponentProductBaseUnit                       string
+	ComponentProductDeliveryUnit                   string
+	ComponentProductStandardScrapInPercent         string
+	IsMarkedForBackflush                           string
+	BillOfMaterialItemText                         string
+	ValidityStartDate                              string
+	ValidityEndDate                                string
+	CreationDate                                   string
+	LastChangeDate                                 string
+	IsMarkedForDeletion                            string
 }{
-	BillOfMaterial:                                  "BillOfMaterial",
-	BillOfMaterialItem:                              "BillOfMaterialItem",
-	SupplyChainRelationshipID:                       "SupplyChainRelationshipID",
-	SupplyChainRelationshipDeliveryID:               "SupplyChainRelationshipDeliveryID",
-	SupplyChainRelationshipDeliveryPlantID:          "SupplyChainRelationshipDeliveryPlantID",
-	SupplyChainRelationshipStockConfPlantID:         "SupplyChainRelationshipStockConfPlantID",
-	Product:                                         "Product",
-	ProductionPlantBusinessPartner:                  "ProductionPlantBusinessPartner",
-	ProductionPlant:                                 "ProductionPlant",
-	ComponentProduct:                                "ComponentProduct",
-	ComponentProductBuyer:                           "ComponentProductBuyer",
-	ComponentProductSeller:                          "ComponentProductSeller",
-	ComponentProductDeliverFromParty:                "ComponentProductDeliverFromParty",
-	ComponentProductDeliverFromPlant:                "ComponentProductDeliverFromPlant",
-	ComponentProductDeliverToParty:                  "ComponentProductDeliverToParty",
-	ComponentProductDeliverToPlant:                  "ComponentProductDeliverToPlant",
-	StockConfirmationBusinessPartner:                "StockConfirmationBusinessPartner",
-	StockConfirmationPlant:                          "StockConfirmationPlant",
-	ComponentProductStandardQuantityInBaseUnuit:     "ComponentProductStandardQuantityInBaseUnuit",
-	ComponentProductStandardQuantityInDeliveryUnuit: "ComponentProductStandardQuantityInDeliveryUnuit",
-	ComponentProductBaseUnit:                        "ComponentProductBaseUnit",
-	ComponentProductDeliveryUnit:                    "ComponentProductDeliveryUnit",
-	ComponentProductStandardScrapInPercent:          "ComponentProductStandardScrapInPercent",
-	IsMarkedForBackflush:                            "IsMarkedForBackflush",
-	BillOfMaterialItemText:                          "BillOfMaterialItemText",
-	ValidityStartDate:                               "ValidityStartDate",
-	ValidityEndDate:                                 "ValidityEndDate",
-	CreationDate:                                    "CreationDate",
-	LastChangeDate:                                  "LastChangeDate",
-	IsMarkedForDeletion:                             "IsMarkedForDeletion",
+	BillOfMaterial:                                 "BillOfMaterial",
+	BillOfMaterialItem:                             "BillOfMaterialItem",
+	SupplyChainRelationshipID:                      "SupplyChainRelationshipID",
+	SupplyChainRelationshipDeliveryID:              "SupplyChainRelationshipDeliveryID",
+	SupplyChainRelationshipDeliveryPlantID:         "SupplyChainRelationshipDeliveryPlantID",
+	SupplyChainRelationshipStockConfPlantID:        "SupplyChainRelationshipStockConfPlantID",
+	Product:                                        "Product",
+	ProductionPlantBusinessPartner:                 "ProductionPlantBusinessPartner",
+	ProductionPlant:                                "ProductionPlant",
+	ComponentProduct:                               "ComponentProduct",
+	ComponentProductBuyer:                          "ComponentProductBuyer",
+	ComponentProductSeller:                         "ComponentProductSeller",
+	ComponentProductDeliverToParty:                 "ComponentProductDeliverToParty",
+	ComponentProductDeliverToPlant:                 "ComponentProductDeliverToPlant",
+	ComponentProductDeliverFromParty:               "ComponentProductDeliverFromParty",
+	ComponentProductDeliverFromPlant:               "ComponentProductDeliverFromPlant",
+	StockConfirmationBusinessPartner:               "StockConfirmationBusinessPartner",
+	StockConfirmationPlant:                         "StockConfirmationPlant",
+	ComponentProductStandardQuantityInBaseUnit:     "ComponentProductStandardQuantityInBaseUnit",
+	ComponentProductStandardQuantityInDeliveryUnit: "ComponentProductStandardQuantityInDeliveryUnit",
+	ComponentProductBaseUnit:                       "ComponentProductBaseUnit",
+	ComponentProductDeliveryUnit:                   "ComponentProductDeliveryUnit",
+	ComponentProductStandardScrapInPercent:         "ComponentProductStandardScrapInPercent",
+	IsMarkedForBackflush:                           "IsMarkedForBackflush",
+	BillOfMaterialItemText:                         "BillOfMaterialItemText",
+	ValidityStartDate:                              "ValidityStartDate",
+	ValidityEndDate:                                "ValidityEndDate",
+	CreationDate:                                   "CreationDate",
+	LastChangeDate:                                 "LastChangeDate",
+	IsMarkedForDeletion:                            "IsMarkedForDeletion",
 }
 
 var DataPlatformBillOfMaterialItemDatumTableColumns = struct {
-	BillOfMaterial                                  string
-	BillOfMaterialItem                              string
-	SupplyChainRelationshipID                       string
-	SupplyChainRelationshipDeliveryID               string
-	SupplyChainRelationshipDeliveryPlantID          string
-	SupplyChainRelationshipStockConfPlantID         string
-	Product                                         string
-	ProductionPlantBusinessPartner                  string
-	ProductionPlant                                 string
-	ComponentProduct                                string
-	ComponentProductBuyer                           string
-	ComponentProductSeller                          string
-	ComponentProductDeliverFromParty                string
-	ComponentProductDeliverFromPlant                string
-	ComponentProductDeliverToParty                  string
-	ComponentProductDeliverToPlant                  string
-	StockConfirmationBusinessPartner                string
-	StockConfirmationPlant                          string
-	ComponentProductStandardQuantityInBaseUnuit     string
-	ComponentProductStandardQuantityInDeliveryUnuit string
-	ComponentProductBaseUnit                        string
-	ComponentProductDeliveryUnit                    string
-	ComponentProductStandardScrapInPercent          string
-	IsMarkedForBackflush                            string
-	BillOfMaterialItemText                          string
-	ValidityStartDate                               string
-	ValidityEndDate                                 string
-	CreationDate                                    string
-	LastChangeDate                                  string
-	IsMarkedForDeletion                             string
+	BillOfMaterial                                 string
+	BillOfMaterialItem                             string
+	SupplyChainRelationshipID                      string
+	SupplyChainRelationshipDeliveryID              string
+	SupplyChainRelationshipDeliveryPlantID         string
+	SupplyChainRelationshipStockConfPlantID        string
+	Product                                        string
+	ProductionPlantBusinessPartner                 string
+	ProductionPlant                                string
+	ComponentProduct                               string
+	ComponentProductBuyer                          string
+	ComponentProductSeller                         string
+	ComponentProductDeliverToParty                 string
+	ComponentProductDeliverToPlant                 string
+	ComponentProductDeliverFromParty               string
+	ComponentProductDeliverFromPlant               string
+	StockConfirmationBusinessPartner               string
+	StockConfirmationPlant                         string
+	ComponentProductStandardQuantityInBaseUnit     string
+	ComponentProductStandardQuantityInDeliveryUnit string
+	ComponentProductBaseUnit                       string
+	ComponentProductDeliveryUnit                   string
+	ComponentProductStandardScrapInPercent         string
+	IsMarkedForBackflush                           string
+	BillOfMaterialItemText                         string
+	ValidityStartDate                              string
+	ValidityEndDate                                string
+	CreationDate                                   string
+	LastChangeDate                                 string
+	IsMarkedForDeletion                            string
 }{
-	BillOfMaterial:                                  "data_platform_bill_of_material_item_data.BillOfMaterial",
-	BillOfMaterialItem:                              "data_platform_bill_of_material_item_data.BillOfMaterialItem",
-	SupplyChainRelationshipID:                       "data_platform_bill_of_material_item_data.SupplyChainRelationshipID",
-	SupplyChainRelationshipDeliveryID:               "data_platform_bill_of_material_item_data.SupplyChainRelationshipDeliveryID",
-	SupplyChainRelationshipDeliveryPlantID:          "data_platform_bill_of_material_item_data.SupplyChainRelationshipDeliveryPlantID",
-	SupplyChainRelationshipStockConfPlantID:         "data_platform_bill_of_material_item_data.SupplyChainRelationshipStockConfPlantID",
-	Product:                                         "data_platform_bill_of_material_item_data.Product",
-	ProductionPlantBusinessPartner:                  "data_platform_bill_of_material_item_data.ProductionPlantBusinessPartner",
-	ProductionPlant:                                 "data_platform_bill_of_material_item_data.ProductionPlant",
-	ComponentProduct:                                "data_platform_bill_of_material_item_data.ComponentProduct",
-	ComponentProductBuyer:                           "data_platform_bill_of_material_item_data.ComponentProductBuyer",
-	ComponentProductSeller:                          "data_platform_bill_of_material_item_data.ComponentProductSeller",
-	ComponentProductDeliverFromParty:                "data_platform_bill_of_material_item_data.ComponentProductDeliverFromParty",
-	ComponentProductDeliverFromPlant:                "data_platform_bill_of_material_item_data.ComponentProductDeliverFromPlant",
-	ComponentProductDeliverToParty:                  "data_platform_bill_of_material_item_data.ComponentProductDeliverToParty",
-	ComponentProductDeliverToPlant:                  "data_platform_bill_of_material_item_data.ComponentProductDeliverToPlant",
-	StockConfirmationBusinessPartner:                "data_platform_bill_of_material_item_data.StockConfirmationBusinessPartner",
-	StockConfirmationPlant:                          "data_platform_bill_of_material_item_data.StockConfirmationPlant",
-	ComponentProductStandardQuantityInBaseUnuit:     "data_platform_bill_of_material_item_data.ComponentProductStandardQuantityInBaseUnuit",
-	ComponentProductStandardQuantityInDeliveryUnuit: "data_platform_bill_of_material_item_data.ComponentProductStandardQuantityInDeliveryUnuit",
-	ComponentProductBaseUnit:                        "data_platform_bill_of_material_item_data.ComponentProductBaseUnit",
-	ComponentProductDeliveryUnit:                    "data_platform_bill_of_material_item_data.ComponentProductDeliveryUnit",
-	ComponentProductStandardScrapInPercent:          "data_platform_bill_of_material_item_data.ComponentProductStandardScrapInPercent",
-	IsMarkedForBackflush:                            "data_platform_bill_of_material_item_data.IsMarkedForBackflush",
-	BillOfMaterialItemText:                          "data_platform_bill_of_material_item_data.BillOfMaterialItemText",
-	ValidityStartDate:                               "data_platform_bill_of_material_item_data.ValidityStartDate",
-	ValidityEndDate:                                 "data_platform_bill_of_material_item_data.ValidityEndDate",
-	CreationDate:                                    "data_platform_bill_of_material_item_data.CreationDate",
-	LastChangeDate:                                  "data_platform_bill_of_material_item_data.LastChangeDate",
-	IsMarkedForDeletion:                             "data_platform_bill_of_material_item_data.IsMarkedForDeletion",
+	BillOfMaterial:                                 "data_platform_bill_of_material_item_data.BillOfMaterial",
+	BillOfMaterialItem:                             "data_platform_bill_of_material_item_data.BillOfMaterialItem",
+	SupplyChainRelationshipID:                      "data_platform_bill_of_material_item_data.SupplyChainRelationshipID",
+	SupplyChainRelationshipDeliveryID:              "data_platform_bill_of_material_item_data.SupplyChainRelationshipDeliveryID",
+	SupplyChainRelationshipDeliveryPlantID:         "data_platform_bill_of_material_item_data.SupplyChainRelationshipDeliveryPlantID",
+	SupplyChainRelationshipStockConfPlantID:        "data_platform_bill_of_material_item_data.SupplyChainRelationshipStockConfPlantID",
+	Product:                                        "data_platform_bill_of_material_item_data.Product",
+	ProductionPlantBusinessPartner:                 "data_platform_bill_of_material_item_data.ProductionPlantBusinessPartner",
+	ProductionPlant:                                "data_platform_bill_of_material_item_data.ProductionPlant",
+	ComponentProduct:                               "data_platform_bill_of_material_item_data.ComponentProduct",
+	ComponentProductBuyer:                          "data_platform_bill_of_material_item_data.ComponentProductBuyer",
+	ComponentProductSeller:                         "data_platform_bill_of_material_item_data.ComponentProductSeller",
+	ComponentProductDeliverToParty:                 "data_platform_bill_of_material_item_data.ComponentProductDeliverToParty",
+	ComponentProductDeliverToPlant:                 "data_platform_bill_of_material_item_data.ComponentProductDeliverToPlant",
+	ComponentProductDeliverFromParty:               "data_platform_bill_of_material_item_data.ComponentProductDeliverFromParty",
+	ComponentProductDeliverFromPlant:               "data_platform_bill_of_material_item_data.ComponentProductDeliverFromPlant",
+	StockConfirmationBusinessPartner:               "data_platform_bill_of_material_item_data.StockConfirmationBusinessPartner",
+	StockConfirmationPlant:                         "data_platform_bill_of_material_item_data.StockConfirmationPlant",
+	ComponentProductStandardQuantityInBaseUnit:     "data_platform_bill_of_material_item_data.ComponentProductStandardQuantityInBaseUnit",
+	ComponentProductStandardQuantityInDeliveryUnit: "data_platform_bill_of_material_item_data.ComponentProductStandardQuantityInDeliveryUnit",
+	ComponentProductBaseUnit:                       "data_platform_bill_of_material_item_data.ComponentProductBaseUnit",
+	ComponentProductDeliveryUnit:                   "data_platform_bill_of_material_item_data.ComponentProductDeliveryUnit",
+	ComponentProductStandardScrapInPercent:         "data_platform_bill_of_material_item_data.ComponentProductStandardScrapInPercent",
+	IsMarkedForBackflush:                           "data_platform_bill_of_material_item_data.IsMarkedForBackflush",
+	BillOfMaterialItemText:                         "data_platform_bill_of_material_item_data.BillOfMaterialItemText",
+	ValidityStartDate:                              "data_platform_bill_of_material_item_data.ValidityStartDate",
+	ValidityEndDate:                                "data_platform_bill_of_material_item_data.ValidityEndDate",
+	CreationDate:                                   "data_platform_bill_of_material_item_data.CreationDate",
+	LastChangeDate:                                 "data_platform_bill_of_material_item_data.LastChangeDate",
+	IsMarkedForDeletion:                            "data_platform_bill_of_material_item_data.IsMarkedForDeletion",
 }
 
 // Generated where
@@ -228,91 +228,91 @@ func (w whereHelpernull_Float32) IsNull() qm.QueryMod    { return qmhelper.Where
 func (w whereHelpernull_Float32) IsNotNull() qm.QueryMod { return qmhelper.WhereIsNotNull(w.field) }
 
 var DataPlatformBillOfMaterialItemDatumWhere = struct {
-	BillOfMaterial                                  whereHelperint
-	BillOfMaterialItem                              whereHelperint
-	SupplyChainRelationshipID                       whereHelperint
-	SupplyChainRelationshipDeliveryID               whereHelperint
-	SupplyChainRelationshipDeliveryPlantID          whereHelperint
-	SupplyChainRelationshipStockConfPlantID         whereHelperint
-	Product                                         whereHelperstring
-	ProductionPlantBusinessPartner                  whereHelperint
-	ProductionPlant                                 whereHelperstring
-	ComponentProduct                                whereHelperstring
-	ComponentProductBuyer                           whereHelperint
-	ComponentProductSeller                          whereHelperint
-	ComponentProductDeliverFromParty                whereHelperint
-	ComponentProductDeliverFromPlant                whereHelperstring
-	ComponentProductDeliverToParty                  whereHelperint
-	ComponentProductDeliverToPlant                  whereHelperstring
-	StockConfirmationBusinessPartner                whereHelperint
-	StockConfirmationPlant                          whereHelperstring
-	ComponentProductStandardQuantityInBaseUnuit     whereHelperfloat32
-	ComponentProductStandardQuantityInDeliveryUnuit whereHelperfloat32
-	ComponentProductBaseUnit                        whereHelperstring
-	ComponentProductDeliveryUnit                    whereHelperstring
-	ComponentProductStandardScrapInPercent          whereHelpernull_Float32
-	IsMarkedForBackflush                            whereHelpernull_Bool
-	BillOfMaterialItemText                          whereHelpernull_String
-	ValidityStartDate                               whereHelpernull_String
-	ValidityEndDate                                 whereHelpernull_String
-	CreationDate                                    whereHelperstring
-	LastChangeDate                                  whereHelperstring
-	IsMarkedForDeletion                             whereHelpernull_Bool
+	BillOfMaterial                                 whereHelperint
+	BillOfMaterialItem                             whereHelperint
+	SupplyChainRelationshipID                      whereHelperint
+	SupplyChainRelationshipDeliveryID              whereHelperint
+	SupplyChainRelationshipDeliveryPlantID         whereHelperint
+	SupplyChainRelationshipStockConfPlantID        whereHelperint
+	Product                                        whereHelperstring
+	ProductionPlantBusinessPartner                 whereHelperint
+	ProductionPlant                                whereHelperstring
+	ComponentProduct                               whereHelperstring
+	ComponentProductBuyer                          whereHelperint
+	ComponentProductSeller                         whereHelperint
+	ComponentProductDeliverToParty                 whereHelperint
+	ComponentProductDeliverToPlant                 whereHelperstring
+	ComponentProductDeliverFromParty               whereHelperint
+	ComponentProductDeliverFromPlant               whereHelperstring
+	StockConfirmationBusinessPartner               whereHelperint
+	StockConfirmationPlant                         whereHelperstring
+	ComponentProductStandardQuantityInBaseUnit     whereHelperfloat32
+	ComponentProductStandardQuantityInDeliveryUnit whereHelperfloat32
+	ComponentProductBaseUnit                       whereHelperstring
+	ComponentProductDeliveryUnit                   whereHelperstring
+	ComponentProductStandardScrapInPercent         whereHelpernull_Float32
+	IsMarkedForBackflush                           whereHelpernull_Bool
+	BillOfMaterialItemText                         whereHelpernull_String
+	ValidityStartDate                              whereHelpernull_String
+	ValidityEndDate                                whereHelpernull_String
+	CreationDate                                   whereHelperstring
+	LastChangeDate                                 whereHelperstring
+	IsMarkedForDeletion                            whereHelpernull_Bool
 }{
-	BillOfMaterial:                                  whereHelperint{field: "`data_platform_bill_of_material_item_data`.`BillOfMaterial`"},
-	BillOfMaterialItem:                              whereHelperint{field: "`data_platform_bill_of_material_item_data`.`BillOfMaterialItem`"},
-	SupplyChainRelationshipID:                       whereHelperint{field: "`data_platform_bill_of_material_item_data`.`SupplyChainRelationshipID`"},
-	SupplyChainRelationshipDeliveryID:               whereHelperint{field: "`data_platform_bill_of_material_item_data`.`SupplyChainRelationshipDeliveryID`"},
-	SupplyChainRelationshipDeliveryPlantID:          whereHelperint{field: "`data_platform_bill_of_material_item_data`.`SupplyChainRelationshipDeliveryPlantID`"},
-	SupplyChainRelationshipStockConfPlantID:         whereHelperint{field: "`data_platform_bill_of_material_item_data`.`SupplyChainRelationshipStockConfPlantID`"},
-	Product:                                         whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`Product`"},
-	ProductionPlantBusinessPartner:                  whereHelperint{field: "`data_platform_bill_of_material_item_data`.`ProductionPlantBusinessPartner`"},
-	ProductionPlant:                                 whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`ProductionPlant`"},
-	ComponentProduct:                                whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`ComponentProduct`"},
-	ComponentProductBuyer:                           whereHelperint{field: "`data_platform_bill_of_material_item_data`.`ComponentProductBuyer`"},
-	ComponentProductSeller:                          whereHelperint{field: "`data_platform_bill_of_material_item_data`.`ComponentProductSeller`"},
-	ComponentProductDeliverFromParty:                whereHelperint{field: "`data_platform_bill_of_material_item_data`.`ComponentProductDeliverFromParty`"},
-	ComponentProductDeliverFromPlant:                whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`ComponentProductDeliverFromPlant`"},
-	ComponentProductDeliverToParty:                  whereHelperint{field: "`data_platform_bill_of_material_item_data`.`ComponentProductDeliverToParty`"},
-	ComponentProductDeliverToPlant:                  whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`ComponentProductDeliverToPlant`"},
-	StockConfirmationBusinessPartner:                whereHelperint{field: "`data_platform_bill_of_material_item_data`.`StockConfirmationBusinessPartner`"},
-	StockConfirmationPlant:                          whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`StockConfirmationPlant`"},
-	ComponentProductStandardQuantityInBaseUnuit:     whereHelperfloat32{field: "`data_platform_bill_of_material_item_data`.`ComponentProductStandardQuantityInBaseUnuit`"},
-	ComponentProductStandardQuantityInDeliveryUnuit: whereHelperfloat32{field: "`data_platform_bill_of_material_item_data`.`ComponentProductStandardQuantityInDeliveryUnuit`"},
-	ComponentProductBaseUnit:                        whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`ComponentProductBaseUnit`"},
-	ComponentProductDeliveryUnit:                    whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`ComponentProductDeliveryUnit`"},
-	ComponentProductStandardScrapInPercent:          whereHelpernull_Float32{field: "`data_platform_bill_of_material_item_data`.`ComponentProductStandardScrapInPercent`"},
-	IsMarkedForBackflush:                            whereHelpernull_Bool{field: "`data_platform_bill_of_material_item_data`.`IsMarkedForBackflush`"},
-	BillOfMaterialItemText:                          whereHelpernull_String{field: "`data_platform_bill_of_material_item_data`.`BillOfMaterialItemText`"},
-	ValidityStartDate:                               whereHelpernull_String{field: "`data_platform_bill_of_material_item_data`.`ValidityStartDate`"},
-	ValidityEndDate:                                 whereHelpernull_String{field: "`data_platform_bill_of_material_item_data`.`ValidityEndDate`"},
-	CreationDate:                                    whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`CreationDate`"},
-	LastChangeDate:                                  whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`LastChangeDate`"},
-	IsMarkedForDeletion:                             whereHelpernull_Bool{field: "`data_platform_bill_of_material_item_data`.`IsMarkedForDeletion`"},
+	BillOfMaterial:                                 whereHelperint{field: "`data_platform_bill_of_material_item_data`.`BillOfMaterial`"},
+	BillOfMaterialItem:                             whereHelperint{field: "`data_platform_bill_of_material_item_data`.`BillOfMaterialItem`"},
+	SupplyChainRelationshipID:                      whereHelperint{field: "`data_platform_bill_of_material_item_data`.`SupplyChainRelationshipID`"},
+	SupplyChainRelationshipDeliveryID:              whereHelperint{field: "`data_platform_bill_of_material_item_data`.`SupplyChainRelationshipDeliveryID`"},
+	SupplyChainRelationshipDeliveryPlantID:         whereHelperint{field: "`data_platform_bill_of_material_item_data`.`SupplyChainRelationshipDeliveryPlantID`"},
+	SupplyChainRelationshipStockConfPlantID:        whereHelperint{field: "`data_platform_bill_of_material_item_data`.`SupplyChainRelationshipStockConfPlantID`"},
+	Product:                                        whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`Product`"},
+	ProductionPlantBusinessPartner:                 whereHelperint{field: "`data_platform_bill_of_material_item_data`.`ProductionPlantBusinessPartner`"},
+	ProductionPlant:                                whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`ProductionPlant`"},
+	ComponentProduct:                               whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`ComponentProduct`"},
+	ComponentProductBuyer:                          whereHelperint{field: "`data_platform_bill_of_material_item_data`.`ComponentProductBuyer`"},
+	ComponentProductSeller:                         whereHelperint{field: "`data_platform_bill_of_material_item_data`.`ComponentProductSeller`"},
+	ComponentProductDeliverToParty:                 whereHelperint{field: "`data_platform_bill_of_material_item_data`.`ComponentProductDeliverToParty`"},
+	ComponentProductDeliverToPlant:                 whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`ComponentProductDeliverToPlant`"},
+	ComponentProductDeliverFromParty:               whereHelperint{field: "`data_platform_bill_of_material_item_data`.`ComponentProductDeliverFromParty`"},
+	ComponentProductDeliverFromPlant:               whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`ComponentProductDeliverFromPlant`"},
+	StockConfirmationBusinessPartner:               whereHelperint{field: "`data_platform_bill_of_material_item_data`.`StockConfirmationBusinessPartner`"},
+	StockConfirmationPlant:                         whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`StockConfirmationPlant`"},
+	ComponentProductStandardQuantityInBaseUnit:     whereHelperfloat32{field: "`data_platform_bill_of_material_item_data`.`ComponentProductStandardQuantityInBaseUnit`"},
+	ComponentProductStandardQuantityInDeliveryUnit: whereHelperfloat32{field: "`data_platform_bill_of_material_item_data`.`ComponentProductStandardQuantityInDeliveryUnit`"},
+	ComponentProductBaseUnit:                       whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`ComponentProductBaseUnit`"},
+	ComponentProductDeliveryUnit:                   whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`ComponentProductDeliveryUnit`"},
+	ComponentProductStandardScrapInPercent:         whereHelpernull_Float32{field: "`data_platform_bill_of_material_item_data`.`ComponentProductStandardScrapInPercent`"},
+	IsMarkedForBackflush:                           whereHelpernull_Bool{field: "`data_platform_bill_of_material_item_data`.`IsMarkedForBackflush`"},
+	BillOfMaterialItemText:                         whereHelpernull_String{field: "`data_platform_bill_of_material_item_data`.`BillOfMaterialItemText`"},
+	ValidityStartDate:                              whereHelpernull_String{field: "`data_platform_bill_of_material_item_data`.`ValidityStartDate`"},
+	ValidityEndDate:                                whereHelpernull_String{field: "`data_platform_bill_of_material_item_data`.`ValidityEndDate`"},
+	CreationDate:                                   whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`CreationDate`"},
+	LastChangeDate:                                 whereHelperstring{field: "`data_platform_bill_of_material_item_data`.`LastChangeDate`"},
+	IsMarkedForDeletion:                            whereHelpernull_Bool{field: "`data_platform_bill_of_material_item_data`.`IsMarkedForDeletion`"},
 }
 
 // DataPlatformBillOfMaterialItemDatumRels is where relationship names are stored.
 var DataPlatformBillOfMaterialItemDatumRels = struct {
-	ComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum string
-	ComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum          string
-	BillOfMaterialDataPlatformBillOfMaterialHeaderDatum                           string
-	ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum             string
-	ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum         string
+	ComponentProductBuyerDataPlatformSCRDeliveryRelationDatum             string
+	ComponentProductBuyerDataPlatformSCRGeneralDatum                      string
+	BillOfMaterialDataPlatformBillOfMaterialHeaderDatum                   string
+	ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum     string
+	ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum string
 }{
-	ComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum: "ComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum",
-	ComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum:          "ComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum",
-	BillOfMaterialDataPlatformBillOfMaterialHeaderDatum:                           "BillOfMaterialDataPlatformBillOfMaterialHeaderDatum",
-	ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum:             "ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum",
-	ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum:         "ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum",
+	ComponentProductBuyerDataPlatformSCRDeliveryRelationDatum:             "ComponentProductBuyerDataPlatformSCRDeliveryRelationDatum",
+	ComponentProductBuyerDataPlatformSCRGeneralDatum:                      "ComponentProductBuyerDataPlatformSCRGeneralDatum",
+	BillOfMaterialDataPlatformBillOfMaterialHeaderDatum:                   "BillOfMaterialDataPlatformBillOfMaterialHeaderDatum",
+	ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum:     "ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum",
+	ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum: "ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum",
 }
 
 // dataPlatformBillOfMaterialItemDatumR is where relationships are stored.
 type dataPlatformBillOfMaterialItemDatumR struct {
-	ComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum *DataPlatformSupplyChainRelationshipDeliveryRelationDatum `boil:"ComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum" json:"ComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum" toml:"ComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum" yaml:"ComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum"`
-	ComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum          *DataPlatformSupplyChainRelationshipGeneralDatum          `boil:"ComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum" json:"ComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum" toml:"ComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum" yaml:"ComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum"`
-	BillOfMaterialDataPlatformBillOfMaterialHeaderDatum                           *DataPlatformBillOfMaterialHeaderDatum                    `boil:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum" json:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum" toml:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum" yaml:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum"`
-	ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum             *DataPlatformQuantityUnitQuantityUnitDatum                `boil:"ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum"`
-	ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum         *DataPlatformQuantityUnitQuantityUnitDatum                `boil:"ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum"`
+	ComponentProductBuyerDataPlatformSCRDeliveryRelationDatum             *DataPlatformSCRDeliveryRelationDatum      `boil:"ComponentProductBuyerDataPlatformSCRDeliveryRelationDatum" json:"ComponentProductBuyerDataPlatformSCRDeliveryRelationDatum" toml:"ComponentProductBuyerDataPlatformSCRDeliveryRelationDatum" yaml:"ComponentProductBuyerDataPlatformSCRDeliveryRelationDatum"`
+	ComponentProductBuyerDataPlatformSCRGeneralDatum                      *DataPlatformSCRGeneralDatum               `boil:"ComponentProductBuyerDataPlatformSCRGeneralDatum" json:"ComponentProductBuyerDataPlatformSCRGeneralDatum" toml:"ComponentProductBuyerDataPlatformSCRGeneralDatum" yaml:"ComponentProductBuyerDataPlatformSCRGeneralDatum"`
+	BillOfMaterialDataPlatformBillOfMaterialHeaderDatum                   *DataPlatformBillOfMaterialHeaderDatum     `boil:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum" json:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum" toml:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum" yaml:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum"`
+	ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum     *DataPlatformQuantityUnitQuantityUnitDatum `boil:"ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum"`
+	ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum *DataPlatformQuantityUnitQuantityUnitDatum `boil:"ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum"`
 }
 
 // NewStruct creates a new relationship struct
@@ -320,18 +320,18 @@ func (*dataPlatformBillOfMaterialItemDatumR) NewStruct() *dataPlatformBillOfMate
 	return &dataPlatformBillOfMaterialItemDatumR{}
 }
 
-func (r *dataPlatformBillOfMaterialItemDatumR) GetComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum() *DataPlatformSupplyChainRelationshipDeliveryRelationDatum {
+func (r *dataPlatformBillOfMaterialItemDatumR) GetComponentProductBuyerDataPlatformSCRDeliveryRelationDatum() *DataPlatformSCRDeliveryRelationDatum {
 	if r == nil {
 		return nil
 	}
-	return r.ComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum
+	return r.ComponentProductBuyerDataPlatformSCRDeliveryRelationDatum
 }
 
-func (r *dataPlatformBillOfMaterialItemDatumR) GetComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum() *DataPlatformSupplyChainRelationshipGeneralDatum {
+func (r *dataPlatformBillOfMaterialItemDatumR) GetComponentProductBuyerDataPlatformSCRGeneralDatum() *DataPlatformSCRGeneralDatum {
 	if r == nil {
 		return nil
 	}
-	return r.ComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum
+	return r.ComponentProductBuyerDataPlatformSCRGeneralDatum
 }
 
 func (r *dataPlatformBillOfMaterialItemDatumR) GetBillOfMaterialDataPlatformBillOfMaterialHeaderDatum() *DataPlatformBillOfMaterialHeaderDatum {
@@ -359,8 +359,8 @@ func (r *dataPlatformBillOfMaterialItemDatumR) GetComponentProductDeliveryUnitDa
 type dataPlatformBillOfMaterialItemDatumL struct{}
 
 var (
-	dataPlatformBillOfMaterialItemDatumAllColumns            = []string{"BillOfMaterial", "BillOfMaterialItem", "SupplyChainRelationshipID", "SupplyChainRelationshipDeliveryID", "SupplyChainRelationshipDeliveryPlantID", "SupplyChainRelationshipStockConfPlantID", "Product", "ProductionPlantBusinessPartner", "ProductionPlant", "ComponentProduct", "ComponentProductBuyer", "ComponentProductSeller", "ComponentProductDeliverFromParty", "ComponentProductDeliverFromPlant", "ComponentProductDeliverToParty", "ComponentProductDeliverToPlant", "StockConfirmationBusinessPartner", "StockConfirmationPlant", "ComponentProductStandardQuantityInBaseUnuit", "ComponentProductStandardQuantityInDeliveryUnuit", "ComponentProductBaseUnit", "ComponentProductDeliveryUnit", "ComponentProductStandardScrapInPercent", "IsMarkedForBackflush", "BillOfMaterialItemText", "ValidityStartDate", "ValidityEndDate", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
-	dataPlatformBillOfMaterialItemDatumColumnsWithoutDefault = []string{"BillOfMaterial", "BillOfMaterialItem", "SupplyChainRelationshipID", "SupplyChainRelationshipDeliveryID", "SupplyChainRelationshipDeliveryPlantID", "SupplyChainRelationshipStockConfPlantID", "Product", "ProductionPlantBusinessPartner", "ProductionPlant", "ComponentProduct", "ComponentProductBuyer", "ComponentProductSeller", "ComponentProductDeliverFromParty", "ComponentProductDeliverFromPlant", "ComponentProductDeliverToParty", "ComponentProductDeliverToPlant", "StockConfirmationBusinessPartner", "StockConfirmationPlant", "ComponentProductStandardQuantityInBaseUnuit", "ComponentProductStandardQuantityInDeliveryUnuit", "ComponentProductBaseUnit", "ComponentProductDeliveryUnit", "ComponentProductStandardScrapInPercent", "IsMarkedForBackflush", "BillOfMaterialItemText", "ValidityStartDate", "ValidityEndDate", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
+	dataPlatformBillOfMaterialItemDatumAllColumns            = []string{"BillOfMaterial", "BillOfMaterialItem", "SupplyChainRelationshipID", "SupplyChainRelationshipDeliveryID", "SupplyChainRelationshipDeliveryPlantID", "SupplyChainRelationshipStockConfPlantID", "Product", "ProductionPlantBusinessPartner", "ProductionPlant", "ComponentProduct", "ComponentProductBuyer", "ComponentProductSeller", "ComponentProductDeliverToParty", "ComponentProductDeliverToPlant", "ComponentProductDeliverFromParty", "ComponentProductDeliverFromPlant", "StockConfirmationBusinessPartner", "StockConfirmationPlant", "ComponentProductStandardQuantityInBaseUnit", "ComponentProductStandardQuantityInDeliveryUnit", "ComponentProductBaseUnit", "ComponentProductDeliveryUnit", "ComponentProductStandardScrapInPercent", "IsMarkedForBackflush", "BillOfMaterialItemText", "ValidityStartDate", "ValidityEndDate", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
+	dataPlatformBillOfMaterialItemDatumColumnsWithoutDefault = []string{"BillOfMaterial", "BillOfMaterialItem", "SupplyChainRelationshipID", "SupplyChainRelationshipDeliveryID", "SupplyChainRelationshipDeliveryPlantID", "SupplyChainRelationshipStockConfPlantID", "Product", "ProductionPlantBusinessPartner", "ProductionPlant", "ComponentProduct", "ComponentProductBuyer", "ComponentProductSeller", "ComponentProductDeliverToParty", "ComponentProductDeliverToPlant", "ComponentProductDeliverFromParty", "ComponentProductDeliverFromPlant", "StockConfirmationBusinessPartner", "StockConfirmationPlant", "ComponentProductStandardQuantityInBaseUnit", "ComponentProductStandardQuantityInDeliveryUnit", "ComponentProductBaseUnit", "ComponentProductDeliveryUnit", "ComponentProductStandardScrapInPercent", "IsMarkedForBackflush", "BillOfMaterialItemText", "ValidityStartDate", "ValidityEndDate", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
 	dataPlatformBillOfMaterialItemDatumColumnsWithDefault    = []string{}
 	dataPlatformBillOfMaterialItemDatumPrimaryKeyColumns     = []string{"BillOfMaterial", "BillOfMaterialItem"}
 	dataPlatformBillOfMaterialItemDatumGeneratedColumns      = []string{}
@@ -457,26 +457,26 @@ func (q dataPlatformBillOfMaterialItemDatumQuery) Exists(ctx context.Context, ex
 	return count > 0, nil
 }
 
-// ComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum pointed to by the foreign key.
-func (o *DataPlatformBillOfMaterialItemDatum) ComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum(mods ...qm.QueryMod) dataPlatformSupplyChainRelationshipDeliveryRelationDatumQuery {
+// ComponentProductBuyerDataPlatformSCRDeliveryRelationDatum pointed to by the foreign key.
+func (o *DataPlatformBillOfMaterialItemDatum) ComponentProductBuyerDataPlatformSCRDeliveryRelationDatum(mods ...qm.QueryMod) dataPlatformSCRDeliveryRelationDatumQuery {
 	queryMods := []qm.QueryMod{
 		qm.Where("`Buyer` = ?", o.ComponentProductBuyer),
 	}
 
 	queryMods = append(queryMods, mods...)
 
-	return DataPlatformSupplyChainRelationshipDeliveryRelationData(queryMods...)
+	return DataPlatformSCRDeliveryRelationData(queryMods...)
 }
 
-// ComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum pointed to by the foreign key.
-func (o *DataPlatformBillOfMaterialItemDatum) ComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum(mods ...qm.QueryMod) dataPlatformSupplyChainRelationshipGeneralDatumQuery {
+// ComponentProductBuyerDataPlatformSCRGeneralDatum pointed to by the foreign key.
+func (o *DataPlatformBillOfMaterialItemDatum) ComponentProductBuyerDataPlatformSCRGeneralDatum(mods ...qm.QueryMod) dataPlatformSCRGeneralDatumQuery {
 	queryMods := []qm.QueryMod{
 		qm.Where("`Buyer` = ?", o.ComponentProductBuyer),
 	}
 
 	queryMods = append(queryMods, mods...)
 
-	return DataPlatformSupplyChainRelationshipGeneralData(queryMods...)
+	return DataPlatformSCRGeneralData(queryMods...)
 }
 
 // BillOfMaterialDataPlatformBillOfMaterialHeaderDatum pointed to by the foreign key.
@@ -512,9 +512,9 @@ func (o *DataPlatformBillOfMaterialItemDatum) ComponentProductDeliveryUnitDataPl
 	return DataPlatformQuantityUnitQuantityUnitData(queryMods...)
 }
 
-// LoadComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum allows an eager lookup of values, cached into the
+// LoadComponentProductBuyerDataPlatformSCRDeliveryRelationDatum allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformBillOfMaterialItemDatumL) LoadComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBillOfMaterialItemDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformBillOfMaterialItemDatumL) LoadComponentProductBuyerDataPlatformSCRDeliveryRelationDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBillOfMaterialItemDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformBillOfMaterialItemDatum
 	var object *DataPlatformBillOfMaterialItemDatum
 
@@ -570,8 +570,8 @@ func (dataPlatformBillOfMaterialItemDatumL) LoadComponentProductBuyerDataPlatfor
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_supply_chain_relationship_delivery_relation_data`),
-		qm.WhereIn(`data_platform_supply_chain_relationship_delivery_relation_data.Buyer in ?`, args...),
+		qm.From(`data_platform_scr_delivery_relation_data`),
+		qm.WhereIn(`data_platform_scr_delivery_relation_data.Buyer in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -579,19 +579,19 @@ func (dataPlatformBillOfMaterialItemDatumL) LoadComponentProductBuyerDataPlatfor
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load DataPlatformSupplyChainRelationshipDeliveryRelationDatum")
+		return errors.Wrap(err, "failed to eager load DataPlatformSCRDeliveryRelationDatum")
 	}
 
-	var resultSlice []*DataPlatformSupplyChainRelationshipDeliveryRelationDatum
+	var resultSlice []*DataPlatformSCRDeliveryRelationDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformSupplyChainRelationshipDeliveryRelationDatum")
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformSCRDeliveryRelationDatum")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results of eager load for data_platform_supply_chain_relationship_delivery_relation_data")
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_scr_delivery_relation_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_supply_chain_relationship_delivery_relation_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_scr_delivery_relation_data")
 	}
 
 	if len(resultSlice) == 0 {
@@ -600,14 +600,14 @@ func (dataPlatformBillOfMaterialItemDatumL) LoadComponentProductBuyerDataPlatfor
 
 	if singular {
 		foreign := resultSlice[0]
-		object.R.ComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum = foreign
+		object.R.ComponentProductBuyerDataPlatformSCRDeliveryRelationDatum = foreign
 		return nil
 	}
 
 	for _, local := range slice {
 		for _, foreign := range resultSlice {
 			if local.ComponentProductBuyer == foreign.Buyer {
-				local.R.ComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum = foreign
+				local.R.ComponentProductBuyerDataPlatformSCRDeliveryRelationDatum = foreign
 				break
 			}
 		}
@@ -616,9 +616,9 @@ func (dataPlatformBillOfMaterialItemDatumL) LoadComponentProductBuyerDataPlatfor
 	return nil
 }
 
-// LoadComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum allows an eager lookup of values, cached into the
+// LoadComponentProductBuyerDataPlatformSCRGeneralDatum allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformBillOfMaterialItemDatumL) LoadComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBillOfMaterialItemDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformBillOfMaterialItemDatumL) LoadComponentProductBuyerDataPlatformSCRGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBillOfMaterialItemDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformBillOfMaterialItemDatum
 	var object *DataPlatformBillOfMaterialItemDatum
 
@@ -674,8 +674,8 @@ func (dataPlatformBillOfMaterialItemDatumL) LoadComponentProductBuyerDataPlatfor
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_supply_chain_relationship_general_data`),
-		qm.WhereIn(`data_platform_supply_chain_relationship_general_data.Buyer in ?`, args...),
+		qm.From(`data_platform_scr_general_data`),
+		qm.WhereIn(`data_platform_scr_general_data.Buyer in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -683,19 +683,19 @@ func (dataPlatformBillOfMaterialItemDatumL) LoadComponentProductBuyerDataPlatfor
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load DataPlatformSupplyChainRelationshipGeneralDatum")
+		return errors.Wrap(err, "failed to eager load DataPlatformSCRGeneralDatum")
 	}
 
-	var resultSlice []*DataPlatformSupplyChainRelationshipGeneralDatum
+	var resultSlice []*DataPlatformSCRGeneralDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformSupplyChainRelationshipGeneralDatum")
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformSCRGeneralDatum")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results of eager load for data_platform_supply_chain_relationship_general_data")
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_scr_general_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_supply_chain_relationship_general_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_scr_general_data")
 	}
 
 	if len(resultSlice) == 0 {
@@ -704,14 +704,14 @@ func (dataPlatformBillOfMaterialItemDatumL) LoadComponentProductBuyerDataPlatfor
 
 	if singular {
 		foreign := resultSlice[0]
-		object.R.ComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum = foreign
+		object.R.ComponentProductBuyerDataPlatformSCRGeneralDatum = foreign
 		return nil
 	}
 
 	for _, local := range slice {
 		for _, foreign := range resultSlice {
 			if local.ComponentProductBuyer == foreign.Buyer {
-				local.R.ComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum = foreign
+				local.R.ComponentProductBuyerDataPlatformSCRGeneralDatum = foreign
 				break
 			}
 		}
@@ -1032,9 +1032,9 @@ func (dataPlatformBillOfMaterialItemDatumL) LoadComponentProductDeliveryUnitData
 	return nil
 }
 
-// SetComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum of the dataPlatformBillOfMaterialItemDatum to the related item.
-// Sets o.R.ComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum to related.
-func (o *DataPlatformBillOfMaterialItemDatum) SetComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformSupplyChainRelationshipDeliveryRelationDatum) error {
+// SetComponentProductBuyerDataPlatformSCRDeliveryRelationDatum of the dataPlatformBillOfMaterialItemDatum to the related item.
+// Sets o.R.ComponentProductBuyerDataPlatformSCRDeliveryRelationDatum to related.
+func (o *DataPlatformBillOfMaterialItemDatum) SetComponentProductBuyerDataPlatformSCRDeliveryRelationDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformSCRDeliveryRelationDatum) error {
 	var err error
 	if insert {
 		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
@@ -1061,18 +1061,18 @@ func (o *DataPlatformBillOfMaterialItemDatum) SetComponentProductBuyerDataPlatfo
 	o.ComponentProductBuyer = related.Buyer
 	if o.R == nil {
 		o.R = &dataPlatformBillOfMaterialItemDatumR{
-			ComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum: related,
+			ComponentProductBuyerDataPlatformSCRDeliveryRelationDatum: related,
 		}
 	} else {
-		o.R.ComponentProductBuyerDataPlatformSupplyChainRelationshipDeliveryRelationDatum = related
+		o.R.ComponentProductBuyerDataPlatformSCRDeliveryRelationDatum = related
 	}
 
 	return nil
 }
 
-// SetComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum of the dataPlatformBillOfMaterialItemDatum to the related item.
-// Sets o.R.ComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum to related.
-func (o *DataPlatformBillOfMaterialItemDatum) SetComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformSupplyChainRelationshipGeneralDatum) error {
+// SetComponentProductBuyerDataPlatformSCRGeneralDatum of the dataPlatformBillOfMaterialItemDatum to the related item.
+// Sets o.R.ComponentProductBuyerDataPlatformSCRGeneralDatum to related.
+func (o *DataPlatformBillOfMaterialItemDatum) SetComponentProductBuyerDataPlatformSCRGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformSCRGeneralDatum) error {
 	var err error
 	if insert {
 		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
@@ -1099,10 +1099,10 @@ func (o *DataPlatformBillOfMaterialItemDatum) SetComponentProductBuyerDataPlatfo
 	o.ComponentProductBuyer = related.Buyer
 	if o.R == nil {
 		o.R = &dataPlatformBillOfMaterialItemDatumR{
-			ComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum: related,
+			ComponentProductBuyerDataPlatformSCRGeneralDatum: related,
 		}
 	} else {
-		o.R.ComponentProductBuyerDataPlatformSupplyChainRelationshipGeneralDatum = related
+		o.R.ComponentProductBuyerDataPlatformSCRGeneralDatum = related
 	}
 
 	return nil

@@ -27,15 +27,11 @@ type DataPlatformBusinessPartnerGeneralDatum struct {
 	BusinessPartner               int         `boil:"BusinessPartner" json:"BusinessPartner" toml:"BusinessPartner" yaml:"BusinessPartner"`
 	BusinessPartnerFullName       null.String `boil:"BusinessPartnerFullName" json:"BusinessPartnerFullName,omitempty" toml:"BusinessPartnerFullName" yaml:"BusinessPartnerFullName,omitempty"`
 	BusinessPartnerName           string      `boil:"BusinessPartnerName" json:"BusinessPartnerName" toml:"BusinessPartnerName" yaml:"BusinessPartnerName"`
-	CreationDate                  string      `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
-	CreationTime                  null.String `boil:"CreationTime" json:"CreationTime,omitempty" toml:"CreationTime" yaml:"CreationTime,omitempty"`
 	Industry                      null.String `boil:"Industry" json:"Industry,omitempty" toml:"Industry" yaml:"Industry,omitempty"`
 	LegalEntityRegistration       null.String `boil:"LegalEntityRegistration" json:"LegalEntityRegistration,omitempty" toml:"LegalEntityRegistration" yaml:"LegalEntityRegistration,omitempty"`
 	Country                       string      `boil:"Country" json:"Country" toml:"Country" yaml:"Country"`
 	Language                      string      `boil:"Language" json:"Language" toml:"Language" yaml:"Language"`
 	Currency                      string      `boil:"Currency" json:"Currency" toml:"Currency" yaml:"Currency"`
-	LastChangeDate                null.String `boil:"LastChangeDate" json:"LastChangeDate,omitempty" toml:"LastChangeDate" yaml:"LastChangeDate,omitempty"`
-	LastChangeTime                null.String `boil:"LastChangeTime" json:"LastChangeTime,omitempty" toml:"LastChangeTime" yaml:"LastChangeTime,omitempty"`
 	OrganizationBPName1           null.String `boil:"OrganizationBPName1" json:"OrganizationBPName1,omitempty" toml:"OrganizationBPName1" yaml:"OrganizationBPName1,omitempty"`
 	OrganizationBPName2           null.String `boil:"OrganizationBPName2" json:"OrganizationBPName2,omitempty" toml:"OrganizationBPName2" yaml:"OrganizationBPName2,omitempty"`
 	OrganizationBPName3           null.String `boil:"OrganizationBPName3" json:"OrganizationBPName3,omitempty" toml:"OrganizationBPName3" yaml:"OrganizationBPName3,omitempty"`
@@ -48,11 +44,13 @@ type DataPlatformBusinessPartnerGeneralDatum struct {
 	OrganizationLiquidationDate   null.String `boil:"OrganizationLiquidationDate" json:"OrganizationLiquidationDate,omitempty" toml:"OrganizationLiquidationDate" yaml:"OrganizationLiquidationDate,omitempty"`
 	BusinessPartnerBirthplaceName null.String `boil:"BusinessPartnerBirthplaceName" json:"BusinessPartnerBirthplaceName,omitempty" toml:"BusinessPartnerBirthplaceName" yaml:"BusinessPartnerBirthplaceName,omitempty"`
 	BusinessPartnerDeathDate      null.String `boil:"BusinessPartnerDeathDate" json:"BusinessPartnerDeathDate,omitempty" toml:"BusinessPartnerDeathDate" yaml:"BusinessPartnerDeathDate,omitempty"`
-	BusinessPartnerIsBlocked      null.Bool   `boil:"BusinessPartnerIsBlocked" json:"BusinessPartnerIsBlocked,omitempty" toml:"BusinessPartnerIsBlocked" yaml:"BusinessPartnerIsBlocked,omitempty"`
 	GroupBusinessPartnerName1     null.String `boil:"GroupBusinessPartnerName1" json:"GroupBusinessPartnerName1,omitempty" toml:"GroupBusinessPartnerName1" yaml:"GroupBusinessPartnerName1,omitempty"`
 	GroupBusinessPartnerName2     null.String `boil:"GroupBusinessPartnerName2" json:"GroupBusinessPartnerName2,omitempty" toml:"GroupBusinessPartnerName2" yaml:"GroupBusinessPartnerName2,omitempty"`
 	AddressID                     null.Int    `boil:"AddressID" json:"AddressID,omitempty" toml:"AddressID" yaml:"AddressID,omitempty"`
 	BusinessPartnerIDByExtSystem  null.String `boil:"BusinessPartnerIDByExtSystem" json:"BusinessPartnerIDByExtSystem,omitempty" toml:"BusinessPartnerIDByExtSystem" yaml:"BusinessPartnerIDByExtSystem,omitempty"`
+	BusinessPartnerIsBlocked      null.Bool   `boil:"BusinessPartnerIsBlocked" json:"BusinessPartnerIsBlocked,omitempty" toml:"BusinessPartnerIsBlocked" yaml:"BusinessPartnerIsBlocked,omitempty"`
+	CreationDate                  string      `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
+	LastChangeDate                string      `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
 	IsMarkedForDeletion           null.Bool   `boil:"IsMarkedForDeletion" json:"IsMarkedForDeletion,omitempty" toml:"IsMarkedForDeletion" yaml:"IsMarkedForDeletion,omitempty"`
 
 	R *dataPlatformBusinessPartnerGeneralDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
@@ -63,15 +61,11 @@ var DataPlatformBusinessPartnerGeneralDatumColumns = struct {
 	BusinessPartner               string
 	BusinessPartnerFullName       string
 	BusinessPartnerName           string
-	CreationDate                  string
-	CreationTime                  string
 	Industry                      string
 	LegalEntityRegistration       string
 	Country                       string
 	Language                      string
 	Currency                      string
-	LastChangeDate                string
-	LastChangeTime                string
 	OrganizationBPName1           string
 	OrganizationBPName2           string
 	OrganizationBPName3           string
@@ -84,25 +78,23 @@ var DataPlatformBusinessPartnerGeneralDatumColumns = struct {
 	OrganizationLiquidationDate   string
 	BusinessPartnerBirthplaceName string
 	BusinessPartnerDeathDate      string
-	BusinessPartnerIsBlocked      string
 	GroupBusinessPartnerName1     string
 	GroupBusinessPartnerName2     string
 	AddressID                     string
 	BusinessPartnerIDByExtSystem  string
+	BusinessPartnerIsBlocked      string
+	CreationDate                  string
+	LastChangeDate                string
 	IsMarkedForDeletion           string
 }{
 	BusinessPartner:               "BusinessPartner",
 	BusinessPartnerFullName:       "BusinessPartnerFullName",
 	BusinessPartnerName:           "BusinessPartnerName",
-	CreationDate:                  "CreationDate",
-	CreationTime:                  "CreationTime",
 	Industry:                      "Industry",
 	LegalEntityRegistration:       "LegalEntityRegistration",
 	Country:                       "Country",
 	Language:                      "Language",
 	Currency:                      "Currency",
-	LastChangeDate:                "LastChangeDate",
-	LastChangeTime:                "LastChangeTime",
 	OrganizationBPName1:           "OrganizationBPName1",
 	OrganizationBPName2:           "OrganizationBPName2",
 	OrganizationBPName3:           "OrganizationBPName3",
@@ -115,11 +107,13 @@ var DataPlatformBusinessPartnerGeneralDatumColumns = struct {
 	OrganizationLiquidationDate:   "OrganizationLiquidationDate",
 	BusinessPartnerBirthplaceName: "BusinessPartnerBirthplaceName",
 	BusinessPartnerDeathDate:      "BusinessPartnerDeathDate",
-	BusinessPartnerIsBlocked:      "BusinessPartnerIsBlocked",
 	GroupBusinessPartnerName1:     "GroupBusinessPartnerName1",
 	GroupBusinessPartnerName2:     "GroupBusinessPartnerName2",
 	AddressID:                     "AddressID",
 	BusinessPartnerIDByExtSystem:  "BusinessPartnerIDByExtSystem",
+	BusinessPartnerIsBlocked:      "BusinessPartnerIsBlocked",
+	CreationDate:                  "CreationDate",
+	LastChangeDate:                "LastChangeDate",
 	IsMarkedForDeletion:           "IsMarkedForDeletion",
 }
 
@@ -127,15 +121,11 @@ var DataPlatformBusinessPartnerGeneralDatumTableColumns = struct {
 	BusinessPartner               string
 	BusinessPartnerFullName       string
 	BusinessPartnerName           string
-	CreationDate                  string
-	CreationTime                  string
 	Industry                      string
 	LegalEntityRegistration       string
 	Country                       string
 	Language                      string
 	Currency                      string
-	LastChangeDate                string
-	LastChangeTime                string
 	OrganizationBPName1           string
 	OrganizationBPName2           string
 	OrganizationBPName3           string
@@ -148,25 +138,23 @@ var DataPlatformBusinessPartnerGeneralDatumTableColumns = struct {
 	OrganizationLiquidationDate   string
 	BusinessPartnerBirthplaceName string
 	BusinessPartnerDeathDate      string
-	BusinessPartnerIsBlocked      string
 	GroupBusinessPartnerName1     string
 	GroupBusinessPartnerName2     string
 	AddressID                     string
 	BusinessPartnerIDByExtSystem  string
+	BusinessPartnerIsBlocked      string
+	CreationDate                  string
+	LastChangeDate                string
 	IsMarkedForDeletion           string
 }{
 	BusinessPartner:               "data_platform_business_partner_general_data.BusinessPartner",
 	BusinessPartnerFullName:       "data_platform_business_partner_general_data.BusinessPartnerFullName",
 	BusinessPartnerName:           "data_platform_business_partner_general_data.BusinessPartnerName",
-	CreationDate:                  "data_platform_business_partner_general_data.CreationDate",
-	CreationTime:                  "data_platform_business_partner_general_data.CreationTime",
 	Industry:                      "data_platform_business_partner_general_data.Industry",
 	LegalEntityRegistration:       "data_platform_business_partner_general_data.LegalEntityRegistration",
 	Country:                       "data_platform_business_partner_general_data.Country",
 	Language:                      "data_platform_business_partner_general_data.Language",
 	Currency:                      "data_platform_business_partner_general_data.Currency",
-	LastChangeDate:                "data_platform_business_partner_general_data.LastChangeDate",
-	LastChangeTime:                "data_platform_business_partner_general_data.LastChangeTime",
 	OrganizationBPName1:           "data_platform_business_partner_general_data.OrganizationBPName1",
 	OrganizationBPName2:           "data_platform_business_partner_general_data.OrganizationBPName2",
 	OrganizationBPName3:           "data_platform_business_partner_general_data.OrganizationBPName3",
@@ -179,11 +167,13 @@ var DataPlatformBusinessPartnerGeneralDatumTableColumns = struct {
 	OrganizationLiquidationDate:   "data_platform_business_partner_general_data.OrganizationLiquidationDate",
 	BusinessPartnerBirthplaceName: "data_platform_business_partner_general_data.BusinessPartnerBirthplaceName",
 	BusinessPartnerDeathDate:      "data_platform_business_partner_general_data.BusinessPartnerDeathDate",
-	BusinessPartnerIsBlocked:      "data_platform_business_partner_general_data.BusinessPartnerIsBlocked",
 	GroupBusinessPartnerName1:     "data_platform_business_partner_general_data.GroupBusinessPartnerName1",
 	GroupBusinessPartnerName2:     "data_platform_business_partner_general_data.GroupBusinessPartnerName2",
 	AddressID:                     "data_platform_business_partner_general_data.AddressID",
 	BusinessPartnerIDByExtSystem:  "data_platform_business_partner_general_data.BusinessPartnerIDByExtSystem",
+	BusinessPartnerIsBlocked:      "data_platform_business_partner_general_data.BusinessPartnerIsBlocked",
+	CreationDate:                  "data_platform_business_partner_general_data.CreationDate",
+	LastChangeDate:                "data_platform_business_partner_general_data.LastChangeDate",
 	IsMarkedForDeletion:           "data_platform_business_partner_general_data.IsMarkedForDeletion",
 }
 
@@ -193,15 +183,11 @@ var DataPlatformBusinessPartnerGeneralDatumWhere = struct {
 	BusinessPartner               whereHelperint
 	BusinessPartnerFullName       whereHelpernull_String
 	BusinessPartnerName           whereHelperstring
-	CreationDate                  whereHelperstring
-	CreationTime                  whereHelpernull_String
 	Industry                      whereHelpernull_String
 	LegalEntityRegistration       whereHelpernull_String
 	Country                       whereHelperstring
 	Language                      whereHelperstring
 	Currency                      whereHelperstring
-	LastChangeDate                whereHelpernull_String
-	LastChangeTime                whereHelpernull_String
 	OrganizationBPName1           whereHelpernull_String
 	OrganizationBPName2           whereHelpernull_String
 	OrganizationBPName3           whereHelpernull_String
@@ -214,25 +200,23 @@ var DataPlatformBusinessPartnerGeneralDatumWhere = struct {
 	OrganizationLiquidationDate   whereHelpernull_String
 	BusinessPartnerBirthplaceName whereHelpernull_String
 	BusinessPartnerDeathDate      whereHelpernull_String
-	BusinessPartnerIsBlocked      whereHelpernull_Bool
 	GroupBusinessPartnerName1     whereHelpernull_String
 	GroupBusinessPartnerName2     whereHelpernull_String
 	AddressID                     whereHelpernull_Int
 	BusinessPartnerIDByExtSystem  whereHelpernull_String
+	BusinessPartnerIsBlocked      whereHelpernull_Bool
+	CreationDate                  whereHelperstring
+	LastChangeDate                whereHelperstring
 	IsMarkedForDeletion           whereHelpernull_Bool
 }{
 	BusinessPartner:               whereHelperint{field: "`data_platform_business_partner_general_data`.`BusinessPartner`"},
 	BusinessPartnerFullName:       whereHelpernull_String{field: "`data_platform_business_partner_general_data`.`BusinessPartnerFullName`"},
 	BusinessPartnerName:           whereHelperstring{field: "`data_platform_business_partner_general_data`.`BusinessPartnerName`"},
-	CreationDate:                  whereHelperstring{field: "`data_platform_business_partner_general_data`.`CreationDate`"},
-	CreationTime:                  whereHelpernull_String{field: "`data_platform_business_partner_general_data`.`CreationTime`"},
 	Industry:                      whereHelpernull_String{field: "`data_platform_business_partner_general_data`.`Industry`"},
 	LegalEntityRegistration:       whereHelpernull_String{field: "`data_platform_business_partner_general_data`.`LegalEntityRegistration`"},
 	Country:                       whereHelperstring{field: "`data_platform_business_partner_general_data`.`Country`"},
 	Language:                      whereHelperstring{field: "`data_platform_business_partner_general_data`.`Language`"},
 	Currency:                      whereHelperstring{field: "`data_platform_business_partner_general_data`.`Currency`"},
-	LastChangeDate:                whereHelpernull_String{field: "`data_platform_business_partner_general_data`.`LastChangeDate`"},
-	LastChangeTime:                whereHelpernull_String{field: "`data_platform_business_partner_general_data`.`LastChangeTime`"},
 	OrganizationBPName1:           whereHelpernull_String{field: "`data_platform_business_partner_general_data`.`OrganizationBPName1`"},
 	OrganizationBPName2:           whereHelpernull_String{field: "`data_platform_business_partner_general_data`.`OrganizationBPName2`"},
 	OrganizationBPName3:           whereHelpernull_String{field: "`data_platform_business_partner_general_data`.`OrganizationBPName3`"},
@@ -245,60 +229,77 @@ var DataPlatformBusinessPartnerGeneralDatumWhere = struct {
 	OrganizationLiquidationDate:   whereHelpernull_String{field: "`data_platform_business_partner_general_data`.`OrganizationLiquidationDate`"},
 	BusinessPartnerBirthplaceName: whereHelpernull_String{field: "`data_platform_business_partner_general_data`.`BusinessPartnerBirthplaceName`"},
 	BusinessPartnerDeathDate:      whereHelpernull_String{field: "`data_platform_business_partner_general_data`.`BusinessPartnerDeathDate`"},
-	BusinessPartnerIsBlocked:      whereHelpernull_Bool{field: "`data_platform_business_partner_general_data`.`BusinessPartnerIsBlocked`"},
 	GroupBusinessPartnerName1:     whereHelpernull_String{field: "`data_platform_business_partner_general_data`.`GroupBusinessPartnerName1`"},
 	GroupBusinessPartnerName2:     whereHelpernull_String{field: "`data_platform_business_partner_general_data`.`GroupBusinessPartnerName2`"},
 	AddressID:                     whereHelpernull_Int{field: "`data_platform_business_partner_general_data`.`AddressID`"},
 	BusinessPartnerIDByExtSystem:  whereHelpernull_String{field: "`data_platform_business_partner_general_data`.`BusinessPartnerIDByExtSystem`"},
+	BusinessPartnerIsBlocked:      whereHelpernull_Bool{field: "`data_platform_business_partner_general_data`.`BusinessPartnerIsBlocked`"},
+	CreationDate:                  whereHelperstring{field: "`data_platform_business_partner_general_data`.`CreationDate`"},
+	LastChangeDate:                whereHelperstring{field: "`data_platform_business_partner_general_data`.`LastChangeDate`"},
 	IsMarkedForDeletion:           whereHelpernull_Bool{field: "`data_platform_business_partner_general_data`.`IsMarkedForDeletion`"},
 }
 
 // DataPlatformBusinessPartnerGeneralDatumRels is where relationship names are stored.
 var DataPlatformBusinessPartnerGeneralDatumRels = struct {
+	AddressIDDataPlatformAddressAddressDatum                                string
+	CountryDataPlatformCountryCountryDatum                                  string
+	CurrencyDataPlatformCurrencyCurrencyDatum                               string
+	IndustryDataPlatformIndustryIndustryDatum                               string
+	LanguageDataPlatformLanguageLanguageDatum                               string
 	BusinessPartnerDataPlatformCodeConversionCodeConversionData             string
-	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData       string
-	BusinessPartnerDataPlatformDeliveryDocumentPartnerData                  string
 	BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData           string
 	DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData       string
 	OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData string
-	ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData    string
 	BusinessPartnerDataPlatformProductStockProductStockDataOlds             string
-	BillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData     string
-	BuyerDataPlatformSupplyChainRelationshipDeliveryRelationData            string
-	BuyerDataPlatformSupplyChainRelationshipGeneralData                     string
-	SellerDataPlatformSupplyChainRelationshipGeneralData                    string
-	PayeeDataPlatformSupplyChainRelationshipPaymentRelationData             string
+	BillFromPartyDataPlatformSCRBillingRelationData                         string
+	BillToPartyDataPlatformSCRBillingRelationData                           string
+	DeliverFromPartyDataPlatformSCRDeliveryRelationData                     string
+	DeliverToPartyDataPlatformSCRDeliveryRelationData                       string
+	BuyerDataPlatformSCRGeneralData                                         string
+	SellerDataPlatformSCRGeneralData                                        string
+	PayeeDataPlatformSCRPaymentRelationData                                 string
+	PayerDataPlatformSCRPaymentRelationData                                 string
 }{
+	AddressIDDataPlatformAddressAddressDatum:                                "AddressIDDataPlatformAddressAddressDatum",
+	CountryDataPlatformCountryCountryDatum:                                  "CountryDataPlatformCountryCountryDatum",
+	CurrencyDataPlatformCurrencyCurrencyDatum:                               "CurrencyDataPlatformCurrencyCurrencyDatum",
+	IndustryDataPlatformIndustryIndustryDatum:                               "IndustryDataPlatformIndustryIndustryDatum",
+	LanguageDataPlatformLanguageLanguageDatum:                               "LanguageDataPlatformLanguageLanguageDatum",
 	BusinessPartnerDataPlatformCodeConversionCodeConversionData:             "BusinessPartnerDataPlatformCodeConversionCodeConversionData",
-	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData:       "DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData",
-	BusinessPartnerDataPlatformDeliveryDocumentPartnerData:                  "BusinessPartnerDataPlatformDeliveryDocumentPartnerData",
 	BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData:           "BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData",
 	DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData:       "DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData",
 	OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData: "OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData",
-	ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData:    "ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData",
 	BusinessPartnerDataPlatformProductStockProductStockDataOlds:             "BusinessPartnerDataPlatformProductStockProductStockDataOlds",
-	BillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData:     "BillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData",
-	BuyerDataPlatformSupplyChainRelationshipDeliveryRelationData:            "BuyerDataPlatformSupplyChainRelationshipDeliveryRelationData",
-	BuyerDataPlatformSupplyChainRelationshipGeneralData:                     "BuyerDataPlatformSupplyChainRelationshipGeneralData",
-	SellerDataPlatformSupplyChainRelationshipGeneralData:                    "SellerDataPlatformSupplyChainRelationshipGeneralData",
-	PayeeDataPlatformSupplyChainRelationshipPaymentRelationData:             "PayeeDataPlatformSupplyChainRelationshipPaymentRelationData",
+	BillFromPartyDataPlatformSCRBillingRelationData:                         "BillFromPartyDataPlatformSCRBillingRelationData",
+	BillToPartyDataPlatformSCRBillingRelationData:                           "BillToPartyDataPlatformSCRBillingRelationData",
+	DeliverFromPartyDataPlatformSCRDeliveryRelationData:                     "DeliverFromPartyDataPlatformSCRDeliveryRelationData",
+	DeliverToPartyDataPlatformSCRDeliveryRelationData:                       "DeliverToPartyDataPlatformSCRDeliveryRelationData",
+	BuyerDataPlatformSCRGeneralData:                                         "BuyerDataPlatformSCRGeneralData",
+	SellerDataPlatformSCRGeneralData:                                        "SellerDataPlatformSCRGeneralData",
+	PayeeDataPlatformSCRPaymentRelationData:                                 "PayeeDataPlatformSCRPaymentRelationData",
+	PayerDataPlatformSCRPaymentRelationData:                                 "PayerDataPlatformSCRPaymentRelationData",
 }
 
 // dataPlatformBusinessPartnerGeneralDatumR is where relationships are stored.
 type dataPlatformBusinessPartnerGeneralDatumR struct {
-	BusinessPartnerDataPlatformCodeConversionCodeConversionData             DataPlatformCodeConversionCodeConversionDatumSlice            `boil:"BusinessPartnerDataPlatformCodeConversionCodeConversionData" json:"BusinessPartnerDataPlatformCodeConversionCodeConversionData" toml:"BusinessPartnerDataPlatformCodeConversionCodeConversionData" yaml:"BusinessPartnerDataPlatformCodeConversionCodeConversionData"`
-	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData       DataPlatformDeliveryDocumentHeaderDocDatumSlice               `boil:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData"`
-	BusinessPartnerDataPlatformDeliveryDocumentPartnerData                  DataPlatformDeliveryDocumentPartnerDatumSlice                 `boil:"BusinessPartnerDataPlatformDeliveryDocumentPartnerData" json:"BusinessPartnerDataPlatformDeliveryDocumentPartnerData" toml:"BusinessPartnerDataPlatformDeliveryDocumentPartnerData" yaml:"BusinessPartnerDataPlatformDeliveryDocumentPartnerData"`
-	BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData           DataPlatformEquipmentMasterBusinessPartnerDatumSlice          `boil:"BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData" json:"BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData" toml:"BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData" yaml:"BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData"`
-	DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData       DataPlatformEquipmentMasterGeneralDocDatumSlice               `boil:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData" json:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData" toml:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData" yaml:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData"`
-	OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData DataPlatformEquipmentMasterOwnerBusinessPartnerDatumSlice     `boil:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData" json:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData" toml:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData" yaml:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData"`
-	ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData    DataPlatformPlannedOrderComponentDatumSlice                   `boil:"ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData" json:"ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData" toml:"ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData" yaml:"ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData"`
-	BusinessPartnerDataPlatformProductStockProductStockDataOlds             DataPlatformProductStockProductStockDataOldSlice              `boil:"BusinessPartnerDataPlatformProductStockProductStockDataOlds" json:"BusinessPartnerDataPlatformProductStockProductStockDataOlds" toml:"BusinessPartnerDataPlatformProductStockProductStockDataOlds" yaml:"BusinessPartnerDataPlatformProductStockProductStockDataOlds"`
-	BillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData     DataPlatformSupplyChainRelationshipBillingRelationDatumSlice  `boil:"BillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData" json:"BillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData" toml:"BillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData" yaml:"BillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData"`
-	BuyerDataPlatformSupplyChainRelationshipDeliveryRelationData            DataPlatformSupplyChainRelationshipDeliveryRelationDatumSlice `boil:"BuyerDataPlatformSupplyChainRelationshipDeliveryRelationData" json:"BuyerDataPlatformSupplyChainRelationshipDeliveryRelationData" toml:"BuyerDataPlatformSupplyChainRelationshipDeliveryRelationData" yaml:"BuyerDataPlatformSupplyChainRelationshipDeliveryRelationData"`
-	BuyerDataPlatformSupplyChainRelationshipGeneralData                     DataPlatformSupplyChainRelationshipGeneralDatumSlice          `boil:"BuyerDataPlatformSupplyChainRelationshipGeneralData" json:"BuyerDataPlatformSupplyChainRelationshipGeneralData" toml:"BuyerDataPlatformSupplyChainRelationshipGeneralData" yaml:"BuyerDataPlatformSupplyChainRelationshipGeneralData"`
-	SellerDataPlatformSupplyChainRelationshipGeneralData                    DataPlatformSupplyChainRelationshipGeneralDatumSlice          `boil:"SellerDataPlatformSupplyChainRelationshipGeneralData" json:"SellerDataPlatformSupplyChainRelationshipGeneralData" toml:"SellerDataPlatformSupplyChainRelationshipGeneralData" yaml:"SellerDataPlatformSupplyChainRelationshipGeneralData"`
-	PayeeDataPlatformSupplyChainRelationshipPaymentRelationData             DataPlatformSupplyChainRelationshipPaymentRelationDatumSlice  `boil:"PayeeDataPlatformSupplyChainRelationshipPaymentRelationData" json:"PayeeDataPlatformSupplyChainRelationshipPaymentRelationData" toml:"PayeeDataPlatformSupplyChainRelationshipPaymentRelationData" yaml:"PayeeDataPlatformSupplyChainRelationshipPaymentRelationData"`
+	AddressIDDataPlatformAddressAddressDatum                                *DataPlatformAddressAddressDatum                          `boil:"AddressIDDataPlatformAddressAddressDatum" json:"AddressIDDataPlatformAddressAddressDatum" toml:"AddressIDDataPlatformAddressAddressDatum" yaml:"AddressIDDataPlatformAddressAddressDatum"`
+	CountryDataPlatformCountryCountryDatum                                  *DataPlatformCountryCountryDatum                          `boil:"CountryDataPlatformCountryCountryDatum" json:"CountryDataPlatformCountryCountryDatum" toml:"CountryDataPlatformCountryCountryDatum" yaml:"CountryDataPlatformCountryCountryDatum"`
+	CurrencyDataPlatformCurrencyCurrencyDatum                               *DataPlatformCurrencyCurrencyDatum                        `boil:"CurrencyDataPlatformCurrencyCurrencyDatum" json:"CurrencyDataPlatformCurrencyCurrencyDatum" toml:"CurrencyDataPlatformCurrencyCurrencyDatum" yaml:"CurrencyDataPlatformCurrencyCurrencyDatum"`
+	IndustryDataPlatformIndustryIndustryDatum                               *DataPlatformIndustryIndustryDatum                        `boil:"IndustryDataPlatformIndustryIndustryDatum" json:"IndustryDataPlatformIndustryIndustryDatum" toml:"IndustryDataPlatformIndustryIndustryDatum" yaml:"IndustryDataPlatformIndustryIndustryDatum"`
+	LanguageDataPlatformLanguageLanguageDatum                               *DataPlatformLanguageLanguageDatum                        `boil:"LanguageDataPlatformLanguageLanguageDatum" json:"LanguageDataPlatformLanguageLanguageDatum" toml:"LanguageDataPlatformLanguageLanguageDatum" yaml:"LanguageDataPlatformLanguageLanguageDatum"`
+	BusinessPartnerDataPlatformCodeConversionCodeConversionData             DataPlatformCodeConversionCodeConversionDatumSlice        `boil:"BusinessPartnerDataPlatformCodeConversionCodeConversionData" json:"BusinessPartnerDataPlatformCodeConversionCodeConversionData" toml:"BusinessPartnerDataPlatformCodeConversionCodeConversionData" yaml:"BusinessPartnerDataPlatformCodeConversionCodeConversionData"`
+	BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData           DataPlatformEquipmentMasterBusinessPartnerDatumSlice      `boil:"BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData" json:"BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData" toml:"BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData" yaml:"BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData"`
+	DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData       DataPlatformEquipmentMasterGeneralDocDatumSlice           `boil:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData" json:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData" toml:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData" yaml:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData"`
+	OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData DataPlatformEquipmentMasterOwnerBusinessPartnerDatumSlice `boil:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData" json:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData" toml:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData" yaml:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData"`
+	BusinessPartnerDataPlatformProductStockProductStockDataOlds             DataPlatformProductStockProductStockDataOldSlice          `boil:"BusinessPartnerDataPlatformProductStockProductStockDataOlds" json:"BusinessPartnerDataPlatformProductStockProductStockDataOlds" toml:"BusinessPartnerDataPlatformProductStockProductStockDataOlds" yaml:"BusinessPartnerDataPlatformProductStockProductStockDataOlds"`
+	BillFromPartyDataPlatformSCRBillingRelationData                         DataPlatformSCRBillingRelationDatumSlice                  `boil:"BillFromPartyDataPlatformSCRBillingRelationData" json:"BillFromPartyDataPlatformSCRBillingRelationData" toml:"BillFromPartyDataPlatformSCRBillingRelationData" yaml:"BillFromPartyDataPlatformSCRBillingRelationData"`
+	BillToPartyDataPlatformSCRBillingRelationData                           DataPlatformSCRBillingRelationDatumSlice                  `boil:"BillToPartyDataPlatformSCRBillingRelationData" json:"BillToPartyDataPlatformSCRBillingRelationData" toml:"BillToPartyDataPlatformSCRBillingRelationData" yaml:"BillToPartyDataPlatformSCRBillingRelationData"`
+	DeliverFromPartyDataPlatformSCRDeliveryRelationData                     DataPlatformSCRDeliveryRelationDatumSlice                 `boil:"DeliverFromPartyDataPlatformSCRDeliveryRelationData" json:"DeliverFromPartyDataPlatformSCRDeliveryRelationData" toml:"DeliverFromPartyDataPlatformSCRDeliveryRelationData" yaml:"DeliverFromPartyDataPlatformSCRDeliveryRelationData"`
+	DeliverToPartyDataPlatformSCRDeliveryRelationData                       DataPlatformSCRDeliveryRelationDatumSlice                 `boil:"DeliverToPartyDataPlatformSCRDeliveryRelationData" json:"DeliverToPartyDataPlatformSCRDeliveryRelationData" toml:"DeliverToPartyDataPlatformSCRDeliveryRelationData" yaml:"DeliverToPartyDataPlatformSCRDeliveryRelationData"`
+	BuyerDataPlatformSCRGeneralData                                         DataPlatformSCRGeneralDatumSlice                          `boil:"BuyerDataPlatformSCRGeneralData" json:"BuyerDataPlatformSCRGeneralData" toml:"BuyerDataPlatformSCRGeneralData" yaml:"BuyerDataPlatformSCRGeneralData"`
+	SellerDataPlatformSCRGeneralData                                        DataPlatformSCRGeneralDatumSlice                          `boil:"SellerDataPlatformSCRGeneralData" json:"SellerDataPlatformSCRGeneralData" toml:"SellerDataPlatformSCRGeneralData" yaml:"SellerDataPlatformSCRGeneralData"`
+	PayeeDataPlatformSCRPaymentRelationData                                 DataPlatformSCRPaymentRelationDatumSlice                  `boil:"PayeeDataPlatformSCRPaymentRelationData" json:"PayeeDataPlatformSCRPaymentRelationData" toml:"PayeeDataPlatformSCRPaymentRelationData" yaml:"PayeeDataPlatformSCRPaymentRelationData"`
+	PayerDataPlatformSCRPaymentRelationData                                 DataPlatformSCRPaymentRelationDatumSlice                  `boil:"PayerDataPlatformSCRPaymentRelationData" json:"PayerDataPlatformSCRPaymentRelationData" toml:"PayerDataPlatformSCRPaymentRelationData" yaml:"PayerDataPlatformSCRPaymentRelationData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -306,25 +307,46 @@ func (*dataPlatformBusinessPartnerGeneralDatumR) NewStruct() *dataPlatformBusine
 	return &dataPlatformBusinessPartnerGeneralDatumR{}
 }
 
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetAddressIDDataPlatformAddressAddressDatum() *DataPlatformAddressAddressDatum {
+	if r == nil {
+		return nil
+	}
+	return r.AddressIDDataPlatformAddressAddressDatum
+}
+
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetCountryDataPlatformCountryCountryDatum() *DataPlatformCountryCountryDatum {
+	if r == nil {
+		return nil
+	}
+	return r.CountryDataPlatformCountryCountryDatum
+}
+
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetCurrencyDataPlatformCurrencyCurrencyDatum() *DataPlatformCurrencyCurrencyDatum {
+	if r == nil {
+		return nil
+	}
+	return r.CurrencyDataPlatformCurrencyCurrencyDatum
+}
+
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetIndustryDataPlatformIndustryIndustryDatum() *DataPlatformIndustryIndustryDatum {
+	if r == nil {
+		return nil
+	}
+	return r.IndustryDataPlatformIndustryIndustryDatum
+}
+
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetLanguageDataPlatformLanguageLanguageDatum() *DataPlatformLanguageLanguageDatum {
+	if r == nil {
+		return nil
+	}
+	return r.LanguageDataPlatformLanguageLanguageDatum
+}
+
 func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBusinessPartnerDataPlatformCodeConversionCodeConversionData() DataPlatformCodeConversionCodeConversionDatumSlice {
 	if r == nil {
 		return nil
 	}
 	return r.BusinessPartnerDataPlatformCodeConversionCodeConversionData
-}
-
-func (r *dataPlatformBusinessPartnerGeneralDatumR) GetDocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData() DataPlatformDeliveryDocumentHeaderDocDatumSlice {
-	if r == nil {
-		return nil
-	}
-	return r.DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData
-}
-
-func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBusinessPartnerDataPlatformDeliveryDocumentPartnerData() DataPlatformDeliveryDocumentPartnerDatumSlice {
-	if r == nil {
-		return nil
-	}
-	return r.BusinessPartnerDataPlatformDeliveryDocumentPartnerData
 }
 
 func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData() DataPlatformEquipmentMasterBusinessPartnerDatumSlice {
@@ -348,13 +370,6 @@ func (r *dataPlatformBusinessPartnerGeneralDatumR) GetOwnerBusinessPartnerDataPl
 	return r.OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData
 }
 
-func (r *dataPlatformBusinessPartnerGeneralDatumR) GetComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData() DataPlatformPlannedOrderComponentDatumSlice {
-	if r == nil {
-		return nil
-	}
-	return r.ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData
-}
-
 func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBusinessPartnerDataPlatformProductStockProductStockDataOlds() DataPlatformProductStockProductStockDataOldSlice {
 	if r == nil {
 		return nil
@@ -362,47 +377,68 @@ func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBusinessPartnerDataPlatfor
 	return r.BusinessPartnerDataPlatformProductStockProductStockDataOlds
 }
 
-func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData() DataPlatformSupplyChainRelationshipBillingRelationDatumSlice {
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBillFromPartyDataPlatformSCRBillingRelationData() DataPlatformSCRBillingRelationDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.BillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData
+	return r.BillFromPartyDataPlatformSCRBillingRelationData
 }
 
-func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBuyerDataPlatformSupplyChainRelationshipDeliveryRelationData() DataPlatformSupplyChainRelationshipDeliveryRelationDatumSlice {
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBillToPartyDataPlatformSCRBillingRelationData() DataPlatformSCRBillingRelationDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.BuyerDataPlatformSupplyChainRelationshipDeliveryRelationData
+	return r.BillToPartyDataPlatformSCRBillingRelationData
 }
 
-func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBuyerDataPlatformSupplyChainRelationshipGeneralData() DataPlatformSupplyChainRelationshipGeneralDatumSlice {
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetDeliverFromPartyDataPlatformSCRDeliveryRelationData() DataPlatformSCRDeliveryRelationDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.BuyerDataPlatformSupplyChainRelationshipGeneralData
+	return r.DeliverFromPartyDataPlatformSCRDeliveryRelationData
 }
 
-func (r *dataPlatformBusinessPartnerGeneralDatumR) GetSellerDataPlatformSupplyChainRelationshipGeneralData() DataPlatformSupplyChainRelationshipGeneralDatumSlice {
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetDeliverToPartyDataPlatformSCRDeliveryRelationData() DataPlatformSCRDeliveryRelationDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.SellerDataPlatformSupplyChainRelationshipGeneralData
+	return r.DeliverToPartyDataPlatformSCRDeliveryRelationData
 }
 
-func (r *dataPlatformBusinessPartnerGeneralDatumR) GetPayeeDataPlatformSupplyChainRelationshipPaymentRelationData() DataPlatformSupplyChainRelationshipPaymentRelationDatumSlice {
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBuyerDataPlatformSCRGeneralData() DataPlatformSCRGeneralDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.PayeeDataPlatformSupplyChainRelationshipPaymentRelationData
+	return r.BuyerDataPlatformSCRGeneralData
+}
+
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetSellerDataPlatformSCRGeneralData() DataPlatformSCRGeneralDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.SellerDataPlatformSCRGeneralData
+}
+
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetPayeeDataPlatformSCRPaymentRelationData() DataPlatformSCRPaymentRelationDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.PayeeDataPlatformSCRPaymentRelationData
+}
+
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetPayerDataPlatformSCRPaymentRelationData() DataPlatformSCRPaymentRelationDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.PayerDataPlatformSCRPaymentRelationData
 }
 
 // dataPlatformBusinessPartnerGeneralDatumL is where Load methods for each relationship are stored.
 type dataPlatformBusinessPartnerGeneralDatumL struct{}
 
 var (
-	dataPlatformBusinessPartnerGeneralDatumAllColumns            = []string{"BusinessPartner", "BusinessPartnerFullName", "BusinessPartnerName", "CreationDate", "CreationTime", "Industry", "LegalEntityRegistration", "Country", "Language", "Currency", "LastChangeDate", "LastChangeTime", "OrganizationBPName1", "OrganizationBPName2", "OrganizationBPName3", "OrganizationBPName4", "BPTag1", "BPTag2", "BPTag3", "BPTag4", "OrganizationFoundationDate", "OrganizationLiquidationDate", "BusinessPartnerBirthplaceName", "BusinessPartnerDeathDate", "BusinessPartnerIsBlocked", "GroupBusinessPartnerName1", "GroupBusinessPartnerName2", "AddressID", "BusinessPartnerIDByExtSystem", "IsMarkedForDeletion"}
-	dataPlatformBusinessPartnerGeneralDatumColumnsWithoutDefault = []string{"BusinessPartner", "BusinessPartnerFullName", "BusinessPartnerName", "CreationDate", "CreationTime", "Industry", "LegalEntityRegistration", "Country", "Language", "Currency", "LastChangeDate", "LastChangeTime", "OrganizationBPName1", "OrganizationBPName2", "OrganizationBPName3", "OrganizationBPName4", "BPTag1", "BPTag2", "BPTag3", "BPTag4", "OrganizationFoundationDate", "OrganizationLiquidationDate", "BusinessPartnerBirthplaceName", "BusinessPartnerDeathDate", "BusinessPartnerIsBlocked", "GroupBusinessPartnerName1", "GroupBusinessPartnerName2", "AddressID", "BusinessPartnerIDByExtSystem", "IsMarkedForDeletion"}
+	dataPlatformBusinessPartnerGeneralDatumAllColumns            = []string{"BusinessPartner", "BusinessPartnerFullName", "BusinessPartnerName", "Industry", "LegalEntityRegistration", "Country", "Language", "Currency", "OrganizationBPName1", "OrganizationBPName2", "OrganizationBPName3", "OrganizationBPName4", "BPTag1", "BPTag2", "BPTag3", "BPTag4", "OrganizationFoundationDate", "OrganizationLiquidationDate", "BusinessPartnerBirthplaceName", "BusinessPartnerDeathDate", "GroupBusinessPartnerName1", "GroupBusinessPartnerName2", "AddressID", "BusinessPartnerIDByExtSystem", "BusinessPartnerIsBlocked", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
+	dataPlatformBusinessPartnerGeneralDatumColumnsWithoutDefault = []string{"BusinessPartner", "BusinessPartnerFullName", "BusinessPartnerName", "Industry", "LegalEntityRegistration", "Country", "Language", "Currency", "OrganizationBPName1", "OrganizationBPName2", "OrganizationBPName3", "OrganizationBPName4", "BPTag1", "BPTag2", "BPTag3", "BPTag4", "OrganizationFoundationDate", "OrganizationLiquidationDate", "BusinessPartnerBirthplaceName", "BusinessPartnerDeathDate", "GroupBusinessPartnerName1", "GroupBusinessPartnerName2", "AddressID", "BusinessPartnerIDByExtSystem", "BusinessPartnerIsBlocked", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
 	dataPlatformBusinessPartnerGeneralDatumColumnsWithDefault    = []string{}
 	dataPlatformBusinessPartnerGeneralDatumPrimaryKeyColumns     = []string{"BusinessPartner"}
 	dataPlatformBusinessPartnerGeneralDatumGeneratedColumns      = []string{}
@@ -499,6 +535,61 @@ func (q dataPlatformBusinessPartnerGeneralDatumQuery) Exists(ctx context.Context
 	return count > 0, nil
 }
 
+// AddressIDDataPlatformAddressAddressDatum pointed to by the foreign key.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddressIDDataPlatformAddressAddressDatum(mods ...qm.QueryMod) dataPlatformAddressAddressDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`AddressID` = ?", o.AddressID),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformAddressAddressData(queryMods...)
+}
+
+// CountryDataPlatformCountryCountryDatum pointed to by the foreign key.
+func (o *DataPlatformBusinessPartnerGeneralDatum) CountryDataPlatformCountryCountryDatum(mods ...qm.QueryMod) dataPlatformCountryCountryDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`Country` = ?", o.Country),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformCountryCountryData(queryMods...)
+}
+
+// CurrencyDataPlatformCurrencyCurrencyDatum pointed to by the foreign key.
+func (o *DataPlatformBusinessPartnerGeneralDatum) CurrencyDataPlatformCurrencyCurrencyDatum(mods ...qm.QueryMod) dataPlatformCurrencyCurrencyDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`Currency` = ?", o.Currency),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformCurrencyCurrencyData(queryMods...)
+}
+
+// IndustryDataPlatformIndustryIndustryDatum pointed to by the foreign key.
+func (o *DataPlatformBusinessPartnerGeneralDatum) IndustryDataPlatformIndustryIndustryDatum(mods ...qm.QueryMod) dataPlatformIndustryIndustryDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`Industry` = ?", o.Industry),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformIndustryIndustryData(queryMods...)
+}
+
+// LanguageDataPlatformLanguageLanguageDatum pointed to by the foreign key.
+func (o *DataPlatformBusinessPartnerGeneralDatum) LanguageDataPlatformLanguageLanguageDatum(mods ...qm.QueryMod) dataPlatformLanguageLanguageDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`Language` = ?", o.Language),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformLanguageLanguageData(queryMods...)
+}
+
 // BusinessPartnerDataPlatformCodeConversionCodeConversionData retrieves all the data_platform_code_conversion_code_conversion_datum's DataPlatformCodeConversionCodeConversionData with an executor via BusinessPartner column.
 func (o *DataPlatformBusinessPartnerGeneralDatum) BusinessPartnerDataPlatformCodeConversionCodeConversionData(mods ...qm.QueryMod) dataPlatformCodeConversionCodeConversionDatumQuery {
 	var queryMods []qm.QueryMod
@@ -511,34 +602,6 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) BusinessPartnerDataPlatformCod
 	)
 
 	return DataPlatformCodeConversionCodeConversionData(queryMods...)
-}
-
-// DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData retrieves all the data_platform_delivery_document_header_doc_datum's DataPlatformDeliveryDocumentHeaderDocData with an executor via DocIssuerBusinessPartner column.
-func (o *DataPlatformBusinessPartnerGeneralDatum) DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentHeaderDocDatumQuery {
-	var queryMods []qm.QueryMod
-	if len(mods) != 0 {
-		queryMods = append(queryMods, mods...)
-	}
-
-	queryMods = append(queryMods,
-		qm.Where("`data_platform_delivery_document_header_doc_data`.`DocIssuerBusinessPartner`=?", o.BusinessPartner),
-	)
-
-	return DataPlatformDeliveryDocumentHeaderDocData(queryMods...)
-}
-
-// BusinessPartnerDataPlatformDeliveryDocumentPartnerData retrieves all the data_platform_delivery_document_partner_datum's DataPlatformDeliveryDocumentPartnerData with an executor via BusinessPartner column.
-func (o *DataPlatformBusinessPartnerGeneralDatum) BusinessPartnerDataPlatformDeliveryDocumentPartnerData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentPartnerDatumQuery {
-	var queryMods []qm.QueryMod
-	if len(mods) != 0 {
-		queryMods = append(queryMods, mods...)
-	}
-
-	queryMods = append(queryMods,
-		qm.Where("`data_platform_delivery_document_partner_data`.`BusinessPartner`=?", o.BusinessPartner),
-	)
-
-	return DataPlatformDeliveryDocumentPartnerData(queryMods...)
 }
 
 // BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData retrieves all the data_platform_equipment_master_business_partner_datum's DataPlatformEquipmentMasterBusinessPartnerData with an executor via BusinessPartner column.
@@ -583,20 +646,6 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) OwnerBusinessPartnerDataPlatfo
 	return DataPlatformEquipmentMasterOwnerBusinessPartnerData(queryMods...)
 }
 
-// ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData retrieves all the data_platform_planned_order_component_datum's DataPlatformPlannedOrderComponentData with an executor via ComponentProductBusinessPartner column.
-func (o *DataPlatformBusinessPartnerGeneralDatum) ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData(mods ...qm.QueryMod) dataPlatformPlannedOrderComponentDatumQuery {
-	var queryMods []qm.QueryMod
-	if len(mods) != 0 {
-		queryMods = append(queryMods, mods...)
-	}
-
-	queryMods = append(queryMods,
-		qm.Where("`data_platform_planned_order_component_data`.`ComponentProductBusinessPartner`=?", o.BusinessPartner),
-	)
-
-	return DataPlatformPlannedOrderComponentData(queryMods...)
-}
-
 // BusinessPartnerDataPlatformProductStockProductStockDataOlds retrieves all the data_platform_product_stock_product_stock_data_old's DataPlatformProductStockProductStockDataOlds with an executor via BusinessPartner column.
 func (o *DataPlatformBusinessPartnerGeneralDatum) BusinessPartnerDataPlatformProductStockProductStockDataOlds(mods ...qm.QueryMod) dataPlatformProductStockProductStockDataOldQuery {
 	var queryMods []qm.QueryMod
@@ -611,74 +660,644 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) BusinessPartnerDataPlatformPro
 	return DataPlatformProductStockProductStockDataOlds(queryMods...)
 }
 
-// BillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData retrieves all the data_platform_supply_chain_relationship_billing_relation_datum's DataPlatformSupplyChainRelationshipBillingRelationData with an executor via BillFromParty column.
-func (o *DataPlatformBusinessPartnerGeneralDatum) BillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData(mods ...qm.QueryMod) dataPlatformSupplyChainRelationshipBillingRelationDatumQuery {
+// BillFromPartyDataPlatformSCRBillingRelationData retrieves all the data_platform_scr_billing_relation_datum's DataPlatformSCRBillingRelationData with an executor via BillFromParty column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) BillFromPartyDataPlatformSCRBillingRelationData(mods ...qm.QueryMod) dataPlatformSCRBillingRelationDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_supply_chain_relationship_billing_relation_data`.`BillFromParty`=?", o.BusinessPartner),
+		qm.Where("`data_platform_scr_billing_relation_data`.`BillFromParty`=?", o.BusinessPartner),
 	)
 
-	return DataPlatformSupplyChainRelationshipBillingRelationData(queryMods...)
+	return DataPlatformSCRBillingRelationData(queryMods...)
 }
 
-// BuyerDataPlatformSupplyChainRelationshipDeliveryRelationData retrieves all the data_platform_supply_chain_relationship_delivery_relation_datum's DataPlatformSupplyChainRelationshipDeliveryRelationData with an executor via DeliverFromParty column.
-func (o *DataPlatformBusinessPartnerGeneralDatum) BuyerDataPlatformSupplyChainRelationshipDeliveryRelationData(mods ...qm.QueryMod) dataPlatformSupplyChainRelationshipDeliveryRelationDatumQuery {
+// BillToPartyDataPlatformSCRBillingRelationData retrieves all the data_platform_scr_billing_relation_datum's DataPlatformSCRBillingRelationData with an executor via BillToParty column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) BillToPartyDataPlatformSCRBillingRelationData(mods ...qm.QueryMod) dataPlatformSCRBillingRelationDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_supply_chain_relationship_delivery_relation_data`.`DeliverFromParty`=?", o.BusinessPartner),
+		qm.Where("`data_platform_scr_billing_relation_data`.`BillToParty`=?", o.BusinessPartner),
 	)
 
-	return DataPlatformSupplyChainRelationshipDeliveryRelationData(queryMods...)
+	return DataPlatformSCRBillingRelationData(queryMods...)
 }
 
-// BuyerDataPlatformSupplyChainRelationshipGeneralData retrieves all the data_platform_supply_chain_relationship_general_datum's DataPlatformSupplyChainRelationshipGeneralData with an executor via Buyer column.
-func (o *DataPlatformBusinessPartnerGeneralDatum) BuyerDataPlatformSupplyChainRelationshipGeneralData(mods ...qm.QueryMod) dataPlatformSupplyChainRelationshipGeneralDatumQuery {
+// DeliverFromPartyDataPlatformSCRDeliveryRelationData retrieves all the data_platform_scr_delivery_relation_datum's DataPlatformSCRDeliveryRelationData with an executor via DeliverFromParty column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) DeliverFromPartyDataPlatformSCRDeliveryRelationData(mods ...qm.QueryMod) dataPlatformSCRDeliveryRelationDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_supply_chain_relationship_general_data`.`Buyer`=?", o.BusinessPartner),
+		qm.Where("`data_platform_scr_delivery_relation_data`.`DeliverFromParty`=?", o.BusinessPartner),
 	)
 
-	return DataPlatformSupplyChainRelationshipGeneralData(queryMods...)
+	return DataPlatformSCRDeliveryRelationData(queryMods...)
 }
 
-// SellerDataPlatformSupplyChainRelationshipGeneralData retrieves all the data_platform_supply_chain_relationship_general_datum's DataPlatformSupplyChainRelationshipGeneralData with an executor via Seller column.
-func (o *DataPlatformBusinessPartnerGeneralDatum) SellerDataPlatformSupplyChainRelationshipGeneralData(mods ...qm.QueryMod) dataPlatformSupplyChainRelationshipGeneralDatumQuery {
+// DeliverToPartyDataPlatformSCRDeliveryRelationData retrieves all the data_platform_scr_delivery_relation_datum's DataPlatformSCRDeliveryRelationData with an executor via DeliverToParty column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) DeliverToPartyDataPlatformSCRDeliveryRelationData(mods ...qm.QueryMod) dataPlatformSCRDeliveryRelationDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_supply_chain_relationship_general_data`.`Seller`=?", o.BusinessPartner),
+		qm.Where("`data_platform_scr_delivery_relation_data`.`DeliverToParty`=?", o.BusinessPartner),
 	)
 
-	return DataPlatformSupplyChainRelationshipGeneralData(queryMods...)
+	return DataPlatformSCRDeliveryRelationData(queryMods...)
 }
 
-// PayeeDataPlatformSupplyChainRelationshipPaymentRelationData retrieves all the data_platform_supply_chain_relationship_payment_relation_datum's DataPlatformSupplyChainRelationshipPaymentRelationData with an executor via Payee column.
-func (o *DataPlatformBusinessPartnerGeneralDatum) PayeeDataPlatformSupplyChainRelationshipPaymentRelationData(mods ...qm.QueryMod) dataPlatformSupplyChainRelationshipPaymentRelationDatumQuery {
+// BuyerDataPlatformSCRGeneralData retrieves all the data_platform_scr_general_datum's DataPlatformSCRGeneralData with an executor via Buyer column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) BuyerDataPlatformSCRGeneralData(mods ...qm.QueryMod) dataPlatformSCRGeneralDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_supply_chain_relationship_payment_relation_data`.`Payee`=?", o.BusinessPartner),
+		qm.Where("`data_platform_scr_general_data`.`Buyer`=?", o.BusinessPartner),
 	)
 
-	return DataPlatformSupplyChainRelationshipPaymentRelationData(queryMods...)
+	return DataPlatformSCRGeneralData(queryMods...)
+}
+
+// SellerDataPlatformSCRGeneralData retrieves all the data_platform_scr_general_datum's DataPlatformSCRGeneralData with an executor via Seller column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) SellerDataPlatformSCRGeneralData(mods ...qm.QueryMod) dataPlatformSCRGeneralDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_scr_general_data`.`Seller`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformSCRGeneralData(queryMods...)
+}
+
+// PayeeDataPlatformSCRPaymentRelationData retrieves all the data_platform_scr_payment_relation_datum's DataPlatformSCRPaymentRelationData with an executor via Payee column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) PayeeDataPlatformSCRPaymentRelationData(mods ...qm.QueryMod) dataPlatformSCRPaymentRelationDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_scr_payment_relation_data`.`Payee`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformSCRPaymentRelationData(queryMods...)
+}
+
+// PayerDataPlatformSCRPaymentRelationData retrieves all the data_platform_scr_payment_relation_datum's DataPlatformSCRPaymentRelationData with an executor via Payer column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) PayerDataPlatformSCRPaymentRelationData(mods ...qm.QueryMod) dataPlatformSCRPaymentRelationDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_scr_payment_relation_data`.`Payer`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformSCRPaymentRelationData(queryMods...)
+}
+
+// LoadAddressIDDataPlatformAddressAddressDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadAddressIDDataPlatformAddressAddressDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDatum
+	var object *DataPlatformBusinessPartnerGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+		}
+		if !queries.IsNil(object.AddressID) {
+			args = append(args, object.AddressID)
+		}
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.AddressID) {
+					continue Outer
+				}
+			}
+
+			if !queries.IsNil(obj.AddressID) {
+				args = append(args, obj.AddressID)
+			}
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_address_address_data`),
+		qm.WhereIn(`data_platform_address_address_data.AddressID in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformAddressAddressDatum")
+	}
+
+	var resultSlice []*DataPlatformAddressAddressDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformAddressAddressDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_address_address_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_address_address_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.AddressIDDataPlatformAddressAddressDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if queries.Equal(local.AddressID, foreign.AddressID) {
+				local.R.AddressIDDataPlatformAddressAddressDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadCountryDataPlatformCountryCountryDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadCountryDataPlatformCountryCountryDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDatum
+	var object *DataPlatformBusinessPartnerGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+		}
+		args = append(args, object.Country)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Country {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Country)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_country_country_data`),
+		qm.WhereIn(`data_platform_country_country_data.Country in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformCountryCountryDatum")
+	}
+
+	var resultSlice []*DataPlatformCountryCountryDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformCountryCountryDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_country_country_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_country_country_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.CountryDataPlatformCountryCountryDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.Country == foreign.Country {
+				local.R.CountryDataPlatformCountryCountryDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadCurrencyDataPlatformCurrencyCurrencyDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadCurrencyDataPlatformCurrencyCurrencyDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDatum
+	var object *DataPlatformBusinessPartnerGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+		}
+		args = append(args, object.Currency)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Currency {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Currency)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_currency_currency_data`),
+		qm.WhereIn(`data_platform_currency_currency_data.Currency in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformCurrencyCurrencyDatum")
+	}
+
+	var resultSlice []*DataPlatformCurrencyCurrencyDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformCurrencyCurrencyDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_currency_currency_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_currency_currency_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.CurrencyDataPlatformCurrencyCurrencyDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.Currency == foreign.Currency {
+				local.R.CurrencyDataPlatformCurrencyCurrencyDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadIndustryDataPlatformIndustryIndustryDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadIndustryDataPlatformIndustryIndustryDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDatum
+	var object *DataPlatformBusinessPartnerGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+		}
+		if !queries.IsNil(object.Industry) {
+			args = append(args, object.Industry)
+		}
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Industry) {
+					continue Outer
+				}
+			}
+
+			if !queries.IsNil(obj.Industry) {
+				args = append(args, obj.Industry)
+			}
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_industry_industry_data`),
+		qm.WhereIn(`data_platform_industry_industry_data.Industry in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformIndustryIndustryDatum")
+	}
+
+	var resultSlice []*DataPlatformIndustryIndustryDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformIndustryIndustryDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_industry_industry_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_industry_industry_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.IndustryDataPlatformIndustryIndustryDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if queries.Equal(local.Industry, foreign.Industry) {
+				local.R.IndustryDataPlatformIndustryIndustryDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadLanguageDataPlatformLanguageLanguageDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadLanguageDataPlatformLanguageLanguageDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDatum
+	var object *DataPlatformBusinessPartnerGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+		}
+		args = append(args, object.Language)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Language {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Language)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_language_language_data`),
+		qm.WhereIn(`data_platform_language_language_data.Language in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformLanguageLanguageDatum")
+	}
+
+	var resultSlice []*DataPlatformLanguageLanguageDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformLanguageLanguageDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_language_language_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_language_language_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.LanguageDataPlatformLanguageLanguageDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.Language == foreign.Language {
+				local.R.LanguageDataPlatformLanguageLanguageDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
 }
 
 // LoadBusinessPartnerDataPlatformCodeConversionCodeConversionData allows an eager lookup of values, cached into the
@@ -770,200 +1389,6 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadBusinessPartnerDataPlatformC
 		for _, local := range slice {
 			if local.BusinessPartner == foreign.BusinessPartner {
 				local.R.BusinessPartnerDataPlatformCodeConversionCodeConversionData = append(local.R.BusinessPartnerDataPlatformCodeConversionCodeConversionData, foreign)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// LoadDocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformBusinessPartnerGeneralDatumL) LoadDocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformBusinessPartnerGeneralDatum
-	var object *DataPlatformBusinessPartnerGeneralDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
-		if !ok {
-			object = new(DataPlatformBusinessPartnerGeneralDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
-		}
-		args = append(args, object.BusinessPartner)
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
-			}
-
-			for _, a := range args {
-				if queries.Equal(a, obj.BusinessPartner) {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.BusinessPartner)
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_delivery_document_header_doc_data`),
-		qm.WhereIn(`data_platform_delivery_document_header_doc_data.DocIssuerBusinessPartner in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_header_doc_data")
-	}
-
-	var resultSlice []*DataPlatformDeliveryDocumentHeaderDocDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_header_doc_data")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_header_doc_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_header_doc_data")
-	}
-
-	if singular {
-		object.R.DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData = resultSlice
-		return nil
-	}
-
-	for _, foreign := range resultSlice {
-		for _, local := range slice {
-			if queries.Equal(local.BusinessPartner, foreign.DocIssuerBusinessPartner) {
-				local.R.DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData = append(local.R.DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData, foreign)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// LoadBusinessPartnerDataPlatformDeliveryDocumentPartnerData allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformBusinessPartnerGeneralDatumL) LoadBusinessPartnerDataPlatformDeliveryDocumentPartnerData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformBusinessPartnerGeneralDatum
-	var object *DataPlatformBusinessPartnerGeneralDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
-		if !ok {
-			object = new(DataPlatformBusinessPartnerGeneralDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
-		}
-		args = append(args, object.BusinessPartner)
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.BusinessPartner {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.BusinessPartner)
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_delivery_document_partner_data`),
-		qm.WhereIn(`data_platform_delivery_document_partner_data.BusinessPartner in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_partner_data")
-	}
-
-	var resultSlice []*DataPlatformDeliveryDocumentPartnerDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_partner_data")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_partner_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_partner_data")
-	}
-
-	if singular {
-		object.R.BusinessPartnerDataPlatformDeliveryDocumentPartnerData = resultSlice
-		return nil
-	}
-
-	for _, foreign := range resultSlice {
-		for _, local := range slice {
-			if local.BusinessPartner == foreign.BusinessPartner {
-				local.R.BusinessPartnerDataPlatformDeliveryDocumentPartnerData = append(local.R.BusinessPartnerDataPlatformDeliveryDocumentPartnerData, foreign)
 				break
 			}
 		}
@@ -1263,103 +1688,6 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadOwnerBusinessPartnerDataPlat
 	return nil
 }
 
-// LoadComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformBusinessPartnerGeneralDatumL) LoadComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformBusinessPartnerGeneralDatum
-	var object *DataPlatformBusinessPartnerGeneralDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
-		if !ok {
-			object = new(DataPlatformBusinessPartnerGeneralDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
-		}
-		args = append(args, object.BusinessPartner)
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
-			}
-
-			for _, a := range args {
-				if queries.Equal(a, obj.BusinessPartner) {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.BusinessPartner)
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_planned_order_component_data`),
-		qm.WhereIn(`data_platform_planned_order_component_data.ComponentProductBusinessPartner in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_planned_order_component_data")
-	}
-
-	var resultSlice []*DataPlatformPlannedOrderComponentDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_planned_order_component_data")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_planned_order_component_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_planned_order_component_data")
-	}
-
-	if singular {
-		object.R.ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData = resultSlice
-		return nil
-	}
-
-	for _, foreign := range resultSlice {
-		for _, local := range slice {
-			if queries.Equal(local.BusinessPartner, foreign.ComponentProductBusinessPartner) {
-				local.R.ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData = append(local.R.ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData, foreign)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
 // LoadBusinessPartnerDataPlatformProductStockProductStockDataOlds allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
 func (dataPlatformBusinessPartnerGeneralDatumL) LoadBusinessPartnerDataPlatformProductStockProductStockDataOlds(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
@@ -1457,9 +1785,9 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadBusinessPartnerDataPlatformP
 	return nil
 }
 
-// LoadBillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData allows an eager lookup of values, cached into the
+// LoadBillFromPartyDataPlatformSCRBillingRelationData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformBusinessPartnerGeneralDatumL) LoadBillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadBillFromPartyDataPlatformSCRBillingRelationData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformBusinessPartnerGeneralDatum
 	var object *DataPlatformBusinessPartnerGeneralDatum
 
@@ -1513,8 +1841,8 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadBillFromPartyDataPlatformSup
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_supply_chain_relationship_billing_relation_data`),
-		qm.WhereIn(`data_platform_supply_chain_relationship_billing_relation_data.BillFromParty in ?`, args...),
+		qm.From(`data_platform_scr_billing_relation_data`),
+		qm.WhereIn(`data_platform_scr_billing_relation_data.BillFromParty in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -1522,30 +1850,30 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadBillFromPartyDataPlatformSup
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_supply_chain_relationship_billing_relation_data")
+		return errors.Wrap(err, "failed to eager load data_platform_scr_billing_relation_data")
 	}
 
-	var resultSlice []*DataPlatformSupplyChainRelationshipBillingRelationDatum
+	var resultSlice []*DataPlatformSCRBillingRelationDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_supply_chain_relationship_billing_relation_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_scr_billing_relation_data")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_supply_chain_relationship_billing_relation_data")
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_scr_billing_relation_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_supply_chain_relationship_billing_relation_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_scr_billing_relation_data")
 	}
 
 	if singular {
-		object.R.BillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData = resultSlice
+		object.R.BillFromPartyDataPlatformSCRBillingRelationData = resultSlice
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
 			if local.BusinessPartner == foreign.BillFromParty {
-				local.R.BillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData = append(local.R.BillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData, foreign)
+				local.R.BillFromPartyDataPlatformSCRBillingRelationData = append(local.R.BillFromPartyDataPlatformSCRBillingRelationData, foreign)
 				break
 			}
 		}
@@ -1554,9 +1882,9 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadBillFromPartyDataPlatformSup
 	return nil
 }
 
-// LoadBuyerDataPlatformSupplyChainRelationshipDeliveryRelationData allows an eager lookup of values, cached into the
+// LoadBillToPartyDataPlatformSCRBillingRelationData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformBusinessPartnerGeneralDatumL) LoadBuyerDataPlatformSupplyChainRelationshipDeliveryRelationData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadBillToPartyDataPlatformSCRBillingRelationData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformBusinessPartnerGeneralDatum
 	var object *DataPlatformBusinessPartnerGeneralDatum
 
@@ -1610,8 +1938,8 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadBuyerDataPlatformSupplyChain
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_supply_chain_relationship_delivery_relation_data`),
-		qm.WhereIn(`data_platform_supply_chain_relationship_delivery_relation_data.DeliverFromParty in ?`, args...),
+		qm.From(`data_platform_scr_billing_relation_data`),
+		qm.WhereIn(`data_platform_scr_billing_relation_data.BillToParty in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -1619,30 +1947,127 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadBuyerDataPlatformSupplyChain
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_supply_chain_relationship_delivery_relation_data")
+		return errors.Wrap(err, "failed to eager load data_platform_scr_billing_relation_data")
 	}
 
-	var resultSlice []*DataPlatformSupplyChainRelationshipDeliveryRelationDatum
+	var resultSlice []*DataPlatformSCRBillingRelationDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_supply_chain_relationship_delivery_relation_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_scr_billing_relation_data")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_supply_chain_relationship_delivery_relation_data")
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_scr_billing_relation_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_supply_chain_relationship_delivery_relation_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_scr_billing_relation_data")
 	}
 
 	if singular {
-		object.R.BuyerDataPlatformSupplyChainRelationshipDeliveryRelationData = resultSlice
+		object.R.BillToPartyDataPlatformSCRBillingRelationData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BusinessPartner == foreign.BillToParty {
+				local.R.BillToPartyDataPlatformSCRBillingRelationData = append(local.R.BillToPartyDataPlatformSCRBillingRelationData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDeliverFromPartyDataPlatformSCRDeliveryRelationData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadDeliverFromPartyDataPlatformSCRDeliveryRelationData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDatum
+	var object *DataPlatformBusinessPartnerGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_scr_delivery_relation_data`),
+		qm.WhereIn(`data_platform_scr_delivery_relation_data.DeliverFromParty in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_scr_delivery_relation_data")
+	}
+
+	var resultSlice []*DataPlatformSCRDeliveryRelationDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_scr_delivery_relation_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_scr_delivery_relation_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_scr_delivery_relation_data")
+	}
+
+	if singular {
+		object.R.DeliverFromPartyDataPlatformSCRDeliveryRelationData = resultSlice
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
 			if local.BusinessPartner == foreign.DeliverFromParty {
-				local.R.BuyerDataPlatformSupplyChainRelationshipDeliveryRelationData = append(local.R.BuyerDataPlatformSupplyChainRelationshipDeliveryRelationData, foreign)
+				local.R.DeliverFromPartyDataPlatformSCRDeliveryRelationData = append(local.R.DeliverFromPartyDataPlatformSCRDeliveryRelationData, foreign)
 				break
 			}
 		}
@@ -1651,9 +2076,9 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadBuyerDataPlatformSupplyChain
 	return nil
 }
 
-// LoadBuyerDataPlatformSupplyChainRelationshipGeneralData allows an eager lookup of values, cached into the
+// LoadDeliverToPartyDataPlatformSCRDeliveryRelationData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformBusinessPartnerGeneralDatumL) LoadBuyerDataPlatformSupplyChainRelationshipGeneralData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadDeliverToPartyDataPlatformSCRDeliveryRelationData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformBusinessPartnerGeneralDatum
 	var object *DataPlatformBusinessPartnerGeneralDatum
 
@@ -1707,8 +2132,8 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadBuyerDataPlatformSupplyChain
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_supply_chain_relationship_general_data`),
-		qm.WhereIn(`data_platform_supply_chain_relationship_general_data.Buyer in ?`, args...),
+		qm.From(`data_platform_scr_delivery_relation_data`),
+		qm.WhereIn(`data_platform_scr_delivery_relation_data.DeliverToParty in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -1716,30 +2141,127 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadBuyerDataPlatformSupplyChain
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_supply_chain_relationship_general_data")
+		return errors.Wrap(err, "failed to eager load data_platform_scr_delivery_relation_data")
 	}
 
-	var resultSlice []*DataPlatformSupplyChainRelationshipGeneralDatum
+	var resultSlice []*DataPlatformSCRDeliveryRelationDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_supply_chain_relationship_general_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_scr_delivery_relation_data")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_supply_chain_relationship_general_data")
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_scr_delivery_relation_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_supply_chain_relationship_general_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_scr_delivery_relation_data")
 	}
 
 	if singular {
-		object.R.BuyerDataPlatformSupplyChainRelationshipGeneralData = resultSlice
+		object.R.DeliverToPartyDataPlatformSCRDeliveryRelationData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BusinessPartner == foreign.DeliverToParty {
+				local.R.DeliverToPartyDataPlatformSCRDeliveryRelationData = append(local.R.DeliverToPartyDataPlatformSCRDeliveryRelationData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadBuyerDataPlatformSCRGeneralData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadBuyerDataPlatformSCRGeneralData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDatum
+	var object *DataPlatformBusinessPartnerGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_scr_general_data`),
+		qm.WhereIn(`data_platform_scr_general_data.Buyer in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_scr_general_data")
+	}
+
+	var resultSlice []*DataPlatformSCRGeneralDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_scr_general_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_scr_general_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_scr_general_data")
+	}
+
+	if singular {
+		object.R.BuyerDataPlatformSCRGeneralData = resultSlice
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
 			if local.BusinessPartner == foreign.Buyer {
-				local.R.BuyerDataPlatformSupplyChainRelationshipGeneralData = append(local.R.BuyerDataPlatformSupplyChainRelationshipGeneralData, foreign)
+				local.R.BuyerDataPlatformSCRGeneralData = append(local.R.BuyerDataPlatformSCRGeneralData, foreign)
 				break
 			}
 		}
@@ -1748,9 +2270,9 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadBuyerDataPlatformSupplyChain
 	return nil
 }
 
-// LoadSellerDataPlatformSupplyChainRelationshipGeneralData allows an eager lookup of values, cached into the
+// LoadSellerDataPlatformSCRGeneralData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformBusinessPartnerGeneralDatumL) LoadSellerDataPlatformSupplyChainRelationshipGeneralData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadSellerDataPlatformSCRGeneralData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformBusinessPartnerGeneralDatum
 	var object *DataPlatformBusinessPartnerGeneralDatum
 
@@ -1804,8 +2326,8 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadSellerDataPlatformSupplyChai
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_supply_chain_relationship_general_data`),
-		qm.WhereIn(`data_platform_supply_chain_relationship_general_data.Seller in ?`, args...),
+		qm.From(`data_platform_scr_general_data`),
+		qm.WhereIn(`data_platform_scr_general_data.Seller in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -1813,30 +2335,30 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadSellerDataPlatformSupplyChai
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_supply_chain_relationship_general_data")
+		return errors.Wrap(err, "failed to eager load data_platform_scr_general_data")
 	}
 
-	var resultSlice []*DataPlatformSupplyChainRelationshipGeneralDatum
+	var resultSlice []*DataPlatformSCRGeneralDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_supply_chain_relationship_general_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_scr_general_data")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_supply_chain_relationship_general_data")
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_scr_general_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_supply_chain_relationship_general_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_scr_general_data")
 	}
 
 	if singular {
-		object.R.SellerDataPlatformSupplyChainRelationshipGeneralData = resultSlice
+		object.R.SellerDataPlatformSCRGeneralData = resultSlice
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
 			if local.BusinessPartner == foreign.Seller {
-				local.R.SellerDataPlatformSupplyChainRelationshipGeneralData = append(local.R.SellerDataPlatformSupplyChainRelationshipGeneralData, foreign)
+				local.R.SellerDataPlatformSCRGeneralData = append(local.R.SellerDataPlatformSCRGeneralData, foreign)
 				break
 			}
 		}
@@ -1845,9 +2367,9 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadSellerDataPlatformSupplyChai
 	return nil
 }
 
-// LoadPayeeDataPlatformSupplyChainRelationshipPaymentRelationData allows an eager lookup of values, cached into the
+// LoadPayeeDataPlatformSCRPaymentRelationData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformBusinessPartnerGeneralDatumL) LoadPayeeDataPlatformSupplyChainRelationshipPaymentRelationData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadPayeeDataPlatformSCRPaymentRelationData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformBusinessPartnerGeneralDatum
 	var object *DataPlatformBusinessPartnerGeneralDatum
 
@@ -1901,8 +2423,8 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadPayeeDataPlatformSupplyChain
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_supply_chain_relationship_payment_relation_data`),
-		qm.WhereIn(`data_platform_supply_chain_relationship_payment_relation_data.Payee in ?`, args...),
+		qm.From(`data_platform_scr_payment_relation_data`),
+		qm.WhereIn(`data_platform_scr_payment_relation_data.Payee in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -1910,33 +2432,360 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadPayeeDataPlatformSupplyChain
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_supply_chain_relationship_payment_relation_data")
+		return errors.Wrap(err, "failed to eager load data_platform_scr_payment_relation_data")
 	}
 
-	var resultSlice []*DataPlatformSupplyChainRelationshipPaymentRelationDatum
+	var resultSlice []*DataPlatformSCRPaymentRelationDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_supply_chain_relationship_payment_relation_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_scr_payment_relation_data")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_supply_chain_relationship_payment_relation_data")
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_scr_payment_relation_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_supply_chain_relationship_payment_relation_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_scr_payment_relation_data")
 	}
 
 	if singular {
-		object.R.PayeeDataPlatformSupplyChainRelationshipPaymentRelationData = resultSlice
+		object.R.PayeeDataPlatformSCRPaymentRelationData = resultSlice
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
 			if local.BusinessPartner == foreign.Payee {
-				local.R.PayeeDataPlatformSupplyChainRelationshipPaymentRelationData = append(local.R.PayeeDataPlatformSupplyChainRelationshipPaymentRelationData, foreign)
+				local.R.PayeeDataPlatformSCRPaymentRelationData = append(local.R.PayeeDataPlatformSCRPaymentRelationData, foreign)
 				break
 			}
 		}
+	}
+
+	return nil
+}
+
+// LoadPayerDataPlatformSCRPaymentRelationData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadPayerDataPlatformSCRPaymentRelationData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDatum
+	var object *DataPlatformBusinessPartnerGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_scr_payment_relation_data`),
+		qm.WhereIn(`data_platform_scr_payment_relation_data.Payer in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_scr_payment_relation_data")
+	}
+
+	var resultSlice []*DataPlatformSCRPaymentRelationDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_scr_payment_relation_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_scr_payment_relation_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_scr_payment_relation_data")
+	}
+
+	if singular {
+		object.R.PayerDataPlatformSCRPaymentRelationData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BusinessPartner == foreign.Payer {
+				local.R.PayerDataPlatformSCRPaymentRelationData = append(local.R.PayerDataPlatformSCRPaymentRelationData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// SetAddressIDDataPlatformAddressAddressDatum of the dataPlatformBusinessPartnerGeneralDatum to the related item.
+// Sets o.R.AddressIDDataPlatformAddressAddressDatum to related.
+func (o *DataPlatformBusinessPartnerGeneralDatum) SetAddressIDDataPlatformAddressAddressDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformAddressAddressDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_business_partner_general_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"AddressID"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformBusinessPartnerGeneralDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.AddressID, o.BusinessPartner}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	queries.Assign(&o.AddressID, related.AddressID)
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
+			AddressIDDataPlatformAddressAddressDatum: related,
+		}
+	} else {
+		o.R.AddressIDDataPlatformAddressAddressDatum = related
+	}
+
+	return nil
+}
+
+// RemoveAddressIDDataPlatformAddressAddressDatum relationship.
+// Sets o.R.AddressIDDataPlatformAddressAddressDatum to nil.
+func (o *DataPlatformBusinessPartnerGeneralDatum) RemoveAddressIDDataPlatformAddressAddressDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformAddressAddressDatum) error {
+	var err error
+
+	queries.SetScanner(&o.AddressID, nil)
+	if err = o.Update(ctx, exec, boil.Whitelist("AddressID")); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	if o.R != nil {
+		o.R.AddressIDDataPlatformAddressAddressDatum = nil
+	}
+	if related == nil || related.R == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// SetCountryDataPlatformCountryCountryDatum of the dataPlatformBusinessPartnerGeneralDatum to the related item.
+// Sets o.R.CountryDataPlatformCountryCountryDatum to related.
+func (o *DataPlatformBusinessPartnerGeneralDatum) SetCountryDataPlatformCountryCountryDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformCountryCountryDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_business_partner_general_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"Country"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformBusinessPartnerGeneralDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.Country, o.BusinessPartner}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.Country = related.Country
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
+			CountryDataPlatformCountryCountryDatum: related,
+		}
+	} else {
+		o.R.CountryDataPlatformCountryCountryDatum = related
+	}
+
+	return nil
+}
+
+// SetCurrencyDataPlatformCurrencyCurrencyDatum of the dataPlatformBusinessPartnerGeneralDatum to the related item.
+// Sets o.R.CurrencyDataPlatformCurrencyCurrencyDatum to related.
+func (o *DataPlatformBusinessPartnerGeneralDatum) SetCurrencyDataPlatformCurrencyCurrencyDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformCurrencyCurrencyDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_business_partner_general_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"Currency"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformBusinessPartnerGeneralDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.Currency, o.BusinessPartner}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.Currency = related.Currency
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
+			CurrencyDataPlatformCurrencyCurrencyDatum: related,
+		}
+	} else {
+		o.R.CurrencyDataPlatformCurrencyCurrencyDatum = related
+	}
+
+	return nil
+}
+
+// SetIndustryDataPlatformIndustryIndustryDatum of the dataPlatformBusinessPartnerGeneralDatum to the related item.
+// Sets o.R.IndustryDataPlatformIndustryIndustryDatum to related.
+func (o *DataPlatformBusinessPartnerGeneralDatum) SetIndustryDataPlatformIndustryIndustryDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformIndustryIndustryDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_business_partner_general_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"Industry"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformBusinessPartnerGeneralDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.Industry, o.BusinessPartner}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	queries.Assign(&o.Industry, related.Industry)
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
+			IndustryDataPlatformIndustryIndustryDatum: related,
+		}
+	} else {
+		o.R.IndustryDataPlatformIndustryIndustryDatum = related
+	}
+
+	return nil
+}
+
+// RemoveIndustryDataPlatformIndustryIndustryDatum relationship.
+// Sets o.R.IndustryDataPlatformIndustryIndustryDatum to nil.
+func (o *DataPlatformBusinessPartnerGeneralDatum) RemoveIndustryDataPlatformIndustryIndustryDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformIndustryIndustryDatum) error {
+	var err error
+
+	queries.SetScanner(&o.Industry, nil)
+	if err = o.Update(ctx, exec, boil.Whitelist("Industry")); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	if o.R != nil {
+		o.R.IndustryDataPlatformIndustryIndustryDatum = nil
+	}
+	if related == nil || related.R == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// SetLanguageDataPlatformLanguageLanguageDatum of the dataPlatformBusinessPartnerGeneralDatum to the related item.
+// Sets o.R.LanguageDataPlatformLanguageLanguageDatum to related.
+func (o *DataPlatformBusinessPartnerGeneralDatum) SetLanguageDataPlatformLanguageLanguageDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformLanguageLanguageDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_business_partner_general_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"Language"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformBusinessPartnerGeneralDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.Language, o.BusinessPartner}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.Language = related.Language
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
+			LanguageDataPlatformLanguageLanguageDatum: related,
+		}
+	} else {
+		o.R.LanguageDataPlatformLanguageLanguageDatum = related
 	}
 
 	return nil
@@ -1980,153 +2829,6 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) AddBusinessPartnerDataPlatform
 		}
 	} else {
 		o.R.BusinessPartnerDataPlatformCodeConversionCodeConversionData = append(o.R.BusinessPartnerDataPlatformCodeConversionCodeConversionData, related...)
-	}
-
-	return nil
-}
-
-// AddDocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData adds the given related objects to the existing relationships
-// of the data_platform_business_partner_general_datum, optionally inserting them as new records.
-// Appends related to o.R.DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData.
-func (o *DataPlatformBusinessPartnerGeneralDatum) AddDocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDocDatum) error {
-	var err error
-	for _, rel := range related {
-		if insert {
-			queries.Assign(&rel.DocIssuerBusinessPartner, o.BusinessPartner)
-			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
-				return errors.Wrap(err, "failed to insert into foreign table")
-			}
-		} else {
-			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_delivery_document_header_doc_data` SET %s WHERE %s",
-				strmangle.SetParamNames("`", "`", 0, []string{"DocIssuerBusinessPartner"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentHeaderDocDatumPrimaryKeyColumns),
-			)
-			values := []interface{}{o.BusinessPartner, rel.DeliveryDocument, rel.DocType, rel.DocVersionID, rel.DocID}
-
-			if boil.IsDebug(ctx) {
-				writer := boil.DebugWriterFrom(ctx)
-				fmt.Fprintln(writer, updateQuery)
-				fmt.Fprintln(writer, values)
-			}
-			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-				return errors.Wrap(err, "failed to update foreign table")
-			}
-
-			queries.Assign(&rel.DocIssuerBusinessPartner, o.BusinessPartner)
-		}
-	}
-
-	if o.R == nil {
-		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
-			DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData: related,
-		}
-	} else {
-		o.R.DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData = append(o.R.DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData, related...)
-	}
-
-	return nil
-}
-
-// SetDocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData removes all previously related items of the
-// data_platform_business_partner_general_datum replacing them completely with the passed
-// in related items, optionally inserting them as new records.
-// Sets o.R.DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum's DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData accordingly.
-// Replaces o.R.DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData with related.
-func (o *DataPlatformBusinessPartnerGeneralDatum) SetDocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDocDatum) error {
-	query := "update `data_platform_delivery_document_header_doc_data` set `DocIssuerBusinessPartner` = null where `DocIssuerBusinessPartner` = ?"
-	values := []interface{}{o.BusinessPartner}
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, query)
-		fmt.Fprintln(writer, values)
-	}
-	_, err := exec.ExecContext(ctx, query, values...)
-	if err != nil {
-		return errors.Wrap(err, "failed to remove relationships before set")
-	}
-
-	if o.R != nil {
-		o.R.DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData = nil
-	}
-
-	return o.AddDocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData(ctx, exec, insert, related...)
-}
-
-// RemoveDocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData relationships from objects passed in.
-// Removes related items from R.DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData (uses pointer comparison, removal does not keep order)
-func (o *DataPlatformBusinessPartnerGeneralDatum) RemoveDocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentHeaderDocDatum) error {
-	if len(related) == 0 {
-		return nil
-	}
-
-	var err error
-	for _, rel := range related {
-		queries.SetScanner(&rel.DocIssuerBusinessPartner, nil)
-		if err = rel.Update(ctx, exec, boil.Whitelist("DocIssuerBusinessPartner")); err != nil {
-			return err
-		}
-	}
-	if o.R == nil {
-		return nil
-	}
-
-	for _, rel := range related {
-		for i, ri := range o.R.DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData {
-			if rel != ri {
-				continue
-			}
-
-			ln := len(o.R.DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData)
-			if ln > 1 && i < ln-1 {
-				o.R.DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData[i] = o.R.DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData[ln-1]
-			}
-			o.R.DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData = o.R.DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData[:ln-1]
-			break
-		}
-	}
-
-	return nil
-}
-
-// AddBusinessPartnerDataPlatformDeliveryDocumentPartnerData adds the given related objects to the existing relationships
-// of the data_platform_business_partner_general_datum, optionally inserting them as new records.
-// Appends related to o.R.BusinessPartnerDataPlatformDeliveryDocumentPartnerData.
-func (o *DataPlatformBusinessPartnerGeneralDatum) AddBusinessPartnerDataPlatformDeliveryDocumentPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentPartnerDatum) error {
-	var err error
-	for _, rel := range related {
-		if insert {
-			rel.BusinessPartner = o.BusinessPartner
-			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
-				return errors.Wrap(err, "failed to insert into foreign table")
-			}
-		} else {
-			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_delivery_document_partner_data` SET %s WHERE %s",
-				strmangle.SetParamNames("`", "`", 0, []string{"BusinessPartner"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentPartnerDatumPrimaryKeyColumns),
-			)
-			values := []interface{}{o.BusinessPartner, rel.DeliveryDocument, rel.PartnerFunction, rel.BusinessPartner}
-
-			if boil.IsDebug(ctx) {
-				writer := boil.DebugWriterFrom(ctx)
-				fmt.Fprintln(writer, updateQuery)
-				fmt.Fprintln(writer, values)
-			}
-			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-				return errors.Wrap(err, "failed to update foreign table")
-			}
-
-			rel.BusinessPartner = o.BusinessPartner
-		}
-	}
-
-	if o.R == nil {
-		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
-			BusinessPartnerDataPlatformDeliveryDocumentPartnerData: related,
-		}
-	} else {
-		o.R.BusinessPartnerDataPlatformDeliveryDocumentPartnerData = append(o.R.BusinessPartnerDataPlatformDeliveryDocumentPartnerData, related...)
 	}
 
 	return nil
@@ -2322,110 +3024,6 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) AddOwnerBusinessPartnerDataPla
 	return nil
 }
 
-// AddComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData adds the given related objects to the existing relationships
-// of the data_platform_business_partner_general_datum, optionally inserting them as new records.
-// Appends related to o.R.ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData.
-func (o *DataPlatformBusinessPartnerGeneralDatum) AddComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderComponentDatum) error {
-	var err error
-	for _, rel := range related {
-		if insert {
-			queries.Assign(&rel.ComponentProductBusinessPartner, o.BusinessPartner)
-			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
-				return errors.Wrap(err, "failed to insert into foreign table")
-			}
-		} else {
-			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_planned_order_component_data` SET %s WHERE %s",
-				strmangle.SetParamNames("`", "`", 0, []string{"ComponentProductBusinessPartner"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformPlannedOrderComponentDatumPrimaryKeyColumns),
-			)
-			values := []interface{}{o.BusinessPartner, rel.PlannedOrder, rel.PlannedOrderItem}
-
-			if boil.IsDebug(ctx) {
-				writer := boil.DebugWriterFrom(ctx)
-				fmt.Fprintln(writer, updateQuery)
-				fmt.Fprintln(writer, values)
-			}
-			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-				return errors.Wrap(err, "failed to update foreign table")
-			}
-
-			queries.Assign(&rel.ComponentProductBusinessPartner, o.BusinessPartner)
-		}
-	}
-
-	if o.R == nil {
-		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
-			ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData: related,
-		}
-	} else {
-		o.R.ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData = append(o.R.ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData, related...)
-	}
-
-	return nil
-}
-
-// SetComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData removes all previously related items of the
-// data_platform_business_partner_general_datum replacing them completely with the passed
-// in related items, optionally inserting them as new records.
-// Sets o.R.ComponentProductBusinessPartnerDataPlatformBusinessPartnerGeneralDatum's ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData accordingly.
-// Replaces o.R.ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData with related.
-func (o *DataPlatformBusinessPartnerGeneralDatum) SetComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderComponentDatum) error {
-	query := "update `data_platform_planned_order_component_data` set `ComponentProductBusinessPartner` = null where `ComponentProductBusinessPartner` = ?"
-	values := []interface{}{o.BusinessPartner}
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, query)
-		fmt.Fprintln(writer, values)
-	}
-	_, err := exec.ExecContext(ctx, query, values...)
-	if err != nil {
-		return errors.Wrap(err, "failed to remove relationships before set")
-	}
-
-	if o.R != nil {
-		o.R.ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData = nil
-	}
-
-	return o.AddComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData(ctx, exec, insert, related...)
-}
-
-// RemoveComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData relationships from objects passed in.
-// Removes related items from R.ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData (uses pointer comparison, removal does not keep order)
-func (o *DataPlatformBusinessPartnerGeneralDatum) RemoveComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformPlannedOrderComponentDatum) error {
-	if len(related) == 0 {
-		return nil
-	}
-
-	var err error
-	for _, rel := range related {
-		queries.SetScanner(&rel.ComponentProductBusinessPartner, nil)
-		if err = rel.Update(ctx, exec, boil.Whitelist("ComponentProductBusinessPartner")); err != nil {
-			return err
-		}
-	}
-	if o.R == nil {
-		return nil
-	}
-
-	for _, rel := range related {
-		for i, ri := range o.R.ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData {
-			if rel != ri {
-				continue
-			}
-
-			ln := len(o.R.ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData)
-			if ln > 1 && i < ln-1 {
-				o.R.ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData[i] = o.R.ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData[ln-1]
-			}
-			o.R.ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData = o.R.ComponentProductBusinessPartnerDataPlatformPlannedOrderComponentData[:ln-1]
-			break
-		}
-	}
-
-	return nil
-}
-
 // AddBusinessPartnerDataPlatformProductStockProductStockDataOlds adds the given related objects to the existing relationships
 // of the data_platform_business_partner_general_datum, optionally inserting them as new records.
 // Appends related to o.R.BusinessPartnerDataPlatformProductStockProductStockDataOlds.
@@ -2469,10 +3067,10 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) AddBusinessPartnerDataPlatform
 	return nil
 }
 
-// AddBillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData adds the given related objects to the existing relationships
+// AddBillFromPartyDataPlatformSCRBillingRelationData adds the given related objects to the existing relationships
 // of the data_platform_business_partner_general_datum, optionally inserting them as new records.
-// Appends related to o.R.BillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData.
-func (o *DataPlatformBusinessPartnerGeneralDatum) AddBillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSupplyChainRelationshipBillingRelationDatum) error {
+// Appends related to o.R.BillFromPartyDataPlatformSCRBillingRelationData.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddBillFromPartyDataPlatformSCRBillingRelationData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSCRBillingRelationDatum) error {
 	var err error
 	for _, rel := range related {
 		if insert {
@@ -2482,9 +3080,9 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) AddBillFromPartyDataPlatformSu
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_supply_chain_relationship_billing_relation_data` SET %s WHERE %s",
+				"UPDATE `data_platform_scr_billing_relation_data` SET %s WHERE %s",
 				strmangle.SetParamNames("`", "`", 0, []string{"BillFromParty"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformSupplyChainRelationshipBillingRelationDatumPrimaryKeyColumns),
+				strmangle.WhereClause("`", "`", 0, dataPlatformSCRBillingRelationDatumPrimaryKeyColumns),
 			)
 			values := []interface{}{o.BusinessPartner, rel.SupplyChainRelationshipID, rel.SupplyChainRelationshipBillingID, rel.Buyer, rel.Seller, rel.BillToParty, rel.BillFromParty}
 
@@ -2503,19 +3101,62 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) AddBillFromPartyDataPlatformSu
 
 	if o.R == nil {
 		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
-			BillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData: related,
+			BillFromPartyDataPlatformSCRBillingRelationData: related,
 		}
 	} else {
-		o.R.BillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData = append(o.R.BillFromPartyDataPlatformSupplyChainRelationshipBillingRelationData, related...)
+		o.R.BillFromPartyDataPlatformSCRBillingRelationData = append(o.R.BillFromPartyDataPlatformSCRBillingRelationData, related...)
 	}
 
 	return nil
 }
 
-// AddBuyerDataPlatformSupplyChainRelationshipDeliveryRelationData adds the given related objects to the existing relationships
+// AddBillToPartyDataPlatformSCRBillingRelationData adds the given related objects to the existing relationships
 // of the data_platform_business_partner_general_datum, optionally inserting them as new records.
-// Appends related to o.R.BuyerDataPlatformSupplyChainRelationshipDeliveryRelationData.
-func (o *DataPlatformBusinessPartnerGeneralDatum) AddBuyerDataPlatformSupplyChainRelationshipDeliveryRelationData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSupplyChainRelationshipDeliveryRelationDatum) error {
+// Appends related to o.R.BillToPartyDataPlatformSCRBillingRelationData.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddBillToPartyDataPlatformSCRBillingRelationData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSCRBillingRelationDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.BillToParty = o.BusinessPartner
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_scr_billing_relation_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"BillToParty"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformSCRBillingRelationDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.SupplyChainRelationshipID, rel.SupplyChainRelationshipBillingID, rel.Buyer, rel.Seller, rel.BillToParty, rel.BillFromParty}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.BillToParty = o.BusinessPartner
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
+			BillToPartyDataPlatformSCRBillingRelationData: related,
+		}
+	} else {
+		o.R.BillToPartyDataPlatformSCRBillingRelationData = append(o.R.BillToPartyDataPlatformSCRBillingRelationData, related...)
+	}
+
+	return nil
+}
+
+// AddDeliverFromPartyDataPlatformSCRDeliveryRelationData adds the given related objects to the existing relationships
+// of the data_platform_business_partner_general_datum, optionally inserting them as new records.
+// Appends related to o.R.DeliverFromPartyDataPlatformSCRDeliveryRelationData.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddDeliverFromPartyDataPlatformSCRDeliveryRelationData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSCRDeliveryRelationDatum) error {
 	var err error
 	for _, rel := range related {
 		if insert {
@@ -2525,9 +3166,9 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) AddBuyerDataPlatformSupplyChai
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_supply_chain_relationship_delivery_relation_data` SET %s WHERE %s",
+				"UPDATE `data_platform_scr_delivery_relation_data` SET %s WHERE %s",
 				strmangle.SetParamNames("`", "`", 0, []string{"DeliverFromParty"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformSupplyChainRelationshipDeliveryRelationDatumPrimaryKeyColumns),
+				strmangle.WhereClause("`", "`", 0, dataPlatformSCRDeliveryRelationDatumPrimaryKeyColumns),
 			)
 			values := []interface{}{o.BusinessPartner, rel.SupplyChainRelationshipID, rel.SupplyChainRelationshipDeliveryID, rel.Buyer, rel.Seller, rel.DeliverToParty, rel.DeliverFromParty}
 
@@ -2546,19 +3187,62 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) AddBuyerDataPlatformSupplyChai
 
 	if o.R == nil {
 		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
-			BuyerDataPlatformSupplyChainRelationshipDeliveryRelationData: related,
+			DeliverFromPartyDataPlatformSCRDeliveryRelationData: related,
 		}
 	} else {
-		o.R.BuyerDataPlatformSupplyChainRelationshipDeliveryRelationData = append(o.R.BuyerDataPlatformSupplyChainRelationshipDeliveryRelationData, related...)
+		o.R.DeliverFromPartyDataPlatformSCRDeliveryRelationData = append(o.R.DeliverFromPartyDataPlatformSCRDeliveryRelationData, related...)
 	}
 
 	return nil
 }
 
-// AddBuyerDataPlatformSupplyChainRelationshipGeneralData adds the given related objects to the existing relationships
+// AddDeliverToPartyDataPlatformSCRDeliveryRelationData adds the given related objects to the existing relationships
 // of the data_platform_business_partner_general_datum, optionally inserting them as new records.
-// Appends related to o.R.BuyerDataPlatformSupplyChainRelationshipGeneralData.
-func (o *DataPlatformBusinessPartnerGeneralDatum) AddBuyerDataPlatformSupplyChainRelationshipGeneralData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSupplyChainRelationshipGeneralDatum) error {
+// Appends related to o.R.DeliverToPartyDataPlatformSCRDeliveryRelationData.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddDeliverToPartyDataPlatformSCRDeliveryRelationData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSCRDeliveryRelationDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DeliverToParty = o.BusinessPartner
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_scr_delivery_relation_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DeliverToParty"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformSCRDeliveryRelationDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.SupplyChainRelationshipID, rel.SupplyChainRelationshipDeliveryID, rel.Buyer, rel.Seller, rel.DeliverToParty, rel.DeliverFromParty}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DeliverToParty = o.BusinessPartner
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
+			DeliverToPartyDataPlatformSCRDeliveryRelationData: related,
+		}
+	} else {
+		o.R.DeliverToPartyDataPlatformSCRDeliveryRelationData = append(o.R.DeliverToPartyDataPlatformSCRDeliveryRelationData, related...)
+	}
+
+	return nil
+}
+
+// AddBuyerDataPlatformSCRGeneralData adds the given related objects to the existing relationships
+// of the data_platform_business_partner_general_datum, optionally inserting them as new records.
+// Appends related to o.R.BuyerDataPlatformSCRGeneralData.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddBuyerDataPlatformSCRGeneralData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSCRGeneralDatum) error {
 	var err error
 	for _, rel := range related {
 		if insert {
@@ -2568,9 +3252,9 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) AddBuyerDataPlatformSupplyChai
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_supply_chain_relationship_general_data` SET %s WHERE %s",
+				"UPDATE `data_platform_scr_general_data` SET %s WHERE %s",
 				strmangle.SetParamNames("`", "`", 0, []string{"Buyer"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformSupplyChainRelationshipGeneralDatumPrimaryKeyColumns),
+				strmangle.WhereClause("`", "`", 0, dataPlatformSCRGeneralDatumPrimaryKeyColumns),
 			)
 			values := []interface{}{o.BusinessPartner, rel.SupplyChainRelationshipID, rel.Buyer, rel.Seller}
 
@@ -2589,19 +3273,19 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) AddBuyerDataPlatformSupplyChai
 
 	if o.R == nil {
 		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
-			BuyerDataPlatformSupplyChainRelationshipGeneralData: related,
+			BuyerDataPlatformSCRGeneralData: related,
 		}
 	} else {
-		o.R.BuyerDataPlatformSupplyChainRelationshipGeneralData = append(o.R.BuyerDataPlatformSupplyChainRelationshipGeneralData, related...)
+		o.R.BuyerDataPlatformSCRGeneralData = append(o.R.BuyerDataPlatformSCRGeneralData, related...)
 	}
 
 	return nil
 }
 
-// AddSellerDataPlatformSupplyChainRelationshipGeneralData adds the given related objects to the existing relationships
+// AddSellerDataPlatformSCRGeneralData adds the given related objects to the existing relationships
 // of the data_platform_business_partner_general_datum, optionally inserting them as new records.
-// Appends related to o.R.SellerDataPlatformSupplyChainRelationshipGeneralData.
-func (o *DataPlatformBusinessPartnerGeneralDatum) AddSellerDataPlatformSupplyChainRelationshipGeneralData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSupplyChainRelationshipGeneralDatum) error {
+// Appends related to o.R.SellerDataPlatformSCRGeneralData.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddSellerDataPlatformSCRGeneralData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSCRGeneralDatum) error {
 	var err error
 	for _, rel := range related {
 		if insert {
@@ -2611,9 +3295,9 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) AddSellerDataPlatformSupplyCha
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_supply_chain_relationship_general_data` SET %s WHERE %s",
+				"UPDATE `data_platform_scr_general_data` SET %s WHERE %s",
 				strmangle.SetParamNames("`", "`", 0, []string{"Seller"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformSupplyChainRelationshipGeneralDatumPrimaryKeyColumns),
+				strmangle.WhereClause("`", "`", 0, dataPlatformSCRGeneralDatumPrimaryKeyColumns),
 			)
 			values := []interface{}{o.BusinessPartner, rel.SupplyChainRelationshipID, rel.Buyer, rel.Seller}
 
@@ -2632,19 +3316,19 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) AddSellerDataPlatformSupplyCha
 
 	if o.R == nil {
 		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
-			SellerDataPlatformSupplyChainRelationshipGeneralData: related,
+			SellerDataPlatformSCRGeneralData: related,
 		}
 	} else {
-		o.R.SellerDataPlatformSupplyChainRelationshipGeneralData = append(o.R.SellerDataPlatformSupplyChainRelationshipGeneralData, related...)
+		o.R.SellerDataPlatformSCRGeneralData = append(o.R.SellerDataPlatformSCRGeneralData, related...)
 	}
 
 	return nil
 }
 
-// AddPayeeDataPlatformSupplyChainRelationshipPaymentRelationData adds the given related objects to the existing relationships
+// AddPayeeDataPlatformSCRPaymentRelationData adds the given related objects to the existing relationships
 // of the data_platform_business_partner_general_datum, optionally inserting them as new records.
-// Appends related to o.R.PayeeDataPlatformSupplyChainRelationshipPaymentRelationData.
-func (o *DataPlatformBusinessPartnerGeneralDatum) AddPayeeDataPlatformSupplyChainRelationshipPaymentRelationData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSupplyChainRelationshipPaymentRelationDatum) error {
+// Appends related to o.R.PayeeDataPlatformSCRPaymentRelationData.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddPayeeDataPlatformSCRPaymentRelationData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSCRPaymentRelationDatum) error {
 	var err error
 	for _, rel := range related {
 		if insert {
@@ -2654,9 +3338,9 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) AddPayeeDataPlatformSupplyChai
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_supply_chain_relationship_payment_relation_data` SET %s WHERE %s",
+				"UPDATE `data_platform_scr_payment_relation_data` SET %s WHERE %s",
 				strmangle.SetParamNames("`", "`", 0, []string{"Payee"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformSupplyChainRelationshipPaymentRelationDatumPrimaryKeyColumns),
+				strmangle.WhereClause("`", "`", 0, dataPlatformSCRPaymentRelationDatumPrimaryKeyColumns),
 			)
 			values := []interface{}{o.BusinessPartner, rel.SupplyChainRelationshipID, rel.SupplyChainRelationshipBillingID, rel.SupplyChainRelationshipPaymentID, rel.Buyer, rel.Seller, rel.BillToParty, rel.BillFromParty, rel.Payer, rel.Payee}
 
@@ -2675,10 +3359,53 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) AddPayeeDataPlatformSupplyChai
 
 	if o.R == nil {
 		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
-			PayeeDataPlatformSupplyChainRelationshipPaymentRelationData: related,
+			PayeeDataPlatformSCRPaymentRelationData: related,
 		}
 	} else {
-		o.R.PayeeDataPlatformSupplyChainRelationshipPaymentRelationData = append(o.R.PayeeDataPlatformSupplyChainRelationshipPaymentRelationData, related...)
+		o.R.PayeeDataPlatformSCRPaymentRelationData = append(o.R.PayeeDataPlatformSCRPaymentRelationData, related...)
+	}
+
+	return nil
+}
+
+// AddPayerDataPlatformSCRPaymentRelationData adds the given related objects to the existing relationships
+// of the data_platform_business_partner_general_datum, optionally inserting them as new records.
+// Appends related to o.R.PayerDataPlatformSCRPaymentRelationData.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddPayerDataPlatformSCRPaymentRelationData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSCRPaymentRelationDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.Payer = o.BusinessPartner
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_scr_payment_relation_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Payer"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformSCRPaymentRelationDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.SupplyChainRelationshipID, rel.SupplyChainRelationshipBillingID, rel.SupplyChainRelationshipPaymentID, rel.Buyer, rel.Seller, rel.BillToParty, rel.BillFromParty, rel.Payer, rel.Payee}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.Payer = o.BusinessPartner
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
+			PayerDataPlatformSCRPaymentRelationData: related,
+		}
+	} else {
+		o.R.PayerDataPlatformSCRPaymentRelationData = append(o.R.PayerDataPlatformSCRPaymentRelationData, related...)
 	}
 
 	return nil

@@ -24,25 +24,22 @@ import (
 
 // DataPlatformPriceMasterPriceMasterDatum is an object representing the database table.
 type DataPlatformPriceMasterPriceMasterDatum struct {
-	SupplyChainRelationshipID  int          `boil:"SupplyChainRelationshipID" json:"SupplyChainRelationshipID" toml:"SupplyChainRelationshipID" yaml:"SupplyChainRelationshipID"`
-	Buyer                      int          `boil:"Buyer" json:"Buyer" toml:"Buyer" yaml:"Buyer"`
-	Seller                     int          `boil:"Seller" json:"Seller" toml:"Seller" yaml:"Seller"`
-	ConditionRecord            int          `boil:"ConditionRecord" json:"ConditionRecord" toml:"ConditionRecord" yaml:"ConditionRecord"`
-	ConditionSequentialNumber  int          `boil:"ConditionSequentialNumber" json:"ConditionSequentialNumber" toml:"ConditionSequentialNumber" yaml:"ConditionSequentialNumber"`
-	ConditionValidityEndDate   string       `boil:"ConditionValidityEndDate" json:"ConditionValidityEndDate" toml:"ConditionValidityEndDate" yaml:"ConditionValidityEndDate"`
-	ConditionValidityStartDate string       `boil:"ConditionValidityStartDate" json:"ConditionValidityStartDate" toml:"ConditionValidityStartDate" yaml:"ConditionValidityStartDate"`
-	Product                    string       `boil:"Product" json:"Product" toml:"Product" yaml:"Product"`
-	ConditionType              string       `boil:"ConditionType" json:"ConditionType" toml:"ConditionType" yaml:"ConditionType"`
-	CreationDate               null.String  `boil:"CreationDate" json:"CreationDate,omitempty" toml:"CreationDate" yaml:"CreationDate,omitempty"`
-	LastChangeDate             null.String  `boil:"LastChangeDate" json:"LastChangeDate,omitempty" toml:"LastChangeDate" yaml:"LastChangeDate,omitempty"`
-	ConditionRateValue         null.Float32 `boil:"ConditionRateValue" json:"ConditionRateValue,omitempty" toml:"ConditionRateValue" yaml:"ConditionRateValue,omitempty"`
-	ConditionRateValueUnit     null.String  `boil:"ConditionRateValueUnit" json:"ConditionRateValueUnit,omitempty" toml:"ConditionRateValueUnit" yaml:"ConditionRateValueUnit,omitempty"`
-	ConditionScaleQuantity     null.Float32 `boil:"ConditionScaleQuantity" json:"ConditionScaleQuantity,omitempty" toml:"ConditionScaleQuantity" yaml:"ConditionScaleQuantity,omitempty"`
-	ConditionRateRatio         null.Float32 `boil:"ConditionRateRatio" json:"ConditionRateRatio,omitempty" toml:"ConditionRateRatio" yaml:"ConditionRateRatio,omitempty"`
-	ConditionRateRatioUnit     null.String  `boil:"ConditionRateRatioUnit" json:"ConditionRateRatioUnit,omitempty" toml:"ConditionRateRatioUnit" yaml:"ConditionRateRatioUnit,omitempty"`
-	ConditionCurrency          null.String  `boil:"ConditionCurrency" json:"ConditionCurrency,omitempty" toml:"ConditionCurrency" yaml:"ConditionCurrency,omitempty"`
-	BaseUnit                   null.String  `boil:"BaseUnit" json:"BaseUnit,omitempty" toml:"BaseUnit" yaml:"BaseUnit,omitempty"`
-	ConditionIsDeleted         null.Bool    `boil:"ConditionIsDeleted" json:"ConditionIsDeleted,omitempty" toml:"ConditionIsDeleted" yaml:"ConditionIsDeleted,omitempty"`
+	SupplyChainRelationshipID  int       `boil:"SupplyChainRelationshipID" json:"SupplyChainRelationshipID" toml:"SupplyChainRelationshipID" yaml:"SupplyChainRelationshipID"`
+	Buyer                      int       `boil:"Buyer" json:"Buyer" toml:"Buyer" yaml:"Buyer"`
+	Seller                     int       `boil:"Seller" json:"Seller" toml:"Seller" yaml:"Seller"`
+	ConditionRecord            int       `boil:"ConditionRecord" json:"ConditionRecord" toml:"ConditionRecord" yaml:"ConditionRecord"`
+	ConditionSequentialNumber  int       `boil:"ConditionSequentialNumber" json:"ConditionSequentialNumber" toml:"ConditionSequentialNumber" yaml:"ConditionSequentialNumber"`
+	Product                    string    `boil:"Product" json:"Product" toml:"Product" yaml:"Product"`
+	ConditionValidityStartDate string    `boil:"ConditionValidityStartDate" json:"ConditionValidityStartDate" toml:"ConditionValidityStartDate" yaml:"ConditionValidityStartDate"`
+	ConditionValidityEndDate   string    `boil:"ConditionValidityEndDate" json:"ConditionValidityEndDate" toml:"ConditionValidityEndDate" yaml:"ConditionValidityEndDate"`
+	ConditionType              string    `boil:"ConditionType" json:"ConditionType" toml:"ConditionType" yaml:"ConditionType"`
+	ConditionRateValue         float32   `boil:"ConditionRateValue" json:"ConditionRateValue" toml:"ConditionRateValue" yaml:"ConditionRateValue"`
+	ConditionRateValueUnit     int       `boil:"ConditionRateValueUnit" json:"ConditionRateValueUnit" toml:"ConditionRateValueUnit" yaml:"ConditionRateValueUnit"`
+	ConditionScaleQuantity     int       `boil:"ConditionScaleQuantity" json:"ConditionScaleQuantity" toml:"ConditionScaleQuantity" yaml:"ConditionScaleQuantity"`
+	ConditionCurrency          string    `boil:"ConditionCurrency" json:"ConditionCurrency" toml:"ConditionCurrency" yaml:"ConditionCurrency"`
+	CreationDate               string    `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
+	LastChangeDate             string    `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
+	IsMarkedForDeletion        null.Bool `boil:"IsMarkedForDeletion" json:"IsMarkedForDeletion,omitempty" toml:"IsMarkedForDeletion" yaml:"IsMarkedForDeletion,omitempty"`
 
 	R *dataPlatformPriceMasterPriceMasterDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
 	L dataPlatformPriceMasterPriceMasterDatumL  `boil:"-" json:"-" toml:"-" yaml:"-"`
@@ -54,40 +51,34 @@ var DataPlatformPriceMasterPriceMasterDatumColumns = struct {
 	Seller                     string
 	ConditionRecord            string
 	ConditionSequentialNumber  string
-	ConditionValidityEndDate   string
-	ConditionValidityStartDate string
 	Product                    string
+	ConditionValidityStartDate string
+	ConditionValidityEndDate   string
 	ConditionType              string
-	CreationDate               string
-	LastChangeDate             string
 	ConditionRateValue         string
 	ConditionRateValueUnit     string
 	ConditionScaleQuantity     string
-	ConditionRateRatio         string
-	ConditionRateRatioUnit     string
 	ConditionCurrency          string
-	BaseUnit                   string
-	ConditionIsDeleted         string
+	CreationDate               string
+	LastChangeDate             string
+	IsMarkedForDeletion        string
 }{
 	SupplyChainRelationshipID:  "SupplyChainRelationshipID",
 	Buyer:                      "Buyer",
 	Seller:                     "Seller",
 	ConditionRecord:            "ConditionRecord",
 	ConditionSequentialNumber:  "ConditionSequentialNumber",
-	ConditionValidityEndDate:   "ConditionValidityEndDate",
-	ConditionValidityStartDate: "ConditionValidityStartDate",
 	Product:                    "Product",
+	ConditionValidityStartDate: "ConditionValidityStartDate",
+	ConditionValidityEndDate:   "ConditionValidityEndDate",
 	ConditionType:              "ConditionType",
-	CreationDate:               "CreationDate",
-	LastChangeDate:             "LastChangeDate",
 	ConditionRateValue:         "ConditionRateValue",
 	ConditionRateValueUnit:     "ConditionRateValueUnit",
 	ConditionScaleQuantity:     "ConditionScaleQuantity",
-	ConditionRateRatio:         "ConditionRateRatio",
-	ConditionRateRatioUnit:     "ConditionRateRatioUnit",
 	ConditionCurrency:          "ConditionCurrency",
-	BaseUnit:                   "BaseUnit",
-	ConditionIsDeleted:         "ConditionIsDeleted",
+	CreationDate:               "CreationDate",
+	LastChangeDate:             "LastChangeDate",
+	IsMarkedForDeletion:        "IsMarkedForDeletion",
 }
 
 var DataPlatformPriceMasterPriceMasterDatumTableColumns = struct {
@@ -96,40 +87,34 @@ var DataPlatformPriceMasterPriceMasterDatumTableColumns = struct {
 	Seller                     string
 	ConditionRecord            string
 	ConditionSequentialNumber  string
-	ConditionValidityEndDate   string
-	ConditionValidityStartDate string
 	Product                    string
+	ConditionValidityStartDate string
+	ConditionValidityEndDate   string
 	ConditionType              string
-	CreationDate               string
-	LastChangeDate             string
 	ConditionRateValue         string
 	ConditionRateValueUnit     string
 	ConditionScaleQuantity     string
-	ConditionRateRatio         string
-	ConditionRateRatioUnit     string
 	ConditionCurrency          string
-	BaseUnit                   string
-	ConditionIsDeleted         string
+	CreationDate               string
+	LastChangeDate             string
+	IsMarkedForDeletion        string
 }{
 	SupplyChainRelationshipID:  "data_platform_price_master_price_master_data.SupplyChainRelationshipID",
 	Buyer:                      "data_platform_price_master_price_master_data.Buyer",
 	Seller:                     "data_platform_price_master_price_master_data.Seller",
 	ConditionRecord:            "data_platform_price_master_price_master_data.ConditionRecord",
 	ConditionSequentialNumber:  "data_platform_price_master_price_master_data.ConditionSequentialNumber",
-	ConditionValidityEndDate:   "data_platform_price_master_price_master_data.ConditionValidityEndDate",
-	ConditionValidityStartDate: "data_platform_price_master_price_master_data.ConditionValidityStartDate",
 	Product:                    "data_platform_price_master_price_master_data.Product",
+	ConditionValidityStartDate: "data_platform_price_master_price_master_data.ConditionValidityStartDate",
+	ConditionValidityEndDate:   "data_platform_price_master_price_master_data.ConditionValidityEndDate",
 	ConditionType:              "data_platform_price_master_price_master_data.ConditionType",
-	CreationDate:               "data_platform_price_master_price_master_data.CreationDate",
-	LastChangeDate:             "data_platform_price_master_price_master_data.LastChangeDate",
 	ConditionRateValue:         "data_platform_price_master_price_master_data.ConditionRateValue",
 	ConditionRateValueUnit:     "data_platform_price_master_price_master_data.ConditionRateValueUnit",
 	ConditionScaleQuantity:     "data_platform_price_master_price_master_data.ConditionScaleQuantity",
-	ConditionRateRatio:         "data_platform_price_master_price_master_data.ConditionRateRatio",
-	ConditionRateRatioUnit:     "data_platform_price_master_price_master_data.ConditionRateRatioUnit",
 	ConditionCurrency:          "data_platform_price_master_price_master_data.ConditionCurrency",
-	BaseUnit:                   "data_platform_price_master_price_master_data.BaseUnit",
-	ConditionIsDeleted:         "data_platform_price_master_price_master_data.ConditionIsDeleted",
+	CreationDate:               "data_platform_price_master_price_master_data.CreationDate",
+	LastChangeDate:             "data_platform_price_master_price_master_data.LastChangeDate",
+	IsMarkedForDeletion:        "data_platform_price_master_price_master_data.IsMarkedForDeletion",
 }
 
 // Generated where
@@ -140,48 +125,52 @@ var DataPlatformPriceMasterPriceMasterDatumWhere = struct {
 	Seller                     whereHelperint
 	ConditionRecord            whereHelperint
 	ConditionSequentialNumber  whereHelperint
-	ConditionValidityEndDate   whereHelperstring
-	ConditionValidityStartDate whereHelperstring
 	Product                    whereHelperstring
+	ConditionValidityStartDate whereHelperstring
+	ConditionValidityEndDate   whereHelperstring
 	ConditionType              whereHelperstring
-	CreationDate               whereHelpernull_String
-	LastChangeDate             whereHelpernull_String
-	ConditionRateValue         whereHelpernull_Float32
-	ConditionRateValueUnit     whereHelpernull_String
-	ConditionScaleQuantity     whereHelpernull_Float32
-	ConditionRateRatio         whereHelpernull_Float32
-	ConditionRateRatioUnit     whereHelpernull_String
-	ConditionCurrency          whereHelpernull_String
-	BaseUnit                   whereHelpernull_String
-	ConditionIsDeleted         whereHelpernull_Bool
+	ConditionRateValue         whereHelperfloat32
+	ConditionRateValueUnit     whereHelperint
+	ConditionScaleQuantity     whereHelperint
+	ConditionCurrency          whereHelperstring
+	CreationDate               whereHelperstring
+	LastChangeDate             whereHelperstring
+	IsMarkedForDeletion        whereHelpernull_Bool
 }{
 	SupplyChainRelationshipID:  whereHelperint{field: "`data_platform_price_master_price_master_data`.`SupplyChainRelationshipID`"},
 	Buyer:                      whereHelperint{field: "`data_platform_price_master_price_master_data`.`Buyer`"},
 	Seller:                     whereHelperint{field: "`data_platform_price_master_price_master_data`.`Seller`"},
 	ConditionRecord:            whereHelperint{field: "`data_platform_price_master_price_master_data`.`ConditionRecord`"},
 	ConditionSequentialNumber:  whereHelperint{field: "`data_platform_price_master_price_master_data`.`ConditionSequentialNumber`"},
-	ConditionValidityEndDate:   whereHelperstring{field: "`data_platform_price_master_price_master_data`.`ConditionValidityEndDate`"},
-	ConditionValidityStartDate: whereHelperstring{field: "`data_platform_price_master_price_master_data`.`ConditionValidityStartDate`"},
 	Product:                    whereHelperstring{field: "`data_platform_price_master_price_master_data`.`Product`"},
+	ConditionValidityStartDate: whereHelperstring{field: "`data_platform_price_master_price_master_data`.`ConditionValidityStartDate`"},
+	ConditionValidityEndDate:   whereHelperstring{field: "`data_platform_price_master_price_master_data`.`ConditionValidityEndDate`"},
 	ConditionType:              whereHelperstring{field: "`data_platform_price_master_price_master_data`.`ConditionType`"},
-	CreationDate:               whereHelpernull_String{field: "`data_platform_price_master_price_master_data`.`CreationDate`"},
-	LastChangeDate:             whereHelpernull_String{field: "`data_platform_price_master_price_master_data`.`LastChangeDate`"},
-	ConditionRateValue:         whereHelpernull_Float32{field: "`data_platform_price_master_price_master_data`.`ConditionRateValue`"},
-	ConditionRateValueUnit:     whereHelpernull_String{field: "`data_platform_price_master_price_master_data`.`ConditionRateValueUnit`"},
-	ConditionScaleQuantity:     whereHelpernull_Float32{field: "`data_platform_price_master_price_master_data`.`ConditionScaleQuantity`"},
-	ConditionRateRatio:         whereHelpernull_Float32{field: "`data_platform_price_master_price_master_data`.`ConditionRateRatio`"},
-	ConditionRateRatioUnit:     whereHelpernull_String{field: "`data_platform_price_master_price_master_data`.`ConditionRateRatioUnit`"},
-	ConditionCurrency:          whereHelpernull_String{field: "`data_platform_price_master_price_master_data`.`ConditionCurrency`"},
-	BaseUnit:                   whereHelpernull_String{field: "`data_platform_price_master_price_master_data`.`BaseUnit`"},
-	ConditionIsDeleted:         whereHelpernull_Bool{field: "`data_platform_price_master_price_master_data`.`ConditionIsDeleted`"},
+	ConditionRateValue:         whereHelperfloat32{field: "`data_platform_price_master_price_master_data`.`ConditionRateValue`"},
+	ConditionRateValueUnit:     whereHelperint{field: "`data_platform_price_master_price_master_data`.`ConditionRateValueUnit`"},
+	ConditionScaleQuantity:     whereHelperint{field: "`data_platform_price_master_price_master_data`.`ConditionScaleQuantity`"},
+	ConditionCurrency:          whereHelperstring{field: "`data_platform_price_master_price_master_data`.`ConditionCurrency`"},
+	CreationDate:               whereHelperstring{field: "`data_platform_price_master_price_master_data`.`CreationDate`"},
+	LastChangeDate:             whereHelperstring{field: "`data_platform_price_master_price_master_data`.`LastChangeDate`"},
+	IsMarkedForDeletion:        whereHelpernull_Bool{field: "`data_platform_price_master_price_master_data`.`IsMarkedForDeletion`"},
 }
 
 // DataPlatformPriceMasterPriceMasterDatumRels is where relationship names are stored.
 var DataPlatformPriceMasterPriceMasterDatumRels = struct {
-}{}
+	ConditionCurrencyDataPlatformCurrencyCurrencyDatum string
+	ProductDataPlatformProductMasterGeneralDatum       string
+	BuyerDataPlatformSCRGeneralDatum                   string
+}{
+	ConditionCurrencyDataPlatformCurrencyCurrencyDatum: "ConditionCurrencyDataPlatformCurrencyCurrencyDatum",
+	ProductDataPlatformProductMasterGeneralDatum:       "ProductDataPlatformProductMasterGeneralDatum",
+	BuyerDataPlatformSCRGeneralDatum:                   "BuyerDataPlatformSCRGeneralDatum",
+}
 
 // dataPlatformPriceMasterPriceMasterDatumR is where relationships are stored.
 type dataPlatformPriceMasterPriceMasterDatumR struct {
+	ConditionCurrencyDataPlatformCurrencyCurrencyDatum *DataPlatformCurrencyCurrencyDatum     `boil:"ConditionCurrencyDataPlatformCurrencyCurrencyDatum" json:"ConditionCurrencyDataPlatformCurrencyCurrencyDatum" toml:"ConditionCurrencyDataPlatformCurrencyCurrencyDatum" yaml:"ConditionCurrencyDataPlatformCurrencyCurrencyDatum"`
+	ProductDataPlatformProductMasterGeneralDatum       *DataPlatformProductMasterGeneralDatum `boil:"ProductDataPlatformProductMasterGeneralDatum" json:"ProductDataPlatformProductMasterGeneralDatum" toml:"ProductDataPlatformProductMasterGeneralDatum" yaml:"ProductDataPlatformProductMasterGeneralDatum"`
+	BuyerDataPlatformSCRGeneralDatum                   *DataPlatformSCRGeneralDatum           `boil:"BuyerDataPlatformSCRGeneralDatum" json:"BuyerDataPlatformSCRGeneralDatum" toml:"BuyerDataPlatformSCRGeneralDatum" yaml:"BuyerDataPlatformSCRGeneralDatum"`
 }
 
 // NewStruct creates a new relationship struct
@@ -189,14 +178,35 @@ func (*dataPlatformPriceMasterPriceMasterDatumR) NewStruct() *dataPlatformPriceM
 	return &dataPlatformPriceMasterPriceMasterDatumR{}
 }
 
+func (r *dataPlatformPriceMasterPriceMasterDatumR) GetConditionCurrencyDataPlatformCurrencyCurrencyDatum() *DataPlatformCurrencyCurrencyDatum {
+	if r == nil {
+		return nil
+	}
+	return r.ConditionCurrencyDataPlatformCurrencyCurrencyDatum
+}
+
+func (r *dataPlatformPriceMasterPriceMasterDatumR) GetProductDataPlatformProductMasterGeneralDatum() *DataPlatformProductMasterGeneralDatum {
+	if r == nil {
+		return nil
+	}
+	return r.ProductDataPlatformProductMasterGeneralDatum
+}
+
+func (r *dataPlatformPriceMasterPriceMasterDatumR) GetBuyerDataPlatformSCRGeneralDatum() *DataPlatformSCRGeneralDatum {
+	if r == nil {
+		return nil
+	}
+	return r.BuyerDataPlatformSCRGeneralDatum
+}
+
 // dataPlatformPriceMasterPriceMasterDatumL is where Load methods for each relationship are stored.
 type dataPlatformPriceMasterPriceMasterDatumL struct{}
 
 var (
-	dataPlatformPriceMasterPriceMasterDatumAllColumns            = []string{"SupplyChainRelationshipID", "Buyer", "Seller", "ConditionRecord", "ConditionSequentialNumber", "ConditionValidityEndDate", "ConditionValidityStartDate", "Product", "ConditionType", "CreationDate", "LastChangeDate", "ConditionRateValue", "ConditionRateValueUnit", "ConditionScaleQuantity", "ConditionRateRatio", "ConditionRateRatioUnit", "ConditionCurrency", "BaseUnit", "ConditionIsDeleted"}
-	dataPlatformPriceMasterPriceMasterDatumColumnsWithoutDefault = []string{"SupplyChainRelationshipID", "Buyer", "Seller", "ConditionRecord", "ConditionSequentialNumber", "ConditionValidityEndDate", "ConditionValidityStartDate", "Product", "ConditionType", "CreationDate", "LastChangeDate", "ConditionRateValue", "ConditionRateValueUnit", "ConditionScaleQuantity", "ConditionRateRatio", "ConditionRateRatioUnit", "ConditionCurrency", "BaseUnit", "ConditionIsDeleted"}
+	dataPlatformPriceMasterPriceMasterDatumAllColumns            = []string{"SupplyChainRelationshipID", "Buyer", "Seller", "ConditionRecord", "ConditionSequentialNumber", "Product", "ConditionValidityStartDate", "ConditionValidityEndDate", "ConditionType", "ConditionRateValue", "ConditionRateValueUnit", "ConditionScaleQuantity", "ConditionCurrency", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
+	dataPlatformPriceMasterPriceMasterDatumColumnsWithoutDefault = []string{"SupplyChainRelationshipID", "Buyer", "Seller", "ConditionRecord", "ConditionSequentialNumber", "Product", "ConditionValidityStartDate", "ConditionValidityEndDate", "ConditionType", "ConditionRateValue", "ConditionRateValueUnit", "ConditionScaleQuantity", "ConditionCurrency", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
 	dataPlatformPriceMasterPriceMasterDatumColumnsWithDefault    = []string{}
-	dataPlatformPriceMasterPriceMasterDatumPrimaryKeyColumns     = []string{"SupplyChainRelationshipID", "Buyer", "Seller", "ConditionRecord", "ConditionSequentialNumber", "ConditionValidityEndDate", "ConditionValidityStartDate", "Product"}
+	dataPlatformPriceMasterPriceMasterDatumPrimaryKeyColumns     = []string{"SupplyChainRelationshipID", "Buyer", "Seller", "ConditionRecord", "ConditionSequentialNumber", "Product", "ConditionValidityStartDate", "ConditionValidityEndDate"}
 	dataPlatformPriceMasterPriceMasterDatumGeneratedColumns      = []string{}
 )
 
@@ -291,6 +301,465 @@ func (q dataPlatformPriceMasterPriceMasterDatumQuery) Exists(ctx context.Context
 	return count > 0, nil
 }
 
+// ConditionCurrencyDataPlatformCurrencyCurrencyDatum pointed to by the foreign key.
+func (o *DataPlatformPriceMasterPriceMasterDatum) ConditionCurrencyDataPlatformCurrencyCurrencyDatum(mods ...qm.QueryMod) dataPlatformCurrencyCurrencyDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`Currency` = ?", o.ConditionCurrency),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformCurrencyCurrencyData(queryMods...)
+}
+
+// ProductDataPlatformProductMasterGeneralDatum pointed to by the foreign key.
+func (o *DataPlatformPriceMasterPriceMasterDatum) ProductDataPlatformProductMasterGeneralDatum(mods ...qm.QueryMod) dataPlatformProductMasterGeneralDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`Product` = ?", o.Product),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformProductMasterGeneralData(queryMods...)
+}
+
+// BuyerDataPlatformSCRGeneralDatum pointed to by the foreign key.
+func (o *DataPlatformPriceMasterPriceMasterDatum) BuyerDataPlatformSCRGeneralDatum(mods ...qm.QueryMod) dataPlatformSCRGeneralDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`Buyer` = ?", o.Buyer),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformSCRGeneralData(queryMods...)
+}
+
+// LoadConditionCurrencyDataPlatformCurrencyCurrencyDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformPriceMasterPriceMasterDatumL) LoadConditionCurrencyDataPlatformCurrencyCurrencyDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPriceMasterPriceMasterDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformPriceMasterPriceMasterDatum
+	var object *DataPlatformPriceMasterPriceMasterDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformPriceMasterPriceMasterDatum.(*DataPlatformPriceMasterPriceMasterDatum)
+		if !ok {
+			object = new(DataPlatformPriceMasterPriceMasterDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformPriceMasterPriceMasterDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformPriceMasterPriceMasterDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformPriceMasterPriceMasterDatum.(*[]*DataPlatformPriceMasterPriceMasterDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformPriceMasterPriceMasterDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformPriceMasterPriceMasterDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformPriceMasterPriceMasterDatumR{}
+		}
+		args = append(args, object.ConditionCurrency)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformPriceMasterPriceMasterDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.ConditionCurrency {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.ConditionCurrency)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_currency_currency_data`),
+		qm.WhereIn(`data_platform_currency_currency_data.Currency in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformCurrencyCurrencyDatum")
+	}
+
+	var resultSlice []*DataPlatformCurrencyCurrencyDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformCurrencyCurrencyDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_currency_currency_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_currency_currency_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.ConditionCurrencyDataPlatformCurrencyCurrencyDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.ConditionCurrency == foreign.Currency {
+				local.R.ConditionCurrencyDataPlatformCurrencyCurrencyDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductDataPlatformProductMasterGeneralDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformPriceMasterPriceMasterDatumL) LoadProductDataPlatformProductMasterGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPriceMasterPriceMasterDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformPriceMasterPriceMasterDatum
+	var object *DataPlatformPriceMasterPriceMasterDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformPriceMasterPriceMasterDatum.(*DataPlatformPriceMasterPriceMasterDatum)
+		if !ok {
+			object = new(DataPlatformPriceMasterPriceMasterDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformPriceMasterPriceMasterDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformPriceMasterPriceMasterDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformPriceMasterPriceMasterDatum.(*[]*DataPlatformPriceMasterPriceMasterDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformPriceMasterPriceMasterDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformPriceMasterPriceMasterDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformPriceMasterPriceMasterDatumR{}
+		}
+		args = append(args, object.Product)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformPriceMasterPriceMasterDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Product {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Product)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_master_general_data`),
+		qm.WhereIn(`data_platform_product_master_general_data.Product in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformProductMasterGeneralDatum")
+	}
+
+	var resultSlice []*DataPlatformProductMasterGeneralDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformProductMasterGeneralDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_product_master_general_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_general_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.ProductDataPlatformProductMasterGeneralDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.Product == foreign.Product {
+				local.R.ProductDataPlatformProductMasterGeneralDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadBuyerDataPlatformSCRGeneralDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformPriceMasterPriceMasterDatumL) LoadBuyerDataPlatformSCRGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPriceMasterPriceMasterDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformPriceMasterPriceMasterDatum
+	var object *DataPlatformPriceMasterPriceMasterDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformPriceMasterPriceMasterDatum.(*DataPlatformPriceMasterPriceMasterDatum)
+		if !ok {
+			object = new(DataPlatformPriceMasterPriceMasterDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformPriceMasterPriceMasterDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformPriceMasterPriceMasterDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformPriceMasterPriceMasterDatum.(*[]*DataPlatformPriceMasterPriceMasterDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformPriceMasterPriceMasterDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformPriceMasterPriceMasterDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformPriceMasterPriceMasterDatumR{}
+		}
+		args = append(args, object.Buyer)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformPriceMasterPriceMasterDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Buyer {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Buyer)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_scr_general_data`),
+		qm.WhereIn(`data_platform_scr_general_data.Buyer in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformSCRGeneralDatum")
+	}
+
+	var resultSlice []*DataPlatformSCRGeneralDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformSCRGeneralDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_scr_general_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_scr_general_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.BuyerDataPlatformSCRGeneralDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.Buyer == foreign.Buyer {
+				local.R.BuyerDataPlatformSCRGeneralDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// SetConditionCurrencyDataPlatformCurrencyCurrencyDatum of the dataPlatformPriceMasterPriceMasterDatum to the related item.
+// Sets o.R.ConditionCurrencyDataPlatformCurrencyCurrencyDatum to related.
+func (o *DataPlatformPriceMasterPriceMasterDatum) SetConditionCurrencyDataPlatformCurrencyCurrencyDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformCurrencyCurrencyDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_price_master_price_master_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"ConditionCurrency"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformPriceMasterPriceMasterDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.Currency, o.SupplyChainRelationshipID, o.Buyer, o.Seller, o.ConditionRecord, o.ConditionSequentialNumber, o.Product, o.ConditionValidityStartDate, o.ConditionValidityEndDate}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.ConditionCurrency = related.Currency
+	if o.R == nil {
+		o.R = &dataPlatformPriceMasterPriceMasterDatumR{
+			ConditionCurrencyDataPlatformCurrencyCurrencyDatum: related,
+		}
+	} else {
+		o.R.ConditionCurrencyDataPlatformCurrencyCurrencyDatum = related
+	}
+
+	return nil
+}
+
+// SetProductDataPlatformProductMasterGeneralDatum of the dataPlatformPriceMasterPriceMasterDatum to the related item.
+// Sets o.R.ProductDataPlatformProductMasterGeneralDatum to related.
+func (o *DataPlatformPriceMasterPriceMasterDatum) SetProductDataPlatformProductMasterGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformProductMasterGeneralDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_price_master_price_master_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformPriceMasterPriceMasterDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.Product, o.SupplyChainRelationshipID, o.Buyer, o.Seller, o.ConditionRecord, o.ConditionSequentialNumber, o.Product, o.ConditionValidityStartDate, o.ConditionValidityEndDate}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.Product = related.Product
+	if o.R == nil {
+		o.R = &dataPlatformPriceMasterPriceMasterDatumR{
+			ProductDataPlatformProductMasterGeneralDatum: related,
+		}
+	} else {
+		o.R.ProductDataPlatformProductMasterGeneralDatum = related
+	}
+
+	return nil
+}
+
+// SetBuyerDataPlatformSCRGeneralDatum of the dataPlatformPriceMasterPriceMasterDatum to the related item.
+// Sets o.R.BuyerDataPlatformSCRGeneralDatum to related.
+func (o *DataPlatformPriceMasterPriceMasterDatum) SetBuyerDataPlatformSCRGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformSCRGeneralDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_price_master_price_master_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"Buyer"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformPriceMasterPriceMasterDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.Buyer, o.SupplyChainRelationshipID, o.Buyer, o.Seller, o.ConditionRecord, o.ConditionSequentialNumber, o.Product, o.ConditionValidityStartDate, o.ConditionValidityEndDate}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.Buyer = related.Buyer
+	if o.R == nil {
+		o.R = &dataPlatformPriceMasterPriceMasterDatumR{
+			BuyerDataPlatformSCRGeneralDatum: related,
+		}
+	} else {
+		o.R.BuyerDataPlatformSCRGeneralDatum = related
+	}
+
+	return nil
+}
+
 // DataPlatformPriceMasterPriceMasterData retrieves all the records using an executor.
 func DataPlatformPriceMasterPriceMasterData(mods ...qm.QueryMod) dataPlatformPriceMasterPriceMasterDatumQuery {
 	mods = append(mods, qm.From("`data_platform_price_master_price_master_data`"))
@@ -304,7 +773,7 @@ func DataPlatformPriceMasterPriceMasterData(mods ...qm.QueryMod) dataPlatformPri
 
 // FindDataPlatformPriceMasterPriceMasterDatum retrieves a single record by ID with an executor.
 // If selectCols is empty Find will return all columns.
-func FindDataPlatformPriceMasterPriceMasterDatum(ctx context.Context, exec boil.ContextExecutor, supplyChainRelationshipID int, buyer int, seller int, conditionRecord int, conditionSequentialNumber int, conditionValidityEndDate string, conditionValidityStartDate string, product string, selectCols ...string) (*DataPlatformPriceMasterPriceMasterDatum, error) {
+func FindDataPlatformPriceMasterPriceMasterDatum(ctx context.Context, exec boil.ContextExecutor, supplyChainRelationshipID int, buyer int, seller int, conditionRecord int, conditionSequentialNumber int, product string, conditionValidityStartDate string, conditionValidityEndDate string, selectCols ...string) (*DataPlatformPriceMasterPriceMasterDatum, error) {
 	dataPlatformPriceMasterPriceMasterDatumObj := &DataPlatformPriceMasterPriceMasterDatum{}
 
 	sel := "*"
@@ -312,10 +781,10 @@ func FindDataPlatformPriceMasterPriceMasterDatum(ctx context.Context, exec boil.
 		sel = strings.Join(strmangle.IdentQuoteSlice(dialect.LQ, dialect.RQ, selectCols), ",")
 	}
 	query := fmt.Sprintf(
-		"select %s from `data_platform_price_master_price_master_data` where `SupplyChainRelationshipID`=? AND `Buyer`=? AND `Seller`=? AND `ConditionRecord`=? AND `ConditionSequentialNumber`=? AND `ConditionValidityEndDate`=? AND `ConditionValidityStartDate`=? AND `Product`=?", sel,
+		"select %s from `data_platform_price_master_price_master_data` where `SupplyChainRelationshipID`=? AND `Buyer`=? AND `Seller`=? AND `ConditionRecord`=? AND `ConditionSequentialNumber`=? AND `Product`=? AND `ConditionValidityStartDate`=? AND `ConditionValidityEndDate`=?", sel,
 	)
 
-	q := queries.Raw(query, supplyChainRelationshipID, buyer, seller, conditionRecord, conditionSequentialNumber, conditionValidityEndDate, conditionValidityStartDate, product)
+	q := queries.Raw(query, supplyChainRelationshipID, buyer, seller, conditionRecord, conditionSequentialNumber, product, conditionValidityStartDate, conditionValidityEndDate)
 
 	err := q.Bind(ctx, exec, dataPlatformPriceMasterPriceMasterDatumObj)
 	if err != nil {
@@ -401,9 +870,9 @@ func (o *DataPlatformPriceMasterPriceMasterDatum) Insert(ctx context.Context, ex
 		o.Seller,
 		o.ConditionRecord,
 		o.ConditionSequentialNumber,
-		o.ConditionValidityEndDate,
-		o.ConditionValidityStartDate,
 		o.Product,
+		o.ConditionValidityStartDate,
+		o.ConditionValidityEndDate,
 	}
 
 	if boil.IsDebug(ctx) {
@@ -676,7 +1145,7 @@ func (o *DataPlatformPriceMasterPriceMasterDatum) Delete(ctx context.Context, ex
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformPriceMasterPriceMasterDatumPrimaryKeyMapping)
-	sql := "DELETE FROM `data_platform_price_master_price_master_data` WHERE `SupplyChainRelationshipID`=? AND `Buyer`=? AND `Seller`=? AND `ConditionRecord`=? AND `ConditionSequentialNumber`=? AND `ConditionValidityEndDate`=? AND `ConditionValidityStartDate`=? AND `Product`=?"
+	sql := "DELETE FROM `data_platform_price_master_price_master_data` WHERE `SupplyChainRelationshipID`=? AND `Buyer`=? AND `Seller`=? AND `ConditionRecord`=? AND `ConditionSequentialNumber`=? AND `Product`=? AND `ConditionValidityStartDate`=? AND `ConditionValidityEndDate`=?"
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -738,7 +1207,7 @@ func (o DataPlatformPriceMasterPriceMasterDatumSlice) DeleteAll(ctx context.Cont
 // Reload refetches the object from the database
 // using the primary keys with an executor.
 func (o *DataPlatformPriceMasterPriceMasterDatum) Reload(ctx context.Context, exec boil.ContextExecutor) error {
-	ret, err := FindDataPlatformPriceMasterPriceMasterDatum(ctx, exec, o.SupplyChainRelationshipID, o.Buyer, o.Seller, o.ConditionRecord, o.ConditionSequentialNumber, o.ConditionValidityEndDate, o.ConditionValidityStartDate, o.Product)
+	ret, err := FindDataPlatformPriceMasterPriceMasterDatum(ctx, exec, o.SupplyChainRelationshipID, o.Buyer, o.Seller, o.ConditionRecord, o.ConditionSequentialNumber, o.Product, o.ConditionValidityStartDate, o.ConditionValidityEndDate)
 	if err != nil {
 		return err
 	}
@@ -777,16 +1246,16 @@ func (o *DataPlatformPriceMasterPriceMasterDatumSlice) ReloadAll(ctx context.Con
 }
 
 // DataPlatformPriceMasterPriceMasterDatumExists checks if the DataPlatformPriceMasterPriceMasterDatum row exists.
-func DataPlatformPriceMasterPriceMasterDatumExists(ctx context.Context, exec boil.ContextExecutor, supplyChainRelationshipID int, buyer int, seller int, conditionRecord int, conditionSequentialNumber int, conditionValidityEndDate string, conditionValidityStartDate string, product string) (bool, error) {
+func DataPlatformPriceMasterPriceMasterDatumExists(ctx context.Context, exec boil.ContextExecutor, supplyChainRelationshipID int, buyer int, seller int, conditionRecord int, conditionSequentialNumber int, product string, conditionValidityStartDate string, conditionValidityEndDate string) (bool, error) {
 	var exists bool
-	sql := "select exists(select 1 from `data_platform_price_master_price_master_data` where `SupplyChainRelationshipID`=? AND `Buyer`=? AND `Seller`=? AND `ConditionRecord`=? AND `ConditionSequentialNumber`=? AND `ConditionValidityEndDate`=? AND `ConditionValidityStartDate`=? AND `Product`=? limit 1)"
+	sql := "select exists(select 1 from `data_platform_price_master_price_master_data` where `SupplyChainRelationshipID`=? AND `Buyer`=? AND `Seller`=? AND `ConditionRecord`=? AND `ConditionSequentialNumber`=? AND `Product`=? AND `ConditionValidityStartDate`=? AND `ConditionValidityEndDate`=? limit 1)"
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
 		fmt.Fprintln(writer, sql)
-		fmt.Fprintln(writer, supplyChainRelationshipID, buyer, seller, conditionRecord, conditionSequentialNumber, conditionValidityEndDate, conditionValidityStartDate, product)
+		fmt.Fprintln(writer, supplyChainRelationshipID, buyer, seller, conditionRecord, conditionSequentialNumber, product, conditionValidityStartDate, conditionValidityEndDate)
 	}
-	row := exec.QueryRowContext(ctx, sql, supplyChainRelationshipID, buyer, seller, conditionRecord, conditionSequentialNumber, conditionValidityEndDate, conditionValidityStartDate, product)
+	row := exec.QueryRowContext(ctx, sql, supplyChainRelationshipID, buyer, seller, conditionRecord, conditionSequentialNumber, product, conditionValidityStartDate, conditionValidityEndDate)
 
 	err := row.Scan(&exists)
 	if err != nil {
@@ -798,5 +1267,5 @@ func DataPlatformPriceMasterPriceMasterDatumExists(ctx context.Context, exec boi
 
 // Exists checks if the DataPlatformPriceMasterPriceMasterDatum row exists.
 func (o *DataPlatformPriceMasterPriceMasterDatum) Exists(ctx context.Context, exec boil.ContextExecutor) (bool, error) {
-	return DataPlatformPriceMasterPriceMasterDatumExists(ctx, exec, o.SupplyChainRelationshipID, o.Buyer, o.Seller, o.ConditionRecord, o.ConditionSequentialNumber, o.ConditionValidityEndDate, o.ConditionValidityStartDate, o.Product)
+	return DataPlatformPriceMasterPriceMasterDatumExists(ctx, exec, o.SupplyChainRelationshipID, o.Buyer, o.Seller, o.ConditionRecord, o.ConditionSequentialNumber, o.Product, o.ConditionValidityStartDate, o.ConditionValidityEndDate)
 }

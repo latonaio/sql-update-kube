@@ -51,20 +51,14 @@ var DataPlatformIncotermsIncotermsDatumWhere = struct {
 
 // DataPlatformIncotermsIncotermsDatumRels is where relationship names are stored.
 var DataPlatformIncotermsIncotermsDatumRels = struct {
-	IncotermDataPlatformDeliveryDocumentHeaderData             string
-	IncotermDataPlatformOrdersHeaderData                       string
-	IncotermDataPlatformSupplyChainRelationshipTransactionData string
+	IncotermDataPlatformSCRTransactionData string
 }{
-	IncotermDataPlatformDeliveryDocumentHeaderData:             "IncotermDataPlatformDeliveryDocumentHeaderData",
-	IncotermDataPlatformOrdersHeaderData:                       "IncotermDataPlatformOrdersHeaderData",
-	IncotermDataPlatformSupplyChainRelationshipTransactionData: "IncotermDataPlatformSupplyChainRelationshipTransactionData",
+	IncotermDataPlatformSCRTransactionData: "IncotermDataPlatformSCRTransactionData",
 }
 
 // dataPlatformIncotermsIncotermsDatumR is where relationships are stored.
 type dataPlatformIncotermsIncotermsDatumR struct {
-	IncotermDataPlatformDeliveryDocumentHeaderData             DataPlatformDeliveryDocumentHeaderDatumSlice             `boil:"IncotermDataPlatformDeliveryDocumentHeaderData" json:"IncotermDataPlatformDeliveryDocumentHeaderData" toml:"IncotermDataPlatformDeliveryDocumentHeaderData" yaml:"IncotermDataPlatformDeliveryDocumentHeaderData"`
-	IncotermDataPlatformOrdersHeaderData                       DataPlatformOrdersHeaderDatumSlice                       `boil:"IncotermDataPlatformOrdersHeaderData" json:"IncotermDataPlatformOrdersHeaderData" toml:"IncotermDataPlatformOrdersHeaderData" yaml:"IncotermDataPlatformOrdersHeaderData"`
-	IncotermDataPlatformSupplyChainRelationshipTransactionData DataPlatformSupplyChainRelationshipTransactionDatumSlice `boil:"IncotermDataPlatformSupplyChainRelationshipTransactionData" json:"IncotermDataPlatformSupplyChainRelationshipTransactionData" toml:"IncotermDataPlatformSupplyChainRelationshipTransactionData" yaml:"IncotermDataPlatformSupplyChainRelationshipTransactionData"`
+	IncotermDataPlatformSCRTransactionData DataPlatformSCRTransactionDatumSlice `boil:"IncotermDataPlatformSCRTransactionData" json:"IncotermDataPlatformSCRTransactionData" toml:"IncotermDataPlatformSCRTransactionData" yaml:"IncotermDataPlatformSCRTransactionData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -72,25 +66,11 @@ func (*dataPlatformIncotermsIncotermsDatumR) NewStruct() *dataPlatformIncotermsI
 	return &dataPlatformIncotermsIncotermsDatumR{}
 }
 
-func (r *dataPlatformIncotermsIncotermsDatumR) GetIncotermDataPlatformDeliveryDocumentHeaderData() DataPlatformDeliveryDocumentHeaderDatumSlice {
+func (r *dataPlatformIncotermsIncotermsDatumR) GetIncotermDataPlatformSCRTransactionData() DataPlatformSCRTransactionDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.IncotermDataPlatformDeliveryDocumentHeaderData
-}
-
-func (r *dataPlatformIncotermsIncotermsDatumR) GetIncotermDataPlatformOrdersHeaderData() DataPlatformOrdersHeaderDatumSlice {
-	if r == nil {
-		return nil
-	}
-	return r.IncotermDataPlatformOrdersHeaderData
-}
-
-func (r *dataPlatformIncotermsIncotermsDatumR) GetIncotermDataPlatformSupplyChainRelationshipTransactionData() DataPlatformSupplyChainRelationshipTransactionDatumSlice {
-	if r == nil {
-		return nil
-	}
-	return r.IncotermDataPlatformSupplyChainRelationshipTransactionData
+	return r.IncotermDataPlatformSCRTransactionData
 }
 
 // dataPlatformIncotermsIncotermsDatumL is where Load methods for each relationship are stored.
@@ -195,51 +175,23 @@ func (q dataPlatformIncotermsIncotermsDatumQuery) Exists(ctx context.Context, ex
 	return count > 0, nil
 }
 
-// IncotermDataPlatformDeliveryDocumentHeaderData retrieves all the data_platform_delivery_document_header_datum's DataPlatformDeliveryDocumentHeaderData with an executor via Incoterms column.
-func (o *DataPlatformIncotermsIncotermsDatum) IncotermDataPlatformDeliveryDocumentHeaderData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentHeaderDatumQuery {
+// IncotermDataPlatformSCRTransactionData retrieves all the data_platform_scr_transaction_datum's DataPlatformSCRTransactionData with an executor via Incoterms column.
+func (o *DataPlatformIncotermsIncotermsDatum) IncotermDataPlatformSCRTransactionData(mods ...qm.QueryMod) dataPlatformSCRTransactionDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_delivery_document_header_data`.`Incoterms`=?", o.Incoterms),
+		qm.Where("`data_platform_scr_transaction_data`.`Incoterms`=?", o.Incoterms),
 	)
 
-	return DataPlatformDeliveryDocumentHeaderData(queryMods...)
+	return DataPlatformSCRTransactionData(queryMods...)
 }
 
-// IncotermDataPlatformOrdersHeaderData retrieves all the data_platform_orders_header_datum's DataPlatformOrdersHeaderData with an executor via Incoterms column.
-func (o *DataPlatformIncotermsIncotermsDatum) IncotermDataPlatformOrdersHeaderData(mods ...qm.QueryMod) dataPlatformOrdersHeaderDatumQuery {
-	var queryMods []qm.QueryMod
-	if len(mods) != 0 {
-		queryMods = append(queryMods, mods...)
-	}
-
-	queryMods = append(queryMods,
-		qm.Where("`data_platform_orders_header_data`.`Incoterms`=?", o.Incoterms),
-	)
-
-	return DataPlatformOrdersHeaderData(queryMods...)
-}
-
-// IncotermDataPlatformSupplyChainRelationshipTransactionData retrieves all the data_platform_supply_chain_relationship_transaction_datum's DataPlatformSupplyChainRelationshipTransactionData with an executor via Incoterms column.
-func (o *DataPlatformIncotermsIncotermsDatum) IncotermDataPlatformSupplyChainRelationshipTransactionData(mods ...qm.QueryMod) dataPlatformSupplyChainRelationshipTransactionDatumQuery {
-	var queryMods []qm.QueryMod
-	if len(mods) != 0 {
-		queryMods = append(queryMods, mods...)
-	}
-
-	queryMods = append(queryMods,
-		qm.Where("`data_platform_supply_chain_relationship_transaction_data`.`Incoterms`=?", o.Incoterms),
-	)
-
-	return DataPlatformSupplyChainRelationshipTransactionData(queryMods...)
-}
-
-// LoadIncotermDataPlatformDeliveryDocumentHeaderData allows an eager lookup of values, cached into the
+// LoadIncotermDataPlatformSCRTransactionData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformIncotermsIncotermsDatumL) LoadIncotermDataPlatformDeliveryDocumentHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformIncotermsIncotermsDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformIncotermsIncotermsDatumL) LoadIncotermDataPlatformSCRTransactionData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformIncotermsIncotermsDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformIncotermsIncotermsDatum
 	var object *DataPlatformIncotermsIncotermsDatum
 
@@ -293,8 +245,8 @@ func (dataPlatformIncotermsIncotermsDatumL) LoadIncotermDataPlatformDeliveryDocu
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_delivery_document_header_data`),
-		qm.WhereIn(`data_platform_delivery_document_header_data.Incoterms in ?`, args...),
+		qm.From(`data_platform_scr_transaction_data`),
+		qm.WhereIn(`data_platform_scr_transaction_data.Incoterms in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -302,30 +254,30 @@ func (dataPlatformIncotermsIncotermsDatumL) LoadIncotermDataPlatformDeliveryDocu
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_header_data")
+		return errors.Wrap(err, "failed to eager load data_platform_scr_transaction_data")
 	}
 
-	var resultSlice []*DataPlatformDeliveryDocumentHeaderDatum
+	var resultSlice []*DataPlatformSCRTransactionDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_header_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_scr_transaction_data")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_header_data")
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_scr_transaction_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_header_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_scr_transaction_data")
 	}
 
 	if singular {
-		object.R.IncotermDataPlatformDeliveryDocumentHeaderData = resultSlice
+		object.R.IncotermDataPlatformSCRTransactionData = resultSlice
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
 			if queries.Equal(local.Incoterms, foreign.Incoterms) {
-				local.R.IncotermDataPlatformDeliveryDocumentHeaderData = append(local.R.IncotermDataPlatformDeliveryDocumentHeaderData, foreign)
+				local.R.IncotermDataPlatformSCRTransactionData = append(local.R.IncotermDataPlatformSCRTransactionData, foreign)
 				break
 			}
 		}
@@ -334,204 +286,10 @@ func (dataPlatformIncotermsIncotermsDatumL) LoadIncotermDataPlatformDeliveryDocu
 	return nil
 }
 
-// LoadIncotermDataPlatformOrdersHeaderData allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformIncotermsIncotermsDatumL) LoadIncotermDataPlatformOrdersHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformIncotermsIncotermsDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformIncotermsIncotermsDatum
-	var object *DataPlatformIncotermsIncotermsDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformIncotermsIncotermsDatum.(*DataPlatformIncotermsIncotermsDatum)
-		if !ok {
-			object = new(DataPlatformIncotermsIncotermsDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformIncotermsIncotermsDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformIncotermsIncotermsDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformIncotermsIncotermsDatum.(*[]*DataPlatformIncotermsIncotermsDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformIncotermsIncotermsDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformIncotermsIncotermsDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformIncotermsIncotermsDatumR{}
-		}
-		args = append(args, object.Incoterms)
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformIncotermsIncotermsDatumR{}
-			}
-
-			for _, a := range args {
-				if queries.Equal(a, obj.Incoterms) {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.Incoterms)
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_orders_header_data`),
-		qm.WhereIn(`data_platform_orders_header_data.Incoterms in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_orders_header_data")
-	}
-
-	var resultSlice []*DataPlatformOrdersHeaderDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_header_data")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_header_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_header_data")
-	}
-
-	if singular {
-		object.R.IncotermDataPlatformOrdersHeaderData = resultSlice
-		return nil
-	}
-
-	for _, foreign := range resultSlice {
-		for _, local := range slice {
-			if queries.Equal(local.Incoterms, foreign.Incoterms) {
-				local.R.IncotermDataPlatformOrdersHeaderData = append(local.R.IncotermDataPlatformOrdersHeaderData, foreign)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// LoadIncotermDataPlatformSupplyChainRelationshipTransactionData allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformIncotermsIncotermsDatumL) LoadIncotermDataPlatformSupplyChainRelationshipTransactionData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformIncotermsIncotermsDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformIncotermsIncotermsDatum
-	var object *DataPlatformIncotermsIncotermsDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformIncotermsIncotermsDatum.(*DataPlatformIncotermsIncotermsDatum)
-		if !ok {
-			object = new(DataPlatformIncotermsIncotermsDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformIncotermsIncotermsDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformIncotermsIncotermsDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformIncotermsIncotermsDatum.(*[]*DataPlatformIncotermsIncotermsDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformIncotermsIncotermsDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformIncotermsIncotermsDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformIncotermsIncotermsDatumR{}
-		}
-		args = append(args, object.Incoterms)
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformIncotermsIncotermsDatumR{}
-			}
-
-			for _, a := range args {
-				if queries.Equal(a, obj.Incoterms) {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.Incoterms)
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_supply_chain_relationship_transaction_data`),
-		qm.WhereIn(`data_platform_supply_chain_relationship_transaction_data.Incoterms in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_supply_chain_relationship_transaction_data")
-	}
-
-	var resultSlice []*DataPlatformSupplyChainRelationshipTransactionDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_supply_chain_relationship_transaction_data")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_supply_chain_relationship_transaction_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_supply_chain_relationship_transaction_data")
-	}
-
-	if singular {
-		object.R.IncotermDataPlatformSupplyChainRelationshipTransactionData = resultSlice
-		return nil
-	}
-
-	for _, foreign := range resultSlice {
-		for _, local := range slice {
-			if queries.Equal(local.Incoterms, foreign.Incoterms) {
-				local.R.IncotermDataPlatformSupplyChainRelationshipTransactionData = append(local.R.IncotermDataPlatformSupplyChainRelationshipTransactionData, foreign)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// AddIncotermDataPlatformDeliveryDocumentHeaderData adds the given related objects to the existing relationships
+// AddIncotermDataPlatformSCRTransactionData adds the given related objects to the existing relationships
 // of the data_platform_incoterms_incoterms_datum, optionally inserting them as new records.
-// Appends related to o.R.IncotermDataPlatformDeliveryDocumentHeaderData.
-func (o *DataPlatformIncotermsIncotermsDatum) AddIncotermDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+// Appends related to o.R.IncotermDataPlatformSCRTransactionData.
+func (o *DataPlatformIncotermsIncotermsDatum) AddIncotermDataPlatformSCRTransactionData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSCRTransactionDatum) error {
 	var err error
 	for _, rel := range related {
 		if insert {
@@ -541,217 +299,9 @@ func (o *DataPlatformIncotermsIncotermsDatum) AddIncotermDataPlatformDeliveryDoc
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_delivery_document_header_data` SET %s WHERE %s",
+				"UPDATE `data_platform_scr_transaction_data` SET %s WHERE %s",
 				strmangle.SetParamNames("`", "`", 0, []string{"Incoterms"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentHeaderDatumPrimaryKeyColumns),
-			)
-			values := []interface{}{o.Incoterms, rel.DeliveryDocument}
-
-			if boil.IsDebug(ctx) {
-				writer := boil.DebugWriterFrom(ctx)
-				fmt.Fprintln(writer, updateQuery)
-				fmt.Fprintln(writer, values)
-			}
-			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-				return errors.Wrap(err, "failed to update foreign table")
-			}
-
-			queries.Assign(&rel.Incoterms, o.Incoterms)
-		}
-	}
-
-	if o.R == nil {
-		o.R = &dataPlatformIncotermsIncotermsDatumR{
-			IncotermDataPlatformDeliveryDocumentHeaderData: related,
-		}
-	} else {
-		o.R.IncotermDataPlatformDeliveryDocumentHeaderData = append(o.R.IncotermDataPlatformDeliveryDocumentHeaderData, related...)
-	}
-
-	return nil
-}
-
-// SetIncotermDataPlatformDeliveryDocumentHeaderData removes all previously related items of the
-// data_platform_incoterms_incoterms_datum replacing them completely with the passed
-// in related items, optionally inserting them as new records.
-// Sets o.R.Incoterm's IncotermDataPlatformDeliveryDocumentHeaderData accordingly.
-// Replaces o.R.IncotermDataPlatformDeliveryDocumentHeaderData with related.
-func (o *DataPlatformIncotermsIncotermsDatum) SetIncotermDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
-	query := "update `data_platform_delivery_document_header_data` set `Incoterms` = null where `Incoterms` = ?"
-	values := []interface{}{o.Incoterms}
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, query)
-		fmt.Fprintln(writer, values)
-	}
-	_, err := exec.ExecContext(ctx, query, values...)
-	if err != nil {
-		return errors.Wrap(err, "failed to remove relationships before set")
-	}
-
-	if o.R != nil {
-		o.R.IncotermDataPlatformDeliveryDocumentHeaderData = nil
-	}
-
-	return o.AddIncotermDataPlatformDeliveryDocumentHeaderData(ctx, exec, insert, related...)
-}
-
-// RemoveIncotermDataPlatformDeliveryDocumentHeaderData relationships from objects passed in.
-// Removes related items from R.IncotermDataPlatformDeliveryDocumentHeaderData (uses pointer comparison, removal does not keep order)
-func (o *DataPlatformIncotermsIncotermsDatum) RemoveIncotermDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
-	if len(related) == 0 {
-		return nil
-	}
-
-	var err error
-	for _, rel := range related {
-		queries.SetScanner(&rel.Incoterms, nil)
-		if err = rel.Update(ctx, exec, boil.Whitelist("Incoterms")); err != nil {
-			return err
-		}
-	}
-	if o.R == nil {
-		return nil
-	}
-
-	for _, rel := range related {
-		for i, ri := range o.R.IncotermDataPlatformDeliveryDocumentHeaderData {
-			if rel != ri {
-				continue
-			}
-
-			ln := len(o.R.IncotermDataPlatformDeliveryDocumentHeaderData)
-			if ln > 1 && i < ln-1 {
-				o.R.IncotermDataPlatformDeliveryDocumentHeaderData[i] = o.R.IncotermDataPlatformDeliveryDocumentHeaderData[ln-1]
-			}
-			o.R.IncotermDataPlatformDeliveryDocumentHeaderData = o.R.IncotermDataPlatformDeliveryDocumentHeaderData[:ln-1]
-			break
-		}
-	}
-
-	return nil
-}
-
-// AddIncotermDataPlatformOrdersHeaderData adds the given related objects to the existing relationships
-// of the data_platform_incoterms_incoterms_datum, optionally inserting them as new records.
-// Appends related to o.R.IncotermDataPlatformOrdersHeaderData.
-func (o *DataPlatformIncotermsIncotermsDatum) AddIncotermDataPlatformOrdersHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersHeaderDatum) error {
-	var err error
-	for _, rel := range related {
-		if insert {
-			queries.Assign(&rel.Incoterms, o.Incoterms)
-			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
-				return errors.Wrap(err, "failed to insert into foreign table")
-			}
-		} else {
-			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_orders_header_data` SET %s WHERE %s",
-				strmangle.SetParamNames("`", "`", 0, []string{"Incoterms"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersHeaderDatumPrimaryKeyColumns),
-			)
-			values := []interface{}{o.Incoterms, rel.OrderID}
-
-			if boil.IsDebug(ctx) {
-				writer := boil.DebugWriterFrom(ctx)
-				fmt.Fprintln(writer, updateQuery)
-				fmt.Fprintln(writer, values)
-			}
-			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-				return errors.Wrap(err, "failed to update foreign table")
-			}
-
-			queries.Assign(&rel.Incoterms, o.Incoterms)
-		}
-	}
-
-	if o.R == nil {
-		o.R = &dataPlatformIncotermsIncotermsDatumR{
-			IncotermDataPlatformOrdersHeaderData: related,
-		}
-	} else {
-		o.R.IncotermDataPlatformOrdersHeaderData = append(o.R.IncotermDataPlatformOrdersHeaderData, related...)
-	}
-
-	return nil
-}
-
-// SetIncotermDataPlatformOrdersHeaderData removes all previously related items of the
-// data_platform_incoterms_incoterms_datum replacing them completely with the passed
-// in related items, optionally inserting them as new records.
-// Sets o.R.Incoterm's IncotermDataPlatformOrdersHeaderData accordingly.
-// Replaces o.R.IncotermDataPlatformOrdersHeaderData with related.
-func (o *DataPlatformIncotermsIncotermsDatum) SetIncotermDataPlatformOrdersHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersHeaderDatum) error {
-	query := "update `data_platform_orders_header_data` set `Incoterms` = null where `Incoterms` = ?"
-	values := []interface{}{o.Incoterms}
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, query)
-		fmt.Fprintln(writer, values)
-	}
-	_, err := exec.ExecContext(ctx, query, values...)
-	if err != nil {
-		return errors.Wrap(err, "failed to remove relationships before set")
-	}
-
-	if o.R != nil {
-		o.R.IncotermDataPlatformOrdersHeaderData = nil
-	}
-
-	return o.AddIncotermDataPlatformOrdersHeaderData(ctx, exec, insert, related...)
-}
-
-// RemoveIncotermDataPlatformOrdersHeaderData relationships from objects passed in.
-// Removes related items from R.IncotermDataPlatformOrdersHeaderData (uses pointer comparison, removal does not keep order)
-func (o *DataPlatformIncotermsIncotermsDatum) RemoveIncotermDataPlatformOrdersHeaderData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformOrdersHeaderDatum) error {
-	if len(related) == 0 {
-		return nil
-	}
-
-	var err error
-	for _, rel := range related {
-		queries.SetScanner(&rel.Incoterms, nil)
-		if err = rel.Update(ctx, exec, boil.Whitelist("Incoterms")); err != nil {
-			return err
-		}
-	}
-	if o.R == nil {
-		return nil
-	}
-
-	for _, rel := range related {
-		for i, ri := range o.R.IncotermDataPlatformOrdersHeaderData {
-			if rel != ri {
-				continue
-			}
-
-			ln := len(o.R.IncotermDataPlatformOrdersHeaderData)
-			if ln > 1 && i < ln-1 {
-				o.R.IncotermDataPlatformOrdersHeaderData[i] = o.R.IncotermDataPlatformOrdersHeaderData[ln-1]
-			}
-			o.R.IncotermDataPlatformOrdersHeaderData = o.R.IncotermDataPlatformOrdersHeaderData[:ln-1]
-			break
-		}
-	}
-
-	return nil
-}
-
-// AddIncotermDataPlatformSupplyChainRelationshipTransactionData adds the given related objects to the existing relationships
-// of the data_platform_incoterms_incoterms_datum, optionally inserting them as new records.
-// Appends related to o.R.IncotermDataPlatformSupplyChainRelationshipTransactionData.
-func (o *DataPlatformIncotermsIncotermsDatum) AddIncotermDataPlatformSupplyChainRelationshipTransactionData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSupplyChainRelationshipTransactionDatum) error {
-	var err error
-	for _, rel := range related {
-		if insert {
-			queries.Assign(&rel.Incoterms, o.Incoterms)
-			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
-				return errors.Wrap(err, "failed to insert into foreign table")
-			}
-		} else {
-			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_supply_chain_relationship_transaction_data` SET %s WHERE %s",
-				strmangle.SetParamNames("`", "`", 0, []string{"Incoterms"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformSupplyChainRelationshipTransactionDatumPrimaryKeyColumns),
+				strmangle.WhereClause("`", "`", 0, dataPlatformSCRTransactionDatumPrimaryKeyColumns),
 			)
 			values := []interface{}{o.Incoterms, rel.SupplyChainRelationshipID, rel.Buyer, rel.Seller}
 
@@ -770,22 +320,22 @@ func (o *DataPlatformIncotermsIncotermsDatum) AddIncotermDataPlatformSupplyChain
 
 	if o.R == nil {
 		o.R = &dataPlatformIncotermsIncotermsDatumR{
-			IncotermDataPlatformSupplyChainRelationshipTransactionData: related,
+			IncotermDataPlatformSCRTransactionData: related,
 		}
 	} else {
-		o.R.IncotermDataPlatformSupplyChainRelationshipTransactionData = append(o.R.IncotermDataPlatformSupplyChainRelationshipTransactionData, related...)
+		o.R.IncotermDataPlatformSCRTransactionData = append(o.R.IncotermDataPlatformSCRTransactionData, related...)
 	}
 
 	return nil
 }
 
-// SetIncotermDataPlatformSupplyChainRelationshipTransactionData removes all previously related items of the
+// SetIncotermDataPlatformSCRTransactionData removes all previously related items of the
 // data_platform_incoterms_incoterms_datum replacing them completely with the passed
 // in related items, optionally inserting them as new records.
-// Sets o.R.Incoterm's IncotermDataPlatformSupplyChainRelationshipTransactionData accordingly.
-// Replaces o.R.IncotermDataPlatformSupplyChainRelationshipTransactionData with related.
-func (o *DataPlatformIncotermsIncotermsDatum) SetIncotermDataPlatformSupplyChainRelationshipTransactionData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSupplyChainRelationshipTransactionDatum) error {
-	query := "update `data_platform_supply_chain_relationship_transaction_data` set `Incoterms` = null where `Incoterms` = ?"
+// Sets o.R.Incoterm's IncotermDataPlatformSCRTransactionData accordingly.
+// Replaces o.R.IncotermDataPlatformSCRTransactionData with related.
+func (o *DataPlatformIncotermsIncotermsDatum) SetIncotermDataPlatformSCRTransactionData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSCRTransactionDatum) error {
+	query := "update `data_platform_scr_transaction_data` set `Incoterms` = null where `Incoterms` = ?"
 	values := []interface{}{o.Incoterms}
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -798,15 +348,15 @@ func (o *DataPlatformIncotermsIncotermsDatum) SetIncotermDataPlatformSupplyChain
 	}
 
 	if o.R != nil {
-		o.R.IncotermDataPlatformSupplyChainRelationshipTransactionData = nil
+		o.R.IncotermDataPlatformSCRTransactionData = nil
 	}
 
-	return o.AddIncotermDataPlatformSupplyChainRelationshipTransactionData(ctx, exec, insert, related...)
+	return o.AddIncotermDataPlatformSCRTransactionData(ctx, exec, insert, related...)
 }
 
-// RemoveIncotermDataPlatformSupplyChainRelationshipTransactionData relationships from objects passed in.
-// Removes related items from R.IncotermDataPlatformSupplyChainRelationshipTransactionData (uses pointer comparison, removal does not keep order)
-func (o *DataPlatformIncotermsIncotermsDatum) RemoveIncotermDataPlatformSupplyChainRelationshipTransactionData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformSupplyChainRelationshipTransactionDatum) error {
+// RemoveIncotermDataPlatformSCRTransactionData relationships from objects passed in.
+// Removes related items from R.IncotermDataPlatformSCRTransactionData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformIncotermsIncotermsDatum) RemoveIncotermDataPlatformSCRTransactionData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformSCRTransactionDatum) error {
 	if len(related) == 0 {
 		return nil
 	}
@@ -823,16 +373,16 @@ func (o *DataPlatformIncotermsIncotermsDatum) RemoveIncotermDataPlatformSupplyCh
 	}
 
 	for _, rel := range related {
-		for i, ri := range o.R.IncotermDataPlatformSupplyChainRelationshipTransactionData {
+		for i, ri := range o.R.IncotermDataPlatformSCRTransactionData {
 			if rel != ri {
 				continue
 			}
 
-			ln := len(o.R.IncotermDataPlatformSupplyChainRelationshipTransactionData)
+			ln := len(o.R.IncotermDataPlatformSCRTransactionData)
 			if ln > 1 && i < ln-1 {
-				o.R.IncotermDataPlatformSupplyChainRelationshipTransactionData[i] = o.R.IncotermDataPlatformSupplyChainRelationshipTransactionData[ln-1]
+				o.R.IncotermDataPlatformSCRTransactionData[i] = o.R.IncotermDataPlatformSCRTransactionData[ln-1]
 			}
-			o.R.IncotermDataPlatformSupplyChainRelationshipTransactionData = o.R.IncotermDataPlatformSupplyChainRelationshipTransactionData[:ln-1]
+			o.R.IncotermDataPlatformSCRTransactionData = o.R.IncotermDataPlatformSCRTransactionData[:ln-1]
 			break
 		}
 	}

@@ -25,9 +25,11 @@ import (
 // DataPlatformProductMasterGeneralDatum is an object representing the database table.
 type DataPlatformProductMasterGeneralDatum struct {
 	Product                       string       `boil:"Product" json:"Product" toml:"Product" yaml:"Product"`
-	ProductType                   null.String  `boil:"ProductType" json:"ProductType,omitempty" toml:"ProductType" yaml:"ProductType,omitempty"`
-	BaseUnit                      null.String  `boil:"BaseUnit" json:"BaseUnit,omitempty" toml:"BaseUnit" yaml:"BaseUnit,omitempty"`
-	ValidityStartDate             null.String  `boil:"ValidityStartDate" json:"ValidityStartDate,omitempty" toml:"ValidityStartDate" yaml:"ValidityStartDate,omitempty"`
+	ProductType                   string       `boil:"ProductType" json:"ProductType" toml:"ProductType" yaml:"ProductType"`
+	BaseUnit                      string       `boil:"BaseUnit" json:"BaseUnit" toml:"BaseUnit" yaml:"BaseUnit"`
+	ValidityStartDate             string       `boil:"ValidityStartDate" json:"ValidityStartDate" toml:"ValidityStartDate" yaml:"ValidityStartDate"`
+	ValidityEndDate               string       `boil:"ValidityEndDate" json:"ValidityEndDate" toml:"ValidityEndDate" yaml:"ValidityEndDate"`
+	ItemCategory                  string       `boil:"ItemCategory" json:"ItemCategory" toml:"ItemCategory" yaml:"ItemCategory"`
 	ProductGroup                  null.String  `boil:"ProductGroup" json:"ProductGroup,omitempty" toml:"ProductGroup" yaml:"ProductGroup,omitempty"`
 	GrossWeight                   null.Float32 `boil:"GrossWeight" json:"GrossWeight,omitempty" toml:"GrossWeight" yaml:"GrossWeight,omitempty"`
 	NetWeight                     null.Float32 `boil:"NetWeight" json:"NetWeight,omitempty" toml:"NetWeight" yaml:"NetWeight,omitempty"`
@@ -37,13 +39,14 @@ type DataPlatformProductMasterGeneralDatum struct {
 	SizeOrDimensionText           null.String  `boil:"SizeOrDimensionText" json:"SizeOrDimensionText,omitempty" toml:"SizeOrDimensionText" yaml:"SizeOrDimensionText,omitempty"`
 	ProductStandardID             null.String  `boil:"ProductStandardID" json:"ProductStandardID,omitempty" toml:"ProductStandardID" yaml:"ProductStandardID,omitempty"`
 	IndustryStandardName          null.String  `boil:"IndustryStandardName" json:"IndustryStandardName,omitempty" toml:"IndustryStandardName" yaml:"IndustryStandardName,omitempty"`
-	ItemCategory                  null.String  `boil:"ItemCategory" json:"ItemCategory,omitempty" toml:"ItemCategory" yaml:"ItemCategory,omitempty"`
 	CountryOfOrigin               null.String  `boil:"CountryOfOrigin" json:"CountryOfOrigin,omitempty" toml:"CountryOfOrigin" yaml:"CountryOfOrigin,omitempty"`
 	CountryOfOriginLanguage       null.String  `boil:"CountryOfOriginLanguage" json:"CountryOfOriginLanguage,omitempty" toml:"CountryOfOriginLanguage" yaml:"CountryOfOriginLanguage,omitempty"`
+	LocalRegionOfOrigin           null.String  `boil:"LocalRegionOfOrigin" json:"LocalRegionOfOrigin,omitempty" toml:"LocalRegionOfOrigin" yaml:"LocalRegionOfOrigin,omitempty"`
+	LocalSubRegionOfOrigin        null.String  `boil:"LocalSubRegionOfOrigin" json:"LocalSubRegionOfOrigin,omitempty" toml:"LocalSubRegionOfOrigin" yaml:"LocalSubRegionOfOrigin,omitempty"`
 	BarcodeType                   null.String  `boil:"BarcodeType" json:"BarcodeType,omitempty" toml:"BarcodeType" yaml:"BarcodeType,omitempty"`
 	ProductAccountAssignmentGroup null.String  `boil:"ProductAccountAssignmentGroup" json:"ProductAccountAssignmentGroup,omitempty" toml:"ProductAccountAssignmentGroup" yaml:"ProductAccountAssignmentGroup,omitempty"`
-	CreationDate                  null.String  `boil:"CreationDate" json:"CreationDate,omitempty" toml:"CreationDate" yaml:"CreationDate,omitempty"`
-	LastChangeDate                null.String  `boil:"LastChangeDate" json:"LastChangeDate,omitempty" toml:"LastChangeDate" yaml:"LastChangeDate,omitempty"`
+	CreationDate                  string       `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
+	LastChangeDate                string       `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
 	IsMarkedForDeletion           null.Bool    `boil:"IsMarkedForDeletion" json:"IsMarkedForDeletion,omitempty" toml:"IsMarkedForDeletion" yaml:"IsMarkedForDeletion,omitempty"`
 
 	R *dataPlatformProductMasterGeneralDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
@@ -55,6 +58,8 @@ var DataPlatformProductMasterGeneralDatumColumns = struct {
 	ProductType                   string
 	BaseUnit                      string
 	ValidityStartDate             string
+	ValidityEndDate               string
+	ItemCategory                  string
 	ProductGroup                  string
 	GrossWeight                   string
 	NetWeight                     string
@@ -64,9 +69,10 @@ var DataPlatformProductMasterGeneralDatumColumns = struct {
 	SizeOrDimensionText           string
 	ProductStandardID             string
 	IndustryStandardName          string
-	ItemCategory                  string
 	CountryOfOrigin               string
 	CountryOfOriginLanguage       string
+	LocalRegionOfOrigin           string
+	LocalSubRegionOfOrigin        string
 	BarcodeType                   string
 	ProductAccountAssignmentGroup string
 	CreationDate                  string
@@ -77,6 +83,8 @@ var DataPlatformProductMasterGeneralDatumColumns = struct {
 	ProductType:                   "ProductType",
 	BaseUnit:                      "BaseUnit",
 	ValidityStartDate:             "ValidityStartDate",
+	ValidityEndDate:               "ValidityEndDate",
+	ItemCategory:                  "ItemCategory",
 	ProductGroup:                  "ProductGroup",
 	GrossWeight:                   "GrossWeight",
 	NetWeight:                     "NetWeight",
@@ -86,9 +94,10 @@ var DataPlatformProductMasterGeneralDatumColumns = struct {
 	SizeOrDimensionText:           "SizeOrDimensionText",
 	ProductStandardID:             "ProductStandardID",
 	IndustryStandardName:          "IndustryStandardName",
-	ItemCategory:                  "ItemCategory",
 	CountryOfOrigin:               "CountryOfOrigin",
 	CountryOfOriginLanguage:       "CountryOfOriginLanguage",
+	LocalRegionOfOrigin:           "LocalRegionOfOrigin",
+	LocalSubRegionOfOrigin:        "LocalSubRegionOfOrigin",
 	BarcodeType:                   "BarcodeType",
 	ProductAccountAssignmentGroup: "ProductAccountAssignmentGroup",
 	CreationDate:                  "CreationDate",
@@ -101,6 +110,8 @@ var DataPlatformProductMasterGeneralDatumTableColumns = struct {
 	ProductType                   string
 	BaseUnit                      string
 	ValidityStartDate             string
+	ValidityEndDate               string
+	ItemCategory                  string
 	ProductGroup                  string
 	GrossWeight                   string
 	NetWeight                     string
@@ -110,9 +121,10 @@ var DataPlatformProductMasterGeneralDatumTableColumns = struct {
 	SizeOrDimensionText           string
 	ProductStandardID             string
 	IndustryStandardName          string
-	ItemCategory                  string
 	CountryOfOrigin               string
 	CountryOfOriginLanguage       string
+	LocalRegionOfOrigin           string
+	LocalSubRegionOfOrigin        string
 	BarcodeType                   string
 	ProductAccountAssignmentGroup string
 	CreationDate                  string
@@ -123,6 +135,8 @@ var DataPlatformProductMasterGeneralDatumTableColumns = struct {
 	ProductType:                   "data_platform_product_master_general_data.ProductType",
 	BaseUnit:                      "data_platform_product_master_general_data.BaseUnit",
 	ValidityStartDate:             "data_platform_product_master_general_data.ValidityStartDate",
+	ValidityEndDate:               "data_platform_product_master_general_data.ValidityEndDate",
+	ItemCategory:                  "data_platform_product_master_general_data.ItemCategory",
 	ProductGroup:                  "data_platform_product_master_general_data.ProductGroup",
 	GrossWeight:                   "data_platform_product_master_general_data.GrossWeight",
 	NetWeight:                     "data_platform_product_master_general_data.NetWeight",
@@ -132,9 +146,10 @@ var DataPlatformProductMasterGeneralDatumTableColumns = struct {
 	SizeOrDimensionText:           "data_platform_product_master_general_data.SizeOrDimensionText",
 	ProductStandardID:             "data_platform_product_master_general_data.ProductStandardID",
 	IndustryStandardName:          "data_platform_product_master_general_data.IndustryStandardName",
-	ItemCategory:                  "data_platform_product_master_general_data.ItemCategory",
 	CountryOfOrigin:               "data_platform_product_master_general_data.CountryOfOrigin",
 	CountryOfOriginLanguage:       "data_platform_product_master_general_data.CountryOfOriginLanguage",
+	LocalRegionOfOrigin:           "data_platform_product_master_general_data.LocalRegionOfOrigin",
+	LocalSubRegionOfOrigin:        "data_platform_product_master_general_data.LocalSubRegionOfOrigin",
 	BarcodeType:                   "data_platform_product_master_general_data.BarcodeType",
 	ProductAccountAssignmentGroup: "data_platform_product_master_general_data.ProductAccountAssignmentGroup",
 	CreationDate:                  "data_platform_product_master_general_data.CreationDate",
@@ -146,9 +161,11 @@ var DataPlatformProductMasterGeneralDatumTableColumns = struct {
 
 var DataPlatformProductMasterGeneralDatumWhere = struct {
 	Product                       whereHelperstring
-	ProductType                   whereHelpernull_String
-	BaseUnit                      whereHelpernull_String
-	ValidityStartDate             whereHelpernull_String
+	ProductType                   whereHelperstring
+	BaseUnit                      whereHelperstring
+	ValidityStartDate             whereHelperstring
+	ValidityEndDate               whereHelperstring
+	ItemCategory                  whereHelperstring
 	ProductGroup                  whereHelpernull_String
 	GrossWeight                   whereHelpernull_Float32
 	NetWeight                     whereHelpernull_Float32
@@ -158,19 +175,22 @@ var DataPlatformProductMasterGeneralDatumWhere = struct {
 	SizeOrDimensionText           whereHelpernull_String
 	ProductStandardID             whereHelpernull_String
 	IndustryStandardName          whereHelpernull_String
-	ItemCategory                  whereHelpernull_String
 	CountryOfOrigin               whereHelpernull_String
 	CountryOfOriginLanguage       whereHelpernull_String
+	LocalRegionOfOrigin           whereHelpernull_String
+	LocalSubRegionOfOrigin        whereHelpernull_String
 	BarcodeType                   whereHelpernull_String
 	ProductAccountAssignmentGroup whereHelpernull_String
-	CreationDate                  whereHelpernull_String
-	LastChangeDate                whereHelpernull_String
+	CreationDate                  whereHelperstring
+	LastChangeDate                whereHelperstring
 	IsMarkedForDeletion           whereHelpernull_Bool
 }{
 	Product:                       whereHelperstring{field: "`data_platform_product_master_general_data`.`Product`"},
-	ProductType:                   whereHelpernull_String{field: "`data_platform_product_master_general_data`.`ProductType`"},
-	BaseUnit:                      whereHelpernull_String{field: "`data_platform_product_master_general_data`.`BaseUnit`"},
-	ValidityStartDate:             whereHelpernull_String{field: "`data_platform_product_master_general_data`.`ValidityStartDate`"},
+	ProductType:                   whereHelperstring{field: "`data_platform_product_master_general_data`.`ProductType`"},
+	BaseUnit:                      whereHelperstring{field: "`data_platform_product_master_general_data`.`BaseUnit`"},
+	ValidityStartDate:             whereHelperstring{field: "`data_platform_product_master_general_data`.`ValidityStartDate`"},
+	ValidityEndDate:               whereHelperstring{field: "`data_platform_product_master_general_data`.`ValidityEndDate`"},
+	ItemCategory:                  whereHelperstring{field: "`data_platform_product_master_general_data`.`ItemCategory`"},
 	ProductGroup:                  whereHelpernull_String{field: "`data_platform_product_master_general_data`.`ProductGroup`"},
 	GrossWeight:                   whereHelpernull_Float32{field: "`data_platform_product_master_general_data`.`GrossWeight`"},
 	NetWeight:                     whereHelpernull_Float32{field: "`data_platform_product_master_general_data`.`NetWeight`"},
@@ -180,40 +200,111 @@ var DataPlatformProductMasterGeneralDatumWhere = struct {
 	SizeOrDimensionText:           whereHelpernull_String{field: "`data_platform_product_master_general_data`.`SizeOrDimensionText`"},
 	ProductStandardID:             whereHelpernull_String{field: "`data_platform_product_master_general_data`.`ProductStandardID`"},
 	IndustryStandardName:          whereHelpernull_String{field: "`data_platform_product_master_general_data`.`IndustryStandardName`"},
-	ItemCategory:                  whereHelpernull_String{field: "`data_platform_product_master_general_data`.`ItemCategory`"},
 	CountryOfOrigin:               whereHelpernull_String{field: "`data_platform_product_master_general_data`.`CountryOfOrigin`"},
 	CountryOfOriginLanguage:       whereHelpernull_String{field: "`data_platform_product_master_general_data`.`CountryOfOriginLanguage`"},
+	LocalRegionOfOrigin:           whereHelpernull_String{field: "`data_platform_product_master_general_data`.`LocalRegionOfOrigin`"},
+	LocalSubRegionOfOrigin:        whereHelpernull_String{field: "`data_platform_product_master_general_data`.`LocalSubRegionOfOrigin`"},
 	BarcodeType:                   whereHelpernull_String{field: "`data_platform_product_master_general_data`.`BarcodeType`"},
 	ProductAccountAssignmentGroup: whereHelpernull_String{field: "`data_platform_product_master_general_data`.`ProductAccountAssignmentGroup`"},
-	CreationDate:                  whereHelpernull_String{field: "`data_platform_product_master_general_data`.`CreationDate`"},
-	LastChangeDate:                whereHelpernull_String{field: "`data_platform_product_master_general_data`.`LastChangeDate`"},
+	CreationDate:                  whereHelperstring{field: "`data_platform_product_master_general_data`.`CreationDate`"},
+	LastChangeDate:                whereHelperstring{field: "`data_platform_product_master_general_data`.`LastChangeDate`"},
 	IsMarkedForDeletion:           whereHelpernull_Bool{field: "`data_platform_product_master_general_data`.`IsMarkedForDeletion`"},
 }
 
 // DataPlatformProductMasterGeneralDatumRels is where relationship names are stored.
 var DataPlatformProductMasterGeneralDatumRels = struct {
-	ProductDataPlatformInspectionPlanHeaderData         string
-	ProductDataPlatformPlannedOrderHeaderData           string
-	ProductDataPlatformPlannedOrderItemData             string
-	ProductDataPlatformProductStockProductStockDataOlds string
+	BaseUnitDataPlatformQuantityUnitQuantityUnitDatum                     string
+	CountryOfOriginLanguageDataPlatformLanguageLanguageDatum              string
+	CountryOfOriginDataPlatformCountryCountryDatum                        string
+	InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum string
+	ProductGroupDataPlatformProductGroupProductGroupDatum                 string
+	ProductTypeDataPlatformProductTypeProductTypeDatum                    string
+	WeightUnitDataPlatformQuantityUnitQuantityUnitDatum                   string
+	ProductDataPlatformInspectionPlanHeaderData                           string
+	ProductDataPlatformPriceMasterPriceMasterData                         string
+	ProductDataPlatformProductMasterProductDescriptionData                string
+	ProductDataPlatformProductStockProductStockDataOlds                   string
 }{
-	ProductDataPlatformInspectionPlanHeaderData:         "ProductDataPlatformInspectionPlanHeaderData",
-	ProductDataPlatformPlannedOrderHeaderData:           "ProductDataPlatformPlannedOrderHeaderData",
-	ProductDataPlatformPlannedOrderItemData:             "ProductDataPlatformPlannedOrderItemData",
-	ProductDataPlatformProductStockProductStockDataOlds: "ProductDataPlatformProductStockProductStockDataOlds",
+	BaseUnitDataPlatformQuantityUnitQuantityUnitDatum:                     "BaseUnitDataPlatformQuantityUnitQuantityUnitDatum",
+	CountryOfOriginLanguageDataPlatformLanguageLanguageDatum:              "CountryOfOriginLanguageDataPlatformLanguageLanguageDatum",
+	CountryOfOriginDataPlatformCountryCountryDatum:                        "CountryOfOriginDataPlatformCountryCountryDatum",
+	InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum: "InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum",
+	ProductGroupDataPlatformProductGroupProductGroupDatum:                 "ProductGroupDataPlatformProductGroupProductGroupDatum",
+	ProductTypeDataPlatformProductTypeProductTypeDatum:                    "ProductTypeDataPlatformProductTypeProductTypeDatum",
+	WeightUnitDataPlatformQuantityUnitQuantityUnitDatum:                   "WeightUnitDataPlatformQuantityUnitQuantityUnitDatum",
+	ProductDataPlatformInspectionPlanHeaderData:                           "ProductDataPlatformInspectionPlanHeaderData",
+	ProductDataPlatformPriceMasterPriceMasterData:                         "ProductDataPlatformPriceMasterPriceMasterData",
+	ProductDataPlatformProductMasterProductDescriptionData:                "ProductDataPlatformProductMasterProductDescriptionData",
+	ProductDataPlatformProductStockProductStockDataOlds:                   "ProductDataPlatformProductStockProductStockDataOlds",
 }
 
 // dataPlatformProductMasterGeneralDatumR is where relationships are stored.
 type dataPlatformProductMasterGeneralDatumR struct {
-	ProductDataPlatformInspectionPlanHeaderData         DataPlatformInspectionPlanHeaderDatumSlice       `boil:"ProductDataPlatformInspectionPlanHeaderData" json:"ProductDataPlatformInspectionPlanHeaderData" toml:"ProductDataPlatformInspectionPlanHeaderData" yaml:"ProductDataPlatformInspectionPlanHeaderData"`
-	ProductDataPlatformPlannedOrderHeaderData           DataPlatformPlannedOrderHeaderDatumSlice         `boil:"ProductDataPlatformPlannedOrderHeaderData" json:"ProductDataPlatformPlannedOrderHeaderData" toml:"ProductDataPlatformPlannedOrderHeaderData" yaml:"ProductDataPlatformPlannedOrderHeaderData"`
-	ProductDataPlatformPlannedOrderItemData             DataPlatformPlannedOrderItemDatumSlice           `boil:"ProductDataPlatformPlannedOrderItemData" json:"ProductDataPlatformPlannedOrderItemData" toml:"ProductDataPlatformPlannedOrderItemData" yaml:"ProductDataPlatformPlannedOrderItemData"`
-	ProductDataPlatformProductStockProductStockDataOlds DataPlatformProductStockProductStockDataOldSlice `boil:"ProductDataPlatformProductStockProductStockDataOlds" json:"ProductDataPlatformProductStockProductStockDataOlds" toml:"ProductDataPlatformProductStockProductStockDataOlds" yaml:"ProductDataPlatformProductStockProductStockDataOlds"`
+	BaseUnitDataPlatformQuantityUnitQuantityUnitDatum                     *DataPlatformQuantityUnitQuantityUnitDatum            `boil:"BaseUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"BaseUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"BaseUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"BaseUnitDataPlatformQuantityUnitQuantityUnitDatum"`
+	CountryOfOriginLanguageDataPlatformLanguageLanguageDatum              *DataPlatformLanguageLanguageDatum                    `boil:"CountryOfOriginLanguageDataPlatformLanguageLanguageDatum" json:"CountryOfOriginLanguageDataPlatformLanguageLanguageDatum" toml:"CountryOfOriginLanguageDataPlatformLanguageLanguageDatum" yaml:"CountryOfOriginLanguageDataPlatformLanguageLanguageDatum"`
+	CountryOfOriginDataPlatformCountryCountryDatum                        *DataPlatformCountryCountryDatum                      `boil:"CountryOfOriginDataPlatformCountryCountryDatum" json:"CountryOfOriginDataPlatformCountryCountryDatum" toml:"CountryOfOriginDataPlatformCountryCountryDatum" yaml:"CountryOfOriginDataPlatformCountryCountryDatum"`
+	InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum *DataPlatformQuantityUnitQuantityUnitDatum            `boil:"InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum"`
+	ProductGroupDataPlatformProductGroupProductGroupDatum                 *DataPlatformProductGroupProductGroupDatum            `boil:"ProductGroupDataPlatformProductGroupProductGroupDatum" json:"ProductGroupDataPlatformProductGroupProductGroupDatum" toml:"ProductGroupDataPlatformProductGroupProductGroupDatum" yaml:"ProductGroupDataPlatformProductGroupProductGroupDatum"`
+	ProductTypeDataPlatformProductTypeProductTypeDatum                    *DataPlatformProductTypeProductTypeDatum              `boil:"ProductTypeDataPlatformProductTypeProductTypeDatum" json:"ProductTypeDataPlatformProductTypeProductTypeDatum" toml:"ProductTypeDataPlatformProductTypeProductTypeDatum" yaml:"ProductTypeDataPlatformProductTypeProductTypeDatum"`
+	WeightUnitDataPlatformQuantityUnitQuantityUnitDatum                   *DataPlatformQuantityUnitQuantityUnitDatum            `boil:"WeightUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"WeightUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"WeightUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"WeightUnitDataPlatformQuantityUnitQuantityUnitDatum"`
+	ProductDataPlatformInspectionPlanHeaderData                           DataPlatformInspectionPlanHeaderDatumSlice            `boil:"ProductDataPlatformInspectionPlanHeaderData" json:"ProductDataPlatformInspectionPlanHeaderData" toml:"ProductDataPlatformInspectionPlanHeaderData" yaml:"ProductDataPlatformInspectionPlanHeaderData"`
+	ProductDataPlatformPriceMasterPriceMasterData                         DataPlatformPriceMasterPriceMasterDatumSlice          `boil:"ProductDataPlatformPriceMasterPriceMasterData" json:"ProductDataPlatformPriceMasterPriceMasterData" toml:"ProductDataPlatformPriceMasterPriceMasterData" yaml:"ProductDataPlatformPriceMasterPriceMasterData"`
+	ProductDataPlatformProductMasterProductDescriptionData                DataPlatformProductMasterProductDescriptionDatumSlice `boil:"ProductDataPlatformProductMasterProductDescriptionData" json:"ProductDataPlatformProductMasterProductDescriptionData" toml:"ProductDataPlatformProductMasterProductDescriptionData" yaml:"ProductDataPlatformProductMasterProductDescriptionData"`
+	ProductDataPlatformProductStockProductStockDataOlds                   DataPlatformProductStockProductStockDataOldSlice      `boil:"ProductDataPlatformProductStockProductStockDataOlds" json:"ProductDataPlatformProductStockProductStockDataOlds" toml:"ProductDataPlatformProductStockProductStockDataOlds" yaml:"ProductDataPlatformProductStockProductStockDataOlds"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformProductMasterGeneralDatumR) NewStruct() *dataPlatformProductMasterGeneralDatumR {
 	return &dataPlatformProductMasterGeneralDatumR{}
+}
+
+func (r *dataPlatformProductMasterGeneralDatumR) GetBaseUnitDataPlatformQuantityUnitQuantityUnitDatum() *DataPlatformQuantityUnitQuantityUnitDatum {
+	if r == nil {
+		return nil
+	}
+	return r.BaseUnitDataPlatformQuantityUnitQuantityUnitDatum
+}
+
+func (r *dataPlatformProductMasterGeneralDatumR) GetCountryOfOriginLanguageDataPlatformLanguageLanguageDatum() *DataPlatformLanguageLanguageDatum {
+	if r == nil {
+		return nil
+	}
+	return r.CountryOfOriginLanguageDataPlatformLanguageLanguageDatum
+}
+
+func (r *dataPlatformProductMasterGeneralDatumR) GetCountryOfOriginDataPlatformCountryCountryDatum() *DataPlatformCountryCountryDatum {
+	if r == nil {
+		return nil
+	}
+	return r.CountryOfOriginDataPlatformCountryCountryDatum
+}
+
+func (r *dataPlatformProductMasterGeneralDatumR) GetInternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum() *DataPlatformQuantityUnitQuantityUnitDatum {
+	if r == nil {
+		return nil
+	}
+	return r.InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum
+}
+
+func (r *dataPlatformProductMasterGeneralDatumR) GetProductGroupDataPlatformProductGroupProductGroupDatum() *DataPlatformProductGroupProductGroupDatum {
+	if r == nil {
+		return nil
+	}
+	return r.ProductGroupDataPlatformProductGroupProductGroupDatum
+}
+
+func (r *dataPlatformProductMasterGeneralDatumR) GetProductTypeDataPlatformProductTypeProductTypeDatum() *DataPlatformProductTypeProductTypeDatum {
+	if r == nil {
+		return nil
+	}
+	return r.ProductTypeDataPlatformProductTypeProductTypeDatum
+}
+
+func (r *dataPlatformProductMasterGeneralDatumR) GetWeightUnitDataPlatformQuantityUnitQuantityUnitDatum() *DataPlatformQuantityUnitQuantityUnitDatum {
+	if r == nil {
+		return nil
+	}
+	return r.WeightUnitDataPlatformQuantityUnitQuantityUnitDatum
 }
 
 func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformInspectionPlanHeaderData() DataPlatformInspectionPlanHeaderDatumSlice {
@@ -223,18 +314,18 @@ func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformInspectio
 	return r.ProductDataPlatformInspectionPlanHeaderData
 }
 
-func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformPlannedOrderHeaderData() DataPlatformPlannedOrderHeaderDatumSlice {
+func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformPriceMasterPriceMasterData() DataPlatformPriceMasterPriceMasterDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.ProductDataPlatformPlannedOrderHeaderData
+	return r.ProductDataPlatformPriceMasterPriceMasterData
 }
 
-func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformPlannedOrderItemData() DataPlatformPlannedOrderItemDatumSlice {
+func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformProductMasterProductDescriptionData() DataPlatformProductMasterProductDescriptionDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.ProductDataPlatformPlannedOrderItemData
+	return r.ProductDataPlatformProductMasterProductDescriptionData
 }
 
 func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformProductStockProductStockDataOlds() DataPlatformProductStockProductStockDataOldSlice {
@@ -248,8 +339,8 @@ func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformProductSt
 type dataPlatformProductMasterGeneralDatumL struct{}
 
 var (
-	dataPlatformProductMasterGeneralDatumAllColumns            = []string{"Product", "ProductType", "BaseUnit", "ValidityStartDate", "ProductGroup", "GrossWeight", "NetWeight", "WeightUnit", "InternalCapacityQuantity", "InternalCapacityQuantityUnit", "SizeOrDimensionText", "ProductStandardID", "IndustryStandardName", "ItemCategory", "CountryOfOrigin", "CountryOfOriginLanguage", "BarcodeType", "ProductAccountAssignmentGroup", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
-	dataPlatformProductMasterGeneralDatumColumnsWithoutDefault = []string{"Product", "ProductType", "BaseUnit", "ValidityStartDate", "ProductGroup", "GrossWeight", "NetWeight", "WeightUnit", "InternalCapacityQuantity", "InternalCapacityQuantityUnit", "SizeOrDimensionText", "ProductStandardID", "IndustryStandardName", "ItemCategory", "CountryOfOrigin", "CountryOfOriginLanguage", "BarcodeType", "ProductAccountAssignmentGroup", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
+	dataPlatformProductMasterGeneralDatumAllColumns            = []string{"Product", "ProductType", "BaseUnit", "ValidityStartDate", "ValidityEndDate", "ItemCategory", "ProductGroup", "GrossWeight", "NetWeight", "WeightUnit", "InternalCapacityQuantity", "InternalCapacityQuantityUnit", "SizeOrDimensionText", "ProductStandardID", "IndustryStandardName", "CountryOfOrigin", "CountryOfOriginLanguage", "LocalRegionOfOrigin", "LocalSubRegionOfOrigin", "BarcodeType", "ProductAccountAssignmentGroup", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
+	dataPlatformProductMasterGeneralDatumColumnsWithoutDefault = []string{"Product", "ProductType", "BaseUnit", "ValidityStartDate", "ValidityEndDate", "ItemCategory", "ProductGroup", "GrossWeight", "NetWeight", "WeightUnit", "InternalCapacityQuantity", "InternalCapacityQuantityUnit", "SizeOrDimensionText", "ProductStandardID", "IndustryStandardName", "CountryOfOrigin", "CountryOfOriginLanguage", "LocalRegionOfOrigin", "LocalSubRegionOfOrigin", "BarcodeType", "ProductAccountAssignmentGroup", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
 	dataPlatformProductMasterGeneralDatumColumnsWithDefault    = []string{}
 	dataPlatformProductMasterGeneralDatumPrimaryKeyColumns     = []string{"Product"}
 	dataPlatformProductMasterGeneralDatumGeneratedColumns      = []string{}
@@ -346,6 +437,83 @@ func (q dataPlatformProductMasterGeneralDatumQuery) Exists(ctx context.Context, 
 	return count > 0, nil
 }
 
+// BaseUnitDataPlatformQuantityUnitQuantityUnitDatum pointed to by the foreign key.
+func (o *DataPlatformProductMasterGeneralDatum) BaseUnitDataPlatformQuantityUnitQuantityUnitDatum(mods ...qm.QueryMod) dataPlatformQuantityUnitQuantityUnitDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`QuantityUnit` = ?", o.BaseUnit),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformQuantityUnitQuantityUnitData(queryMods...)
+}
+
+// CountryOfOriginLanguageDataPlatformLanguageLanguageDatum pointed to by the foreign key.
+func (o *DataPlatformProductMasterGeneralDatum) CountryOfOriginLanguageDataPlatformLanguageLanguageDatum(mods ...qm.QueryMod) dataPlatformLanguageLanguageDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`Language` = ?", o.CountryOfOriginLanguage),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformLanguageLanguageData(queryMods...)
+}
+
+// CountryOfOriginDataPlatformCountryCountryDatum pointed to by the foreign key.
+func (o *DataPlatformProductMasterGeneralDatum) CountryOfOriginDataPlatformCountryCountryDatum(mods ...qm.QueryMod) dataPlatformCountryCountryDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`Country` = ?", o.CountryOfOrigin),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformCountryCountryData(queryMods...)
+}
+
+// InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum pointed to by the foreign key.
+func (o *DataPlatformProductMasterGeneralDatum) InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum(mods ...qm.QueryMod) dataPlatformQuantityUnitQuantityUnitDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`QuantityUnit` = ?", o.InternalCapacityQuantityUnit),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformQuantityUnitQuantityUnitData(queryMods...)
+}
+
+// ProductGroupDataPlatformProductGroupProductGroupDatum pointed to by the foreign key.
+func (o *DataPlatformProductMasterGeneralDatum) ProductGroupDataPlatformProductGroupProductGroupDatum(mods ...qm.QueryMod) dataPlatformProductGroupProductGroupDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`ProductGroup` = ?", o.ProductGroup),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformProductGroupProductGroupData(queryMods...)
+}
+
+// ProductTypeDataPlatformProductTypeProductTypeDatum pointed to by the foreign key.
+func (o *DataPlatformProductMasterGeneralDatum) ProductTypeDataPlatformProductTypeProductTypeDatum(mods ...qm.QueryMod) dataPlatformProductTypeProductTypeDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`ProductType` = ?", o.ProductType),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformProductTypeProductTypeData(queryMods...)
+}
+
+// WeightUnitDataPlatformQuantityUnitQuantityUnitDatum pointed to by the foreign key.
+func (o *DataPlatformProductMasterGeneralDatum) WeightUnitDataPlatformQuantityUnitQuantityUnitDatum(mods ...qm.QueryMod) dataPlatformQuantityUnitQuantityUnitDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`QuantityUnit` = ?", o.WeightUnit),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformQuantityUnitQuantityUnitData(queryMods...)
+}
+
 // ProductDataPlatformInspectionPlanHeaderData retrieves all the data_platform_inspection_plan_header_datum's DataPlatformInspectionPlanHeaderData with an executor via Product column.
 func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformInspectionPlanHeaderData(mods ...qm.QueryMod) dataPlatformInspectionPlanHeaderDatumQuery {
 	var queryMods []qm.QueryMod
@@ -360,32 +528,32 @@ func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformInspectionPla
 	return DataPlatformInspectionPlanHeaderData(queryMods...)
 }
 
-// ProductDataPlatformPlannedOrderHeaderData retrieves all the data_platform_planned_order_header_datum's DataPlatformPlannedOrderHeaderData with an executor via Product column.
-func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformPlannedOrderHeaderData(mods ...qm.QueryMod) dataPlatformPlannedOrderHeaderDatumQuery {
+// ProductDataPlatformPriceMasterPriceMasterData retrieves all the data_platform_price_master_price_master_datum's DataPlatformPriceMasterPriceMasterData with an executor via Product column.
+func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformPriceMasterPriceMasterData(mods ...qm.QueryMod) dataPlatformPriceMasterPriceMasterDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_planned_order_header_data`.`Product`=?", o.Product),
+		qm.Where("`data_platform_price_master_price_master_data`.`Product`=?", o.Product),
 	)
 
-	return DataPlatformPlannedOrderHeaderData(queryMods...)
+	return DataPlatformPriceMasterPriceMasterData(queryMods...)
 }
 
-// ProductDataPlatformPlannedOrderItemData retrieves all the data_platform_planned_order_item_datum's DataPlatformPlannedOrderItemData with an executor via Product column.
-func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformPlannedOrderItemData(mods ...qm.QueryMod) dataPlatformPlannedOrderItemDatumQuery {
+// ProductDataPlatformProductMasterProductDescriptionData retrieves all the data_platform_product_master_product_description_datum's DataPlatformProductMasterProductDescriptionData with an executor via Product column.
+func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformProductMasterProductDescriptionData(mods ...qm.QueryMod) dataPlatformProductMasterProductDescriptionDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_planned_order_item_data`.`Product`=?", o.Product),
+		qm.Where("`data_platform_product_master_product_description_data`.`Product`=?", o.Product),
 	)
 
-	return DataPlatformPlannedOrderItemData(queryMods...)
+	return DataPlatformProductMasterProductDescriptionData(queryMods...)
 }
 
 // ProductDataPlatformProductStockProductStockDataOlds retrieves all the data_platform_product_stock_product_stock_data_old's DataPlatformProductStockProductStockDataOlds with an executor via Product column.
@@ -400,6 +568,754 @@ func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformProductStockP
 	)
 
 	return DataPlatformProductStockProductStockDataOlds(queryMods...)
+}
+
+// LoadBaseUnitDataPlatformQuantityUnitQuantityUnitDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformProductMasterGeneralDatumL) LoadBaseUnitDataPlatformQuantityUnitQuantityUnitDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDatum
+	var object *DataPlatformProductMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDatum.(*DataPlatformProductMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDatum.(*[]*DataPlatformProductMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDatumR{}
+		}
+		args = append(args, object.BaseUnit)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BaseUnit {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BaseUnit)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_quantity_unit_quantity_unit_data`),
+		qm.WhereIn(`data_platform_quantity_unit_quantity_unit_data.QuantityUnit in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformQuantityUnitQuantityUnitDatum")
+	}
+
+	var resultSlice []*DataPlatformQuantityUnitQuantityUnitDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformQuantityUnitQuantityUnitDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_quantity_unit_quantity_unit_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_quantity_unit_quantity_unit_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.BaseUnitDataPlatformQuantityUnitQuantityUnitDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.BaseUnit == foreign.QuantityUnit {
+				local.R.BaseUnitDataPlatformQuantityUnitQuantityUnitDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadCountryOfOriginLanguageDataPlatformLanguageLanguageDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformProductMasterGeneralDatumL) LoadCountryOfOriginLanguageDataPlatformLanguageLanguageDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDatum
+	var object *DataPlatformProductMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDatum.(*DataPlatformProductMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDatum.(*[]*DataPlatformProductMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDatumR{}
+		}
+		if !queries.IsNil(object.CountryOfOriginLanguage) {
+			args = append(args, object.CountryOfOriginLanguage)
+		}
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.CountryOfOriginLanguage) {
+					continue Outer
+				}
+			}
+
+			if !queries.IsNil(obj.CountryOfOriginLanguage) {
+				args = append(args, obj.CountryOfOriginLanguage)
+			}
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_language_language_data`),
+		qm.WhereIn(`data_platform_language_language_data.Language in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformLanguageLanguageDatum")
+	}
+
+	var resultSlice []*DataPlatformLanguageLanguageDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformLanguageLanguageDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_language_language_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_language_language_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.CountryOfOriginLanguageDataPlatformLanguageLanguageDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if queries.Equal(local.CountryOfOriginLanguage, foreign.Language) {
+				local.R.CountryOfOriginLanguageDataPlatformLanguageLanguageDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadCountryOfOriginDataPlatformCountryCountryDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformProductMasterGeneralDatumL) LoadCountryOfOriginDataPlatformCountryCountryDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDatum
+	var object *DataPlatformProductMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDatum.(*DataPlatformProductMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDatum.(*[]*DataPlatformProductMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDatumR{}
+		}
+		if !queries.IsNil(object.CountryOfOrigin) {
+			args = append(args, object.CountryOfOrigin)
+		}
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.CountryOfOrigin) {
+					continue Outer
+				}
+			}
+
+			if !queries.IsNil(obj.CountryOfOrigin) {
+				args = append(args, obj.CountryOfOrigin)
+			}
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_country_country_data`),
+		qm.WhereIn(`data_platform_country_country_data.Country in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformCountryCountryDatum")
+	}
+
+	var resultSlice []*DataPlatformCountryCountryDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformCountryCountryDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_country_country_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_country_country_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.CountryOfOriginDataPlatformCountryCountryDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if queries.Equal(local.CountryOfOrigin, foreign.Country) {
+				local.R.CountryOfOriginDataPlatformCountryCountryDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadInternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformProductMasterGeneralDatumL) LoadInternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDatum
+	var object *DataPlatformProductMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDatum.(*DataPlatformProductMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDatum.(*[]*DataPlatformProductMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDatumR{}
+		}
+		if !queries.IsNil(object.InternalCapacityQuantityUnit) {
+			args = append(args, object.InternalCapacityQuantityUnit)
+		}
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.InternalCapacityQuantityUnit) {
+					continue Outer
+				}
+			}
+
+			if !queries.IsNil(obj.InternalCapacityQuantityUnit) {
+				args = append(args, obj.InternalCapacityQuantityUnit)
+			}
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_quantity_unit_quantity_unit_data`),
+		qm.WhereIn(`data_platform_quantity_unit_quantity_unit_data.QuantityUnit in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformQuantityUnitQuantityUnitDatum")
+	}
+
+	var resultSlice []*DataPlatformQuantityUnitQuantityUnitDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformQuantityUnitQuantityUnitDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_quantity_unit_quantity_unit_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_quantity_unit_quantity_unit_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if queries.Equal(local.InternalCapacityQuantityUnit, foreign.QuantityUnit) {
+				local.R.InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductGroupDataPlatformProductGroupProductGroupDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformProductMasterGeneralDatumL) LoadProductGroupDataPlatformProductGroupProductGroupDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDatum
+	var object *DataPlatformProductMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDatum.(*DataPlatformProductMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDatum.(*[]*DataPlatformProductMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDatumR{}
+		}
+		if !queries.IsNil(object.ProductGroup) {
+			args = append(args, object.ProductGroup)
+		}
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.ProductGroup) {
+					continue Outer
+				}
+			}
+
+			if !queries.IsNil(obj.ProductGroup) {
+				args = append(args, obj.ProductGroup)
+			}
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_group_product_group_data`),
+		qm.WhereIn(`data_platform_product_group_product_group_data.ProductGroup in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformProductGroupProductGroupDatum")
+	}
+
+	var resultSlice []*DataPlatformProductGroupProductGroupDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformProductGroupProductGroupDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_product_group_product_group_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_group_product_group_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.ProductGroupDataPlatformProductGroupProductGroupDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if queries.Equal(local.ProductGroup, foreign.ProductGroup) {
+				local.R.ProductGroupDataPlatformProductGroupProductGroupDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductTypeDataPlatformProductTypeProductTypeDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformProductMasterGeneralDatumL) LoadProductTypeDataPlatformProductTypeProductTypeDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDatum
+	var object *DataPlatformProductMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDatum.(*DataPlatformProductMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDatum.(*[]*DataPlatformProductMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDatumR{}
+		}
+		args = append(args, object.ProductType)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.ProductType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.ProductType)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_type_product_type_data`),
+		qm.WhereIn(`data_platform_product_type_product_type_data.ProductType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformProductTypeProductTypeDatum")
+	}
+
+	var resultSlice []*DataPlatformProductTypeProductTypeDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformProductTypeProductTypeDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_product_type_product_type_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_type_product_type_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.ProductTypeDataPlatformProductTypeProductTypeDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.ProductType == foreign.ProductType {
+				local.R.ProductTypeDataPlatformProductTypeProductTypeDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadWeightUnitDataPlatformQuantityUnitQuantityUnitDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformProductMasterGeneralDatumL) LoadWeightUnitDataPlatformQuantityUnitQuantityUnitDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDatum
+	var object *DataPlatformProductMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDatum.(*DataPlatformProductMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDatum.(*[]*DataPlatformProductMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDatumR{}
+		}
+		if !queries.IsNil(object.WeightUnit) {
+			args = append(args, object.WeightUnit)
+		}
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.WeightUnit) {
+					continue Outer
+				}
+			}
+
+			if !queries.IsNil(obj.WeightUnit) {
+				args = append(args, obj.WeightUnit)
+			}
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_quantity_unit_quantity_unit_data`),
+		qm.WhereIn(`data_platform_quantity_unit_quantity_unit_data.QuantityUnit in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformQuantityUnitQuantityUnitDatum")
+	}
+
+	var resultSlice []*DataPlatformQuantityUnitQuantityUnitDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformQuantityUnitQuantityUnitDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_quantity_unit_quantity_unit_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_quantity_unit_quantity_unit_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.WeightUnitDataPlatformQuantityUnitQuantityUnitDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if queries.Equal(local.WeightUnit, foreign.QuantityUnit) {
+				local.R.WeightUnitDataPlatformQuantityUnitQuantityUnitDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
 }
 
 // LoadProductDataPlatformInspectionPlanHeaderData allows an eager lookup of values, cached into the
@@ -499,9 +1415,9 @@ func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformInspectionP
 	return nil
 }
 
-// LoadProductDataPlatformPlannedOrderHeaderData allows an eager lookup of values, cached into the
+// LoadProductDataPlatformPriceMasterPriceMasterData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformPlannedOrderHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformPriceMasterPriceMasterData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformProductMasterGeneralDatum
 	var object *DataPlatformProductMasterGeneralDatum
 
@@ -541,7 +1457,7 @@ func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformPlannedOrde
 			}
 
 			for _, a := range args {
-				if queries.Equal(a, obj.Product) {
+				if a == obj.Product {
 					continue Outer
 				}
 			}
@@ -555,8 +1471,8 @@ func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformPlannedOrde
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_planned_order_header_data`),
-		qm.WhereIn(`data_platform_planned_order_header_data.Product in ?`, args...),
+		qm.From(`data_platform_price_master_price_master_data`),
+		qm.WhereIn(`data_platform_price_master_price_master_data.Product in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -564,30 +1480,30 @@ func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformPlannedOrde
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_planned_order_header_data")
+		return errors.Wrap(err, "failed to eager load data_platform_price_master_price_master_data")
 	}
 
-	var resultSlice []*DataPlatformPlannedOrderHeaderDatum
+	var resultSlice []*DataPlatformPriceMasterPriceMasterDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_planned_order_header_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_price_master_price_master_data")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_planned_order_header_data")
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_price_master_price_master_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_planned_order_header_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_price_master_price_master_data")
 	}
 
 	if singular {
-		object.R.ProductDataPlatformPlannedOrderHeaderData = resultSlice
+		object.R.ProductDataPlatformPriceMasterPriceMasterData = resultSlice
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
-			if queries.Equal(local.Product, foreign.Product) {
-				local.R.ProductDataPlatformPlannedOrderHeaderData = append(local.R.ProductDataPlatformPlannedOrderHeaderData, foreign)
+			if local.Product == foreign.Product {
+				local.R.ProductDataPlatformPriceMasterPriceMasterData = append(local.R.ProductDataPlatformPriceMasterPriceMasterData, foreign)
 				break
 			}
 		}
@@ -596,9 +1512,9 @@ func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformPlannedOrde
 	return nil
 }
 
-// LoadProductDataPlatformPlannedOrderItemData allows an eager lookup of values, cached into the
+// LoadProductDataPlatformProductMasterProductDescriptionData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformPlannedOrderItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformProductMasterProductDescriptionData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformProductMasterGeneralDatum
 	var object *DataPlatformProductMasterGeneralDatum
 
@@ -638,7 +1554,7 @@ func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformPlannedOrde
 			}
 
 			for _, a := range args {
-				if queries.Equal(a, obj.Product) {
+				if a == obj.Product {
 					continue Outer
 				}
 			}
@@ -652,8 +1568,8 @@ func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformPlannedOrde
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_planned_order_item_data`),
-		qm.WhereIn(`data_platform_planned_order_item_data.Product in ?`, args...),
+		qm.From(`data_platform_product_master_product_description_data`),
+		qm.WhereIn(`data_platform_product_master_product_description_data.Product in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -661,30 +1577,30 @@ func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformPlannedOrde
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_planned_order_item_data")
+		return errors.Wrap(err, "failed to eager load data_platform_product_master_product_description_data")
 	}
 
-	var resultSlice []*DataPlatformPlannedOrderItemDatum
+	var resultSlice []*DataPlatformProductMasterProductDescriptionDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_planned_order_item_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_master_product_description_data")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_planned_order_item_data")
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_master_product_description_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_planned_order_item_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_product_description_data")
 	}
 
 	if singular {
-		object.R.ProductDataPlatformPlannedOrderItemData = resultSlice
+		object.R.ProductDataPlatformProductMasterProductDescriptionData = resultSlice
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
-			if queries.Equal(local.Product, foreign.Product) {
-				local.R.ProductDataPlatformPlannedOrderItemData = append(local.R.ProductDataPlatformPlannedOrderItemData, foreign)
+			if local.Product == foreign.Product {
+				local.R.ProductDataPlatformProductMasterProductDescriptionData = append(local.R.ProductDataPlatformProductMasterProductDescriptionData, foreign)
 				break
 			}
 		}
@@ -785,6 +1701,372 @@ func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformProductStoc
 				break
 			}
 		}
+	}
+
+	return nil
+}
+
+// SetBaseUnitDataPlatformQuantityUnitQuantityUnitDatum of the dataPlatformProductMasterGeneralDatum to the related item.
+// Sets o.R.BaseUnitDataPlatformQuantityUnitQuantityUnitDatum to related.
+func (o *DataPlatformProductMasterGeneralDatum) SetBaseUnitDataPlatformQuantityUnitQuantityUnitDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformQuantityUnitQuantityUnitDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_product_master_general_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"BaseUnit"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterGeneralDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.QuantityUnit, o.Product}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.BaseUnit = related.QuantityUnit
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDatumR{
+			BaseUnitDataPlatformQuantityUnitQuantityUnitDatum: related,
+		}
+	} else {
+		o.R.BaseUnitDataPlatformQuantityUnitQuantityUnitDatum = related
+	}
+
+	return nil
+}
+
+// SetCountryOfOriginLanguageDataPlatformLanguageLanguageDatum of the dataPlatformProductMasterGeneralDatum to the related item.
+// Sets o.R.CountryOfOriginLanguageDataPlatformLanguageLanguageDatum to related.
+func (o *DataPlatformProductMasterGeneralDatum) SetCountryOfOriginLanguageDataPlatformLanguageLanguageDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformLanguageLanguageDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_product_master_general_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"CountryOfOriginLanguage"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterGeneralDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.Language, o.Product}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	queries.Assign(&o.CountryOfOriginLanguage, related.Language)
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDatumR{
+			CountryOfOriginLanguageDataPlatformLanguageLanguageDatum: related,
+		}
+	} else {
+		o.R.CountryOfOriginLanguageDataPlatformLanguageLanguageDatum = related
+	}
+
+	return nil
+}
+
+// RemoveCountryOfOriginLanguageDataPlatformLanguageLanguageDatum relationship.
+// Sets o.R.CountryOfOriginLanguageDataPlatformLanguageLanguageDatum to nil.
+func (o *DataPlatformProductMasterGeneralDatum) RemoveCountryOfOriginLanguageDataPlatformLanguageLanguageDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformLanguageLanguageDatum) error {
+	var err error
+
+	queries.SetScanner(&o.CountryOfOriginLanguage, nil)
+	if err = o.Update(ctx, exec, boil.Whitelist("CountryOfOriginLanguage")); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	if o.R != nil {
+		o.R.CountryOfOriginLanguageDataPlatformLanguageLanguageDatum = nil
+	}
+	if related == nil || related.R == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// SetCountryOfOriginDataPlatformCountryCountryDatum of the dataPlatformProductMasterGeneralDatum to the related item.
+// Sets o.R.CountryOfOriginDataPlatformCountryCountryDatum to related.
+func (o *DataPlatformProductMasterGeneralDatum) SetCountryOfOriginDataPlatformCountryCountryDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformCountryCountryDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_product_master_general_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"CountryOfOrigin"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterGeneralDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.Country, o.Product}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	queries.Assign(&o.CountryOfOrigin, related.Country)
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDatumR{
+			CountryOfOriginDataPlatformCountryCountryDatum: related,
+		}
+	} else {
+		o.R.CountryOfOriginDataPlatformCountryCountryDatum = related
+	}
+
+	return nil
+}
+
+// RemoveCountryOfOriginDataPlatformCountryCountryDatum relationship.
+// Sets o.R.CountryOfOriginDataPlatformCountryCountryDatum to nil.
+func (o *DataPlatformProductMasterGeneralDatum) RemoveCountryOfOriginDataPlatformCountryCountryDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformCountryCountryDatum) error {
+	var err error
+
+	queries.SetScanner(&o.CountryOfOrigin, nil)
+	if err = o.Update(ctx, exec, boil.Whitelist("CountryOfOrigin")); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	if o.R != nil {
+		o.R.CountryOfOriginDataPlatformCountryCountryDatum = nil
+	}
+	if related == nil || related.R == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// SetInternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum of the dataPlatformProductMasterGeneralDatum to the related item.
+// Sets o.R.InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum to related.
+func (o *DataPlatformProductMasterGeneralDatum) SetInternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformQuantityUnitQuantityUnitDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_product_master_general_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"InternalCapacityQuantityUnit"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterGeneralDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.QuantityUnit, o.Product}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	queries.Assign(&o.InternalCapacityQuantityUnit, related.QuantityUnit)
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDatumR{
+			InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum: related,
+		}
+	} else {
+		o.R.InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum = related
+	}
+
+	return nil
+}
+
+// RemoveInternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum relationship.
+// Sets o.R.InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum to nil.
+func (o *DataPlatformProductMasterGeneralDatum) RemoveInternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformQuantityUnitQuantityUnitDatum) error {
+	var err error
+
+	queries.SetScanner(&o.InternalCapacityQuantityUnit, nil)
+	if err = o.Update(ctx, exec, boil.Whitelist("InternalCapacityQuantityUnit")); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	if o.R != nil {
+		o.R.InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum = nil
+	}
+	if related == nil || related.R == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// SetProductGroupDataPlatformProductGroupProductGroupDatum of the dataPlatformProductMasterGeneralDatum to the related item.
+// Sets o.R.ProductGroupDataPlatformProductGroupProductGroupDatum to related.
+func (o *DataPlatformProductMasterGeneralDatum) SetProductGroupDataPlatformProductGroupProductGroupDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformProductGroupProductGroupDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_product_master_general_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"ProductGroup"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterGeneralDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.ProductGroup, o.Product}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	queries.Assign(&o.ProductGroup, related.ProductGroup)
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDatumR{
+			ProductGroupDataPlatformProductGroupProductGroupDatum: related,
+		}
+	} else {
+		o.R.ProductGroupDataPlatformProductGroupProductGroupDatum = related
+	}
+
+	return nil
+}
+
+// RemoveProductGroupDataPlatformProductGroupProductGroupDatum relationship.
+// Sets o.R.ProductGroupDataPlatformProductGroupProductGroupDatum to nil.
+func (o *DataPlatformProductMasterGeneralDatum) RemoveProductGroupDataPlatformProductGroupProductGroupDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformProductGroupProductGroupDatum) error {
+	var err error
+
+	queries.SetScanner(&o.ProductGroup, nil)
+	if err = o.Update(ctx, exec, boil.Whitelist("ProductGroup")); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	if o.R != nil {
+		o.R.ProductGroupDataPlatformProductGroupProductGroupDatum = nil
+	}
+	if related == nil || related.R == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// SetProductTypeDataPlatformProductTypeProductTypeDatum of the dataPlatformProductMasterGeneralDatum to the related item.
+// Sets o.R.ProductTypeDataPlatformProductTypeProductTypeDatum to related.
+func (o *DataPlatformProductMasterGeneralDatum) SetProductTypeDataPlatformProductTypeProductTypeDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformProductTypeProductTypeDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_product_master_general_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"ProductType"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterGeneralDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.ProductType, o.Product}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.ProductType = related.ProductType
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDatumR{
+			ProductTypeDataPlatformProductTypeProductTypeDatum: related,
+		}
+	} else {
+		o.R.ProductTypeDataPlatformProductTypeProductTypeDatum = related
+	}
+
+	return nil
+}
+
+// SetWeightUnitDataPlatformQuantityUnitQuantityUnitDatum of the dataPlatformProductMasterGeneralDatum to the related item.
+// Sets o.R.WeightUnitDataPlatformQuantityUnitQuantityUnitDatum to related.
+func (o *DataPlatformProductMasterGeneralDatum) SetWeightUnitDataPlatformQuantityUnitQuantityUnitDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformQuantityUnitQuantityUnitDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_product_master_general_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"WeightUnit"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterGeneralDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.QuantityUnit, o.Product}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	queries.Assign(&o.WeightUnit, related.QuantityUnit)
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDatumR{
+			WeightUnitDataPlatformQuantityUnitQuantityUnitDatum: related,
+		}
+	} else {
+		o.R.WeightUnitDataPlatformQuantityUnitQuantityUnitDatum = related
+	}
+
+	return nil
+}
+
+// RemoveWeightUnitDataPlatformQuantityUnitQuantityUnitDatum relationship.
+// Sets o.R.WeightUnitDataPlatformQuantityUnitQuantityUnitDatum to nil.
+func (o *DataPlatformProductMasterGeneralDatum) RemoveWeightUnitDataPlatformQuantityUnitQuantityUnitDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformQuantityUnitQuantityUnitDatum) error {
+	var err error
+
+	queries.SetScanner(&o.WeightUnit, nil)
+	if err = o.Update(ctx, exec, boil.Whitelist("WeightUnit")); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	if o.R != nil {
+		o.R.WeightUnitDataPlatformQuantityUnitQuantityUnitDatum = nil
+	}
+	if related == nil || related.R == nil {
+		return nil
 	}
 
 	return nil
@@ -894,24 +2176,24 @@ func (o *DataPlatformProductMasterGeneralDatum) RemoveProductDataPlatformInspect
 	return nil
 }
 
-// AddProductDataPlatformPlannedOrderHeaderData adds the given related objects to the existing relationships
+// AddProductDataPlatformPriceMasterPriceMasterData adds the given related objects to the existing relationships
 // of the data_platform_product_master_general_datum, optionally inserting them as new records.
-// Appends related to o.R.ProductDataPlatformPlannedOrderHeaderData.
-func (o *DataPlatformProductMasterGeneralDatum) AddProductDataPlatformPlannedOrderHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderHeaderDatum) error {
+// Appends related to o.R.ProductDataPlatformPriceMasterPriceMasterData.
+func (o *DataPlatformProductMasterGeneralDatum) AddProductDataPlatformPriceMasterPriceMasterData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPriceMasterPriceMasterDatum) error {
 	var err error
 	for _, rel := range related {
 		if insert {
-			queries.Assign(&rel.Product, o.Product)
+			rel.Product = o.Product
 			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
 				return errors.Wrap(err, "failed to insert into foreign table")
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_planned_order_header_data` SET %s WHERE %s",
+				"UPDATE `data_platform_price_master_price_master_data` SET %s WHERE %s",
 				strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformPlannedOrderHeaderDatumPrimaryKeyColumns),
+				strmangle.WhereClause("`", "`", 0, dataPlatformPriceMasterPriceMasterDatumPrimaryKeyColumns),
 			)
-			values := []interface{}{o.Product, rel.PlannedOrder}
+			values := []interface{}{o.Product, rel.SupplyChainRelationshipID, rel.Buyer, rel.Seller, rel.ConditionRecord, rel.ConditionSequentialNumber, rel.Product, rel.ConditionValidityStartDate, rel.ConditionValidityEndDate}
 
 			if boil.IsDebug(ctx) {
 				writer := boil.DebugWriterFrom(ctx)
@@ -922,100 +2204,39 @@ func (o *DataPlatformProductMasterGeneralDatum) AddProductDataPlatformPlannedOrd
 				return errors.Wrap(err, "failed to update foreign table")
 			}
 
-			queries.Assign(&rel.Product, o.Product)
+			rel.Product = o.Product
 		}
 	}
 
 	if o.R == nil {
 		o.R = &dataPlatformProductMasterGeneralDatumR{
-			ProductDataPlatformPlannedOrderHeaderData: related,
+			ProductDataPlatformPriceMasterPriceMasterData: related,
 		}
 	} else {
-		o.R.ProductDataPlatformPlannedOrderHeaderData = append(o.R.ProductDataPlatformPlannedOrderHeaderData, related...)
+		o.R.ProductDataPlatformPriceMasterPriceMasterData = append(o.R.ProductDataPlatformPriceMasterPriceMasterData, related...)
 	}
 
 	return nil
 }
 
-// SetProductDataPlatformPlannedOrderHeaderData removes all previously related items of the
-// data_platform_product_master_general_datum replacing them completely with the passed
-// in related items, optionally inserting them as new records.
-// Sets o.R.ProductDataPlatformProductMasterGeneralDatum's ProductDataPlatformPlannedOrderHeaderData accordingly.
-// Replaces o.R.ProductDataPlatformPlannedOrderHeaderData with related.
-func (o *DataPlatformProductMasterGeneralDatum) SetProductDataPlatformPlannedOrderHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderHeaderDatum) error {
-	query := "update `data_platform_planned_order_header_data` set `Product` = null where `Product` = ?"
-	values := []interface{}{o.Product}
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, query)
-		fmt.Fprintln(writer, values)
-	}
-	_, err := exec.ExecContext(ctx, query, values...)
-	if err != nil {
-		return errors.Wrap(err, "failed to remove relationships before set")
-	}
-
-	if o.R != nil {
-		o.R.ProductDataPlatformPlannedOrderHeaderData = nil
-	}
-
-	return o.AddProductDataPlatformPlannedOrderHeaderData(ctx, exec, insert, related...)
-}
-
-// RemoveProductDataPlatformPlannedOrderHeaderData relationships from objects passed in.
-// Removes related items from R.ProductDataPlatformPlannedOrderHeaderData (uses pointer comparison, removal does not keep order)
-func (o *DataPlatformProductMasterGeneralDatum) RemoveProductDataPlatformPlannedOrderHeaderData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformPlannedOrderHeaderDatum) error {
-	if len(related) == 0 {
-		return nil
-	}
-
-	var err error
-	for _, rel := range related {
-		queries.SetScanner(&rel.Product, nil)
-		if err = rel.Update(ctx, exec, boil.Whitelist("Product")); err != nil {
-			return err
-		}
-	}
-	if o.R == nil {
-		return nil
-	}
-
-	for _, rel := range related {
-		for i, ri := range o.R.ProductDataPlatformPlannedOrderHeaderData {
-			if rel != ri {
-				continue
-			}
-
-			ln := len(o.R.ProductDataPlatformPlannedOrderHeaderData)
-			if ln > 1 && i < ln-1 {
-				o.R.ProductDataPlatformPlannedOrderHeaderData[i] = o.R.ProductDataPlatformPlannedOrderHeaderData[ln-1]
-			}
-			o.R.ProductDataPlatformPlannedOrderHeaderData = o.R.ProductDataPlatformPlannedOrderHeaderData[:ln-1]
-			break
-		}
-	}
-
-	return nil
-}
-
-// AddProductDataPlatformPlannedOrderItemData adds the given related objects to the existing relationships
+// AddProductDataPlatformProductMasterProductDescriptionData adds the given related objects to the existing relationships
 // of the data_platform_product_master_general_datum, optionally inserting them as new records.
-// Appends related to o.R.ProductDataPlatformPlannedOrderItemData.
-func (o *DataPlatformProductMasterGeneralDatum) AddProductDataPlatformPlannedOrderItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderItemDatum) error {
+// Appends related to o.R.ProductDataPlatformProductMasterProductDescriptionData.
+func (o *DataPlatformProductMasterGeneralDatum) AddProductDataPlatformProductMasterProductDescriptionData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductMasterProductDescriptionDatum) error {
 	var err error
 	for _, rel := range related {
 		if insert {
-			queries.Assign(&rel.Product, o.Product)
+			rel.Product = o.Product
 			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
 				return errors.Wrap(err, "failed to insert into foreign table")
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_planned_order_item_data` SET %s WHERE %s",
+				"UPDATE `data_platform_product_master_product_description_data` SET %s WHERE %s",
 				strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformPlannedOrderItemDatumPrimaryKeyColumns),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterProductDescriptionDatumPrimaryKeyColumns),
 			)
-			values := []interface{}{o.Product, rel.PlannedOrder, rel.PlannedOrderItem}
+			values := []interface{}{o.Product, rel.Product, rel.Language}
 
 			if boil.IsDebug(ctx) {
 				writer := boil.DebugWriterFrom(ctx)
@@ -1026,77 +2247,16 @@ func (o *DataPlatformProductMasterGeneralDatum) AddProductDataPlatformPlannedOrd
 				return errors.Wrap(err, "failed to update foreign table")
 			}
 
-			queries.Assign(&rel.Product, o.Product)
+			rel.Product = o.Product
 		}
 	}
 
 	if o.R == nil {
 		o.R = &dataPlatformProductMasterGeneralDatumR{
-			ProductDataPlatformPlannedOrderItemData: related,
+			ProductDataPlatformProductMasterProductDescriptionData: related,
 		}
 	} else {
-		o.R.ProductDataPlatformPlannedOrderItemData = append(o.R.ProductDataPlatformPlannedOrderItemData, related...)
-	}
-
-	return nil
-}
-
-// SetProductDataPlatformPlannedOrderItemData removes all previously related items of the
-// data_platform_product_master_general_datum replacing them completely with the passed
-// in related items, optionally inserting them as new records.
-// Sets o.R.ProductDataPlatformProductMasterGeneralDatum's ProductDataPlatformPlannedOrderItemData accordingly.
-// Replaces o.R.ProductDataPlatformPlannedOrderItemData with related.
-func (o *DataPlatformProductMasterGeneralDatum) SetProductDataPlatformPlannedOrderItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderItemDatum) error {
-	query := "update `data_platform_planned_order_item_data` set `Product` = null where `Product` = ?"
-	values := []interface{}{o.Product}
-	if boil.IsDebug(ctx) {
-		writer := boil.DebugWriterFrom(ctx)
-		fmt.Fprintln(writer, query)
-		fmt.Fprintln(writer, values)
-	}
-	_, err := exec.ExecContext(ctx, query, values...)
-	if err != nil {
-		return errors.Wrap(err, "failed to remove relationships before set")
-	}
-
-	if o.R != nil {
-		o.R.ProductDataPlatformPlannedOrderItemData = nil
-	}
-
-	return o.AddProductDataPlatformPlannedOrderItemData(ctx, exec, insert, related...)
-}
-
-// RemoveProductDataPlatformPlannedOrderItemData relationships from objects passed in.
-// Removes related items from R.ProductDataPlatformPlannedOrderItemData (uses pointer comparison, removal does not keep order)
-func (o *DataPlatformProductMasterGeneralDatum) RemoveProductDataPlatformPlannedOrderItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformPlannedOrderItemDatum) error {
-	if len(related) == 0 {
-		return nil
-	}
-
-	var err error
-	for _, rel := range related {
-		queries.SetScanner(&rel.Product, nil)
-		if err = rel.Update(ctx, exec, boil.Whitelist("Product")); err != nil {
-			return err
-		}
-	}
-	if o.R == nil {
-		return nil
-	}
-
-	for _, rel := range related {
-		for i, ri := range o.R.ProductDataPlatformPlannedOrderItemData {
-			if rel != ri {
-				continue
-			}
-
-			ln := len(o.R.ProductDataPlatformPlannedOrderItemData)
-			if ln > 1 && i < ln-1 {
-				o.R.ProductDataPlatformPlannedOrderItemData[i] = o.R.ProductDataPlatformPlannedOrderItemData[ln-1]
-			}
-			o.R.ProductDataPlatformPlannedOrderItemData = o.R.ProductDataPlatformPlannedOrderItemData[:ln-1]
-			break
-		}
+		o.R.ProductDataPlatformProductMasterProductDescriptionData = append(o.R.ProductDataPlatformProductMasterProductDescriptionData, related...)
 	}
 
 	return nil

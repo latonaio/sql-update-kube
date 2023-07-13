@@ -220,17 +220,14 @@ var DataPlatformProductMasterBPPlantDatumWhere = struct {
 
 // DataPlatformProductMasterBPPlantDatumRels is where relationship names are stored.
 var DataPlatformProductMasterBPPlantDatumRels = struct {
-	BusinessPartnerDataPlatformProductStockProductStockData     string
-	OwnerBusinessPartnerDataPlatformProductionVersionHeaderData string
+	BusinessPartnerDataPlatformProductStockProductStockData string
 }{
-	BusinessPartnerDataPlatformProductStockProductStockData:     "BusinessPartnerDataPlatformProductStockProductStockData",
-	OwnerBusinessPartnerDataPlatformProductionVersionHeaderData: "OwnerBusinessPartnerDataPlatformProductionVersionHeaderData",
+	BusinessPartnerDataPlatformProductStockProductStockData: "BusinessPartnerDataPlatformProductStockProductStockData",
 }
 
 // dataPlatformProductMasterBPPlantDatumR is where relationships are stored.
 type dataPlatformProductMasterBPPlantDatumR struct {
-	BusinessPartnerDataPlatformProductStockProductStockData     DataPlatformProductStockProductStockDatumSlice `boil:"BusinessPartnerDataPlatformProductStockProductStockData" json:"BusinessPartnerDataPlatformProductStockProductStockData" toml:"BusinessPartnerDataPlatformProductStockProductStockData" yaml:"BusinessPartnerDataPlatformProductStockProductStockData"`
-	OwnerBusinessPartnerDataPlatformProductionVersionHeaderData DataPlatformProductionVersionHeaderDatumSlice  `boil:"OwnerBusinessPartnerDataPlatformProductionVersionHeaderData" json:"OwnerBusinessPartnerDataPlatformProductionVersionHeaderData" toml:"OwnerBusinessPartnerDataPlatformProductionVersionHeaderData" yaml:"OwnerBusinessPartnerDataPlatformProductionVersionHeaderData"`
+	BusinessPartnerDataPlatformProductStockProductStockData DataPlatformProductStockProductStockDatumSlice `boil:"BusinessPartnerDataPlatformProductStockProductStockData" json:"BusinessPartnerDataPlatformProductStockProductStockData" toml:"BusinessPartnerDataPlatformProductStockProductStockData" yaml:"BusinessPartnerDataPlatformProductStockProductStockData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -243,13 +240,6 @@ func (r *dataPlatformProductMasterBPPlantDatumR) GetBusinessPartnerDataPlatformP
 		return nil
 	}
 	return r.BusinessPartnerDataPlatformProductStockProductStockData
-}
-
-func (r *dataPlatformProductMasterBPPlantDatumR) GetOwnerBusinessPartnerDataPlatformProductionVersionHeaderData() DataPlatformProductionVersionHeaderDatumSlice {
-	if r == nil {
-		return nil
-	}
-	return r.OwnerBusinessPartnerDataPlatformProductionVersionHeaderData
 }
 
 // dataPlatformProductMasterBPPlantDatumL is where Load methods for each relationship are stored.
@@ -368,20 +358,6 @@ func (o *DataPlatformProductMasterBPPlantDatum) BusinessPartnerDataPlatformProdu
 	return DataPlatformProductStockProductStockData(queryMods...)
 }
 
-// OwnerBusinessPartnerDataPlatformProductionVersionHeaderData retrieves all the data_platform_production_version_header_datum's DataPlatformProductionVersionHeaderData with an executor via OwnerBusinessPartner column.
-func (o *DataPlatformProductMasterBPPlantDatum) OwnerBusinessPartnerDataPlatformProductionVersionHeaderData(mods ...qm.QueryMod) dataPlatformProductionVersionHeaderDatumQuery {
-	var queryMods []qm.QueryMod
-	if len(mods) != 0 {
-		queryMods = append(queryMods, mods...)
-	}
-
-	queryMods = append(queryMods,
-		qm.Where("`data_platform_production_version_header_data`.`OwnerBusinessPartner`=?", o.BusinessPartner),
-	)
-
-	return DataPlatformProductionVersionHeaderData(queryMods...)
-}
-
 // LoadBusinessPartnerDataPlatformProductStockProductStockData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
 func (dataPlatformProductMasterBPPlantDatumL) LoadBusinessPartnerDataPlatformProductStockProductStockData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterBPPlantDatum interface{}, mods queries.Applicator) error {
@@ -479,103 +455,6 @@ func (dataPlatformProductMasterBPPlantDatumL) LoadBusinessPartnerDataPlatformPro
 	return nil
 }
 
-// LoadOwnerBusinessPartnerDataPlatformProductionVersionHeaderData allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformProductMasterBPPlantDatumL) LoadOwnerBusinessPartnerDataPlatformProductionVersionHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterBPPlantDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformProductMasterBPPlantDatum
-	var object *DataPlatformProductMasterBPPlantDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformProductMasterBPPlantDatum.(*DataPlatformProductMasterBPPlantDatum)
-		if !ok {
-			object = new(DataPlatformProductMasterBPPlantDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterBPPlantDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterBPPlantDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformProductMasterBPPlantDatum.(*[]*DataPlatformProductMasterBPPlantDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterBPPlantDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterBPPlantDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformProductMasterBPPlantDatumR{}
-		}
-		args = append(args, object.BusinessPartner)
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformProductMasterBPPlantDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.BusinessPartner {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.BusinessPartner)
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_production_version_header_data`),
-		qm.WhereIn(`data_platform_production_version_header_data.OwnerBusinessPartner in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_production_version_header_data")
-	}
-
-	var resultSlice []*DataPlatformProductionVersionHeaderDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_production_version_header_data")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_production_version_header_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_production_version_header_data")
-	}
-
-	if singular {
-		object.R.OwnerBusinessPartnerDataPlatformProductionVersionHeaderData = resultSlice
-		return nil
-	}
-
-	for _, foreign := range resultSlice {
-		for _, local := range slice {
-			if local.BusinessPartner == foreign.OwnerBusinessPartner {
-				local.R.OwnerBusinessPartnerDataPlatformProductionVersionHeaderData = append(local.R.OwnerBusinessPartnerDataPlatformProductionVersionHeaderData, foreign)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
 // AddBusinessPartnerDataPlatformProductStockProductStockData adds the given related objects to the existing relationships
 // of the data_platform_product_master_bp_plant_datum, optionally inserting them as new records.
 // Appends related to o.R.BusinessPartnerDataPlatformProductStockProductStockData.
@@ -614,49 +493,6 @@ func (o *DataPlatformProductMasterBPPlantDatum) AddBusinessPartnerDataPlatformPr
 		}
 	} else {
 		o.R.BusinessPartnerDataPlatformProductStockProductStockData = append(o.R.BusinessPartnerDataPlatformProductStockProductStockData, related...)
-	}
-
-	return nil
-}
-
-// AddOwnerBusinessPartnerDataPlatformProductionVersionHeaderData adds the given related objects to the existing relationships
-// of the data_platform_product_master_bp_plant_datum, optionally inserting them as new records.
-// Appends related to o.R.OwnerBusinessPartnerDataPlatformProductionVersionHeaderData.
-func (o *DataPlatformProductMasterBPPlantDatum) AddOwnerBusinessPartnerDataPlatformProductionVersionHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductionVersionHeaderDatum) error {
-	var err error
-	for _, rel := range related {
-		if insert {
-			rel.OwnerBusinessPartner = o.BusinessPartner
-			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
-				return errors.Wrap(err, "failed to insert into foreign table")
-			}
-		} else {
-			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_production_version_header_data` SET %s WHERE %s",
-				strmangle.SetParamNames("`", "`", 0, []string{"OwnerBusinessPartner"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformProductionVersionHeaderDatumPrimaryKeyColumns),
-			)
-			values := []interface{}{o.BusinessPartner, rel.ProductionVersion}
-
-			if boil.IsDebug(ctx) {
-				writer := boil.DebugWriterFrom(ctx)
-				fmt.Fprintln(writer, updateQuery)
-				fmt.Fprintln(writer, values)
-			}
-			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-				return errors.Wrap(err, "failed to update foreign table")
-			}
-
-			rel.OwnerBusinessPartner = o.BusinessPartner
-		}
-	}
-
-	if o.R == nil {
-		o.R = &dataPlatformProductMasterBPPlantDatumR{
-			OwnerBusinessPartnerDataPlatformProductionVersionHeaderData: related,
-		}
-	} else {
-		o.R.OwnerBusinessPartnerDataPlatformProductionVersionHeaderData = append(o.R.OwnerBusinessPartnerDataPlatformProductionVersionHeaderData, related...)
 	}
 
 	return nil

@@ -51,29 +51,19 @@ var DataPlatformDocTypeDocTypeDatumWhere = struct {
 
 // DataPlatformDocTypeDocTypeDatumRels is where relationship names are stored.
 var DataPlatformDocTypeDocTypeDatumRels = struct {
-	DocTypeDataPlatformDeliveryDocumentHeaderDocData string
 	DocTypeDataPlatformEquipmentMasterGeneralDocData string
 }{
-	DocTypeDataPlatformDeliveryDocumentHeaderDocData: "DocTypeDataPlatformDeliveryDocumentHeaderDocData",
 	DocTypeDataPlatformEquipmentMasterGeneralDocData: "DocTypeDataPlatformEquipmentMasterGeneralDocData",
 }
 
 // dataPlatformDocTypeDocTypeDatumR is where relationships are stored.
 type dataPlatformDocTypeDocTypeDatumR struct {
-	DocTypeDataPlatformDeliveryDocumentHeaderDocData DataPlatformDeliveryDocumentHeaderDocDatumSlice `boil:"DocTypeDataPlatformDeliveryDocumentHeaderDocData" json:"DocTypeDataPlatformDeliveryDocumentHeaderDocData" toml:"DocTypeDataPlatformDeliveryDocumentHeaderDocData" yaml:"DocTypeDataPlatformDeliveryDocumentHeaderDocData"`
 	DocTypeDataPlatformEquipmentMasterGeneralDocData DataPlatformEquipmentMasterGeneralDocDatumSlice `boil:"DocTypeDataPlatformEquipmentMasterGeneralDocData" json:"DocTypeDataPlatformEquipmentMasterGeneralDocData" toml:"DocTypeDataPlatformEquipmentMasterGeneralDocData" yaml:"DocTypeDataPlatformEquipmentMasterGeneralDocData"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformDocTypeDocTypeDatumR) NewStruct() *dataPlatformDocTypeDocTypeDatumR {
 	return &dataPlatformDocTypeDocTypeDatumR{}
-}
-
-func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformDeliveryDocumentHeaderDocData() DataPlatformDeliveryDocumentHeaderDocDatumSlice {
-	if r == nil {
-		return nil
-	}
-	return r.DocTypeDataPlatformDeliveryDocumentHeaderDocData
 }
 
 func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformEquipmentMasterGeneralDocData() DataPlatformEquipmentMasterGeneralDocDatumSlice {
@@ -185,20 +175,6 @@ func (q dataPlatformDocTypeDocTypeDatumQuery) Exists(ctx context.Context, exec b
 	return count > 0, nil
 }
 
-// DocTypeDataPlatformDeliveryDocumentHeaderDocData retrieves all the data_platform_delivery_document_header_doc_datum's DataPlatformDeliveryDocumentHeaderDocData with an executor via DocType column.
-func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformDeliveryDocumentHeaderDocData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentHeaderDocDatumQuery {
-	var queryMods []qm.QueryMod
-	if len(mods) != 0 {
-		queryMods = append(queryMods, mods...)
-	}
-
-	queryMods = append(queryMods,
-		qm.Where("`data_platform_delivery_document_header_doc_data`.`DocType`=?", o.DocType),
-	)
-
-	return DataPlatformDeliveryDocumentHeaderDocData(queryMods...)
-}
-
 // DocTypeDataPlatformEquipmentMasterGeneralDocData retrieves all the data_platform_equipment_master_general_doc_datum's DataPlatformEquipmentMasterGeneralDocData with an executor via DocType column.
 func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformEquipmentMasterGeneralDocData(mods ...qm.QueryMod) dataPlatformEquipmentMasterGeneralDocDatumQuery {
 	var queryMods []qm.QueryMod
@@ -211,103 +187,6 @@ func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformEquipmentMasterGene
 	)
 
 	return DataPlatformEquipmentMasterGeneralDocData(queryMods...)
-}
-
-// LoadDocTypeDataPlatformDeliveryDocumentHeaderDocData allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformDeliveryDocumentHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformDocTypeDocTypeDatum
-	var object *DataPlatformDocTypeDocTypeDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
-		if !ok {
-			object = new(DataPlatformDocTypeDocTypeDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformDocTypeDocTypeDatumR{}
-		}
-		args = append(args, object.DocType)
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.DocType {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.DocType)
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_delivery_document_header_doc_data`),
-		qm.WhereIn(`data_platform_delivery_document_header_doc_data.DocType in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_header_doc_data")
-	}
-
-	var resultSlice []*DataPlatformDeliveryDocumentHeaderDocDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_header_doc_data")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_header_doc_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_header_doc_data")
-	}
-
-	if singular {
-		object.R.DocTypeDataPlatformDeliveryDocumentHeaderDocData = resultSlice
-		return nil
-	}
-
-	for _, foreign := range resultSlice {
-		for _, local := range slice {
-			if local.DocType == foreign.DocType {
-				local.R.DocTypeDataPlatformDeliveryDocumentHeaderDocData = append(local.R.DocTypeDataPlatformDeliveryDocumentHeaderDocData, foreign)
-				break
-			}
-		}
-	}
-
-	return nil
 }
 
 // LoadDocTypeDataPlatformEquipmentMasterGeneralDocData allows an eager lookup of values, cached into the
@@ -402,49 +281,6 @@ func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformEquipmentMasterGe
 				break
 			}
 		}
-	}
-
-	return nil
-}
-
-// AddDocTypeDataPlatformDeliveryDocumentHeaderDocData adds the given related objects to the existing relationships
-// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
-// Appends related to o.R.DocTypeDataPlatformDeliveryDocumentHeaderDocData.
-func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformDeliveryDocumentHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDocDatum) error {
-	var err error
-	for _, rel := range related {
-		if insert {
-			rel.DocType = o.DocType
-			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
-				return errors.Wrap(err, "failed to insert into foreign table")
-			}
-		} else {
-			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_delivery_document_header_doc_data` SET %s WHERE %s",
-				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentHeaderDocDatumPrimaryKeyColumns),
-			)
-			values := []interface{}{o.DocType, rel.DeliveryDocument, rel.DocType, rel.DocVersionID, rel.DocID}
-
-			if boil.IsDebug(ctx) {
-				writer := boil.DebugWriterFrom(ctx)
-				fmt.Fprintln(writer, updateQuery)
-				fmt.Fprintln(writer, values)
-			}
-			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-				return errors.Wrap(err, "failed to update foreign table")
-			}
-
-			rel.DocType = o.DocType
-		}
-	}
-
-	if o.R == nil {
-		o.R = &dataPlatformDocTypeDocTypeDatumR{
-			DocTypeDataPlatformDeliveryDocumentHeaderDocData: related,
-		}
-	} else {
-		o.R.DocTypeDataPlatformDeliveryDocumentHeaderDocData = append(o.R.DocTypeDataPlatformDeliveryDocumentHeaderDocData, related...)
 	}
 
 	return nil

@@ -24,52 +24,83 @@ import (
 
 // DataPlatformProductMasterProductDescriptionDatum is an object representing the database table.
 type DataPlatformProductMasterProductDescriptionDatum struct {
-	Product            string      `boil:"Product" json:"Product" toml:"Product" yaml:"Product"`
-	Language           string      `boil:"Language" json:"Language" toml:"Language" yaml:"Language"`
-	ProductDescription null.String `boil:"ProductDescription" json:"ProductDescription,omitempty" toml:"ProductDescription" yaml:"ProductDescription,omitempty"`
+	Product             string    `boil:"Product" json:"Product" toml:"Product" yaml:"Product"`
+	Language            string    `boil:"Language" json:"Language" toml:"Language" yaml:"Language"`
+	ProductDescription  string    `boil:"ProductDescription" json:"ProductDescription" toml:"ProductDescription" yaml:"ProductDescription"`
+	CreationDate        string    `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
+	LastChangeDate      string    `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
+	IsMarkedForDeletion null.Bool `boil:"IsMarkedForDeletion" json:"IsMarkedForDeletion,omitempty" toml:"IsMarkedForDeletion" yaml:"IsMarkedForDeletion,omitempty"`
 
 	R *dataPlatformProductMasterProductDescriptionDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
 	L dataPlatformProductMasterProductDescriptionDatumL  `boil:"-" json:"-" toml:"-" yaml:"-"`
 }
 
 var DataPlatformProductMasterProductDescriptionDatumColumns = struct {
-	Product            string
-	Language           string
-	ProductDescription string
+	Product             string
+	Language            string
+	ProductDescription  string
+	CreationDate        string
+	LastChangeDate      string
+	IsMarkedForDeletion string
 }{
-	Product:            "Product",
-	Language:           "Language",
-	ProductDescription: "ProductDescription",
+	Product:             "Product",
+	Language:            "Language",
+	ProductDescription:  "ProductDescription",
+	CreationDate:        "CreationDate",
+	LastChangeDate:      "LastChangeDate",
+	IsMarkedForDeletion: "IsMarkedForDeletion",
 }
 
 var DataPlatformProductMasterProductDescriptionDatumTableColumns = struct {
-	Product            string
-	Language           string
-	ProductDescription string
+	Product             string
+	Language            string
+	ProductDescription  string
+	CreationDate        string
+	LastChangeDate      string
+	IsMarkedForDeletion string
 }{
-	Product:            "data_platform_product_master_product_description_data.Product",
-	Language:           "data_platform_product_master_product_description_data.Language",
-	ProductDescription: "data_platform_product_master_product_description_data.ProductDescription",
+	Product:             "data_platform_product_master_product_description_data.Product",
+	Language:            "data_platform_product_master_product_description_data.Language",
+	ProductDescription:  "data_platform_product_master_product_description_data.ProductDescription",
+	CreationDate:        "data_platform_product_master_product_description_data.CreationDate",
+	LastChangeDate:      "data_platform_product_master_product_description_data.LastChangeDate",
+	IsMarkedForDeletion: "data_platform_product_master_product_description_data.IsMarkedForDeletion",
 }
 
 // Generated where
 
 var DataPlatformProductMasterProductDescriptionDatumWhere = struct {
-	Product            whereHelperstring
-	Language           whereHelperstring
-	ProductDescription whereHelpernull_String
+	Product             whereHelperstring
+	Language            whereHelperstring
+	ProductDescription  whereHelperstring
+	CreationDate        whereHelperstring
+	LastChangeDate      whereHelperstring
+	IsMarkedForDeletion whereHelpernull_Bool
 }{
-	Product:            whereHelperstring{field: "`data_platform_product_master_product_description_data`.`Product`"},
-	Language:           whereHelperstring{field: "`data_platform_product_master_product_description_data`.`Language`"},
-	ProductDescription: whereHelpernull_String{field: "`data_platform_product_master_product_description_data`.`ProductDescription`"},
+	Product:             whereHelperstring{field: "`data_platform_product_master_product_description_data`.`Product`"},
+	Language:            whereHelperstring{field: "`data_platform_product_master_product_description_data`.`Language`"},
+	ProductDescription:  whereHelperstring{field: "`data_platform_product_master_product_description_data`.`ProductDescription`"},
+	CreationDate:        whereHelperstring{field: "`data_platform_product_master_product_description_data`.`CreationDate`"},
+	LastChangeDate:      whereHelperstring{field: "`data_platform_product_master_product_description_data`.`LastChangeDate`"},
+	IsMarkedForDeletion: whereHelpernull_Bool{field: "`data_platform_product_master_product_description_data`.`IsMarkedForDeletion`"},
 }
 
 // DataPlatformProductMasterProductDescriptionDatumRels is where relationship names are stored.
 var DataPlatformProductMasterProductDescriptionDatumRels = struct {
-}{}
+	LanguageDataPlatformLanguageLanguageDatum            string
+	ProductDataPlatformProductMasterGeneralDatum         string
+	LanguageDataPlatformProductMasterProductDescByBPData string
+}{
+	LanguageDataPlatformLanguageLanguageDatum:            "LanguageDataPlatformLanguageLanguageDatum",
+	ProductDataPlatformProductMasterGeneralDatum:         "ProductDataPlatformProductMasterGeneralDatum",
+	LanguageDataPlatformProductMasterProductDescByBPData: "LanguageDataPlatformProductMasterProductDescByBPData",
+}
 
 // dataPlatformProductMasterProductDescriptionDatumR is where relationships are stored.
 type dataPlatformProductMasterProductDescriptionDatumR struct {
+	LanguageDataPlatformLanguageLanguageDatum            *DataPlatformLanguageLanguageDatum                 `boil:"LanguageDataPlatformLanguageLanguageDatum" json:"LanguageDataPlatformLanguageLanguageDatum" toml:"LanguageDataPlatformLanguageLanguageDatum" yaml:"LanguageDataPlatformLanguageLanguageDatum"`
+	ProductDataPlatformProductMasterGeneralDatum         *DataPlatformProductMasterGeneralDatum             `boil:"ProductDataPlatformProductMasterGeneralDatum" json:"ProductDataPlatformProductMasterGeneralDatum" toml:"ProductDataPlatformProductMasterGeneralDatum" yaml:"ProductDataPlatformProductMasterGeneralDatum"`
+	LanguageDataPlatformProductMasterProductDescByBPData DataPlatformProductMasterProductDescByBPDatumSlice `boil:"LanguageDataPlatformProductMasterProductDescByBPData" json:"LanguageDataPlatformProductMasterProductDescByBPData" toml:"LanguageDataPlatformProductMasterProductDescByBPData" yaml:"LanguageDataPlatformProductMasterProductDescByBPData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -77,12 +108,33 @@ func (*dataPlatformProductMasterProductDescriptionDatumR) NewStruct() *dataPlatf
 	return &dataPlatformProductMasterProductDescriptionDatumR{}
 }
 
+func (r *dataPlatformProductMasterProductDescriptionDatumR) GetLanguageDataPlatformLanguageLanguageDatum() *DataPlatformLanguageLanguageDatum {
+	if r == nil {
+		return nil
+	}
+	return r.LanguageDataPlatformLanguageLanguageDatum
+}
+
+func (r *dataPlatformProductMasterProductDescriptionDatumR) GetProductDataPlatformProductMasterGeneralDatum() *DataPlatformProductMasterGeneralDatum {
+	if r == nil {
+		return nil
+	}
+	return r.ProductDataPlatformProductMasterGeneralDatum
+}
+
+func (r *dataPlatformProductMasterProductDescriptionDatumR) GetLanguageDataPlatformProductMasterProductDescByBPData() DataPlatformProductMasterProductDescByBPDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.LanguageDataPlatformProductMasterProductDescByBPData
+}
+
 // dataPlatformProductMasterProductDescriptionDatumL is where Load methods for each relationship are stored.
 type dataPlatformProductMasterProductDescriptionDatumL struct{}
 
 var (
-	dataPlatformProductMasterProductDescriptionDatumAllColumns            = []string{"Product", "Language", "ProductDescription"}
-	dataPlatformProductMasterProductDescriptionDatumColumnsWithoutDefault = []string{"Product", "Language", "ProductDescription"}
+	dataPlatformProductMasterProductDescriptionDatumAllColumns            = []string{"Product", "Language", "ProductDescription", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
+	dataPlatformProductMasterProductDescriptionDatumColumnsWithoutDefault = []string{"Product", "Language", "ProductDescription", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
 	dataPlatformProductMasterProductDescriptionDatumColumnsWithDefault    = []string{}
 	dataPlatformProductMasterProductDescriptionDatumPrimaryKeyColumns     = []string{"Product", "Language"}
 	dataPlatformProductMasterProductDescriptionDatumGeneratedColumns      = []string{}
@@ -177,6 +229,466 @@ func (q dataPlatformProductMasterProductDescriptionDatumQuery) Exists(ctx contex
 	}
 
 	return count > 0, nil
+}
+
+// LanguageDataPlatformLanguageLanguageDatum pointed to by the foreign key.
+func (o *DataPlatformProductMasterProductDescriptionDatum) LanguageDataPlatformLanguageLanguageDatum(mods ...qm.QueryMod) dataPlatformLanguageLanguageDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`Language` = ?", o.Language),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformLanguageLanguageData(queryMods...)
+}
+
+// ProductDataPlatformProductMasterGeneralDatum pointed to by the foreign key.
+func (o *DataPlatformProductMasterProductDescriptionDatum) ProductDataPlatformProductMasterGeneralDatum(mods ...qm.QueryMod) dataPlatformProductMasterGeneralDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`Product` = ?", o.Product),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformProductMasterGeneralData(queryMods...)
+}
+
+// LanguageDataPlatformProductMasterProductDescByBPData retrieves all the data_platform_product_master_product_desc_by_bp_datum's DataPlatformProductMasterProductDescByBPData with an executor via Language column.
+func (o *DataPlatformProductMasterProductDescriptionDatum) LanguageDataPlatformProductMasterProductDescByBPData(mods ...qm.QueryMod) dataPlatformProductMasterProductDescByBPDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_product_master_product_desc_by_bp_data`.`Language`=?", o.Language),
+	)
+
+	return DataPlatformProductMasterProductDescByBPData(queryMods...)
+}
+
+// LoadLanguageDataPlatformLanguageLanguageDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformProductMasterProductDescriptionDatumL) LoadLanguageDataPlatformLanguageLanguageDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterProductDescriptionDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterProductDescriptionDatum
+	var object *DataPlatformProductMasterProductDescriptionDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterProductDescriptionDatum.(*DataPlatformProductMasterProductDescriptionDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterProductDescriptionDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterProductDescriptionDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterProductDescriptionDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterProductDescriptionDatum.(*[]*DataPlatformProductMasterProductDescriptionDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterProductDescriptionDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterProductDescriptionDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterProductDescriptionDatumR{}
+		}
+		args = append(args, object.Language)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterProductDescriptionDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Language {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Language)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_language_language_data`),
+		qm.WhereIn(`data_platform_language_language_data.Language in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformLanguageLanguageDatum")
+	}
+
+	var resultSlice []*DataPlatformLanguageLanguageDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformLanguageLanguageDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_language_language_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_language_language_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.LanguageDataPlatformLanguageLanguageDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.Language == foreign.Language {
+				local.R.LanguageDataPlatformLanguageLanguageDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductDataPlatformProductMasterGeneralDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformProductMasterProductDescriptionDatumL) LoadProductDataPlatformProductMasterGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterProductDescriptionDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterProductDescriptionDatum
+	var object *DataPlatformProductMasterProductDescriptionDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterProductDescriptionDatum.(*DataPlatformProductMasterProductDescriptionDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterProductDescriptionDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterProductDescriptionDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterProductDescriptionDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterProductDescriptionDatum.(*[]*DataPlatformProductMasterProductDescriptionDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterProductDescriptionDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterProductDescriptionDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterProductDescriptionDatumR{}
+		}
+		args = append(args, object.Product)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterProductDescriptionDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Product {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Product)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_master_general_data`),
+		qm.WhereIn(`data_platform_product_master_general_data.Product in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformProductMasterGeneralDatum")
+	}
+
+	var resultSlice []*DataPlatformProductMasterGeneralDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformProductMasterGeneralDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_product_master_general_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_general_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.ProductDataPlatformProductMasterGeneralDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.Product == foreign.Product {
+				local.R.ProductDataPlatformProductMasterGeneralDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadLanguageDataPlatformProductMasterProductDescByBPData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductMasterProductDescriptionDatumL) LoadLanguageDataPlatformProductMasterProductDescByBPData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterProductDescriptionDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterProductDescriptionDatum
+	var object *DataPlatformProductMasterProductDescriptionDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterProductDescriptionDatum.(*DataPlatformProductMasterProductDescriptionDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterProductDescriptionDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterProductDescriptionDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterProductDescriptionDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterProductDescriptionDatum.(*[]*DataPlatformProductMasterProductDescriptionDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterProductDescriptionDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterProductDescriptionDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterProductDescriptionDatumR{}
+		}
+		args = append(args, object.Language)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterProductDescriptionDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Language {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Language)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_master_product_desc_by_bp_data`),
+		qm.WhereIn(`data_platform_product_master_product_desc_by_bp_data.Language in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_product_master_product_desc_by_bp_data")
+	}
+
+	var resultSlice []*DataPlatformProductMasterProductDescByBPDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_master_product_desc_by_bp_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_master_product_desc_by_bp_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_product_desc_by_bp_data")
+	}
+
+	if singular {
+		object.R.LanguageDataPlatformProductMasterProductDescByBPData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Language == foreign.Language {
+				local.R.LanguageDataPlatformProductMasterProductDescByBPData = append(local.R.LanguageDataPlatformProductMasterProductDescByBPData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// SetLanguageDataPlatformLanguageLanguageDatum of the dataPlatformProductMasterProductDescriptionDatum to the related item.
+// Sets o.R.LanguageDataPlatformLanguageLanguageDatum to related.
+func (o *DataPlatformProductMasterProductDescriptionDatum) SetLanguageDataPlatformLanguageLanguageDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformLanguageLanguageDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_product_master_product_description_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"Language"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterProductDescriptionDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.Language, o.Product, o.Language}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.Language = related.Language
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterProductDescriptionDatumR{
+			LanguageDataPlatformLanguageLanguageDatum: related,
+		}
+	} else {
+		o.R.LanguageDataPlatformLanguageLanguageDatum = related
+	}
+
+	return nil
+}
+
+// SetProductDataPlatformProductMasterGeneralDatum of the dataPlatformProductMasterProductDescriptionDatum to the related item.
+// Sets o.R.ProductDataPlatformProductMasterGeneralDatum to related.
+func (o *DataPlatformProductMasterProductDescriptionDatum) SetProductDataPlatformProductMasterGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformProductMasterGeneralDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_product_master_product_description_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterProductDescriptionDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.Product, o.Product, o.Language}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.Product = related.Product
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterProductDescriptionDatumR{
+			ProductDataPlatformProductMasterGeneralDatum: related,
+		}
+	} else {
+		o.R.ProductDataPlatformProductMasterGeneralDatum = related
+	}
+
+	return nil
+}
+
+// AddLanguageDataPlatformProductMasterProductDescByBPData adds the given related objects to the existing relationships
+// of the data_platform_product_master_product_description_datum, optionally inserting them as new records.
+// Appends related to o.R.LanguageDataPlatformProductMasterProductDescByBPData.
+func (o *DataPlatformProductMasterProductDescriptionDatum) AddLanguageDataPlatformProductMasterProductDescByBPData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductMasterProductDescByBPDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.Language = o.Language
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_product_master_product_desc_by_bp_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Language"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterProductDescByBPDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Language, rel.Product, rel.BusinessPartner, rel.Language}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.Language = o.Language
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterProductDescriptionDatumR{
+			LanguageDataPlatformProductMasterProductDescByBPData: related,
+		}
+	} else {
+		o.R.LanguageDataPlatformProductMasterProductDescByBPData = append(o.R.LanguageDataPlatformProductMasterProductDescByBPData, related...)
+	}
+
+	return nil
 }
 
 // DataPlatformProductMasterProductDescriptionData retrieves all the records using an executor.

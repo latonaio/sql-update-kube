@@ -51,14 +51,14 @@ var DataPlatformProductGroupProductGroupDatumWhere = struct {
 
 // DataPlatformProductGroupProductGroupDatumRels is where relationship names are stored.
 var DataPlatformProductGroupProductGroupDatumRels = struct {
-	ProductGroupDataPlatformDeliveryDocumentItemData string
+	ProductGroupDataPlatformProductMasterGeneralData string
 }{
-	ProductGroupDataPlatformDeliveryDocumentItemData: "ProductGroupDataPlatformDeliveryDocumentItemData",
+	ProductGroupDataPlatformProductMasterGeneralData: "ProductGroupDataPlatformProductMasterGeneralData",
 }
 
 // dataPlatformProductGroupProductGroupDatumR is where relationships are stored.
 type dataPlatformProductGroupProductGroupDatumR struct {
-	ProductGroupDataPlatformDeliveryDocumentItemData DataPlatformDeliveryDocumentItemDatumSlice `boil:"ProductGroupDataPlatformDeliveryDocumentItemData" json:"ProductGroupDataPlatformDeliveryDocumentItemData" toml:"ProductGroupDataPlatformDeliveryDocumentItemData" yaml:"ProductGroupDataPlatformDeliveryDocumentItemData"`
+	ProductGroupDataPlatformProductMasterGeneralData DataPlatformProductMasterGeneralDatumSlice `boil:"ProductGroupDataPlatformProductMasterGeneralData" json:"ProductGroupDataPlatformProductMasterGeneralData" toml:"ProductGroupDataPlatformProductMasterGeneralData" yaml:"ProductGroupDataPlatformProductMasterGeneralData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -66,11 +66,11 @@ func (*dataPlatformProductGroupProductGroupDatumR) NewStruct() *dataPlatformProd
 	return &dataPlatformProductGroupProductGroupDatumR{}
 }
 
-func (r *dataPlatformProductGroupProductGroupDatumR) GetProductGroupDataPlatformDeliveryDocumentItemData() DataPlatformDeliveryDocumentItemDatumSlice {
+func (r *dataPlatformProductGroupProductGroupDatumR) GetProductGroupDataPlatformProductMasterGeneralData() DataPlatformProductMasterGeneralDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.ProductGroupDataPlatformDeliveryDocumentItemData
+	return r.ProductGroupDataPlatformProductMasterGeneralData
 }
 
 // dataPlatformProductGroupProductGroupDatumL is where Load methods for each relationship are stored.
@@ -175,23 +175,23 @@ func (q dataPlatformProductGroupProductGroupDatumQuery) Exists(ctx context.Conte
 	return count > 0, nil
 }
 
-// ProductGroupDataPlatformDeliveryDocumentItemData retrieves all the data_platform_delivery_document_item_datum's DataPlatformDeliveryDocumentItemData with an executor via ProductGroup column.
-func (o *DataPlatformProductGroupProductGroupDatum) ProductGroupDataPlatformDeliveryDocumentItemData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentItemDatumQuery {
+// ProductGroupDataPlatformProductMasterGeneralData retrieves all the data_platform_product_master_general_datum's DataPlatformProductMasterGeneralData with an executor via ProductGroup column.
+func (o *DataPlatformProductGroupProductGroupDatum) ProductGroupDataPlatformProductMasterGeneralData(mods ...qm.QueryMod) dataPlatformProductMasterGeneralDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_delivery_document_item_data`.`ProductGroup`=?", o.ProductGroup),
+		qm.Where("`data_platform_product_master_general_data`.`ProductGroup`=?", o.ProductGroup),
 	)
 
-	return DataPlatformDeliveryDocumentItemData(queryMods...)
+	return DataPlatformProductMasterGeneralData(queryMods...)
 }
 
-// LoadProductGroupDataPlatformDeliveryDocumentItemData allows an eager lookup of values, cached into the
+// LoadProductGroupDataPlatformProductMasterGeneralData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformProductGroupProductGroupDatumL) LoadProductGroupDataPlatformDeliveryDocumentItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductGroupProductGroupDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformProductGroupProductGroupDatumL) LoadProductGroupDataPlatformProductMasterGeneralData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductGroupProductGroupDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformProductGroupProductGroupDatum
 	var object *DataPlatformProductGroupProductGroupDatum
 
@@ -245,8 +245,8 @@ func (dataPlatformProductGroupProductGroupDatumL) LoadProductGroupDataPlatformDe
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_delivery_document_item_data`),
-		qm.WhereIn(`data_platform_delivery_document_item_data.ProductGroup in ?`, args...),
+		qm.From(`data_platform_product_master_general_data`),
+		qm.WhereIn(`data_platform_product_master_general_data.ProductGroup in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -254,30 +254,30 @@ func (dataPlatformProductGroupProductGroupDatumL) LoadProductGroupDataPlatformDe
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_item_data")
+		return errors.Wrap(err, "failed to eager load data_platform_product_master_general_data")
 	}
 
-	var resultSlice []*DataPlatformDeliveryDocumentItemDatum
+	var resultSlice []*DataPlatformProductMasterGeneralDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_item_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_master_general_data")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_item_data")
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_master_general_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_item_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_general_data")
 	}
 
 	if singular {
-		object.R.ProductGroupDataPlatformDeliveryDocumentItemData = resultSlice
+		object.R.ProductGroupDataPlatformProductMasterGeneralData = resultSlice
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
 			if queries.Equal(local.ProductGroup, foreign.ProductGroup) {
-				local.R.ProductGroupDataPlatformDeliveryDocumentItemData = append(local.R.ProductGroupDataPlatformDeliveryDocumentItemData, foreign)
+				local.R.ProductGroupDataPlatformProductMasterGeneralData = append(local.R.ProductGroupDataPlatformProductMasterGeneralData, foreign)
 				break
 			}
 		}
@@ -286,10 +286,10 @@ func (dataPlatformProductGroupProductGroupDatumL) LoadProductGroupDataPlatformDe
 	return nil
 }
 
-// AddProductGroupDataPlatformDeliveryDocumentItemData adds the given related objects to the existing relationships
+// AddProductGroupDataPlatformProductMasterGeneralData adds the given related objects to the existing relationships
 // of the data_platform_product_group_product_group_datum, optionally inserting them as new records.
-// Appends related to o.R.ProductGroupDataPlatformDeliveryDocumentItemData.
-func (o *DataPlatformProductGroupProductGroupDatum) AddProductGroupDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+// Appends related to o.R.ProductGroupDataPlatformProductMasterGeneralData.
+func (o *DataPlatformProductGroupProductGroupDatum) AddProductGroupDataPlatformProductMasterGeneralData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductMasterGeneralDatum) error {
 	var err error
 	for _, rel := range related {
 		if insert {
@@ -299,11 +299,11 @@ func (o *DataPlatformProductGroupProductGroupDatum) AddProductGroupDataPlatformD
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_delivery_document_item_data` SET %s WHERE %s",
+				"UPDATE `data_platform_product_master_general_data` SET %s WHERE %s",
 				strmangle.SetParamNames("`", "`", 0, []string{"ProductGroup"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentItemDatumPrimaryKeyColumns),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterGeneralDatumPrimaryKeyColumns),
 			)
-			values := []interface{}{o.ProductGroup, rel.DeliveryDocument, rel.DeliveryDocumentItem}
+			values := []interface{}{o.ProductGroup, rel.Product}
 
 			if boil.IsDebug(ctx) {
 				writer := boil.DebugWriterFrom(ctx)
@@ -320,22 +320,22 @@ func (o *DataPlatformProductGroupProductGroupDatum) AddProductGroupDataPlatformD
 
 	if o.R == nil {
 		o.R = &dataPlatformProductGroupProductGroupDatumR{
-			ProductGroupDataPlatformDeliveryDocumentItemData: related,
+			ProductGroupDataPlatformProductMasterGeneralData: related,
 		}
 	} else {
-		o.R.ProductGroupDataPlatformDeliveryDocumentItemData = append(o.R.ProductGroupDataPlatformDeliveryDocumentItemData, related...)
+		o.R.ProductGroupDataPlatformProductMasterGeneralData = append(o.R.ProductGroupDataPlatformProductMasterGeneralData, related...)
 	}
 
 	return nil
 }
 
-// SetProductGroupDataPlatformDeliveryDocumentItemData removes all previously related items of the
+// SetProductGroupDataPlatformProductMasterGeneralData removes all previously related items of the
 // data_platform_product_group_product_group_datum replacing them completely with the passed
 // in related items, optionally inserting them as new records.
-// Sets o.R.ProductGroupDataPlatformProductGroupProductGroupDatum's ProductGroupDataPlatformDeliveryDocumentItemData accordingly.
-// Replaces o.R.ProductGroupDataPlatformDeliveryDocumentItemData with related.
-func (o *DataPlatformProductGroupProductGroupDatum) SetProductGroupDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
-	query := "update `data_platform_delivery_document_item_data` set `ProductGroup` = null where `ProductGroup` = ?"
+// Sets o.R.ProductGroupDataPlatformProductGroupProductGroupDatum's ProductGroupDataPlatformProductMasterGeneralData accordingly.
+// Replaces o.R.ProductGroupDataPlatformProductMasterGeneralData with related.
+func (o *DataPlatformProductGroupProductGroupDatum) SetProductGroupDataPlatformProductMasterGeneralData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductMasterGeneralDatum) error {
+	query := "update `data_platform_product_master_general_data` set `ProductGroup` = null where `ProductGroup` = ?"
 	values := []interface{}{o.ProductGroup}
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -348,15 +348,15 @@ func (o *DataPlatformProductGroupProductGroupDatum) SetProductGroupDataPlatformD
 	}
 
 	if o.R != nil {
-		o.R.ProductGroupDataPlatformDeliveryDocumentItemData = nil
+		o.R.ProductGroupDataPlatformProductMasterGeneralData = nil
 	}
 
-	return o.AddProductGroupDataPlatformDeliveryDocumentItemData(ctx, exec, insert, related...)
+	return o.AddProductGroupDataPlatformProductMasterGeneralData(ctx, exec, insert, related...)
 }
 
-// RemoveProductGroupDataPlatformDeliveryDocumentItemData relationships from objects passed in.
-// Removes related items from R.ProductGroupDataPlatformDeliveryDocumentItemData (uses pointer comparison, removal does not keep order)
-func (o *DataPlatformProductGroupProductGroupDatum) RemoveProductGroupDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+// RemoveProductGroupDataPlatformProductMasterGeneralData relationships from objects passed in.
+// Removes related items from R.ProductGroupDataPlatformProductMasterGeneralData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformProductGroupProductGroupDatum) RemoveProductGroupDataPlatformProductMasterGeneralData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformProductMasterGeneralDatum) error {
 	if len(related) == 0 {
 		return nil
 	}
@@ -373,16 +373,16 @@ func (o *DataPlatformProductGroupProductGroupDatum) RemoveProductGroupDataPlatfo
 	}
 
 	for _, rel := range related {
-		for i, ri := range o.R.ProductGroupDataPlatformDeliveryDocumentItemData {
+		for i, ri := range o.R.ProductGroupDataPlatformProductMasterGeneralData {
 			if rel != ri {
 				continue
 			}
 
-			ln := len(o.R.ProductGroupDataPlatformDeliveryDocumentItemData)
+			ln := len(o.R.ProductGroupDataPlatformProductMasterGeneralData)
 			if ln > 1 && i < ln-1 {
-				o.R.ProductGroupDataPlatformDeliveryDocumentItemData[i] = o.R.ProductGroupDataPlatformDeliveryDocumentItemData[ln-1]
+				o.R.ProductGroupDataPlatformProductMasterGeneralData[i] = o.R.ProductGroupDataPlatformProductMasterGeneralData[ln-1]
 			}
-			o.R.ProductGroupDataPlatformDeliveryDocumentItemData = o.R.ProductGroupDataPlatformDeliveryDocumentItemData[:ln-1]
+			o.R.ProductGroupDataPlatformProductMasterGeneralData = o.R.ProductGroupDataPlatformProductMasterGeneralData[:ln-1]
 			break
 		}
 	}
