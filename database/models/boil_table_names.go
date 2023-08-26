@@ -20,6 +20,7 @@ var TableNames = struct {
 	DataPlatformCountryCountryTextData                     string
 	DataPlatformCurrencyCurrencyData                       string
 	DataPlatformCurrencyCurrencyTextData                   string
+	DataPlatformDeliveryDocumentHeaderData                 string
 	DataPlatformDistributionChannelDistributionChannelData string
 	DataPlatformDistributionChannelTextData                string
 	DataPlatformDistrictDistrictData                       string
@@ -57,6 +58,9 @@ var TableNames = struct {
 	DataPlatformNumberRangeLatestNumberData                string
 	DataPlatformNumberRangeNumberRangeData                 string
 	DataPlatformOperationsHeaderData                       string
+	DataPlatformOperationsItemData                         string
+	DataPlatformOrdersHeaderData                           string
+	DataPlatformOrdersItemData                             string
 	DataPlatformPartnerFunctionPartnerFunctionData         string
 	DataPlatformPartnerFunctionPartnerFunctionTextData     string
 	DataPlatformPaymentMethodPaymentMethodData             string
@@ -102,13 +106,24 @@ var TableNames = struct {
 	DataPlatformProductStockProductStockData               string
 	DataPlatformProductStockProductStockDataOld            string
 	DataPlatformProductTypeProductTypeData                 string
+	DataPlatformProductionOrderConfirmationHeaderData      string
+	DataPlatformProductionOrderHeaderData                  string
+	DataPlatformProductionOrderItemComponentData           string
+	DataPlatformProductionOrderItemData                    string
+	DataPlatformProductionOrderItemOperationComponentData  string
+	DataPlatformProductionOrderItemOperationData           string
+	DataPlatformPurchaseRequisitionHeaderData              string
+	DataPlatformPurchaseRequisitionItemData                string
 	DataPlatformQuantityUnitConversionQuantityUnitConvData string
 	DataPlatformQuantityUnitQuantityUnitData               string
 	DataPlatformQuantityUnitTextData                       string
 	DataPlatformSCRBillingRelationData                     string
+	DataPlatformSCRDeliveryPlantRelationData               string
 	DataPlatformSCRDeliveryRelationData                    string
 	DataPlatformSCRGeneralData                             string
 	DataPlatformSCRPaymentRelationData                     string
+	DataPlatformSCRProductionPlantRelationData             string
+	DataPlatformSCRStockConfPlantRelationData              string
 	DataPlatformSCRTransactionData                         string
 	DataPlatformStorageBinGeneralData                      string
 	DataPlatformTaxCodeTaxCodeData                         string
@@ -134,6 +149,7 @@ var TableNames = struct {
 	DataPlatformCountryCountryTextData:                     "data_platform_country_country_text_data",
 	DataPlatformCurrencyCurrencyData:                       "data_platform_currency_currency_data",
 	DataPlatformCurrencyCurrencyTextData:                   "data_platform_currency_currency_text_data",
+	DataPlatformDeliveryDocumentHeaderData:                 "data_platform_delivery_document_header_data",
 	DataPlatformDistributionChannelDistributionChannelData: "data_platform_distribution_channel_distribution_channel_data",
 	DataPlatformDistributionChannelTextData:                "data_platform_distribution_channel_text_data",
 	DataPlatformDistrictDistrictData:                       "data_platform_district_district_data",
@@ -171,6 +187,9 @@ var TableNames = struct {
 	DataPlatformNumberRangeLatestNumberData:                "data_platform_number_range_latest_number_data",
 	DataPlatformNumberRangeNumberRangeData:                 "data_platform_number_range_number_range_data",
 	DataPlatformOperationsHeaderData:                       "data_platform_operations_header_data",
+	DataPlatformOperationsItemData:                         "data_platform_operations_item_data",
+	DataPlatformOrdersHeaderData:                           "data_platform_orders_header_data",
+	DataPlatformOrdersItemData:                             "data_platform_orders_item_data",
 	DataPlatformPartnerFunctionPartnerFunctionData:         "data_platform_partner_function_partner_function_data",
 	DataPlatformPartnerFunctionPartnerFunctionTextData:     "data_platform_partner_function_partner_function_text_data",
 	DataPlatformPaymentMethodPaymentMethodData:             "data_platform_payment_method_payment_method_data",
@@ -216,13 +235,24 @@ var TableNames = struct {
 	DataPlatformProductStockProductStockData:               "data_platform_product_stock_product_stock_data",
 	DataPlatformProductStockProductStockDataOld:            "data_platform_product_stock_product_stock_data_old",
 	DataPlatformProductTypeProductTypeData:                 "data_platform_product_type_product_type_data",
+	DataPlatformProductionOrderConfirmationHeaderData:      "data_platform_production_order_confirmation_header_data",
+	DataPlatformProductionOrderHeaderData:                  "data_platform_production_order_header_data",
+	DataPlatformProductionOrderItemComponentData:           "data_platform_production_order_item_component_data",
+	DataPlatformProductionOrderItemData:                    "data_platform_production_order_item_data",
+	DataPlatformProductionOrderItemOperationComponentData:  "data_platform_production_order_item_operation_component_data",
+	DataPlatformProductionOrderItemOperationData:           "data_platform_production_order_item_operation_data",
+	DataPlatformPurchaseRequisitionHeaderData:              "data_platform_purchase_requisition_header_data",
+	DataPlatformPurchaseRequisitionItemData:                "data_platform_purchase_requisition_item_data",
 	DataPlatformQuantityUnitConversionQuantityUnitConvData: "data_platform_quantity_unit_conversion_quantity_unit_conv_data",
 	DataPlatformQuantityUnitQuantityUnitData:               "data_platform_quantity_unit_quantity_unit_data",
 	DataPlatformQuantityUnitTextData:                       "data_platform_quantity_unit_text_data",
 	DataPlatformSCRBillingRelationData:                     "data_platform_scr_billing_relation_data",
+	DataPlatformSCRDeliveryPlantRelationData:               "data_platform_scr_delivery_plant_relation_data",
 	DataPlatformSCRDeliveryRelationData:                    "data_platform_scr_delivery_relation_data",
 	DataPlatformSCRGeneralData:                             "data_platform_scr_general_data",
 	DataPlatformSCRPaymentRelationData:                     "data_platform_scr_payment_relation_data",
+	DataPlatformSCRProductionPlantRelationData:             "data_platform_scr_production_plant_relation_data",
+	DataPlatformSCRStockConfPlantRelationData:              "data_platform_scr_stock_conf_plant_relation_data",
 	DataPlatformSCRTransactionData:                         "data_platform_scr_transaction_data",
 	DataPlatformStorageBinGeneralData:                      "data_platform_storage_bin_general_data",
 	DataPlatformTaxCodeTaxCodeData:                         "data_platform_tax_code_tax_code_data",

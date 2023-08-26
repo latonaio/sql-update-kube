@@ -267,15 +267,18 @@ var DataPlatformAddressAddressDatumWhere = struct {
 var DataPlatformAddressAddressDatumRels = struct {
 	AddressIDDataPlatformBusinessPartnerGeneralData string
 	AddressIDDataPlatformEquipmentMasterAddressData string
+	AddressIDDataPlatformPlantGeneralData           string
 }{
 	AddressIDDataPlatformBusinessPartnerGeneralData: "AddressIDDataPlatformBusinessPartnerGeneralData",
 	AddressIDDataPlatformEquipmentMasterAddressData: "AddressIDDataPlatformEquipmentMasterAddressData",
+	AddressIDDataPlatformPlantGeneralData:           "AddressIDDataPlatformPlantGeneralData",
 }
 
 // dataPlatformAddressAddressDatumR is where relationships are stored.
 type dataPlatformAddressAddressDatumR struct {
 	AddressIDDataPlatformBusinessPartnerGeneralData DataPlatformBusinessPartnerGeneralDatumSlice `boil:"AddressIDDataPlatformBusinessPartnerGeneralData" json:"AddressIDDataPlatformBusinessPartnerGeneralData" toml:"AddressIDDataPlatformBusinessPartnerGeneralData" yaml:"AddressIDDataPlatformBusinessPartnerGeneralData"`
 	AddressIDDataPlatformEquipmentMasterAddressData DataPlatformEquipmentMasterAddressDatumSlice `boil:"AddressIDDataPlatformEquipmentMasterAddressData" json:"AddressIDDataPlatformEquipmentMasterAddressData" toml:"AddressIDDataPlatformEquipmentMasterAddressData" yaml:"AddressIDDataPlatformEquipmentMasterAddressData"`
+	AddressIDDataPlatformPlantGeneralData           DataPlatformPlantGeneralDatumSlice           `boil:"AddressIDDataPlatformPlantGeneralData" json:"AddressIDDataPlatformPlantGeneralData" toml:"AddressIDDataPlatformPlantGeneralData" yaml:"AddressIDDataPlatformPlantGeneralData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -295,6 +298,13 @@ func (r *dataPlatformAddressAddressDatumR) GetAddressIDDataPlatformEquipmentMast
 		return nil
 	}
 	return r.AddressIDDataPlatformEquipmentMasterAddressData
+}
+
+func (r *dataPlatformAddressAddressDatumR) GetAddressIDDataPlatformPlantGeneralData() DataPlatformPlantGeneralDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.AddressIDDataPlatformPlantGeneralData
 }
 
 // dataPlatformAddressAddressDatumL is where Load methods for each relationship are stored.
@@ -425,6 +435,20 @@ func (o *DataPlatformAddressAddressDatum) AddressIDDataPlatformEquipmentMasterAd
 	)
 
 	return DataPlatformEquipmentMasterAddressData(queryMods...)
+}
+
+// AddressIDDataPlatformPlantGeneralData retrieves all the data_platform_plant_general_datum's DataPlatformPlantGeneralData with an executor via AddressID column.
+func (o *DataPlatformAddressAddressDatum) AddressIDDataPlatformPlantGeneralData(mods ...qm.QueryMod) dataPlatformPlantGeneralDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_plant_general_data`.`AddressID`=?", o.AddressID),
+	)
+
+	return DataPlatformPlantGeneralData(queryMods...)
 }
 
 // LoadAddressIDDataPlatformBusinessPartnerGeneralData allows an eager lookup of values, cached into the
@@ -621,6 +645,103 @@ func (dataPlatformAddressAddressDatumL) LoadAddressIDDataPlatformEquipmentMaster
 	return nil
 }
 
+// LoadAddressIDDataPlatformPlantGeneralData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformAddressAddressDatumL) LoadAddressIDDataPlatformPlantGeneralData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformAddressAddressDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformAddressAddressDatum
+	var object *DataPlatformAddressAddressDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformAddressAddressDatum.(*DataPlatformAddressAddressDatum)
+		if !ok {
+			object = new(DataPlatformAddressAddressDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformAddressAddressDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformAddressAddressDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformAddressAddressDatum.(*[]*DataPlatformAddressAddressDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformAddressAddressDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformAddressAddressDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformAddressAddressDatumR{}
+		}
+		args = append(args, object.AddressID)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformAddressAddressDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.AddressID) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.AddressID)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_plant_general_data`),
+		qm.WhereIn(`data_platform_plant_general_data.AddressID in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_plant_general_data")
+	}
+
+	var resultSlice []*DataPlatformPlantGeneralDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_plant_general_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_plant_general_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_plant_general_data")
+	}
+
+	if singular {
+		object.R.AddressIDDataPlatformPlantGeneralData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.AddressID, foreign.AddressID) {
+				local.R.AddressIDDataPlatformPlantGeneralData = append(local.R.AddressIDDataPlatformPlantGeneralData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // AddAddressIDDataPlatformBusinessPartnerGeneralData adds the given related objects to the existing relationships
 // of the data_platform_address_address_datum, optionally inserting them as new records.
 // Appends related to o.R.AddressIDDataPlatformBusinessPartnerGeneralData.
@@ -763,6 +884,110 @@ func (o *DataPlatformAddressAddressDatum) AddAddressIDDataPlatformEquipmentMaste
 		}
 	} else {
 		o.R.AddressIDDataPlatformEquipmentMasterAddressData = append(o.R.AddressIDDataPlatformEquipmentMasterAddressData, related...)
+	}
+
+	return nil
+}
+
+// AddAddressIDDataPlatformPlantGeneralData adds the given related objects to the existing relationships
+// of the data_platform_address_address_datum, optionally inserting them as new records.
+// Appends related to o.R.AddressIDDataPlatformPlantGeneralData.
+func (o *DataPlatformAddressAddressDatum) AddAddressIDDataPlatformPlantGeneralData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlantGeneralDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.AddressID, o.AddressID)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_plant_general_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"AddressID"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformPlantGeneralDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.AddressID, rel.BusinessPartner, rel.Plant}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.AddressID, o.AddressID)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformAddressAddressDatumR{
+			AddressIDDataPlatformPlantGeneralData: related,
+		}
+	} else {
+		o.R.AddressIDDataPlatformPlantGeneralData = append(o.R.AddressIDDataPlatformPlantGeneralData, related...)
+	}
+
+	return nil
+}
+
+// SetAddressIDDataPlatformPlantGeneralData removes all previously related items of the
+// data_platform_address_address_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.AddressIDDataPlatformAddressAddressDatum's AddressIDDataPlatformPlantGeneralData accordingly.
+// Replaces o.R.AddressIDDataPlatformPlantGeneralData with related.
+func (o *DataPlatformAddressAddressDatum) SetAddressIDDataPlatformPlantGeneralData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlantGeneralDatum) error {
+	query := "update `data_platform_plant_general_data` set `AddressID` = null where `AddressID` = ?"
+	values := []interface{}{o.AddressID}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.AddressIDDataPlatformPlantGeneralData = nil
+	}
+
+	return o.AddAddressIDDataPlatformPlantGeneralData(ctx, exec, insert, related...)
+}
+
+// RemoveAddressIDDataPlatformPlantGeneralData relationships from objects passed in.
+// Removes related items from R.AddressIDDataPlatformPlantGeneralData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformAddressAddressDatum) RemoveAddressIDDataPlatformPlantGeneralData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformPlantGeneralDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.AddressID, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("AddressID")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.AddressIDDataPlatformPlantGeneralData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.AddressIDDataPlatformPlantGeneralData)
+			if ln > 1 && i < ln-1 {
+				o.R.AddressIDDataPlatformPlantGeneralData[i] = o.R.AddressIDDataPlatformPlantGeneralData[ln-1]
+			}
+			o.R.AddressIDDataPlatformPlantGeneralData = o.R.AddressIDDataPlatformPlantGeneralData[:ln-1]
+			break
+		}
 	}
 
 	return nil

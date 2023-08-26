@@ -157,14 +157,23 @@ var DataPlatformWorkCenterGeneralDatumWhere = struct {
 
 // DataPlatformWorkCenterGeneralDatumRels is where relationship names are stored.
 var DataPlatformWorkCenterGeneralDatumRels = struct {
-	BusinessPartnerDataPlatformPlantGeneralDatum string
+	BusinessPartnerDataPlatformPlantGeneralDatum                string
+	WorkCenterDataPlatformOperationsItemData                    string
+	WorkCenterDataPlatformProductionOrderConfirmationHeaderData string
+	WorkCenterDataPlatformProductionOrderItemOperationData      string
 }{
-	BusinessPartnerDataPlatformPlantGeneralDatum: "BusinessPartnerDataPlatformPlantGeneralDatum",
+	BusinessPartnerDataPlatformPlantGeneralDatum:                "BusinessPartnerDataPlatformPlantGeneralDatum",
+	WorkCenterDataPlatformOperationsItemData:                    "WorkCenterDataPlatformOperationsItemData",
+	WorkCenterDataPlatformProductionOrderConfirmationHeaderData: "WorkCenterDataPlatformProductionOrderConfirmationHeaderData",
+	WorkCenterDataPlatformProductionOrderItemOperationData:      "WorkCenterDataPlatformProductionOrderItemOperationData",
 }
 
 // dataPlatformWorkCenterGeneralDatumR is where relationships are stored.
 type dataPlatformWorkCenterGeneralDatumR struct {
-	BusinessPartnerDataPlatformPlantGeneralDatum *DataPlatformPlantGeneralDatum `boil:"BusinessPartnerDataPlatformPlantGeneralDatum" json:"BusinessPartnerDataPlatformPlantGeneralDatum" toml:"BusinessPartnerDataPlatformPlantGeneralDatum" yaml:"BusinessPartnerDataPlatformPlantGeneralDatum"`
+	BusinessPartnerDataPlatformPlantGeneralDatum                *DataPlatformPlantGeneralDatum                          `boil:"BusinessPartnerDataPlatformPlantGeneralDatum" json:"BusinessPartnerDataPlatformPlantGeneralDatum" toml:"BusinessPartnerDataPlatformPlantGeneralDatum" yaml:"BusinessPartnerDataPlatformPlantGeneralDatum"`
+	WorkCenterDataPlatformOperationsItemData                    DataPlatformOperationsItemDatumSlice                    `boil:"WorkCenterDataPlatformOperationsItemData" json:"WorkCenterDataPlatformOperationsItemData" toml:"WorkCenterDataPlatformOperationsItemData" yaml:"WorkCenterDataPlatformOperationsItemData"`
+	WorkCenterDataPlatformProductionOrderConfirmationHeaderData DataPlatformProductionOrderConfirmationHeaderDatumSlice `boil:"WorkCenterDataPlatformProductionOrderConfirmationHeaderData" json:"WorkCenterDataPlatformProductionOrderConfirmationHeaderData" toml:"WorkCenterDataPlatformProductionOrderConfirmationHeaderData" yaml:"WorkCenterDataPlatformProductionOrderConfirmationHeaderData"`
+	WorkCenterDataPlatformProductionOrderItemOperationData      DataPlatformProductionOrderItemOperationDatumSlice      `boil:"WorkCenterDataPlatformProductionOrderItemOperationData" json:"WorkCenterDataPlatformProductionOrderItemOperationData" toml:"WorkCenterDataPlatformProductionOrderItemOperationData" yaml:"WorkCenterDataPlatformProductionOrderItemOperationData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -177,6 +186,27 @@ func (r *dataPlatformWorkCenterGeneralDatumR) GetBusinessPartnerDataPlatformPlan
 		return nil
 	}
 	return r.BusinessPartnerDataPlatformPlantGeneralDatum
+}
+
+func (r *dataPlatformWorkCenterGeneralDatumR) GetWorkCenterDataPlatformOperationsItemData() DataPlatformOperationsItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.WorkCenterDataPlatformOperationsItemData
+}
+
+func (r *dataPlatformWorkCenterGeneralDatumR) GetWorkCenterDataPlatformProductionOrderConfirmationHeaderData() DataPlatformProductionOrderConfirmationHeaderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.WorkCenterDataPlatformProductionOrderConfirmationHeaderData
+}
+
+func (r *dataPlatformWorkCenterGeneralDatumR) GetWorkCenterDataPlatformProductionOrderItemOperationData() DataPlatformProductionOrderItemOperationDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.WorkCenterDataPlatformProductionOrderItemOperationData
 }
 
 // dataPlatformWorkCenterGeneralDatumL is where Load methods for each relationship are stored.
@@ -292,6 +322,48 @@ func (o *DataPlatformWorkCenterGeneralDatum) BusinessPartnerDataPlatformPlantGen
 	return DataPlatformPlantGeneralData(queryMods...)
 }
 
+// WorkCenterDataPlatformOperationsItemData retrieves all the data_platform_operations_item_datum's DataPlatformOperationsItemData with an executor via WorkCenter column.
+func (o *DataPlatformWorkCenterGeneralDatum) WorkCenterDataPlatformOperationsItemData(mods ...qm.QueryMod) dataPlatformOperationsItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_operations_item_data`.`WorkCenter`=?", o.WorkCenter),
+	)
+
+	return DataPlatformOperationsItemData(queryMods...)
+}
+
+// WorkCenterDataPlatformProductionOrderConfirmationHeaderData retrieves all the data_platform_production_order_confirmation_header_datum's DataPlatformProductionOrderConfirmationHeaderData with an executor via WorkCenter column.
+func (o *DataPlatformWorkCenterGeneralDatum) WorkCenterDataPlatformProductionOrderConfirmationHeaderData(mods ...qm.QueryMod) dataPlatformProductionOrderConfirmationHeaderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_production_order_confirmation_header_data`.`WorkCenter`=?", o.WorkCenter),
+	)
+
+	return DataPlatformProductionOrderConfirmationHeaderData(queryMods...)
+}
+
+// WorkCenterDataPlatformProductionOrderItemOperationData retrieves all the data_platform_production_order_item_operation_datum's DataPlatformProductionOrderItemOperationData with an executor via WorkCenter column.
+func (o *DataPlatformWorkCenterGeneralDatum) WorkCenterDataPlatformProductionOrderItemOperationData(mods ...qm.QueryMod) dataPlatformProductionOrderItemOperationDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_production_order_item_operation_data`.`WorkCenter`=?", o.WorkCenter),
+	)
+
+	return DataPlatformProductionOrderItemOperationData(queryMods...)
+}
+
 // LoadBusinessPartnerDataPlatformPlantGeneralDatum allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for an N-1 relationship.
 func (dataPlatformWorkCenterGeneralDatumL) LoadBusinessPartnerDataPlatformPlantGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformWorkCenterGeneralDatum interface{}, mods queries.Applicator) error {
@@ -396,6 +468,297 @@ func (dataPlatformWorkCenterGeneralDatumL) LoadBusinessPartnerDataPlatformPlantG
 	return nil
 }
 
+// LoadWorkCenterDataPlatformOperationsItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformWorkCenterGeneralDatumL) LoadWorkCenterDataPlatformOperationsItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformWorkCenterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformWorkCenterGeneralDatum
+	var object *DataPlatformWorkCenterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformWorkCenterGeneralDatum.(*DataPlatformWorkCenterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformWorkCenterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformWorkCenterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformWorkCenterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformWorkCenterGeneralDatum.(*[]*DataPlatformWorkCenterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformWorkCenterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformWorkCenterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformWorkCenterGeneralDatumR{}
+		}
+		args = append(args, object.WorkCenter)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformWorkCenterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.WorkCenter) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.WorkCenter)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_operations_item_data`),
+		qm.WhereIn(`data_platform_operations_item_data.WorkCenter in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_operations_item_data")
+	}
+
+	var resultSlice []*DataPlatformOperationsItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_operations_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_operations_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_operations_item_data")
+	}
+
+	if singular {
+		object.R.WorkCenterDataPlatformOperationsItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.WorkCenter, foreign.WorkCenter) {
+				local.R.WorkCenterDataPlatformOperationsItemData = append(local.R.WorkCenterDataPlatformOperationsItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadWorkCenterDataPlatformProductionOrderConfirmationHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformWorkCenterGeneralDatumL) LoadWorkCenterDataPlatformProductionOrderConfirmationHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformWorkCenterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformWorkCenterGeneralDatum
+	var object *DataPlatformWorkCenterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformWorkCenterGeneralDatum.(*DataPlatformWorkCenterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformWorkCenterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformWorkCenterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformWorkCenterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformWorkCenterGeneralDatum.(*[]*DataPlatformWorkCenterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformWorkCenterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformWorkCenterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformWorkCenterGeneralDatumR{}
+		}
+		args = append(args, object.WorkCenter)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformWorkCenterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.WorkCenter {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.WorkCenter)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_production_order_confirmation_header_data`),
+		qm.WhereIn(`data_platform_production_order_confirmation_header_data.WorkCenter in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_production_order_confirmation_header_data")
+	}
+
+	var resultSlice []*DataPlatformProductionOrderConfirmationHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_production_order_confirmation_header_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_production_order_confirmation_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_production_order_confirmation_header_data")
+	}
+
+	if singular {
+		object.R.WorkCenterDataPlatformProductionOrderConfirmationHeaderData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.WorkCenter == foreign.WorkCenter {
+				local.R.WorkCenterDataPlatformProductionOrderConfirmationHeaderData = append(local.R.WorkCenterDataPlatformProductionOrderConfirmationHeaderData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadWorkCenterDataPlatformProductionOrderItemOperationData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformWorkCenterGeneralDatumL) LoadWorkCenterDataPlatformProductionOrderItemOperationData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformWorkCenterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformWorkCenterGeneralDatum
+	var object *DataPlatformWorkCenterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformWorkCenterGeneralDatum.(*DataPlatformWorkCenterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformWorkCenterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformWorkCenterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformWorkCenterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformWorkCenterGeneralDatum.(*[]*DataPlatformWorkCenterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformWorkCenterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformWorkCenterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformWorkCenterGeneralDatumR{}
+		}
+		args = append(args, object.WorkCenter)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformWorkCenterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.WorkCenter {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.WorkCenter)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_production_order_item_operation_data`),
+		qm.WhereIn(`data_platform_production_order_item_operation_data.WorkCenter in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_production_order_item_operation_data")
+	}
+
+	var resultSlice []*DataPlatformProductionOrderItemOperationDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_production_order_item_operation_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_production_order_item_operation_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_production_order_item_operation_data")
+	}
+
+	if singular {
+		object.R.WorkCenterDataPlatformProductionOrderItemOperationData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.WorkCenter == foreign.WorkCenter {
+				local.R.WorkCenterDataPlatformProductionOrderItemOperationData = append(local.R.WorkCenterDataPlatformProductionOrderItemOperationData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // SetBusinessPartnerDataPlatformPlantGeneralDatum of the dataPlatformWorkCenterGeneralDatum to the related item.
 // Sets o.R.BusinessPartnerDataPlatformPlantGeneralDatum to related.
 func (o *DataPlatformWorkCenterGeneralDatum) SetBusinessPartnerDataPlatformPlantGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformPlantGeneralDatum) error {
@@ -429,6 +792,196 @@ func (o *DataPlatformWorkCenterGeneralDatum) SetBusinessPartnerDataPlatformPlant
 		}
 	} else {
 		o.R.BusinessPartnerDataPlatformPlantGeneralDatum = related
+	}
+
+	return nil
+}
+
+// AddWorkCenterDataPlatformOperationsItemData adds the given related objects to the existing relationships
+// of the data_platform_work_center_general_datum, optionally inserting them as new records.
+// Appends related to o.R.WorkCenterDataPlatformOperationsItemData.
+func (o *DataPlatformWorkCenterGeneralDatum) AddWorkCenterDataPlatformOperationsItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOperationsItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.WorkCenter, o.WorkCenter)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_operations_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"WorkCenter"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOperationsItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.WorkCenter, rel.Operations, rel.OperationsItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.WorkCenter, o.WorkCenter)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformWorkCenterGeneralDatumR{
+			WorkCenterDataPlatformOperationsItemData: related,
+		}
+	} else {
+		o.R.WorkCenterDataPlatformOperationsItemData = append(o.R.WorkCenterDataPlatformOperationsItemData, related...)
+	}
+
+	return nil
+}
+
+// SetWorkCenterDataPlatformOperationsItemData removes all previously related items of the
+// data_platform_work_center_general_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.WorkCenterDataPlatformWorkCenterGeneralDatum's WorkCenterDataPlatformOperationsItemData accordingly.
+// Replaces o.R.WorkCenterDataPlatformOperationsItemData with related.
+func (o *DataPlatformWorkCenterGeneralDatum) SetWorkCenterDataPlatformOperationsItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOperationsItemDatum) error {
+	query := "update `data_platform_operations_item_data` set `WorkCenter` = null where `WorkCenter` = ?"
+	values := []interface{}{o.WorkCenter}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.WorkCenterDataPlatformOperationsItemData = nil
+	}
+
+	return o.AddWorkCenterDataPlatformOperationsItemData(ctx, exec, insert, related...)
+}
+
+// RemoveWorkCenterDataPlatformOperationsItemData relationships from objects passed in.
+// Removes related items from R.WorkCenterDataPlatformOperationsItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformWorkCenterGeneralDatum) RemoveWorkCenterDataPlatformOperationsItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformOperationsItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.WorkCenter, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("WorkCenter")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.WorkCenterDataPlatformOperationsItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.WorkCenterDataPlatformOperationsItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.WorkCenterDataPlatformOperationsItemData[i] = o.R.WorkCenterDataPlatformOperationsItemData[ln-1]
+			}
+			o.R.WorkCenterDataPlatformOperationsItemData = o.R.WorkCenterDataPlatformOperationsItemData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddWorkCenterDataPlatformProductionOrderConfirmationHeaderData adds the given related objects to the existing relationships
+// of the data_platform_work_center_general_datum, optionally inserting them as new records.
+// Appends related to o.R.WorkCenterDataPlatformProductionOrderConfirmationHeaderData.
+func (o *DataPlatformWorkCenterGeneralDatum) AddWorkCenterDataPlatformProductionOrderConfirmationHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductionOrderConfirmationHeaderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.WorkCenter = o.WorkCenter
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_production_order_confirmation_header_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"WorkCenter"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductionOrderConfirmationHeaderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.WorkCenter, rel.ProductionOrder, rel.ProductionOrderItem, rel.Operations, rel.OperationsItem, rel.OperationID, rel.ConfirmationCountingID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.WorkCenter = o.WorkCenter
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformWorkCenterGeneralDatumR{
+			WorkCenterDataPlatformProductionOrderConfirmationHeaderData: related,
+		}
+	} else {
+		o.R.WorkCenterDataPlatformProductionOrderConfirmationHeaderData = append(o.R.WorkCenterDataPlatformProductionOrderConfirmationHeaderData, related...)
+	}
+
+	return nil
+}
+
+// AddWorkCenterDataPlatformProductionOrderItemOperationData adds the given related objects to the existing relationships
+// of the data_platform_work_center_general_datum, optionally inserting them as new records.
+// Appends related to o.R.WorkCenterDataPlatformProductionOrderItemOperationData.
+func (o *DataPlatformWorkCenterGeneralDatum) AddWorkCenterDataPlatformProductionOrderItemOperationData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductionOrderItemOperationDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.WorkCenter = o.WorkCenter
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_production_order_item_operation_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"WorkCenter"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductionOrderItemOperationDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.WorkCenter, rel.ProductionOrder, rel.ProductionOrderItem, rel.Operations, rel.OperationsItem, rel.OperationID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.WorkCenter = o.WorkCenter
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformWorkCenterGeneralDatumR{
+			WorkCenterDataPlatformProductionOrderItemOperationData: related,
+		}
+	} else {
+		o.R.WorkCenterDataPlatformProductionOrderItemOperationData = append(o.R.WorkCenterDataPlatformProductionOrderItemOperationData, related...)
 	}
 
 	return nil

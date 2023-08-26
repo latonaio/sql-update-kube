@@ -32,10 +32,11 @@ type DataPlatformBatchMasterRecordBatchDatum struct {
 	ValidityStartTime   string      `boil:"ValidityStartTime" json:"ValidityStartTime" toml:"ValidityStartTime" yaml:"ValidityStartTime"`
 	ValidityEndDate     string      `boil:"ValidityEndDate" json:"ValidityEndDate" toml:"ValidityEndDate" yaml:"ValidityEndDate"`
 	ValidityEndTime     string      `boil:"ValidityEndTime" json:"ValidityEndTime" toml:"ValidityEndTime" yaml:"ValidityEndTime"`
-	CountryOfOrigin     null.String `boil:"CountryOfOrigin" json:"CountryOfOrigin,omitempty" toml:"CountryOfOrigin" yaml:"CountryOfOrigin,omitempty"`
 	ManufactureDate     null.String `boil:"ManufactureDate" json:"ManufactureDate,omitempty" toml:"ManufactureDate" yaml:"ManufactureDate,omitempty"`
-	CreationDateTime    null.String `boil:"CreationDateTime" json:"CreationDateTime,omitempty" toml:"CreationDateTime" yaml:"CreationDateTime,omitempty"`
-	LastChangeDateTime  null.String `boil:"LastChangeDateTime" json:"LastChangeDateTime,omitempty" toml:"LastChangeDateTime" yaml:"LastChangeDateTime,omitempty"`
+	CreationDate        string      `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
+	CreationTime        string      `boil:"CreationTime" json:"CreationTime" toml:"CreationTime" yaml:"CreationTime"`
+	LastChangeDate      string      `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
+	LastChangeTime      string      `boil:"LastChangeTime" json:"LastChangeTime" toml:"LastChangeTime" yaml:"LastChangeTime"`
 	IsMarkedForDeletion null.Bool   `boil:"IsMarkedForDeletion" json:"IsMarkedForDeletion,omitempty" toml:"IsMarkedForDeletion" yaml:"IsMarkedForDeletion,omitempty"`
 
 	R *dataPlatformBatchMasterRecordBatchDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
@@ -51,10 +52,11 @@ var DataPlatformBatchMasterRecordBatchDatumColumns = struct {
 	ValidityStartTime   string
 	ValidityEndDate     string
 	ValidityEndTime     string
-	CountryOfOrigin     string
 	ManufactureDate     string
-	CreationDateTime    string
-	LastChangeDateTime  string
+	CreationDate        string
+	CreationTime        string
+	LastChangeDate      string
+	LastChangeTime      string
 	IsMarkedForDeletion string
 }{
 	Product:             "Product",
@@ -65,10 +67,11 @@ var DataPlatformBatchMasterRecordBatchDatumColumns = struct {
 	ValidityStartTime:   "ValidityStartTime",
 	ValidityEndDate:     "ValidityEndDate",
 	ValidityEndTime:     "ValidityEndTime",
-	CountryOfOrigin:     "CountryOfOrigin",
 	ManufactureDate:     "ManufactureDate",
-	CreationDateTime:    "CreationDateTime",
-	LastChangeDateTime:  "LastChangeDateTime",
+	CreationDate:        "CreationDate",
+	CreationTime:        "CreationTime",
+	LastChangeDate:      "LastChangeDate",
+	LastChangeTime:      "LastChangeTime",
 	IsMarkedForDeletion: "IsMarkedForDeletion",
 }
 
@@ -81,10 +84,11 @@ var DataPlatformBatchMasterRecordBatchDatumTableColumns = struct {
 	ValidityStartTime   string
 	ValidityEndDate     string
 	ValidityEndTime     string
-	CountryOfOrigin     string
 	ManufactureDate     string
-	CreationDateTime    string
-	LastChangeDateTime  string
+	CreationDate        string
+	CreationTime        string
+	LastChangeDate      string
+	LastChangeTime      string
 	IsMarkedForDeletion string
 }{
 	Product:             "data_platform_batch_master_record_batch_data.Product",
@@ -95,10 +99,11 @@ var DataPlatformBatchMasterRecordBatchDatumTableColumns = struct {
 	ValidityStartTime:   "data_platform_batch_master_record_batch_data.ValidityStartTime",
 	ValidityEndDate:     "data_platform_batch_master_record_batch_data.ValidityEndDate",
 	ValidityEndTime:     "data_platform_batch_master_record_batch_data.ValidityEndTime",
-	CountryOfOrigin:     "data_platform_batch_master_record_batch_data.CountryOfOrigin",
 	ManufactureDate:     "data_platform_batch_master_record_batch_data.ManufactureDate",
-	CreationDateTime:    "data_platform_batch_master_record_batch_data.CreationDateTime",
-	LastChangeDateTime:  "data_platform_batch_master_record_batch_data.LastChangeDateTime",
+	CreationDate:        "data_platform_batch_master_record_batch_data.CreationDate",
+	CreationTime:        "data_platform_batch_master_record_batch_data.CreationTime",
+	LastChangeDate:      "data_platform_batch_master_record_batch_data.LastChangeDate",
+	LastChangeTime:      "data_platform_batch_master_record_batch_data.LastChangeTime",
 	IsMarkedForDeletion: "data_platform_batch_master_record_batch_data.IsMarkedForDeletion",
 }
 
@@ -137,10 +142,11 @@ var DataPlatformBatchMasterRecordBatchDatumWhere = struct {
 	ValidityStartTime   whereHelperstring
 	ValidityEndDate     whereHelperstring
 	ValidityEndTime     whereHelperstring
-	CountryOfOrigin     whereHelpernull_String
 	ManufactureDate     whereHelpernull_String
-	CreationDateTime    whereHelpernull_String
-	LastChangeDateTime  whereHelpernull_String
+	CreationDate        whereHelperstring
+	CreationTime        whereHelperstring
+	LastChangeDate      whereHelperstring
+	LastChangeTime      whereHelperstring
 	IsMarkedForDeletion whereHelpernull_Bool
 }{
 	Product:             whereHelperstring{field: "`data_platform_batch_master_record_batch_data`.`Product`"},
@@ -151,19 +157,42 @@ var DataPlatformBatchMasterRecordBatchDatumWhere = struct {
 	ValidityStartTime:   whereHelperstring{field: "`data_platform_batch_master_record_batch_data`.`ValidityStartTime`"},
 	ValidityEndDate:     whereHelperstring{field: "`data_platform_batch_master_record_batch_data`.`ValidityEndDate`"},
 	ValidityEndTime:     whereHelperstring{field: "`data_platform_batch_master_record_batch_data`.`ValidityEndTime`"},
-	CountryOfOrigin:     whereHelpernull_String{field: "`data_platform_batch_master_record_batch_data`.`CountryOfOrigin`"},
 	ManufactureDate:     whereHelpernull_String{field: "`data_platform_batch_master_record_batch_data`.`ManufactureDate`"},
-	CreationDateTime:    whereHelpernull_String{field: "`data_platform_batch_master_record_batch_data`.`CreationDateTime`"},
-	LastChangeDateTime:  whereHelpernull_String{field: "`data_platform_batch_master_record_batch_data`.`LastChangeDateTime`"},
+	CreationDate:        whereHelperstring{field: "`data_platform_batch_master_record_batch_data`.`CreationDate`"},
+	CreationTime:        whereHelperstring{field: "`data_platform_batch_master_record_batch_data`.`CreationTime`"},
+	LastChangeDate:      whereHelperstring{field: "`data_platform_batch_master_record_batch_data`.`LastChangeDate`"},
+	LastChangeTime:      whereHelperstring{field: "`data_platform_batch_master_record_batch_data`.`LastChangeTime`"},
 	IsMarkedForDeletion: whereHelpernull_Bool{field: "`data_platform_batch_master_record_batch_data`.`IsMarkedForDeletion`"},
 }
 
 // DataPlatformBatchMasterRecordBatchDatumRels is where relationship names are stored.
 var DataPlatformBatchMasterRecordBatchDatumRels = struct {
-}{}
+	BusinessPartnerDataPlatformProductMasterBPPlantDatum         string
+	DeliverFromPartyDataPlatformOrdersItemData                   string
+	DeliverToPartyDataPlatformOrdersItemData                     string
+	ProductDataPlatformOrdersItemData                            string
+	ComponentProductDataPlatformProductionOrderItemComponentData string
+	ProductDataPlatformProductionOrderItemData                   string
+	ProductDataPlatformPurchaseRequisitionItemData               string
+}{
+	BusinessPartnerDataPlatformProductMasterBPPlantDatum:         "BusinessPartnerDataPlatformProductMasterBPPlantDatum",
+	DeliverFromPartyDataPlatformOrdersItemData:                   "DeliverFromPartyDataPlatformOrdersItemData",
+	DeliverToPartyDataPlatformOrdersItemData:                     "DeliverToPartyDataPlatformOrdersItemData",
+	ProductDataPlatformOrdersItemData:                            "ProductDataPlatformOrdersItemData",
+	ComponentProductDataPlatformProductionOrderItemComponentData: "ComponentProductDataPlatformProductionOrderItemComponentData",
+	ProductDataPlatformProductionOrderItemData:                   "ProductDataPlatformProductionOrderItemData",
+	ProductDataPlatformPurchaseRequisitionItemData:               "ProductDataPlatformPurchaseRequisitionItemData",
+}
 
 // dataPlatformBatchMasterRecordBatchDatumR is where relationships are stored.
 type dataPlatformBatchMasterRecordBatchDatumR struct {
+	BusinessPartnerDataPlatformProductMasterBPPlantDatum         *DataPlatformProductMasterBPPlantDatum             `boil:"BusinessPartnerDataPlatformProductMasterBPPlantDatum" json:"BusinessPartnerDataPlatformProductMasterBPPlantDatum" toml:"BusinessPartnerDataPlatformProductMasterBPPlantDatum" yaml:"BusinessPartnerDataPlatformProductMasterBPPlantDatum"`
+	DeliverFromPartyDataPlatformOrdersItemData                   DataPlatformOrdersItemDatumSlice                   `boil:"DeliverFromPartyDataPlatformOrdersItemData" json:"DeliverFromPartyDataPlatformOrdersItemData" toml:"DeliverFromPartyDataPlatformOrdersItemData" yaml:"DeliverFromPartyDataPlatformOrdersItemData"`
+	DeliverToPartyDataPlatformOrdersItemData                     DataPlatformOrdersItemDatumSlice                   `boil:"DeliverToPartyDataPlatformOrdersItemData" json:"DeliverToPartyDataPlatformOrdersItemData" toml:"DeliverToPartyDataPlatformOrdersItemData" yaml:"DeliverToPartyDataPlatformOrdersItemData"`
+	ProductDataPlatformOrdersItemData                            DataPlatformOrdersItemDatumSlice                   `boil:"ProductDataPlatformOrdersItemData" json:"ProductDataPlatformOrdersItemData" toml:"ProductDataPlatformOrdersItemData" yaml:"ProductDataPlatformOrdersItemData"`
+	ComponentProductDataPlatformProductionOrderItemComponentData DataPlatformProductionOrderItemComponentDatumSlice `boil:"ComponentProductDataPlatformProductionOrderItemComponentData" json:"ComponentProductDataPlatformProductionOrderItemComponentData" toml:"ComponentProductDataPlatformProductionOrderItemComponentData" yaml:"ComponentProductDataPlatformProductionOrderItemComponentData"`
+	ProductDataPlatformProductionOrderItemData                   DataPlatformProductionOrderItemDatumSlice          `boil:"ProductDataPlatformProductionOrderItemData" json:"ProductDataPlatformProductionOrderItemData" toml:"ProductDataPlatformProductionOrderItemData" yaml:"ProductDataPlatformProductionOrderItemData"`
+	ProductDataPlatformPurchaseRequisitionItemData               DataPlatformPurchaseRequisitionItemDatumSlice      `boil:"ProductDataPlatformPurchaseRequisitionItemData" json:"ProductDataPlatformPurchaseRequisitionItemData" toml:"ProductDataPlatformPurchaseRequisitionItemData" yaml:"ProductDataPlatformPurchaseRequisitionItemData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -171,14 +200,63 @@ func (*dataPlatformBatchMasterRecordBatchDatumR) NewStruct() *dataPlatformBatchM
 	return &dataPlatformBatchMasterRecordBatchDatumR{}
 }
 
+func (r *dataPlatformBatchMasterRecordBatchDatumR) GetBusinessPartnerDataPlatformProductMasterBPPlantDatum() *DataPlatformProductMasterBPPlantDatum {
+	if r == nil {
+		return nil
+	}
+	return r.BusinessPartnerDataPlatformProductMasterBPPlantDatum
+}
+
+func (r *dataPlatformBatchMasterRecordBatchDatumR) GetDeliverFromPartyDataPlatformOrdersItemData() DataPlatformOrdersItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DeliverFromPartyDataPlatformOrdersItemData
+}
+
+func (r *dataPlatformBatchMasterRecordBatchDatumR) GetDeliverToPartyDataPlatformOrdersItemData() DataPlatformOrdersItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DeliverToPartyDataPlatformOrdersItemData
+}
+
+func (r *dataPlatformBatchMasterRecordBatchDatumR) GetProductDataPlatformOrdersItemData() DataPlatformOrdersItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductDataPlatformOrdersItemData
+}
+
+func (r *dataPlatformBatchMasterRecordBatchDatumR) GetComponentProductDataPlatformProductionOrderItemComponentData() DataPlatformProductionOrderItemComponentDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ComponentProductDataPlatformProductionOrderItemComponentData
+}
+
+func (r *dataPlatformBatchMasterRecordBatchDatumR) GetProductDataPlatformProductionOrderItemData() DataPlatformProductionOrderItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductDataPlatformProductionOrderItemData
+}
+
+func (r *dataPlatformBatchMasterRecordBatchDatumR) GetProductDataPlatformPurchaseRequisitionItemData() DataPlatformPurchaseRequisitionItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductDataPlatformPurchaseRequisitionItemData
+}
+
 // dataPlatformBatchMasterRecordBatchDatumL is where Load methods for each relationship are stored.
 type dataPlatformBatchMasterRecordBatchDatumL struct{}
 
 var (
-	dataPlatformBatchMasterRecordBatchDatumAllColumns            = []string{"Product", "BusinessPartner", "Plant", "Batch", "ValidityStartDate", "ValidityStartTime", "ValidityEndDate", "ValidityEndTime", "CountryOfOrigin", "ManufactureDate", "CreationDateTime", "LastChangeDateTime", "IsMarkedForDeletion"}
-	dataPlatformBatchMasterRecordBatchDatumColumnsWithoutDefault = []string{"Product", "BusinessPartner", "Plant", "Batch", "ValidityStartDate", "ValidityStartTime", "ValidityEndDate", "ValidityEndTime", "CountryOfOrigin", "ManufactureDate", "CreationDateTime", "LastChangeDateTime", "IsMarkedForDeletion"}
+	dataPlatformBatchMasterRecordBatchDatumAllColumns            = []string{"Product", "BusinessPartner", "Plant", "Batch", "ValidityStartDate", "ValidityStartTime", "ValidityEndDate", "ValidityEndTime", "ManufactureDate", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsMarkedForDeletion"}
+	dataPlatformBatchMasterRecordBatchDatumColumnsWithoutDefault = []string{"Product", "BusinessPartner", "Plant", "Batch", "ValidityStartDate", "ValidityStartTime", "ValidityEndDate", "ValidityEndTime", "ManufactureDate", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsMarkedForDeletion"}
 	dataPlatformBatchMasterRecordBatchDatumColumnsWithDefault    = []string{}
-	dataPlatformBatchMasterRecordBatchDatumPrimaryKeyColumns     = []string{"BusinessPartner", "Product", "Plant", "Batch"}
+	dataPlatformBatchMasterRecordBatchDatumPrimaryKeyColumns     = []string{"Product", "BusinessPartner", "Plant", "Batch"}
 	dataPlatformBatchMasterRecordBatchDatumGeneratedColumns      = []string{}
 )
 
@@ -273,6 +351,1205 @@ func (q dataPlatformBatchMasterRecordBatchDatumQuery) Exists(ctx context.Context
 	return count > 0, nil
 }
 
+// BusinessPartnerDataPlatformProductMasterBPPlantDatum pointed to by the foreign key.
+func (o *DataPlatformBatchMasterRecordBatchDatum) BusinessPartnerDataPlatformProductMasterBPPlantDatum(mods ...qm.QueryMod) dataPlatformProductMasterBPPlantDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`BusinessPartner` = ?", o.BusinessPartner),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformProductMasterBPPlantData(queryMods...)
+}
+
+// DeliverFromPartyDataPlatformOrdersItemData retrieves all the data_platform_orders_item_datum's DataPlatformOrdersItemData with an executor via DeliverFromParty column.
+func (o *DataPlatformBatchMasterRecordBatchDatum) DeliverFromPartyDataPlatformOrdersItemData(mods ...qm.QueryMod) dataPlatformOrdersItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_orders_item_data`.`DeliverFromParty`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformOrdersItemData(queryMods...)
+}
+
+// DeliverToPartyDataPlatformOrdersItemData retrieves all the data_platform_orders_item_datum's DataPlatformOrdersItemData with an executor via DeliverToParty column.
+func (o *DataPlatformBatchMasterRecordBatchDatum) DeliverToPartyDataPlatformOrdersItemData(mods ...qm.QueryMod) dataPlatformOrdersItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_orders_item_data`.`DeliverToParty`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformOrdersItemData(queryMods...)
+}
+
+// ProductDataPlatformOrdersItemData retrieves all the data_platform_orders_item_datum's DataPlatformOrdersItemData with an executor via Product column.
+func (o *DataPlatformBatchMasterRecordBatchDatum) ProductDataPlatformOrdersItemData(mods ...qm.QueryMod) dataPlatformOrdersItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_orders_item_data`.`Product`=?", o.Product),
+	)
+
+	return DataPlatformOrdersItemData(queryMods...)
+}
+
+// ComponentProductDataPlatformProductionOrderItemComponentData retrieves all the data_platform_production_order_item_component_datum's DataPlatformProductionOrderItemComponentData with an executor via ComponentProduct column.
+func (o *DataPlatformBatchMasterRecordBatchDatum) ComponentProductDataPlatformProductionOrderItemComponentData(mods ...qm.QueryMod) dataPlatformProductionOrderItemComponentDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_production_order_item_component_data`.`ComponentProduct`=?", o.Product),
+	)
+
+	return DataPlatformProductionOrderItemComponentData(queryMods...)
+}
+
+// ProductDataPlatformProductionOrderItemData retrieves all the data_platform_production_order_item_datum's DataPlatformProductionOrderItemData with an executor via Product column.
+func (o *DataPlatformBatchMasterRecordBatchDatum) ProductDataPlatformProductionOrderItemData(mods ...qm.QueryMod) dataPlatformProductionOrderItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_production_order_item_data`.`Product`=?", o.Product),
+	)
+
+	return DataPlatformProductionOrderItemData(queryMods...)
+}
+
+// ProductDataPlatformPurchaseRequisitionItemData retrieves all the data_platform_purchase_requisition_item_datum's DataPlatformPurchaseRequisitionItemData with an executor via Product column.
+func (o *DataPlatformBatchMasterRecordBatchDatum) ProductDataPlatformPurchaseRequisitionItemData(mods ...qm.QueryMod) dataPlatformPurchaseRequisitionItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_purchase_requisition_item_data`.`Product`=?", o.Product),
+	)
+
+	return DataPlatformPurchaseRequisitionItemData(queryMods...)
+}
+
+// LoadBusinessPartnerDataPlatformProductMasterBPPlantDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformBatchMasterRecordBatchDatumL) LoadBusinessPartnerDataPlatformProductMasterBPPlantDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBatchMasterRecordBatchDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBatchMasterRecordBatchDatum
+	var object *DataPlatformBatchMasterRecordBatchDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBatchMasterRecordBatchDatum.(*DataPlatformBatchMasterRecordBatchDatum)
+		if !ok {
+			object = new(DataPlatformBatchMasterRecordBatchDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBatchMasterRecordBatchDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBatchMasterRecordBatchDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBatchMasterRecordBatchDatum.(*[]*DataPlatformBatchMasterRecordBatchDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBatchMasterRecordBatchDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBatchMasterRecordBatchDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBatchMasterRecordBatchDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBatchMasterRecordBatchDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_master_bp_plant_data`),
+		qm.WhereIn(`data_platform_product_master_bp_plant_data.BusinessPartner in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformProductMasterBPPlantDatum")
+	}
+
+	var resultSlice []*DataPlatformProductMasterBPPlantDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformProductMasterBPPlantDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_product_master_bp_plant_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_bp_plant_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.BusinessPartnerDataPlatformProductMasterBPPlantDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.BusinessPartner == foreign.BusinessPartner {
+				local.R.BusinessPartnerDataPlatformProductMasterBPPlantDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDeliverFromPartyDataPlatformOrdersItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBatchMasterRecordBatchDatumL) LoadDeliverFromPartyDataPlatformOrdersItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBatchMasterRecordBatchDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBatchMasterRecordBatchDatum
+	var object *DataPlatformBatchMasterRecordBatchDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBatchMasterRecordBatchDatum.(*DataPlatformBatchMasterRecordBatchDatum)
+		if !ok {
+			object = new(DataPlatformBatchMasterRecordBatchDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBatchMasterRecordBatchDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBatchMasterRecordBatchDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBatchMasterRecordBatchDatum.(*[]*DataPlatformBatchMasterRecordBatchDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBatchMasterRecordBatchDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBatchMasterRecordBatchDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBatchMasterRecordBatchDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBatchMasterRecordBatchDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.BusinessPartner) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_orders_item_data`),
+		qm.WhereIn(`data_platform_orders_item_data.DeliverFromParty in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_orders_item_data")
+	}
+
+	var resultSlice []*DataPlatformOrdersItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_item_data")
+	}
+
+	if singular {
+		object.R.DeliverFromPartyDataPlatformOrdersItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.BusinessPartner, foreign.DeliverFromParty) {
+				local.R.DeliverFromPartyDataPlatformOrdersItemData = append(local.R.DeliverFromPartyDataPlatformOrdersItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDeliverToPartyDataPlatformOrdersItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBatchMasterRecordBatchDatumL) LoadDeliverToPartyDataPlatformOrdersItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBatchMasterRecordBatchDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBatchMasterRecordBatchDatum
+	var object *DataPlatformBatchMasterRecordBatchDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBatchMasterRecordBatchDatum.(*DataPlatformBatchMasterRecordBatchDatum)
+		if !ok {
+			object = new(DataPlatformBatchMasterRecordBatchDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBatchMasterRecordBatchDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBatchMasterRecordBatchDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBatchMasterRecordBatchDatum.(*[]*DataPlatformBatchMasterRecordBatchDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBatchMasterRecordBatchDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBatchMasterRecordBatchDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBatchMasterRecordBatchDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBatchMasterRecordBatchDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.BusinessPartner) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_orders_item_data`),
+		qm.WhereIn(`data_platform_orders_item_data.DeliverToParty in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_orders_item_data")
+	}
+
+	var resultSlice []*DataPlatformOrdersItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_item_data")
+	}
+
+	if singular {
+		object.R.DeliverToPartyDataPlatformOrdersItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.BusinessPartner, foreign.DeliverToParty) {
+				local.R.DeliverToPartyDataPlatformOrdersItemData = append(local.R.DeliverToPartyDataPlatformOrdersItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductDataPlatformOrdersItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBatchMasterRecordBatchDatumL) LoadProductDataPlatformOrdersItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBatchMasterRecordBatchDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBatchMasterRecordBatchDatum
+	var object *DataPlatformBatchMasterRecordBatchDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBatchMasterRecordBatchDatum.(*DataPlatformBatchMasterRecordBatchDatum)
+		if !ok {
+			object = new(DataPlatformBatchMasterRecordBatchDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBatchMasterRecordBatchDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBatchMasterRecordBatchDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBatchMasterRecordBatchDatum.(*[]*DataPlatformBatchMasterRecordBatchDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBatchMasterRecordBatchDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBatchMasterRecordBatchDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBatchMasterRecordBatchDatumR{}
+		}
+		args = append(args, object.Product)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBatchMasterRecordBatchDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Product {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Product)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_orders_item_data`),
+		qm.WhereIn(`data_platform_orders_item_data.Product in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_orders_item_data")
+	}
+
+	var resultSlice []*DataPlatformOrdersItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_item_data")
+	}
+
+	if singular {
+		object.R.ProductDataPlatformOrdersItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Product == foreign.Product {
+				local.R.ProductDataPlatformOrdersItemData = append(local.R.ProductDataPlatformOrdersItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadComponentProductDataPlatformProductionOrderItemComponentData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBatchMasterRecordBatchDatumL) LoadComponentProductDataPlatformProductionOrderItemComponentData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBatchMasterRecordBatchDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBatchMasterRecordBatchDatum
+	var object *DataPlatformBatchMasterRecordBatchDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBatchMasterRecordBatchDatum.(*DataPlatformBatchMasterRecordBatchDatum)
+		if !ok {
+			object = new(DataPlatformBatchMasterRecordBatchDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBatchMasterRecordBatchDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBatchMasterRecordBatchDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBatchMasterRecordBatchDatum.(*[]*DataPlatformBatchMasterRecordBatchDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBatchMasterRecordBatchDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBatchMasterRecordBatchDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBatchMasterRecordBatchDatumR{}
+		}
+		args = append(args, object.Product)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBatchMasterRecordBatchDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Product {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Product)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_production_order_item_component_data`),
+		qm.WhereIn(`data_platform_production_order_item_component_data.ComponentProduct in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_production_order_item_component_data")
+	}
+
+	var resultSlice []*DataPlatformProductionOrderItemComponentDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_production_order_item_component_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_production_order_item_component_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_production_order_item_component_data")
+	}
+
+	if singular {
+		object.R.ComponentProductDataPlatformProductionOrderItemComponentData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Product == foreign.ComponentProduct {
+				local.R.ComponentProductDataPlatformProductionOrderItemComponentData = append(local.R.ComponentProductDataPlatformProductionOrderItemComponentData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductDataPlatformProductionOrderItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBatchMasterRecordBatchDatumL) LoadProductDataPlatformProductionOrderItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBatchMasterRecordBatchDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBatchMasterRecordBatchDatum
+	var object *DataPlatformBatchMasterRecordBatchDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBatchMasterRecordBatchDatum.(*DataPlatformBatchMasterRecordBatchDatum)
+		if !ok {
+			object = new(DataPlatformBatchMasterRecordBatchDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBatchMasterRecordBatchDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBatchMasterRecordBatchDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBatchMasterRecordBatchDatum.(*[]*DataPlatformBatchMasterRecordBatchDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBatchMasterRecordBatchDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBatchMasterRecordBatchDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBatchMasterRecordBatchDatumR{}
+		}
+		args = append(args, object.Product)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBatchMasterRecordBatchDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Product {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Product)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_production_order_item_data`),
+		qm.WhereIn(`data_platform_production_order_item_data.Product in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_production_order_item_data")
+	}
+
+	var resultSlice []*DataPlatformProductionOrderItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_production_order_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_production_order_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_production_order_item_data")
+	}
+
+	if singular {
+		object.R.ProductDataPlatformProductionOrderItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Product == foreign.Product {
+				local.R.ProductDataPlatformProductionOrderItemData = append(local.R.ProductDataPlatformProductionOrderItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductDataPlatformPurchaseRequisitionItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBatchMasterRecordBatchDatumL) LoadProductDataPlatformPurchaseRequisitionItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBatchMasterRecordBatchDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBatchMasterRecordBatchDatum
+	var object *DataPlatformBatchMasterRecordBatchDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBatchMasterRecordBatchDatum.(*DataPlatformBatchMasterRecordBatchDatum)
+		if !ok {
+			object = new(DataPlatformBatchMasterRecordBatchDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBatchMasterRecordBatchDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBatchMasterRecordBatchDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBatchMasterRecordBatchDatum.(*[]*DataPlatformBatchMasterRecordBatchDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBatchMasterRecordBatchDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBatchMasterRecordBatchDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBatchMasterRecordBatchDatumR{}
+		}
+		args = append(args, object.Product)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBatchMasterRecordBatchDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Product {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Product)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_purchase_requisition_item_data`),
+		qm.WhereIn(`data_platform_purchase_requisition_item_data.Product in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_purchase_requisition_item_data")
+	}
+
+	var resultSlice []*DataPlatformPurchaseRequisitionItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_purchase_requisition_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_purchase_requisition_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_purchase_requisition_item_data")
+	}
+
+	if singular {
+		object.R.ProductDataPlatformPurchaseRequisitionItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Product == foreign.Product {
+				local.R.ProductDataPlatformPurchaseRequisitionItemData = append(local.R.ProductDataPlatformPurchaseRequisitionItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// SetBusinessPartnerDataPlatformProductMasterBPPlantDatum of the dataPlatformBatchMasterRecordBatchDatum to the related item.
+// Sets o.R.BusinessPartnerDataPlatformProductMasterBPPlantDatum to related.
+func (o *DataPlatformBatchMasterRecordBatchDatum) SetBusinessPartnerDataPlatformProductMasterBPPlantDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformProductMasterBPPlantDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_batch_master_record_batch_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"BusinessPartner"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformBatchMasterRecordBatchDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.BusinessPartner, o.Product, o.BusinessPartner, o.Plant, o.Batch}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.BusinessPartner = related.BusinessPartner
+	if o.R == nil {
+		o.R = &dataPlatformBatchMasterRecordBatchDatumR{
+			BusinessPartnerDataPlatformProductMasterBPPlantDatum: related,
+		}
+	} else {
+		o.R.BusinessPartnerDataPlatformProductMasterBPPlantDatum = related
+	}
+
+	return nil
+}
+
+// AddDeliverFromPartyDataPlatformOrdersItemData adds the given related objects to the existing relationships
+// of the data_platform_batch_master_record_batch_datum, optionally inserting them as new records.
+// Appends related to o.R.DeliverFromPartyDataPlatformOrdersItemData.
+func (o *DataPlatformBatchMasterRecordBatchDatum) AddDeliverFromPartyDataPlatformOrdersItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.DeliverFromParty, o.BusinessPartner)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_orders_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DeliverFromParty"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.OrderID, rel.OrderItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.DeliverFromParty, o.BusinessPartner)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBatchMasterRecordBatchDatumR{
+			DeliverFromPartyDataPlatformOrdersItemData: related,
+		}
+	} else {
+		o.R.DeliverFromPartyDataPlatformOrdersItemData = append(o.R.DeliverFromPartyDataPlatformOrdersItemData, related...)
+	}
+
+	return nil
+}
+
+// SetDeliverFromPartyDataPlatformOrdersItemData removes all previously related items of the
+// data_platform_batch_master_record_batch_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.DeliverFromPartyDataPlatformBatchMasterRecordBatchDatum's DeliverFromPartyDataPlatformOrdersItemData accordingly.
+// Replaces o.R.DeliverFromPartyDataPlatformOrdersItemData with related.
+func (o *DataPlatformBatchMasterRecordBatchDatum) SetDeliverFromPartyDataPlatformOrdersItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemDatum) error {
+	query := "update `data_platform_orders_item_data` set `DeliverFromParty` = null where `DeliverFromParty` = ?"
+	values := []interface{}{o.BusinessPartner}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.DeliverFromPartyDataPlatformOrdersItemData = nil
+	}
+
+	return o.AddDeliverFromPartyDataPlatformOrdersItemData(ctx, exec, insert, related...)
+}
+
+// RemoveDeliverFromPartyDataPlatformOrdersItemData relationships from objects passed in.
+// Removes related items from R.DeliverFromPartyDataPlatformOrdersItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformBatchMasterRecordBatchDatum) RemoveDeliverFromPartyDataPlatformOrdersItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformOrdersItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.DeliverFromParty, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("DeliverFromParty")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.DeliverFromPartyDataPlatformOrdersItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.DeliverFromPartyDataPlatformOrdersItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.DeliverFromPartyDataPlatformOrdersItemData[i] = o.R.DeliverFromPartyDataPlatformOrdersItemData[ln-1]
+			}
+			o.R.DeliverFromPartyDataPlatformOrdersItemData = o.R.DeliverFromPartyDataPlatformOrdersItemData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddDeliverToPartyDataPlatformOrdersItemData adds the given related objects to the existing relationships
+// of the data_platform_batch_master_record_batch_datum, optionally inserting them as new records.
+// Appends related to o.R.DeliverToPartyDataPlatformOrdersItemData.
+func (o *DataPlatformBatchMasterRecordBatchDatum) AddDeliverToPartyDataPlatformOrdersItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.DeliverToParty, o.BusinessPartner)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_orders_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DeliverToParty"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.OrderID, rel.OrderItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.DeliverToParty, o.BusinessPartner)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBatchMasterRecordBatchDatumR{
+			DeliverToPartyDataPlatformOrdersItemData: related,
+		}
+	} else {
+		o.R.DeliverToPartyDataPlatformOrdersItemData = append(o.R.DeliverToPartyDataPlatformOrdersItemData, related...)
+	}
+
+	return nil
+}
+
+// SetDeliverToPartyDataPlatformOrdersItemData removes all previously related items of the
+// data_platform_batch_master_record_batch_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.DeliverToPartyDataPlatformBatchMasterRecordBatchDatum's DeliverToPartyDataPlatformOrdersItemData accordingly.
+// Replaces o.R.DeliverToPartyDataPlatformOrdersItemData with related.
+func (o *DataPlatformBatchMasterRecordBatchDatum) SetDeliverToPartyDataPlatformOrdersItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemDatum) error {
+	query := "update `data_platform_orders_item_data` set `DeliverToParty` = null where `DeliverToParty` = ?"
+	values := []interface{}{o.BusinessPartner}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.DeliverToPartyDataPlatformOrdersItemData = nil
+	}
+
+	return o.AddDeliverToPartyDataPlatformOrdersItemData(ctx, exec, insert, related...)
+}
+
+// RemoveDeliverToPartyDataPlatformOrdersItemData relationships from objects passed in.
+// Removes related items from R.DeliverToPartyDataPlatformOrdersItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformBatchMasterRecordBatchDatum) RemoveDeliverToPartyDataPlatformOrdersItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformOrdersItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.DeliverToParty, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("DeliverToParty")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.DeliverToPartyDataPlatformOrdersItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.DeliverToPartyDataPlatformOrdersItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.DeliverToPartyDataPlatformOrdersItemData[i] = o.R.DeliverToPartyDataPlatformOrdersItemData[ln-1]
+			}
+			o.R.DeliverToPartyDataPlatformOrdersItemData = o.R.DeliverToPartyDataPlatformOrdersItemData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddProductDataPlatformOrdersItemData adds the given related objects to the existing relationships
+// of the data_platform_batch_master_record_batch_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductDataPlatformOrdersItemData.
+func (o *DataPlatformBatchMasterRecordBatchDatum) AddProductDataPlatformOrdersItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.Product = o.Product
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_orders_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Product, rel.OrderID, rel.OrderItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.Product = o.Product
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBatchMasterRecordBatchDatumR{
+			ProductDataPlatformOrdersItemData: related,
+		}
+	} else {
+		o.R.ProductDataPlatformOrdersItemData = append(o.R.ProductDataPlatformOrdersItemData, related...)
+	}
+
+	return nil
+}
+
+// AddComponentProductDataPlatformProductionOrderItemComponentData adds the given related objects to the existing relationships
+// of the data_platform_batch_master_record_batch_datum, optionally inserting them as new records.
+// Appends related to o.R.ComponentProductDataPlatformProductionOrderItemComponentData.
+func (o *DataPlatformBatchMasterRecordBatchDatum) AddComponentProductDataPlatformProductionOrderItemComponentData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductionOrderItemComponentDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.ComponentProduct = o.Product
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_production_order_item_component_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"ComponentProduct"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductionOrderItemComponentDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Product, rel.ProductionOrder, rel.ProductionOrderItem, rel.BillOfMaterial, rel.BillOfMaterialItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.ComponentProduct = o.Product
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBatchMasterRecordBatchDatumR{
+			ComponentProductDataPlatformProductionOrderItemComponentData: related,
+		}
+	} else {
+		o.R.ComponentProductDataPlatformProductionOrderItemComponentData = append(o.R.ComponentProductDataPlatformProductionOrderItemComponentData, related...)
+	}
+
+	return nil
+}
+
+// AddProductDataPlatformProductionOrderItemData adds the given related objects to the existing relationships
+// of the data_platform_batch_master_record_batch_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductDataPlatformProductionOrderItemData.
+func (o *DataPlatformBatchMasterRecordBatchDatum) AddProductDataPlatformProductionOrderItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductionOrderItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.Product = o.Product
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_production_order_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductionOrderItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Product, rel.ProductionOrder, rel.ProductionOrderItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.Product = o.Product
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBatchMasterRecordBatchDatumR{
+			ProductDataPlatformProductionOrderItemData: related,
+		}
+	} else {
+		o.R.ProductDataPlatformProductionOrderItemData = append(o.R.ProductDataPlatformProductionOrderItemData, related...)
+	}
+
+	return nil
+}
+
+// AddProductDataPlatformPurchaseRequisitionItemData adds the given related objects to the existing relationships
+// of the data_platform_batch_master_record_batch_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductDataPlatformPurchaseRequisitionItemData.
+func (o *DataPlatformBatchMasterRecordBatchDatum) AddProductDataPlatformPurchaseRequisitionItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPurchaseRequisitionItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.Product = o.Product
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_purchase_requisition_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformPurchaseRequisitionItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Product, rel.PurchaseRequisition, rel.PurchaseRequisitionItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.Product = o.Product
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBatchMasterRecordBatchDatumR{
+			ProductDataPlatformPurchaseRequisitionItemData: related,
+		}
+	} else {
+		o.R.ProductDataPlatformPurchaseRequisitionItemData = append(o.R.ProductDataPlatformPurchaseRequisitionItemData, related...)
+	}
+
+	return nil
+}
+
 // DataPlatformBatchMasterRecordBatchData retrieves all the records using an executor.
 func DataPlatformBatchMasterRecordBatchData(mods ...qm.QueryMod) dataPlatformBatchMasterRecordBatchDatumQuery {
 	mods = append(mods, qm.From("`data_platform_batch_master_record_batch_data`"))
@@ -286,7 +1563,7 @@ func DataPlatformBatchMasterRecordBatchData(mods ...qm.QueryMod) dataPlatformBat
 
 // FindDataPlatformBatchMasterRecordBatchDatum retrieves a single record by ID with an executor.
 // If selectCols is empty Find will return all columns.
-func FindDataPlatformBatchMasterRecordBatchDatum(ctx context.Context, exec boil.ContextExecutor, businessPartner int, product string, plant string, batch string, selectCols ...string) (*DataPlatformBatchMasterRecordBatchDatum, error) {
+func FindDataPlatformBatchMasterRecordBatchDatum(ctx context.Context, exec boil.ContextExecutor, product string, businessPartner int, plant string, batch string, selectCols ...string) (*DataPlatformBatchMasterRecordBatchDatum, error) {
 	dataPlatformBatchMasterRecordBatchDatumObj := &DataPlatformBatchMasterRecordBatchDatum{}
 
 	sel := "*"
@@ -294,10 +1571,10 @@ func FindDataPlatformBatchMasterRecordBatchDatum(ctx context.Context, exec boil.
 		sel = strings.Join(strmangle.IdentQuoteSlice(dialect.LQ, dialect.RQ, selectCols), ",")
 	}
 	query := fmt.Sprintf(
-		"select %s from `data_platform_batch_master_record_batch_data` where `BusinessPartner`=? AND `Product`=? AND `Plant`=? AND `Batch`=?", sel,
+		"select %s from `data_platform_batch_master_record_batch_data` where `Product`=? AND `BusinessPartner`=? AND `Plant`=? AND `Batch`=?", sel,
 	)
 
-	q := queries.Raw(query, businessPartner, product, plant, batch)
+	q := queries.Raw(query, product, businessPartner, plant, batch)
 
 	err := q.Bind(ctx, exec, dataPlatformBatchMasterRecordBatchDatumObj)
 	if err != nil {
@@ -378,8 +1655,8 @@ func (o *DataPlatformBatchMasterRecordBatchDatum) Insert(ctx context.Context, ex
 	}
 
 	identifierCols = []interface{}{
-		o.BusinessPartner,
 		o.Product,
+		o.BusinessPartner,
 		o.Plant,
 		o.Batch,
 	}
@@ -654,7 +1931,7 @@ func (o *DataPlatformBatchMasterRecordBatchDatum) Delete(ctx context.Context, ex
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformBatchMasterRecordBatchDatumPrimaryKeyMapping)
-	sql := "DELETE FROM `data_platform_batch_master_record_batch_data` WHERE `BusinessPartner`=? AND `Product`=? AND `Plant`=? AND `Batch`=?"
+	sql := "DELETE FROM `data_platform_batch_master_record_batch_data` WHERE `Product`=? AND `BusinessPartner`=? AND `Plant`=? AND `Batch`=?"
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -716,7 +1993,7 @@ func (o DataPlatformBatchMasterRecordBatchDatumSlice) DeleteAll(ctx context.Cont
 // Reload refetches the object from the database
 // using the primary keys with an executor.
 func (o *DataPlatformBatchMasterRecordBatchDatum) Reload(ctx context.Context, exec boil.ContextExecutor) error {
-	ret, err := FindDataPlatformBatchMasterRecordBatchDatum(ctx, exec, o.BusinessPartner, o.Product, o.Plant, o.Batch)
+	ret, err := FindDataPlatformBatchMasterRecordBatchDatum(ctx, exec, o.Product, o.BusinessPartner, o.Plant, o.Batch)
 	if err != nil {
 		return err
 	}
@@ -755,16 +2032,16 @@ func (o *DataPlatformBatchMasterRecordBatchDatumSlice) ReloadAll(ctx context.Con
 }
 
 // DataPlatformBatchMasterRecordBatchDatumExists checks if the DataPlatformBatchMasterRecordBatchDatum row exists.
-func DataPlatformBatchMasterRecordBatchDatumExists(ctx context.Context, exec boil.ContextExecutor, businessPartner int, product string, plant string, batch string) (bool, error) {
+func DataPlatformBatchMasterRecordBatchDatumExists(ctx context.Context, exec boil.ContextExecutor, product string, businessPartner int, plant string, batch string) (bool, error) {
 	var exists bool
-	sql := "select exists(select 1 from `data_platform_batch_master_record_batch_data` where `BusinessPartner`=? AND `Product`=? AND `Plant`=? AND `Batch`=? limit 1)"
+	sql := "select exists(select 1 from `data_platform_batch_master_record_batch_data` where `Product`=? AND `BusinessPartner`=? AND `Plant`=? AND `Batch`=? limit 1)"
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
 		fmt.Fprintln(writer, sql)
-		fmt.Fprintln(writer, businessPartner, product, plant, batch)
+		fmt.Fprintln(writer, product, businessPartner, plant, batch)
 	}
-	row := exec.QueryRowContext(ctx, sql, businessPartner, product, plant, batch)
+	row := exec.QueryRowContext(ctx, sql, product, businessPartner, plant, batch)
 
 	err := row.Scan(&exists)
 	if err != nil {
@@ -776,5 +2053,5 @@ func DataPlatformBatchMasterRecordBatchDatumExists(ctx context.Context, exec boi
 
 // Exists checks if the DataPlatformBatchMasterRecordBatchDatum row exists.
 func (o *DataPlatformBatchMasterRecordBatchDatum) Exists(ctx context.Context, exec boil.ContextExecutor) (bool, error) {
-	return DataPlatformBatchMasterRecordBatchDatumExists(ctx, exec, o.BusinessPartner, o.Product, o.Plant, o.Batch)
+	return DataPlatformBatchMasterRecordBatchDatumExists(ctx, exec, o.Product, o.BusinessPartner, o.Plant, o.Batch)
 }

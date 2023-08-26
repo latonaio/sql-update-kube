@@ -51,15 +51,21 @@ var DataPlatformPaymentMethodPaymentMethodDatumWhere = struct {
 
 // DataPlatformPaymentMethodPaymentMethodDatumRels is where relationship names are stored.
 var DataPlatformPaymentMethodPaymentMethodDatumRels = struct {
+	PaymentMethodDataPlatformOrdersHeaderData                   string
+	PaymentMethodDataPlatformOrdersItemData                     string
 	PaymentMethodDataPlatformPaymentMethodPaymentMethodTextData string
 	PaymentMethodDataPlatformSCRTransactionData                 string
 }{
+	PaymentMethodDataPlatformOrdersHeaderData:                   "PaymentMethodDataPlatformOrdersHeaderData",
+	PaymentMethodDataPlatformOrdersItemData:                     "PaymentMethodDataPlatformOrdersItemData",
 	PaymentMethodDataPlatformPaymentMethodPaymentMethodTextData: "PaymentMethodDataPlatformPaymentMethodPaymentMethodTextData",
 	PaymentMethodDataPlatformSCRTransactionData:                 "PaymentMethodDataPlatformSCRTransactionData",
 }
 
 // dataPlatformPaymentMethodPaymentMethodDatumR is where relationships are stored.
 type dataPlatformPaymentMethodPaymentMethodDatumR struct {
+	PaymentMethodDataPlatformOrdersHeaderData                   DataPlatformOrdersHeaderDatumSlice                   `boil:"PaymentMethodDataPlatformOrdersHeaderData" json:"PaymentMethodDataPlatformOrdersHeaderData" toml:"PaymentMethodDataPlatformOrdersHeaderData" yaml:"PaymentMethodDataPlatformOrdersHeaderData"`
+	PaymentMethodDataPlatformOrdersItemData                     DataPlatformOrdersItemDatumSlice                     `boil:"PaymentMethodDataPlatformOrdersItemData" json:"PaymentMethodDataPlatformOrdersItemData" toml:"PaymentMethodDataPlatformOrdersItemData" yaml:"PaymentMethodDataPlatformOrdersItemData"`
 	PaymentMethodDataPlatformPaymentMethodPaymentMethodTextData DataPlatformPaymentMethodPaymentMethodTextDatumSlice `boil:"PaymentMethodDataPlatformPaymentMethodPaymentMethodTextData" json:"PaymentMethodDataPlatformPaymentMethodPaymentMethodTextData" toml:"PaymentMethodDataPlatformPaymentMethodPaymentMethodTextData" yaml:"PaymentMethodDataPlatformPaymentMethodPaymentMethodTextData"`
 	PaymentMethodDataPlatformSCRTransactionData                 DataPlatformSCRTransactionDatumSlice                 `boil:"PaymentMethodDataPlatformSCRTransactionData" json:"PaymentMethodDataPlatformSCRTransactionData" toml:"PaymentMethodDataPlatformSCRTransactionData" yaml:"PaymentMethodDataPlatformSCRTransactionData"`
 }
@@ -67,6 +73,20 @@ type dataPlatformPaymentMethodPaymentMethodDatumR struct {
 // NewStruct creates a new relationship struct
 func (*dataPlatformPaymentMethodPaymentMethodDatumR) NewStruct() *dataPlatformPaymentMethodPaymentMethodDatumR {
 	return &dataPlatformPaymentMethodPaymentMethodDatumR{}
+}
+
+func (r *dataPlatformPaymentMethodPaymentMethodDatumR) GetPaymentMethodDataPlatformOrdersHeaderData() DataPlatformOrdersHeaderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.PaymentMethodDataPlatformOrdersHeaderData
+}
+
+func (r *dataPlatformPaymentMethodPaymentMethodDatumR) GetPaymentMethodDataPlatformOrdersItemData() DataPlatformOrdersItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.PaymentMethodDataPlatformOrdersItemData
 }
 
 func (r *dataPlatformPaymentMethodPaymentMethodDatumR) GetPaymentMethodDataPlatformPaymentMethodPaymentMethodTextData() DataPlatformPaymentMethodPaymentMethodTextDatumSlice {
@@ -185,6 +205,34 @@ func (q dataPlatformPaymentMethodPaymentMethodDatumQuery) Exists(ctx context.Con
 	return count > 0, nil
 }
 
+// PaymentMethodDataPlatformOrdersHeaderData retrieves all the data_platform_orders_header_datum's DataPlatformOrdersHeaderData with an executor via PaymentMethod column.
+func (o *DataPlatformPaymentMethodPaymentMethodDatum) PaymentMethodDataPlatformOrdersHeaderData(mods ...qm.QueryMod) dataPlatformOrdersHeaderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_orders_header_data`.`PaymentMethod`=?", o.PaymentMethod),
+	)
+
+	return DataPlatformOrdersHeaderData(queryMods...)
+}
+
+// PaymentMethodDataPlatformOrdersItemData retrieves all the data_platform_orders_item_datum's DataPlatformOrdersItemData with an executor via PaymentMethod column.
+func (o *DataPlatformPaymentMethodPaymentMethodDatum) PaymentMethodDataPlatformOrdersItemData(mods ...qm.QueryMod) dataPlatformOrdersItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_orders_item_data`.`PaymentMethod`=?", o.PaymentMethod),
+	)
+
+	return DataPlatformOrdersItemData(queryMods...)
+}
+
 // PaymentMethodDataPlatformPaymentMethodPaymentMethodTextData retrieves all the data_platform_payment_method_payment_method_text_datum's DataPlatformPaymentMethodPaymentMethodTextData with an executor via PaymentMethod column.
 func (o *DataPlatformPaymentMethodPaymentMethodDatum) PaymentMethodDataPlatformPaymentMethodPaymentMethodTextData(mods ...qm.QueryMod) dataPlatformPaymentMethodPaymentMethodTextDatumQuery {
 	var queryMods []qm.QueryMod
@@ -211,6 +259,200 @@ func (o *DataPlatformPaymentMethodPaymentMethodDatum) PaymentMethodDataPlatformS
 	)
 
 	return DataPlatformSCRTransactionData(queryMods...)
+}
+
+// LoadPaymentMethodDataPlatformOrdersHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformPaymentMethodPaymentMethodDatumL) LoadPaymentMethodDataPlatformOrdersHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPaymentMethodPaymentMethodDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformPaymentMethodPaymentMethodDatum
+	var object *DataPlatformPaymentMethodPaymentMethodDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformPaymentMethodPaymentMethodDatum.(*DataPlatformPaymentMethodPaymentMethodDatum)
+		if !ok {
+			object = new(DataPlatformPaymentMethodPaymentMethodDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformPaymentMethodPaymentMethodDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformPaymentMethodPaymentMethodDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformPaymentMethodPaymentMethodDatum.(*[]*DataPlatformPaymentMethodPaymentMethodDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformPaymentMethodPaymentMethodDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformPaymentMethodPaymentMethodDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformPaymentMethodPaymentMethodDatumR{}
+		}
+		args = append(args, object.PaymentMethod)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformPaymentMethodPaymentMethodDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.PaymentMethod {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.PaymentMethod)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_orders_header_data`),
+		qm.WhereIn(`data_platform_orders_header_data.PaymentMethod in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_orders_header_data")
+	}
+
+	var resultSlice []*DataPlatformOrdersHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_header_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_header_data")
+	}
+
+	if singular {
+		object.R.PaymentMethodDataPlatformOrdersHeaderData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.PaymentMethod == foreign.PaymentMethod {
+				local.R.PaymentMethodDataPlatformOrdersHeaderData = append(local.R.PaymentMethodDataPlatformOrdersHeaderData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadPaymentMethodDataPlatformOrdersItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformPaymentMethodPaymentMethodDatumL) LoadPaymentMethodDataPlatformOrdersItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPaymentMethodPaymentMethodDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformPaymentMethodPaymentMethodDatum
+	var object *DataPlatformPaymentMethodPaymentMethodDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformPaymentMethodPaymentMethodDatum.(*DataPlatformPaymentMethodPaymentMethodDatum)
+		if !ok {
+			object = new(DataPlatformPaymentMethodPaymentMethodDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformPaymentMethodPaymentMethodDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformPaymentMethodPaymentMethodDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformPaymentMethodPaymentMethodDatum.(*[]*DataPlatformPaymentMethodPaymentMethodDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformPaymentMethodPaymentMethodDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformPaymentMethodPaymentMethodDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformPaymentMethodPaymentMethodDatumR{}
+		}
+		args = append(args, object.PaymentMethod)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformPaymentMethodPaymentMethodDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.PaymentMethod {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.PaymentMethod)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_orders_item_data`),
+		qm.WhereIn(`data_platform_orders_item_data.PaymentMethod in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_orders_item_data")
+	}
+
+	var resultSlice []*DataPlatformOrdersItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_item_data")
+	}
+
+	if singular {
+		object.R.PaymentMethodDataPlatformOrdersItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.PaymentMethod == foreign.PaymentMethod {
+				local.R.PaymentMethodDataPlatformOrdersItemData = append(local.R.PaymentMethodDataPlatformOrdersItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
 }
 
 // LoadPaymentMethodDataPlatformPaymentMethodPaymentMethodTextData allows an eager lookup of values, cached into the
@@ -402,6 +644,92 @@ func (dataPlatformPaymentMethodPaymentMethodDatumL) LoadPaymentMethodDataPlatfor
 				break
 			}
 		}
+	}
+
+	return nil
+}
+
+// AddPaymentMethodDataPlatformOrdersHeaderData adds the given related objects to the existing relationships
+// of the data_platform_payment_method_payment_method_datum, optionally inserting them as new records.
+// Appends related to o.R.PaymentMethodDataPlatformOrdersHeaderData.
+func (o *DataPlatformPaymentMethodPaymentMethodDatum) AddPaymentMethodDataPlatformOrdersHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersHeaderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.PaymentMethod = o.PaymentMethod
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_orders_header_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"PaymentMethod"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersHeaderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.PaymentMethod, rel.OrderID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.PaymentMethod = o.PaymentMethod
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformPaymentMethodPaymentMethodDatumR{
+			PaymentMethodDataPlatformOrdersHeaderData: related,
+		}
+	} else {
+		o.R.PaymentMethodDataPlatformOrdersHeaderData = append(o.R.PaymentMethodDataPlatformOrdersHeaderData, related...)
+	}
+
+	return nil
+}
+
+// AddPaymentMethodDataPlatformOrdersItemData adds the given related objects to the existing relationships
+// of the data_platform_payment_method_payment_method_datum, optionally inserting them as new records.
+// Appends related to o.R.PaymentMethodDataPlatformOrdersItemData.
+func (o *DataPlatformPaymentMethodPaymentMethodDatum) AddPaymentMethodDataPlatformOrdersItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.PaymentMethod = o.PaymentMethod
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_orders_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"PaymentMethod"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.PaymentMethod, rel.OrderID, rel.OrderItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.PaymentMethod = o.PaymentMethod
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformPaymentMethodPaymentMethodDatumR{
+			PaymentMethodDataPlatformOrdersItemData: related,
+		}
+	} else {
+		o.R.PaymentMethodDataPlatformOrdersItemData = append(o.R.PaymentMethodDataPlatformOrdersItemData, related...)
 	}
 
 	return nil
