@@ -395,28 +395,44 @@ var DataPlatformEquipmentMasterGeneralDatumWhere = struct {
 
 // DataPlatformEquipmentMasterGeneralDatumRels is where relationship names are stored.
 var DataPlatformEquipmentMasterGeneralDatumRels = struct {
+	EquipmentDataPlatformDeliveryDocumentItemData                string
 	EquipmentDataPlatformEquipmentMasterAddressData              string
 	EquipmentDataPlatformEquipmentMasterBusinessPartnerData      string
 	EquipmentDataPlatformEquipmentMasterGeneralDocData           string
 	EquipmentDataPlatformEquipmentMasterOwnerBusinessPartnerData string
+	EquipmentDataPlatformInvoiceDocumentItemData                 string
+	EquipmentDataPlatformOrdersItemData                          string
 }{
+	EquipmentDataPlatformDeliveryDocumentItemData:                "EquipmentDataPlatformDeliveryDocumentItemData",
 	EquipmentDataPlatformEquipmentMasterAddressData:              "EquipmentDataPlatformEquipmentMasterAddressData",
 	EquipmentDataPlatformEquipmentMasterBusinessPartnerData:      "EquipmentDataPlatformEquipmentMasterBusinessPartnerData",
 	EquipmentDataPlatformEquipmentMasterGeneralDocData:           "EquipmentDataPlatformEquipmentMasterGeneralDocData",
 	EquipmentDataPlatformEquipmentMasterOwnerBusinessPartnerData: "EquipmentDataPlatformEquipmentMasterOwnerBusinessPartnerData",
+	EquipmentDataPlatformInvoiceDocumentItemData:                 "EquipmentDataPlatformInvoiceDocumentItemData",
+	EquipmentDataPlatformOrdersItemData:                          "EquipmentDataPlatformOrdersItemData",
 }
 
 // dataPlatformEquipmentMasterGeneralDatumR is where relationships are stored.
 type dataPlatformEquipmentMasterGeneralDatumR struct {
+	EquipmentDataPlatformDeliveryDocumentItemData                DataPlatformDeliveryDocumentItemDatumSlice                `boil:"EquipmentDataPlatformDeliveryDocumentItemData" json:"EquipmentDataPlatformDeliveryDocumentItemData" toml:"EquipmentDataPlatformDeliveryDocumentItemData" yaml:"EquipmentDataPlatformDeliveryDocumentItemData"`
 	EquipmentDataPlatformEquipmentMasterAddressData              DataPlatformEquipmentMasterAddressDatumSlice              `boil:"EquipmentDataPlatformEquipmentMasterAddressData" json:"EquipmentDataPlatformEquipmentMasterAddressData" toml:"EquipmentDataPlatformEquipmentMasterAddressData" yaml:"EquipmentDataPlatformEquipmentMasterAddressData"`
 	EquipmentDataPlatformEquipmentMasterBusinessPartnerData      DataPlatformEquipmentMasterBusinessPartnerDatumSlice      `boil:"EquipmentDataPlatformEquipmentMasterBusinessPartnerData" json:"EquipmentDataPlatformEquipmentMasterBusinessPartnerData" toml:"EquipmentDataPlatformEquipmentMasterBusinessPartnerData" yaml:"EquipmentDataPlatformEquipmentMasterBusinessPartnerData"`
 	EquipmentDataPlatformEquipmentMasterGeneralDocData           DataPlatformEquipmentMasterGeneralDocDatumSlice           `boil:"EquipmentDataPlatformEquipmentMasterGeneralDocData" json:"EquipmentDataPlatformEquipmentMasterGeneralDocData" toml:"EquipmentDataPlatformEquipmentMasterGeneralDocData" yaml:"EquipmentDataPlatformEquipmentMasterGeneralDocData"`
 	EquipmentDataPlatformEquipmentMasterOwnerBusinessPartnerData DataPlatformEquipmentMasterOwnerBusinessPartnerDatumSlice `boil:"EquipmentDataPlatformEquipmentMasterOwnerBusinessPartnerData" json:"EquipmentDataPlatformEquipmentMasterOwnerBusinessPartnerData" toml:"EquipmentDataPlatformEquipmentMasterOwnerBusinessPartnerData" yaml:"EquipmentDataPlatformEquipmentMasterOwnerBusinessPartnerData"`
+	EquipmentDataPlatformInvoiceDocumentItemData                 DataPlatformInvoiceDocumentItemDatumSlice                 `boil:"EquipmentDataPlatformInvoiceDocumentItemData" json:"EquipmentDataPlatformInvoiceDocumentItemData" toml:"EquipmentDataPlatformInvoiceDocumentItemData" yaml:"EquipmentDataPlatformInvoiceDocumentItemData"`
+	EquipmentDataPlatformOrdersItemData                          DataPlatformOrdersItemDatumSlice                          `boil:"EquipmentDataPlatformOrdersItemData" json:"EquipmentDataPlatformOrdersItemData" toml:"EquipmentDataPlatformOrdersItemData" yaml:"EquipmentDataPlatformOrdersItemData"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformEquipmentMasterGeneralDatumR) NewStruct() *dataPlatformEquipmentMasterGeneralDatumR {
 	return &dataPlatformEquipmentMasterGeneralDatumR{}
+}
+
+func (r *dataPlatformEquipmentMasterGeneralDatumR) GetEquipmentDataPlatformDeliveryDocumentItemData() DataPlatformDeliveryDocumentItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.EquipmentDataPlatformDeliveryDocumentItemData
 }
 
 func (r *dataPlatformEquipmentMasterGeneralDatumR) GetEquipmentDataPlatformEquipmentMasterAddressData() DataPlatformEquipmentMasterAddressDatumSlice {
@@ -445,6 +461,20 @@ func (r *dataPlatformEquipmentMasterGeneralDatumR) GetEquipmentDataPlatformEquip
 		return nil
 	}
 	return r.EquipmentDataPlatformEquipmentMasterOwnerBusinessPartnerData
+}
+
+func (r *dataPlatformEquipmentMasterGeneralDatumR) GetEquipmentDataPlatformInvoiceDocumentItemData() DataPlatformInvoiceDocumentItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.EquipmentDataPlatformInvoiceDocumentItemData
+}
+
+func (r *dataPlatformEquipmentMasterGeneralDatumR) GetEquipmentDataPlatformOrdersItemData() DataPlatformOrdersItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.EquipmentDataPlatformOrdersItemData
 }
 
 // dataPlatformEquipmentMasterGeneralDatumL is where Load methods for each relationship are stored.
@@ -549,6 +579,20 @@ func (q dataPlatformEquipmentMasterGeneralDatumQuery) Exists(ctx context.Context
 	return count > 0, nil
 }
 
+// EquipmentDataPlatformDeliveryDocumentItemData retrieves all the data_platform_delivery_document_item_datum's DataPlatformDeliveryDocumentItemData with an executor via Equipment column.
+func (o *DataPlatformEquipmentMasterGeneralDatum) EquipmentDataPlatformDeliveryDocumentItemData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_item_data`.`Equipment`=?", o.Equipment),
+	)
+
+	return DataPlatformDeliveryDocumentItemData(queryMods...)
+}
+
 // EquipmentDataPlatformEquipmentMasterAddressData retrieves all the data_platform_equipment_master_address_datum's DataPlatformEquipmentMasterAddressData with an executor via Equipment column.
 func (o *DataPlatformEquipmentMasterGeneralDatum) EquipmentDataPlatformEquipmentMasterAddressData(mods ...qm.QueryMod) dataPlatformEquipmentMasterAddressDatumQuery {
 	var queryMods []qm.QueryMod
@@ -603,6 +647,131 @@ func (o *DataPlatformEquipmentMasterGeneralDatum) EquipmentDataPlatformEquipment
 	)
 
 	return DataPlatformEquipmentMasterOwnerBusinessPartnerData(queryMods...)
+}
+
+// EquipmentDataPlatformInvoiceDocumentItemData retrieves all the data_platform_invoice_document_item_datum's DataPlatformInvoiceDocumentItemData with an executor via Equipment column.
+func (o *DataPlatformEquipmentMasterGeneralDatum) EquipmentDataPlatformInvoiceDocumentItemData(mods ...qm.QueryMod) dataPlatformInvoiceDocumentItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_invoice_document_item_data`.`Equipment`=?", o.Equipment),
+	)
+
+	return DataPlatformInvoiceDocumentItemData(queryMods...)
+}
+
+// EquipmentDataPlatformOrdersItemData retrieves all the data_platform_orders_item_datum's DataPlatformOrdersItemData with an executor via Equipment column.
+func (o *DataPlatformEquipmentMasterGeneralDatum) EquipmentDataPlatformOrdersItemData(mods ...qm.QueryMod) dataPlatformOrdersItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_orders_item_data`.`Equipment`=?", o.Equipment),
+	)
+
+	return DataPlatformOrdersItemData(queryMods...)
+}
+
+// LoadEquipmentDataPlatformDeliveryDocumentItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformEquipmentMasterGeneralDatumL) LoadEquipmentDataPlatformDeliveryDocumentItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformEquipmentMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformEquipmentMasterGeneralDatum
+	var object *DataPlatformEquipmentMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformEquipmentMasterGeneralDatum.(*DataPlatformEquipmentMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformEquipmentMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformEquipmentMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformEquipmentMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformEquipmentMasterGeneralDatum.(*[]*DataPlatformEquipmentMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformEquipmentMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformEquipmentMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformEquipmentMasterGeneralDatumR{}
+		}
+		args = append(args, object.Equipment)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformEquipmentMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Equipment) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Equipment)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_item_data`),
+		qm.WhereIn(`data_platform_delivery_document_item_data.Equipment in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_item_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_item_data")
+	}
+
+	if singular {
+		object.R.EquipmentDataPlatformDeliveryDocumentItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Equipment, foreign.Equipment) {
+				local.R.EquipmentDataPlatformDeliveryDocumentItemData = append(local.R.EquipmentDataPlatformDeliveryDocumentItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
 }
 
 // LoadEquipmentDataPlatformEquipmentMasterAddressData allows an eager lookup of values, cached into the
@@ -993,6 +1162,304 @@ func (dataPlatformEquipmentMasterGeneralDatumL) LoadEquipmentDataPlatformEquipme
 	return nil
 }
 
+// LoadEquipmentDataPlatformInvoiceDocumentItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformEquipmentMasterGeneralDatumL) LoadEquipmentDataPlatformInvoiceDocumentItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformEquipmentMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformEquipmentMasterGeneralDatum
+	var object *DataPlatformEquipmentMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformEquipmentMasterGeneralDatum.(*DataPlatformEquipmentMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformEquipmentMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformEquipmentMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformEquipmentMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformEquipmentMasterGeneralDatum.(*[]*DataPlatformEquipmentMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformEquipmentMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformEquipmentMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformEquipmentMasterGeneralDatumR{}
+		}
+		args = append(args, object.Equipment)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformEquipmentMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Equipment) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Equipment)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_invoice_document_item_data`),
+		qm.WhereIn(`data_platform_invoice_document_item_data.Equipment in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_invoice_document_item_data")
+	}
+
+	var resultSlice []*DataPlatformInvoiceDocumentItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_invoice_document_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_invoice_document_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_invoice_document_item_data")
+	}
+
+	if singular {
+		object.R.EquipmentDataPlatformInvoiceDocumentItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Equipment, foreign.Equipment) {
+				local.R.EquipmentDataPlatformInvoiceDocumentItemData = append(local.R.EquipmentDataPlatformInvoiceDocumentItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadEquipmentDataPlatformOrdersItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformEquipmentMasterGeneralDatumL) LoadEquipmentDataPlatformOrdersItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformEquipmentMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformEquipmentMasterGeneralDatum
+	var object *DataPlatformEquipmentMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformEquipmentMasterGeneralDatum.(*DataPlatformEquipmentMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformEquipmentMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformEquipmentMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformEquipmentMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformEquipmentMasterGeneralDatum.(*[]*DataPlatformEquipmentMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformEquipmentMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformEquipmentMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformEquipmentMasterGeneralDatumR{}
+		}
+		args = append(args, object.Equipment)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformEquipmentMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Equipment) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Equipment)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_orders_item_data`),
+		qm.WhereIn(`data_platform_orders_item_data.Equipment in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_orders_item_data")
+	}
+
+	var resultSlice []*DataPlatformOrdersItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_item_data")
+	}
+
+	if singular {
+		object.R.EquipmentDataPlatformOrdersItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Equipment, foreign.Equipment) {
+				local.R.EquipmentDataPlatformOrdersItemData = append(local.R.EquipmentDataPlatformOrdersItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// AddEquipmentDataPlatformDeliveryDocumentItemData adds the given related objects to the existing relationships
+// of the data_platform_equipment_master_general_datum, optionally inserting them as new records.
+// Appends related to o.R.EquipmentDataPlatformDeliveryDocumentItemData.
+func (o *DataPlatformEquipmentMasterGeneralDatum) AddEquipmentDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Equipment, o.Equipment)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Equipment"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Equipment, rel.DeliveryDocument, rel.DeliveryDocumentItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Equipment, o.Equipment)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformEquipmentMasterGeneralDatumR{
+			EquipmentDataPlatformDeliveryDocumentItemData: related,
+		}
+	} else {
+		o.R.EquipmentDataPlatformDeliveryDocumentItemData = append(o.R.EquipmentDataPlatformDeliveryDocumentItemData, related...)
+	}
+
+	return nil
+}
+
+// SetEquipmentDataPlatformDeliveryDocumentItemData removes all previously related items of the
+// data_platform_equipment_master_general_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.EquipmentDataPlatformEquipmentMasterGeneralDatum's EquipmentDataPlatformDeliveryDocumentItemData accordingly.
+// Replaces o.R.EquipmentDataPlatformDeliveryDocumentItemData with related.
+func (o *DataPlatformEquipmentMasterGeneralDatum) SetEquipmentDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	query := "update `data_platform_delivery_document_item_data` set `Equipment` = null where `Equipment` = ?"
+	values := []interface{}{o.Equipment}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.EquipmentDataPlatformDeliveryDocumentItemData = nil
+	}
+
+	return o.AddEquipmentDataPlatformDeliveryDocumentItemData(ctx, exec, insert, related...)
+}
+
+// RemoveEquipmentDataPlatformDeliveryDocumentItemData relationships from objects passed in.
+// Removes related items from R.EquipmentDataPlatformDeliveryDocumentItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformEquipmentMasterGeneralDatum) RemoveEquipmentDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Equipment, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Equipment")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.EquipmentDataPlatformDeliveryDocumentItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.EquipmentDataPlatformDeliveryDocumentItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.EquipmentDataPlatformDeliveryDocumentItemData[i] = o.R.EquipmentDataPlatformDeliveryDocumentItemData[ln-1]
+			}
+			o.R.EquipmentDataPlatformDeliveryDocumentItemData = o.R.EquipmentDataPlatformDeliveryDocumentItemData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
 // AddEquipmentDataPlatformEquipmentMasterAddressData adds the given related objects to the existing relationships
 // of the data_platform_equipment_master_general_datum, optionally inserting them as new records.
 // Appends related to o.R.EquipmentDataPlatformEquipmentMasterAddressData.
@@ -1160,6 +1627,214 @@ func (o *DataPlatformEquipmentMasterGeneralDatum) AddEquipmentDataPlatformEquipm
 		}
 	} else {
 		o.R.EquipmentDataPlatformEquipmentMasterOwnerBusinessPartnerData = append(o.R.EquipmentDataPlatformEquipmentMasterOwnerBusinessPartnerData, related...)
+	}
+
+	return nil
+}
+
+// AddEquipmentDataPlatformInvoiceDocumentItemData adds the given related objects to the existing relationships
+// of the data_platform_equipment_master_general_datum, optionally inserting them as new records.
+// Appends related to o.R.EquipmentDataPlatformInvoiceDocumentItemData.
+func (o *DataPlatformEquipmentMasterGeneralDatum) AddEquipmentDataPlatformInvoiceDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInvoiceDocumentItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Equipment, o.Equipment)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_invoice_document_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Equipment"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInvoiceDocumentItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Equipment, rel.InvoiceDocument, rel.InvoiceDocumentItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Equipment, o.Equipment)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformEquipmentMasterGeneralDatumR{
+			EquipmentDataPlatformInvoiceDocumentItemData: related,
+		}
+	} else {
+		o.R.EquipmentDataPlatformInvoiceDocumentItemData = append(o.R.EquipmentDataPlatformInvoiceDocumentItemData, related...)
+	}
+
+	return nil
+}
+
+// SetEquipmentDataPlatformInvoiceDocumentItemData removes all previously related items of the
+// data_platform_equipment_master_general_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.EquipmentDataPlatformEquipmentMasterGeneralDatum's EquipmentDataPlatformInvoiceDocumentItemData accordingly.
+// Replaces o.R.EquipmentDataPlatformInvoiceDocumentItemData with related.
+func (o *DataPlatformEquipmentMasterGeneralDatum) SetEquipmentDataPlatformInvoiceDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInvoiceDocumentItemDatum) error {
+	query := "update `data_platform_invoice_document_item_data` set `Equipment` = null where `Equipment` = ?"
+	values := []interface{}{o.Equipment}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.EquipmentDataPlatformInvoiceDocumentItemData = nil
+	}
+
+	return o.AddEquipmentDataPlatformInvoiceDocumentItemData(ctx, exec, insert, related...)
+}
+
+// RemoveEquipmentDataPlatformInvoiceDocumentItemData relationships from objects passed in.
+// Removes related items from R.EquipmentDataPlatformInvoiceDocumentItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformEquipmentMasterGeneralDatum) RemoveEquipmentDataPlatformInvoiceDocumentItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformInvoiceDocumentItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Equipment, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Equipment")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.EquipmentDataPlatformInvoiceDocumentItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.EquipmentDataPlatformInvoiceDocumentItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.EquipmentDataPlatformInvoiceDocumentItemData[i] = o.R.EquipmentDataPlatformInvoiceDocumentItemData[ln-1]
+			}
+			o.R.EquipmentDataPlatformInvoiceDocumentItemData = o.R.EquipmentDataPlatformInvoiceDocumentItemData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddEquipmentDataPlatformOrdersItemData adds the given related objects to the existing relationships
+// of the data_platform_equipment_master_general_datum, optionally inserting them as new records.
+// Appends related to o.R.EquipmentDataPlatformOrdersItemData.
+func (o *DataPlatformEquipmentMasterGeneralDatum) AddEquipmentDataPlatformOrdersItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Equipment, o.Equipment)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_orders_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Equipment"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Equipment, rel.OrderID, rel.OrderItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Equipment, o.Equipment)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformEquipmentMasterGeneralDatumR{
+			EquipmentDataPlatformOrdersItemData: related,
+		}
+	} else {
+		o.R.EquipmentDataPlatformOrdersItemData = append(o.R.EquipmentDataPlatformOrdersItemData, related...)
+	}
+
+	return nil
+}
+
+// SetEquipmentDataPlatformOrdersItemData removes all previously related items of the
+// data_platform_equipment_master_general_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.EquipmentDataPlatformEquipmentMasterGeneralDatum's EquipmentDataPlatformOrdersItemData accordingly.
+// Replaces o.R.EquipmentDataPlatformOrdersItemData with related.
+func (o *DataPlatformEquipmentMasterGeneralDatum) SetEquipmentDataPlatformOrdersItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemDatum) error {
+	query := "update `data_platform_orders_item_data` set `Equipment` = null where `Equipment` = ?"
+	values := []interface{}{o.Equipment}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.EquipmentDataPlatformOrdersItemData = nil
+	}
+
+	return o.AddEquipmentDataPlatformOrdersItemData(ctx, exec, insert, related...)
+}
+
+// RemoveEquipmentDataPlatformOrdersItemData relationships from objects passed in.
+// Removes related items from R.EquipmentDataPlatformOrdersItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformEquipmentMasterGeneralDatum) RemoveEquipmentDataPlatformOrdersItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformOrdersItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Equipment, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Equipment")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.EquipmentDataPlatformOrdersItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.EquipmentDataPlatformOrdersItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.EquipmentDataPlatformOrdersItemData[i] = o.R.EquipmentDataPlatformOrdersItemData[ln-1]
+			}
+			o.R.EquipmentDataPlatformOrdersItemData = o.R.EquipmentDataPlatformOrdersItemData[:ln-1]
+			break
+		}
 	}
 
 	return nil

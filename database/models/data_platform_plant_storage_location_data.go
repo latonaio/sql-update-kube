@@ -157,8 +157,17 @@ var DataPlatformPlantStorageLocationDatumWhere = struct {
 
 // DataPlatformPlantStorageLocationDatumRels is where relationship names are stored.
 var DataPlatformPlantStorageLocationDatumRels = struct {
+	DeliverFromPartyDataPlatformDeliveryDocumentItemData                         string
+	DeliverToPartyDataPlatformDeliveryDocumentItemData                           string
+	ProductionPlantDataPlatformDeliveryDocumentItemData                          string
 	DeliverFromPartyDataPlatformOrdersItemData                                   string
 	DeliverToPartyDataPlatformOrdersItemData                                     string
+	OwnerProductionPlantDataPlatformPlannedOrderHeaderData                       string
+	DeliverFromPartyDataPlatformPlannedOrderItemData                             string
+	DeliverToPartyDataPlatformPlannedOrderItemData                               string
+	ProductionPlantDataPlatformPlannedOrderItemData                              string
+	StockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData             string
+	BusinessPartnerDataPlatformProductMasterProductionData                       string
 	BusinessPartnerDataPlatformProductStockProductStockByBtches                  string
 	DepartureDeliverFromPartyDataPlatformProductionOrderHeaderData               string
 	DestinationDeliverToPartyDataPlatformProductionOrderHeaderData               string
@@ -170,8 +179,17 @@ var DataPlatformPlantStorageLocationDatumRels = struct {
 	DeliverFromPartyDataPlatformPurchaseRequisitionItemData                      string
 	DeliverToPartyDataPlatformPurchaseRequisitionItemData                        string
 }{
+	DeliverFromPartyDataPlatformDeliveryDocumentItemData:                         "DeliverFromPartyDataPlatformDeliveryDocumentItemData",
+	DeliverToPartyDataPlatformDeliveryDocumentItemData:                           "DeliverToPartyDataPlatformDeliveryDocumentItemData",
+	ProductionPlantDataPlatformDeliveryDocumentItemData:                          "ProductionPlantDataPlatformDeliveryDocumentItemData",
 	DeliverFromPartyDataPlatformOrdersItemData:                                   "DeliverFromPartyDataPlatformOrdersItemData",
 	DeliverToPartyDataPlatformOrdersItemData:                                     "DeliverToPartyDataPlatformOrdersItemData",
+	OwnerProductionPlantDataPlatformPlannedOrderHeaderData:                       "OwnerProductionPlantDataPlatformPlannedOrderHeaderData",
+	DeliverFromPartyDataPlatformPlannedOrderItemData:                             "DeliverFromPartyDataPlatformPlannedOrderItemData",
+	DeliverToPartyDataPlatformPlannedOrderItemData:                               "DeliverToPartyDataPlatformPlannedOrderItemData",
+	ProductionPlantDataPlatformPlannedOrderItemData:                              "ProductionPlantDataPlatformPlannedOrderItemData",
+	StockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData:             "StockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData",
+	BusinessPartnerDataPlatformProductMasterProductionData:                       "BusinessPartnerDataPlatformProductMasterProductionData",
 	BusinessPartnerDataPlatformProductStockProductStockByBtches:                  "BusinessPartnerDataPlatformProductStockProductStockByBtches",
 	DepartureDeliverFromPartyDataPlatformProductionOrderHeaderData:               "DepartureDeliverFromPartyDataPlatformProductionOrderHeaderData",
 	DestinationDeliverToPartyDataPlatformProductionOrderHeaderData:               "DestinationDeliverToPartyDataPlatformProductionOrderHeaderData",
@@ -186,8 +204,17 @@ var DataPlatformPlantStorageLocationDatumRels = struct {
 
 // dataPlatformPlantStorageLocationDatumR is where relationships are stored.
 type dataPlatformPlantStorageLocationDatumR struct {
+	DeliverFromPartyDataPlatformDeliveryDocumentItemData                         DataPlatformDeliveryDocumentItemDatumSlice         `boil:"DeliverFromPartyDataPlatformDeliveryDocumentItemData" json:"DeliverFromPartyDataPlatformDeliveryDocumentItemData" toml:"DeliverFromPartyDataPlatformDeliveryDocumentItemData" yaml:"DeliverFromPartyDataPlatformDeliveryDocumentItemData"`
+	DeliverToPartyDataPlatformDeliveryDocumentItemData                           DataPlatformDeliveryDocumentItemDatumSlice         `boil:"DeliverToPartyDataPlatformDeliveryDocumentItemData" json:"DeliverToPartyDataPlatformDeliveryDocumentItemData" toml:"DeliverToPartyDataPlatformDeliveryDocumentItemData" yaml:"DeliverToPartyDataPlatformDeliveryDocumentItemData"`
+	ProductionPlantDataPlatformDeliveryDocumentItemData                          DataPlatformDeliveryDocumentItemDatumSlice         `boil:"ProductionPlantDataPlatformDeliveryDocumentItemData" json:"ProductionPlantDataPlatformDeliveryDocumentItemData" toml:"ProductionPlantDataPlatformDeliveryDocumentItemData" yaml:"ProductionPlantDataPlatformDeliveryDocumentItemData"`
 	DeliverFromPartyDataPlatformOrdersItemData                                   DataPlatformOrdersItemDatumSlice                   `boil:"DeliverFromPartyDataPlatformOrdersItemData" json:"DeliverFromPartyDataPlatformOrdersItemData" toml:"DeliverFromPartyDataPlatformOrdersItemData" yaml:"DeliverFromPartyDataPlatformOrdersItemData"`
 	DeliverToPartyDataPlatformOrdersItemData                                     DataPlatformOrdersItemDatumSlice                   `boil:"DeliverToPartyDataPlatformOrdersItemData" json:"DeliverToPartyDataPlatformOrdersItemData" toml:"DeliverToPartyDataPlatformOrdersItemData" yaml:"DeliverToPartyDataPlatformOrdersItemData"`
+	OwnerProductionPlantDataPlatformPlannedOrderHeaderData                       DataPlatformPlannedOrderHeaderDatumSlice           `boil:"OwnerProductionPlantDataPlatformPlannedOrderHeaderData" json:"OwnerProductionPlantDataPlatformPlannedOrderHeaderData" toml:"OwnerProductionPlantDataPlatformPlannedOrderHeaderData" yaml:"OwnerProductionPlantDataPlatformPlannedOrderHeaderData"`
+	DeliverFromPartyDataPlatformPlannedOrderItemData                             DataPlatformPlannedOrderItemDatumSlice             `boil:"DeliverFromPartyDataPlatformPlannedOrderItemData" json:"DeliverFromPartyDataPlatformPlannedOrderItemData" toml:"DeliverFromPartyDataPlatformPlannedOrderItemData" yaml:"DeliverFromPartyDataPlatformPlannedOrderItemData"`
+	DeliverToPartyDataPlatformPlannedOrderItemData                               DataPlatformPlannedOrderItemDatumSlice             `boil:"DeliverToPartyDataPlatformPlannedOrderItemData" json:"DeliverToPartyDataPlatformPlannedOrderItemData" toml:"DeliverToPartyDataPlatformPlannedOrderItemData" yaml:"DeliverToPartyDataPlatformPlannedOrderItemData"`
+	ProductionPlantDataPlatformPlannedOrderItemData                              DataPlatformPlannedOrderItemDatumSlice             `boil:"ProductionPlantDataPlatformPlannedOrderItemData" json:"ProductionPlantDataPlatformPlannedOrderItemData" toml:"ProductionPlantDataPlatformPlannedOrderItemData" yaml:"ProductionPlantDataPlatformPlannedOrderItemData"`
+	StockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData             DataPlatformPlannedOrderItemDatumSlice             `boil:"StockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData" json:"StockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData" toml:"StockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData" yaml:"StockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData"`
+	BusinessPartnerDataPlatformProductMasterProductionData                       DataPlatformProductMasterProductionDatumSlice      `boil:"BusinessPartnerDataPlatformProductMasterProductionData" json:"BusinessPartnerDataPlatformProductMasterProductionData" toml:"BusinessPartnerDataPlatformProductMasterProductionData" yaml:"BusinessPartnerDataPlatformProductMasterProductionData"`
 	BusinessPartnerDataPlatformProductStockProductStockByBtches                  DataPlatformProductStockProductStockByBTCHSlice    `boil:"BusinessPartnerDataPlatformProductStockProductStockByBtches" json:"BusinessPartnerDataPlatformProductStockProductStockByBtches" toml:"BusinessPartnerDataPlatformProductStockProductStockByBtches" yaml:"BusinessPartnerDataPlatformProductStockProductStockByBtches"`
 	DepartureDeliverFromPartyDataPlatformProductionOrderHeaderData               DataPlatformProductionOrderHeaderDatumSlice        `boil:"DepartureDeliverFromPartyDataPlatformProductionOrderHeaderData" json:"DepartureDeliverFromPartyDataPlatformProductionOrderHeaderData" toml:"DepartureDeliverFromPartyDataPlatformProductionOrderHeaderData" yaml:"DepartureDeliverFromPartyDataPlatformProductionOrderHeaderData"`
 	DestinationDeliverToPartyDataPlatformProductionOrderHeaderData               DataPlatformProductionOrderHeaderDatumSlice        `boil:"DestinationDeliverToPartyDataPlatformProductionOrderHeaderData" json:"DestinationDeliverToPartyDataPlatformProductionOrderHeaderData" toml:"DestinationDeliverToPartyDataPlatformProductionOrderHeaderData" yaml:"DestinationDeliverToPartyDataPlatformProductionOrderHeaderData"`
@@ -205,6 +232,27 @@ func (*dataPlatformPlantStorageLocationDatumR) NewStruct() *dataPlatformPlantSto
 	return &dataPlatformPlantStorageLocationDatumR{}
 }
 
+func (r *dataPlatformPlantStorageLocationDatumR) GetDeliverFromPartyDataPlatformDeliveryDocumentItemData() DataPlatformDeliveryDocumentItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DeliverFromPartyDataPlatformDeliveryDocumentItemData
+}
+
+func (r *dataPlatformPlantStorageLocationDatumR) GetDeliverToPartyDataPlatformDeliveryDocumentItemData() DataPlatformDeliveryDocumentItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DeliverToPartyDataPlatformDeliveryDocumentItemData
+}
+
+func (r *dataPlatformPlantStorageLocationDatumR) GetProductionPlantDataPlatformDeliveryDocumentItemData() DataPlatformDeliveryDocumentItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductionPlantDataPlatformDeliveryDocumentItemData
+}
+
 func (r *dataPlatformPlantStorageLocationDatumR) GetDeliverFromPartyDataPlatformOrdersItemData() DataPlatformOrdersItemDatumSlice {
 	if r == nil {
 		return nil
@@ -217,6 +265,48 @@ func (r *dataPlatformPlantStorageLocationDatumR) GetDeliverToPartyDataPlatformOr
 		return nil
 	}
 	return r.DeliverToPartyDataPlatformOrdersItemData
+}
+
+func (r *dataPlatformPlantStorageLocationDatumR) GetOwnerProductionPlantDataPlatformPlannedOrderHeaderData() DataPlatformPlannedOrderHeaderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.OwnerProductionPlantDataPlatformPlannedOrderHeaderData
+}
+
+func (r *dataPlatformPlantStorageLocationDatumR) GetDeliverFromPartyDataPlatformPlannedOrderItemData() DataPlatformPlannedOrderItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DeliverFromPartyDataPlatformPlannedOrderItemData
+}
+
+func (r *dataPlatformPlantStorageLocationDatumR) GetDeliverToPartyDataPlatformPlannedOrderItemData() DataPlatformPlannedOrderItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DeliverToPartyDataPlatformPlannedOrderItemData
+}
+
+func (r *dataPlatformPlantStorageLocationDatumR) GetProductionPlantDataPlatformPlannedOrderItemData() DataPlatformPlannedOrderItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductionPlantDataPlatformPlannedOrderItemData
+}
+
+func (r *dataPlatformPlantStorageLocationDatumR) GetStockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData() DataPlatformPlannedOrderItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.StockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData
+}
+
+func (r *dataPlatformPlantStorageLocationDatumR) GetBusinessPartnerDataPlatformProductMasterProductionData() DataPlatformProductMasterProductionDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.BusinessPartnerDataPlatformProductMasterProductionData
 }
 
 func (r *dataPlatformPlantStorageLocationDatumR) GetBusinessPartnerDataPlatformProductStockProductStockByBtches() DataPlatformProductStockProductStockByBTCHSlice {
@@ -391,6 +481,48 @@ func (q dataPlatformPlantStorageLocationDatumQuery) Exists(ctx context.Context, 
 	return count > 0, nil
 }
 
+// DeliverFromPartyDataPlatformDeliveryDocumentItemData retrieves all the data_platform_delivery_document_item_datum's DataPlatformDeliveryDocumentItemData with an executor via DeliverFromParty column.
+func (o *DataPlatformPlantStorageLocationDatum) DeliverFromPartyDataPlatformDeliveryDocumentItemData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_item_data`.`DeliverFromParty`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformDeliveryDocumentItemData(queryMods...)
+}
+
+// DeliverToPartyDataPlatformDeliveryDocumentItemData retrieves all the data_platform_delivery_document_item_datum's DataPlatformDeliveryDocumentItemData with an executor via DeliverToParty column.
+func (o *DataPlatformPlantStorageLocationDatum) DeliverToPartyDataPlatformDeliveryDocumentItemData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_item_data`.`DeliverToParty`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformDeliveryDocumentItemData(queryMods...)
+}
+
+// ProductionPlantDataPlatformDeliveryDocumentItemData retrieves all the data_platform_delivery_document_item_datum's DataPlatformDeliveryDocumentItemData with an executor via ProductionPlant column.
+func (o *DataPlatformPlantStorageLocationDatum) ProductionPlantDataPlatformDeliveryDocumentItemData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_item_data`.`ProductionPlant`=?", o.Plant),
+	)
+
+	return DataPlatformDeliveryDocumentItemData(queryMods...)
+}
+
 // DeliverFromPartyDataPlatformOrdersItemData retrieves all the data_platform_orders_item_datum's DataPlatformOrdersItemData with an executor via DeliverFromParty column.
 func (o *DataPlatformPlantStorageLocationDatum) DeliverFromPartyDataPlatformOrdersItemData(mods ...qm.QueryMod) dataPlatformOrdersItemDatumQuery {
 	var queryMods []qm.QueryMod
@@ -417,6 +549,90 @@ func (o *DataPlatformPlantStorageLocationDatum) DeliverToPartyDataPlatformOrders
 	)
 
 	return DataPlatformOrdersItemData(queryMods...)
+}
+
+// OwnerProductionPlantDataPlatformPlannedOrderHeaderData retrieves all the data_platform_planned_order_header_datum's DataPlatformPlannedOrderHeaderData with an executor via OwnerProductionPlant column.
+func (o *DataPlatformPlantStorageLocationDatum) OwnerProductionPlantDataPlatformPlannedOrderHeaderData(mods ...qm.QueryMod) dataPlatformPlannedOrderHeaderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_planned_order_header_data`.`OwnerProductionPlant`=?", o.Plant),
+	)
+
+	return DataPlatformPlannedOrderHeaderData(queryMods...)
+}
+
+// DeliverFromPartyDataPlatformPlannedOrderItemData retrieves all the data_platform_planned_order_item_datum's DataPlatformPlannedOrderItemData with an executor via DeliverFromParty column.
+func (o *DataPlatformPlantStorageLocationDatum) DeliverFromPartyDataPlatformPlannedOrderItemData(mods ...qm.QueryMod) dataPlatformPlannedOrderItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_planned_order_item_data`.`DeliverFromParty`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformPlannedOrderItemData(queryMods...)
+}
+
+// DeliverToPartyDataPlatformPlannedOrderItemData retrieves all the data_platform_planned_order_item_datum's DataPlatformPlannedOrderItemData with an executor via DeliverToParty column.
+func (o *DataPlatformPlantStorageLocationDatum) DeliverToPartyDataPlatformPlannedOrderItemData(mods ...qm.QueryMod) dataPlatformPlannedOrderItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_planned_order_item_data`.`DeliverToParty`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformPlannedOrderItemData(queryMods...)
+}
+
+// ProductionPlantDataPlatformPlannedOrderItemData retrieves all the data_platform_planned_order_item_datum's DataPlatformPlannedOrderItemData with an executor via ProductionPlant column.
+func (o *DataPlatformPlantStorageLocationDatum) ProductionPlantDataPlatformPlannedOrderItemData(mods ...qm.QueryMod) dataPlatformPlannedOrderItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_planned_order_item_data`.`ProductionPlant`=?", o.Plant),
+	)
+
+	return DataPlatformPlannedOrderItemData(queryMods...)
+}
+
+// StockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData retrieves all the data_platform_planned_order_item_datum's DataPlatformPlannedOrderItemData with an executor via StockConfirmationBusinessPartner column.
+func (o *DataPlatformPlantStorageLocationDatum) StockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData(mods ...qm.QueryMod) dataPlatformPlannedOrderItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_planned_order_item_data`.`StockConfirmationBusinessPartner`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformPlannedOrderItemData(queryMods...)
+}
+
+// BusinessPartnerDataPlatformProductMasterProductionData retrieves all the data_platform_product_master_production_datum's DataPlatformProductMasterProductionData with an executor via BusinessPartner column.
+func (o *DataPlatformPlantStorageLocationDatum) BusinessPartnerDataPlatformProductMasterProductionData(mods ...qm.QueryMod) dataPlatformProductMasterProductionDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_product_master_production_data`.`BusinessPartner`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformProductMasterProductionData(queryMods...)
 }
 
 // BusinessPartnerDataPlatformProductStockProductStockByBtches retrieves all the data_platform_product_stock_product_stock_by_btch's DataPlatformProductStockProductStockByBtches with an executor via BusinessPartner column.
@@ -557,6 +773,297 @@ func (o *DataPlatformPlantStorageLocationDatum) DeliverToPartyDataPlatformPurcha
 	)
 
 	return DataPlatformPurchaseRequisitionItemData(queryMods...)
+}
+
+// LoadDeliverFromPartyDataPlatformDeliveryDocumentItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformPlantStorageLocationDatumL) LoadDeliverFromPartyDataPlatformDeliveryDocumentItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPlantStorageLocationDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformPlantStorageLocationDatum
+	var object *DataPlatformPlantStorageLocationDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformPlantStorageLocationDatum.(*DataPlatformPlantStorageLocationDatum)
+		if !ok {
+			object = new(DataPlatformPlantStorageLocationDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformPlantStorageLocationDatum.(*[]*DataPlatformPlantStorageLocationDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformPlantStorageLocationDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformPlantStorageLocationDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_item_data`),
+		qm.WhereIn(`data_platform_delivery_document_item_data.DeliverFromParty in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_item_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_item_data")
+	}
+
+	if singular {
+		object.R.DeliverFromPartyDataPlatformDeliveryDocumentItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BusinessPartner == foreign.DeliverFromParty {
+				local.R.DeliverFromPartyDataPlatformDeliveryDocumentItemData = append(local.R.DeliverFromPartyDataPlatformDeliveryDocumentItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDeliverToPartyDataPlatformDeliveryDocumentItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformPlantStorageLocationDatumL) LoadDeliverToPartyDataPlatformDeliveryDocumentItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPlantStorageLocationDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformPlantStorageLocationDatum
+	var object *DataPlatformPlantStorageLocationDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformPlantStorageLocationDatum.(*DataPlatformPlantStorageLocationDatum)
+		if !ok {
+			object = new(DataPlatformPlantStorageLocationDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformPlantStorageLocationDatum.(*[]*DataPlatformPlantStorageLocationDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformPlantStorageLocationDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformPlantStorageLocationDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_item_data`),
+		qm.WhereIn(`data_platform_delivery_document_item_data.DeliverToParty in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_item_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_item_data")
+	}
+
+	if singular {
+		object.R.DeliverToPartyDataPlatformDeliveryDocumentItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BusinessPartner == foreign.DeliverToParty {
+				local.R.DeliverToPartyDataPlatformDeliveryDocumentItemData = append(local.R.DeliverToPartyDataPlatformDeliveryDocumentItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductionPlantDataPlatformDeliveryDocumentItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformPlantStorageLocationDatumL) LoadProductionPlantDataPlatformDeliveryDocumentItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPlantStorageLocationDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformPlantStorageLocationDatum
+	var object *DataPlatformPlantStorageLocationDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformPlantStorageLocationDatum.(*DataPlatformPlantStorageLocationDatum)
+		if !ok {
+			object = new(DataPlatformPlantStorageLocationDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformPlantStorageLocationDatum.(*[]*DataPlatformPlantStorageLocationDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformPlantStorageLocationDatumR{}
+		}
+		args = append(args, object.Plant)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformPlantStorageLocationDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Plant) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Plant)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_item_data`),
+		qm.WhereIn(`data_platform_delivery_document_item_data.ProductionPlant in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_item_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_item_data")
+	}
+
+	if singular {
+		object.R.ProductionPlantDataPlatformDeliveryDocumentItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Plant, foreign.ProductionPlant) {
+				local.R.ProductionPlantDataPlatformDeliveryDocumentItemData = append(local.R.ProductionPlantDataPlatformDeliveryDocumentItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
 }
 
 // LoadDeliverFromPartyDataPlatformOrdersItemData allows an eager lookup of values, cached into the
@@ -745,6 +1252,588 @@ func (dataPlatformPlantStorageLocationDatumL) LoadDeliverToPartyDataPlatformOrde
 		for _, local := range slice {
 			if queries.Equal(local.BusinessPartner, foreign.DeliverToParty) {
 				local.R.DeliverToPartyDataPlatformOrdersItemData = append(local.R.DeliverToPartyDataPlatformOrdersItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadOwnerProductionPlantDataPlatformPlannedOrderHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformPlantStorageLocationDatumL) LoadOwnerProductionPlantDataPlatformPlannedOrderHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPlantStorageLocationDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformPlantStorageLocationDatum
+	var object *DataPlatformPlantStorageLocationDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformPlantStorageLocationDatum.(*DataPlatformPlantStorageLocationDatum)
+		if !ok {
+			object = new(DataPlatformPlantStorageLocationDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformPlantStorageLocationDatum.(*[]*DataPlatformPlantStorageLocationDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformPlantStorageLocationDatumR{}
+		}
+		args = append(args, object.Plant)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformPlantStorageLocationDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Plant) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Plant)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_planned_order_header_data`),
+		qm.WhereIn(`data_platform_planned_order_header_data.OwnerProductionPlant in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_planned_order_header_data")
+	}
+
+	var resultSlice []*DataPlatformPlannedOrderHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_planned_order_header_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_planned_order_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_planned_order_header_data")
+	}
+
+	if singular {
+		object.R.OwnerProductionPlantDataPlatformPlannedOrderHeaderData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Plant, foreign.OwnerProductionPlant) {
+				local.R.OwnerProductionPlantDataPlatformPlannedOrderHeaderData = append(local.R.OwnerProductionPlantDataPlatformPlannedOrderHeaderData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDeliverFromPartyDataPlatformPlannedOrderItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformPlantStorageLocationDatumL) LoadDeliverFromPartyDataPlatformPlannedOrderItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPlantStorageLocationDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformPlantStorageLocationDatum
+	var object *DataPlatformPlantStorageLocationDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformPlantStorageLocationDatum.(*DataPlatformPlantStorageLocationDatum)
+		if !ok {
+			object = new(DataPlatformPlantStorageLocationDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformPlantStorageLocationDatum.(*[]*DataPlatformPlantStorageLocationDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformPlantStorageLocationDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformPlantStorageLocationDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_planned_order_item_data`),
+		qm.WhereIn(`data_platform_planned_order_item_data.DeliverFromParty in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_planned_order_item_data")
+	}
+
+	var resultSlice []*DataPlatformPlannedOrderItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_planned_order_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_planned_order_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_planned_order_item_data")
+	}
+
+	if singular {
+		object.R.DeliverFromPartyDataPlatformPlannedOrderItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BusinessPartner == foreign.DeliverFromParty {
+				local.R.DeliverFromPartyDataPlatformPlannedOrderItemData = append(local.R.DeliverFromPartyDataPlatformPlannedOrderItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDeliverToPartyDataPlatformPlannedOrderItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformPlantStorageLocationDatumL) LoadDeliverToPartyDataPlatformPlannedOrderItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPlantStorageLocationDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformPlantStorageLocationDatum
+	var object *DataPlatformPlantStorageLocationDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformPlantStorageLocationDatum.(*DataPlatformPlantStorageLocationDatum)
+		if !ok {
+			object = new(DataPlatformPlantStorageLocationDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformPlantStorageLocationDatum.(*[]*DataPlatformPlantStorageLocationDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformPlantStorageLocationDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformPlantStorageLocationDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_planned_order_item_data`),
+		qm.WhereIn(`data_platform_planned_order_item_data.DeliverToParty in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_planned_order_item_data")
+	}
+
+	var resultSlice []*DataPlatformPlannedOrderItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_planned_order_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_planned_order_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_planned_order_item_data")
+	}
+
+	if singular {
+		object.R.DeliverToPartyDataPlatformPlannedOrderItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BusinessPartner == foreign.DeliverToParty {
+				local.R.DeliverToPartyDataPlatformPlannedOrderItemData = append(local.R.DeliverToPartyDataPlatformPlannedOrderItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductionPlantDataPlatformPlannedOrderItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformPlantStorageLocationDatumL) LoadProductionPlantDataPlatformPlannedOrderItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPlantStorageLocationDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformPlantStorageLocationDatum
+	var object *DataPlatformPlantStorageLocationDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformPlantStorageLocationDatum.(*DataPlatformPlantStorageLocationDatum)
+		if !ok {
+			object = new(DataPlatformPlantStorageLocationDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformPlantStorageLocationDatum.(*[]*DataPlatformPlantStorageLocationDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformPlantStorageLocationDatumR{}
+		}
+		args = append(args, object.Plant)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformPlantStorageLocationDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Plant) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Plant)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_planned_order_item_data`),
+		qm.WhereIn(`data_platform_planned_order_item_data.ProductionPlant in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_planned_order_item_data")
+	}
+
+	var resultSlice []*DataPlatformPlannedOrderItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_planned_order_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_planned_order_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_planned_order_item_data")
+	}
+
+	if singular {
+		object.R.ProductionPlantDataPlatformPlannedOrderItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Plant, foreign.ProductionPlant) {
+				local.R.ProductionPlantDataPlatformPlannedOrderItemData = append(local.R.ProductionPlantDataPlatformPlannedOrderItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadStockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformPlantStorageLocationDatumL) LoadStockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPlantStorageLocationDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformPlantStorageLocationDatum
+	var object *DataPlatformPlantStorageLocationDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformPlantStorageLocationDatum.(*DataPlatformPlantStorageLocationDatum)
+		if !ok {
+			object = new(DataPlatformPlantStorageLocationDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformPlantStorageLocationDatum.(*[]*DataPlatformPlantStorageLocationDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformPlantStorageLocationDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformPlantStorageLocationDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_planned_order_item_data`),
+		qm.WhereIn(`data_platform_planned_order_item_data.StockConfirmationBusinessPartner in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_planned_order_item_data")
+	}
+
+	var resultSlice []*DataPlatformPlannedOrderItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_planned_order_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_planned_order_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_planned_order_item_data")
+	}
+
+	if singular {
+		object.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BusinessPartner == foreign.StockConfirmationBusinessPartner {
+				local.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData = append(local.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadBusinessPartnerDataPlatformProductMasterProductionData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformPlantStorageLocationDatumL) LoadBusinessPartnerDataPlatformProductMasterProductionData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPlantStorageLocationDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformPlantStorageLocationDatum
+	var object *DataPlatformPlantStorageLocationDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformPlantStorageLocationDatum.(*DataPlatformPlantStorageLocationDatum)
+		if !ok {
+			object = new(DataPlatformPlantStorageLocationDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformPlantStorageLocationDatum.(*[]*DataPlatformPlantStorageLocationDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformPlantStorageLocationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformPlantStorageLocationDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformPlantStorageLocationDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformPlantStorageLocationDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_master_production_data`),
+		qm.WhereIn(`data_platform_product_master_production_data.BusinessPartner in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_product_master_production_data")
+	}
+
+	var resultSlice []*DataPlatformProductMasterProductionDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_master_production_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_master_production_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_production_data")
+	}
+
+	if singular {
+		object.R.BusinessPartnerDataPlatformProductMasterProductionData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BusinessPartner == foreign.BusinessPartner {
+				local.R.BusinessPartnerDataPlatformProductMasterProductionData = append(local.R.BusinessPartnerDataPlatformProductMasterProductionData, foreign)
 				break
 			}
 		}
@@ -1723,6 +2812,196 @@ func (dataPlatformPlantStorageLocationDatumL) LoadDeliverToPartyDataPlatformPurc
 	return nil
 }
 
+// AddDeliverFromPartyDataPlatformDeliveryDocumentItemData adds the given related objects to the existing relationships
+// of the data_platform_plant_storage_location_datum, optionally inserting them as new records.
+// Appends related to o.R.DeliverFromPartyDataPlatformDeliveryDocumentItemData.
+func (o *DataPlatformPlantStorageLocationDatum) AddDeliverFromPartyDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DeliverFromParty = o.BusinessPartner
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DeliverFromParty"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.DeliveryDocument, rel.DeliveryDocumentItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DeliverFromParty = o.BusinessPartner
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformPlantStorageLocationDatumR{
+			DeliverFromPartyDataPlatformDeliveryDocumentItemData: related,
+		}
+	} else {
+		o.R.DeliverFromPartyDataPlatformDeliveryDocumentItemData = append(o.R.DeliverFromPartyDataPlatformDeliveryDocumentItemData, related...)
+	}
+
+	return nil
+}
+
+// AddDeliverToPartyDataPlatformDeliveryDocumentItemData adds the given related objects to the existing relationships
+// of the data_platform_plant_storage_location_datum, optionally inserting them as new records.
+// Appends related to o.R.DeliverToPartyDataPlatformDeliveryDocumentItemData.
+func (o *DataPlatformPlantStorageLocationDatum) AddDeliverToPartyDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DeliverToParty = o.BusinessPartner
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DeliverToParty"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.DeliveryDocument, rel.DeliveryDocumentItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DeliverToParty = o.BusinessPartner
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformPlantStorageLocationDatumR{
+			DeliverToPartyDataPlatformDeliveryDocumentItemData: related,
+		}
+	} else {
+		o.R.DeliverToPartyDataPlatformDeliveryDocumentItemData = append(o.R.DeliverToPartyDataPlatformDeliveryDocumentItemData, related...)
+	}
+
+	return nil
+}
+
+// AddProductionPlantDataPlatformDeliveryDocumentItemData adds the given related objects to the existing relationships
+// of the data_platform_plant_storage_location_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductionPlantDataPlatformDeliveryDocumentItemData.
+func (o *DataPlatformPlantStorageLocationDatum) AddProductionPlantDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.ProductionPlant, o.Plant)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"ProductionPlant"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Plant, rel.DeliveryDocument, rel.DeliveryDocumentItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.ProductionPlant, o.Plant)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformPlantStorageLocationDatumR{
+			ProductionPlantDataPlatformDeliveryDocumentItemData: related,
+		}
+	} else {
+		o.R.ProductionPlantDataPlatformDeliveryDocumentItemData = append(o.R.ProductionPlantDataPlatformDeliveryDocumentItemData, related...)
+	}
+
+	return nil
+}
+
+// SetProductionPlantDataPlatformDeliveryDocumentItemData removes all previously related items of the
+// data_platform_plant_storage_location_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.ProductionPlantDataPlatformPlantStorageLocationDatum's ProductionPlantDataPlatformDeliveryDocumentItemData accordingly.
+// Replaces o.R.ProductionPlantDataPlatformDeliveryDocumentItemData with related.
+func (o *DataPlatformPlantStorageLocationDatum) SetProductionPlantDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	query := "update `data_platform_delivery_document_item_data` set `ProductionPlant` = null where `ProductionPlant` = ?"
+	values := []interface{}{o.Plant}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.ProductionPlantDataPlatformDeliveryDocumentItemData = nil
+	}
+
+	return o.AddProductionPlantDataPlatformDeliveryDocumentItemData(ctx, exec, insert, related...)
+}
+
+// RemoveProductionPlantDataPlatformDeliveryDocumentItemData relationships from objects passed in.
+// Removes related items from R.ProductionPlantDataPlatformDeliveryDocumentItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformPlantStorageLocationDatum) RemoveProductionPlantDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.ProductionPlant, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("ProductionPlant")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.ProductionPlantDataPlatformDeliveryDocumentItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.ProductionPlantDataPlatformDeliveryDocumentItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.ProductionPlantDataPlatformDeliveryDocumentItemData[i] = o.R.ProductionPlantDataPlatformDeliveryDocumentItemData[ln-1]
+			}
+			o.R.ProductionPlantDataPlatformDeliveryDocumentItemData = o.R.ProductionPlantDataPlatformDeliveryDocumentItemData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
 // AddDeliverFromPartyDataPlatformOrdersItemData adds the given related objects to the existing relationships
 // of the data_platform_plant_storage_location_datum, optionally inserting them as new records.
 // Appends related to o.R.DeliverFromPartyDataPlatformOrdersItemData.
@@ -1926,6 +3205,386 @@ func (o *DataPlatformPlantStorageLocationDatum) RemoveDeliverToPartyDataPlatform
 			o.R.DeliverToPartyDataPlatformOrdersItemData = o.R.DeliverToPartyDataPlatformOrdersItemData[:ln-1]
 			break
 		}
+	}
+
+	return nil
+}
+
+// AddOwnerProductionPlantDataPlatformPlannedOrderHeaderData adds the given related objects to the existing relationships
+// of the data_platform_plant_storage_location_datum, optionally inserting them as new records.
+// Appends related to o.R.OwnerProductionPlantDataPlatformPlannedOrderHeaderData.
+func (o *DataPlatformPlantStorageLocationDatum) AddOwnerProductionPlantDataPlatformPlannedOrderHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderHeaderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.OwnerProductionPlant, o.Plant)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_planned_order_header_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"OwnerProductionPlant"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformPlannedOrderHeaderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Plant, rel.PlannedOrder}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.OwnerProductionPlant, o.Plant)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformPlantStorageLocationDatumR{
+			OwnerProductionPlantDataPlatformPlannedOrderHeaderData: related,
+		}
+	} else {
+		o.R.OwnerProductionPlantDataPlatformPlannedOrderHeaderData = append(o.R.OwnerProductionPlantDataPlatformPlannedOrderHeaderData, related...)
+	}
+
+	return nil
+}
+
+// SetOwnerProductionPlantDataPlatformPlannedOrderHeaderData removes all previously related items of the
+// data_platform_plant_storage_location_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.OwnerProductionPlantDataPlatformPlantStorageLocationDatum's OwnerProductionPlantDataPlatformPlannedOrderHeaderData accordingly.
+// Replaces o.R.OwnerProductionPlantDataPlatformPlannedOrderHeaderData with related.
+func (o *DataPlatformPlantStorageLocationDatum) SetOwnerProductionPlantDataPlatformPlannedOrderHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderHeaderDatum) error {
+	query := "update `data_platform_planned_order_header_data` set `OwnerProductionPlant` = null where `OwnerProductionPlant` = ?"
+	values := []interface{}{o.Plant}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.OwnerProductionPlantDataPlatformPlannedOrderHeaderData = nil
+	}
+
+	return o.AddOwnerProductionPlantDataPlatformPlannedOrderHeaderData(ctx, exec, insert, related...)
+}
+
+// RemoveOwnerProductionPlantDataPlatformPlannedOrderHeaderData relationships from objects passed in.
+// Removes related items from R.OwnerProductionPlantDataPlatformPlannedOrderHeaderData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformPlantStorageLocationDatum) RemoveOwnerProductionPlantDataPlatformPlannedOrderHeaderData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformPlannedOrderHeaderDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.OwnerProductionPlant, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("OwnerProductionPlant")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.OwnerProductionPlantDataPlatformPlannedOrderHeaderData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.OwnerProductionPlantDataPlatformPlannedOrderHeaderData)
+			if ln > 1 && i < ln-1 {
+				o.R.OwnerProductionPlantDataPlatformPlannedOrderHeaderData[i] = o.R.OwnerProductionPlantDataPlatformPlannedOrderHeaderData[ln-1]
+			}
+			o.R.OwnerProductionPlantDataPlatformPlannedOrderHeaderData = o.R.OwnerProductionPlantDataPlatformPlannedOrderHeaderData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddDeliverFromPartyDataPlatformPlannedOrderItemData adds the given related objects to the existing relationships
+// of the data_platform_plant_storage_location_datum, optionally inserting them as new records.
+// Appends related to o.R.DeliverFromPartyDataPlatformPlannedOrderItemData.
+func (o *DataPlatformPlantStorageLocationDatum) AddDeliverFromPartyDataPlatformPlannedOrderItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DeliverFromParty = o.BusinessPartner
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_planned_order_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DeliverFromParty"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformPlannedOrderItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.PlannedOrder, rel.PlannedOrderItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DeliverFromParty = o.BusinessPartner
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformPlantStorageLocationDatumR{
+			DeliverFromPartyDataPlatformPlannedOrderItemData: related,
+		}
+	} else {
+		o.R.DeliverFromPartyDataPlatformPlannedOrderItemData = append(o.R.DeliverFromPartyDataPlatformPlannedOrderItemData, related...)
+	}
+
+	return nil
+}
+
+// AddDeliverToPartyDataPlatformPlannedOrderItemData adds the given related objects to the existing relationships
+// of the data_platform_plant_storage_location_datum, optionally inserting them as new records.
+// Appends related to o.R.DeliverToPartyDataPlatformPlannedOrderItemData.
+func (o *DataPlatformPlantStorageLocationDatum) AddDeliverToPartyDataPlatformPlannedOrderItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DeliverToParty = o.BusinessPartner
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_planned_order_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DeliverToParty"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformPlannedOrderItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.PlannedOrder, rel.PlannedOrderItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DeliverToParty = o.BusinessPartner
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformPlantStorageLocationDatumR{
+			DeliverToPartyDataPlatformPlannedOrderItemData: related,
+		}
+	} else {
+		o.R.DeliverToPartyDataPlatformPlannedOrderItemData = append(o.R.DeliverToPartyDataPlatformPlannedOrderItemData, related...)
+	}
+
+	return nil
+}
+
+// AddProductionPlantDataPlatformPlannedOrderItemData adds the given related objects to the existing relationships
+// of the data_platform_plant_storage_location_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductionPlantDataPlatformPlannedOrderItemData.
+func (o *DataPlatformPlantStorageLocationDatum) AddProductionPlantDataPlatformPlannedOrderItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.ProductionPlant, o.Plant)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_planned_order_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"ProductionPlant"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformPlannedOrderItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Plant, rel.PlannedOrder, rel.PlannedOrderItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.ProductionPlant, o.Plant)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformPlantStorageLocationDatumR{
+			ProductionPlantDataPlatformPlannedOrderItemData: related,
+		}
+	} else {
+		o.R.ProductionPlantDataPlatformPlannedOrderItemData = append(o.R.ProductionPlantDataPlatformPlannedOrderItemData, related...)
+	}
+
+	return nil
+}
+
+// SetProductionPlantDataPlatformPlannedOrderItemData removes all previously related items of the
+// data_platform_plant_storage_location_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.ProductionPlantDataPlatformPlantStorageLocationDatum's ProductionPlantDataPlatformPlannedOrderItemData accordingly.
+// Replaces o.R.ProductionPlantDataPlatformPlannedOrderItemData with related.
+func (o *DataPlatformPlantStorageLocationDatum) SetProductionPlantDataPlatformPlannedOrderItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderItemDatum) error {
+	query := "update `data_platform_planned_order_item_data` set `ProductionPlant` = null where `ProductionPlant` = ?"
+	values := []interface{}{o.Plant}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.ProductionPlantDataPlatformPlannedOrderItemData = nil
+	}
+
+	return o.AddProductionPlantDataPlatformPlannedOrderItemData(ctx, exec, insert, related...)
+}
+
+// RemoveProductionPlantDataPlatformPlannedOrderItemData relationships from objects passed in.
+// Removes related items from R.ProductionPlantDataPlatformPlannedOrderItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformPlantStorageLocationDatum) RemoveProductionPlantDataPlatformPlannedOrderItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformPlannedOrderItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.ProductionPlant, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("ProductionPlant")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.ProductionPlantDataPlatformPlannedOrderItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.ProductionPlantDataPlatformPlannedOrderItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.ProductionPlantDataPlatformPlannedOrderItemData[i] = o.R.ProductionPlantDataPlatformPlannedOrderItemData[ln-1]
+			}
+			o.R.ProductionPlantDataPlatformPlannedOrderItemData = o.R.ProductionPlantDataPlatformPlannedOrderItemData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddStockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData adds the given related objects to the existing relationships
+// of the data_platform_plant_storage_location_datum, optionally inserting them as new records.
+// Appends related to o.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData.
+func (o *DataPlatformPlantStorageLocationDatum) AddStockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.StockConfirmationBusinessPartner = o.BusinessPartner
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_planned_order_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"StockConfirmationBusinessPartner"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformPlannedOrderItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.PlannedOrder, rel.PlannedOrderItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.StockConfirmationBusinessPartner = o.BusinessPartner
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformPlantStorageLocationDatumR{
+			StockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData: related,
+		}
+	} else {
+		o.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData = append(o.R.StockConfirmationBusinessPartnerDataPlatformPlannedOrderItemData, related...)
+	}
+
+	return nil
+}
+
+// AddBusinessPartnerDataPlatformProductMasterProductionData adds the given related objects to the existing relationships
+// of the data_platform_plant_storage_location_datum, optionally inserting them as new records.
+// Appends related to o.R.BusinessPartnerDataPlatformProductMasterProductionData.
+func (o *DataPlatformPlantStorageLocationDatum) AddBusinessPartnerDataPlatformProductMasterProductionData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductMasterProductionDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.BusinessPartner = o.BusinessPartner
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_product_master_production_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"BusinessPartner"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterProductionDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.Product, rel.BusinessPartner, rel.Plant}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.BusinessPartner = o.BusinessPartner
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformPlantStorageLocationDatumR{
+			BusinessPartnerDataPlatformProductMasterProductionData: related,
+		}
+	} else {
+		o.R.BusinessPartnerDataPlatformProductMasterProductionData = append(o.R.BusinessPartnerDataPlatformProductMasterProductionData, related...)
 	}
 
 	return nil

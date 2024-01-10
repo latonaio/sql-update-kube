@@ -80,32 +80,38 @@ var DataPlatformTimeZoneTimeZoneDatumWhere = struct {
 
 // DataPlatformTimeZoneTimeZoneDatumRels is where relationship names are stored.
 var DataPlatformTimeZoneTimeZoneDatumRels = struct {
-	DeliverToPlantDataPlatformDeliveryDocumentHeaderData     string
-	DeliverFromPlantTimeZoneDataPlatformOrdersItemData       string
-	DeliverToPlantTimeZoneDataPlatformOrdersItemData         string
-	ProductionPlantTimeZoneDataPlatformOrdersItemData        string
-	StockConfirmationPlantTimeZoneDataPlatformOrdersItemData string
-	TimeZoneDataPlatformPlantGeneralData                     string
-	TimeZoneDataPlatformTimeZoneTimeZoneTextData             string
+	DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData       string
+	DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData         string
+	DeliverFromPlantTimeZoneDataPlatformOrdersItemData                   string
+	DeliverToPlantTimeZoneDataPlatformOrdersItemData                     string
+	ProductionPlantTimeZoneDataPlatformOrdersItemData                    string
+	StockConfirmationPlantTimeZoneDataPlatformOrdersItemData             string
+	StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData string
+	TimeZoneDataPlatformPlantGeneralData                                 string
+	TimeZoneDataPlatformTimeZoneTimeZoneTextData                         string
 }{
-	DeliverToPlantDataPlatformDeliveryDocumentHeaderData:     "DeliverToPlantDataPlatformDeliveryDocumentHeaderData",
-	DeliverFromPlantTimeZoneDataPlatformOrdersItemData:       "DeliverFromPlantTimeZoneDataPlatformOrdersItemData",
-	DeliverToPlantTimeZoneDataPlatformOrdersItemData:         "DeliverToPlantTimeZoneDataPlatformOrdersItemData",
-	ProductionPlantTimeZoneDataPlatformOrdersItemData:        "ProductionPlantTimeZoneDataPlatformOrdersItemData",
-	StockConfirmationPlantTimeZoneDataPlatformOrdersItemData: "StockConfirmationPlantTimeZoneDataPlatformOrdersItemData",
-	TimeZoneDataPlatformPlantGeneralData:                     "TimeZoneDataPlatformPlantGeneralData",
-	TimeZoneDataPlatformTimeZoneTimeZoneTextData:             "TimeZoneDataPlatformTimeZoneTimeZoneTextData",
+	DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData:       "DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData",
+	DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData:         "DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData",
+	DeliverFromPlantTimeZoneDataPlatformOrdersItemData:                   "DeliverFromPlantTimeZoneDataPlatformOrdersItemData",
+	DeliverToPlantTimeZoneDataPlatformOrdersItemData:                     "DeliverToPlantTimeZoneDataPlatformOrdersItemData",
+	ProductionPlantTimeZoneDataPlatformOrdersItemData:                    "ProductionPlantTimeZoneDataPlatformOrdersItemData",
+	StockConfirmationPlantTimeZoneDataPlatformOrdersItemData:             "StockConfirmationPlantTimeZoneDataPlatformOrdersItemData",
+	StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData: "StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData",
+	TimeZoneDataPlatformPlantGeneralData:                                 "TimeZoneDataPlatformPlantGeneralData",
+	TimeZoneDataPlatformTimeZoneTimeZoneTextData:                         "TimeZoneDataPlatformTimeZoneTimeZoneTextData",
 }
 
 // dataPlatformTimeZoneTimeZoneDatumR is where relationships are stored.
 type dataPlatformTimeZoneTimeZoneDatumR struct {
-	DeliverToPlantDataPlatformDeliveryDocumentHeaderData     DataPlatformDeliveryDocumentHeaderDatumSlice `boil:"DeliverToPlantDataPlatformDeliveryDocumentHeaderData" json:"DeliverToPlantDataPlatformDeliveryDocumentHeaderData" toml:"DeliverToPlantDataPlatformDeliveryDocumentHeaderData" yaml:"DeliverToPlantDataPlatformDeliveryDocumentHeaderData"`
-	DeliverFromPlantTimeZoneDataPlatformOrdersItemData       DataPlatformOrdersItemDatumSlice             `boil:"DeliverFromPlantTimeZoneDataPlatformOrdersItemData" json:"DeliverFromPlantTimeZoneDataPlatformOrdersItemData" toml:"DeliverFromPlantTimeZoneDataPlatformOrdersItemData" yaml:"DeliverFromPlantTimeZoneDataPlatformOrdersItemData"`
-	DeliverToPlantTimeZoneDataPlatformOrdersItemData         DataPlatformOrdersItemDatumSlice             `boil:"DeliverToPlantTimeZoneDataPlatformOrdersItemData" json:"DeliverToPlantTimeZoneDataPlatformOrdersItemData" toml:"DeliverToPlantTimeZoneDataPlatformOrdersItemData" yaml:"DeliverToPlantTimeZoneDataPlatformOrdersItemData"`
-	ProductionPlantTimeZoneDataPlatformOrdersItemData        DataPlatformOrdersItemDatumSlice             `boil:"ProductionPlantTimeZoneDataPlatformOrdersItemData" json:"ProductionPlantTimeZoneDataPlatformOrdersItemData" toml:"ProductionPlantTimeZoneDataPlatformOrdersItemData" yaml:"ProductionPlantTimeZoneDataPlatformOrdersItemData"`
-	StockConfirmationPlantTimeZoneDataPlatformOrdersItemData DataPlatformOrdersItemDatumSlice             `boil:"StockConfirmationPlantTimeZoneDataPlatformOrdersItemData" json:"StockConfirmationPlantTimeZoneDataPlatformOrdersItemData" toml:"StockConfirmationPlantTimeZoneDataPlatformOrdersItemData" yaml:"StockConfirmationPlantTimeZoneDataPlatformOrdersItemData"`
-	TimeZoneDataPlatformPlantGeneralData                     DataPlatformPlantGeneralDatumSlice           `boil:"TimeZoneDataPlatformPlantGeneralData" json:"TimeZoneDataPlatformPlantGeneralData" toml:"TimeZoneDataPlatformPlantGeneralData" yaml:"TimeZoneDataPlatformPlantGeneralData"`
-	TimeZoneDataPlatformTimeZoneTimeZoneTextData             DataPlatformTimeZoneTimeZoneTextDatumSlice   `boil:"TimeZoneDataPlatformTimeZoneTimeZoneTextData" json:"TimeZoneDataPlatformTimeZoneTimeZoneTextData" toml:"TimeZoneDataPlatformTimeZoneTimeZoneTextData" yaml:"TimeZoneDataPlatformTimeZoneTimeZoneTextData"`
+	DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData       DataPlatformDeliveryDocumentHeaderDatumSlice `boil:"DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData" json:"DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData" toml:"DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData" yaml:"DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData"`
+	DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData         DataPlatformDeliveryDocumentHeaderDatumSlice `boil:"DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData" json:"DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData" toml:"DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData" yaml:"DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData"`
+	DeliverFromPlantTimeZoneDataPlatformOrdersItemData                   DataPlatformOrdersItemDatumSlice             `boil:"DeliverFromPlantTimeZoneDataPlatformOrdersItemData" json:"DeliverFromPlantTimeZoneDataPlatformOrdersItemData" toml:"DeliverFromPlantTimeZoneDataPlatformOrdersItemData" yaml:"DeliverFromPlantTimeZoneDataPlatformOrdersItemData"`
+	DeliverToPlantTimeZoneDataPlatformOrdersItemData                     DataPlatformOrdersItemDatumSlice             `boil:"DeliverToPlantTimeZoneDataPlatformOrdersItemData" json:"DeliverToPlantTimeZoneDataPlatformOrdersItemData" toml:"DeliverToPlantTimeZoneDataPlatformOrdersItemData" yaml:"DeliverToPlantTimeZoneDataPlatformOrdersItemData"`
+	ProductionPlantTimeZoneDataPlatformOrdersItemData                    DataPlatformOrdersItemDatumSlice             `boil:"ProductionPlantTimeZoneDataPlatformOrdersItemData" json:"ProductionPlantTimeZoneDataPlatformOrdersItemData" toml:"ProductionPlantTimeZoneDataPlatformOrdersItemData" yaml:"ProductionPlantTimeZoneDataPlatformOrdersItemData"`
+	StockConfirmationPlantTimeZoneDataPlatformOrdersItemData             DataPlatformOrdersItemDatumSlice             `boil:"StockConfirmationPlantTimeZoneDataPlatformOrdersItemData" json:"StockConfirmationPlantTimeZoneDataPlatformOrdersItemData" toml:"StockConfirmationPlantTimeZoneDataPlatformOrdersItemData" yaml:"StockConfirmationPlantTimeZoneDataPlatformOrdersItemData"`
+	StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData DataPlatformOrdersItemScheduleLineDatumSlice `boil:"StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData" json:"StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData" toml:"StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData" yaml:"StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData"`
+	TimeZoneDataPlatformPlantGeneralData                                 DataPlatformPlantGeneralDatumSlice           `boil:"TimeZoneDataPlatformPlantGeneralData" json:"TimeZoneDataPlatformPlantGeneralData" toml:"TimeZoneDataPlatformPlantGeneralData" yaml:"TimeZoneDataPlatformPlantGeneralData"`
+	TimeZoneDataPlatformTimeZoneTimeZoneTextData                         DataPlatformTimeZoneTimeZoneTextDatumSlice   `boil:"TimeZoneDataPlatformTimeZoneTimeZoneTextData" json:"TimeZoneDataPlatformTimeZoneTimeZoneTextData" toml:"TimeZoneDataPlatformTimeZoneTimeZoneTextData" yaml:"TimeZoneDataPlatformTimeZoneTimeZoneTextData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -113,11 +119,18 @@ func (*dataPlatformTimeZoneTimeZoneDatumR) NewStruct() *dataPlatformTimeZoneTime
 	return &dataPlatformTimeZoneTimeZoneDatumR{}
 }
 
-func (r *dataPlatformTimeZoneTimeZoneDatumR) GetDeliverToPlantDataPlatformDeliveryDocumentHeaderData() DataPlatformDeliveryDocumentHeaderDatumSlice {
+func (r *dataPlatformTimeZoneTimeZoneDatumR) GetDeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData() DataPlatformDeliveryDocumentHeaderDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.DeliverToPlantDataPlatformDeliveryDocumentHeaderData
+	return r.DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData
+}
+
+func (r *dataPlatformTimeZoneTimeZoneDatumR) GetDeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData() DataPlatformDeliveryDocumentHeaderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData
 }
 
 func (r *dataPlatformTimeZoneTimeZoneDatumR) GetDeliverFromPlantTimeZoneDataPlatformOrdersItemData() DataPlatformOrdersItemDatumSlice {
@@ -146,6 +159,13 @@ func (r *dataPlatformTimeZoneTimeZoneDatumR) GetStockConfirmationPlantTimeZoneDa
 		return nil
 	}
 	return r.StockConfirmationPlantTimeZoneDataPlatformOrdersItemData
+}
+
+func (r *dataPlatformTimeZoneTimeZoneDatumR) GetStockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData() DataPlatformOrdersItemScheduleLineDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData
 }
 
 func (r *dataPlatformTimeZoneTimeZoneDatumR) GetTimeZoneDataPlatformPlantGeneralData() DataPlatformPlantGeneralDatumSlice {
@@ -264,15 +284,29 @@ func (q dataPlatformTimeZoneTimeZoneDatumQuery) Exists(ctx context.Context, exec
 	return count > 0, nil
 }
 
-// DeliverToPlantDataPlatformDeliveryDocumentHeaderData retrieves all the data_platform_delivery_document_header_datum's DataPlatformDeliveryDocumentHeaderData with an executor via DeliverToPlant column.
-func (o *DataPlatformTimeZoneTimeZoneDatum) DeliverToPlantDataPlatformDeliveryDocumentHeaderData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentHeaderDatumQuery {
+// DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData retrieves all the data_platform_delivery_document_header_datum's DataPlatformDeliveryDocumentHeaderData with an executor via DeliverFromPlantTimeZone column.
+func (o *DataPlatformTimeZoneTimeZoneDatum) DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentHeaderDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_delivery_document_header_data`.`DeliverToPlant`=?", o.TimeZone),
+		qm.Where("`data_platform_delivery_document_header_data`.`DeliverFromPlantTimeZone`=?", o.TimeZone),
+	)
+
+	return DataPlatformDeliveryDocumentHeaderData(queryMods...)
+}
+
+// DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData retrieves all the data_platform_delivery_document_header_datum's DataPlatformDeliveryDocumentHeaderData with an executor via DeliverToPlantTimeZone column.
+func (o *DataPlatformTimeZoneTimeZoneDatum) DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentHeaderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_header_data`.`DeliverToPlantTimeZone`=?", o.TimeZone),
 	)
 
 	return DataPlatformDeliveryDocumentHeaderData(queryMods...)
@@ -334,6 +368,20 @@ func (o *DataPlatformTimeZoneTimeZoneDatum) StockConfirmationPlantTimeZoneDataPl
 	return DataPlatformOrdersItemData(queryMods...)
 }
 
+// StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData retrieves all the data_platform_orders_item_schedule_line_datum's DataPlatformOrdersItemScheduleLineData with an executor via StockConfirmationPlantTimeZone column.
+func (o *DataPlatformTimeZoneTimeZoneDatum) StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData(mods ...qm.QueryMod) dataPlatformOrdersItemScheduleLineDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_orders_item_schedule_line_data`.`StockConfirmationPlantTimeZone`=?", o.TimeZone),
+	)
+
+	return DataPlatformOrdersItemScheduleLineData(queryMods...)
+}
+
 // TimeZoneDataPlatformPlantGeneralData retrieves all the data_platform_plant_general_datum's DataPlatformPlantGeneralData with an executor via TimeZone column.
 func (o *DataPlatformTimeZoneTimeZoneDatum) TimeZoneDataPlatformPlantGeneralData(mods ...qm.QueryMod) dataPlatformPlantGeneralDatumQuery {
 	var queryMods []qm.QueryMod
@@ -362,9 +410,9 @@ func (o *DataPlatformTimeZoneTimeZoneDatum) TimeZoneDataPlatformTimeZoneTimeZone
 	return DataPlatformTimeZoneTimeZoneTextData(queryMods...)
 }
 
-// LoadDeliverToPlantDataPlatformDeliveryDocumentHeaderData allows an eager lookup of values, cached into the
+// LoadDeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformTimeZoneTimeZoneDatumL) LoadDeliverToPlantDataPlatformDeliveryDocumentHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformTimeZoneTimeZoneDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformTimeZoneTimeZoneDatumL) LoadDeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformTimeZoneTimeZoneDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformTimeZoneTimeZoneDatum
 	var object *DataPlatformTimeZoneTimeZoneDatum
 
@@ -404,7 +452,7 @@ func (dataPlatformTimeZoneTimeZoneDatumL) LoadDeliverToPlantDataPlatformDelivery
 			}
 
 			for _, a := range args {
-				if a == obj.TimeZone {
+				if queries.Equal(a, obj.TimeZone) {
 					continue Outer
 				}
 			}
@@ -419,7 +467,7 @@ func (dataPlatformTimeZoneTimeZoneDatumL) LoadDeliverToPlantDataPlatformDelivery
 
 	query := NewQuery(
 		qm.From(`data_platform_delivery_document_header_data`),
-		qm.WhereIn(`data_platform_delivery_document_header_data.DeliverToPlant in ?`, args...),
+		qm.WhereIn(`data_platform_delivery_document_header_data.DeliverFromPlantTimeZone in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -443,14 +491,111 @@ func (dataPlatformTimeZoneTimeZoneDatumL) LoadDeliverToPlantDataPlatformDelivery
 	}
 
 	if singular {
-		object.R.DeliverToPlantDataPlatformDeliveryDocumentHeaderData = resultSlice
+		object.R.DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData = resultSlice
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
-			if local.TimeZone == foreign.DeliverToPlant {
-				local.R.DeliverToPlantDataPlatformDeliveryDocumentHeaderData = append(local.R.DeliverToPlantDataPlatformDeliveryDocumentHeaderData, foreign)
+			if queries.Equal(local.TimeZone, foreign.DeliverFromPlantTimeZone) {
+				local.R.DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData = append(local.R.DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformTimeZoneTimeZoneDatumL) LoadDeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformTimeZoneTimeZoneDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformTimeZoneTimeZoneDatum
+	var object *DataPlatformTimeZoneTimeZoneDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformTimeZoneTimeZoneDatum.(*DataPlatformTimeZoneTimeZoneDatum)
+		if !ok {
+			object = new(DataPlatformTimeZoneTimeZoneDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformTimeZoneTimeZoneDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformTimeZoneTimeZoneDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformTimeZoneTimeZoneDatum.(*[]*DataPlatformTimeZoneTimeZoneDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformTimeZoneTimeZoneDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformTimeZoneTimeZoneDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformTimeZoneTimeZoneDatumR{}
+		}
+		args = append(args, object.TimeZone)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformTimeZoneTimeZoneDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.TimeZone) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.TimeZone)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_header_data`),
+		qm.WhereIn(`data_platform_delivery_document_header_data.DeliverToPlantTimeZone in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_header_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_header_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_header_data")
+	}
+
+	if singular {
+		object.R.DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.TimeZone, foreign.DeliverToPlantTimeZone) {
+				local.R.DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData = append(local.R.DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData, foreign)
 				break
 			}
 		}
@@ -847,6 +992,103 @@ func (dataPlatformTimeZoneTimeZoneDatumL) LoadStockConfirmationPlantTimeZoneData
 	return nil
 }
 
+// LoadStockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformTimeZoneTimeZoneDatumL) LoadStockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformTimeZoneTimeZoneDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformTimeZoneTimeZoneDatum
+	var object *DataPlatformTimeZoneTimeZoneDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformTimeZoneTimeZoneDatum.(*DataPlatformTimeZoneTimeZoneDatum)
+		if !ok {
+			object = new(DataPlatformTimeZoneTimeZoneDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformTimeZoneTimeZoneDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformTimeZoneTimeZoneDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformTimeZoneTimeZoneDatum.(*[]*DataPlatformTimeZoneTimeZoneDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformTimeZoneTimeZoneDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformTimeZoneTimeZoneDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformTimeZoneTimeZoneDatumR{}
+		}
+		args = append(args, object.TimeZone)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformTimeZoneTimeZoneDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.TimeZone) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.TimeZone)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_orders_item_schedule_line_data`),
+		qm.WhereIn(`data_platform_orders_item_schedule_line_data.StockConfirmationPlantTimeZone in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_orders_item_schedule_line_data")
+	}
+
+	var resultSlice []*DataPlatformOrdersItemScheduleLineDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_item_schedule_line_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_item_schedule_line_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_item_schedule_line_data")
+	}
+
+	if singular {
+		object.R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.TimeZone, foreign.StockConfirmationPlantTimeZone) {
+				local.R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData = append(local.R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // LoadTimeZoneDataPlatformPlantGeneralData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
 func (dataPlatformTimeZoneTimeZoneDatumL) LoadTimeZoneDataPlatformPlantGeneralData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformTimeZoneTimeZoneDatum interface{}, mods queries.Applicator) error {
@@ -1041,21 +1283,21 @@ func (dataPlatformTimeZoneTimeZoneDatumL) LoadTimeZoneDataPlatformTimeZoneTimeZo
 	return nil
 }
 
-// AddDeliverToPlantDataPlatformDeliveryDocumentHeaderData adds the given related objects to the existing relationships
+// AddDeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData adds the given related objects to the existing relationships
 // of the data_platform_time_zone_time_zone_datum, optionally inserting them as new records.
-// Appends related to o.R.DeliverToPlantDataPlatformDeliveryDocumentHeaderData.
-func (o *DataPlatformTimeZoneTimeZoneDatum) AddDeliverToPlantDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+// Appends related to o.R.DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData.
+func (o *DataPlatformTimeZoneTimeZoneDatum) AddDeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
 	var err error
 	for _, rel := range related {
 		if insert {
-			rel.DeliverToPlant = o.TimeZone
+			queries.Assign(&rel.DeliverFromPlantTimeZone, o.TimeZone)
 			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
 				return errors.Wrap(err, "failed to insert into foreign table")
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
 				"UPDATE `data_platform_delivery_document_header_data` SET %s WHERE %s",
-				strmangle.SetParamNames("`", "`", 0, []string{"DeliverToPlant"}),
+				strmangle.SetParamNames("`", "`", 0, []string{"DeliverFromPlantTimeZone"}),
 				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentHeaderDatumPrimaryKeyColumns),
 			)
 			values := []interface{}{o.TimeZone, rel.DeliveryDocument}
@@ -1069,16 +1311,181 @@ func (o *DataPlatformTimeZoneTimeZoneDatum) AddDeliverToPlantDataPlatformDeliver
 				return errors.Wrap(err, "failed to update foreign table")
 			}
 
-			rel.DeliverToPlant = o.TimeZone
+			queries.Assign(&rel.DeliverFromPlantTimeZone, o.TimeZone)
 		}
 	}
 
 	if o.R == nil {
 		o.R = &dataPlatformTimeZoneTimeZoneDatumR{
-			DeliverToPlantDataPlatformDeliveryDocumentHeaderData: related,
+			DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData: related,
 		}
 	} else {
-		o.R.DeliverToPlantDataPlatformDeliveryDocumentHeaderData = append(o.R.DeliverToPlantDataPlatformDeliveryDocumentHeaderData, related...)
+		o.R.DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData = append(o.R.DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData, related...)
+	}
+
+	return nil
+}
+
+// SetDeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData removes all previously related items of the
+// data_platform_time_zone_time_zone_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum's DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData accordingly.
+// Replaces o.R.DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData with related.
+func (o *DataPlatformTimeZoneTimeZoneDatum) SetDeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	query := "update `data_platform_delivery_document_header_data` set `DeliverFromPlantTimeZone` = null where `DeliverFromPlantTimeZone` = ?"
+	values := []interface{}{o.TimeZone}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData = nil
+	}
+
+	return o.AddDeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData(ctx, exec, insert, related...)
+}
+
+// RemoveDeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData relationships from objects passed in.
+// Removes related items from R.DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformTimeZoneTimeZoneDatum) RemoveDeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.DeliverFromPlantTimeZone, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("DeliverFromPlantTimeZone")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData)
+			if ln > 1 && i < ln-1 {
+				o.R.DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData[i] = o.R.DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData[ln-1]
+			}
+			o.R.DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData = o.R.DeliverFromPlantTimeZoneDataPlatformDeliveryDocumentHeaderData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddDeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData adds the given related objects to the existing relationships
+// of the data_platform_time_zone_time_zone_datum, optionally inserting them as new records.
+// Appends related to o.R.DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData.
+func (o *DataPlatformTimeZoneTimeZoneDatum) AddDeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.DeliverToPlantTimeZone, o.TimeZone)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_header_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DeliverToPlantTimeZone"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentHeaderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.TimeZone, rel.DeliveryDocument}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.DeliverToPlantTimeZone, o.TimeZone)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformTimeZoneTimeZoneDatumR{
+			DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData: related,
+		}
+	} else {
+		o.R.DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData = append(o.R.DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData, related...)
+	}
+
+	return nil
+}
+
+// SetDeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData removes all previously related items of the
+// data_platform_time_zone_time_zone_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum's DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData accordingly.
+// Replaces o.R.DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData with related.
+func (o *DataPlatformTimeZoneTimeZoneDatum) SetDeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	query := "update `data_platform_delivery_document_header_data` set `DeliverToPlantTimeZone` = null where `DeliverToPlantTimeZone` = ?"
+	values := []interface{}{o.TimeZone}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData = nil
+	}
+
+	return o.AddDeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData(ctx, exec, insert, related...)
+}
+
+// RemoveDeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData relationships from objects passed in.
+// Removes related items from R.DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformTimeZoneTimeZoneDatum) RemoveDeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.DeliverToPlantTimeZone, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("DeliverToPlantTimeZone")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData)
+			if ln > 1 && i < ln-1 {
+				o.R.DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData[i] = o.R.DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData[ln-1]
+			}
+			o.R.DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData = o.R.DeliverToPlantTimeZoneDataPlatformDeliveryDocumentHeaderData[:ln-1]
+			break
+		}
 	}
 
 	return nil
@@ -1493,6 +1900,110 @@ func (o *DataPlatformTimeZoneTimeZoneDatum) RemoveStockConfirmationPlantTimeZone
 				o.R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemData[i] = o.R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemData[ln-1]
 			}
 			o.R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemData = o.R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddStockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData adds the given related objects to the existing relationships
+// of the data_platform_time_zone_time_zone_datum, optionally inserting them as new records.
+// Appends related to o.R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData.
+func (o *DataPlatformTimeZoneTimeZoneDatum) AddStockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemScheduleLineDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.StockConfirmationPlantTimeZone, o.TimeZone)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_orders_item_schedule_line_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"StockConfirmationPlantTimeZone"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersItemScheduleLineDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.TimeZone, rel.OrderID, rel.OrderItem, rel.ScheduleLine}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.StockConfirmationPlantTimeZone, o.TimeZone)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformTimeZoneTimeZoneDatumR{
+			StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData: related,
+		}
+	} else {
+		o.R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData = append(o.R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData, related...)
+	}
+
+	return nil
+}
+
+// SetStockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData removes all previously related items of the
+// data_platform_time_zone_time_zone_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.StockConfirmationPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum's StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData accordingly.
+// Replaces o.R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData with related.
+func (o *DataPlatformTimeZoneTimeZoneDatum) SetStockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemScheduleLineDatum) error {
+	query := "update `data_platform_orders_item_schedule_line_data` set `StockConfirmationPlantTimeZone` = null where `StockConfirmationPlantTimeZone` = ?"
+	values := []interface{}{o.TimeZone}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData = nil
+	}
+
+	return o.AddStockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData(ctx, exec, insert, related...)
+}
+
+// RemoveStockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData relationships from objects passed in.
+// Removes related items from R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformTimeZoneTimeZoneDatum) RemoveStockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformOrdersItemScheduleLineDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.StockConfirmationPlantTimeZone, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("StockConfirmationPlantTimeZone")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData)
+			if ln > 1 && i < ln-1 {
+				o.R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData[i] = o.R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData[ln-1]
+			}
+			o.R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData = o.R.StockConfirmationPlantTimeZoneDataPlatformOrdersItemScheduleLineData[:ln-1]
 			break
 		}
 	}

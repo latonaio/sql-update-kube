@@ -131,18 +131,21 @@ var DataPlatformSCRProductionPlantRelationDatumWhere = struct {
 var DataPlatformSCRProductionPlantRelationDatumRels = struct {
 	ProductionPlantDataPlatformPlantGeneralDatum string
 	BuyerDataPlatformSCRGeneralDatum             string
+	BuyerDataPlatformDeliveryDocumentItemData    string
 	BuyerDataPlatformOrdersItemData              string
 }{
 	ProductionPlantDataPlatformPlantGeneralDatum: "ProductionPlantDataPlatformPlantGeneralDatum",
 	BuyerDataPlatformSCRGeneralDatum:             "BuyerDataPlatformSCRGeneralDatum",
+	BuyerDataPlatformDeliveryDocumentItemData:    "BuyerDataPlatformDeliveryDocumentItemData",
 	BuyerDataPlatformOrdersItemData:              "BuyerDataPlatformOrdersItemData",
 }
 
 // dataPlatformSCRProductionPlantRelationDatumR is where relationships are stored.
 type dataPlatformSCRProductionPlantRelationDatumR struct {
-	ProductionPlantDataPlatformPlantGeneralDatum *DataPlatformPlantGeneralDatum   `boil:"ProductionPlantDataPlatformPlantGeneralDatum" json:"ProductionPlantDataPlatformPlantGeneralDatum" toml:"ProductionPlantDataPlatformPlantGeneralDatum" yaml:"ProductionPlantDataPlatformPlantGeneralDatum"`
-	BuyerDataPlatformSCRGeneralDatum             *DataPlatformSCRGeneralDatum     `boil:"BuyerDataPlatformSCRGeneralDatum" json:"BuyerDataPlatformSCRGeneralDatum" toml:"BuyerDataPlatformSCRGeneralDatum" yaml:"BuyerDataPlatformSCRGeneralDatum"`
-	BuyerDataPlatformOrdersItemData              DataPlatformOrdersItemDatumSlice `boil:"BuyerDataPlatformOrdersItemData" json:"BuyerDataPlatformOrdersItemData" toml:"BuyerDataPlatformOrdersItemData" yaml:"BuyerDataPlatformOrdersItemData"`
+	ProductionPlantDataPlatformPlantGeneralDatum *DataPlatformPlantGeneralDatum             `boil:"ProductionPlantDataPlatformPlantGeneralDatum" json:"ProductionPlantDataPlatformPlantGeneralDatum" toml:"ProductionPlantDataPlatformPlantGeneralDatum" yaml:"ProductionPlantDataPlatformPlantGeneralDatum"`
+	BuyerDataPlatformSCRGeneralDatum             *DataPlatformSCRGeneralDatum               `boil:"BuyerDataPlatformSCRGeneralDatum" json:"BuyerDataPlatformSCRGeneralDatum" toml:"BuyerDataPlatformSCRGeneralDatum" yaml:"BuyerDataPlatformSCRGeneralDatum"`
+	BuyerDataPlatformDeliveryDocumentItemData    DataPlatformDeliveryDocumentItemDatumSlice `boil:"BuyerDataPlatformDeliveryDocumentItemData" json:"BuyerDataPlatformDeliveryDocumentItemData" toml:"BuyerDataPlatformDeliveryDocumentItemData" yaml:"BuyerDataPlatformDeliveryDocumentItemData"`
+	BuyerDataPlatformOrdersItemData              DataPlatformOrdersItemDatumSlice           `boil:"BuyerDataPlatformOrdersItemData" json:"BuyerDataPlatformOrdersItemData" toml:"BuyerDataPlatformOrdersItemData" yaml:"BuyerDataPlatformOrdersItemData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -162,6 +165,13 @@ func (r *dataPlatformSCRProductionPlantRelationDatumR) GetBuyerDataPlatformSCRGe
 		return nil
 	}
 	return r.BuyerDataPlatformSCRGeneralDatum
+}
+
+func (r *dataPlatformSCRProductionPlantRelationDatumR) GetBuyerDataPlatformDeliveryDocumentItemData() DataPlatformDeliveryDocumentItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.BuyerDataPlatformDeliveryDocumentItemData
 }
 
 func (r *dataPlatformSCRProductionPlantRelationDatumR) GetBuyerDataPlatformOrdersItemData() DataPlatformOrdersItemDatumSlice {
@@ -293,6 +303,20 @@ func (o *DataPlatformSCRProductionPlantRelationDatum) BuyerDataPlatformSCRGenera
 	queryMods = append(queryMods, mods...)
 
 	return DataPlatformSCRGeneralData(queryMods...)
+}
+
+// BuyerDataPlatformDeliveryDocumentItemData retrieves all the data_platform_delivery_document_item_datum's DataPlatformDeliveryDocumentItemData with an executor via Buyer column.
+func (o *DataPlatformSCRProductionPlantRelationDatum) BuyerDataPlatformDeliveryDocumentItemData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_item_data`.`Buyer`=?", o.Buyer),
+	)
+
+	return DataPlatformDeliveryDocumentItemData(queryMods...)
 }
 
 // BuyerDataPlatformOrdersItemData retrieves all the data_platform_orders_item_datum's DataPlatformOrdersItemData with an executor via Buyer column.
@@ -517,6 +541,103 @@ func (dataPlatformSCRProductionPlantRelationDatumL) LoadBuyerDataPlatformSCRGene
 	return nil
 }
 
+// LoadBuyerDataPlatformDeliveryDocumentItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformSCRProductionPlantRelationDatumL) LoadBuyerDataPlatformDeliveryDocumentItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformSCRProductionPlantRelationDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformSCRProductionPlantRelationDatum
+	var object *DataPlatformSCRProductionPlantRelationDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformSCRProductionPlantRelationDatum.(*DataPlatformSCRProductionPlantRelationDatum)
+		if !ok {
+			object = new(DataPlatformSCRProductionPlantRelationDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformSCRProductionPlantRelationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformSCRProductionPlantRelationDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformSCRProductionPlantRelationDatum.(*[]*DataPlatformSCRProductionPlantRelationDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformSCRProductionPlantRelationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformSCRProductionPlantRelationDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformSCRProductionPlantRelationDatumR{}
+		}
+		args = append(args, object.Buyer)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformSCRProductionPlantRelationDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Buyer {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Buyer)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_item_data`),
+		qm.WhereIn(`data_platform_delivery_document_item_data.Buyer in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_item_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_item_data")
+	}
+
+	if singular {
+		object.R.BuyerDataPlatformDeliveryDocumentItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Buyer == foreign.Buyer {
+				local.R.BuyerDataPlatformDeliveryDocumentItemData = append(local.R.BuyerDataPlatformDeliveryDocumentItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // LoadBuyerDataPlatformOrdersItemData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
 func (dataPlatformSCRProductionPlantRelationDatumL) LoadBuyerDataPlatformOrdersItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformSCRProductionPlantRelationDatum interface{}, mods queries.Applicator) error {
@@ -685,6 +806,49 @@ func (o *DataPlatformSCRProductionPlantRelationDatum) SetBuyerDataPlatformSCRGen
 		}
 	} else {
 		o.R.BuyerDataPlatformSCRGeneralDatum = related
+	}
+
+	return nil
+}
+
+// AddBuyerDataPlatformDeliveryDocumentItemData adds the given related objects to the existing relationships
+// of the data_platform_scr_production_plant_relation_datum, optionally inserting them as new records.
+// Appends related to o.R.BuyerDataPlatformDeliveryDocumentItemData.
+func (o *DataPlatformSCRProductionPlantRelationDatum) AddBuyerDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.Buyer = o.Buyer
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Buyer"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Buyer, rel.DeliveryDocument, rel.DeliveryDocumentItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.Buyer = o.Buyer
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformSCRProductionPlantRelationDatumR{
+			BuyerDataPlatformDeliveryDocumentItemData: related,
+		}
+	} else {
+		o.R.BuyerDataPlatformDeliveryDocumentItemData = append(o.R.BuyerDataPlatformDeliveryDocumentItemData, related...)
 	}
 
 	return nil

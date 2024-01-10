@@ -52,21 +52,30 @@ var DataPlatformIncotermsIncotermsDatumWhere = struct {
 // DataPlatformIncotermsIncotermsDatumRels is where relationship names are stored.
 var DataPlatformIncotermsIncotermsDatumRels = struct {
 	IncotermDataPlatformDeliveryDocumentHeaderData string
+	IncotermDataPlatformInvoiceDocumentHeaderData  string
 	IncotermDataPlatformOrdersHeaderData           string
 	IncotermDataPlatformOrdersItemData             string
+	IncotermDataPlatformQuotationsHeaderData       string
+	IncotermDataPlatformSCRFreightTransactionData  string
 	IncotermDataPlatformSCRTransactionData         string
 }{
 	IncotermDataPlatformDeliveryDocumentHeaderData: "IncotermDataPlatformDeliveryDocumentHeaderData",
+	IncotermDataPlatformInvoiceDocumentHeaderData:  "IncotermDataPlatformInvoiceDocumentHeaderData",
 	IncotermDataPlatformOrdersHeaderData:           "IncotermDataPlatformOrdersHeaderData",
 	IncotermDataPlatformOrdersItemData:             "IncotermDataPlatformOrdersItemData",
+	IncotermDataPlatformQuotationsHeaderData:       "IncotermDataPlatformQuotationsHeaderData",
+	IncotermDataPlatformSCRFreightTransactionData:  "IncotermDataPlatformSCRFreightTransactionData",
 	IncotermDataPlatformSCRTransactionData:         "IncotermDataPlatformSCRTransactionData",
 }
 
 // dataPlatformIncotermsIncotermsDatumR is where relationships are stored.
 type dataPlatformIncotermsIncotermsDatumR struct {
 	IncotermDataPlatformDeliveryDocumentHeaderData DataPlatformDeliveryDocumentHeaderDatumSlice `boil:"IncotermDataPlatformDeliveryDocumentHeaderData" json:"IncotermDataPlatformDeliveryDocumentHeaderData" toml:"IncotermDataPlatformDeliveryDocumentHeaderData" yaml:"IncotermDataPlatformDeliveryDocumentHeaderData"`
+	IncotermDataPlatformInvoiceDocumentHeaderData  DataPlatformInvoiceDocumentHeaderDatumSlice  `boil:"IncotermDataPlatformInvoiceDocumentHeaderData" json:"IncotermDataPlatformInvoiceDocumentHeaderData" toml:"IncotermDataPlatformInvoiceDocumentHeaderData" yaml:"IncotermDataPlatformInvoiceDocumentHeaderData"`
 	IncotermDataPlatformOrdersHeaderData           DataPlatformOrdersHeaderDatumSlice           `boil:"IncotermDataPlatformOrdersHeaderData" json:"IncotermDataPlatformOrdersHeaderData" toml:"IncotermDataPlatformOrdersHeaderData" yaml:"IncotermDataPlatformOrdersHeaderData"`
 	IncotermDataPlatformOrdersItemData             DataPlatformOrdersItemDatumSlice             `boil:"IncotermDataPlatformOrdersItemData" json:"IncotermDataPlatformOrdersItemData" toml:"IncotermDataPlatformOrdersItemData" yaml:"IncotermDataPlatformOrdersItemData"`
+	IncotermDataPlatformQuotationsHeaderData       DataPlatformQuotationsHeaderDatumSlice       `boil:"IncotermDataPlatformQuotationsHeaderData" json:"IncotermDataPlatformQuotationsHeaderData" toml:"IncotermDataPlatformQuotationsHeaderData" yaml:"IncotermDataPlatformQuotationsHeaderData"`
+	IncotermDataPlatformSCRFreightTransactionData  DataPlatformSCRFreightTransactionDatumSlice  `boil:"IncotermDataPlatformSCRFreightTransactionData" json:"IncotermDataPlatformSCRFreightTransactionData" toml:"IncotermDataPlatformSCRFreightTransactionData" yaml:"IncotermDataPlatformSCRFreightTransactionData"`
 	IncotermDataPlatformSCRTransactionData         DataPlatformSCRTransactionDatumSlice         `boil:"IncotermDataPlatformSCRTransactionData" json:"IncotermDataPlatformSCRTransactionData" toml:"IncotermDataPlatformSCRTransactionData" yaml:"IncotermDataPlatformSCRTransactionData"`
 }
 
@@ -82,6 +91,13 @@ func (r *dataPlatformIncotermsIncotermsDatumR) GetIncotermDataPlatformDeliveryDo
 	return r.IncotermDataPlatformDeliveryDocumentHeaderData
 }
 
+func (r *dataPlatformIncotermsIncotermsDatumR) GetIncotermDataPlatformInvoiceDocumentHeaderData() DataPlatformInvoiceDocumentHeaderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.IncotermDataPlatformInvoiceDocumentHeaderData
+}
+
 func (r *dataPlatformIncotermsIncotermsDatumR) GetIncotermDataPlatformOrdersHeaderData() DataPlatformOrdersHeaderDatumSlice {
 	if r == nil {
 		return nil
@@ -94,6 +110,20 @@ func (r *dataPlatformIncotermsIncotermsDatumR) GetIncotermDataPlatformOrdersItem
 		return nil
 	}
 	return r.IncotermDataPlatformOrdersItemData
+}
+
+func (r *dataPlatformIncotermsIncotermsDatumR) GetIncotermDataPlatformQuotationsHeaderData() DataPlatformQuotationsHeaderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.IncotermDataPlatformQuotationsHeaderData
+}
+
+func (r *dataPlatformIncotermsIncotermsDatumR) GetIncotermDataPlatformSCRFreightTransactionData() DataPlatformSCRFreightTransactionDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.IncotermDataPlatformSCRFreightTransactionData
 }
 
 func (r *dataPlatformIncotermsIncotermsDatumR) GetIncotermDataPlatformSCRTransactionData() DataPlatformSCRTransactionDatumSlice {
@@ -219,6 +249,20 @@ func (o *DataPlatformIncotermsIncotermsDatum) IncotermDataPlatformDeliveryDocume
 	return DataPlatformDeliveryDocumentHeaderData(queryMods...)
 }
 
+// IncotermDataPlatformInvoiceDocumentHeaderData retrieves all the data_platform_invoice_document_header_datum's DataPlatformInvoiceDocumentHeaderData with an executor via Incoterms column.
+func (o *DataPlatformIncotermsIncotermsDatum) IncotermDataPlatformInvoiceDocumentHeaderData(mods ...qm.QueryMod) dataPlatformInvoiceDocumentHeaderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_invoice_document_header_data`.`Incoterms`=?", o.Incoterms),
+	)
+
+	return DataPlatformInvoiceDocumentHeaderData(queryMods...)
+}
+
 // IncotermDataPlatformOrdersHeaderData retrieves all the data_platform_orders_header_datum's DataPlatformOrdersHeaderData with an executor via Incoterms column.
 func (o *DataPlatformIncotermsIncotermsDatum) IncotermDataPlatformOrdersHeaderData(mods ...qm.QueryMod) dataPlatformOrdersHeaderDatumQuery {
 	var queryMods []qm.QueryMod
@@ -245,6 +289,34 @@ func (o *DataPlatformIncotermsIncotermsDatum) IncotermDataPlatformOrdersItemData
 	)
 
 	return DataPlatformOrdersItemData(queryMods...)
+}
+
+// IncotermDataPlatformQuotationsHeaderData retrieves all the data_platform_quotations_header_datum's DataPlatformQuotationsHeaderData with an executor via Incoterms column.
+func (o *DataPlatformIncotermsIncotermsDatum) IncotermDataPlatformQuotationsHeaderData(mods ...qm.QueryMod) dataPlatformQuotationsHeaderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_quotations_header_data`.`Incoterms`=?", o.Incoterms),
+	)
+
+	return DataPlatformQuotationsHeaderData(queryMods...)
+}
+
+// IncotermDataPlatformSCRFreightTransactionData retrieves all the data_platform_scr_freight_transaction_datum's DataPlatformSCRFreightTransactionData with an executor via Incoterms column.
+func (o *DataPlatformIncotermsIncotermsDatum) IncotermDataPlatformSCRFreightTransactionData(mods ...qm.QueryMod) dataPlatformSCRFreightTransactionDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_scr_freight_transaction_data`.`Incoterms`=?", o.Incoterms),
+	)
+
+	return DataPlatformSCRFreightTransactionData(queryMods...)
 }
 
 // IncotermDataPlatformSCRTransactionData retrieves all the data_platform_scr_transaction_datum's DataPlatformSCRTransactionData with an executor via Incoterms column.
@@ -350,6 +422,103 @@ func (dataPlatformIncotermsIncotermsDatumL) LoadIncotermDataPlatformDeliveryDocu
 		for _, local := range slice {
 			if queries.Equal(local.Incoterms, foreign.Incoterms) {
 				local.R.IncotermDataPlatformDeliveryDocumentHeaderData = append(local.R.IncotermDataPlatformDeliveryDocumentHeaderData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadIncotermDataPlatformInvoiceDocumentHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformIncotermsIncotermsDatumL) LoadIncotermDataPlatformInvoiceDocumentHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformIncotermsIncotermsDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformIncotermsIncotermsDatum
+	var object *DataPlatformIncotermsIncotermsDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformIncotermsIncotermsDatum.(*DataPlatformIncotermsIncotermsDatum)
+		if !ok {
+			object = new(DataPlatformIncotermsIncotermsDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformIncotermsIncotermsDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformIncotermsIncotermsDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformIncotermsIncotermsDatum.(*[]*DataPlatformIncotermsIncotermsDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformIncotermsIncotermsDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformIncotermsIncotermsDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformIncotermsIncotermsDatumR{}
+		}
+		args = append(args, object.Incoterms)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformIncotermsIncotermsDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Incoterms) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Incoterms)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_invoice_document_header_data`),
+		qm.WhereIn(`data_platform_invoice_document_header_data.Incoterms in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_invoice_document_header_data")
+	}
+
+	var resultSlice []*DataPlatformInvoiceDocumentHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_invoice_document_header_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_invoice_document_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_invoice_document_header_data")
+	}
+
+	if singular {
+		object.R.IncotermDataPlatformInvoiceDocumentHeaderData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Incoterms, foreign.Incoterms) {
+				local.R.IncotermDataPlatformInvoiceDocumentHeaderData = append(local.R.IncotermDataPlatformInvoiceDocumentHeaderData, foreign)
 				break
 			}
 		}
@@ -544,6 +713,200 @@ func (dataPlatformIncotermsIncotermsDatumL) LoadIncotermDataPlatformOrdersItemDa
 		for _, local := range slice {
 			if queries.Equal(local.Incoterms, foreign.Incoterms) {
 				local.R.IncotermDataPlatformOrdersItemData = append(local.R.IncotermDataPlatformOrdersItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadIncotermDataPlatformQuotationsHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformIncotermsIncotermsDatumL) LoadIncotermDataPlatformQuotationsHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformIncotermsIncotermsDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformIncotermsIncotermsDatum
+	var object *DataPlatformIncotermsIncotermsDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformIncotermsIncotermsDatum.(*DataPlatformIncotermsIncotermsDatum)
+		if !ok {
+			object = new(DataPlatformIncotermsIncotermsDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformIncotermsIncotermsDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformIncotermsIncotermsDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformIncotermsIncotermsDatum.(*[]*DataPlatformIncotermsIncotermsDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformIncotermsIncotermsDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformIncotermsIncotermsDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformIncotermsIncotermsDatumR{}
+		}
+		args = append(args, object.Incoterms)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformIncotermsIncotermsDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Incoterms) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Incoterms)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_quotations_header_data`),
+		qm.WhereIn(`data_platform_quotations_header_data.Incoterms in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_quotations_header_data")
+	}
+
+	var resultSlice []*DataPlatformQuotationsHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_quotations_header_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_quotations_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_quotations_header_data")
+	}
+
+	if singular {
+		object.R.IncotermDataPlatformQuotationsHeaderData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Incoterms, foreign.Incoterms) {
+				local.R.IncotermDataPlatformQuotationsHeaderData = append(local.R.IncotermDataPlatformQuotationsHeaderData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadIncotermDataPlatformSCRFreightTransactionData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformIncotermsIncotermsDatumL) LoadIncotermDataPlatformSCRFreightTransactionData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformIncotermsIncotermsDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformIncotermsIncotermsDatum
+	var object *DataPlatformIncotermsIncotermsDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformIncotermsIncotermsDatum.(*DataPlatformIncotermsIncotermsDatum)
+		if !ok {
+			object = new(DataPlatformIncotermsIncotermsDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformIncotermsIncotermsDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformIncotermsIncotermsDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformIncotermsIncotermsDatum.(*[]*DataPlatformIncotermsIncotermsDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformIncotermsIncotermsDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformIncotermsIncotermsDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformIncotermsIncotermsDatumR{}
+		}
+		args = append(args, object.Incoterms)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformIncotermsIncotermsDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Incoterms) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Incoterms)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_scr_freight_transaction_data`),
+		qm.WhereIn(`data_platform_scr_freight_transaction_data.Incoterms in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_scr_freight_transaction_data")
+	}
+
+	var resultSlice []*DataPlatformSCRFreightTransactionDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_scr_freight_transaction_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_scr_freight_transaction_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_scr_freight_transaction_data")
+	}
+
+	if singular {
+		object.R.IncotermDataPlatformSCRFreightTransactionData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Incoterms, foreign.Incoterms) {
+				local.R.IncotermDataPlatformSCRFreightTransactionData = append(local.R.IncotermDataPlatformSCRFreightTransactionData, foreign)
 				break
 			}
 		}
@@ -753,6 +1116,110 @@ func (o *DataPlatformIncotermsIncotermsDatum) RemoveIncotermDataPlatformDelivery
 	return nil
 }
 
+// AddIncotermDataPlatformInvoiceDocumentHeaderData adds the given related objects to the existing relationships
+// of the data_platform_incoterms_incoterms_datum, optionally inserting them as new records.
+// Appends related to o.R.IncotermDataPlatformInvoiceDocumentHeaderData.
+func (o *DataPlatformIncotermsIncotermsDatum) AddIncotermDataPlatformInvoiceDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInvoiceDocumentHeaderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Incoterms, o.Incoterms)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_invoice_document_header_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Incoterms"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInvoiceDocumentHeaderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Incoterms, rel.InvoiceDocument}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Incoterms, o.Incoterms)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformIncotermsIncotermsDatumR{
+			IncotermDataPlatformInvoiceDocumentHeaderData: related,
+		}
+	} else {
+		o.R.IncotermDataPlatformInvoiceDocumentHeaderData = append(o.R.IncotermDataPlatformInvoiceDocumentHeaderData, related...)
+	}
+
+	return nil
+}
+
+// SetIncotermDataPlatformInvoiceDocumentHeaderData removes all previously related items of the
+// data_platform_incoterms_incoterms_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.Incoterm's IncotermDataPlatformInvoiceDocumentHeaderData accordingly.
+// Replaces o.R.IncotermDataPlatformInvoiceDocumentHeaderData with related.
+func (o *DataPlatformIncotermsIncotermsDatum) SetIncotermDataPlatformInvoiceDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInvoiceDocumentHeaderDatum) error {
+	query := "update `data_platform_invoice_document_header_data` set `Incoterms` = null where `Incoterms` = ?"
+	values := []interface{}{o.Incoterms}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.IncotermDataPlatformInvoiceDocumentHeaderData = nil
+	}
+
+	return o.AddIncotermDataPlatformInvoiceDocumentHeaderData(ctx, exec, insert, related...)
+}
+
+// RemoveIncotermDataPlatformInvoiceDocumentHeaderData relationships from objects passed in.
+// Removes related items from R.IncotermDataPlatformInvoiceDocumentHeaderData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformIncotermsIncotermsDatum) RemoveIncotermDataPlatformInvoiceDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformInvoiceDocumentHeaderDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Incoterms, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Incoterms")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.IncotermDataPlatformInvoiceDocumentHeaderData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.IncotermDataPlatformInvoiceDocumentHeaderData)
+			if ln > 1 && i < ln-1 {
+				o.R.IncotermDataPlatformInvoiceDocumentHeaderData[i] = o.R.IncotermDataPlatformInvoiceDocumentHeaderData[ln-1]
+			}
+			o.R.IncotermDataPlatformInvoiceDocumentHeaderData = o.R.IncotermDataPlatformInvoiceDocumentHeaderData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
 // AddIncotermDataPlatformOrdersHeaderData adds the given related objects to the existing relationships
 // of the data_platform_incoterms_incoterms_datum, optionally inserting them as new records.
 // Appends related to o.R.IncotermDataPlatformOrdersHeaderData.
@@ -954,6 +1421,214 @@ func (o *DataPlatformIncotermsIncotermsDatum) RemoveIncotermDataPlatformOrdersIt
 				o.R.IncotermDataPlatformOrdersItemData[i] = o.R.IncotermDataPlatformOrdersItemData[ln-1]
 			}
 			o.R.IncotermDataPlatformOrdersItemData = o.R.IncotermDataPlatformOrdersItemData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddIncotermDataPlatformQuotationsHeaderData adds the given related objects to the existing relationships
+// of the data_platform_incoterms_incoterms_datum, optionally inserting them as new records.
+// Appends related to o.R.IncotermDataPlatformQuotationsHeaderData.
+func (o *DataPlatformIncotermsIncotermsDatum) AddIncotermDataPlatformQuotationsHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformQuotationsHeaderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Incoterms, o.Incoterms)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_quotations_header_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Incoterms"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformQuotationsHeaderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Incoterms, rel.Quotation}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Incoterms, o.Incoterms)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformIncotermsIncotermsDatumR{
+			IncotermDataPlatformQuotationsHeaderData: related,
+		}
+	} else {
+		o.R.IncotermDataPlatformQuotationsHeaderData = append(o.R.IncotermDataPlatformQuotationsHeaderData, related...)
+	}
+
+	return nil
+}
+
+// SetIncotermDataPlatformQuotationsHeaderData removes all previously related items of the
+// data_platform_incoterms_incoterms_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.Incoterm's IncotermDataPlatformQuotationsHeaderData accordingly.
+// Replaces o.R.IncotermDataPlatformQuotationsHeaderData with related.
+func (o *DataPlatformIncotermsIncotermsDatum) SetIncotermDataPlatformQuotationsHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformQuotationsHeaderDatum) error {
+	query := "update `data_platform_quotations_header_data` set `Incoterms` = null where `Incoterms` = ?"
+	values := []interface{}{o.Incoterms}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.IncotermDataPlatformQuotationsHeaderData = nil
+	}
+
+	return o.AddIncotermDataPlatformQuotationsHeaderData(ctx, exec, insert, related...)
+}
+
+// RemoveIncotermDataPlatformQuotationsHeaderData relationships from objects passed in.
+// Removes related items from R.IncotermDataPlatformQuotationsHeaderData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformIncotermsIncotermsDatum) RemoveIncotermDataPlatformQuotationsHeaderData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformQuotationsHeaderDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Incoterms, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Incoterms")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.IncotermDataPlatformQuotationsHeaderData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.IncotermDataPlatformQuotationsHeaderData)
+			if ln > 1 && i < ln-1 {
+				o.R.IncotermDataPlatformQuotationsHeaderData[i] = o.R.IncotermDataPlatformQuotationsHeaderData[ln-1]
+			}
+			o.R.IncotermDataPlatformQuotationsHeaderData = o.R.IncotermDataPlatformQuotationsHeaderData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddIncotermDataPlatformSCRFreightTransactionData adds the given related objects to the existing relationships
+// of the data_platform_incoterms_incoterms_datum, optionally inserting them as new records.
+// Appends related to o.R.IncotermDataPlatformSCRFreightTransactionData.
+func (o *DataPlatformIncotermsIncotermsDatum) AddIncotermDataPlatformSCRFreightTransactionData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSCRFreightTransactionDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Incoterms, o.Incoterms)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_scr_freight_transaction_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Incoterms"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformSCRFreightTransactionDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Incoterms, rel.SupplyChainRelationshipID, rel.SupplyChainRelationshipFreightID, rel.Buyer, rel.Seller, rel.FreightPartner}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Incoterms, o.Incoterms)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformIncotermsIncotermsDatumR{
+			IncotermDataPlatformSCRFreightTransactionData: related,
+		}
+	} else {
+		o.R.IncotermDataPlatformSCRFreightTransactionData = append(o.R.IncotermDataPlatformSCRFreightTransactionData, related...)
+	}
+
+	return nil
+}
+
+// SetIncotermDataPlatformSCRFreightTransactionData removes all previously related items of the
+// data_platform_incoterms_incoterms_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.Incoterm's IncotermDataPlatformSCRFreightTransactionData accordingly.
+// Replaces o.R.IncotermDataPlatformSCRFreightTransactionData with related.
+func (o *DataPlatformIncotermsIncotermsDatum) SetIncotermDataPlatformSCRFreightTransactionData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSCRFreightTransactionDatum) error {
+	query := "update `data_platform_scr_freight_transaction_data` set `Incoterms` = null where `Incoterms` = ?"
+	values := []interface{}{o.Incoterms}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.IncotermDataPlatformSCRFreightTransactionData = nil
+	}
+
+	return o.AddIncotermDataPlatformSCRFreightTransactionData(ctx, exec, insert, related...)
+}
+
+// RemoveIncotermDataPlatformSCRFreightTransactionData relationships from objects passed in.
+// Removes related items from R.IncotermDataPlatformSCRFreightTransactionData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformIncotermsIncotermsDatum) RemoveIncotermDataPlatformSCRFreightTransactionData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformSCRFreightTransactionDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Incoterms, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Incoterms")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.IncotermDataPlatformSCRFreightTransactionData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.IncotermDataPlatformSCRFreightTransactionData)
+			if ln > 1 && i < ln-1 {
+				o.R.IncotermDataPlatformSCRFreightTransactionData[i] = o.R.IncotermDataPlatformSCRFreightTransactionData[ln-1]
+			}
+			o.R.IncotermDataPlatformSCRFreightTransactionData = o.R.IncotermDataPlatformSCRFreightTransactionData[:ln-1]
 			break
 		}
 	}

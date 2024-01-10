@@ -101,15 +101,46 @@ var DataPlatformProductMasterGeneralDocDatumWhere = struct {
 
 // DataPlatformProductMasterGeneralDocDatumRels is where relationship names are stored.
 var DataPlatformProductMasterGeneralDocDatumRels = struct {
-}{}
+	DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum string
+	DocTypeDataPlatformDocTypeDocTypeDatum                          string
+	ProductDataPlatformProductMasterGeneralDatum                    string
+}{
+	DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum: "DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum",
+	DocTypeDataPlatformDocTypeDocTypeDatum:                          "DocTypeDataPlatformDocTypeDocTypeDatum",
+	ProductDataPlatformProductMasterGeneralDatum:                    "ProductDataPlatformProductMasterGeneralDatum",
+}
 
 // dataPlatformProductMasterGeneralDocDatumR is where relationships are stored.
 type dataPlatformProductMasterGeneralDocDatumR struct {
+	DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum *DataPlatformBusinessPartnerGeneralDatum `boil:"DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum" json:"DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum" toml:"DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum" yaml:"DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum"`
+	DocTypeDataPlatformDocTypeDocTypeDatum                          *DataPlatformDocTypeDocTypeDatum         `boil:"DocTypeDataPlatformDocTypeDocTypeDatum" json:"DocTypeDataPlatformDocTypeDocTypeDatum" toml:"DocTypeDataPlatformDocTypeDocTypeDatum" yaml:"DocTypeDataPlatformDocTypeDocTypeDatum"`
+	ProductDataPlatformProductMasterGeneralDatum                    *DataPlatformProductMasterGeneralDatum   `boil:"ProductDataPlatformProductMasterGeneralDatum" json:"ProductDataPlatformProductMasterGeneralDatum" toml:"ProductDataPlatformProductMasterGeneralDatum" yaml:"ProductDataPlatformProductMasterGeneralDatum"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformProductMasterGeneralDocDatumR) NewStruct() *dataPlatformProductMasterGeneralDocDatumR {
 	return &dataPlatformProductMasterGeneralDocDatumR{}
+}
+
+func (r *dataPlatformProductMasterGeneralDocDatumR) GetDocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum() *DataPlatformBusinessPartnerGeneralDatum {
+	if r == nil {
+		return nil
+	}
+	return r.DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum
+}
+
+func (r *dataPlatformProductMasterGeneralDocDatumR) GetDocTypeDataPlatformDocTypeDocTypeDatum() *DataPlatformDocTypeDocTypeDatum {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformDocTypeDocTypeDatum
+}
+
+func (r *dataPlatformProductMasterGeneralDocDatumR) GetProductDataPlatformProductMasterGeneralDatum() *DataPlatformProductMasterGeneralDatum {
+	if r == nil {
+		return nil
+	}
+	return r.ProductDataPlatformProductMasterGeneralDatum
 }
 
 // dataPlatformProductMasterGeneralDocDatumL is where Load methods for each relationship are stored.
@@ -212,6 +243,489 @@ func (q dataPlatformProductMasterGeneralDocDatumQuery) Exists(ctx context.Contex
 	}
 
 	return count > 0, nil
+}
+
+// DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum pointed to by the foreign key.
+func (o *DataPlatformProductMasterGeneralDocDatum) DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum(mods ...qm.QueryMod) dataPlatformBusinessPartnerGeneralDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`BusinessPartner` = ?", o.DocIssuerBusinessPartner),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformBusinessPartnerGeneralData(queryMods...)
+}
+
+// DocTypeDataPlatformDocTypeDocTypeDatum pointed to by the foreign key.
+func (o *DataPlatformProductMasterGeneralDocDatum) DocTypeDataPlatformDocTypeDocTypeDatum(mods ...qm.QueryMod) dataPlatformDocTypeDocTypeDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`DocType` = ?", o.DocType),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformDocTypeDocTypeData(queryMods...)
+}
+
+// ProductDataPlatformProductMasterGeneralDatum pointed to by the foreign key.
+func (o *DataPlatformProductMasterGeneralDocDatum) ProductDataPlatformProductMasterGeneralDatum(mods ...qm.QueryMod) dataPlatformProductMasterGeneralDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`Product` = ?", o.Product),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformProductMasterGeneralData(queryMods...)
+}
+
+// LoadDocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformProductMasterGeneralDocDatumL) LoadDocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDocDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDocDatum
+	var object *DataPlatformProductMasterGeneralDocDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDocDatum.(*DataPlatformProductMasterGeneralDocDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDocDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDocDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDocDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDocDatum.(*[]*DataPlatformProductMasterGeneralDocDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDocDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDocDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDocDatumR{}
+		}
+		if !queries.IsNil(object.DocIssuerBusinessPartner) {
+			args = append(args, object.DocIssuerBusinessPartner)
+		}
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDocDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.DocIssuerBusinessPartner) {
+					continue Outer
+				}
+			}
+
+			if !queries.IsNil(obj.DocIssuerBusinessPartner) {
+				args = append(args, obj.DocIssuerBusinessPartner)
+			}
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_business_partner_general_data`),
+		qm.WhereIn(`data_platform_business_partner_general_data.BusinessPartner in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformBusinessPartnerGeneralDatum")
+	}
+
+	var resultSlice []*DataPlatformBusinessPartnerGeneralDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformBusinessPartnerGeneralDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_business_partner_general_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_business_partner_general_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if queries.Equal(local.DocIssuerBusinessPartner, foreign.BusinessPartner) {
+				local.R.DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformDocTypeDocTypeDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformProductMasterGeneralDocDatumL) LoadDocTypeDataPlatformDocTypeDocTypeDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDocDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDocDatum
+	var object *DataPlatformProductMasterGeneralDocDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDocDatum.(*DataPlatformProductMasterGeneralDocDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDocDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDocDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDocDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDocDatum.(*[]*DataPlatformProductMasterGeneralDocDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDocDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDocDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDocDatumR{}
+		}
+		args = append(args, object.DocType)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDocDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_doc_type_doc_type_data`),
+		qm.WhereIn(`data_platform_doc_type_doc_type_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformDocTypeDocTypeDatum")
+	}
+
+	var resultSlice []*DataPlatformDocTypeDocTypeDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformDocTypeDocTypeDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_doc_type_doc_type_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_doc_type_doc_type_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.DocTypeDataPlatformDocTypeDocTypeDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformDocTypeDocTypeDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductDataPlatformProductMasterGeneralDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformProductMasterGeneralDocDatumL) LoadProductDataPlatformProductMasterGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDocDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDocDatum
+	var object *DataPlatformProductMasterGeneralDocDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDocDatum.(*DataPlatformProductMasterGeneralDocDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDocDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDocDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDocDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDocDatum.(*[]*DataPlatformProductMasterGeneralDocDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDocDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDocDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDocDatumR{}
+		}
+		args = append(args, object.Product)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDocDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Product {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Product)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_master_general_data`),
+		qm.WhereIn(`data_platform_product_master_general_data.Product in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformProductMasterGeneralDatum")
+	}
+
+	var resultSlice []*DataPlatformProductMasterGeneralDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformProductMasterGeneralDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_product_master_general_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_general_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.ProductDataPlatformProductMasterGeneralDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.Product == foreign.Product {
+				local.R.ProductDataPlatformProductMasterGeneralDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// SetDocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum of the dataPlatformProductMasterGeneralDocDatum to the related item.
+// Sets o.R.DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum to related.
+func (o *DataPlatformProductMasterGeneralDocDatum) SetDocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformBusinessPartnerGeneralDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_product_master_general_doc_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"DocIssuerBusinessPartner"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterGeneralDocDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.BusinessPartner, o.Product, o.DocType, o.DocVersionID, o.DocID}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	queries.Assign(&o.DocIssuerBusinessPartner, related.BusinessPartner)
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDocDatumR{
+			DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum: related,
+		}
+	} else {
+		o.R.DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum = related
+	}
+
+	return nil
+}
+
+// RemoveDocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum relationship.
+// Sets o.R.DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum to nil.
+func (o *DataPlatformProductMasterGeneralDocDatum) RemoveDocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformBusinessPartnerGeneralDatum) error {
+	var err error
+
+	queries.SetScanner(&o.DocIssuerBusinessPartner, nil)
+	if err = o.Update(ctx, exec, boil.Whitelist("DocIssuerBusinessPartner")); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	if o.R != nil {
+		o.R.DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum = nil
+	}
+	if related == nil || related.R == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// SetDocTypeDataPlatformDocTypeDocTypeDatum of the dataPlatformProductMasterGeneralDocDatum to the related item.
+// Sets o.R.DocTypeDataPlatformDocTypeDocTypeDatum to related.
+func (o *DataPlatformProductMasterGeneralDocDatum) SetDocTypeDataPlatformDocTypeDocTypeDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformDocTypeDocTypeDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_product_master_general_doc_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterGeneralDocDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.DocType, o.Product, o.DocType, o.DocVersionID, o.DocID}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.DocType = related.DocType
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDocDatumR{
+			DocTypeDataPlatformDocTypeDocTypeDatum: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformDocTypeDocTypeDatum = related
+	}
+
+	return nil
+}
+
+// SetProductDataPlatformProductMasterGeneralDatum of the dataPlatformProductMasterGeneralDocDatum to the related item.
+// Sets o.R.ProductDataPlatformProductMasterGeneralDatum to related.
+func (o *DataPlatformProductMasterGeneralDocDatum) SetProductDataPlatformProductMasterGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformProductMasterGeneralDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_product_master_general_doc_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterGeneralDocDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.Product, o.Product, o.DocType, o.DocVersionID, o.DocID}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.Product = related.Product
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDocDatumR{
+			ProductDataPlatformProductMasterGeneralDatum: related,
+		}
+	} else {
+		o.R.ProductDataPlatformProductMasterGeneralDatum = related
+	}
+
+	return nil
 }
 
 // DataPlatformProductMasterGeneralDocData retrieves all the records using an executor.

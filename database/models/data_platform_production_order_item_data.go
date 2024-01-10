@@ -577,7 +577,10 @@ var DataPlatformProductionOrderItemDatumRels = struct {
 	BuyerDataPlatformSCRGeneralDatum                               string
 	ProductionOrderDataPlatformProductionOrderHeaderDatum          string
 	ProductionOrderDataPlatformDeliveryDocumentHeaderData          string
+	ProductionOrderDataPlatformDeliveryDocumentItemData            string
+	ProductionOrderDataPlatformInspectionLotConfirmationHeaderData string
 	ProductionOrderDataPlatformProductionOrderItemComponentData    string
+	ProductionOrderDataPlatformProductionOrderItemOperationData    string
 	ProductionOrderDataPlatformPurchaseRequisitionHeaderData       string
 	ProductionOrderDataPlatformPurchaseRequisitionItemData         string
 }{
@@ -595,30 +598,36 @@ var DataPlatformProductionOrderItemDatumRels = struct {
 	BuyerDataPlatformSCRGeneralDatum:                               "BuyerDataPlatformSCRGeneralDatum",
 	ProductionOrderDataPlatformProductionOrderHeaderDatum:          "ProductionOrderDataPlatformProductionOrderHeaderDatum",
 	ProductionOrderDataPlatformDeliveryDocumentHeaderData:          "ProductionOrderDataPlatformDeliveryDocumentHeaderData",
+	ProductionOrderDataPlatformDeliveryDocumentItemData:            "ProductionOrderDataPlatformDeliveryDocumentItemData",
+	ProductionOrderDataPlatformInspectionLotConfirmationHeaderData: "ProductionOrderDataPlatformInspectionLotConfirmationHeaderData",
 	ProductionOrderDataPlatformProductionOrderItemComponentData:    "ProductionOrderDataPlatformProductionOrderItemComponentData",
+	ProductionOrderDataPlatformProductionOrderItemOperationData:    "ProductionOrderDataPlatformProductionOrderItemOperationData",
 	ProductionOrderDataPlatformPurchaseRequisitionHeaderData:       "ProductionOrderDataPlatformPurchaseRequisitionHeaderData",
 	ProductionOrderDataPlatformPurchaseRequisitionItemData:         "ProductionOrderDataPlatformPurchaseRequisitionItemData",
 }
 
 // dataPlatformProductionOrderItemDatumR is where relationships are stored.
 type dataPlatformProductionOrderItemDatumR struct {
-	BillOfMaterialDataPlatformBillOfMaterialHeaderDatum            *DataPlatformBillOfMaterialHeaderDatum             `boil:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum" json:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum" toml:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum" yaml:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum"`
-	DeliverFromPartyDataPlatformPlantStorageLocationDatum          *DataPlatformPlantStorageLocationDatum             `boil:"DeliverFromPartyDataPlatformPlantStorageLocationDatum" json:"DeliverFromPartyDataPlatformPlantStorageLocationDatum" toml:"DeliverFromPartyDataPlatformPlantStorageLocationDatum" yaml:"DeliverFromPartyDataPlatformPlantStorageLocationDatum"`
-	DeliverToPartyDataPlatformPlantStorageLocationDatum            *DataPlatformPlantStorageLocationDatum             `boil:"DeliverToPartyDataPlatformPlantStorageLocationDatum" json:"DeliverToPartyDataPlatformPlantStorageLocationDatum" toml:"DeliverToPartyDataPlatformPlantStorageLocationDatum" yaml:"DeliverToPartyDataPlatformPlantStorageLocationDatum"`
-	Operation                                                      *DataPlatformOperationsHeaderDatum                 `boil:"Operation" json:"Operation" toml:"Operation" yaml:"Operation"`
-	OrderIDDataPlatformOrdersItemDatum                             *DataPlatformOrdersItemDatum                       `boil:"OrderIDDataPlatformOrdersItemDatum" json:"OrderIDDataPlatformOrdersItemDatum" toml:"OrderIDDataPlatformOrdersItemDatum" yaml:"OrderIDDataPlatformOrdersItemDatum"`
-	ProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum       *DataPlatformQuantityUnitQuantityUnitDatum         `boil:"ProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"ProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"ProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"ProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum"`
-	ProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum   *DataPlatformQuantityUnitQuantityUnitDatum         `boil:"ProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"ProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"ProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"ProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum"`
-	ProductDataPlatformBatchMasterRecordBatchDatum                 *DataPlatformBatchMasterRecordBatchDatum           `boil:"ProductDataPlatformBatchMasterRecordBatchDatum" json:"ProductDataPlatformBatchMasterRecordBatchDatum" toml:"ProductDataPlatformBatchMasterRecordBatchDatum" yaml:"ProductDataPlatformBatchMasterRecordBatchDatum"`
-	ProductionPlantDataPlatformPlantStorageLocationDatum           *DataPlatformPlantStorageLocationDatum             `boil:"ProductionPlantDataPlatformPlantStorageLocationDatum" json:"ProductionPlantDataPlatformPlantStorageLocationDatum" toml:"ProductionPlantDataPlatformPlantStorageLocationDatum" yaml:"ProductionPlantDataPlatformPlantStorageLocationDatum"`
-	ProductProductionUnitDataPlatformQuantityUnitQuantityUnitDatum *DataPlatformQuantityUnitQuantityUnitDatum         `boil:"ProductProductionUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"ProductProductionUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"ProductProductionUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"ProductProductionUnitDataPlatformQuantityUnitQuantityUnitDatum"`
-	BuyerDataPlatformSCRDeliveryRelationDatum                      *DataPlatformSCRDeliveryRelationDatum              `boil:"BuyerDataPlatformSCRDeliveryRelationDatum" json:"BuyerDataPlatformSCRDeliveryRelationDatum" toml:"BuyerDataPlatformSCRDeliveryRelationDatum" yaml:"BuyerDataPlatformSCRDeliveryRelationDatum"`
-	BuyerDataPlatformSCRGeneralDatum                               *DataPlatformSCRGeneralDatum                       `boil:"BuyerDataPlatformSCRGeneralDatum" json:"BuyerDataPlatformSCRGeneralDatum" toml:"BuyerDataPlatformSCRGeneralDatum" yaml:"BuyerDataPlatformSCRGeneralDatum"`
-	ProductionOrderDataPlatformProductionOrderHeaderDatum          *DataPlatformProductionOrderHeaderDatum            `boil:"ProductionOrderDataPlatformProductionOrderHeaderDatum" json:"ProductionOrderDataPlatformProductionOrderHeaderDatum" toml:"ProductionOrderDataPlatformProductionOrderHeaderDatum" yaml:"ProductionOrderDataPlatformProductionOrderHeaderDatum"`
-	ProductionOrderDataPlatformDeliveryDocumentHeaderData          DataPlatformDeliveryDocumentHeaderDatumSlice       `boil:"ProductionOrderDataPlatformDeliveryDocumentHeaderData" json:"ProductionOrderDataPlatformDeliveryDocumentHeaderData" toml:"ProductionOrderDataPlatformDeliveryDocumentHeaderData" yaml:"ProductionOrderDataPlatformDeliveryDocumentHeaderData"`
-	ProductionOrderDataPlatformProductionOrderItemComponentData    DataPlatformProductionOrderItemComponentDatumSlice `boil:"ProductionOrderDataPlatformProductionOrderItemComponentData" json:"ProductionOrderDataPlatformProductionOrderItemComponentData" toml:"ProductionOrderDataPlatformProductionOrderItemComponentData" yaml:"ProductionOrderDataPlatformProductionOrderItemComponentData"`
-	ProductionOrderDataPlatformPurchaseRequisitionHeaderData       DataPlatformPurchaseRequisitionHeaderDatumSlice    `boil:"ProductionOrderDataPlatformPurchaseRequisitionHeaderData" json:"ProductionOrderDataPlatformPurchaseRequisitionHeaderData" toml:"ProductionOrderDataPlatformPurchaseRequisitionHeaderData" yaml:"ProductionOrderDataPlatformPurchaseRequisitionHeaderData"`
-	ProductionOrderDataPlatformPurchaseRequisitionItemData         DataPlatformPurchaseRequisitionItemDatumSlice      `boil:"ProductionOrderDataPlatformPurchaseRequisitionItemData" json:"ProductionOrderDataPlatformPurchaseRequisitionItemData" toml:"ProductionOrderDataPlatformPurchaseRequisitionItemData" yaml:"ProductionOrderDataPlatformPurchaseRequisitionItemData"`
+	BillOfMaterialDataPlatformBillOfMaterialHeaderDatum            *DataPlatformBillOfMaterialHeaderDatum                `boil:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum" json:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum" toml:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum" yaml:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum"`
+	DeliverFromPartyDataPlatformPlantStorageLocationDatum          *DataPlatformPlantStorageLocationDatum                `boil:"DeliverFromPartyDataPlatformPlantStorageLocationDatum" json:"DeliverFromPartyDataPlatformPlantStorageLocationDatum" toml:"DeliverFromPartyDataPlatformPlantStorageLocationDatum" yaml:"DeliverFromPartyDataPlatformPlantStorageLocationDatum"`
+	DeliverToPartyDataPlatformPlantStorageLocationDatum            *DataPlatformPlantStorageLocationDatum                `boil:"DeliverToPartyDataPlatformPlantStorageLocationDatum" json:"DeliverToPartyDataPlatformPlantStorageLocationDatum" toml:"DeliverToPartyDataPlatformPlantStorageLocationDatum" yaml:"DeliverToPartyDataPlatformPlantStorageLocationDatum"`
+	Operation                                                      *DataPlatformOperationsHeaderDatum                    `boil:"Operation" json:"Operation" toml:"Operation" yaml:"Operation"`
+	OrderIDDataPlatformOrdersItemDatum                             *DataPlatformOrdersItemDatum                          `boil:"OrderIDDataPlatformOrdersItemDatum" json:"OrderIDDataPlatformOrdersItemDatum" toml:"OrderIDDataPlatformOrdersItemDatum" yaml:"OrderIDDataPlatformOrdersItemDatum"`
+	ProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum       *DataPlatformQuantityUnitQuantityUnitDatum            `boil:"ProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"ProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"ProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"ProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum"`
+	ProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum   *DataPlatformQuantityUnitQuantityUnitDatum            `boil:"ProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"ProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"ProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"ProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum"`
+	ProductDataPlatformBatchMasterRecordBatchDatum                 *DataPlatformBatchMasterRecordBatchDatum              `boil:"ProductDataPlatformBatchMasterRecordBatchDatum" json:"ProductDataPlatformBatchMasterRecordBatchDatum" toml:"ProductDataPlatformBatchMasterRecordBatchDatum" yaml:"ProductDataPlatformBatchMasterRecordBatchDatum"`
+	ProductionPlantDataPlatformPlantStorageLocationDatum           *DataPlatformPlantStorageLocationDatum                `boil:"ProductionPlantDataPlatformPlantStorageLocationDatum" json:"ProductionPlantDataPlatformPlantStorageLocationDatum" toml:"ProductionPlantDataPlatformPlantStorageLocationDatum" yaml:"ProductionPlantDataPlatformPlantStorageLocationDatum"`
+	ProductProductionUnitDataPlatformQuantityUnitQuantityUnitDatum *DataPlatformQuantityUnitQuantityUnitDatum            `boil:"ProductProductionUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"ProductProductionUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"ProductProductionUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"ProductProductionUnitDataPlatformQuantityUnitQuantityUnitDatum"`
+	BuyerDataPlatformSCRDeliveryRelationDatum                      *DataPlatformSCRDeliveryRelationDatum                 `boil:"BuyerDataPlatformSCRDeliveryRelationDatum" json:"BuyerDataPlatformSCRDeliveryRelationDatum" toml:"BuyerDataPlatformSCRDeliveryRelationDatum" yaml:"BuyerDataPlatformSCRDeliveryRelationDatum"`
+	BuyerDataPlatformSCRGeneralDatum                               *DataPlatformSCRGeneralDatum                          `boil:"BuyerDataPlatformSCRGeneralDatum" json:"BuyerDataPlatformSCRGeneralDatum" toml:"BuyerDataPlatformSCRGeneralDatum" yaml:"BuyerDataPlatformSCRGeneralDatum"`
+	ProductionOrderDataPlatformProductionOrderHeaderDatum          *DataPlatformProductionOrderHeaderDatum               `boil:"ProductionOrderDataPlatformProductionOrderHeaderDatum" json:"ProductionOrderDataPlatformProductionOrderHeaderDatum" toml:"ProductionOrderDataPlatformProductionOrderHeaderDatum" yaml:"ProductionOrderDataPlatformProductionOrderHeaderDatum"`
+	ProductionOrderDataPlatformDeliveryDocumentHeaderData          DataPlatformDeliveryDocumentHeaderDatumSlice          `boil:"ProductionOrderDataPlatformDeliveryDocumentHeaderData" json:"ProductionOrderDataPlatformDeliveryDocumentHeaderData" toml:"ProductionOrderDataPlatformDeliveryDocumentHeaderData" yaml:"ProductionOrderDataPlatformDeliveryDocumentHeaderData"`
+	ProductionOrderDataPlatformDeliveryDocumentItemData            DataPlatformDeliveryDocumentItemDatumSlice            `boil:"ProductionOrderDataPlatformDeliveryDocumentItemData" json:"ProductionOrderDataPlatformDeliveryDocumentItemData" toml:"ProductionOrderDataPlatformDeliveryDocumentItemData" yaml:"ProductionOrderDataPlatformDeliveryDocumentItemData"`
+	ProductionOrderDataPlatformInspectionLotConfirmationHeaderData DataPlatformInspectionLotConfirmationHeaderDatumSlice `boil:"ProductionOrderDataPlatformInspectionLotConfirmationHeaderData" json:"ProductionOrderDataPlatformInspectionLotConfirmationHeaderData" toml:"ProductionOrderDataPlatformInspectionLotConfirmationHeaderData" yaml:"ProductionOrderDataPlatformInspectionLotConfirmationHeaderData"`
+	ProductionOrderDataPlatformProductionOrderItemComponentData    DataPlatformProductionOrderItemComponentDatumSlice    `boil:"ProductionOrderDataPlatformProductionOrderItemComponentData" json:"ProductionOrderDataPlatformProductionOrderItemComponentData" toml:"ProductionOrderDataPlatformProductionOrderItemComponentData" yaml:"ProductionOrderDataPlatformProductionOrderItemComponentData"`
+	ProductionOrderDataPlatformProductionOrderItemOperationData    DataPlatformProductionOrderItemOperationDatumSlice    `boil:"ProductionOrderDataPlatformProductionOrderItemOperationData" json:"ProductionOrderDataPlatformProductionOrderItemOperationData" toml:"ProductionOrderDataPlatformProductionOrderItemOperationData" yaml:"ProductionOrderDataPlatformProductionOrderItemOperationData"`
+	ProductionOrderDataPlatformPurchaseRequisitionHeaderData       DataPlatformPurchaseRequisitionHeaderDatumSlice       `boil:"ProductionOrderDataPlatformPurchaseRequisitionHeaderData" json:"ProductionOrderDataPlatformPurchaseRequisitionHeaderData" toml:"ProductionOrderDataPlatformPurchaseRequisitionHeaderData" yaml:"ProductionOrderDataPlatformPurchaseRequisitionHeaderData"`
+	ProductionOrderDataPlatformPurchaseRequisitionItemData         DataPlatformPurchaseRequisitionItemDatumSlice         `boil:"ProductionOrderDataPlatformPurchaseRequisitionItemData" json:"ProductionOrderDataPlatformPurchaseRequisitionItemData" toml:"ProductionOrderDataPlatformPurchaseRequisitionItemData" yaml:"ProductionOrderDataPlatformPurchaseRequisitionItemData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -724,11 +733,32 @@ func (r *dataPlatformProductionOrderItemDatumR) GetProductionOrderDataPlatformDe
 	return r.ProductionOrderDataPlatformDeliveryDocumentHeaderData
 }
 
+func (r *dataPlatformProductionOrderItemDatumR) GetProductionOrderDataPlatformDeliveryDocumentItemData() DataPlatformDeliveryDocumentItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductionOrderDataPlatformDeliveryDocumentItemData
+}
+
+func (r *dataPlatformProductionOrderItemDatumR) GetProductionOrderDataPlatformInspectionLotConfirmationHeaderData() DataPlatformInspectionLotConfirmationHeaderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductionOrderDataPlatformInspectionLotConfirmationHeaderData
+}
+
 func (r *dataPlatformProductionOrderItemDatumR) GetProductionOrderDataPlatformProductionOrderItemComponentData() DataPlatformProductionOrderItemComponentDatumSlice {
 	if r == nil {
 		return nil
 	}
 	return r.ProductionOrderDataPlatformProductionOrderItemComponentData
+}
+
+func (r *dataPlatformProductionOrderItemDatumR) GetProductionOrderDataPlatformProductionOrderItemOperationData() DataPlatformProductionOrderItemOperationDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductionOrderDataPlatformProductionOrderItemOperationData
 }
 
 func (r *dataPlatformProductionOrderItemDatumR) GetProductionOrderDataPlatformPurchaseRequisitionHeaderData() DataPlatformPurchaseRequisitionHeaderDatumSlice {
@@ -1004,6 +1034,34 @@ func (o *DataPlatformProductionOrderItemDatum) ProductionOrderDataPlatformDelive
 	return DataPlatformDeliveryDocumentHeaderData(queryMods...)
 }
 
+// ProductionOrderDataPlatformDeliveryDocumentItemData retrieves all the data_platform_delivery_document_item_datum's DataPlatformDeliveryDocumentItemData with an executor via ProductionOrder column.
+func (o *DataPlatformProductionOrderItemDatum) ProductionOrderDataPlatformDeliveryDocumentItemData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_item_data`.`ProductionOrder`=?", o.ProductionOrder),
+	)
+
+	return DataPlatformDeliveryDocumentItemData(queryMods...)
+}
+
+// ProductionOrderDataPlatformInspectionLotConfirmationHeaderData retrieves all the data_platform_inspection_lot_confirmation_header_datum's DataPlatformInspectionLotConfirmationHeaderData with an executor via ProductionOrder column.
+func (o *DataPlatformProductionOrderItemDatum) ProductionOrderDataPlatformInspectionLotConfirmationHeaderData(mods ...qm.QueryMod) dataPlatformInspectionLotConfirmationHeaderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_inspection_lot_confirmation_header_data`.`ProductionOrder`=?", o.ProductionOrder),
+	)
+
+	return DataPlatformInspectionLotConfirmationHeaderData(queryMods...)
+}
+
 // ProductionOrderDataPlatformProductionOrderItemComponentData retrieves all the data_platform_production_order_item_component_datum's DataPlatformProductionOrderItemComponentData with an executor via ProductionOrder column.
 func (o *DataPlatformProductionOrderItemDatum) ProductionOrderDataPlatformProductionOrderItemComponentData(mods ...qm.QueryMod) dataPlatformProductionOrderItemComponentDatumQuery {
 	var queryMods []qm.QueryMod
@@ -1016,6 +1074,20 @@ func (o *DataPlatformProductionOrderItemDatum) ProductionOrderDataPlatformProduc
 	)
 
 	return DataPlatformProductionOrderItemComponentData(queryMods...)
+}
+
+// ProductionOrderDataPlatformProductionOrderItemOperationData retrieves all the data_platform_production_order_item_operation_datum's DataPlatformProductionOrderItemOperationData with an executor via ProductionOrder column.
+func (o *DataPlatformProductionOrderItemDatum) ProductionOrderDataPlatformProductionOrderItemOperationData(mods ...qm.QueryMod) dataPlatformProductionOrderItemOperationDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_production_order_item_operation_data`.`ProductionOrder`=?", o.ProductionOrder),
+	)
+
+	return DataPlatformProductionOrderItemOperationData(queryMods...)
 }
 
 // ProductionOrderDataPlatformPurchaseRequisitionHeaderData retrieves all the data_platform_purchase_requisition_header_datum's DataPlatformPurchaseRequisitionHeaderData with an executor via ProductionOrder column.
@@ -2499,6 +2571,200 @@ func (dataPlatformProductionOrderItemDatumL) LoadProductionOrderDataPlatformDeli
 	return nil
 }
 
+// LoadProductionOrderDataPlatformDeliveryDocumentItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductionOrderItemDatumL) LoadProductionOrderDataPlatformDeliveryDocumentItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductionOrderItemDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductionOrderItemDatum
+	var object *DataPlatformProductionOrderItemDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductionOrderItemDatum.(*DataPlatformProductionOrderItemDatum)
+		if !ok {
+			object = new(DataPlatformProductionOrderItemDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductionOrderItemDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductionOrderItemDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductionOrderItemDatum.(*[]*DataPlatformProductionOrderItemDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductionOrderItemDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductionOrderItemDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductionOrderItemDatumR{}
+		}
+		args = append(args, object.ProductionOrder)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductionOrderItemDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.ProductionOrder) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.ProductionOrder)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_item_data`),
+		qm.WhereIn(`data_platform_delivery_document_item_data.ProductionOrder in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_item_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_item_data")
+	}
+
+	if singular {
+		object.R.ProductionOrderDataPlatformDeliveryDocumentItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.ProductionOrder, foreign.ProductionOrder) {
+				local.R.ProductionOrderDataPlatformDeliveryDocumentItemData = append(local.R.ProductionOrderDataPlatformDeliveryDocumentItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductionOrderDataPlatformInspectionLotConfirmationHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductionOrderItemDatumL) LoadProductionOrderDataPlatformInspectionLotConfirmationHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductionOrderItemDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductionOrderItemDatum
+	var object *DataPlatformProductionOrderItemDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductionOrderItemDatum.(*DataPlatformProductionOrderItemDatum)
+		if !ok {
+			object = new(DataPlatformProductionOrderItemDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductionOrderItemDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductionOrderItemDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductionOrderItemDatum.(*[]*DataPlatformProductionOrderItemDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductionOrderItemDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductionOrderItemDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductionOrderItemDatumR{}
+		}
+		args = append(args, object.ProductionOrder)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductionOrderItemDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.ProductionOrder {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.ProductionOrder)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_inspection_lot_confirmation_header_data`),
+		qm.WhereIn(`data_platform_inspection_lot_confirmation_header_data.ProductionOrder in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_inspection_lot_confirmation_header_data")
+	}
+
+	var resultSlice []*DataPlatformInspectionLotConfirmationHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_lot_confirmation_header_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_lot_confirmation_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_lot_confirmation_header_data")
+	}
+
+	if singular {
+		object.R.ProductionOrderDataPlatformInspectionLotConfirmationHeaderData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.ProductionOrder == foreign.ProductionOrder {
+				local.R.ProductionOrderDataPlatformInspectionLotConfirmationHeaderData = append(local.R.ProductionOrderDataPlatformInspectionLotConfirmationHeaderData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // LoadProductionOrderDataPlatformProductionOrderItemComponentData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
 func (dataPlatformProductionOrderItemDatumL) LoadProductionOrderDataPlatformProductionOrderItemComponentData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductionOrderItemDatum interface{}, mods queries.Applicator) error {
@@ -2588,6 +2854,103 @@ func (dataPlatformProductionOrderItemDatumL) LoadProductionOrderDataPlatformProd
 		for _, local := range slice {
 			if local.ProductionOrder == foreign.ProductionOrder {
 				local.R.ProductionOrderDataPlatformProductionOrderItemComponentData = append(local.R.ProductionOrderDataPlatformProductionOrderItemComponentData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductionOrderDataPlatformProductionOrderItemOperationData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductionOrderItemDatumL) LoadProductionOrderDataPlatformProductionOrderItemOperationData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductionOrderItemDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductionOrderItemDatum
+	var object *DataPlatformProductionOrderItemDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductionOrderItemDatum.(*DataPlatformProductionOrderItemDatum)
+		if !ok {
+			object = new(DataPlatformProductionOrderItemDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductionOrderItemDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductionOrderItemDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductionOrderItemDatum.(*[]*DataPlatformProductionOrderItemDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductionOrderItemDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductionOrderItemDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductionOrderItemDatumR{}
+		}
+		args = append(args, object.ProductionOrder)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductionOrderItemDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.ProductionOrder {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.ProductionOrder)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_production_order_item_operation_data`),
+		qm.WhereIn(`data_platform_production_order_item_operation_data.ProductionOrder in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_production_order_item_operation_data")
+	}
+
+	var resultSlice []*DataPlatformProductionOrderItemOperationDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_production_order_item_operation_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_production_order_item_operation_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_production_order_item_operation_data")
+	}
+
+	if singular {
+		object.R.ProductionOrderDataPlatformProductionOrderItemOperationData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.ProductionOrder == foreign.ProductionOrder {
+				local.R.ProductionOrderDataPlatformProductionOrderItemOperationData = append(local.R.ProductionOrderDataPlatformProductionOrderItemOperationData, foreign)
 				break
 			}
 		}
@@ -3408,6 +3771,153 @@ func (o *DataPlatformProductionOrderItemDatum) RemoveProductionOrderDataPlatform
 	return nil
 }
 
+// AddProductionOrderDataPlatformDeliveryDocumentItemData adds the given related objects to the existing relationships
+// of the data_platform_production_order_item_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductionOrderDataPlatformDeliveryDocumentItemData.
+func (o *DataPlatformProductionOrderItemDatum) AddProductionOrderDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.ProductionOrder, o.ProductionOrder)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"ProductionOrder"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.ProductionOrder, rel.DeliveryDocument, rel.DeliveryDocumentItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.ProductionOrder, o.ProductionOrder)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductionOrderItemDatumR{
+			ProductionOrderDataPlatformDeliveryDocumentItemData: related,
+		}
+	} else {
+		o.R.ProductionOrderDataPlatformDeliveryDocumentItemData = append(o.R.ProductionOrderDataPlatformDeliveryDocumentItemData, related...)
+	}
+
+	return nil
+}
+
+// SetProductionOrderDataPlatformDeliveryDocumentItemData removes all previously related items of the
+// data_platform_production_order_item_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.ProductionOrderDataPlatformProductionOrderItemDatum's ProductionOrderDataPlatformDeliveryDocumentItemData accordingly.
+// Replaces o.R.ProductionOrderDataPlatformDeliveryDocumentItemData with related.
+func (o *DataPlatformProductionOrderItemDatum) SetProductionOrderDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	query := "update `data_platform_delivery_document_item_data` set `ProductionOrder` = null where `ProductionOrder` = ?"
+	values := []interface{}{o.ProductionOrder}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.ProductionOrderDataPlatformDeliveryDocumentItemData = nil
+	}
+
+	return o.AddProductionOrderDataPlatformDeliveryDocumentItemData(ctx, exec, insert, related...)
+}
+
+// RemoveProductionOrderDataPlatformDeliveryDocumentItemData relationships from objects passed in.
+// Removes related items from R.ProductionOrderDataPlatformDeliveryDocumentItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformProductionOrderItemDatum) RemoveProductionOrderDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.ProductionOrder, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("ProductionOrder")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.ProductionOrderDataPlatformDeliveryDocumentItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.ProductionOrderDataPlatformDeliveryDocumentItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.ProductionOrderDataPlatformDeliveryDocumentItemData[i] = o.R.ProductionOrderDataPlatformDeliveryDocumentItemData[ln-1]
+			}
+			o.R.ProductionOrderDataPlatformDeliveryDocumentItemData = o.R.ProductionOrderDataPlatformDeliveryDocumentItemData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddProductionOrderDataPlatformInspectionLotConfirmationHeaderData adds the given related objects to the existing relationships
+// of the data_platform_production_order_item_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductionOrderDataPlatformInspectionLotConfirmationHeaderData.
+func (o *DataPlatformProductionOrderItemDatum) AddProductionOrderDataPlatformInspectionLotConfirmationHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotConfirmationHeaderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.ProductionOrder = o.ProductionOrder
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_inspection_lot_confirmation_header_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"ProductionOrder"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotConfirmationHeaderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.ProductionOrder, rel.InspectionLot, rel.Operations, rel.OperationsItem, rel.OperationID, rel.ConfirmationCountingID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.ProductionOrder = o.ProductionOrder
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductionOrderItemDatumR{
+			ProductionOrderDataPlatformInspectionLotConfirmationHeaderData: related,
+		}
+	} else {
+		o.R.ProductionOrderDataPlatformInspectionLotConfirmationHeaderData = append(o.R.ProductionOrderDataPlatformInspectionLotConfirmationHeaderData, related...)
+	}
+
+	return nil
+}
+
 // AddProductionOrderDataPlatformProductionOrderItemComponentData adds the given related objects to the existing relationships
 // of the data_platform_production_order_item_datum, optionally inserting them as new records.
 // Appends related to o.R.ProductionOrderDataPlatformProductionOrderItemComponentData.
@@ -3446,6 +3956,49 @@ func (o *DataPlatformProductionOrderItemDatum) AddProductionOrderDataPlatformPro
 		}
 	} else {
 		o.R.ProductionOrderDataPlatformProductionOrderItemComponentData = append(o.R.ProductionOrderDataPlatformProductionOrderItemComponentData, related...)
+	}
+
+	return nil
+}
+
+// AddProductionOrderDataPlatformProductionOrderItemOperationData adds the given related objects to the existing relationships
+// of the data_platform_production_order_item_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductionOrderDataPlatformProductionOrderItemOperationData.
+func (o *DataPlatformProductionOrderItemDatum) AddProductionOrderDataPlatformProductionOrderItemOperationData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductionOrderItemOperationDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.ProductionOrder = o.ProductionOrder
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_production_order_item_operation_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"ProductionOrder"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductionOrderItemOperationDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.ProductionOrder, rel.ProductionOrder, rel.ProductionOrderItem, rel.Operations, rel.OperationsItem, rel.OperationID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.ProductionOrder = o.ProductionOrder
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductionOrderItemDatumR{
+			ProductionOrderDataPlatformProductionOrderItemOperationData: related,
+		}
+	} else {
+		o.R.ProductionOrderDataPlatformProductionOrderItemOperationData = append(o.R.ProductionOrderDataPlatformProductionOrderItemOperationData, related...)
 	}
 
 	return nil

@@ -129,15 +129,36 @@ var DataPlatformStorageBinGeneralDatumWhere = struct {
 
 // DataPlatformStorageBinGeneralDatumRels is where relationship names are stored.
 var DataPlatformStorageBinGeneralDatumRels = struct {
-}{}
+	BusinessPartnerDataPlatformProductStockByStorageBinByBatchData      string
+	BusinessPartnerDataPlatformProductStockProductStockByStorageBinData string
+}{
+	BusinessPartnerDataPlatformProductStockByStorageBinByBatchData:      "BusinessPartnerDataPlatformProductStockByStorageBinByBatchData",
+	BusinessPartnerDataPlatformProductStockProductStockByStorageBinData: "BusinessPartnerDataPlatformProductStockProductStockByStorageBinData",
+}
 
 // dataPlatformStorageBinGeneralDatumR is where relationships are stored.
 type dataPlatformStorageBinGeneralDatumR struct {
+	BusinessPartnerDataPlatformProductStockByStorageBinByBatchData      DataPlatformProductStockByStorageBinByBatchDatumSlice      `boil:"BusinessPartnerDataPlatformProductStockByStorageBinByBatchData" json:"BusinessPartnerDataPlatformProductStockByStorageBinByBatchData" toml:"BusinessPartnerDataPlatformProductStockByStorageBinByBatchData" yaml:"BusinessPartnerDataPlatformProductStockByStorageBinByBatchData"`
+	BusinessPartnerDataPlatformProductStockProductStockByStorageBinData DataPlatformProductStockProductStockByStorageBinDatumSlice `boil:"BusinessPartnerDataPlatformProductStockProductStockByStorageBinData" json:"BusinessPartnerDataPlatformProductStockProductStockByStorageBinData" toml:"BusinessPartnerDataPlatformProductStockProductStockByStorageBinData" yaml:"BusinessPartnerDataPlatformProductStockProductStockByStorageBinData"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformStorageBinGeneralDatumR) NewStruct() *dataPlatformStorageBinGeneralDatumR {
 	return &dataPlatformStorageBinGeneralDatumR{}
+}
+
+func (r *dataPlatformStorageBinGeneralDatumR) GetBusinessPartnerDataPlatformProductStockByStorageBinByBatchData() DataPlatformProductStockByStorageBinByBatchDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.BusinessPartnerDataPlatformProductStockByStorageBinByBatchData
+}
+
+func (r *dataPlatformStorageBinGeneralDatumR) GetBusinessPartnerDataPlatformProductStockProductStockByStorageBinData() DataPlatformProductStockProductStockByStorageBinDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.BusinessPartnerDataPlatformProductStockProductStockByStorageBinData
 }
 
 // dataPlatformStorageBinGeneralDatumL is where Load methods for each relationship are stored.
@@ -240,6 +261,314 @@ func (q dataPlatformStorageBinGeneralDatumQuery) Exists(ctx context.Context, exe
 	}
 
 	return count > 0, nil
+}
+
+// BusinessPartnerDataPlatformProductStockByStorageBinByBatchData retrieves all the data_platform_product_stock_by_storage_bin_by_batch_datum's DataPlatformProductStockByStorageBinByBatchData with an executor via BusinessPartner column.
+func (o *DataPlatformStorageBinGeneralDatum) BusinessPartnerDataPlatformProductStockByStorageBinByBatchData(mods ...qm.QueryMod) dataPlatformProductStockByStorageBinByBatchDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_product_stock_by_storage_bin_by_batch_data`.`BusinessPartner`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformProductStockByStorageBinByBatchData(queryMods...)
+}
+
+// BusinessPartnerDataPlatformProductStockProductStockByStorageBinData retrieves all the data_platform_product_stock_product_stock_by_storage_bin_datum's DataPlatformProductStockProductStockByStorageBinData with an executor via BusinessPartner column.
+func (o *DataPlatformStorageBinGeneralDatum) BusinessPartnerDataPlatformProductStockProductStockByStorageBinData(mods ...qm.QueryMod) dataPlatformProductStockProductStockByStorageBinDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_product_stock_product_stock_by_storage_bin_data`.`BusinessPartner`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformProductStockProductStockByStorageBinData(queryMods...)
+}
+
+// LoadBusinessPartnerDataPlatformProductStockByStorageBinByBatchData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformStorageBinGeneralDatumL) LoadBusinessPartnerDataPlatformProductStockByStorageBinByBatchData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformStorageBinGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformStorageBinGeneralDatum
+	var object *DataPlatformStorageBinGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformStorageBinGeneralDatum.(*DataPlatformStorageBinGeneralDatum)
+		if !ok {
+			object = new(DataPlatformStorageBinGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformStorageBinGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformStorageBinGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformStorageBinGeneralDatum.(*[]*DataPlatformStorageBinGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformStorageBinGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformStorageBinGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformStorageBinGeneralDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformStorageBinGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_stock_by_storage_bin_by_batch_data`),
+		qm.WhereIn(`data_platform_product_stock_by_storage_bin_by_batch_data.BusinessPartner in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_product_stock_by_storage_bin_by_batch_data")
+	}
+
+	var resultSlice []*DataPlatformProductStockByStorageBinByBatchDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_stock_by_storage_bin_by_batch_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_stock_by_storage_bin_by_batch_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_stock_by_storage_bin_by_batch_data")
+	}
+
+	if singular {
+		object.R.BusinessPartnerDataPlatformProductStockByStorageBinByBatchData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BusinessPartner == foreign.BusinessPartner {
+				local.R.BusinessPartnerDataPlatformProductStockByStorageBinByBatchData = append(local.R.BusinessPartnerDataPlatformProductStockByStorageBinByBatchData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadBusinessPartnerDataPlatformProductStockProductStockByStorageBinData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformStorageBinGeneralDatumL) LoadBusinessPartnerDataPlatformProductStockProductStockByStorageBinData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformStorageBinGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformStorageBinGeneralDatum
+	var object *DataPlatformStorageBinGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformStorageBinGeneralDatum.(*DataPlatformStorageBinGeneralDatum)
+		if !ok {
+			object = new(DataPlatformStorageBinGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformStorageBinGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformStorageBinGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformStorageBinGeneralDatum.(*[]*DataPlatformStorageBinGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformStorageBinGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformStorageBinGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformStorageBinGeneralDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformStorageBinGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_stock_product_stock_by_storage_bin_data`),
+		qm.WhereIn(`data_platform_product_stock_product_stock_by_storage_bin_data.BusinessPartner in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_product_stock_product_stock_by_storage_bin_data")
+	}
+
+	var resultSlice []*DataPlatformProductStockProductStockByStorageBinDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_stock_product_stock_by_storage_bin_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_stock_product_stock_by_storage_bin_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_stock_product_stock_by_storage_bin_data")
+	}
+
+	if singular {
+		object.R.BusinessPartnerDataPlatformProductStockProductStockByStorageBinData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BusinessPartner == foreign.BusinessPartner {
+				local.R.BusinessPartnerDataPlatformProductStockProductStockByStorageBinData = append(local.R.BusinessPartnerDataPlatformProductStockProductStockByStorageBinData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// AddBusinessPartnerDataPlatformProductStockByStorageBinByBatchData adds the given related objects to the existing relationships
+// of the data_platform_storage_bin_general_datum, optionally inserting them as new records.
+// Appends related to o.R.BusinessPartnerDataPlatformProductStockByStorageBinByBatchData.
+func (o *DataPlatformStorageBinGeneralDatum) AddBusinessPartnerDataPlatformProductStockByStorageBinByBatchData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductStockByStorageBinByBatchDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.BusinessPartner = o.BusinessPartner
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_product_stock_by_storage_bin_by_batch_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"BusinessPartner"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductStockByStorageBinByBatchDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.Product, rel.BusinessPartner, rel.Plant, rel.StorageLocation, rel.StorageBin, rel.Batch, rel.SupplyChainRelationshipID, rel.SupplyChainRelationshipDeliveryID, rel.SupplyChainRelationshipDeliveryPlantID, rel.Buyer, rel.Seller, rel.DeliverToParty, rel.DeliverFromParty, rel.DeliverToPlant, rel.DeliverFromPlant, rel.InventoryStockType}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.BusinessPartner = o.BusinessPartner
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformStorageBinGeneralDatumR{
+			BusinessPartnerDataPlatformProductStockByStorageBinByBatchData: related,
+		}
+	} else {
+		o.R.BusinessPartnerDataPlatformProductStockByStorageBinByBatchData = append(o.R.BusinessPartnerDataPlatformProductStockByStorageBinByBatchData, related...)
+	}
+
+	return nil
+}
+
+// AddBusinessPartnerDataPlatformProductStockProductStockByStorageBinData adds the given related objects to the existing relationships
+// of the data_platform_storage_bin_general_datum, optionally inserting them as new records.
+// Appends related to o.R.BusinessPartnerDataPlatformProductStockProductStockByStorageBinData.
+func (o *DataPlatformStorageBinGeneralDatum) AddBusinessPartnerDataPlatformProductStockProductStockByStorageBinData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductStockProductStockByStorageBinDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.BusinessPartner = o.BusinessPartner
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_product_stock_product_stock_by_storage_bin_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"BusinessPartner"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductStockProductStockByStorageBinDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.Product, rel.BusinessPartner, rel.Plant, rel.StorageLocation, rel.StorageBin, rel.SupplyChainRelationshipID, rel.SupplyChainRelationshipDeliveryID, rel.SupplyChainRelationshipDeliveryPlantID, rel.Buyer, rel.Seller, rel.DeliverToParty, rel.DeliverFromParty, rel.DeliverToPlant, rel.DeliverFromPlant, rel.InventoryStockType}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.BusinessPartner = o.BusinessPartner
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformStorageBinGeneralDatumR{
+			BusinessPartnerDataPlatformProductStockProductStockByStorageBinData: related,
+		}
+	} else {
+		o.R.BusinessPartnerDataPlatformProductStockProductStockByStorageBinData = append(o.R.BusinessPartnerDataPlatformProductStockProductStockByStorageBinData, related...)
+	}
+
+	return nil
 }
 
 // DataPlatformStorageBinGeneralData retrieves all the records using an executor.

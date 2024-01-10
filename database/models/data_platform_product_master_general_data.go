@@ -48,6 +48,7 @@ type DataPlatformProductMasterGeneralDatum struct {
 	CreationDate                  string       `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
 	LastChangeDate                string       `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
 	IsMarkedForDeletion           null.Bool    `boil:"IsMarkedForDeletion" json:"IsMarkedForDeletion,omitempty" toml:"IsMarkedForDeletion" yaml:"IsMarkedForDeletion,omitempty"`
+	MarkingOfMaterial             null.String  `boil:"MarkingOfMaterial" json:"MarkingOfMaterial,omitempty" toml:"MarkingOfMaterial" yaml:"MarkingOfMaterial,omitempty"`
 
 	R *dataPlatformProductMasterGeneralDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
 	L dataPlatformProductMasterGeneralDatumL  `boil:"-" json:"-" toml:"-" yaml:"-"`
@@ -78,6 +79,7 @@ var DataPlatformProductMasterGeneralDatumColumns = struct {
 	CreationDate                  string
 	LastChangeDate                string
 	IsMarkedForDeletion           string
+	MarkingOfMaterial             string
 }{
 	Product:                       "Product",
 	ProductType:                   "ProductType",
@@ -103,6 +105,7 @@ var DataPlatformProductMasterGeneralDatumColumns = struct {
 	CreationDate:                  "CreationDate",
 	LastChangeDate:                "LastChangeDate",
 	IsMarkedForDeletion:           "IsMarkedForDeletion",
+	MarkingOfMaterial:             "MarkingOfMaterial",
 }
 
 var DataPlatformProductMasterGeneralDatumTableColumns = struct {
@@ -130,6 +133,7 @@ var DataPlatformProductMasterGeneralDatumTableColumns = struct {
 	CreationDate                  string
 	LastChangeDate                string
 	IsMarkedForDeletion           string
+	MarkingOfMaterial             string
 }{
 	Product:                       "data_platform_product_master_general_data.Product",
 	ProductType:                   "data_platform_product_master_general_data.ProductType",
@@ -155,6 +159,7 @@ var DataPlatformProductMasterGeneralDatumTableColumns = struct {
 	CreationDate:                  "data_platform_product_master_general_data.CreationDate",
 	LastChangeDate:                "data_platform_product_master_general_data.LastChangeDate",
 	IsMarkedForDeletion:           "data_platform_product_master_general_data.IsMarkedForDeletion",
+	MarkingOfMaterial:             "data_platform_product_master_general_data.MarkingOfMaterial",
 }
 
 // Generated where
@@ -184,6 +189,7 @@ var DataPlatformProductMasterGeneralDatumWhere = struct {
 	CreationDate                  whereHelperstring
 	LastChangeDate                whereHelperstring
 	IsMarkedForDeletion           whereHelpernull_Bool
+	MarkingOfMaterial             whereHelpernull_String
 }{
 	Product:                       whereHelperstring{field: "`data_platform_product_master_general_data`.`Product`"},
 	ProductType:                   whereHelperstring{field: "`data_platform_product_master_general_data`.`ProductType`"},
@@ -209,6 +215,7 @@ var DataPlatformProductMasterGeneralDatumWhere = struct {
 	CreationDate:                  whereHelperstring{field: "`data_platform_product_master_general_data`.`CreationDate`"},
 	LastChangeDate:                whereHelperstring{field: "`data_platform_product_master_general_data`.`LastChangeDate`"},
 	IsMarkedForDeletion:           whereHelpernull_Bool{field: "`data_platform_product_master_general_data`.`IsMarkedForDeletion`"},
+	MarkingOfMaterial:             whereHelpernull_String{field: "`data_platform_product_master_general_data`.`MarkingOfMaterial`"},
 }
 
 // DataPlatformProductMasterGeneralDatumRels is where relationship names are stored.
@@ -220,11 +227,20 @@ var DataPlatformProductMasterGeneralDatumRels = struct {
 	ProductGroupDataPlatformProductGroupProductGroupDatum                 string
 	ProductTypeDataPlatformProductTypeProductTypeDatum                    string
 	WeightUnitDataPlatformQuantityUnitQuantityUnitDatum                   string
+	ProductDataPlatformDeliveryDocumentItemFreightAgreementData           string
 	ProductDataPlatformInspectionPlanHeaderData                           string
+	ProductDataPlatformOrdersItemFreightAgreementData                     string
+	ProductDataPlatformOrdersItemScheduleLineData                         string
 	ProductDataPlatformPriceMasterPriceMasterData                         string
+	ProductDataPlatformProductMasterBPPlantData                           string
+	ProductDataPlatformProductMasterGeneralDocData                        string
 	ProductDataPlatformProductMasterProductDescriptionData                string
+	ProductDataPlatformProductStockAvailabilityByProjectData              string
+	ProductDataPlatformProductStockProductStockByOrderData                string
+	ProductDataPlatformProductStockProductStockByProjectData              string
 	ProductDataPlatformProductStockProductStockDataOlds                   string
 	ProductDataPlatformPurchaseRequisitionItemData                        string
+	ProductDataPlatformSCRStockConfPlantRelationProductData               string
 }{
 	BaseUnitDataPlatformQuantityUnitQuantityUnitDatum:                     "BaseUnitDataPlatformQuantityUnitQuantityUnitDatum",
 	CountryOfOriginLanguageDataPlatformLanguageLanguageDatum:              "CountryOfOriginLanguageDataPlatformLanguageLanguageDatum",
@@ -233,27 +249,45 @@ var DataPlatformProductMasterGeneralDatumRels = struct {
 	ProductGroupDataPlatformProductGroupProductGroupDatum:                 "ProductGroupDataPlatformProductGroupProductGroupDatum",
 	ProductTypeDataPlatformProductTypeProductTypeDatum:                    "ProductTypeDataPlatformProductTypeProductTypeDatum",
 	WeightUnitDataPlatformQuantityUnitQuantityUnitDatum:                   "WeightUnitDataPlatformQuantityUnitQuantityUnitDatum",
+	ProductDataPlatformDeliveryDocumentItemFreightAgreementData:           "ProductDataPlatformDeliveryDocumentItemFreightAgreementData",
 	ProductDataPlatformInspectionPlanHeaderData:                           "ProductDataPlatformInspectionPlanHeaderData",
+	ProductDataPlatformOrdersItemFreightAgreementData:                     "ProductDataPlatformOrdersItemFreightAgreementData",
+	ProductDataPlatformOrdersItemScheduleLineData:                         "ProductDataPlatformOrdersItemScheduleLineData",
 	ProductDataPlatformPriceMasterPriceMasterData:                         "ProductDataPlatformPriceMasterPriceMasterData",
+	ProductDataPlatformProductMasterBPPlantData:                           "ProductDataPlatformProductMasterBPPlantData",
+	ProductDataPlatformProductMasterGeneralDocData:                        "ProductDataPlatformProductMasterGeneralDocData",
 	ProductDataPlatformProductMasterProductDescriptionData:                "ProductDataPlatformProductMasterProductDescriptionData",
+	ProductDataPlatformProductStockAvailabilityByProjectData:              "ProductDataPlatformProductStockAvailabilityByProjectData",
+	ProductDataPlatformProductStockProductStockByOrderData:                "ProductDataPlatformProductStockProductStockByOrderData",
+	ProductDataPlatformProductStockProductStockByProjectData:              "ProductDataPlatformProductStockProductStockByProjectData",
 	ProductDataPlatformProductStockProductStockDataOlds:                   "ProductDataPlatformProductStockProductStockDataOlds",
 	ProductDataPlatformPurchaseRequisitionItemData:                        "ProductDataPlatformPurchaseRequisitionItemData",
+	ProductDataPlatformSCRStockConfPlantRelationProductData:               "ProductDataPlatformSCRStockConfPlantRelationProductData",
 }
 
 // dataPlatformProductMasterGeneralDatumR is where relationships are stored.
 type dataPlatformProductMasterGeneralDatumR struct {
-	BaseUnitDataPlatformQuantityUnitQuantityUnitDatum                     *DataPlatformQuantityUnitQuantityUnitDatum            `boil:"BaseUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"BaseUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"BaseUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"BaseUnitDataPlatformQuantityUnitQuantityUnitDatum"`
-	CountryOfOriginLanguageDataPlatformLanguageLanguageDatum              *DataPlatformLanguageLanguageDatum                    `boil:"CountryOfOriginLanguageDataPlatformLanguageLanguageDatum" json:"CountryOfOriginLanguageDataPlatformLanguageLanguageDatum" toml:"CountryOfOriginLanguageDataPlatformLanguageLanguageDatum" yaml:"CountryOfOriginLanguageDataPlatformLanguageLanguageDatum"`
-	CountryOfOriginDataPlatformCountryCountryDatum                        *DataPlatformCountryCountryDatum                      `boil:"CountryOfOriginDataPlatformCountryCountryDatum" json:"CountryOfOriginDataPlatformCountryCountryDatum" toml:"CountryOfOriginDataPlatformCountryCountryDatum" yaml:"CountryOfOriginDataPlatformCountryCountryDatum"`
-	InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum *DataPlatformQuantityUnitQuantityUnitDatum            `boil:"InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum"`
-	ProductGroupDataPlatformProductGroupProductGroupDatum                 *DataPlatformProductGroupProductGroupDatum            `boil:"ProductGroupDataPlatformProductGroupProductGroupDatum" json:"ProductGroupDataPlatformProductGroupProductGroupDatum" toml:"ProductGroupDataPlatformProductGroupProductGroupDatum" yaml:"ProductGroupDataPlatformProductGroupProductGroupDatum"`
-	ProductTypeDataPlatformProductTypeProductTypeDatum                    *DataPlatformProductTypeProductTypeDatum              `boil:"ProductTypeDataPlatformProductTypeProductTypeDatum" json:"ProductTypeDataPlatformProductTypeProductTypeDatum" toml:"ProductTypeDataPlatformProductTypeProductTypeDatum" yaml:"ProductTypeDataPlatformProductTypeProductTypeDatum"`
-	WeightUnitDataPlatformQuantityUnitQuantityUnitDatum                   *DataPlatformQuantityUnitQuantityUnitDatum            `boil:"WeightUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"WeightUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"WeightUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"WeightUnitDataPlatformQuantityUnitQuantityUnitDatum"`
-	ProductDataPlatformInspectionPlanHeaderData                           DataPlatformInspectionPlanHeaderDatumSlice            `boil:"ProductDataPlatformInspectionPlanHeaderData" json:"ProductDataPlatformInspectionPlanHeaderData" toml:"ProductDataPlatformInspectionPlanHeaderData" yaml:"ProductDataPlatformInspectionPlanHeaderData"`
-	ProductDataPlatformPriceMasterPriceMasterData                         DataPlatformPriceMasterPriceMasterDatumSlice          `boil:"ProductDataPlatformPriceMasterPriceMasterData" json:"ProductDataPlatformPriceMasterPriceMasterData" toml:"ProductDataPlatformPriceMasterPriceMasterData" yaml:"ProductDataPlatformPriceMasterPriceMasterData"`
-	ProductDataPlatformProductMasterProductDescriptionData                DataPlatformProductMasterProductDescriptionDatumSlice `boil:"ProductDataPlatformProductMasterProductDescriptionData" json:"ProductDataPlatformProductMasterProductDescriptionData" toml:"ProductDataPlatformProductMasterProductDescriptionData" yaml:"ProductDataPlatformProductMasterProductDescriptionData"`
-	ProductDataPlatformProductStockProductStockDataOlds                   DataPlatformProductStockProductStockDataOldSlice      `boil:"ProductDataPlatformProductStockProductStockDataOlds" json:"ProductDataPlatformProductStockProductStockDataOlds" toml:"ProductDataPlatformProductStockProductStockDataOlds" yaml:"ProductDataPlatformProductStockProductStockDataOlds"`
-	ProductDataPlatformPurchaseRequisitionItemData                        DataPlatformPurchaseRequisitionItemDatumSlice         `boil:"ProductDataPlatformPurchaseRequisitionItemData" json:"ProductDataPlatformPurchaseRequisitionItemData" toml:"ProductDataPlatformPurchaseRequisitionItemData" yaml:"ProductDataPlatformPurchaseRequisitionItemData"`
+	BaseUnitDataPlatformQuantityUnitQuantityUnitDatum                     *DataPlatformQuantityUnitQuantityUnitDatum                 `boil:"BaseUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"BaseUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"BaseUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"BaseUnitDataPlatformQuantityUnitQuantityUnitDatum"`
+	CountryOfOriginLanguageDataPlatformLanguageLanguageDatum              *DataPlatformLanguageLanguageDatum                         `boil:"CountryOfOriginLanguageDataPlatformLanguageLanguageDatum" json:"CountryOfOriginLanguageDataPlatformLanguageLanguageDatum" toml:"CountryOfOriginLanguageDataPlatformLanguageLanguageDatum" yaml:"CountryOfOriginLanguageDataPlatformLanguageLanguageDatum"`
+	CountryOfOriginDataPlatformCountryCountryDatum                        *DataPlatformCountryCountryDatum                           `boil:"CountryOfOriginDataPlatformCountryCountryDatum" json:"CountryOfOriginDataPlatformCountryCountryDatum" toml:"CountryOfOriginDataPlatformCountryCountryDatum" yaml:"CountryOfOriginDataPlatformCountryCountryDatum"`
+	InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum *DataPlatformQuantityUnitQuantityUnitDatum                 `boil:"InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"InternalCapacityQuantityUnitDataPlatformQuantityUnitQuantityUnitDatum"`
+	ProductGroupDataPlatformProductGroupProductGroupDatum                 *DataPlatformProductGroupProductGroupDatum                 `boil:"ProductGroupDataPlatformProductGroupProductGroupDatum" json:"ProductGroupDataPlatformProductGroupProductGroupDatum" toml:"ProductGroupDataPlatformProductGroupProductGroupDatum" yaml:"ProductGroupDataPlatformProductGroupProductGroupDatum"`
+	ProductTypeDataPlatformProductTypeProductTypeDatum                    *DataPlatformProductTypeProductTypeDatum                   `boil:"ProductTypeDataPlatformProductTypeProductTypeDatum" json:"ProductTypeDataPlatformProductTypeProductTypeDatum" toml:"ProductTypeDataPlatformProductTypeProductTypeDatum" yaml:"ProductTypeDataPlatformProductTypeProductTypeDatum"`
+	WeightUnitDataPlatformQuantityUnitQuantityUnitDatum                   *DataPlatformQuantityUnitQuantityUnitDatum                 `boil:"WeightUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"WeightUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"WeightUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"WeightUnitDataPlatformQuantityUnitQuantityUnitDatum"`
+	ProductDataPlatformDeliveryDocumentItemFreightAgreementData           DataPlatformDeliveryDocumentItemFreightAgreementDatumSlice `boil:"ProductDataPlatformDeliveryDocumentItemFreightAgreementData" json:"ProductDataPlatformDeliveryDocumentItemFreightAgreementData" toml:"ProductDataPlatformDeliveryDocumentItemFreightAgreementData" yaml:"ProductDataPlatformDeliveryDocumentItemFreightAgreementData"`
+	ProductDataPlatformInspectionPlanHeaderData                           DataPlatformInspectionPlanHeaderDatumSlice                 `boil:"ProductDataPlatformInspectionPlanHeaderData" json:"ProductDataPlatformInspectionPlanHeaderData" toml:"ProductDataPlatformInspectionPlanHeaderData" yaml:"ProductDataPlatformInspectionPlanHeaderData"`
+	ProductDataPlatformOrdersItemFreightAgreementData                     DataPlatformOrdersItemFreightAgreementDatumSlice           `boil:"ProductDataPlatformOrdersItemFreightAgreementData" json:"ProductDataPlatformOrdersItemFreightAgreementData" toml:"ProductDataPlatformOrdersItemFreightAgreementData" yaml:"ProductDataPlatformOrdersItemFreightAgreementData"`
+	ProductDataPlatformOrdersItemScheduleLineData                         DataPlatformOrdersItemScheduleLineDatumSlice               `boil:"ProductDataPlatformOrdersItemScheduleLineData" json:"ProductDataPlatformOrdersItemScheduleLineData" toml:"ProductDataPlatformOrdersItemScheduleLineData" yaml:"ProductDataPlatformOrdersItemScheduleLineData"`
+	ProductDataPlatformPriceMasterPriceMasterData                         DataPlatformPriceMasterPriceMasterDatumSlice               `boil:"ProductDataPlatformPriceMasterPriceMasterData" json:"ProductDataPlatformPriceMasterPriceMasterData" toml:"ProductDataPlatformPriceMasterPriceMasterData" yaml:"ProductDataPlatformPriceMasterPriceMasterData"`
+	ProductDataPlatformProductMasterBPPlantData                           DataPlatformProductMasterBPPlantDatumSlice                 `boil:"ProductDataPlatformProductMasterBPPlantData" json:"ProductDataPlatformProductMasterBPPlantData" toml:"ProductDataPlatformProductMasterBPPlantData" yaml:"ProductDataPlatformProductMasterBPPlantData"`
+	ProductDataPlatformProductMasterGeneralDocData                        DataPlatformProductMasterGeneralDocDatumSlice              `boil:"ProductDataPlatformProductMasterGeneralDocData" json:"ProductDataPlatformProductMasterGeneralDocData" toml:"ProductDataPlatformProductMasterGeneralDocData" yaml:"ProductDataPlatformProductMasterGeneralDocData"`
+	ProductDataPlatformProductMasterProductDescriptionData                DataPlatformProductMasterProductDescriptionDatumSlice      `boil:"ProductDataPlatformProductMasterProductDescriptionData" json:"ProductDataPlatformProductMasterProductDescriptionData" toml:"ProductDataPlatformProductMasterProductDescriptionData" yaml:"ProductDataPlatformProductMasterProductDescriptionData"`
+	ProductDataPlatformProductStockAvailabilityByProjectData              DataPlatformProductStockAvailabilityByProjectDatumSlice    `boil:"ProductDataPlatformProductStockAvailabilityByProjectData" json:"ProductDataPlatformProductStockAvailabilityByProjectData" toml:"ProductDataPlatformProductStockAvailabilityByProjectData" yaml:"ProductDataPlatformProductStockAvailabilityByProjectData"`
+	ProductDataPlatformProductStockProductStockByOrderData                DataPlatformProductStockProductStockByOrderDatumSlice      `boil:"ProductDataPlatformProductStockProductStockByOrderData" json:"ProductDataPlatformProductStockProductStockByOrderData" toml:"ProductDataPlatformProductStockProductStockByOrderData" yaml:"ProductDataPlatformProductStockProductStockByOrderData"`
+	ProductDataPlatformProductStockProductStockByProjectData              DataPlatformProductStockProductStockByProjectDatumSlice    `boil:"ProductDataPlatformProductStockProductStockByProjectData" json:"ProductDataPlatformProductStockProductStockByProjectData" toml:"ProductDataPlatformProductStockProductStockByProjectData" yaml:"ProductDataPlatformProductStockProductStockByProjectData"`
+	ProductDataPlatformProductStockProductStockDataOlds                   DataPlatformProductStockProductStockDataOldSlice           `boil:"ProductDataPlatformProductStockProductStockDataOlds" json:"ProductDataPlatformProductStockProductStockDataOlds" toml:"ProductDataPlatformProductStockProductStockDataOlds" yaml:"ProductDataPlatformProductStockProductStockDataOlds"`
+	ProductDataPlatformPurchaseRequisitionItemData                        DataPlatformPurchaseRequisitionItemDatumSlice              `boil:"ProductDataPlatformPurchaseRequisitionItemData" json:"ProductDataPlatformPurchaseRequisitionItemData" toml:"ProductDataPlatformPurchaseRequisitionItemData" yaml:"ProductDataPlatformPurchaseRequisitionItemData"`
+	ProductDataPlatformSCRStockConfPlantRelationProductData               DataPlatformSCRStockConfPlantRelationProductDatumSlice     `boil:"ProductDataPlatformSCRStockConfPlantRelationProductData" json:"ProductDataPlatformSCRStockConfPlantRelationProductData" toml:"ProductDataPlatformSCRStockConfPlantRelationProductData" yaml:"ProductDataPlatformSCRStockConfPlantRelationProductData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -310,11 +344,32 @@ func (r *dataPlatformProductMasterGeneralDatumR) GetWeightUnitDataPlatformQuanti
 	return r.WeightUnitDataPlatformQuantityUnitQuantityUnitDatum
 }
 
+func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformDeliveryDocumentItemFreightAgreementData() DataPlatformDeliveryDocumentItemFreightAgreementDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductDataPlatformDeliveryDocumentItemFreightAgreementData
+}
+
 func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformInspectionPlanHeaderData() DataPlatformInspectionPlanHeaderDatumSlice {
 	if r == nil {
 		return nil
 	}
 	return r.ProductDataPlatformInspectionPlanHeaderData
+}
+
+func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformOrdersItemFreightAgreementData() DataPlatformOrdersItemFreightAgreementDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductDataPlatformOrdersItemFreightAgreementData
+}
+
+func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformOrdersItemScheduleLineData() DataPlatformOrdersItemScheduleLineDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductDataPlatformOrdersItemScheduleLineData
 }
 
 func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformPriceMasterPriceMasterData() DataPlatformPriceMasterPriceMasterDatumSlice {
@@ -324,11 +379,46 @@ func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformPriceMast
 	return r.ProductDataPlatformPriceMasterPriceMasterData
 }
 
+func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformProductMasterBPPlantData() DataPlatformProductMasterBPPlantDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductDataPlatformProductMasterBPPlantData
+}
+
+func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformProductMasterGeneralDocData() DataPlatformProductMasterGeneralDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductDataPlatformProductMasterGeneralDocData
+}
+
 func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformProductMasterProductDescriptionData() DataPlatformProductMasterProductDescriptionDatumSlice {
 	if r == nil {
 		return nil
 	}
 	return r.ProductDataPlatformProductMasterProductDescriptionData
+}
+
+func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformProductStockAvailabilityByProjectData() DataPlatformProductStockAvailabilityByProjectDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductDataPlatformProductStockAvailabilityByProjectData
+}
+
+func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformProductStockProductStockByOrderData() DataPlatformProductStockProductStockByOrderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductDataPlatformProductStockProductStockByOrderData
+}
+
+func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformProductStockProductStockByProjectData() DataPlatformProductStockProductStockByProjectDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductDataPlatformProductStockProductStockByProjectData
 }
 
 func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformProductStockProductStockDataOlds() DataPlatformProductStockProductStockDataOldSlice {
@@ -345,12 +435,19 @@ func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformPurchaseR
 	return r.ProductDataPlatformPurchaseRequisitionItemData
 }
 
+func (r *dataPlatformProductMasterGeneralDatumR) GetProductDataPlatformSCRStockConfPlantRelationProductData() DataPlatformSCRStockConfPlantRelationProductDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductDataPlatformSCRStockConfPlantRelationProductData
+}
+
 // dataPlatformProductMasterGeneralDatumL is where Load methods for each relationship are stored.
 type dataPlatformProductMasterGeneralDatumL struct{}
 
 var (
-	dataPlatformProductMasterGeneralDatumAllColumns            = []string{"Product", "ProductType", "BaseUnit", "ValidityStartDate", "ValidityEndDate", "ItemCategory", "ProductGroup", "GrossWeight", "NetWeight", "WeightUnit", "InternalCapacityQuantity", "InternalCapacityQuantityUnit", "SizeOrDimensionText", "ProductStandardID", "IndustryStandardName", "CountryOfOrigin", "CountryOfOriginLanguage", "LocalRegionOfOrigin", "LocalSubRegionOfOrigin", "BarcodeType", "ProductAccountAssignmentGroup", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
-	dataPlatformProductMasterGeneralDatumColumnsWithoutDefault = []string{"Product", "ProductType", "BaseUnit", "ValidityStartDate", "ValidityEndDate", "ItemCategory", "ProductGroup", "GrossWeight", "NetWeight", "WeightUnit", "InternalCapacityQuantity", "InternalCapacityQuantityUnit", "SizeOrDimensionText", "ProductStandardID", "IndustryStandardName", "CountryOfOrigin", "CountryOfOriginLanguage", "LocalRegionOfOrigin", "LocalSubRegionOfOrigin", "BarcodeType", "ProductAccountAssignmentGroup", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
+	dataPlatformProductMasterGeneralDatumAllColumns            = []string{"Product", "ProductType", "BaseUnit", "ValidityStartDate", "ValidityEndDate", "ItemCategory", "ProductGroup", "GrossWeight", "NetWeight", "WeightUnit", "InternalCapacityQuantity", "InternalCapacityQuantityUnit", "SizeOrDimensionText", "ProductStandardID", "IndustryStandardName", "CountryOfOrigin", "CountryOfOriginLanguage", "LocalRegionOfOrigin", "LocalSubRegionOfOrigin", "BarcodeType", "ProductAccountAssignmentGroup", "CreationDate", "LastChangeDate", "IsMarkedForDeletion", "MarkingOfMaterial"}
+	dataPlatformProductMasterGeneralDatumColumnsWithoutDefault = []string{"Product", "ProductType", "BaseUnit", "ValidityStartDate", "ValidityEndDate", "ItemCategory", "ProductGroup", "GrossWeight", "NetWeight", "WeightUnit", "InternalCapacityQuantity", "InternalCapacityQuantityUnit", "SizeOrDimensionText", "ProductStandardID", "IndustryStandardName", "CountryOfOrigin", "CountryOfOriginLanguage", "LocalRegionOfOrigin", "LocalSubRegionOfOrigin", "BarcodeType", "ProductAccountAssignmentGroup", "CreationDate", "LastChangeDate", "IsMarkedForDeletion", "MarkingOfMaterial"}
 	dataPlatformProductMasterGeneralDatumColumnsWithDefault    = []string{}
 	dataPlatformProductMasterGeneralDatumPrimaryKeyColumns     = []string{"Product"}
 	dataPlatformProductMasterGeneralDatumGeneratedColumns      = []string{}
@@ -524,6 +621,20 @@ func (o *DataPlatformProductMasterGeneralDatum) WeightUnitDataPlatformQuantityUn
 	return DataPlatformQuantityUnitQuantityUnitData(queryMods...)
 }
 
+// ProductDataPlatformDeliveryDocumentItemFreightAgreementData retrieves all the data_platform_delivery_document_item_freight_agreement_datum's DataPlatformDeliveryDocumentItemFreightAgreementData with an executor via Product column.
+func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformDeliveryDocumentItemFreightAgreementData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentItemFreightAgreementDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_item_freight_agreement_data`.`Product`=?", o.Product),
+	)
+
+	return DataPlatformDeliveryDocumentItemFreightAgreementData(queryMods...)
+}
+
 // ProductDataPlatformInspectionPlanHeaderData retrieves all the data_platform_inspection_plan_header_datum's DataPlatformInspectionPlanHeaderData with an executor via Product column.
 func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformInspectionPlanHeaderData(mods ...qm.QueryMod) dataPlatformInspectionPlanHeaderDatumQuery {
 	var queryMods []qm.QueryMod
@@ -536,6 +647,34 @@ func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformInspectionPla
 	)
 
 	return DataPlatformInspectionPlanHeaderData(queryMods...)
+}
+
+// ProductDataPlatformOrdersItemFreightAgreementData retrieves all the data_platform_orders_item_freight_agreement_datum's DataPlatformOrdersItemFreightAgreementData with an executor via Product column.
+func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformOrdersItemFreightAgreementData(mods ...qm.QueryMod) dataPlatformOrdersItemFreightAgreementDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_orders_item_freight_agreement_data`.`Product`=?", o.Product),
+	)
+
+	return DataPlatformOrdersItemFreightAgreementData(queryMods...)
+}
+
+// ProductDataPlatformOrdersItemScheduleLineData retrieves all the data_platform_orders_item_schedule_line_datum's DataPlatformOrdersItemScheduleLineData with an executor via Product column.
+func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformOrdersItemScheduleLineData(mods ...qm.QueryMod) dataPlatformOrdersItemScheduleLineDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_orders_item_schedule_line_data`.`Product`=?", o.Product),
+	)
+
+	return DataPlatformOrdersItemScheduleLineData(queryMods...)
 }
 
 // ProductDataPlatformPriceMasterPriceMasterData retrieves all the data_platform_price_master_price_master_datum's DataPlatformPriceMasterPriceMasterData with an executor via Product column.
@@ -552,6 +691,34 @@ func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformPriceMasterPr
 	return DataPlatformPriceMasterPriceMasterData(queryMods...)
 }
 
+// ProductDataPlatformProductMasterBPPlantData retrieves all the data_platform_product_master_bp_plant_datum's DataPlatformProductMasterBPPlantData with an executor via Product column.
+func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformProductMasterBPPlantData(mods ...qm.QueryMod) dataPlatformProductMasterBPPlantDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_product_master_bp_plant_data`.`Product`=?", o.Product),
+	)
+
+	return DataPlatformProductMasterBPPlantData(queryMods...)
+}
+
+// ProductDataPlatformProductMasterGeneralDocData retrieves all the data_platform_product_master_general_doc_datum's DataPlatformProductMasterGeneralDocData with an executor via Product column.
+func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformProductMasterGeneralDocData(mods ...qm.QueryMod) dataPlatformProductMasterGeneralDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_product_master_general_doc_data`.`Product`=?", o.Product),
+	)
+
+	return DataPlatformProductMasterGeneralDocData(queryMods...)
+}
+
 // ProductDataPlatformProductMasterProductDescriptionData retrieves all the data_platform_product_master_product_description_datum's DataPlatformProductMasterProductDescriptionData with an executor via Product column.
 func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformProductMasterProductDescriptionData(mods ...qm.QueryMod) dataPlatformProductMasterProductDescriptionDatumQuery {
 	var queryMods []qm.QueryMod
@@ -564,6 +731,48 @@ func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformProductMaster
 	)
 
 	return DataPlatformProductMasterProductDescriptionData(queryMods...)
+}
+
+// ProductDataPlatformProductStockAvailabilityByProjectData retrieves all the data_platform_product_stock_availability_by_project_datum's DataPlatformProductStockAvailabilityByProjectData with an executor via Product column.
+func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformProductStockAvailabilityByProjectData(mods ...qm.QueryMod) dataPlatformProductStockAvailabilityByProjectDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_product_stock_availability_by_project_data`.`Product`=?", o.Product),
+	)
+
+	return DataPlatformProductStockAvailabilityByProjectData(queryMods...)
+}
+
+// ProductDataPlatformProductStockProductStockByOrderData retrieves all the data_platform_product_stock_product_stock_by_order_datum's DataPlatformProductStockProductStockByOrderData with an executor via Product column.
+func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformProductStockProductStockByOrderData(mods ...qm.QueryMod) dataPlatformProductStockProductStockByOrderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_product_stock_product_stock_by_order_data`.`Product`=?", o.Product),
+	)
+
+	return DataPlatformProductStockProductStockByOrderData(queryMods...)
+}
+
+// ProductDataPlatformProductStockProductStockByProjectData retrieves all the data_platform_product_stock_product_stock_by_project_datum's DataPlatformProductStockProductStockByProjectData with an executor via Product column.
+func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformProductStockProductStockByProjectData(mods ...qm.QueryMod) dataPlatformProductStockProductStockByProjectDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_product_stock_product_stock_by_project_data`.`Product`=?", o.Product),
+	)
+
+	return DataPlatformProductStockProductStockByProjectData(queryMods...)
 }
 
 // ProductDataPlatformProductStockProductStockDataOlds retrieves all the data_platform_product_stock_product_stock_data_old's DataPlatformProductStockProductStockDataOlds with an executor via Product column.
@@ -592,6 +801,20 @@ func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformPurchaseRequi
 	)
 
 	return DataPlatformPurchaseRequisitionItemData(queryMods...)
+}
+
+// ProductDataPlatformSCRStockConfPlantRelationProductData retrieves all the data_platform_scr_stock_conf_plant_relation_product_datum's DataPlatformSCRStockConfPlantRelationProductData with an executor via Product column.
+func (o *DataPlatformProductMasterGeneralDatum) ProductDataPlatformSCRStockConfPlantRelationProductData(mods ...qm.QueryMod) dataPlatformSCRStockConfPlantRelationProductDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_scr_stock_conf_plant_relation_product_data`.`Product`=?", o.Product),
+	)
+
+	return DataPlatformSCRStockConfPlantRelationProductData(queryMods...)
 }
 
 // LoadBaseUnitDataPlatformQuantityUnitQuantityUnitDatum allows an eager lookup of values, cached into the
@@ -1342,6 +1565,103 @@ func (dataPlatformProductMasterGeneralDatumL) LoadWeightUnitDataPlatformQuantity
 	return nil
 }
 
+// LoadProductDataPlatformDeliveryDocumentItemFreightAgreementData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformDeliveryDocumentItemFreightAgreementData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDatum
+	var object *DataPlatformProductMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDatum.(*DataPlatformProductMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDatum.(*[]*DataPlatformProductMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDatumR{}
+		}
+		args = append(args, object.Product)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Product) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Product)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_item_freight_agreement_data`),
+		qm.WhereIn(`data_platform_delivery_document_item_freight_agreement_data.Product in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_item_freight_agreement_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentItemFreightAgreementDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_item_freight_agreement_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_item_freight_agreement_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_item_freight_agreement_data")
+	}
+
+	if singular {
+		object.R.ProductDataPlatformDeliveryDocumentItemFreightAgreementData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Product, foreign.Product) {
+				local.R.ProductDataPlatformDeliveryDocumentItemFreightAgreementData = append(local.R.ProductDataPlatformDeliveryDocumentItemFreightAgreementData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // LoadProductDataPlatformInspectionPlanHeaderData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
 func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformInspectionPlanHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
@@ -1431,6 +1751,200 @@ func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformInspectionP
 		for _, local := range slice {
 			if queries.Equal(local.Product, foreign.Product) {
 				local.R.ProductDataPlatformInspectionPlanHeaderData = append(local.R.ProductDataPlatformInspectionPlanHeaderData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductDataPlatformOrdersItemFreightAgreementData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformOrdersItemFreightAgreementData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDatum
+	var object *DataPlatformProductMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDatum.(*DataPlatformProductMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDatum.(*[]*DataPlatformProductMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDatumR{}
+		}
+		args = append(args, object.Product)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Product) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Product)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_orders_item_freight_agreement_data`),
+		qm.WhereIn(`data_platform_orders_item_freight_agreement_data.Product in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_orders_item_freight_agreement_data")
+	}
+
+	var resultSlice []*DataPlatformOrdersItemFreightAgreementDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_item_freight_agreement_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_item_freight_agreement_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_item_freight_agreement_data")
+	}
+
+	if singular {
+		object.R.ProductDataPlatformOrdersItemFreightAgreementData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Product, foreign.Product) {
+				local.R.ProductDataPlatformOrdersItemFreightAgreementData = append(local.R.ProductDataPlatformOrdersItemFreightAgreementData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductDataPlatformOrdersItemScheduleLineData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformOrdersItemScheduleLineData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDatum
+	var object *DataPlatformProductMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDatum.(*DataPlatformProductMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDatum.(*[]*DataPlatformProductMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDatumR{}
+		}
+		args = append(args, object.Product)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Product {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Product)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_orders_item_schedule_line_data`),
+		qm.WhereIn(`data_platform_orders_item_schedule_line_data.Product in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_orders_item_schedule_line_data")
+	}
+
+	var resultSlice []*DataPlatformOrdersItemScheduleLineDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_item_schedule_line_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_item_schedule_line_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_item_schedule_line_data")
+	}
+
+	if singular {
+		object.R.ProductDataPlatformOrdersItemScheduleLineData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Product == foreign.Product {
+				local.R.ProductDataPlatformOrdersItemScheduleLineData = append(local.R.ProductDataPlatformOrdersItemScheduleLineData, foreign)
 				break
 			}
 		}
@@ -1536,6 +2050,200 @@ func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformPriceMaster
 	return nil
 }
 
+// LoadProductDataPlatformProductMasterBPPlantData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformProductMasterBPPlantData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDatum
+	var object *DataPlatformProductMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDatum.(*DataPlatformProductMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDatum.(*[]*DataPlatformProductMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDatumR{}
+		}
+		args = append(args, object.Product)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Product {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Product)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_master_bp_plant_data`),
+		qm.WhereIn(`data_platform_product_master_bp_plant_data.Product in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_product_master_bp_plant_data")
+	}
+
+	var resultSlice []*DataPlatformProductMasterBPPlantDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_master_bp_plant_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_master_bp_plant_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_bp_plant_data")
+	}
+
+	if singular {
+		object.R.ProductDataPlatformProductMasterBPPlantData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Product == foreign.Product {
+				local.R.ProductDataPlatformProductMasterBPPlantData = append(local.R.ProductDataPlatformProductMasterBPPlantData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductDataPlatformProductMasterGeneralDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformProductMasterGeneralDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDatum
+	var object *DataPlatformProductMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDatum.(*DataPlatformProductMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDatum.(*[]*DataPlatformProductMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDatumR{}
+		}
+		args = append(args, object.Product)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Product {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Product)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_master_general_doc_data`),
+		qm.WhereIn(`data_platform_product_master_general_doc_data.Product in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_product_master_general_doc_data")
+	}
+
+	var resultSlice []*DataPlatformProductMasterGeneralDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_master_general_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_master_general_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_general_doc_data")
+	}
+
+	if singular {
+		object.R.ProductDataPlatformProductMasterGeneralDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Product == foreign.Product {
+				local.R.ProductDataPlatformProductMasterGeneralDocData = append(local.R.ProductDataPlatformProductMasterGeneralDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // LoadProductDataPlatformProductMasterProductDescriptionData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
 func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformProductMasterProductDescriptionData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
@@ -1625,6 +2333,297 @@ func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformProductMast
 		for _, local := range slice {
 			if local.Product == foreign.Product {
 				local.R.ProductDataPlatformProductMasterProductDescriptionData = append(local.R.ProductDataPlatformProductMasterProductDescriptionData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductDataPlatformProductStockAvailabilityByProjectData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformProductStockAvailabilityByProjectData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDatum
+	var object *DataPlatformProductMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDatum.(*DataPlatformProductMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDatum.(*[]*DataPlatformProductMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDatumR{}
+		}
+		args = append(args, object.Product)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Product {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Product)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_stock_availability_by_project_data`),
+		qm.WhereIn(`data_platform_product_stock_availability_by_project_data.Product in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_product_stock_availability_by_project_data")
+	}
+
+	var resultSlice []*DataPlatformProductStockAvailabilityByProjectDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_stock_availability_by_project_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_stock_availability_by_project_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_stock_availability_by_project_data")
+	}
+
+	if singular {
+		object.R.ProductDataPlatformProductStockAvailabilityByProjectData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Product == foreign.Product {
+				local.R.ProductDataPlatformProductStockAvailabilityByProjectData = append(local.R.ProductDataPlatformProductStockAvailabilityByProjectData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductDataPlatformProductStockProductStockByOrderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformProductStockProductStockByOrderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDatum
+	var object *DataPlatformProductMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDatum.(*DataPlatformProductMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDatum.(*[]*DataPlatformProductMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDatumR{}
+		}
+		args = append(args, object.Product)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Product {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Product)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_stock_product_stock_by_order_data`),
+		qm.WhereIn(`data_platform_product_stock_product_stock_by_order_data.Product in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_product_stock_product_stock_by_order_data")
+	}
+
+	var resultSlice []*DataPlatformProductStockProductStockByOrderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_stock_product_stock_by_order_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_stock_product_stock_by_order_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_stock_product_stock_by_order_data")
+	}
+
+	if singular {
+		object.R.ProductDataPlatformProductStockProductStockByOrderData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Product == foreign.Product {
+				local.R.ProductDataPlatformProductStockProductStockByOrderData = append(local.R.ProductDataPlatformProductStockProductStockByOrderData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductDataPlatformProductStockProductStockByProjectData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformProductStockProductStockByProjectData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDatum
+	var object *DataPlatformProductMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDatum.(*DataPlatformProductMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDatum.(*[]*DataPlatformProductMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDatumR{}
+		}
+		args = append(args, object.Product)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Product {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Product)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_stock_product_stock_by_project_data`),
+		qm.WhereIn(`data_platform_product_stock_product_stock_by_project_data.Product in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_product_stock_product_stock_by_project_data")
+	}
+
+	var resultSlice []*DataPlatformProductStockProductStockByProjectDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_stock_product_stock_by_project_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_stock_product_stock_by_project_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_stock_product_stock_by_project_data")
+	}
+
+	if singular {
+		object.R.ProductDataPlatformProductStockProductStockByProjectData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Product == foreign.Product {
+				local.R.ProductDataPlatformProductStockProductStockByProjectData = append(local.R.ProductDataPlatformProductStockProductStockByProjectData, foreign)
 				break
 			}
 		}
@@ -1819,6 +2818,103 @@ func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformPurchaseReq
 		for _, local := range slice {
 			if local.Product == foreign.Product {
 				local.R.ProductDataPlatformPurchaseRequisitionItemData = append(local.R.ProductDataPlatformPurchaseRequisitionItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductDataPlatformSCRStockConfPlantRelationProductData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductMasterGeneralDatumL) LoadProductDataPlatformSCRStockConfPlantRelationProductData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterGeneralDatum
+	var object *DataPlatformProductMasterGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterGeneralDatum.(*DataPlatformProductMasterGeneralDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterGeneralDatum.(*[]*DataPlatformProductMasterGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterGeneralDatumR{}
+		}
+		args = append(args, object.Product)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Product {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Product)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_scr_stock_conf_plant_relation_product_data`),
+		qm.WhereIn(`data_platform_scr_stock_conf_plant_relation_product_data.Product in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_scr_stock_conf_plant_relation_product_data")
+	}
+
+	var resultSlice []*DataPlatformSCRStockConfPlantRelationProductDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_scr_stock_conf_plant_relation_product_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_scr_stock_conf_plant_relation_product_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_scr_stock_conf_plant_relation_product_data")
+	}
+
+	if singular {
+		object.R.ProductDataPlatformSCRStockConfPlantRelationProductData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Product == foreign.Product {
+				local.R.ProductDataPlatformSCRStockConfPlantRelationProductData = append(local.R.ProductDataPlatformSCRStockConfPlantRelationProductData, foreign)
 				break
 			}
 		}
@@ -2193,6 +3289,110 @@ func (o *DataPlatformProductMasterGeneralDatum) RemoveWeightUnitDataPlatformQuan
 	return nil
 }
 
+// AddProductDataPlatformDeliveryDocumentItemFreightAgreementData adds the given related objects to the existing relationships
+// of the data_platform_product_master_general_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductDataPlatformDeliveryDocumentItemFreightAgreementData.
+func (o *DataPlatformProductMasterGeneralDatum) AddProductDataPlatformDeliveryDocumentItemFreightAgreementData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemFreightAgreementDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Product, o.Product)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_item_freight_agreement_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentItemFreightAgreementDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Product, rel.DeliveryDocument, rel.DeliveryDocumentItem, rel.DeliveryDocumentItemFreightAgreement}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Product, o.Product)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDatumR{
+			ProductDataPlatformDeliveryDocumentItemFreightAgreementData: related,
+		}
+	} else {
+		o.R.ProductDataPlatformDeliveryDocumentItemFreightAgreementData = append(o.R.ProductDataPlatformDeliveryDocumentItemFreightAgreementData, related...)
+	}
+
+	return nil
+}
+
+// SetProductDataPlatformDeliveryDocumentItemFreightAgreementData removes all previously related items of the
+// data_platform_product_master_general_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.ProductDataPlatformProductMasterGeneralDatum's ProductDataPlatformDeliveryDocumentItemFreightAgreementData accordingly.
+// Replaces o.R.ProductDataPlatformDeliveryDocumentItemFreightAgreementData with related.
+func (o *DataPlatformProductMasterGeneralDatum) SetProductDataPlatformDeliveryDocumentItemFreightAgreementData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemFreightAgreementDatum) error {
+	query := "update `data_platform_delivery_document_item_freight_agreement_data` set `Product` = null where `Product` = ?"
+	values := []interface{}{o.Product}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.ProductDataPlatformDeliveryDocumentItemFreightAgreementData = nil
+	}
+
+	return o.AddProductDataPlatformDeliveryDocumentItemFreightAgreementData(ctx, exec, insert, related...)
+}
+
+// RemoveProductDataPlatformDeliveryDocumentItemFreightAgreementData relationships from objects passed in.
+// Removes related items from R.ProductDataPlatformDeliveryDocumentItemFreightAgreementData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformProductMasterGeneralDatum) RemoveProductDataPlatformDeliveryDocumentItemFreightAgreementData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentItemFreightAgreementDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Product, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Product")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.ProductDataPlatformDeliveryDocumentItemFreightAgreementData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.ProductDataPlatformDeliveryDocumentItemFreightAgreementData)
+			if ln > 1 && i < ln-1 {
+				o.R.ProductDataPlatformDeliveryDocumentItemFreightAgreementData[i] = o.R.ProductDataPlatformDeliveryDocumentItemFreightAgreementData[ln-1]
+			}
+			o.R.ProductDataPlatformDeliveryDocumentItemFreightAgreementData = o.R.ProductDataPlatformDeliveryDocumentItemFreightAgreementData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
 // AddProductDataPlatformInspectionPlanHeaderData adds the given related objects to the existing relationships
 // of the data_platform_product_master_general_datum, optionally inserting them as new records.
 // Appends related to o.R.ProductDataPlatformInspectionPlanHeaderData.
@@ -2297,6 +3497,153 @@ func (o *DataPlatformProductMasterGeneralDatum) RemoveProductDataPlatformInspect
 	return nil
 }
 
+// AddProductDataPlatformOrdersItemFreightAgreementData adds the given related objects to the existing relationships
+// of the data_platform_product_master_general_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductDataPlatformOrdersItemFreightAgreementData.
+func (o *DataPlatformProductMasterGeneralDatum) AddProductDataPlatformOrdersItemFreightAgreementData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemFreightAgreementDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Product, o.Product)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_orders_item_freight_agreement_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersItemFreightAgreementDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Product, rel.OrderID, rel.OrderItem, rel.OrderItemFreightAgreement}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Product, o.Product)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDatumR{
+			ProductDataPlatformOrdersItemFreightAgreementData: related,
+		}
+	} else {
+		o.R.ProductDataPlatformOrdersItemFreightAgreementData = append(o.R.ProductDataPlatformOrdersItemFreightAgreementData, related...)
+	}
+
+	return nil
+}
+
+// SetProductDataPlatformOrdersItemFreightAgreementData removes all previously related items of the
+// data_platform_product_master_general_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.ProductDataPlatformProductMasterGeneralDatum's ProductDataPlatformOrdersItemFreightAgreementData accordingly.
+// Replaces o.R.ProductDataPlatformOrdersItemFreightAgreementData with related.
+func (o *DataPlatformProductMasterGeneralDatum) SetProductDataPlatformOrdersItemFreightAgreementData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemFreightAgreementDatum) error {
+	query := "update `data_platform_orders_item_freight_agreement_data` set `Product` = null where `Product` = ?"
+	values := []interface{}{o.Product}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.ProductDataPlatformOrdersItemFreightAgreementData = nil
+	}
+
+	return o.AddProductDataPlatformOrdersItemFreightAgreementData(ctx, exec, insert, related...)
+}
+
+// RemoveProductDataPlatformOrdersItemFreightAgreementData relationships from objects passed in.
+// Removes related items from R.ProductDataPlatformOrdersItemFreightAgreementData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformProductMasterGeneralDatum) RemoveProductDataPlatformOrdersItemFreightAgreementData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformOrdersItemFreightAgreementDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Product, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Product")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.ProductDataPlatformOrdersItemFreightAgreementData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.ProductDataPlatformOrdersItemFreightAgreementData)
+			if ln > 1 && i < ln-1 {
+				o.R.ProductDataPlatformOrdersItemFreightAgreementData[i] = o.R.ProductDataPlatformOrdersItemFreightAgreementData[ln-1]
+			}
+			o.R.ProductDataPlatformOrdersItemFreightAgreementData = o.R.ProductDataPlatformOrdersItemFreightAgreementData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddProductDataPlatformOrdersItemScheduleLineData adds the given related objects to the existing relationships
+// of the data_platform_product_master_general_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductDataPlatformOrdersItemScheduleLineData.
+func (o *DataPlatformProductMasterGeneralDatum) AddProductDataPlatformOrdersItemScheduleLineData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemScheduleLineDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.Product = o.Product
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_orders_item_schedule_line_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersItemScheduleLineDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Product, rel.OrderID, rel.OrderItem, rel.ScheduleLine}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.Product = o.Product
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDatumR{
+			ProductDataPlatformOrdersItemScheduleLineData: related,
+		}
+	} else {
+		o.R.ProductDataPlatformOrdersItemScheduleLineData = append(o.R.ProductDataPlatformOrdersItemScheduleLineData, related...)
+	}
+
+	return nil
+}
+
 // AddProductDataPlatformPriceMasterPriceMasterData adds the given related objects to the existing relationships
 // of the data_platform_product_master_general_datum, optionally inserting them as new records.
 // Appends related to o.R.ProductDataPlatformPriceMasterPriceMasterData.
@@ -2340,6 +3687,92 @@ func (o *DataPlatformProductMasterGeneralDatum) AddProductDataPlatformPriceMaste
 	return nil
 }
 
+// AddProductDataPlatformProductMasterBPPlantData adds the given related objects to the existing relationships
+// of the data_platform_product_master_general_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductDataPlatformProductMasterBPPlantData.
+func (o *DataPlatformProductMasterGeneralDatum) AddProductDataPlatformProductMasterBPPlantData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductMasterBPPlantDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.Product = o.Product
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_product_master_bp_plant_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterBPPlantDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Product, rel.Product, rel.BusinessPartner, rel.Plant}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.Product = o.Product
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDatumR{
+			ProductDataPlatformProductMasterBPPlantData: related,
+		}
+	} else {
+		o.R.ProductDataPlatformProductMasterBPPlantData = append(o.R.ProductDataPlatformProductMasterBPPlantData, related...)
+	}
+
+	return nil
+}
+
+// AddProductDataPlatformProductMasterGeneralDocData adds the given related objects to the existing relationships
+// of the data_platform_product_master_general_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductDataPlatformProductMasterGeneralDocData.
+func (o *DataPlatformProductMasterGeneralDatum) AddProductDataPlatformProductMasterGeneralDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductMasterGeneralDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.Product = o.Product
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_product_master_general_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterGeneralDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Product, rel.Product, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.Product = o.Product
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDatumR{
+			ProductDataPlatformProductMasterGeneralDocData: related,
+		}
+	} else {
+		o.R.ProductDataPlatformProductMasterGeneralDocData = append(o.R.ProductDataPlatformProductMasterGeneralDocData, related...)
+	}
+
+	return nil
+}
+
 // AddProductDataPlatformProductMasterProductDescriptionData adds the given related objects to the existing relationships
 // of the data_platform_product_master_general_datum, optionally inserting them as new records.
 // Appends related to o.R.ProductDataPlatformProductMasterProductDescriptionData.
@@ -2378,6 +3811,135 @@ func (o *DataPlatformProductMasterGeneralDatum) AddProductDataPlatformProductMas
 		}
 	} else {
 		o.R.ProductDataPlatformProductMasterProductDescriptionData = append(o.R.ProductDataPlatformProductMasterProductDescriptionData, related...)
+	}
+
+	return nil
+}
+
+// AddProductDataPlatformProductStockAvailabilityByProjectData adds the given related objects to the existing relationships
+// of the data_platform_product_master_general_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductDataPlatformProductStockAvailabilityByProjectData.
+func (o *DataPlatformProductMasterGeneralDatum) AddProductDataPlatformProductStockAvailabilityByProjectData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductStockAvailabilityByProjectDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.Product = o.Product
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_product_stock_availability_by_project_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductStockAvailabilityByProjectDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Product, rel.Product, rel.Project, rel.WBSElement, rel.SupplyChainRelationshipID, rel.SupplyChainRelationshipDeliveryID, rel.SupplyChainRelationshipDeliveryPlantID, rel.Buyer, rel.Seller, rel.DeliverToParty, rel.DeliverFromParty, rel.DeliverToPlant, rel.DeliverFromPlant, rel.ProductStockAvailabilityDate}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.Product = o.Product
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDatumR{
+			ProductDataPlatformProductStockAvailabilityByProjectData: related,
+		}
+	} else {
+		o.R.ProductDataPlatformProductStockAvailabilityByProjectData = append(o.R.ProductDataPlatformProductStockAvailabilityByProjectData, related...)
+	}
+
+	return nil
+}
+
+// AddProductDataPlatformProductStockProductStockByOrderData adds the given related objects to the existing relationships
+// of the data_platform_product_master_general_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductDataPlatformProductStockProductStockByOrderData.
+func (o *DataPlatformProductMasterGeneralDatum) AddProductDataPlatformProductStockProductStockByOrderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductStockProductStockByOrderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.Product = o.Product
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_product_stock_product_stock_by_order_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductStockProductStockByOrderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Product, rel.Product, rel.OrderID, rel.OrderItem, rel.SupplyChainRelationshipID, rel.SupplyChainRelationshipDeliveryID, rel.SupplyChainRelationshipDeliveryPlantID, rel.Buyer, rel.Seller, rel.DeliverToParty, rel.DeliverFromParty, rel.DeliverToPlant, rel.DeliverFromPlant, rel.InventoryStockType}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.Product = o.Product
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDatumR{
+			ProductDataPlatformProductStockProductStockByOrderData: related,
+		}
+	} else {
+		o.R.ProductDataPlatformProductStockProductStockByOrderData = append(o.R.ProductDataPlatformProductStockProductStockByOrderData, related...)
+	}
+
+	return nil
+}
+
+// AddProductDataPlatformProductStockProductStockByProjectData adds the given related objects to the existing relationships
+// of the data_platform_product_master_general_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductDataPlatformProductStockProductStockByProjectData.
+func (o *DataPlatformProductMasterGeneralDatum) AddProductDataPlatformProductStockProductStockByProjectData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductStockProductStockByProjectDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.Product = o.Product
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_product_stock_product_stock_by_project_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductStockProductStockByProjectDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Product, rel.Product, rel.Project, rel.WBSElement, rel.SupplyChainRelationshipID, rel.SupplyChainRelationshipDeliveryID, rel.SupplyChainRelationshipDeliveryPlantID, rel.Buyer, rel.Seller, rel.DeliverToParty, rel.DeliverFromParty, rel.DeliverToPlant, rel.DeliverFromPlant, rel.InventoryStockType}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.Product = o.Product
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDatumR{
+			ProductDataPlatformProductStockProductStockByProjectData: related,
+		}
+	} else {
+		o.R.ProductDataPlatformProductStockProductStockByProjectData = append(o.R.ProductDataPlatformProductStockProductStockByProjectData, related...)
 	}
 
 	return nil
@@ -2464,6 +4026,49 @@ func (o *DataPlatformProductMasterGeneralDatum) AddProductDataPlatformPurchaseRe
 		}
 	} else {
 		o.R.ProductDataPlatformPurchaseRequisitionItemData = append(o.R.ProductDataPlatformPurchaseRequisitionItemData, related...)
+	}
+
+	return nil
+}
+
+// AddProductDataPlatformSCRStockConfPlantRelationProductData adds the given related objects to the existing relationships
+// of the data_platform_product_master_general_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductDataPlatformSCRStockConfPlantRelationProductData.
+func (o *DataPlatformProductMasterGeneralDatum) AddProductDataPlatformSCRStockConfPlantRelationProductData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSCRStockConfPlantRelationProductDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.Product = o.Product
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_scr_stock_conf_plant_relation_product_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformSCRStockConfPlantRelationProductDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Product, rel.SupplyChainRelationshipID, rel.SupplyChainRelationshipStockConfPlantID, rel.Buyer, rel.Seller, rel.StockConfirmationBusinessPartner, rel.StockConfirmationPlant, rel.Product}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.Product = o.Product
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterGeneralDatumR{
+			ProductDataPlatformSCRStockConfPlantRelationProductData: related,
+		}
+	} else {
+		o.R.ProductDataPlatformSCRStockConfPlantRelationProductData = append(o.R.ProductDataPlatformSCRStockConfPlantRelationProductData, related...)
 	}
 
 	return nil

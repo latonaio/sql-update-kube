@@ -430,6 +430,7 @@ var DataPlatformProductionOrderItemComponentDatumRels = struct {
 	ComponentProductDataPlatformProductMasterBPPlantDatum                 string
 	StockConfirmationBusinessPartnerDataPlatformPlantStorageLocationDatum string
 	ProductionOrderDataPlatformProductionOrderItemDatum                   string
+	BillOfMaterialDataPlatformProductionOrderItemComponentCostingData     string
 	BillOfMaterialDataPlatformProductionOrderItemOperationComponentData   string
 }{
 	BillOfMaterialDataPlatformBillOfMaterialItemDatum:                     "BillOfMaterialDataPlatformBillOfMaterialItemDatum",
@@ -439,6 +440,7 @@ var DataPlatformProductionOrderItemComponentDatumRels = struct {
 	ComponentProductDataPlatformProductMasterBPPlantDatum:                 "ComponentProductDataPlatformProductMasterBPPlantDatum",
 	StockConfirmationBusinessPartnerDataPlatformPlantStorageLocationDatum: "StockConfirmationBusinessPartnerDataPlatformPlantStorageLocationDatum",
 	ProductionOrderDataPlatformProductionOrderItemDatum:                   "ProductionOrderDataPlatformProductionOrderItemDatum",
+	BillOfMaterialDataPlatformProductionOrderItemComponentCostingData:     "BillOfMaterialDataPlatformProductionOrderItemComponentCostingData",
 	BillOfMaterialDataPlatformProductionOrderItemOperationComponentData:   "BillOfMaterialDataPlatformProductionOrderItemOperationComponentData",
 }
 
@@ -451,6 +453,7 @@ type dataPlatformProductionOrderItemComponentDatumR struct {
 	ComponentProductDataPlatformProductMasterBPPlantDatum                 *DataPlatformProductMasterBPPlantDatum                      `boil:"ComponentProductDataPlatformProductMasterBPPlantDatum" json:"ComponentProductDataPlatformProductMasterBPPlantDatum" toml:"ComponentProductDataPlatformProductMasterBPPlantDatum" yaml:"ComponentProductDataPlatformProductMasterBPPlantDatum"`
 	StockConfirmationBusinessPartnerDataPlatformPlantStorageLocationDatum *DataPlatformPlantStorageLocationDatum                      `boil:"StockConfirmationBusinessPartnerDataPlatformPlantStorageLocationDatum" json:"StockConfirmationBusinessPartnerDataPlatformPlantStorageLocationDatum" toml:"StockConfirmationBusinessPartnerDataPlatformPlantStorageLocationDatum" yaml:"StockConfirmationBusinessPartnerDataPlatformPlantStorageLocationDatum"`
 	ProductionOrderDataPlatformProductionOrderItemDatum                   *DataPlatformProductionOrderItemDatum                       `boil:"ProductionOrderDataPlatformProductionOrderItemDatum" json:"ProductionOrderDataPlatformProductionOrderItemDatum" toml:"ProductionOrderDataPlatformProductionOrderItemDatum" yaml:"ProductionOrderDataPlatformProductionOrderItemDatum"`
+	BillOfMaterialDataPlatformProductionOrderItemComponentCostingData     DataPlatformProductionOrderItemComponentCostingDatumSlice   `boil:"BillOfMaterialDataPlatformProductionOrderItemComponentCostingData" json:"BillOfMaterialDataPlatformProductionOrderItemComponentCostingData" toml:"BillOfMaterialDataPlatformProductionOrderItemComponentCostingData" yaml:"BillOfMaterialDataPlatformProductionOrderItemComponentCostingData"`
 	BillOfMaterialDataPlatformProductionOrderItemOperationComponentData   DataPlatformProductionOrderItemOperationComponentDatumSlice `boil:"BillOfMaterialDataPlatformProductionOrderItemOperationComponentData" json:"BillOfMaterialDataPlatformProductionOrderItemOperationComponentData" toml:"BillOfMaterialDataPlatformProductionOrderItemOperationComponentData" yaml:"BillOfMaterialDataPlatformProductionOrderItemOperationComponentData"`
 }
 
@@ -506,6 +509,13 @@ func (r *dataPlatformProductionOrderItemComponentDatumR) GetProductionOrderDataP
 		return nil
 	}
 	return r.ProductionOrderDataPlatformProductionOrderItemDatum
+}
+
+func (r *dataPlatformProductionOrderItemComponentDatumR) GetBillOfMaterialDataPlatformProductionOrderItemComponentCostingData() DataPlatformProductionOrderItemComponentCostingDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.BillOfMaterialDataPlatformProductionOrderItemComponentCostingData
 }
 
 func (r *dataPlatformProductionOrderItemComponentDatumR) GetBillOfMaterialDataPlatformProductionOrderItemOperationComponentData() DataPlatformProductionOrderItemOperationComponentDatumSlice {
@@ -692,6 +702,20 @@ func (o *DataPlatformProductionOrderItemComponentDatum) ProductionOrderDataPlatf
 	queryMods = append(queryMods, mods...)
 
 	return DataPlatformProductionOrderItemData(queryMods...)
+}
+
+// BillOfMaterialDataPlatformProductionOrderItemComponentCostingData retrieves all the data_platform_production_order_item_component_costing_datum's DataPlatformProductionOrderItemComponentCostingData with an executor via BillOfMaterial column.
+func (o *DataPlatformProductionOrderItemComponentDatum) BillOfMaterialDataPlatformProductionOrderItemComponentCostingData(mods ...qm.QueryMod) dataPlatformProductionOrderItemComponentCostingDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_production_order_item_component_costing_data`.`BillOfMaterial`=?", o.BillOfMaterial),
+	)
+
+	return DataPlatformProductionOrderItemComponentCostingData(queryMods...)
 }
 
 // BillOfMaterialDataPlatformProductionOrderItemOperationComponentData retrieves all the data_platform_production_order_item_operation_component_datum's DataPlatformProductionOrderItemOperationComponentData with an executor via BillOfMaterial column.
@@ -1436,6 +1460,103 @@ func (dataPlatformProductionOrderItemComponentDatumL) LoadProductionOrderDataPla
 	return nil
 }
 
+// LoadBillOfMaterialDataPlatformProductionOrderItemComponentCostingData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductionOrderItemComponentDatumL) LoadBillOfMaterialDataPlatformProductionOrderItemComponentCostingData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductionOrderItemComponentDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductionOrderItemComponentDatum
+	var object *DataPlatformProductionOrderItemComponentDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductionOrderItemComponentDatum.(*DataPlatformProductionOrderItemComponentDatum)
+		if !ok {
+			object = new(DataPlatformProductionOrderItemComponentDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductionOrderItemComponentDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductionOrderItemComponentDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductionOrderItemComponentDatum.(*[]*DataPlatformProductionOrderItemComponentDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductionOrderItemComponentDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductionOrderItemComponentDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductionOrderItemComponentDatumR{}
+		}
+		args = append(args, object.BillOfMaterial)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductionOrderItemComponentDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BillOfMaterial {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BillOfMaterial)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_production_order_item_component_costing_data`),
+		qm.WhereIn(`data_platform_production_order_item_component_costing_data.BillOfMaterial in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_production_order_item_component_costing_data")
+	}
+
+	var resultSlice []*DataPlatformProductionOrderItemComponentCostingDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_production_order_item_component_costing_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_production_order_item_component_costing_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_production_order_item_component_costing_data")
+	}
+
+	if singular {
+		object.R.BillOfMaterialDataPlatformProductionOrderItemComponentCostingData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BillOfMaterial == foreign.BillOfMaterial {
+				local.R.BillOfMaterialDataPlatformProductionOrderItemComponentCostingData = append(local.R.BillOfMaterialDataPlatformProductionOrderItemComponentCostingData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // LoadBillOfMaterialDataPlatformProductionOrderItemOperationComponentData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
 func (dataPlatformProductionOrderItemComponentDatumL) LoadBillOfMaterialDataPlatformProductionOrderItemOperationComponentData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductionOrderItemComponentDatum interface{}, mods queries.Applicator) error {
@@ -1794,6 +1915,49 @@ func (o *DataPlatformProductionOrderItemComponentDatum) SetProductionOrderDataPl
 		}
 	} else {
 		o.R.ProductionOrderDataPlatformProductionOrderItemDatum = related
+	}
+
+	return nil
+}
+
+// AddBillOfMaterialDataPlatformProductionOrderItemComponentCostingData adds the given related objects to the existing relationships
+// of the data_platform_production_order_item_component_datum, optionally inserting them as new records.
+// Appends related to o.R.BillOfMaterialDataPlatformProductionOrderItemComponentCostingData.
+func (o *DataPlatformProductionOrderItemComponentDatum) AddBillOfMaterialDataPlatformProductionOrderItemComponentCostingData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductionOrderItemComponentCostingDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.BillOfMaterial = o.BillOfMaterial
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_production_order_item_component_costing_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"BillOfMaterial"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductionOrderItemComponentCostingDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BillOfMaterial, rel.ProductionOrder, rel.ProductionOrderItem, rel.BillOfMaterial, rel.BillOfMaterialItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.BillOfMaterial = o.BillOfMaterial
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductionOrderItemComponentDatumR{
+			BillOfMaterialDataPlatformProductionOrderItemComponentCostingData: related,
+		}
+	} else {
+		o.R.BillOfMaterialDataPlatformProductionOrderItemComponentCostingData = append(o.R.BillOfMaterialDataPlatformProductionOrderItemComponentCostingData, related...)
 	}
 
 	return nil

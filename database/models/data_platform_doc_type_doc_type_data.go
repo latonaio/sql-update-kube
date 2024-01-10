@@ -51,14 +51,86 @@ var DataPlatformDocTypeDocTypeDatumWhere = struct {
 
 // DataPlatformDocTypeDocTypeDatumRels is where relationship names are stored.
 var DataPlatformDocTypeDocTypeDatumRels = struct {
-	DocTypeDataPlatformEquipmentMasterGeneralDocData string
+	DocTypeDataPlatformBillOfMaterialHeaderDocData            string
+	DocTypeDataPlatformBillOfMaterialItemDocData              string
+	DocTypeDataPlatformBusinessPartnerGeneralDocData          string
+	DocTypeDataPlatformDeliveryDocumentHeaderDocData          string
+	DocTypeDataPlatformDeliveryDocumentItemDocData            string
+	DocTypeDataPlatformDeliveryDocumentItemPickingDocData     string
+	DocTypeDataPlatformEquipmentMasterGeneralDocData          string
+	DocTypeDataPlatformInspectionLotConfirmationHeaderDocData string
+	DocTypeDataPlatformInvoiceDocumentHeaderDocData           string
+	DocTypeDataPlatformInvoiceDocumentItemDocData             string
+	DocTypeDataPlatformOperationsHeaderDocData                string
+	DocTypeDataPlatformOperationsItemDocData                  string
+	DocTypeDataPlatformOrdersHeaderDocData                    string
+	DocTypeDataPlatformOrdersItemDocData                      string
+	DocTypeDataPlatformPlannedOrderHeaderDocData              string
+	DocTypeDataPlatformPlannedOrderItemDocData                string
+	DocTypeDataPlatformProductMasterBPPlantDocData            string
+	DocTypeDataPlatformProductMasterBusinessPartnerDocData    string
+	DocTypeDataPlatformProductMasterGeneralDocData            string
+	DocTypeDataPlatformProductStockProductStockDocData        string
+	DocTypeDataPlatformProductionOrderHeaderDocData           string
+	DocTypeDataPlatformProductionOrderItemDocData             string
+	DocTypeDataPlatformQuotationsHeaderDocData                string
+	DocTypeDataPlatformQuotationsItemDocData                  string
+	DocTypeDataPlatformSCRGeneralDocData                      string
 }{
-	DocTypeDataPlatformEquipmentMasterGeneralDocData: "DocTypeDataPlatformEquipmentMasterGeneralDocData",
+	DocTypeDataPlatformBillOfMaterialHeaderDocData:            "DocTypeDataPlatformBillOfMaterialHeaderDocData",
+	DocTypeDataPlatformBillOfMaterialItemDocData:              "DocTypeDataPlatformBillOfMaterialItemDocData",
+	DocTypeDataPlatformBusinessPartnerGeneralDocData:          "DocTypeDataPlatformBusinessPartnerGeneralDocData",
+	DocTypeDataPlatformDeliveryDocumentHeaderDocData:          "DocTypeDataPlatformDeliveryDocumentHeaderDocData",
+	DocTypeDataPlatformDeliveryDocumentItemDocData:            "DocTypeDataPlatformDeliveryDocumentItemDocData",
+	DocTypeDataPlatformDeliveryDocumentItemPickingDocData:     "DocTypeDataPlatformDeliveryDocumentItemPickingDocData",
+	DocTypeDataPlatformEquipmentMasterGeneralDocData:          "DocTypeDataPlatformEquipmentMasterGeneralDocData",
+	DocTypeDataPlatformInspectionLotConfirmationHeaderDocData: "DocTypeDataPlatformInspectionLotConfirmationHeaderDocData",
+	DocTypeDataPlatformInvoiceDocumentHeaderDocData:           "DocTypeDataPlatformInvoiceDocumentHeaderDocData",
+	DocTypeDataPlatformInvoiceDocumentItemDocData:             "DocTypeDataPlatformInvoiceDocumentItemDocData",
+	DocTypeDataPlatformOperationsHeaderDocData:                "DocTypeDataPlatformOperationsHeaderDocData",
+	DocTypeDataPlatformOperationsItemDocData:                  "DocTypeDataPlatformOperationsItemDocData",
+	DocTypeDataPlatformOrdersHeaderDocData:                    "DocTypeDataPlatformOrdersHeaderDocData",
+	DocTypeDataPlatformOrdersItemDocData:                      "DocTypeDataPlatformOrdersItemDocData",
+	DocTypeDataPlatformPlannedOrderHeaderDocData:              "DocTypeDataPlatformPlannedOrderHeaderDocData",
+	DocTypeDataPlatformPlannedOrderItemDocData:                "DocTypeDataPlatformPlannedOrderItemDocData",
+	DocTypeDataPlatformProductMasterBPPlantDocData:            "DocTypeDataPlatformProductMasterBPPlantDocData",
+	DocTypeDataPlatformProductMasterBusinessPartnerDocData:    "DocTypeDataPlatformProductMasterBusinessPartnerDocData",
+	DocTypeDataPlatformProductMasterGeneralDocData:            "DocTypeDataPlatformProductMasterGeneralDocData",
+	DocTypeDataPlatformProductStockProductStockDocData:        "DocTypeDataPlatformProductStockProductStockDocData",
+	DocTypeDataPlatformProductionOrderHeaderDocData:           "DocTypeDataPlatformProductionOrderHeaderDocData",
+	DocTypeDataPlatformProductionOrderItemDocData:             "DocTypeDataPlatformProductionOrderItemDocData",
+	DocTypeDataPlatformQuotationsHeaderDocData:                "DocTypeDataPlatformQuotationsHeaderDocData",
+	DocTypeDataPlatformQuotationsItemDocData:                  "DocTypeDataPlatformQuotationsItemDocData",
+	DocTypeDataPlatformSCRGeneralDocData:                      "DocTypeDataPlatformSCRGeneralDocData",
 }
 
 // dataPlatformDocTypeDocTypeDatumR is where relationships are stored.
 type dataPlatformDocTypeDocTypeDatumR struct {
-	DocTypeDataPlatformEquipmentMasterGeneralDocData DataPlatformEquipmentMasterGeneralDocDatumSlice `boil:"DocTypeDataPlatformEquipmentMasterGeneralDocData" json:"DocTypeDataPlatformEquipmentMasterGeneralDocData" toml:"DocTypeDataPlatformEquipmentMasterGeneralDocData" yaml:"DocTypeDataPlatformEquipmentMasterGeneralDocData"`
+	DocTypeDataPlatformBillOfMaterialHeaderDocData            DataPlatformBillOfMaterialHeaderDocDatumSlice            `boil:"DocTypeDataPlatformBillOfMaterialHeaderDocData" json:"DocTypeDataPlatformBillOfMaterialHeaderDocData" toml:"DocTypeDataPlatformBillOfMaterialHeaderDocData" yaml:"DocTypeDataPlatformBillOfMaterialHeaderDocData"`
+	DocTypeDataPlatformBillOfMaterialItemDocData              DataPlatformBillOfMaterialItemDocDatumSlice              `boil:"DocTypeDataPlatformBillOfMaterialItemDocData" json:"DocTypeDataPlatformBillOfMaterialItemDocData" toml:"DocTypeDataPlatformBillOfMaterialItemDocData" yaml:"DocTypeDataPlatformBillOfMaterialItemDocData"`
+	DocTypeDataPlatformBusinessPartnerGeneralDocData          DataPlatformBusinessPartnerGeneralDocDatumSlice          `boil:"DocTypeDataPlatformBusinessPartnerGeneralDocData" json:"DocTypeDataPlatformBusinessPartnerGeneralDocData" toml:"DocTypeDataPlatformBusinessPartnerGeneralDocData" yaml:"DocTypeDataPlatformBusinessPartnerGeneralDocData"`
+	DocTypeDataPlatformDeliveryDocumentHeaderDocData          DataPlatformDeliveryDocumentHeaderDocDatumSlice          `boil:"DocTypeDataPlatformDeliveryDocumentHeaderDocData" json:"DocTypeDataPlatformDeliveryDocumentHeaderDocData" toml:"DocTypeDataPlatformDeliveryDocumentHeaderDocData" yaml:"DocTypeDataPlatformDeliveryDocumentHeaderDocData"`
+	DocTypeDataPlatformDeliveryDocumentItemDocData            DataPlatformDeliveryDocumentItemDocDatumSlice            `boil:"DocTypeDataPlatformDeliveryDocumentItemDocData" json:"DocTypeDataPlatformDeliveryDocumentItemDocData" toml:"DocTypeDataPlatformDeliveryDocumentItemDocData" yaml:"DocTypeDataPlatformDeliveryDocumentItemDocData"`
+	DocTypeDataPlatformDeliveryDocumentItemPickingDocData     DataPlatformDeliveryDocumentItemPickingDocDatumSlice     `boil:"DocTypeDataPlatformDeliveryDocumentItemPickingDocData" json:"DocTypeDataPlatformDeliveryDocumentItemPickingDocData" toml:"DocTypeDataPlatformDeliveryDocumentItemPickingDocData" yaml:"DocTypeDataPlatformDeliveryDocumentItemPickingDocData"`
+	DocTypeDataPlatformEquipmentMasterGeneralDocData          DataPlatformEquipmentMasterGeneralDocDatumSlice          `boil:"DocTypeDataPlatformEquipmentMasterGeneralDocData" json:"DocTypeDataPlatformEquipmentMasterGeneralDocData" toml:"DocTypeDataPlatformEquipmentMasterGeneralDocData" yaml:"DocTypeDataPlatformEquipmentMasterGeneralDocData"`
+	DocTypeDataPlatformInspectionLotConfirmationHeaderDocData DataPlatformInspectionLotConfirmationHeaderDocDatumSlice `boil:"DocTypeDataPlatformInspectionLotConfirmationHeaderDocData" json:"DocTypeDataPlatformInspectionLotConfirmationHeaderDocData" toml:"DocTypeDataPlatformInspectionLotConfirmationHeaderDocData" yaml:"DocTypeDataPlatformInspectionLotConfirmationHeaderDocData"`
+	DocTypeDataPlatformInvoiceDocumentHeaderDocData           DataPlatformInvoiceDocumentHeaderDocDatumSlice           `boil:"DocTypeDataPlatformInvoiceDocumentHeaderDocData" json:"DocTypeDataPlatformInvoiceDocumentHeaderDocData" toml:"DocTypeDataPlatformInvoiceDocumentHeaderDocData" yaml:"DocTypeDataPlatformInvoiceDocumentHeaderDocData"`
+	DocTypeDataPlatformInvoiceDocumentItemDocData             DataPlatformInvoiceDocumentItemDocDatumSlice             `boil:"DocTypeDataPlatformInvoiceDocumentItemDocData" json:"DocTypeDataPlatformInvoiceDocumentItemDocData" toml:"DocTypeDataPlatformInvoiceDocumentItemDocData" yaml:"DocTypeDataPlatformInvoiceDocumentItemDocData"`
+	DocTypeDataPlatformOperationsHeaderDocData                DataPlatformOperationsHeaderDocDatumSlice                `boil:"DocTypeDataPlatformOperationsHeaderDocData" json:"DocTypeDataPlatformOperationsHeaderDocData" toml:"DocTypeDataPlatformOperationsHeaderDocData" yaml:"DocTypeDataPlatformOperationsHeaderDocData"`
+	DocTypeDataPlatformOperationsItemDocData                  DataPlatformOperationsItemDocDatumSlice                  `boil:"DocTypeDataPlatformOperationsItemDocData" json:"DocTypeDataPlatformOperationsItemDocData" toml:"DocTypeDataPlatformOperationsItemDocData" yaml:"DocTypeDataPlatformOperationsItemDocData"`
+	DocTypeDataPlatformOrdersHeaderDocData                    DataPlatformOrdersHeaderDocDatumSlice                    `boil:"DocTypeDataPlatformOrdersHeaderDocData" json:"DocTypeDataPlatformOrdersHeaderDocData" toml:"DocTypeDataPlatformOrdersHeaderDocData" yaml:"DocTypeDataPlatformOrdersHeaderDocData"`
+	DocTypeDataPlatformOrdersItemDocData                      DataPlatformOrdersItemDocDatumSlice                      `boil:"DocTypeDataPlatformOrdersItemDocData" json:"DocTypeDataPlatformOrdersItemDocData" toml:"DocTypeDataPlatformOrdersItemDocData" yaml:"DocTypeDataPlatformOrdersItemDocData"`
+	DocTypeDataPlatformPlannedOrderHeaderDocData              DataPlatformPlannedOrderHeaderDocDatumSlice              `boil:"DocTypeDataPlatformPlannedOrderHeaderDocData" json:"DocTypeDataPlatformPlannedOrderHeaderDocData" toml:"DocTypeDataPlatformPlannedOrderHeaderDocData" yaml:"DocTypeDataPlatformPlannedOrderHeaderDocData"`
+	DocTypeDataPlatformPlannedOrderItemDocData                DataPlatformPlannedOrderItemDocDatumSlice                `boil:"DocTypeDataPlatformPlannedOrderItemDocData" json:"DocTypeDataPlatformPlannedOrderItemDocData" toml:"DocTypeDataPlatformPlannedOrderItemDocData" yaml:"DocTypeDataPlatformPlannedOrderItemDocData"`
+	DocTypeDataPlatformProductMasterBPPlantDocData            DataPlatformProductMasterBPPlantDocDatumSlice            `boil:"DocTypeDataPlatformProductMasterBPPlantDocData" json:"DocTypeDataPlatformProductMasterBPPlantDocData" toml:"DocTypeDataPlatformProductMasterBPPlantDocData" yaml:"DocTypeDataPlatformProductMasterBPPlantDocData"`
+	DocTypeDataPlatformProductMasterBusinessPartnerDocData    DataPlatformProductMasterBusinessPartnerDocDatumSlice    `boil:"DocTypeDataPlatformProductMasterBusinessPartnerDocData" json:"DocTypeDataPlatformProductMasterBusinessPartnerDocData" toml:"DocTypeDataPlatformProductMasterBusinessPartnerDocData" yaml:"DocTypeDataPlatformProductMasterBusinessPartnerDocData"`
+	DocTypeDataPlatformProductMasterGeneralDocData            DataPlatformProductMasterGeneralDocDatumSlice            `boil:"DocTypeDataPlatformProductMasterGeneralDocData" json:"DocTypeDataPlatformProductMasterGeneralDocData" toml:"DocTypeDataPlatformProductMasterGeneralDocData" yaml:"DocTypeDataPlatformProductMasterGeneralDocData"`
+	DocTypeDataPlatformProductStockProductStockDocData        DataPlatformProductStockProductStockDocDatumSlice        `boil:"DocTypeDataPlatformProductStockProductStockDocData" json:"DocTypeDataPlatformProductStockProductStockDocData" toml:"DocTypeDataPlatformProductStockProductStockDocData" yaml:"DocTypeDataPlatformProductStockProductStockDocData"`
+	DocTypeDataPlatformProductionOrderHeaderDocData           DataPlatformProductionOrderHeaderDocDatumSlice           `boil:"DocTypeDataPlatformProductionOrderHeaderDocData" json:"DocTypeDataPlatformProductionOrderHeaderDocData" toml:"DocTypeDataPlatformProductionOrderHeaderDocData" yaml:"DocTypeDataPlatformProductionOrderHeaderDocData"`
+	DocTypeDataPlatformProductionOrderItemDocData             DataPlatformProductionOrderItemDocDatumSlice             `boil:"DocTypeDataPlatformProductionOrderItemDocData" json:"DocTypeDataPlatformProductionOrderItemDocData" toml:"DocTypeDataPlatformProductionOrderItemDocData" yaml:"DocTypeDataPlatformProductionOrderItemDocData"`
+	DocTypeDataPlatformQuotationsHeaderDocData                DataPlatformQuotationsHeaderDocDatumSlice                `boil:"DocTypeDataPlatformQuotationsHeaderDocData" json:"DocTypeDataPlatformQuotationsHeaderDocData" toml:"DocTypeDataPlatformQuotationsHeaderDocData" yaml:"DocTypeDataPlatformQuotationsHeaderDocData"`
+	DocTypeDataPlatformQuotationsItemDocData                  DataPlatformQuotationsItemDocDatumSlice                  `boil:"DocTypeDataPlatformQuotationsItemDocData" json:"DocTypeDataPlatformQuotationsItemDocData" toml:"DocTypeDataPlatformQuotationsItemDocData" yaml:"DocTypeDataPlatformQuotationsItemDocData"`
+	DocTypeDataPlatformSCRGeneralDocData                      DataPlatformSCRGeneralDocDatumSlice                      `boil:"DocTypeDataPlatformSCRGeneralDocData" json:"DocTypeDataPlatformSCRGeneralDocData" toml:"DocTypeDataPlatformSCRGeneralDocData" yaml:"DocTypeDataPlatformSCRGeneralDocData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -66,11 +138,179 @@ func (*dataPlatformDocTypeDocTypeDatumR) NewStruct() *dataPlatformDocTypeDocType
 	return &dataPlatformDocTypeDocTypeDatumR{}
 }
 
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformBillOfMaterialHeaderDocData() DataPlatformBillOfMaterialHeaderDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformBillOfMaterialHeaderDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformBillOfMaterialItemDocData() DataPlatformBillOfMaterialItemDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformBillOfMaterialItemDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformBusinessPartnerGeneralDocData() DataPlatformBusinessPartnerGeneralDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformBusinessPartnerGeneralDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformDeliveryDocumentHeaderDocData() DataPlatformDeliveryDocumentHeaderDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformDeliveryDocumentHeaderDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformDeliveryDocumentItemDocData() DataPlatformDeliveryDocumentItemDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformDeliveryDocumentItemDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformDeliveryDocumentItemPickingDocData() DataPlatformDeliveryDocumentItemPickingDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformDeliveryDocumentItemPickingDocData
+}
+
 func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformEquipmentMasterGeneralDocData() DataPlatformEquipmentMasterGeneralDocDatumSlice {
 	if r == nil {
 		return nil
 	}
 	return r.DocTypeDataPlatformEquipmentMasterGeneralDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformInspectionLotConfirmationHeaderDocData() DataPlatformInspectionLotConfirmationHeaderDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformInspectionLotConfirmationHeaderDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformInvoiceDocumentHeaderDocData() DataPlatformInvoiceDocumentHeaderDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformInvoiceDocumentHeaderDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformInvoiceDocumentItemDocData() DataPlatformInvoiceDocumentItemDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformInvoiceDocumentItemDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformOperationsHeaderDocData() DataPlatformOperationsHeaderDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformOperationsHeaderDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformOperationsItemDocData() DataPlatformOperationsItemDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformOperationsItemDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformOrdersHeaderDocData() DataPlatformOrdersHeaderDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformOrdersHeaderDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformOrdersItemDocData() DataPlatformOrdersItemDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformOrdersItemDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformPlannedOrderHeaderDocData() DataPlatformPlannedOrderHeaderDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformPlannedOrderHeaderDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformPlannedOrderItemDocData() DataPlatformPlannedOrderItemDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformPlannedOrderItemDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformProductMasterBPPlantDocData() DataPlatformProductMasterBPPlantDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformProductMasterBPPlantDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformProductMasterBusinessPartnerDocData() DataPlatformProductMasterBusinessPartnerDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformProductMasterBusinessPartnerDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformProductMasterGeneralDocData() DataPlatformProductMasterGeneralDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformProductMasterGeneralDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformProductStockProductStockDocData() DataPlatformProductStockProductStockDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformProductStockProductStockDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformProductionOrderHeaderDocData() DataPlatformProductionOrderHeaderDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformProductionOrderHeaderDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformProductionOrderItemDocData() DataPlatformProductionOrderItemDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformProductionOrderItemDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformQuotationsHeaderDocData() DataPlatformQuotationsHeaderDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformQuotationsHeaderDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformQuotationsItemDocData() DataPlatformQuotationsItemDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformQuotationsItemDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformSCRGeneralDocData() DataPlatformSCRGeneralDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformSCRGeneralDocData
 }
 
 // dataPlatformDocTypeDocTypeDatumL is where Load methods for each relationship are stored.
@@ -175,6 +415,90 @@ func (q dataPlatformDocTypeDocTypeDatumQuery) Exists(ctx context.Context, exec b
 	return count > 0, nil
 }
 
+// DocTypeDataPlatformBillOfMaterialHeaderDocData retrieves all the data_platform_bill_of_material_header_doc_datum's DataPlatformBillOfMaterialHeaderDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformBillOfMaterialHeaderDocData(mods ...qm.QueryMod) dataPlatformBillOfMaterialHeaderDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_bill_of_material_header_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformBillOfMaterialHeaderDocData(queryMods...)
+}
+
+// DocTypeDataPlatformBillOfMaterialItemDocData retrieves all the data_platform_bill_of_material_item_doc_datum's DataPlatformBillOfMaterialItemDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformBillOfMaterialItemDocData(mods ...qm.QueryMod) dataPlatformBillOfMaterialItemDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_bill_of_material_item_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformBillOfMaterialItemDocData(queryMods...)
+}
+
+// DocTypeDataPlatformBusinessPartnerGeneralDocData retrieves all the data_platform_business_partner_general_doc_datum's DataPlatformBusinessPartnerGeneralDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformBusinessPartnerGeneralDocData(mods ...qm.QueryMod) dataPlatformBusinessPartnerGeneralDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_business_partner_general_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformBusinessPartnerGeneralDocData(queryMods...)
+}
+
+// DocTypeDataPlatformDeliveryDocumentHeaderDocData retrieves all the data_platform_delivery_document_header_doc_datum's DataPlatformDeliveryDocumentHeaderDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformDeliveryDocumentHeaderDocData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentHeaderDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_header_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformDeliveryDocumentHeaderDocData(queryMods...)
+}
+
+// DocTypeDataPlatformDeliveryDocumentItemDocData retrieves all the data_platform_delivery_document_item_doc_datum's DataPlatformDeliveryDocumentItemDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformDeliveryDocumentItemDocData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentItemDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_item_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformDeliveryDocumentItemDocData(queryMods...)
+}
+
+// DocTypeDataPlatformDeliveryDocumentItemPickingDocData retrieves all the data_platform_delivery_document_item_picking_doc_datum's DataPlatformDeliveryDocumentItemPickingDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformDeliveryDocumentItemPickingDocData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentItemPickingDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_item_picking_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformDeliveryDocumentItemPickingDocData(queryMods...)
+}
+
 // DocTypeDataPlatformEquipmentMasterGeneralDocData retrieves all the data_platform_equipment_master_general_doc_datum's DataPlatformEquipmentMasterGeneralDocData with an executor via DocType column.
 func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformEquipmentMasterGeneralDocData(mods ...qm.QueryMod) dataPlatformEquipmentMasterGeneralDocDatumQuery {
 	var queryMods []qm.QueryMod
@@ -187,6 +511,840 @@ func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformEquipmentMasterGene
 	)
 
 	return DataPlatformEquipmentMasterGeneralDocData(queryMods...)
+}
+
+// DocTypeDataPlatformInspectionLotConfirmationHeaderDocData retrieves all the data_platform_inspection_lot_confirmation_header_doc_datum's DataPlatformInspectionLotConfirmationHeaderDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformInspectionLotConfirmationHeaderDocData(mods ...qm.QueryMod) dataPlatformInspectionLotConfirmationHeaderDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_inspection_lot_confirmation_header_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformInspectionLotConfirmationHeaderDocData(queryMods...)
+}
+
+// DocTypeDataPlatformInvoiceDocumentHeaderDocData retrieves all the data_platform_invoice_document_header_doc_datum's DataPlatformInvoiceDocumentHeaderDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformInvoiceDocumentHeaderDocData(mods ...qm.QueryMod) dataPlatformInvoiceDocumentHeaderDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_invoice_document_header_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformInvoiceDocumentHeaderDocData(queryMods...)
+}
+
+// DocTypeDataPlatformInvoiceDocumentItemDocData retrieves all the data_platform_invoice_document_item_doc_datum's DataPlatformInvoiceDocumentItemDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformInvoiceDocumentItemDocData(mods ...qm.QueryMod) dataPlatformInvoiceDocumentItemDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_invoice_document_item_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformInvoiceDocumentItemDocData(queryMods...)
+}
+
+// DocTypeDataPlatformOperationsHeaderDocData retrieves all the data_platform_operations_header_doc_datum's DataPlatformOperationsHeaderDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformOperationsHeaderDocData(mods ...qm.QueryMod) dataPlatformOperationsHeaderDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_operations_header_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformOperationsHeaderDocData(queryMods...)
+}
+
+// DocTypeDataPlatformOperationsItemDocData retrieves all the data_platform_operations_item_doc_datum's DataPlatformOperationsItemDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformOperationsItemDocData(mods ...qm.QueryMod) dataPlatformOperationsItemDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_operations_item_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformOperationsItemDocData(queryMods...)
+}
+
+// DocTypeDataPlatformOrdersHeaderDocData retrieves all the data_platform_orders_header_doc_datum's DataPlatformOrdersHeaderDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformOrdersHeaderDocData(mods ...qm.QueryMod) dataPlatformOrdersHeaderDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_orders_header_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformOrdersHeaderDocData(queryMods...)
+}
+
+// DocTypeDataPlatformOrdersItemDocData retrieves all the data_platform_orders_item_doc_datum's DataPlatformOrdersItemDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformOrdersItemDocData(mods ...qm.QueryMod) dataPlatformOrdersItemDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_orders_item_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformOrdersItemDocData(queryMods...)
+}
+
+// DocTypeDataPlatformPlannedOrderHeaderDocData retrieves all the data_platform_planned_order_header_doc_datum's DataPlatformPlannedOrderHeaderDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformPlannedOrderHeaderDocData(mods ...qm.QueryMod) dataPlatformPlannedOrderHeaderDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_planned_order_header_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformPlannedOrderHeaderDocData(queryMods...)
+}
+
+// DocTypeDataPlatformPlannedOrderItemDocData retrieves all the data_platform_planned_order_item_doc_datum's DataPlatformPlannedOrderItemDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformPlannedOrderItemDocData(mods ...qm.QueryMod) dataPlatformPlannedOrderItemDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_planned_order_item_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformPlannedOrderItemDocData(queryMods...)
+}
+
+// DocTypeDataPlatformProductMasterBPPlantDocData retrieves all the data_platform_product_master_bp_plant_doc_datum's DataPlatformProductMasterBPPlantDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformProductMasterBPPlantDocData(mods ...qm.QueryMod) dataPlatformProductMasterBPPlantDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_product_master_bp_plant_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformProductMasterBPPlantDocData(queryMods...)
+}
+
+// DocTypeDataPlatformProductMasterBusinessPartnerDocData retrieves all the data_platform_product_master_business_partner_doc_datum's DataPlatformProductMasterBusinessPartnerDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformProductMasterBusinessPartnerDocData(mods ...qm.QueryMod) dataPlatformProductMasterBusinessPartnerDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_product_master_business_partner_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformProductMasterBusinessPartnerDocData(queryMods...)
+}
+
+// DocTypeDataPlatformProductMasterGeneralDocData retrieves all the data_platform_product_master_general_doc_datum's DataPlatformProductMasterGeneralDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformProductMasterGeneralDocData(mods ...qm.QueryMod) dataPlatformProductMasterGeneralDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_product_master_general_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformProductMasterGeneralDocData(queryMods...)
+}
+
+// DocTypeDataPlatformProductStockProductStockDocData retrieves all the data_platform_product_stock_product_stock_doc_datum's DataPlatformProductStockProductStockDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformProductStockProductStockDocData(mods ...qm.QueryMod) dataPlatformProductStockProductStockDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_product_stock_product_stock_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformProductStockProductStockDocData(queryMods...)
+}
+
+// DocTypeDataPlatformProductionOrderHeaderDocData retrieves all the data_platform_production_order_header_doc_datum's DataPlatformProductionOrderHeaderDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformProductionOrderHeaderDocData(mods ...qm.QueryMod) dataPlatformProductionOrderHeaderDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_production_order_header_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformProductionOrderHeaderDocData(queryMods...)
+}
+
+// DocTypeDataPlatformProductionOrderItemDocData retrieves all the data_platform_production_order_item_doc_datum's DataPlatformProductionOrderItemDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformProductionOrderItemDocData(mods ...qm.QueryMod) dataPlatformProductionOrderItemDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_production_order_item_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformProductionOrderItemDocData(queryMods...)
+}
+
+// DocTypeDataPlatformQuotationsHeaderDocData retrieves all the data_platform_quotations_header_doc_datum's DataPlatformQuotationsHeaderDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformQuotationsHeaderDocData(mods ...qm.QueryMod) dataPlatformQuotationsHeaderDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_quotations_header_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformQuotationsHeaderDocData(queryMods...)
+}
+
+// DocTypeDataPlatformQuotationsItemDocData retrieves all the data_platform_quotations_item_doc_datum's DataPlatformQuotationsItemDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformQuotationsItemDocData(mods ...qm.QueryMod) dataPlatformQuotationsItemDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_quotations_item_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformQuotationsItemDocData(queryMods...)
+}
+
+// DocTypeDataPlatformSCRGeneralDocData retrieves all the data_platform_scr_general_doc_datum's DataPlatformSCRGeneralDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformSCRGeneralDocData(mods ...qm.QueryMod) dataPlatformSCRGeneralDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_scr_general_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformSCRGeneralDocData(queryMods...)
+}
+
+// LoadDocTypeDataPlatformBillOfMaterialHeaderDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformBillOfMaterialHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_bill_of_material_header_doc_data`),
+		qm.WhereIn(`data_platform_bill_of_material_header_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_bill_of_material_header_doc_data")
+	}
+
+	var resultSlice []*DataPlatformBillOfMaterialHeaderDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_bill_of_material_header_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_bill_of_material_header_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_bill_of_material_header_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformBillOfMaterialHeaderDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformBillOfMaterialHeaderDocData = append(local.R.DocTypeDataPlatformBillOfMaterialHeaderDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformBillOfMaterialItemDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformBillOfMaterialItemDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_bill_of_material_item_doc_data`),
+		qm.WhereIn(`data_platform_bill_of_material_item_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_bill_of_material_item_doc_data")
+	}
+
+	var resultSlice []*DataPlatformBillOfMaterialItemDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_bill_of_material_item_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_bill_of_material_item_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_bill_of_material_item_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformBillOfMaterialItemDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformBillOfMaterialItemDocData = append(local.R.DocTypeDataPlatformBillOfMaterialItemDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformBusinessPartnerGeneralDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformBusinessPartnerGeneralDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_business_partner_general_doc_data`),
+		qm.WhereIn(`data_platform_business_partner_general_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_business_partner_general_doc_data")
+	}
+
+	var resultSlice []*DataPlatformBusinessPartnerGeneralDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_business_partner_general_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_business_partner_general_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_business_partner_general_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformBusinessPartnerGeneralDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformBusinessPartnerGeneralDocData = append(local.R.DocTypeDataPlatformBusinessPartnerGeneralDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformDeliveryDocumentHeaderDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformDeliveryDocumentHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_header_doc_data`),
+		qm.WhereIn(`data_platform_delivery_document_header_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_header_doc_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentHeaderDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_header_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_header_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_header_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformDeliveryDocumentHeaderDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformDeliveryDocumentHeaderDocData = append(local.R.DocTypeDataPlatformDeliveryDocumentHeaderDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformDeliveryDocumentItemDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformDeliveryDocumentItemDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_item_doc_data`),
+		qm.WhereIn(`data_platform_delivery_document_item_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_item_doc_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentItemDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_item_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_item_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_item_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformDeliveryDocumentItemDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformDeliveryDocumentItemDocData = append(local.R.DocTypeDataPlatformDeliveryDocumentItemDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformDeliveryDocumentItemPickingDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformDeliveryDocumentItemPickingDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_item_picking_doc_data`),
+		qm.WhereIn(`data_platform_delivery_document_item_picking_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_item_picking_doc_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentItemPickingDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_item_picking_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_item_picking_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_item_picking_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformDeliveryDocumentItemPickingDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformDeliveryDocumentItemPickingDocData = append(local.R.DocTypeDataPlatformDeliveryDocumentItemPickingDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
 }
 
 // LoadDocTypeDataPlatformEquipmentMasterGeneralDocData allows an eager lookup of values, cached into the
@@ -286,6 +1444,2010 @@ func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformEquipmentMasterGe
 	return nil
 }
 
+// LoadDocTypeDataPlatformInspectionLotConfirmationHeaderDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformInspectionLotConfirmationHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_inspection_lot_confirmation_header_doc_data`),
+		qm.WhereIn(`data_platform_inspection_lot_confirmation_header_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_inspection_lot_confirmation_header_doc_data")
+	}
+
+	var resultSlice []*DataPlatformInspectionLotConfirmationHeaderDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_lot_confirmation_header_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_lot_confirmation_header_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_lot_confirmation_header_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformInspectionLotConfirmationHeaderDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformInspectionLotConfirmationHeaderDocData = append(local.R.DocTypeDataPlatformInspectionLotConfirmationHeaderDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformInvoiceDocumentHeaderDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformInvoiceDocumentHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_invoice_document_header_doc_data`),
+		qm.WhereIn(`data_platform_invoice_document_header_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_invoice_document_header_doc_data")
+	}
+
+	var resultSlice []*DataPlatformInvoiceDocumentHeaderDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_invoice_document_header_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_invoice_document_header_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_invoice_document_header_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformInvoiceDocumentHeaderDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformInvoiceDocumentHeaderDocData = append(local.R.DocTypeDataPlatformInvoiceDocumentHeaderDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformInvoiceDocumentItemDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformInvoiceDocumentItemDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_invoice_document_item_doc_data`),
+		qm.WhereIn(`data_platform_invoice_document_item_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_invoice_document_item_doc_data")
+	}
+
+	var resultSlice []*DataPlatformInvoiceDocumentItemDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_invoice_document_item_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_invoice_document_item_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_invoice_document_item_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformInvoiceDocumentItemDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformInvoiceDocumentItemDocData = append(local.R.DocTypeDataPlatformInvoiceDocumentItemDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformOperationsHeaderDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformOperationsHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_operations_header_doc_data`),
+		qm.WhereIn(`data_platform_operations_header_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_operations_header_doc_data")
+	}
+
+	var resultSlice []*DataPlatformOperationsHeaderDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_operations_header_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_operations_header_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_operations_header_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformOperationsHeaderDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformOperationsHeaderDocData = append(local.R.DocTypeDataPlatformOperationsHeaderDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformOperationsItemDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformOperationsItemDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_operations_item_doc_data`),
+		qm.WhereIn(`data_platform_operations_item_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_operations_item_doc_data")
+	}
+
+	var resultSlice []*DataPlatformOperationsItemDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_operations_item_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_operations_item_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_operations_item_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformOperationsItemDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformOperationsItemDocData = append(local.R.DocTypeDataPlatformOperationsItemDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformOrdersHeaderDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformOrdersHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_orders_header_doc_data`),
+		qm.WhereIn(`data_platform_orders_header_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_orders_header_doc_data")
+	}
+
+	var resultSlice []*DataPlatformOrdersHeaderDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_header_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_header_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_header_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformOrdersHeaderDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformOrdersHeaderDocData = append(local.R.DocTypeDataPlatformOrdersHeaderDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformOrdersItemDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformOrdersItemDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_orders_item_doc_data`),
+		qm.WhereIn(`data_platform_orders_item_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_orders_item_doc_data")
+	}
+
+	var resultSlice []*DataPlatformOrdersItemDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_item_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_item_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_item_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformOrdersItemDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformOrdersItemDocData = append(local.R.DocTypeDataPlatformOrdersItemDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformPlannedOrderHeaderDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformPlannedOrderHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_planned_order_header_doc_data`),
+		qm.WhereIn(`data_platform_planned_order_header_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_planned_order_header_doc_data")
+	}
+
+	var resultSlice []*DataPlatformPlannedOrderHeaderDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_planned_order_header_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_planned_order_header_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_planned_order_header_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformPlannedOrderHeaderDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformPlannedOrderHeaderDocData = append(local.R.DocTypeDataPlatformPlannedOrderHeaderDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformPlannedOrderItemDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformPlannedOrderItemDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_planned_order_item_doc_data`),
+		qm.WhereIn(`data_platform_planned_order_item_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_planned_order_item_doc_data")
+	}
+
+	var resultSlice []*DataPlatformPlannedOrderItemDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_planned_order_item_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_planned_order_item_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_planned_order_item_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformPlannedOrderItemDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformPlannedOrderItemDocData = append(local.R.DocTypeDataPlatformPlannedOrderItemDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformProductMasterBPPlantDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformProductMasterBPPlantDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_master_bp_plant_doc_data`),
+		qm.WhereIn(`data_platform_product_master_bp_plant_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_product_master_bp_plant_doc_data")
+	}
+
+	var resultSlice []*DataPlatformProductMasterBPPlantDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_master_bp_plant_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_master_bp_plant_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_bp_plant_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformProductMasterBPPlantDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformProductMasterBPPlantDocData = append(local.R.DocTypeDataPlatformProductMasterBPPlantDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformProductMasterBusinessPartnerDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformProductMasterBusinessPartnerDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_master_business_partner_doc_data`),
+		qm.WhereIn(`data_platform_product_master_business_partner_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_product_master_business_partner_doc_data")
+	}
+
+	var resultSlice []*DataPlatformProductMasterBusinessPartnerDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_master_business_partner_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_master_business_partner_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_business_partner_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformProductMasterBusinessPartnerDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformProductMasterBusinessPartnerDocData = append(local.R.DocTypeDataPlatformProductMasterBusinessPartnerDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformProductMasterGeneralDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformProductMasterGeneralDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_master_general_doc_data`),
+		qm.WhereIn(`data_platform_product_master_general_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_product_master_general_doc_data")
+	}
+
+	var resultSlice []*DataPlatformProductMasterGeneralDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_master_general_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_master_general_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_general_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformProductMasterGeneralDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformProductMasterGeneralDocData = append(local.R.DocTypeDataPlatformProductMasterGeneralDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformProductStockProductStockDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformProductStockProductStockDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_stock_product_stock_doc_data`),
+		qm.WhereIn(`data_platform_product_stock_product_stock_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_product_stock_product_stock_doc_data")
+	}
+
+	var resultSlice []*DataPlatformProductStockProductStockDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_stock_product_stock_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_stock_product_stock_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_stock_product_stock_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformProductStockProductStockDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformProductStockProductStockDocData = append(local.R.DocTypeDataPlatformProductStockProductStockDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformProductionOrderHeaderDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformProductionOrderHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_production_order_header_doc_data`),
+		qm.WhereIn(`data_platform_production_order_header_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_production_order_header_doc_data")
+	}
+
+	var resultSlice []*DataPlatformProductionOrderHeaderDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_production_order_header_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_production_order_header_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_production_order_header_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformProductionOrderHeaderDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformProductionOrderHeaderDocData = append(local.R.DocTypeDataPlatformProductionOrderHeaderDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformProductionOrderItemDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformProductionOrderItemDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_production_order_item_doc_data`),
+		qm.WhereIn(`data_platform_production_order_item_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_production_order_item_doc_data")
+	}
+
+	var resultSlice []*DataPlatformProductionOrderItemDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_production_order_item_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_production_order_item_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_production_order_item_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformProductionOrderItemDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformProductionOrderItemDocData = append(local.R.DocTypeDataPlatformProductionOrderItemDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformQuotationsHeaderDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformQuotationsHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_quotations_header_doc_data`),
+		qm.WhereIn(`data_platform_quotations_header_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_quotations_header_doc_data")
+	}
+
+	var resultSlice []*DataPlatformQuotationsHeaderDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_quotations_header_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_quotations_header_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_quotations_header_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformQuotationsHeaderDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformQuotationsHeaderDocData = append(local.R.DocTypeDataPlatformQuotationsHeaderDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformQuotationsItemDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformQuotationsItemDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_quotations_item_doc_data`),
+		qm.WhereIn(`data_platform_quotations_item_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_quotations_item_doc_data")
+	}
+
+	var resultSlice []*DataPlatformQuotationsItemDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_quotations_item_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_quotations_item_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_quotations_item_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformQuotationsItemDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformQuotationsItemDocData = append(local.R.DocTypeDataPlatformQuotationsItemDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformSCRGeneralDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformSCRGeneralDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_scr_general_doc_data`),
+		qm.WhereIn(`data_platform_scr_general_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_scr_general_doc_data")
+	}
+
+	var resultSlice []*DataPlatformSCRGeneralDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_scr_general_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_scr_general_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_scr_general_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformSCRGeneralDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformSCRGeneralDocData = append(local.R.DocTypeDataPlatformSCRGeneralDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformBillOfMaterialHeaderDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformBillOfMaterialHeaderDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformBillOfMaterialHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformBillOfMaterialHeaderDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_bill_of_material_header_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformBillOfMaterialHeaderDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.BillOfMaterial, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformBillOfMaterialHeaderDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformBillOfMaterialHeaderDocData = append(o.R.DocTypeDataPlatformBillOfMaterialHeaderDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformBillOfMaterialItemDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformBillOfMaterialItemDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformBillOfMaterialItemDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformBillOfMaterialItemDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_bill_of_material_item_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformBillOfMaterialItemDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.BillOfMaterial, rel.BillOfMaterialItem, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformBillOfMaterialItemDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformBillOfMaterialItemDocData = append(o.R.DocTypeDataPlatformBillOfMaterialItemDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformBusinessPartnerGeneralDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformBusinessPartnerGeneralDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformBusinessPartnerGeneralDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformBusinessPartnerGeneralDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_business_partner_general_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformBusinessPartnerGeneralDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.BusinessPartner, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformBusinessPartnerGeneralDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformBusinessPartnerGeneralDocData = append(o.R.DocTypeDataPlatformBusinessPartnerGeneralDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformDeliveryDocumentHeaderDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformDeliveryDocumentHeaderDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformDeliveryDocumentHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_header_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentHeaderDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.DeliveryDocument, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformDeliveryDocumentHeaderDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformDeliveryDocumentHeaderDocData = append(o.R.DocTypeDataPlatformDeliveryDocumentHeaderDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformDeliveryDocumentItemDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformDeliveryDocumentItemDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformDeliveryDocumentItemDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_item_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentItemDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.DeliveryDocument, rel.DeliveryDocumentItem, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformDeliveryDocumentItemDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformDeliveryDocumentItemDocData = append(o.R.DocTypeDataPlatformDeliveryDocumentItemDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformDeliveryDocumentItemPickingDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformDeliveryDocumentItemPickingDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformDeliveryDocumentItemPickingDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemPickingDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_item_picking_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentItemPickingDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.DeliveryDocument, rel.DeliveryDocumentItem, rel.DeliveryDocumentItemPickingID, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformDeliveryDocumentItemPickingDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformDeliveryDocumentItemPickingDocData = append(o.R.DocTypeDataPlatformDeliveryDocumentItemPickingDocData, related...)
+	}
+
+	return nil
+}
+
 // AddDocTypeDataPlatformEquipmentMasterGeneralDocData adds the given related objects to the existing relationships
 // of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
 // Appends related to o.R.DocTypeDataPlatformEquipmentMasterGeneralDocData.
@@ -324,6 +3486,780 @@ func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformEquipmentMasterG
 		}
 	} else {
 		o.R.DocTypeDataPlatformEquipmentMasterGeneralDocData = append(o.R.DocTypeDataPlatformEquipmentMasterGeneralDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformInspectionLotConfirmationHeaderDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformInspectionLotConfirmationHeaderDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformInspectionLotConfirmationHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotConfirmationHeaderDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_inspection_lot_confirmation_header_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotConfirmationHeaderDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.InspectionLot, rel.Operations, rel.OperationsItem, rel.OperationID, rel.ConfirmationCountingID, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformInspectionLotConfirmationHeaderDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformInspectionLotConfirmationHeaderDocData = append(o.R.DocTypeDataPlatformInspectionLotConfirmationHeaderDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformInvoiceDocumentHeaderDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformInvoiceDocumentHeaderDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformInvoiceDocumentHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInvoiceDocumentHeaderDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_invoice_document_header_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInvoiceDocumentHeaderDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.InvoiceDocument, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformInvoiceDocumentHeaderDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformInvoiceDocumentHeaderDocData = append(o.R.DocTypeDataPlatformInvoiceDocumentHeaderDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformInvoiceDocumentItemDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformInvoiceDocumentItemDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformInvoiceDocumentItemDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInvoiceDocumentItemDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_invoice_document_item_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInvoiceDocumentItemDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.InvoiceDocument, rel.InvoiceDocumentItem, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformInvoiceDocumentItemDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformInvoiceDocumentItemDocData = append(o.R.DocTypeDataPlatformInvoiceDocumentItemDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformOperationsHeaderDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformOperationsHeaderDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformOperationsHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOperationsHeaderDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_operations_header_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOperationsHeaderDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.Operations, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformOperationsHeaderDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformOperationsHeaderDocData = append(o.R.DocTypeDataPlatformOperationsHeaderDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformOperationsItemDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformOperationsItemDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformOperationsItemDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOperationsItemDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_operations_item_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOperationsItemDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.Operations, rel.OperationsItem, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformOperationsItemDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformOperationsItemDocData = append(o.R.DocTypeDataPlatformOperationsItemDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformOrdersHeaderDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformOrdersHeaderDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformOrdersHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersHeaderDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_orders_header_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersHeaderDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.OrderID, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformOrdersHeaderDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformOrdersHeaderDocData = append(o.R.DocTypeDataPlatformOrdersHeaderDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformOrdersItemDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformOrdersItemDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformOrdersItemDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_orders_item_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersItemDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.OrderID, rel.OrderItem, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformOrdersItemDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformOrdersItemDocData = append(o.R.DocTypeDataPlatformOrdersItemDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformPlannedOrderHeaderDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformPlannedOrderHeaderDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformPlannedOrderHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderHeaderDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_planned_order_header_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformPlannedOrderHeaderDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.PlannedOrder, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformPlannedOrderHeaderDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformPlannedOrderHeaderDocData = append(o.R.DocTypeDataPlatformPlannedOrderHeaderDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformPlannedOrderItemDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformPlannedOrderItemDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformPlannedOrderItemDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformPlannedOrderItemDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_planned_order_item_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformPlannedOrderItemDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.PlannedOrder, rel.PlannedOrderItem, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformPlannedOrderItemDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformPlannedOrderItemDocData = append(o.R.DocTypeDataPlatformPlannedOrderItemDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformProductMasterBPPlantDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformProductMasterBPPlantDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformProductMasterBPPlantDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductMasterBPPlantDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_product_master_bp_plant_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterBPPlantDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.Product, rel.BusinessPartner, rel.Plant, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformProductMasterBPPlantDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformProductMasterBPPlantDocData = append(o.R.DocTypeDataPlatformProductMasterBPPlantDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformProductMasterBusinessPartnerDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformProductMasterBusinessPartnerDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformProductMasterBusinessPartnerDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductMasterBusinessPartnerDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_product_master_business_partner_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterBusinessPartnerDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.Product, rel.BusinessPartner, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformProductMasterBusinessPartnerDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformProductMasterBusinessPartnerDocData = append(o.R.DocTypeDataPlatformProductMasterBusinessPartnerDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformProductMasterGeneralDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformProductMasterGeneralDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformProductMasterGeneralDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductMasterGeneralDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_product_master_general_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterGeneralDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.Product, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformProductMasterGeneralDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformProductMasterGeneralDocData = append(o.R.DocTypeDataPlatformProductMasterGeneralDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformProductStockProductStockDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformProductStockProductStockDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformProductStockProductStockDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductStockProductStockDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_product_stock_product_stock_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductStockProductStockDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.Product, rel.BusinessPartner, rel.Plant, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformProductStockProductStockDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformProductStockProductStockDocData = append(o.R.DocTypeDataPlatformProductStockProductStockDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformProductionOrderHeaderDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformProductionOrderHeaderDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformProductionOrderHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductionOrderHeaderDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_production_order_header_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductionOrderHeaderDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.ProductionOrder, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformProductionOrderHeaderDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformProductionOrderHeaderDocData = append(o.R.DocTypeDataPlatformProductionOrderHeaderDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformProductionOrderItemDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformProductionOrderItemDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformProductionOrderItemDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductionOrderItemDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_production_order_item_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductionOrderItemDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.ProductionOrder, rel.ProductionOrderItem, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformProductionOrderItemDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformProductionOrderItemDocData = append(o.R.DocTypeDataPlatformProductionOrderItemDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformQuotationsHeaderDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformQuotationsHeaderDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformQuotationsHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformQuotationsHeaderDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_quotations_header_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformQuotationsHeaderDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.Quotation, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformQuotationsHeaderDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformQuotationsHeaderDocData = append(o.R.DocTypeDataPlatformQuotationsHeaderDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformQuotationsItemDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformQuotationsItemDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformQuotationsItemDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformQuotationsItemDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_quotations_item_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformQuotationsItemDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.Quotation, rel.QuotationItem, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformQuotationsItemDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformQuotationsItemDocData = append(o.R.DocTypeDataPlatformQuotationsItemDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformSCRGeneralDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformSCRGeneralDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformSCRGeneralDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSCRGeneralDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_scr_general_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformSCRGeneralDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.SupplyChainRelationshipID, rel.Buyer, rel.Seller, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformSCRGeneralDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformSCRGeneralDocData = append(o.R.DocTypeDataPlatformSCRGeneralDocData, related...)
 	}
 
 	return nil

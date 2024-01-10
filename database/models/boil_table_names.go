@@ -9,7 +9,9 @@ var TableNames = struct {
 	DataPlatformAllergenAllergenTextData                   string
 	DataPlatformBatchMasterRecordBatchData                 string
 	DataPlatformBillOfMaterialHeaderData                   string
+	DataPlatformBillOfMaterialHeaderDocData                string
 	DataPlatformBillOfMaterialItemData                     string
+	DataPlatformBillOfMaterialItemDocData                  string
 	DataPlatformBusinessPartnerAccountingData              string
 	DataPlatformBusinessPartnerGeneralData                 string
 	DataPlatformBusinessPartnerGeneralDocData              string
@@ -20,7 +22,14 @@ var TableNames = struct {
 	DataPlatformCountryCountryTextData                     string
 	DataPlatformCurrencyCurrencyData                       string
 	DataPlatformCurrencyCurrencyTextData                   string
+	DataPlatformDeliveryDocumentAddressData                string
 	DataPlatformDeliveryDocumentHeaderData                 string
+	DataPlatformDeliveryDocumentHeaderDocData              string
+	DataPlatformDeliveryDocumentItemData                   string
+	DataPlatformDeliveryDocumentItemDocData                string
+	DataPlatformDeliveryDocumentItemFreightAgreementData   string
+	DataPlatformDeliveryDocumentItemPickingDocData         string
+	DataPlatformDeliveryDocumentPartnerData                string
 	DataPlatformDistributionChannelDistributionChannelData string
 	DataPlatformDistributionChannelTextData                string
 	DataPlatformDistrictDistrictData                       string
@@ -48,19 +57,39 @@ var TableNames = struct {
 	DataPlatformIncotermsTextData                          string
 	DataPlatformIndustryIndustryData                       string
 	DataPlatformIndustryIndustryTextData                   string
-	DataPlatformInspectionPlanComponentCompositionData     string
+	DataPlatformInspectionLotConfirmationHeaderData        string
+	DataPlatformInspectionLotConfirmationHeaderDocData     string
+	DataPlatformInspectionLotOperationData                 string
 	DataPlatformInspectionPlanHeaderData                   string
 	DataPlatformInspectionPlanOperationData                string
 	DataPlatformInspectionPlanSpecData                     string
 	DataPlatformInspectionPlanTaskListData                 string
+	DataPlatformInvoiceDocumentAddressData                 string
+	DataPlatformInvoiceDocumentHeaderData                  string
+	DataPlatformInvoiceDocumentHeaderDocData               string
+	DataPlatformInvoiceDocumentItemData                    string
+	DataPlatformInvoiceDocumentItemDocData                 string
+	DataPlatformInvoiceDocumentItemPricingElementData      string
+	DataPlatformInvoiceDocumentPartnerData                 string
 	DataPlatformLanguageLanguageData                       string
 	DataPlatformLanguageLanguageTextData                   string
 	DataPlatformNumberRangeLatestNumberData                string
 	DataPlatformNumberRangeNumberRangeData                 string
 	DataPlatformOperationsHeaderData                       string
+	DataPlatformOperationsHeaderDocData                    string
 	DataPlatformOperationsItemData                         string
+	DataPlatformOperationsItemDocData                      string
+	DataPlatformOperationsItemOperationComponentData       string
+	DataPlatformOperationsItemOperationData                string
+	DataPlatformOrdersAddressData                          string
 	DataPlatformOrdersHeaderData                           string
+	DataPlatformOrdersHeaderDocData                        string
 	DataPlatformOrdersItemData                             string
+	DataPlatformOrdersItemDocData                          string
+	DataPlatformOrdersItemFreightAgreementData             string
+	DataPlatformOrdersItemPricingElementData               string
+	DataPlatformOrdersItemScheduleLineData                 string
+	DataPlatformOrdersPartnerData                          string
 	DataPlatformPartnerFunctionPartnerFunctionData         string
 	DataPlatformPartnerFunctionPartnerFunctionTextData     string
 	DataPlatformPaymentMethodPaymentMethodData             string
@@ -70,6 +99,13 @@ var TableNames = struct {
 	DataPlatformPaymentRequisitionItemData                 string
 	DataPlatformPaymentTermsPaymentTermsData               string
 	DataPlatformPaymentTermsPaymentTermsTextData           string
+	DataPlatformPlannedOrderHeaderData                     string
+	DataPlatformPlannedOrderHeaderDocData                  string
+	DataPlatformPlannedOrderItemComponentData              string
+	DataPlatformPlannedOrderItemData                       string
+	DataPlatformPlannedOrderItemDocData                    string
+	DataPlatformPlannedOrderItemOperationComponentData     string
+	DataPlatformPlannedOrderItemOperationData              string
 	DataPlatformPlantGeneralData                           string
 	DataPlatformPlantStorageLocationData                   string
 	DataPlatformPostalCodePostalCodeAddressData            string
@@ -82,6 +118,7 @@ var TableNames = struct {
 	DataPlatformProductMasterBPPlantData                   string
 	DataPlatformProductMasterBPPlantDocData                string
 	DataPlatformProductMasterBusinessPartnerData           string
+	DataPlatformProductMasterBusinessPartnerDocData        string
 	DataPlatformProductMasterCaloriesData                  string
 	DataPlatformProductMasterGeneralData                   string
 	DataPlatformProductMasterGeneralDocData                string
@@ -89,56 +126,93 @@ var TableNames = struct {
 	DataPlatformProductMasterNutritionalInfoData           string
 	DataPlatformProductMasterProductDescByBPData           string
 	DataPlatformProductMasterProductDescriptionData        string
+	DataPlatformProductMasterProductionData                string
 	DataPlatformProductMasterQualityData                   string
 	DataPlatformProductMasterStorageBinData                string
 	DataPlatformProductMasterStorageLocationData           string
 	DataPlatformProductMasterTaxData                       string
 	DataPlatformProductMasterWorkSchedulingData            string
+	DataPlatformProductStockAvailabilityByBatchData        string
+	DataPlatformProductStockAvailabilityByProjectData      string
 	DataPlatformProductStockAvailabilityData               string
 	DataPlatformProductStockByBatchDataOld                 string
+	DataPlatformProductStockByStorageBinByBatchData        string
 	DataPlatformProductStockProductStockAvailByBTCH        string
 	DataPlatformProductStockProductStockAvailBySTRGBin     string
 	DataPlatformProductStockProductStockAvailBySTRGBinBTCH string
 	DataPlatformProductStockProductStockAvailabilityData   string
+	DataPlatformProductStockProductStockByBatchData        string
 	DataPlatformProductStockProductStockByBTCH             string
+	DataPlatformProductStockProductStockByOrderData        string
+	DataPlatformProductStockProductStockByProjectData      string
+	DataPlatformProductStockProductStockByStorageBinData   string
 	DataPlatformProductStockProductStockBySTRGBin          string
 	DataPlatformProductStockProductStockBySTRGBinBTCH      string
 	DataPlatformProductStockProductStockData               string
 	DataPlatformProductStockProductStockDataOld            string
+	DataPlatformProductStockProductStockDocData            string
 	DataPlatformProductTypeProductTypeData                 string
+	DataPlatformProductionOrderAddressData                 string
 	DataPlatformProductionOrderConfirmationHeaderData      string
 	DataPlatformProductionOrderHeaderData                  string
+	DataPlatformProductionOrderHeaderDocData               string
+	DataPlatformProductionOrderItemComponentCostingData    string
 	DataPlatformProductionOrderItemComponentData           string
 	DataPlatformProductionOrderItemData                    string
+	DataPlatformProductionOrderItemDocData                 string
 	DataPlatformProductionOrderItemOperationComponentData  string
+	DataPlatformProductionOrderItemOperationCostingData    string
 	DataPlatformProductionOrderItemOperationData           string
+	DataPlatformProductionOrderPartnerData                 string
+	DataPlatformProductionVersionHeaderData                string
+	DataPlatformProductionVersionItemData                  string
 	DataPlatformPurchaseRequisitionHeaderData              string
 	DataPlatformPurchaseRequisitionItemData                string
 	DataPlatformQuantityUnitConversionQuantityUnitConvData string
 	DataPlatformQuantityUnitQuantityUnitData               string
 	DataPlatformQuantityUnitTextData                       string
+	DataPlatformQuotationsAddressData                      string
+	DataPlatformQuotationsHeaderData                       string
+	DataPlatformQuotationsHeaderDocData                    string
+	DataPlatformQuotationsItemDocData                      string
+	DataPlatformQuotationsItemPricingElementData           string
+	DataPlatformQuotationsPartnerData                      string
 	DataPlatformSCRBillingRelationData                     string
 	DataPlatformSCRDeliveryPlantRelationData               string
+	DataPlatformSCRDeliveryPlantRelationProductData        string
+	DataPlatformSCRDeliveryPlantRelationProductMRPAreaData string
 	DataPlatformSCRDeliveryRelationData                    string
+	DataPlatformSCRFreightBillingRelationData              string
+	DataPlatformSCRFreightPaymentRelationData              string
+	DataPlatformSCRFreightRelationData                     string
+	DataPlatformSCRFreightTransactionData                  string
 	DataPlatformSCRGeneralData                             string
+	DataPlatformSCRGeneralDocData                          string
 	DataPlatformSCRPaymentRelationData                     string
 	DataPlatformSCRProductionPlantRelationData             string
 	DataPlatformSCRStockConfPlantRelationData              string
+	DataPlatformSCRStockConfPlantRelationProductData       string
 	DataPlatformSCRTransactionData                         string
+	DataPlatformSpecTypeSpecTypeData                       string
+	DataPlatformSpecTypeSpecTypeTextData                   string
 	DataPlatformStorageBinGeneralData                      string
 	DataPlatformTaxCodeTaxCodeData                         string
 	DataPlatformTaxCodeTaxCodeTextData                     string
 	DataPlatformTaxCodeTaxRateData                         string
 	DataPlatformTimeZoneTimeZoneData                       string
 	DataPlatformTimeZoneTimeZoneTextData                   string
+	DataPlatformUsageControlChainUsageControlChainData     string
 	DataPlatformWorkCenterGeneralData                      string
+	DataPlatformWorkCenterProductionCapacityData           string
 }{
 	DataPlatformAddressAddressData:                         "data_platform_address_address_data",
 	DataPlatformAllergenAllergenData:                       "data_platform_allergen_allergen_data",
 	DataPlatformAllergenAllergenTextData:                   "data_platform_allergen_allergen_text_data",
 	DataPlatformBatchMasterRecordBatchData:                 "data_platform_batch_master_record_batch_data",
 	DataPlatformBillOfMaterialHeaderData:                   "data_platform_bill_of_material_header_data",
+	DataPlatformBillOfMaterialHeaderDocData:                "data_platform_bill_of_material_header_doc_data",
 	DataPlatformBillOfMaterialItemData:                     "data_platform_bill_of_material_item_data",
+	DataPlatformBillOfMaterialItemDocData:                  "data_platform_bill_of_material_item_doc_data",
 	DataPlatformBusinessPartnerAccountingData:              "data_platform_business_partner_accounting_data",
 	DataPlatformBusinessPartnerGeneralData:                 "data_platform_business_partner_general_data",
 	DataPlatformBusinessPartnerGeneralDocData:              "data_platform_business_partner_general_doc_data",
@@ -149,7 +223,14 @@ var TableNames = struct {
 	DataPlatformCountryCountryTextData:                     "data_platform_country_country_text_data",
 	DataPlatformCurrencyCurrencyData:                       "data_platform_currency_currency_data",
 	DataPlatformCurrencyCurrencyTextData:                   "data_platform_currency_currency_text_data",
+	DataPlatformDeliveryDocumentAddressData:                "data_platform_delivery_document_address_data",
 	DataPlatformDeliveryDocumentHeaderData:                 "data_platform_delivery_document_header_data",
+	DataPlatformDeliveryDocumentHeaderDocData:              "data_platform_delivery_document_header_doc_data",
+	DataPlatformDeliveryDocumentItemData:                   "data_platform_delivery_document_item_data",
+	DataPlatformDeliveryDocumentItemDocData:                "data_platform_delivery_document_item_doc_data",
+	DataPlatformDeliveryDocumentItemFreightAgreementData:   "data_platform_delivery_document_item_freight_agreement_data",
+	DataPlatformDeliveryDocumentItemPickingDocData:         "data_platform_delivery_document_item_picking_doc_data",
+	DataPlatformDeliveryDocumentPartnerData:                "data_platform_delivery_document_partner_data",
 	DataPlatformDistributionChannelDistributionChannelData: "data_platform_distribution_channel_distribution_channel_data",
 	DataPlatformDistributionChannelTextData:                "data_platform_distribution_channel_text_data",
 	DataPlatformDistrictDistrictData:                       "data_platform_district_district_data",
@@ -177,19 +258,39 @@ var TableNames = struct {
 	DataPlatformIncotermsTextData:                          "data_platform_incoterms_text_data",
 	DataPlatformIndustryIndustryData:                       "data_platform_industry_industry_data",
 	DataPlatformIndustryIndustryTextData:                   "data_platform_industry_industry_text_data",
-	DataPlatformInspectionPlanComponentCompositionData:     "data_platform_inspection_plan_component_composition_data",
+	DataPlatformInspectionLotConfirmationHeaderData:        "data_platform_inspection_lot_confirmation_header_data",
+	DataPlatformInspectionLotConfirmationHeaderDocData:     "data_platform_inspection_lot_confirmation_header_doc_data",
+	DataPlatformInspectionLotOperationData:                 "data_platform_inspection_lot_operation_data",
 	DataPlatformInspectionPlanHeaderData:                   "data_platform_inspection_plan_header_data",
 	DataPlatformInspectionPlanOperationData:                "data_platform_inspection_plan_operation_data",
 	DataPlatformInspectionPlanSpecData:                     "data_platform_inspection_plan_spec_data",
 	DataPlatformInspectionPlanTaskListData:                 "data_platform_inspection_plan_task_list_data",
+	DataPlatformInvoiceDocumentAddressData:                 "data_platform_invoice_document_address_data",
+	DataPlatformInvoiceDocumentHeaderData:                  "data_platform_invoice_document_header_data",
+	DataPlatformInvoiceDocumentHeaderDocData:               "data_platform_invoice_document_header_doc_data",
+	DataPlatformInvoiceDocumentItemData:                    "data_platform_invoice_document_item_data",
+	DataPlatformInvoiceDocumentItemDocData:                 "data_platform_invoice_document_item_doc_data",
+	DataPlatformInvoiceDocumentItemPricingElementData:      "data_platform_invoice_document_item_pricing_element_data",
+	DataPlatformInvoiceDocumentPartnerData:                 "data_platform_invoice_document_partner_data",
 	DataPlatformLanguageLanguageData:                       "data_platform_language_language_data",
 	DataPlatformLanguageLanguageTextData:                   "data_platform_language_language_text_data",
 	DataPlatformNumberRangeLatestNumberData:                "data_platform_number_range_latest_number_data",
 	DataPlatformNumberRangeNumberRangeData:                 "data_platform_number_range_number_range_data",
 	DataPlatformOperationsHeaderData:                       "data_platform_operations_header_data",
+	DataPlatformOperationsHeaderDocData:                    "data_platform_operations_header_doc_data",
 	DataPlatformOperationsItemData:                         "data_platform_operations_item_data",
+	DataPlatformOperationsItemDocData:                      "data_platform_operations_item_doc_data",
+	DataPlatformOperationsItemOperationComponentData:       "data_platform_operations_item_operation_component_data",
+	DataPlatformOperationsItemOperationData:                "data_platform_operations_item_operation_data",
+	DataPlatformOrdersAddressData:                          "data_platform_orders_address_data",
 	DataPlatformOrdersHeaderData:                           "data_platform_orders_header_data",
+	DataPlatformOrdersHeaderDocData:                        "data_platform_orders_header_doc_data",
 	DataPlatformOrdersItemData:                             "data_platform_orders_item_data",
+	DataPlatformOrdersItemDocData:                          "data_platform_orders_item_doc_data",
+	DataPlatformOrdersItemFreightAgreementData:             "data_platform_orders_item_freight_agreement_data",
+	DataPlatformOrdersItemPricingElementData:               "data_platform_orders_item_pricing_element_data",
+	DataPlatformOrdersItemScheduleLineData:                 "data_platform_orders_item_schedule_line_data",
+	DataPlatformOrdersPartnerData:                          "data_platform_orders_partner_data",
 	DataPlatformPartnerFunctionPartnerFunctionData:         "data_platform_partner_function_partner_function_data",
 	DataPlatformPartnerFunctionPartnerFunctionTextData:     "data_platform_partner_function_partner_function_text_data",
 	DataPlatformPaymentMethodPaymentMethodData:             "data_platform_payment_method_payment_method_data",
@@ -199,6 +300,13 @@ var TableNames = struct {
 	DataPlatformPaymentRequisitionItemData:                 "data_platform_payment_requisition_item_data",
 	DataPlatformPaymentTermsPaymentTermsData:               "data_platform_payment_terms_payment_terms_data",
 	DataPlatformPaymentTermsPaymentTermsTextData:           "data_platform_payment_terms_payment_terms_text_data",
+	DataPlatformPlannedOrderHeaderData:                     "data_platform_planned_order_header_data",
+	DataPlatformPlannedOrderHeaderDocData:                  "data_platform_planned_order_header_doc_data",
+	DataPlatformPlannedOrderItemComponentData:              "data_platform_planned_order_item_component_data",
+	DataPlatformPlannedOrderItemData:                       "data_platform_planned_order_item_data",
+	DataPlatformPlannedOrderItemDocData:                    "data_platform_planned_order_item_doc_data",
+	DataPlatformPlannedOrderItemOperationComponentData:     "data_platform_planned_order_item_operation_component_data",
+	DataPlatformPlannedOrderItemOperationData:              "data_platform_planned_order_item_operation_data",
 	DataPlatformPlantGeneralData:                           "data_platform_plant_general_data",
 	DataPlatformPlantStorageLocationData:                   "data_platform_plant_storage_location_data",
 	DataPlatformPostalCodePostalCodeAddressData:            "data_platform_postal_code_postal_code_address_data",
@@ -211,6 +319,7 @@ var TableNames = struct {
 	DataPlatformProductMasterBPPlantData:                   "data_platform_product_master_bp_plant_data",
 	DataPlatformProductMasterBPPlantDocData:                "data_platform_product_master_bp_plant_doc_data",
 	DataPlatformProductMasterBusinessPartnerData:           "data_platform_product_master_business_partner_data",
+	DataPlatformProductMasterBusinessPartnerDocData:        "data_platform_product_master_business_partner_doc_data",
 	DataPlatformProductMasterCaloriesData:                  "data_platform_product_master_calories_data",
 	DataPlatformProductMasterGeneralData:                   "data_platform_product_master_general_data",
 	DataPlatformProductMasterGeneralDocData:                "data_platform_product_master_general_doc_data",
@@ -218,47 +327,82 @@ var TableNames = struct {
 	DataPlatformProductMasterNutritionalInfoData:           "data_platform_product_master_nutritional_info_data",
 	DataPlatformProductMasterProductDescByBPData:           "data_platform_product_master_product_desc_by_bp_data",
 	DataPlatformProductMasterProductDescriptionData:        "data_platform_product_master_product_description_data",
+	DataPlatformProductMasterProductionData:                "data_platform_product_master_production_data",
 	DataPlatformProductMasterQualityData:                   "data_platform_product_master_quality_data",
 	DataPlatformProductMasterStorageBinData:                "data_platform_product_master_storage_bin_data",
 	DataPlatformProductMasterStorageLocationData:           "data_platform_product_master_storage_location_data",
 	DataPlatformProductMasterTaxData:                       "data_platform_product_master_tax_data",
 	DataPlatformProductMasterWorkSchedulingData:            "data_platform_product_master_work_scheduling_data",
+	DataPlatformProductStockAvailabilityByBatchData:        "data_platform_product_stock_availability_by_batch_data",
+	DataPlatformProductStockAvailabilityByProjectData:      "data_platform_product_stock_availability_by_project_data",
 	DataPlatformProductStockAvailabilityData:               "data_platform_product_stock_availability_data",
 	DataPlatformProductStockByBatchDataOld:                 "data_platform_product_stock_by_batch_data_old",
+	DataPlatformProductStockByStorageBinByBatchData:        "data_platform_product_stock_by_storage_bin_by_batch_data",
 	DataPlatformProductStockProductStockAvailByBTCH:        "data_platform_product_stock_product_stock_avail_by_btch",
 	DataPlatformProductStockProductStockAvailBySTRGBin:     "data_platform_product_stock_product_stock_avail_by_strg_bin",
 	DataPlatformProductStockProductStockAvailBySTRGBinBTCH: "data_platform_product_stock_product_stock_avail_by_strg_bin_btch",
 	DataPlatformProductStockProductStockAvailabilityData:   "data_platform_product_stock_product_stock_availability_data",
+	DataPlatformProductStockProductStockByBatchData:        "data_platform_product_stock_product_stock_by_batch_data",
 	DataPlatformProductStockProductStockByBTCH:             "data_platform_product_stock_product_stock_by_btch",
+	DataPlatformProductStockProductStockByOrderData:        "data_platform_product_stock_product_stock_by_order_data",
+	DataPlatformProductStockProductStockByProjectData:      "data_platform_product_stock_product_stock_by_project_data",
+	DataPlatformProductStockProductStockByStorageBinData:   "data_platform_product_stock_product_stock_by_storage_bin_data",
 	DataPlatformProductStockProductStockBySTRGBin:          "data_platform_product_stock_product_stock_by_strg_bin",
 	DataPlatformProductStockProductStockBySTRGBinBTCH:      "data_platform_product_stock_product_stock_by_strg_bin_btch",
 	DataPlatformProductStockProductStockData:               "data_platform_product_stock_product_stock_data",
 	DataPlatformProductStockProductStockDataOld:            "data_platform_product_stock_product_stock_data_old",
+	DataPlatformProductStockProductStockDocData:            "data_platform_product_stock_product_stock_doc_data",
 	DataPlatformProductTypeProductTypeData:                 "data_platform_product_type_product_type_data",
+	DataPlatformProductionOrderAddressData:                 "data_platform_production_order_address_data",
 	DataPlatformProductionOrderConfirmationHeaderData:      "data_platform_production_order_confirmation_header_data",
 	DataPlatformProductionOrderHeaderData:                  "data_platform_production_order_header_data",
+	DataPlatformProductionOrderHeaderDocData:               "data_platform_production_order_header_doc_data",
+	DataPlatformProductionOrderItemComponentCostingData:    "data_platform_production_order_item_component_costing_data",
 	DataPlatformProductionOrderItemComponentData:           "data_platform_production_order_item_component_data",
 	DataPlatformProductionOrderItemData:                    "data_platform_production_order_item_data",
+	DataPlatformProductionOrderItemDocData:                 "data_platform_production_order_item_doc_data",
 	DataPlatformProductionOrderItemOperationComponentData:  "data_platform_production_order_item_operation_component_data",
+	DataPlatformProductionOrderItemOperationCostingData:    "data_platform_production_order_item_operation_costing_data",
 	DataPlatformProductionOrderItemOperationData:           "data_platform_production_order_item_operation_data",
+	DataPlatformProductionOrderPartnerData:                 "data_platform_production_order_partner_data",
+	DataPlatformProductionVersionHeaderData:                "data_platform_production_version_header_data",
+	DataPlatformProductionVersionItemData:                  "data_platform_production_version_item_data",
 	DataPlatformPurchaseRequisitionHeaderData:              "data_platform_purchase_requisition_header_data",
 	DataPlatformPurchaseRequisitionItemData:                "data_platform_purchase_requisition_item_data",
 	DataPlatformQuantityUnitConversionQuantityUnitConvData: "data_platform_quantity_unit_conversion_quantity_unit_conv_data",
 	DataPlatformQuantityUnitQuantityUnitData:               "data_platform_quantity_unit_quantity_unit_data",
 	DataPlatformQuantityUnitTextData:                       "data_platform_quantity_unit_text_data",
+	DataPlatformQuotationsAddressData:                      "data_platform_quotations_address_data",
+	DataPlatformQuotationsHeaderData:                       "data_platform_quotations_header_data",
+	DataPlatformQuotationsHeaderDocData:                    "data_platform_quotations_header_doc_data",
+	DataPlatformQuotationsItemDocData:                      "data_platform_quotations_item_doc_data",
+	DataPlatformQuotationsItemPricingElementData:           "data_platform_quotations_item_pricing_element_data",
+	DataPlatformQuotationsPartnerData:                      "data_platform_quotations_partner_data",
 	DataPlatformSCRBillingRelationData:                     "data_platform_scr_billing_relation_data",
 	DataPlatformSCRDeliveryPlantRelationData:               "data_platform_scr_delivery_plant_relation_data",
+	DataPlatformSCRDeliveryPlantRelationProductData:        "data_platform_scr_delivery_plant_relation_product_data",
+	DataPlatformSCRDeliveryPlantRelationProductMRPAreaData: "data_platform_scr_delivery_plant_relation_product_mrp_area_data",
 	DataPlatformSCRDeliveryRelationData:                    "data_platform_scr_delivery_relation_data",
+	DataPlatformSCRFreightBillingRelationData:              "data_platform_scr_freight_billing_relation_data",
+	DataPlatformSCRFreightPaymentRelationData:              "data_platform_scr_freight_payment_relation_data",
+	DataPlatformSCRFreightRelationData:                     "data_platform_scr_freight_relation_data",
+	DataPlatformSCRFreightTransactionData:                  "data_platform_scr_freight_transaction_data",
 	DataPlatformSCRGeneralData:                             "data_platform_scr_general_data",
+	DataPlatformSCRGeneralDocData:                          "data_platform_scr_general_doc_data",
 	DataPlatformSCRPaymentRelationData:                     "data_platform_scr_payment_relation_data",
 	DataPlatformSCRProductionPlantRelationData:             "data_platform_scr_production_plant_relation_data",
 	DataPlatformSCRStockConfPlantRelationData:              "data_platform_scr_stock_conf_plant_relation_data",
+	DataPlatformSCRStockConfPlantRelationProductData:       "data_platform_scr_stock_conf_plant_relation_product_data",
 	DataPlatformSCRTransactionData:                         "data_platform_scr_transaction_data",
+	DataPlatformSpecTypeSpecTypeData:                       "data_platform_spec_type_spec_type_data",
+	DataPlatformSpecTypeSpecTypeTextData:                   "data_platform_spec_type_spec_type_text_data",
 	DataPlatformStorageBinGeneralData:                      "data_platform_storage_bin_general_data",
 	DataPlatformTaxCodeTaxCodeData:                         "data_platform_tax_code_tax_code_data",
 	DataPlatformTaxCodeTaxCodeTextData:                     "data_platform_tax_code_tax_code_text_data",
 	DataPlatformTaxCodeTaxRateData:                         "data_platform_tax_code_tax_rate_data",
 	DataPlatformTimeZoneTimeZoneData:                       "data_platform_time_zone_time_zone_data",
 	DataPlatformTimeZoneTimeZoneTextData:                   "data_platform_time_zone_time_zone_text_data",
+	DataPlatformUsageControlChainUsageControlChainData:     "data_platform_usage_control_chain_usage_control_chain_data",
 	DataPlatformWorkCenterGeneralData:                      "data_platform_work_center_general_data",
+	DataPlatformWorkCenterProductionCapacityData:           "data_platform_work_center_production_capacity_data",
 }

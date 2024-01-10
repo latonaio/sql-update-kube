@@ -27,6 +27,7 @@ type DataPlatformOrdersHeaderDatum struct {
 	OrderID                          int          `boil:"OrderID" json:"OrderID" toml:"OrderID" yaml:"OrderID"`
 	OrderDate                        string       `boil:"OrderDate" json:"OrderDate" toml:"OrderDate" yaml:"OrderDate"`
 	OrderType                        string       `boil:"OrderType" json:"OrderType" toml:"OrderType" yaml:"OrderType"`
+	OrderStatus                      string       `boil:"OrderStatus" json:"OrderStatus" toml:"OrderStatus" yaml:"OrderStatus"`
 	SupplyChainRelationshipID        int          `boil:"SupplyChainRelationshipID" json:"SupplyChainRelationshipID" toml:"SupplyChainRelationshipID" yaml:"SupplyChainRelationshipID"`
 	SupplyChainRelationshipBillingID null.Int     `boil:"SupplyChainRelationshipBillingID" json:"SupplyChainRelationshipBillingID,omitempty" toml:"SupplyChainRelationshipBillingID" yaml:"SupplyChainRelationshipBillingID,omitempty"`
 	SupplyChainRelationshipPaymentID null.Int     `boil:"SupplyChainRelationshipPaymentID" json:"SupplyChainRelationshipPaymentID,omitempty" toml:"SupplyChainRelationshipPaymentID" yaml:"SupplyChainRelationshipPaymentID,omitempty"`
@@ -68,6 +69,7 @@ type DataPlatformOrdersHeaderDatum struct {
 	HeaderBlockStatus                null.Bool    `boil:"HeaderBlockStatus" json:"HeaderBlockStatus,omitempty" toml:"HeaderBlockStatus" yaml:"HeaderBlockStatus,omitempty"`
 	HeaderDeliveryBlockStatus        null.Bool    `boil:"HeaderDeliveryBlockStatus" json:"HeaderDeliveryBlockStatus,omitempty" toml:"HeaderDeliveryBlockStatus" yaml:"HeaderDeliveryBlockStatus,omitempty"`
 	HeaderBillingBlockStatus         null.Bool    `boil:"HeaderBillingBlockStatus" json:"HeaderBillingBlockStatus,omitempty" toml:"HeaderBillingBlockStatus" yaml:"HeaderBillingBlockStatus,omitempty"`
+	ExternalReferenceDocument        null.String  `boil:"ExternalReferenceDocument" json:"ExternalReferenceDocument,omitempty" toml:"ExternalReferenceDocument" yaml:"ExternalReferenceDocument,omitempty"`
 	CreationDate                     string       `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
 	CreationTime                     string       `boil:"CreationTime" json:"CreationTime" toml:"CreationTime" yaml:"CreationTime"`
 	LastChangeDate                   string       `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
@@ -83,6 +85,7 @@ var DataPlatformOrdersHeaderDatumColumns = struct {
 	OrderID                          string
 	OrderDate                        string
 	OrderType                        string
+	OrderStatus                      string
 	SupplyChainRelationshipID        string
 	SupplyChainRelationshipBillingID string
 	SupplyChainRelationshipPaymentID string
@@ -124,6 +127,7 @@ var DataPlatformOrdersHeaderDatumColumns = struct {
 	HeaderBlockStatus                string
 	HeaderDeliveryBlockStatus        string
 	HeaderBillingBlockStatus         string
+	ExternalReferenceDocument        string
 	CreationDate                     string
 	CreationTime                     string
 	LastChangeDate                   string
@@ -134,6 +138,7 @@ var DataPlatformOrdersHeaderDatumColumns = struct {
 	OrderID:                          "OrderID",
 	OrderDate:                        "OrderDate",
 	OrderType:                        "OrderType",
+	OrderStatus:                      "OrderStatus",
 	SupplyChainRelationshipID:        "SupplyChainRelationshipID",
 	SupplyChainRelationshipBillingID: "SupplyChainRelationshipBillingID",
 	SupplyChainRelationshipPaymentID: "SupplyChainRelationshipPaymentID",
@@ -175,6 +180,7 @@ var DataPlatformOrdersHeaderDatumColumns = struct {
 	HeaderBlockStatus:                "HeaderBlockStatus",
 	HeaderDeliveryBlockStatus:        "HeaderDeliveryBlockStatus",
 	HeaderBillingBlockStatus:         "HeaderBillingBlockStatus",
+	ExternalReferenceDocument:        "ExternalReferenceDocument",
 	CreationDate:                     "CreationDate",
 	CreationTime:                     "CreationTime",
 	LastChangeDate:                   "LastChangeDate",
@@ -187,6 +193,7 @@ var DataPlatformOrdersHeaderDatumTableColumns = struct {
 	OrderID                          string
 	OrderDate                        string
 	OrderType                        string
+	OrderStatus                      string
 	SupplyChainRelationshipID        string
 	SupplyChainRelationshipBillingID string
 	SupplyChainRelationshipPaymentID string
@@ -228,6 +235,7 @@ var DataPlatformOrdersHeaderDatumTableColumns = struct {
 	HeaderBlockStatus                string
 	HeaderDeliveryBlockStatus        string
 	HeaderBillingBlockStatus         string
+	ExternalReferenceDocument        string
 	CreationDate                     string
 	CreationTime                     string
 	LastChangeDate                   string
@@ -238,6 +246,7 @@ var DataPlatformOrdersHeaderDatumTableColumns = struct {
 	OrderID:                          "data_platform_orders_header_data.OrderID",
 	OrderDate:                        "data_platform_orders_header_data.OrderDate",
 	OrderType:                        "data_platform_orders_header_data.OrderType",
+	OrderStatus:                      "data_platform_orders_header_data.OrderStatus",
 	SupplyChainRelationshipID:        "data_platform_orders_header_data.SupplyChainRelationshipID",
 	SupplyChainRelationshipBillingID: "data_platform_orders_header_data.SupplyChainRelationshipBillingID",
 	SupplyChainRelationshipPaymentID: "data_platform_orders_header_data.SupplyChainRelationshipPaymentID",
@@ -279,6 +288,7 @@ var DataPlatformOrdersHeaderDatumTableColumns = struct {
 	HeaderBlockStatus:                "data_platform_orders_header_data.HeaderBlockStatus",
 	HeaderDeliveryBlockStatus:        "data_platform_orders_header_data.HeaderDeliveryBlockStatus",
 	HeaderBillingBlockStatus:         "data_platform_orders_header_data.HeaderBillingBlockStatus",
+	ExternalReferenceDocument:        "data_platform_orders_header_data.ExternalReferenceDocument",
 	CreationDate:                     "data_platform_orders_header_data.CreationDate",
 	CreationTime:                     "data_platform_orders_header_data.CreationTime",
 	LastChangeDate:                   "data_platform_orders_header_data.LastChangeDate",
@@ -293,6 +303,7 @@ var DataPlatformOrdersHeaderDatumWhere = struct {
 	OrderID                          whereHelperint
 	OrderDate                        whereHelperstring
 	OrderType                        whereHelperstring
+	OrderStatus                      whereHelperstring
 	SupplyChainRelationshipID        whereHelperint
 	SupplyChainRelationshipBillingID whereHelpernull_Int
 	SupplyChainRelationshipPaymentID whereHelpernull_Int
@@ -334,6 +345,7 @@ var DataPlatformOrdersHeaderDatumWhere = struct {
 	HeaderBlockStatus                whereHelpernull_Bool
 	HeaderDeliveryBlockStatus        whereHelpernull_Bool
 	HeaderBillingBlockStatus         whereHelpernull_Bool
+	ExternalReferenceDocument        whereHelpernull_String
 	CreationDate                     whereHelperstring
 	CreationTime                     whereHelperstring
 	LastChangeDate                   whereHelperstring
@@ -344,6 +356,7 @@ var DataPlatformOrdersHeaderDatumWhere = struct {
 	OrderID:                          whereHelperint{field: "`data_platform_orders_header_data`.`OrderID`"},
 	OrderDate:                        whereHelperstring{field: "`data_platform_orders_header_data`.`OrderDate`"},
 	OrderType:                        whereHelperstring{field: "`data_platform_orders_header_data`.`OrderType`"},
+	OrderStatus:                      whereHelperstring{field: "`data_platform_orders_header_data`.`OrderStatus`"},
 	SupplyChainRelationshipID:        whereHelperint{field: "`data_platform_orders_header_data`.`SupplyChainRelationshipID`"},
 	SupplyChainRelationshipBillingID: whereHelpernull_Int{field: "`data_platform_orders_header_data`.`SupplyChainRelationshipBillingID`"},
 	SupplyChainRelationshipPaymentID: whereHelpernull_Int{field: "`data_platform_orders_header_data`.`SupplyChainRelationshipPaymentID`"},
@@ -385,6 +398,7 @@ var DataPlatformOrdersHeaderDatumWhere = struct {
 	HeaderBlockStatus:                whereHelpernull_Bool{field: "`data_platform_orders_header_data`.`HeaderBlockStatus`"},
 	HeaderDeliveryBlockStatus:        whereHelpernull_Bool{field: "`data_platform_orders_header_data`.`HeaderDeliveryBlockStatus`"},
 	HeaderBillingBlockStatus:         whereHelpernull_Bool{field: "`data_platform_orders_header_data`.`HeaderBillingBlockStatus`"},
+	ExternalReferenceDocument:        whereHelpernull_String{field: "`data_platform_orders_header_data`.`ExternalReferenceDocument`"},
 	CreationDate:                     whereHelperstring{field: "`data_platform_orders_header_data`.`CreationDate`"},
 	CreationTime:                     whereHelperstring{field: "`data_platform_orders_header_data`.`CreationTime`"},
 	LastChangeDate:                   whereHelperstring{field: "`data_platform_orders_header_data`.`LastChangeDate`"},
@@ -404,7 +418,10 @@ var DataPlatformOrdersHeaderDatumRels = struct {
 	BuyerDataPlatformSCRGeneralDatum                          string
 	BillFromPartyDataPlatformSCRPaymentRelationDatum          string
 	TransactionCurrencyDataPlatformCurrencyCurrencyDatum      string
+	OrderIDDataPlatformOrdersAddressData                      string
+	OrderIDDataPlatformOrdersHeaderDocData                    string
 	OrderIDDataPlatformOrdersItemData                         string
+	OrderIDDataPlatformOrdersPartnerData                      string
 	PrecedingOrderIDDataPlatformPurchaseRequisitionHeaderData string
 }{
 	BillFromCountryDataPlatformCountryCountryDatum: "BillFromCountryDataPlatformCountryCountryDatum",
@@ -416,7 +433,10 @@ var DataPlatformOrdersHeaderDatumRels = struct {
 	BuyerDataPlatformSCRGeneralDatum:                          "BuyerDataPlatformSCRGeneralDatum",
 	BillFromPartyDataPlatformSCRPaymentRelationDatum:          "BillFromPartyDataPlatformSCRPaymentRelationDatum",
 	TransactionCurrencyDataPlatformCurrencyCurrencyDatum:      "TransactionCurrencyDataPlatformCurrencyCurrencyDatum",
+	OrderIDDataPlatformOrdersAddressData:                      "OrderIDDataPlatformOrdersAddressData",
+	OrderIDDataPlatformOrdersHeaderDocData:                    "OrderIDDataPlatformOrdersHeaderDocData",
 	OrderIDDataPlatformOrdersItemData:                         "OrderIDDataPlatformOrdersItemData",
+	OrderIDDataPlatformOrdersPartnerData:                      "OrderIDDataPlatformOrdersPartnerData",
 	PrecedingOrderIDDataPlatformPurchaseRequisitionHeaderData: "PrecedingOrderIDDataPlatformPurchaseRequisitionHeaderData",
 }
 
@@ -431,7 +451,10 @@ type dataPlatformOrdersHeaderDatumR struct {
 	BuyerDataPlatformSCRGeneralDatum                          *DataPlatformSCRGeneralDatum                    `boil:"BuyerDataPlatformSCRGeneralDatum" json:"BuyerDataPlatformSCRGeneralDatum" toml:"BuyerDataPlatformSCRGeneralDatum" yaml:"BuyerDataPlatformSCRGeneralDatum"`
 	BillFromPartyDataPlatformSCRPaymentRelationDatum          *DataPlatformSCRPaymentRelationDatum            `boil:"BillFromPartyDataPlatformSCRPaymentRelationDatum" json:"BillFromPartyDataPlatformSCRPaymentRelationDatum" toml:"BillFromPartyDataPlatformSCRPaymentRelationDatum" yaml:"BillFromPartyDataPlatformSCRPaymentRelationDatum"`
 	TransactionCurrencyDataPlatformCurrencyCurrencyDatum      *DataPlatformCurrencyCurrencyDatum              `boil:"TransactionCurrencyDataPlatformCurrencyCurrencyDatum" json:"TransactionCurrencyDataPlatformCurrencyCurrencyDatum" toml:"TransactionCurrencyDataPlatformCurrencyCurrencyDatum" yaml:"TransactionCurrencyDataPlatformCurrencyCurrencyDatum"`
+	OrderIDDataPlatformOrdersAddressData                      DataPlatformOrdersAddressDatumSlice             `boil:"OrderIDDataPlatformOrdersAddressData" json:"OrderIDDataPlatformOrdersAddressData" toml:"OrderIDDataPlatformOrdersAddressData" yaml:"OrderIDDataPlatformOrdersAddressData"`
+	OrderIDDataPlatformOrdersHeaderDocData                    DataPlatformOrdersHeaderDocDatumSlice           `boil:"OrderIDDataPlatformOrdersHeaderDocData" json:"OrderIDDataPlatformOrdersHeaderDocData" toml:"OrderIDDataPlatformOrdersHeaderDocData" yaml:"OrderIDDataPlatformOrdersHeaderDocData"`
 	OrderIDDataPlatformOrdersItemData                         DataPlatformOrdersItemDatumSlice                `boil:"OrderIDDataPlatformOrdersItemData" json:"OrderIDDataPlatformOrdersItemData" toml:"OrderIDDataPlatformOrdersItemData" yaml:"OrderIDDataPlatformOrdersItemData"`
+	OrderIDDataPlatformOrdersPartnerData                      DataPlatformOrdersPartnerDatumSlice             `boil:"OrderIDDataPlatformOrdersPartnerData" json:"OrderIDDataPlatformOrdersPartnerData" toml:"OrderIDDataPlatformOrdersPartnerData" yaml:"OrderIDDataPlatformOrdersPartnerData"`
 	PrecedingOrderIDDataPlatformPurchaseRequisitionHeaderData DataPlatformPurchaseRequisitionHeaderDatumSlice `boil:"PrecedingOrderIDDataPlatformPurchaseRequisitionHeaderData" json:"PrecedingOrderIDDataPlatformPurchaseRequisitionHeaderData" toml:"PrecedingOrderIDDataPlatformPurchaseRequisitionHeaderData" yaml:"PrecedingOrderIDDataPlatformPurchaseRequisitionHeaderData"`
 }
 
@@ -503,11 +526,32 @@ func (r *dataPlatformOrdersHeaderDatumR) GetTransactionCurrencyDataPlatformCurre
 	return r.TransactionCurrencyDataPlatformCurrencyCurrencyDatum
 }
 
+func (r *dataPlatformOrdersHeaderDatumR) GetOrderIDDataPlatformOrdersAddressData() DataPlatformOrdersAddressDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.OrderIDDataPlatformOrdersAddressData
+}
+
+func (r *dataPlatformOrdersHeaderDatumR) GetOrderIDDataPlatformOrdersHeaderDocData() DataPlatformOrdersHeaderDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.OrderIDDataPlatformOrdersHeaderDocData
+}
+
 func (r *dataPlatformOrdersHeaderDatumR) GetOrderIDDataPlatformOrdersItemData() DataPlatformOrdersItemDatumSlice {
 	if r == nil {
 		return nil
 	}
 	return r.OrderIDDataPlatformOrdersItemData
+}
+
+func (r *dataPlatformOrdersHeaderDatumR) GetOrderIDDataPlatformOrdersPartnerData() DataPlatformOrdersPartnerDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.OrderIDDataPlatformOrdersPartnerData
 }
 
 func (r *dataPlatformOrdersHeaderDatumR) GetPrecedingOrderIDDataPlatformPurchaseRequisitionHeaderData() DataPlatformPurchaseRequisitionHeaderDatumSlice {
@@ -521,8 +565,8 @@ func (r *dataPlatformOrdersHeaderDatumR) GetPrecedingOrderIDDataPlatformPurchase
 type dataPlatformOrdersHeaderDatumL struct{}
 
 var (
-	dataPlatformOrdersHeaderDatumAllColumns            = []string{"OrderID", "OrderDate", "OrderType", "SupplyChainRelationshipID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "Buyer", "Seller", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "InvoicePeriodStartDate", "InvoicePeriodEndDate", "TotalNetAmount", "TotalTaxAmount", "TotalGrossAmount", "HeaderDeliveryStatus", "HeaderBillingStatus", "HeaderDocReferenceStatus", "TransactionCurrency", "PricingDate", "PriceDetnExchangeRate", "RequestedDeliveryDate", "RequestedDeliveryTime", "HeaderCompleteDeliveryIsDefined", "Incoterms", "PaymentTerms", "PaymentMethod", "ReferenceDocument", "ReferenceDocumentItem", "AccountAssignmentGroup", "AccountingExchangeRate", "InvoiceDocumentDate", "IsExportImport", "HeaderText", "HeaderBlockStatus", "HeaderDeliveryBlockStatus", "HeaderBillingBlockStatus", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
-	dataPlatformOrdersHeaderDatumColumnsWithoutDefault = []string{"OrderID", "OrderDate", "OrderType", "SupplyChainRelationshipID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "Buyer", "Seller", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "InvoicePeriodStartDate", "InvoicePeriodEndDate", "TotalNetAmount", "TotalTaxAmount", "TotalGrossAmount", "HeaderDeliveryStatus", "HeaderBillingStatus", "HeaderDocReferenceStatus", "TransactionCurrency", "PricingDate", "PriceDetnExchangeRate", "RequestedDeliveryDate", "RequestedDeliveryTime", "HeaderCompleteDeliveryIsDefined", "Incoterms", "PaymentTerms", "PaymentMethod", "ReferenceDocument", "ReferenceDocumentItem", "AccountAssignmentGroup", "AccountingExchangeRate", "InvoiceDocumentDate", "IsExportImport", "HeaderText", "HeaderBlockStatus", "HeaderDeliveryBlockStatus", "HeaderBillingBlockStatus", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
+	dataPlatformOrdersHeaderDatumAllColumns            = []string{"OrderID", "OrderDate", "OrderType", "OrderStatus", "SupplyChainRelationshipID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "Buyer", "Seller", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "InvoicePeriodStartDate", "InvoicePeriodEndDate", "TotalNetAmount", "TotalTaxAmount", "TotalGrossAmount", "HeaderDeliveryStatus", "HeaderBillingStatus", "HeaderDocReferenceStatus", "TransactionCurrency", "PricingDate", "PriceDetnExchangeRate", "RequestedDeliveryDate", "RequestedDeliveryTime", "HeaderCompleteDeliveryIsDefined", "Incoterms", "PaymentTerms", "PaymentMethod", "ReferenceDocument", "ReferenceDocumentItem", "AccountAssignmentGroup", "AccountingExchangeRate", "InvoiceDocumentDate", "IsExportImport", "HeaderText", "HeaderBlockStatus", "HeaderDeliveryBlockStatus", "HeaderBillingBlockStatus", "ExternalReferenceDocument", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
+	dataPlatformOrdersHeaderDatumColumnsWithoutDefault = []string{"OrderID", "OrderDate", "OrderType", "OrderStatus", "SupplyChainRelationshipID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "Buyer", "Seller", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "InvoicePeriodStartDate", "InvoicePeriodEndDate", "TotalNetAmount", "TotalTaxAmount", "TotalGrossAmount", "HeaderDeliveryStatus", "HeaderBillingStatus", "HeaderDocReferenceStatus", "TransactionCurrency", "PricingDate", "PriceDetnExchangeRate", "RequestedDeliveryDate", "RequestedDeliveryTime", "HeaderCompleteDeliveryIsDefined", "Incoterms", "PaymentTerms", "PaymentMethod", "ReferenceDocument", "ReferenceDocumentItem", "AccountAssignmentGroup", "AccountingExchangeRate", "InvoiceDocumentDate", "IsExportImport", "HeaderText", "HeaderBlockStatus", "HeaderDeliveryBlockStatus", "HeaderBillingBlockStatus", "ExternalReferenceDocument", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
 	dataPlatformOrdersHeaderDatumColumnsWithDefault    = []string{}
 	dataPlatformOrdersHeaderDatumPrimaryKeyColumns     = []string{"OrderID"}
 	dataPlatformOrdersHeaderDatumGeneratedColumns      = []string{}
@@ -718,6 +762,34 @@ func (o *DataPlatformOrdersHeaderDatum) TransactionCurrencyDataPlatformCurrencyC
 	return DataPlatformCurrencyCurrencyData(queryMods...)
 }
 
+// OrderIDDataPlatformOrdersAddressData retrieves all the data_platform_orders_address_datum's DataPlatformOrdersAddressData with an executor via OrderID column.
+func (o *DataPlatformOrdersHeaderDatum) OrderIDDataPlatformOrdersAddressData(mods ...qm.QueryMod) dataPlatformOrdersAddressDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_orders_address_data`.`OrderID`=?", o.OrderID),
+	)
+
+	return DataPlatformOrdersAddressData(queryMods...)
+}
+
+// OrderIDDataPlatformOrdersHeaderDocData retrieves all the data_platform_orders_header_doc_datum's DataPlatformOrdersHeaderDocData with an executor via OrderID column.
+func (o *DataPlatformOrdersHeaderDatum) OrderIDDataPlatformOrdersHeaderDocData(mods ...qm.QueryMod) dataPlatformOrdersHeaderDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_orders_header_doc_data`.`OrderID`=?", o.OrderID),
+	)
+
+	return DataPlatformOrdersHeaderDocData(queryMods...)
+}
+
 // OrderIDDataPlatformOrdersItemData retrieves all the data_platform_orders_item_datum's DataPlatformOrdersItemData with an executor via OrderID column.
 func (o *DataPlatformOrdersHeaderDatum) OrderIDDataPlatformOrdersItemData(mods ...qm.QueryMod) dataPlatformOrdersItemDatumQuery {
 	var queryMods []qm.QueryMod
@@ -730,6 +802,20 @@ func (o *DataPlatformOrdersHeaderDatum) OrderIDDataPlatformOrdersItemData(mods .
 	)
 
 	return DataPlatformOrdersItemData(queryMods...)
+}
+
+// OrderIDDataPlatformOrdersPartnerData retrieves all the data_platform_orders_partner_datum's DataPlatformOrdersPartnerData with an executor via OrderID column.
+func (o *DataPlatformOrdersHeaderDatum) OrderIDDataPlatformOrdersPartnerData(mods ...qm.QueryMod) dataPlatformOrdersPartnerDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_orders_partner_data`.`OrderID`=?", o.OrderID),
+	)
+
+	return DataPlatformOrdersPartnerData(queryMods...)
 }
 
 // PrecedingOrderIDDataPlatformPurchaseRequisitionHeaderData retrieves all the data_platform_purchase_requisition_header_datum's DataPlatformPurchaseRequisitionHeaderData with an executor via PrecedingOrderID column.
@@ -1702,6 +1788,200 @@ func (dataPlatformOrdersHeaderDatumL) LoadTransactionCurrencyDataPlatformCurrenc
 	return nil
 }
 
+// LoadOrderIDDataPlatformOrdersAddressData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformOrdersHeaderDatumL) LoadOrderIDDataPlatformOrdersAddressData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformOrdersHeaderDatum
+	var object *DataPlatformOrdersHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformOrdersHeaderDatum.(*DataPlatformOrdersHeaderDatum)
+		if !ok {
+			object = new(DataPlatformOrdersHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformOrdersHeaderDatum.(*[]*DataPlatformOrdersHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformOrdersHeaderDatumR{}
+		}
+		args = append(args, object.OrderID)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformOrdersHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.OrderID {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.OrderID)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_orders_address_data`),
+		qm.WhereIn(`data_platform_orders_address_data.OrderID in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_orders_address_data")
+	}
+
+	var resultSlice []*DataPlatformOrdersAddressDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_address_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_address_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_address_data")
+	}
+
+	if singular {
+		object.R.OrderIDDataPlatformOrdersAddressData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.OrderID == foreign.OrderID {
+				local.R.OrderIDDataPlatformOrdersAddressData = append(local.R.OrderIDDataPlatformOrdersAddressData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadOrderIDDataPlatformOrdersHeaderDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformOrdersHeaderDatumL) LoadOrderIDDataPlatformOrdersHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformOrdersHeaderDatum
+	var object *DataPlatformOrdersHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformOrdersHeaderDatum.(*DataPlatformOrdersHeaderDatum)
+		if !ok {
+			object = new(DataPlatformOrdersHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformOrdersHeaderDatum.(*[]*DataPlatformOrdersHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformOrdersHeaderDatumR{}
+		}
+		args = append(args, object.OrderID)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformOrdersHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.OrderID {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.OrderID)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_orders_header_doc_data`),
+		qm.WhereIn(`data_platform_orders_header_doc_data.OrderID in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_orders_header_doc_data")
+	}
+
+	var resultSlice []*DataPlatformOrdersHeaderDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_header_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_header_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_header_doc_data")
+	}
+
+	if singular {
+		object.R.OrderIDDataPlatformOrdersHeaderDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.OrderID == foreign.OrderID {
+				local.R.OrderIDDataPlatformOrdersHeaderDocData = append(local.R.OrderIDDataPlatformOrdersHeaderDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // LoadOrderIDDataPlatformOrdersItemData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
 func (dataPlatformOrdersHeaderDatumL) LoadOrderIDDataPlatformOrdersItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersHeaderDatum interface{}, mods queries.Applicator) error {
@@ -1791,6 +2071,103 @@ func (dataPlatformOrdersHeaderDatumL) LoadOrderIDDataPlatformOrdersItemData(ctx 
 		for _, local := range slice {
 			if local.OrderID == foreign.OrderID {
 				local.R.OrderIDDataPlatformOrdersItemData = append(local.R.OrderIDDataPlatformOrdersItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadOrderIDDataPlatformOrdersPartnerData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformOrdersHeaderDatumL) LoadOrderIDDataPlatformOrdersPartnerData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformOrdersHeaderDatum
+	var object *DataPlatformOrdersHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformOrdersHeaderDatum.(*DataPlatformOrdersHeaderDatum)
+		if !ok {
+			object = new(DataPlatformOrdersHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformOrdersHeaderDatum.(*[]*DataPlatformOrdersHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformOrdersHeaderDatumR{}
+		}
+		args = append(args, object.OrderID)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformOrdersHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.OrderID {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.OrderID)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_orders_partner_data`),
+		qm.WhereIn(`data_platform_orders_partner_data.OrderID in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_orders_partner_data")
+	}
+
+	var resultSlice []*DataPlatformOrdersPartnerDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_partner_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_partner_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_partner_data")
+	}
+
+	if singular {
+		object.R.OrderIDDataPlatformOrdersPartnerData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.OrderID == foreign.OrderID {
+				local.R.OrderIDDataPlatformOrdersPartnerData = append(local.R.OrderIDDataPlatformOrdersPartnerData, foreign)
 				break
 			}
 		}
@@ -2338,6 +2715,92 @@ func (o *DataPlatformOrdersHeaderDatum) SetTransactionCurrencyDataPlatformCurren
 	return nil
 }
 
+// AddOrderIDDataPlatformOrdersAddressData adds the given related objects to the existing relationships
+// of the data_platform_orders_header_datum, optionally inserting them as new records.
+// Appends related to o.R.OrderIDDataPlatformOrdersAddressData.
+func (o *DataPlatformOrdersHeaderDatum) AddOrderIDDataPlatformOrdersAddressData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersAddressDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.OrderID = o.OrderID
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_orders_address_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"OrderID"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersAddressDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.OrderID, rel.OrderID, rel.AddressID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.OrderID = o.OrderID
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformOrdersHeaderDatumR{
+			OrderIDDataPlatformOrdersAddressData: related,
+		}
+	} else {
+		o.R.OrderIDDataPlatformOrdersAddressData = append(o.R.OrderIDDataPlatformOrdersAddressData, related...)
+	}
+
+	return nil
+}
+
+// AddOrderIDDataPlatformOrdersHeaderDocData adds the given related objects to the existing relationships
+// of the data_platform_orders_header_datum, optionally inserting them as new records.
+// Appends related to o.R.OrderIDDataPlatformOrdersHeaderDocData.
+func (o *DataPlatformOrdersHeaderDatum) AddOrderIDDataPlatformOrdersHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersHeaderDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.OrderID = o.OrderID
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_orders_header_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"OrderID"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersHeaderDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.OrderID, rel.OrderID, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.OrderID = o.OrderID
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformOrdersHeaderDatumR{
+			OrderIDDataPlatformOrdersHeaderDocData: related,
+		}
+	} else {
+		o.R.OrderIDDataPlatformOrdersHeaderDocData = append(o.R.OrderIDDataPlatformOrdersHeaderDocData, related...)
+	}
+
+	return nil
+}
+
 // AddOrderIDDataPlatformOrdersItemData adds the given related objects to the existing relationships
 // of the data_platform_orders_header_datum, optionally inserting them as new records.
 // Appends related to o.R.OrderIDDataPlatformOrdersItemData.
@@ -2376,6 +2839,49 @@ func (o *DataPlatformOrdersHeaderDatum) AddOrderIDDataPlatformOrdersItemData(ctx
 		}
 	} else {
 		o.R.OrderIDDataPlatformOrdersItemData = append(o.R.OrderIDDataPlatformOrdersItemData, related...)
+	}
+
+	return nil
+}
+
+// AddOrderIDDataPlatformOrdersPartnerData adds the given related objects to the existing relationships
+// of the data_platform_orders_header_datum, optionally inserting them as new records.
+// Appends related to o.R.OrderIDDataPlatformOrdersPartnerData.
+func (o *DataPlatformOrdersHeaderDatum) AddOrderIDDataPlatformOrdersPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersPartnerDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.OrderID = o.OrderID
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_orders_partner_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"OrderID"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersPartnerDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.OrderID, rel.OrderID, rel.PartnerFunction, rel.BusinessPartner}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.OrderID = o.OrderID
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformOrdersHeaderDatumR{
+			OrderIDDataPlatformOrdersPartnerData: related,
+		}
+	} else {
+		o.R.OrderIDDataPlatformOrdersPartnerData = append(o.R.OrderIDDataPlatformOrdersPartnerData, related...)
 	}
 
 	return nil

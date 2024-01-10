@@ -51,10 +51,14 @@ var DataPlatformProductGroupProductGroupDatumWhere = struct {
 
 // DataPlatformProductGroupProductGroupDatumRels is where relationship names are stored.
 var DataPlatformProductGroupProductGroupDatumRels = struct {
+	ProductGroupDataPlatformDeliveryDocumentItemData    string
+	ProductGroupDataPlatformInvoiceDocumentItemData     string
 	ProductGroupDataPlatformOrdersItemData              string
 	ProductGroupDataPlatformProductMasterGeneralData    string
 	ProductGroupDataPlatformPurchaseRequisitionItemData string
 }{
+	ProductGroupDataPlatformDeliveryDocumentItemData:    "ProductGroupDataPlatformDeliveryDocumentItemData",
+	ProductGroupDataPlatformInvoiceDocumentItemData:     "ProductGroupDataPlatformInvoiceDocumentItemData",
 	ProductGroupDataPlatformOrdersItemData:              "ProductGroupDataPlatformOrdersItemData",
 	ProductGroupDataPlatformProductMasterGeneralData:    "ProductGroupDataPlatformProductMasterGeneralData",
 	ProductGroupDataPlatformPurchaseRequisitionItemData: "ProductGroupDataPlatformPurchaseRequisitionItemData",
@@ -62,6 +66,8 @@ var DataPlatformProductGroupProductGroupDatumRels = struct {
 
 // dataPlatformProductGroupProductGroupDatumR is where relationships are stored.
 type dataPlatformProductGroupProductGroupDatumR struct {
+	ProductGroupDataPlatformDeliveryDocumentItemData    DataPlatformDeliveryDocumentItemDatumSlice    `boil:"ProductGroupDataPlatformDeliveryDocumentItemData" json:"ProductGroupDataPlatformDeliveryDocumentItemData" toml:"ProductGroupDataPlatformDeliveryDocumentItemData" yaml:"ProductGroupDataPlatformDeliveryDocumentItemData"`
+	ProductGroupDataPlatformInvoiceDocumentItemData     DataPlatformInvoiceDocumentItemDatumSlice     `boil:"ProductGroupDataPlatformInvoiceDocumentItemData" json:"ProductGroupDataPlatformInvoiceDocumentItemData" toml:"ProductGroupDataPlatformInvoiceDocumentItemData" yaml:"ProductGroupDataPlatformInvoiceDocumentItemData"`
 	ProductGroupDataPlatformOrdersItemData              DataPlatformOrdersItemDatumSlice              `boil:"ProductGroupDataPlatformOrdersItemData" json:"ProductGroupDataPlatformOrdersItemData" toml:"ProductGroupDataPlatformOrdersItemData" yaml:"ProductGroupDataPlatformOrdersItemData"`
 	ProductGroupDataPlatformProductMasterGeneralData    DataPlatformProductMasterGeneralDatumSlice    `boil:"ProductGroupDataPlatformProductMasterGeneralData" json:"ProductGroupDataPlatformProductMasterGeneralData" toml:"ProductGroupDataPlatformProductMasterGeneralData" yaml:"ProductGroupDataPlatformProductMasterGeneralData"`
 	ProductGroupDataPlatformPurchaseRequisitionItemData DataPlatformPurchaseRequisitionItemDatumSlice `boil:"ProductGroupDataPlatformPurchaseRequisitionItemData" json:"ProductGroupDataPlatformPurchaseRequisitionItemData" toml:"ProductGroupDataPlatformPurchaseRequisitionItemData" yaml:"ProductGroupDataPlatformPurchaseRequisitionItemData"`
@@ -70,6 +76,20 @@ type dataPlatformProductGroupProductGroupDatumR struct {
 // NewStruct creates a new relationship struct
 func (*dataPlatformProductGroupProductGroupDatumR) NewStruct() *dataPlatformProductGroupProductGroupDatumR {
 	return &dataPlatformProductGroupProductGroupDatumR{}
+}
+
+func (r *dataPlatformProductGroupProductGroupDatumR) GetProductGroupDataPlatformDeliveryDocumentItemData() DataPlatformDeliveryDocumentItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductGroupDataPlatformDeliveryDocumentItemData
+}
+
+func (r *dataPlatformProductGroupProductGroupDatumR) GetProductGroupDataPlatformInvoiceDocumentItemData() DataPlatformInvoiceDocumentItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductGroupDataPlatformInvoiceDocumentItemData
 }
 
 func (r *dataPlatformProductGroupProductGroupDatumR) GetProductGroupDataPlatformOrdersItemData() DataPlatformOrdersItemDatumSlice {
@@ -195,6 +215,34 @@ func (q dataPlatformProductGroupProductGroupDatumQuery) Exists(ctx context.Conte
 	return count > 0, nil
 }
 
+// ProductGroupDataPlatformDeliveryDocumentItemData retrieves all the data_platform_delivery_document_item_datum's DataPlatformDeliveryDocumentItemData with an executor via ProductGroup column.
+func (o *DataPlatformProductGroupProductGroupDatum) ProductGroupDataPlatformDeliveryDocumentItemData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_item_data`.`ProductGroup`=?", o.ProductGroup),
+	)
+
+	return DataPlatformDeliveryDocumentItemData(queryMods...)
+}
+
+// ProductGroupDataPlatformInvoiceDocumentItemData retrieves all the data_platform_invoice_document_item_datum's DataPlatformInvoiceDocumentItemData with an executor via ProductGroup column.
+func (o *DataPlatformProductGroupProductGroupDatum) ProductGroupDataPlatformInvoiceDocumentItemData(mods ...qm.QueryMod) dataPlatformInvoiceDocumentItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_invoice_document_item_data`.`ProductGroup`=?", o.ProductGroup),
+	)
+
+	return DataPlatformInvoiceDocumentItemData(queryMods...)
+}
+
 // ProductGroupDataPlatformOrdersItemData retrieves all the data_platform_orders_item_datum's DataPlatformOrdersItemData with an executor via ProductGroup column.
 func (o *DataPlatformProductGroupProductGroupDatum) ProductGroupDataPlatformOrdersItemData(mods ...qm.QueryMod) dataPlatformOrdersItemDatumQuery {
 	var queryMods []qm.QueryMod
@@ -235,6 +283,200 @@ func (o *DataPlatformProductGroupProductGroupDatum) ProductGroupDataPlatformPurc
 	)
 
 	return DataPlatformPurchaseRequisitionItemData(queryMods...)
+}
+
+// LoadProductGroupDataPlatformDeliveryDocumentItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductGroupProductGroupDatumL) LoadProductGroupDataPlatformDeliveryDocumentItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductGroupProductGroupDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductGroupProductGroupDatum
+	var object *DataPlatformProductGroupProductGroupDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductGroupProductGroupDatum.(*DataPlatformProductGroupProductGroupDatum)
+		if !ok {
+			object = new(DataPlatformProductGroupProductGroupDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductGroupProductGroupDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductGroupProductGroupDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductGroupProductGroupDatum.(*[]*DataPlatformProductGroupProductGroupDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductGroupProductGroupDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductGroupProductGroupDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductGroupProductGroupDatumR{}
+		}
+		args = append(args, object.ProductGroup)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductGroupProductGroupDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.ProductGroup) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.ProductGroup)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_item_data`),
+		qm.WhereIn(`data_platform_delivery_document_item_data.ProductGroup in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_item_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_item_data")
+	}
+
+	if singular {
+		object.R.ProductGroupDataPlatformDeliveryDocumentItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.ProductGroup, foreign.ProductGroup) {
+				local.R.ProductGroupDataPlatformDeliveryDocumentItemData = append(local.R.ProductGroupDataPlatformDeliveryDocumentItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductGroupDataPlatformInvoiceDocumentItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductGroupProductGroupDatumL) LoadProductGroupDataPlatformInvoiceDocumentItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductGroupProductGroupDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductGroupProductGroupDatum
+	var object *DataPlatformProductGroupProductGroupDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductGroupProductGroupDatum.(*DataPlatformProductGroupProductGroupDatum)
+		if !ok {
+			object = new(DataPlatformProductGroupProductGroupDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductGroupProductGroupDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductGroupProductGroupDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductGroupProductGroupDatum.(*[]*DataPlatformProductGroupProductGroupDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductGroupProductGroupDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductGroupProductGroupDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductGroupProductGroupDatumR{}
+		}
+		args = append(args, object.ProductGroup)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductGroupProductGroupDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.ProductGroup) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.ProductGroup)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_invoice_document_item_data`),
+		qm.WhereIn(`data_platform_invoice_document_item_data.ProductGroup in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_invoice_document_item_data")
+	}
+
+	var resultSlice []*DataPlatformInvoiceDocumentItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_invoice_document_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_invoice_document_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_invoice_document_item_data")
+	}
+
+	if singular {
+		object.R.ProductGroupDataPlatformInvoiceDocumentItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.ProductGroup, foreign.ProductGroup) {
+				local.R.ProductGroupDataPlatformInvoiceDocumentItemData = append(local.R.ProductGroupDataPlatformInvoiceDocumentItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
 }
 
 // LoadProductGroupDataPlatformOrdersItemData allows an eager lookup of values, cached into the
@@ -522,6 +764,214 @@ func (dataPlatformProductGroupProductGroupDatumL) LoadProductGroupDataPlatformPu
 				local.R.ProductGroupDataPlatformPurchaseRequisitionItemData = append(local.R.ProductGroupDataPlatformPurchaseRequisitionItemData, foreign)
 				break
 			}
+		}
+	}
+
+	return nil
+}
+
+// AddProductGroupDataPlatformDeliveryDocumentItemData adds the given related objects to the existing relationships
+// of the data_platform_product_group_product_group_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductGroupDataPlatformDeliveryDocumentItemData.
+func (o *DataPlatformProductGroupProductGroupDatum) AddProductGroupDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.ProductGroup, o.ProductGroup)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"ProductGroup"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.ProductGroup, rel.DeliveryDocument, rel.DeliveryDocumentItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.ProductGroup, o.ProductGroup)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductGroupProductGroupDatumR{
+			ProductGroupDataPlatformDeliveryDocumentItemData: related,
+		}
+	} else {
+		o.R.ProductGroupDataPlatformDeliveryDocumentItemData = append(o.R.ProductGroupDataPlatformDeliveryDocumentItemData, related...)
+	}
+
+	return nil
+}
+
+// SetProductGroupDataPlatformDeliveryDocumentItemData removes all previously related items of the
+// data_platform_product_group_product_group_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.ProductGroupDataPlatformProductGroupProductGroupDatum's ProductGroupDataPlatformDeliveryDocumentItemData accordingly.
+// Replaces o.R.ProductGroupDataPlatformDeliveryDocumentItemData with related.
+func (o *DataPlatformProductGroupProductGroupDatum) SetProductGroupDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	query := "update `data_platform_delivery_document_item_data` set `ProductGroup` = null where `ProductGroup` = ?"
+	values := []interface{}{o.ProductGroup}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.ProductGroupDataPlatformDeliveryDocumentItemData = nil
+	}
+
+	return o.AddProductGroupDataPlatformDeliveryDocumentItemData(ctx, exec, insert, related...)
+}
+
+// RemoveProductGroupDataPlatformDeliveryDocumentItemData relationships from objects passed in.
+// Removes related items from R.ProductGroupDataPlatformDeliveryDocumentItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformProductGroupProductGroupDatum) RemoveProductGroupDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.ProductGroup, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("ProductGroup")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.ProductGroupDataPlatformDeliveryDocumentItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.ProductGroupDataPlatformDeliveryDocumentItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.ProductGroupDataPlatformDeliveryDocumentItemData[i] = o.R.ProductGroupDataPlatformDeliveryDocumentItemData[ln-1]
+			}
+			o.R.ProductGroupDataPlatformDeliveryDocumentItemData = o.R.ProductGroupDataPlatformDeliveryDocumentItemData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddProductGroupDataPlatformInvoiceDocumentItemData adds the given related objects to the existing relationships
+// of the data_platform_product_group_product_group_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductGroupDataPlatformInvoiceDocumentItemData.
+func (o *DataPlatformProductGroupProductGroupDatum) AddProductGroupDataPlatformInvoiceDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInvoiceDocumentItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.ProductGroup, o.ProductGroup)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_invoice_document_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"ProductGroup"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInvoiceDocumentItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.ProductGroup, rel.InvoiceDocument, rel.InvoiceDocumentItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.ProductGroup, o.ProductGroup)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductGroupProductGroupDatumR{
+			ProductGroupDataPlatformInvoiceDocumentItemData: related,
+		}
+	} else {
+		o.R.ProductGroupDataPlatformInvoiceDocumentItemData = append(o.R.ProductGroupDataPlatformInvoiceDocumentItemData, related...)
+	}
+
+	return nil
+}
+
+// SetProductGroupDataPlatformInvoiceDocumentItemData removes all previously related items of the
+// data_platform_product_group_product_group_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.ProductGroupDataPlatformProductGroupProductGroupDatum's ProductGroupDataPlatformInvoiceDocumentItemData accordingly.
+// Replaces o.R.ProductGroupDataPlatformInvoiceDocumentItemData with related.
+func (o *DataPlatformProductGroupProductGroupDatum) SetProductGroupDataPlatformInvoiceDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInvoiceDocumentItemDatum) error {
+	query := "update `data_platform_invoice_document_item_data` set `ProductGroup` = null where `ProductGroup` = ?"
+	values := []interface{}{o.ProductGroup}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.ProductGroupDataPlatformInvoiceDocumentItemData = nil
+	}
+
+	return o.AddProductGroupDataPlatformInvoiceDocumentItemData(ctx, exec, insert, related...)
+}
+
+// RemoveProductGroupDataPlatformInvoiceDocumentItemData relationships from objects passed in.
+// Removes related items from R.ProductGroupDataPlatformInvoiceDocumentItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformProductGroupProductGroupDatum) RemoveProductGroupDataPlatformInvoiceDocumentItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformInvoiceDocumentItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.ProductGroup, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("ProductGroup")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.ProductGroupDataPlatformInvoiceDocumentItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.ProductGroupDataPlatformInvoiceDocumentItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.ProductGroupDataPlatformInvoiceDocumentItemData[i] = o.R.ProductGroupDataPlatformInvoiceDocumentItemData[ln-1]
+			}
+			o.R.ProductGroupDataPlatformInvoiceDocumentItemData = o.R.ProductGroupDataPlatformInvoiceDocumentItemData[:ln-1]
+			break
 		}
 	}
 

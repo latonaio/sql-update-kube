@@ -101,15 +101,36 @@ var DataPlatformBusinessPartnerGeneralDocDatumWhere = struct {
 
 // DataPlatformBusinessPartnerGeneralDocDatumRels is where relationship names are stored.
 var DataPlatformBusinessPartnerGeneralDocDatumRels = struct {
-}{}
+	DocTypeDataPlatformDocTypeDocTypeDatum                 string
+	BusinessPartnerDataPlatformBusinessPartnerGeneralDatum string
+}{
+	DocTypeDataPlatformDocTypeDocTypeDatum:                 "DocTypeDataPlatformDocTypeDocTypeDatum",
+	BusinessPartnerDataPlatformBusinessPartnerGeneralDatum: "BusinessPartnerDataPlatformBusinessPartnerGeneralDatum",
+}
 
 // dataPlatformBusinessPartnerGeneralDocDatumR is where relationships are stored.
 type dataPlatformBusinessPartnerGeneralDocDatumR struct {
+	DocTypeDataPlatformDocTypeDocTypeDatum                 *DataPlatformDocTypeDocTypeDatum         `boil:"DocTypeDataPlatformDocTypeDocTypeDatum" json:"DocTypeDataPlatformDocTypeDocTypeDatum" toml:"DocTypeDataPlatformDocTypeDocTypeDatum" yaml:"DocTypeDataPlatformDocTypeDocTypeDatum"`
+	BusinessPartnerDataPlatformBusinessPartnerGeneralDatum *DataPlatformBusinessPartnerGeneralDatum `boil:"BusinessPartnerDataPlatformBusinessPartnerGeneralDatum" json:"BusinessPartnerDataPlatformBusinessPartnerGeneralDatum" toml:"BusinessPartnerDataPlatformBusinessPartnerGeneralDatum" yaml:"BusinessPartnerDataPlatformBusinessPartnerGeneralDatum"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformBusinessPartnerGeneralDocDatumR) NewStruct() *dataPlatformBusinessPartnerGeneralDocDatumR {
 	return &dataPlatformBusinessPartnerGeneralDocDatumR{}
+}
+
+func (r *dataPlatformBusinessPartnerGeneralDocDatumR) GetDocTypeDataPlatformDocTypeDocTypeDatum() *DataPlatformDocTypeDocTypeDatum {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformDocTypeDocTypeDatum
+}
+
+func (r *dataPlatformBusinessPartnerGeneralDocDatumR) GetBusinessPartnerDataPlatformBusinessPartnerGeneralDatum() *DataPlatformBusinessPartnerGeneralDatum {
+	if r == nil {
+		return nil
+	}
+	return r.BusinessPartnerDataPlatformBusinessPartnerGeneralDatum
 }
 
 // dataPlatformBusinessPartnerGeneralDocDatumL is where Load methods for each relationship are stored.
@@ -212,6 +233,312 @@ func (q dataPlatformBusinessPartnerGeneralDocDatumQuery) Exists(ctx context.Cont
 	}
 
 	return count > 0, nil
+}
+
+// DocTypeDataPlatformDocTypeDocTypeDatum pointed to by the foreign key.
+func (o *DataPlatformBusinessPartnerGeneralDocDatum) DocTypeDataPlatformDocTypeDocTypeDatum(mods ...qm.QueryMod) dataPlatformDocTypeDocTypeDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`DocType` = ?", o.DocType),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformDocTypeDocTypeData(queryMods...)
+}
+
+// BusinessPartnerDataPlatformBusinessPartnerGeneralDatum pointed to by the foreign key.
+func (o *DataPlatformBusinessPartnerGeneralDocDatum) BusinessPartnerDataPlatformBusinessPartnerGeneralDatum(mods ...qm.QueryMod) dataPlatformBusinessPartnerGeneralDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`BusinessPartner` = ?", o.BusinessPartner),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformBusinessPartnerGeneralData(queryMods...)
+}
+
+// LoadDocTypeDataPlatformDocTypeDocTypeDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformBusinessPartnerGeneralDocDatumL) LoadDocTypeDataPlatformDocTypeDocTypeDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDocDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDocDatum
+	var object *DataPlatformBusinessPartnerGeneralDocDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDocDatum.(*DataPlatformBusinessPartnerGeneralDocDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDocDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDocDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDocDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDocDatum.(*[]*DataPlatformBusinessPartnerGeneralDocDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDocDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDocDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDocDatumR{}
+		}
+		args = append(args, object.DocType)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDocDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_doc_type_doc_type_data`),
+		qm.WhereIn(`data_platform_doc_type_doc_type_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformDocTypeDocTypeDatum")
+	}
+
+	var resultSlice []*DataPlatformDocTypeDocTypeDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformDocTypeDocTypeDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_doc_type_doc_type_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_doc_type_doc_type_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.DocTypeDataPlatformDocTypeDocTypeDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformDocTypeDocTypeDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadBusinessPartnerDataPlatformBusinessPartnerGeneralDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformBusinessPartnerGeneralDocDatumL) LoadBusinessPartnerDataPlatformBusinessPartnerGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDocDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDocDatum
+	var object *DataPlatformBusinessPartnerGeneralDocDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDocDatum.(*DataPlatformBusinessPartnerGeneralDocDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDocDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDocDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDocDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDocDatum.(*[]*DataPlatformBusinessPartnerGeneralDocDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDocDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDocDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDocDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDocDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_business_partner_general_data`),
+		qm.WhereIn(`data_platform_business_partner_general_data.BusinessPartner in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformBusinessPartnerGeneralDatum")
+	}
+
+	var resultSlice []*DataPlatformBusinessPartnerGeneralDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformBusinessPartnerGeneralDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_business_partner_general_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_business_partner_general_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.BusinessPartnerDataPlatformBusinessPartnerGeneralDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.BusinessPartner == foreign.BusinessPartner {
+				local.R.BusinessPartnerDataPlatformBusinessPartnerGeneralDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// SetDocTypeDataPlatformDocTypeDocTypeDatum of the dataPlatformBusinessPartnerGeneralDocDatum to the related item.
+// Sets o.R.DocTypeDataPlatformDocTypeDocTypeDatum to related.
+func (o *DataPlatformBusinessPartnerGeneralDocDatum) SetDocTypeDataPlatformDocTypeDocTypeDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformDocTypeDocTypeDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_business_partner_general_doc_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformBusinessPartnerGeneralDocDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.DocType, o.BusinessPartner, o.DocType, o.DocVersionID, o.DocID}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.DocType = related.DocType
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDocDatumR{
+			DocTypeDataPlatformDocTypeDocTypeDatum: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformDocTypeDocTypeDatum = related
+	}
+
+	return nil
+}
+
+// SetBusinessPartnerDataPlatformBusinessPartnerGeneralDatum of the dataPlatformBusinessPartnerGeneralDocDatum to the related item.
+// Sets o.R.BusinessPartnerDataPlatformBusinessPartnerGeneralDatum to related.
+func (o *DataPlatformBusinessPartnerGeneralDocDatum) SetBusinessPartnerDataPlatformBusinessPartnerGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformBusinessPartnerGeneralDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_business_partner_general_doc_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"BusinessPartner"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformBusinessPartnerGeneralDocDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.BusinessPartner, o.BusinessPartner, o.DocType, o.DocVersionID, o.DocID}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.BusinessPartner = related.BusinessPartner
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDocDatumR{
+			BusinessPartnerDataPlatformBusinessPartnerGeneralDatum: related,
+		}
+	} else {
+		o.R.BusinessPartnerDataPlatformBusinessPartnerGeneralDatum = related
+	}
+
+	return nil
 }
 
 // DataPlatformBusinessPartnerGeneralDocData retrieves all the records using an executor.

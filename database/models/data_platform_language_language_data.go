@@ -54,26 +54,42 @@ var DataPlatformLanguageLanguageDatumRels = struct {
 	LanguageDataPlatformAllergenAllergenTextData                string
 	LanguageDataPlatformBusinessPartnerGeneralData              string
 	LanguageDataPlatformCountryCountryTextData                  string
+	CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData string
+	LanguageDataPlatformDeliveryDocumentPartnerData             string
 	LanguageDataPlatformDivisionDivisionTextData                string
 	LanguageDataPlatformIndustryIndustryTextData                string
+	CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData  string
+	LanguageDataPlatformInvoiceDocumentPartnerData              string
 	LanguageDataPlatformLanguageLanguageTextData                string
 	CountryOfOriginLanguageDataPlatformOrdersItemData           string
+	LanguageDataPlatformOrdersPartnerData                       string
 	LanguageDataPlatformPartnerFunctionPartnerFunctionTextData  string
 	LanguageDataPlatformPlantGeneralData                        string
 	CountryOfOriginLanguageDataPlatformProductMasterGeneralData string
 	LanguageDataPlatformProductMasterProductDescriptionData     string
+	LanguageDataPlatformProductionOrderPartnerData              string
+	LanguageDataPlatformQuotationsPartnerData                   string
+	LanguageDataPlatformSpecTypeSpecTypeTextData                string
 }{
 	LanguageDataPlatformAllergenAllergenTextData:                "LanguageDataPlatformAllergenAllergenTextData",
 	LanguageDataPlatformBusinessPartnerGeneralData:              "LanguageDataPlatformBusinessPartnerGeneralData",
 	LanguageDataPlatformCountryCountryTextData:                  "LanguageDataPlatformCountryCountryTextData",
+	CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData: "CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData",
+	LanguageDataPlatformDeliveryDocumentPartnerData:             "LanguageDataPlatformDeliveryDocumentPartnerData",
 	LanguageDataPlatformDivisionDivisionTextData:                "LanguageDataPlatformDivisionDivisionTextData",
 	LanguageDataPlatformIndustryIndustryTextData:                "LanguageDataPlatformIndustryIndustryTextData",
+	CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData:  "CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData",
+	LanguageDataPlatformInvoiceDocumentPartnerData:              "LanguageDataPlatformInvoiceDocumentPartnerData",
 	LanguageDataPlatformLanguageLanguageTextData:                "LanguageDataPlatformLanguageLanguageTextData",
 	CountryOfOriginLanguageDataPlatformOrdersItemData:           "CountryOfOriginLanguageDataPlatformOrdersItemData",
+	LanguageDataPlatformOrdersPartnerData:                       "LanguageDataPlatformOrdersPartnerData",
 	LanguageDataPlatformPartnerFunctionPartnerFunctionTextData:  "LanguageDataPlatformPartnerFunctionPartnerFunctionTextData",
 	LanguageDataPlatformPlantGeneralData:                        "LanguageDataPlatformPlantGeneralData",
 	CountryOfOriginLanguageDataPlatformProductMasterGeneralData: "CountryOfOriginLanguageDataPlatformProductMasterGeneralData",
 	LanguageDataPlatformProductMasterProductDescriptionData:     "LanguageDataPlatformProductMasterProductDescriptionData",
+	LanguageDataPlatformProductionOrderPartnerData:              "LanguageDataPlatformProductionOrderPartnerData",
+	LanguageDataPlatformQuotationsPartnerData:                   "LanguageDataPlatformQuotationsPartnerData",
+	LanguageDataPlatformSpecTypeSpecTypeTextData:                "LanguageDataPlatformSpecTypeSpecTypeTextData",
 }
 
 // dataPlatformLanguageLanguageDatumR is where relationships are stored.
@@ -81,14 +97,22 @@ type dataPlatformLanguageLanguageDatumR struct {
 	LanguageDataPlatformAllergenAllergenTextData                DataPlatformAllergenAllergenTextDatumSlice               `boil:"LanguageDataPlatformAllergenAllergenTextData" json:"LanguageDataPlatformAllergenAllergenTextData" toml:"LanguageDataPlatformAllergenAllergenTextData" yaml:"LanguageDataPlatformAllergenAllergenTextData"`
 	LanguageDataPlatformBusinessPartnerGeneralData              DataPlatformBusinessPartnerGeneralDatumSlice             `boil:"LanguageDataPlatformBusinessPartnerGeneralData" json:"LanguageDataPlatformBusinessPartnerGeneralData" toml:"LanguageDataPlatformBusinessPartnerGeneralData" yaml:"LanguageDataPlatformBusinessPartnerGeneralData"`
 	LanguageDataPlatformCountryCountryTextData                  DataPlatformCountryCountryTextDatumSlice                 `boil:"LanguageDataPlatformCountryCountryTextData" json:"LanguageDataPlatformCountryCountryTextData" toml:"LanguageDataPlatformCountryCountryTextData" yaml:"LanguageDataPlatformCountryCountryTextData"`
+	CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData DataPlatformDeliveryDocumentItemDatumSlice               `boil:"CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData" json:"CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData" toml:"CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData" yaml:"CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData"`
+	LanguageDataPlatformDeliveryDocumentPartnerData             DataPlatformDeliveryDocumentPartnerDatumSlice            `boil:"LanguageDataPlatformDeliveryDocumentPartnerData" json:"LanguageDataPlatformDeliveryDocumentPartnerData" toml:"LanguageDataPlatformDeliveryDocumentPartnerData" yaml:"LanguageDataPlatformDeliveryDocumentPartnerData"`
 	LanguageDataPlatformDivisionDivisionTextData                DataPlatformDivisionDivisionTextDatumSlice               `boil:"LanguageDataPlatformDivisionDivisionTextData" json:"LanguageDataPlatformDivisionDivisionTextData" toml:"LanguageDataPlatformDivisionDivisionTextData" yaml:"LanguageDataPlatformDivisionDivisionTextData"`
 	LanguageDataPlatformIndustryIndustryTextData                DataPlatformIndustryIndustryTextDatumSlice               `boil:"LanguageDataPlatformIndustryIndustryTextData" json:"LanguageDataPlatformIndustryIndustryTextData" toml:"LanguageDataPlatformIndustryIndustryTextData" yaml:"LanguageDataPlatformIndustryIndustryTextData"`
+	CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData  DataPlatformInvoiceDocumentItemDatumSlice                `boil:"CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData" json:"CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData" toml:"CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData" yaml:"CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData"`
+	LanguageDataPlatformInvoiceDocumentPartnerData              DataPlatformInvoiceDocumentPartnerDatumSlice             `boil:"LanguageDataPlatformInvoiceDocumentPartnerData" json:"LanguageDataPlatformInvoiceDocumentPartnerData" toml:"LanguageDataPlatformInvoiceDocumentPartnerData" yaml:"LanguageDataPlatformInvoiceDocumentPartnerData"`
 	LanguageDataPlatformLanguageLanguageTextData                DataPlatformLanguageLanguageTextDatumSlice               `boil:"LanguageDataPlatformLanguageLanguageTextData" json:"LanguageDataPlatformLanguageLanguageTextData" toml:"LanguageDataPlatformLanguageLanguageTextData" yaml:"LanguageDataPlatformLanguageLanguageTextData"`
 	CountryOfOriginLanguageDataPlatformOrdersItemData           DataPlatformOrdersItemDatumSlice                         `boil:"CountryOfOriginLanguageDataPlatformOrdersItemData" json:"CountryOfOriginLanguageDataPlatformOrdersItemData" toml:"CountryOfOriginLanguageDataPlatformOrdersItemData" yaml:"CountryOfOriginLanguageDataPlatformOrdersItemData"`
+	LanguageDataPlatformOrdersPartnerData                       DataPlatformOrdersPartnerDatumSlice                      `boil:"LanguageDataPlatformOrdersPartnerData" json:"LanguageDataPlatformOrdersPartnerData" toml:"LanguageDataPlatformOrdersPartnerData" yaml:"LanguageDataPlatformOrdersPartnerData"`
 	LanguageDataPlatformPartnerFunctionPartnerFunctionTextData  DataPlatformPartnerFunctionPartnerFunctionTextDatumSlice `boil:"LanguageDataPlatformPartnerFunctionPartnerFunctionTextData" json:"LanguageDataPlatformPartnerFunctionPartnerFunctionTextData" toml:"LanguageDataPlatformPartnerFunctionPartnerFunctionTextData" yaml:"LanguageDataPlatformPartnerFunctionPartnerFunctionTextData"`
 	LanguageDataPlatformPlantGeneralData                        DataPlatformPlantGeneralDatumSlice                       `boil:"LanguageDataPlatformPlantGeneralData" json:"LanguageDataPlatformPlantGeneralData" toml:"LanguageDataPlatformPlantGeneralData" yaml:"LanguageDataPlatformPlantGeneralData"`
 	CountryOfOriginLanguageDataPlatformProductMasterGeneralData DataPlatformProductMasterGeneralDatumSlice               `boil:"CountryOfOriginLanguageDataPlatformProductMasterGeneralData" json:"CountryOfOriginLanguageDataPlatformProductMasterGeneralData" toml:"CountryOfOriginLanguageDataPlatformProductMasterGeneralData" yaml:"CountryOfOriginLanguageDataPlatformProductMasterGeneralData"`
 	LanguageDataPlatformProductMasterProductDescriptionData     DataPlatformProductMasterProductDescriptionDatumSlice    `boil:"LanguageDataPlatformProductMasterProductDescriptionData" json:"LanguageDataPlatformProductMasterProductDescriptionData" toml:"LanguageDataPlatformProductMasterProductDescriptionData" yaml:"LanguageDataPlatformProductMasterProductDescriptionData"`
+	LanguageDataPlatformProductionOrderPartnerData              DataPlatformProductionOrderPartnerDatumSlice             `boil:"LanguageDataPlatformProductionOrderPartnerData" json:"LanguageDataPlatformProductionOrderPartnerData" toml:"LanguageDataPlatformProductionOrderPartnerData" yaml:"LanguageDataPlatformProductionOrderPartnerData"`
+	LanguageDataPlatformQuotationsPartnerData                   DataPlatformQuotationsPartnerDatumSlice                  `boil:"LanguageDataPlatformQuotationsPartnerData" json:"LanguageDataPlatformQuotationsPartnerData" toml:"LanguageDataPlatformQuotationsPartnerData" yaml:"LanguageDataPlatformQuotationsPartnerData"`
+	LanguageDataPlatformSpecTypeSpecTypeTextData                DataPlatformSpecTypeSpecTypeTextDatumSlice               `boil:"LanguageDataPlatformSpecTypeSpecTypeTextData" json:"LanguageDataPlatformSpecTypeSpecTypeTextData" toml:"LanguageDataPlatformSpecTypeSpecTypeTextData" yaml:"LanguageDataPlatformSpecTypeSpecTypeTextData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -117,6 +141,20 @@ func (r *dataPlatformLanguageLanguageDatumR) GetLanguageDataPlatformCountryCount
 	return r.LanguageDataPlatformCountryCountryTextData
 }
 
+func (r *dataPlatformLanguageLanguageDatumR) GetCountryOfOriginLanguageDataPlatformDeliveryDocumentItemData() DataPlatformDeliveryDocumentItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData
+}
+
+func (r *dataPlatformLanguageLanguageDatumR) GetLanguageDataPlatformDeliveryDocumentPartnerData() DataPlatformDeliveryDocumentPartnerDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.LanguageDataPlatformDeliveryDocumentPartnerData
+}
+
 func (r *dataPlatformLanguageLanguageDatumR) GetLanguageDataPlatformDivisionDivisionTextData() DataPlatformDivisionDivisionTextDatumSlice {
 	if r == nil {
 		return nil
@@ -131,6 +169,20 @@ func (r *dataPlatformLanguageLanguageDatumR) GetLanguageDataPlatformIndustryIndu
 	return r.LanguageDataPlatformIndustryIndustryTextData
 }
 
+func (r *dataPlatformLanguageLanguageDatumR) GetCountryOfOriginLanguageDataPlatformInvoiceDocumentItemData() DataPlatformInvoiceDocumentItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData
+}
+
+func (r *dataPlatformLanguageLanguageDatumR) GetLanguageDataPlatformInvoiceDocumentPartnerData() DataPlatformInvoiceDocumentPartnerDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.LanguageDataPlatformInvoiceDocumentPartnerData
+}
+
 func (r *dataPlatformLanguageLanguageDatumR) GetLanguageDataPlatformLanguageLanguageTextData() DataPlatformLanguageLanguageTextDatumSlice {
 	if r == nil {
 		return nil
@@ -143,6 +195,13 @@ func (r *dataPlatformLanguageLanguageDatumR) GetCountryOfOriginLanguageDataPlatf
 		return nil
 	}
 	return r.CountryOfOriginLanguageDataPlatformOrdersItemData
+}
+
+func (r *dataPlatformLanguageLanguageDatumR) GetLanguageDataPlatformOrdersPartnerData() DataPlatformOrdersPartnerDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.LanguageDataPlatformOrdersPartnerData
 }
 
 func (r *dataPlatformLanguageLanguageDatumR) GetLanguageDataPlatformPartnerFunctionPartnerFunctionTextData() DataPlatformPartnerFunctionPartnerFunctionTextDatumSlice {
@@ -171,6 +230,27 @@ func (r *dataPlatformLanguageLanguageDatumR) GetLanguageDataPlatformProductMaste
 		return nil
 	}
 	return r.LanguageDataPlatformProductMasterProductDescriptionData
+}
+
+func (r *dataPlatformLanguageLanguageDatumR) GetLanguageDataPlatformProductionOrderPartnerData() DataPlatformProductionOrderPartnerDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.LanguageDataPlatformProductionOrderPartnerData
+}
+
+func (r *dataPlatformLanguageLanguageDatumR) GetLanguageDataPlatformQuotationsPartnerData() DataPlatformQuotationsPartnerDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.LanguageDataPlatformQuotationsPartnerData
+}
+
+func (r *dataPlatformLanguageLanguageDatumR) GetLanguageDataPlatformSpecTypeSpecTypeTextData() DataPlatformSpecTypeSpecTypeTextDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.LanguageDataPlatformSpecTypeSpecTypeTextData
 }
 
 // dataPlatformLanguageLanguageDatumL is where Load methods for each relationship are stored.
@@ -317,6 +397,34 @@ func (o *DataPlatformLanguageLanguageDatum) LanguageDataPlatformCountryCountryTe
 	return DataPlatformCountryCountryTextData(queryMods...)
 }
 
+// CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData retrieves all the data_platform_delivery_document_item_datum's DataPlatformDeliveryDocumentItemData with an executor via CountryOfOriginLanguage column.
+func (o *DataPlatformLanguageLanguageDatum) CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_item_data`.`CountryOfOriginLanguage`=?", o.Language),
+	)
+
+	return DataPlatformDeliveryDocumentItemData(queryMods...)
+}
+
+// LanguageDataPlatformDeliveryDocumentPartnerData retrieves all the data_platform_delivery_document_partner_datum's DataPlatformDeliveryDocumentPartnerData with an executor via Language column.
+func (o *DataPlatformLanguageLanguageDatum) LanguageDataPlatformDeliveryDocumentPartnerData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentPartnerDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_partner_data`.`Language`=?", o.Language),
+	)
+
+	return DataPlatformDeliveryDocumentPartnerData(queryMods...)
+}
+
 // LanguageDataPlatformDivisionDivisionTextData retrieves all the data_platform_division_division_text_datum's DataPlatformDivisionDivisionTextData with an executor via Language column.
 func (o *DataPlatformLanguageLanguageDatum) LanguageDataPlatformDivisionDivisionTextData(mods ...qm.QueryMod) dataPlatformDivisionDivisionTextDatumQuery {
 	var queryMods []qm.QueryMod
@@ -345,6 +453,34 @@ func (o *DataPlatformLanguageLanguageDatum) LanguageDataPlatformIndustryIndustry
 	return DataPlatformIndustryIndustryTextData(queryMods...)
 }
 
+// CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData retrieves all the data_platform_invoice_document_item_datum's DataPlatformInvoiceDocumentItemData with an executor via CountryOfOriginLanguage column.
+func (o *DataPlatformLanguageLanguageDatum) CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData(mods ...qm.QueryMod) dataPlatformInvoiceDocumentItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_invoice_document_item_data`.`CountryOfOriginLanguage`=?", o.Language),
+	)
+
+	return DataPlatformInvoiceDocumentItemData(queryMods...)
+}
+
+// LanguageDataPlatformInvoiceDocumentPartnerData retrieves all the data_platform_invoice_document_partner_datum's DataPlatformInvoiceDocumentPartnerData with an executor via Language column.
+func (o *DataPlatformLanguageLanguageDatum) LanguageDataPlatformInvoiceDocumentPartnerData(mods ...qm.QueryMod) dataPlatformInvoiceDocumentPartnerDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_invoice_document_partner_data`.`Language`=?", o.Language),
+	)
+
+	return DataPlatformInvoiceDocumentPartnerData(queryMods...)
+}
+
 // LanguageDataPlatformLanguageLanguageTextData retrieves all the data_platform_language_language_text_datum's DataPlatformLanguageLanguageTextData with an executor via Language column.
 func (o *DataPlatformLanguageLanguageDatum) LanguageDataPlatformLanguageLanguageTextData(mods ...qm.QueryMod) dataPlatformLanguageLanguageTextDatumQuery {
 	var queryMods []qm.QueryMod
@@ -371,6 +507,20 @@ func (o *DataPlatformLanguageLanguageDatum) CountryOfOriginLanguageDataPlatformO
 	)
 
 	return DataPlatformOrdersItemData(queryMods...)
+}
+
+// LanguageDataPlatformOrdersPartnerData retrieves all the data_platform_orders_partner_datum's DataPlatformOrdersPartnerData with an executor via Language column.
+func (o *DataPlatformLanguageLanguageDatum) LanguageDataPlatformOrdersPartnerData(mods ...qm.QueryMod) dataPlatformOrdersPartnerDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_orders_partner_data`.`Language`=?", o.Language),
+	)
+
+	return DataPlatformOrdersPartnerData(queryMods...)
 }
 
 // LanguageDataPlatformPartnerFunctionPartnerFunctionTextData retrieves all the data_platform_partner_function_partner_function_text_datum's DataPlatformPartnerFunctionPartnerFunctionTextData with an executor via Language column.
@@ -427,6 +577,48 @@ func (o *DataPlatformLanguageLanguageDatum) LanguageDataPlatformProductMasterPro
 	)
 
 	return DataPlatformProductMasterProductDescriptionData(queryMods...)
+}
+
+// LanguageDataPlatformProductionOrderPartnerData retrieves all the data_platform_production_order_partner_datum's DataPlatformProductionOrderPartnerData with an executor via Language column.
+func (o *DataPlatformLanguageLanguageDatum) LanguageDataPlatformProductionOrderPartnerData(mods ...qm.QueryMod) dataPlatformProductionOrderPartnerDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_production_order_partner_data`.`Language`=?", o.Language),
+	)
+
+	return DataPlatformProductionOrderPartnerData(queryMods...)
+}
+
+// LanguageDataPlatformQuotationsPartnerData retrieves all the data_platform_quotations_partner_datum's DataPlatformQuotationsPartnerData with an executor via Language column.
+func (o *DataPlatformLanguageLanguageDatum) LanguageDataPlatformQuotationsPartnerData(mods ...qm.QueryMod) dataPlatformQuotationsPartnerDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_quotations_partner_data`.`Language`=?", o.Language),
+	)
+
+	return DataPlatformQuotationsPartnerData(queryMods...)
+}
+
+// LanguageDataPlatformSpecTypeSpecTypeTextData retrieves all the data_platform_spec_type_spec_type_text_datum's DataPlatformSpecTypeSpecTypeTextData with an executor via Language column.
+func (o *DataPlatformLanguageLanguageDatum) LanguageDataPlatformSpecTypeSpecTypeTextData(mods ...qm.QueryMod) dataPlatformSpecTypeSpecTypeTextDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_spec_type_spec_type_text_data`.`Language`=?", o.Language),
+	)
+
+	return DataPlatformSpecTypeSpecTypeTextData(queryMods...)
 }
 
 // LoadLanguageDataPlatformAllergenAllergenTextData allows an eager lookup of values, cached into the
@@ -720,6 +912,200 @@ func (dataPlatformLanguageLanguageDatumL) LoadLanguageDataPlatformCountryCountry
 	return nil
 }
 
+// LoadCountryOfOriginLanguageDataPlatformDeliveryDocumentItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformLanguageLanguageDatumL) LoadCountryOfOriginLanguageDataPlatformDeliveryDocumentItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformLanguageLanguageDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformLanguageLanguageDatum
+	var object *DataPlatformLanguageLanguageDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformLanguageLanguageDatum.(*DataPlatformLanguageLanguageDatum)
+		if !ok {
+			object = new(DataPlatformLanguageLanguageDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformLanguageLanguageDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformLanguageLanguageDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformLanguageLanguageDatum.(*[]*DataPlatformLanguageLanguageDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformLanguageLanguageDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformLanguageLanguageDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformLanguageLanguageDatumR{}
+		}
+		args = append(args, object.Language)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformLanguageLanguageDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Language) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Language)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_item_data`),
+		qm.WhereIn(`data_platform_delivery_document_item_data.CountryOfOriginLanguage in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_item_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_item_data")
+	}
+
+	if singular {
+		object.R.CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Language, foreign.CountryOfOriginLanguage) {
+				local.R.CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData = append(local.R.CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadLanguageDataPlatformDeliveryDocumentPartnerData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformLanguageLanguageDatumL) LoadLanguageDataPlatformDeliveryDocumentPartnerData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformLanguageLanguageDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformLanguageLanguageDatum
+	var object *DataPlatformLanguageLanguageDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformLanguageLanguageDatum.(*DataPlatformLanguageLanguageDatum)
+		if !ok {
+			object = new(DataPlatformLanguageLanguageDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformLanguageLanguageDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformLanguageLanguageDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformLanguageLanguageDatum.(*[]*DataPlatformLanguageLanguageDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformLanguageLanguageDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformLanguageLanguageDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformLanguageLanguageDatumR{}
+		}
+		args = append(args, object.Language)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformLanguageLanguageDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Language) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Language)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_partner_data`),
+		qm.WhereIn(`data_platform_delivery_document_partner_data.Language in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_partner_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentPartnerDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_partner_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_partner_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_partner_data")
+	}
+
+	if singular {
+		object.R.LanguageDataPlatformDeliveryDocumentPartnerData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Language, foreign.Language) {
+				local.R.LanguageDataPlatformDeliveryDocumentPartnerData = append(local.R.LanguageDataPlatformDeliveryDocumentPartnerData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // LoadLanguageDataPlatformDivisionDivisionTextData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
 func (dataPlatformLanguageLanguageDatumL) LoadLanguageDataPlatformDivisionDivisionTextData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformLanguageLanguageDatum interface{}, mods queries.Applicator) error {
@@ -914,6 +1300,200 @@ func (dataPlatformLanguageLanguageDatumL) LoadLanguageDataPlatformIndustryIndust
 	return nil
 }
 
+// LoadCountryOfOriginLanguageDataPlatformInvoiceDocumentItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformLanguageLanguageDatumL) LoadCountryOfOriginLanguageDataPlatformInvoiceDocumentItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformLanguageLanguageDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformLanguageLanguageDatum
+	var object *DataPlatformLanguageLanguageDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformLanguageLanguageDatum.(*DataPlatformLanguageLanguageDatum)
+		if !ok {
+			object = new(DataPlatformLanguageLanguageDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformLanguageLanguageDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformLanguageLanguageDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformLanguageLanguageDatum.(*[]*DataPlatformLanguageLanguageDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformLanguageLanguageDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformLanguageLanguageDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformLanguageLanguageDatumR{}
+		}
+		args = append(args, object.Language)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformLanguageLanguageDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Language) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Language)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_invoice_document_item_data`),
+		qm.WhereIn(`data_platform_invoice_document_item_data.CountryOfOriginLanguage in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_invoice_document_item_data")
+	}
+
+	var resultSlice []*DataPlatformInvoiceDocumentItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_invoice_document_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_invoice_document_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_invoice_document_item_data")
+	}
+
+	if singular {
+		object.R.CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Language, foreign.CountryOfOriginLanguage) {
+				local.R.CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData = append(local.R.CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadLanguageDataPlatformInvoiceDocumentPartnerData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformLanguageLanguageDatumL) LoadLanguageDataPlatformInvoiceDocumentPartnerData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformLanguageLanguageDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformLanguageLanguageDatum
+	var object *DataPlatformLanguageLanguageDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformLanguageLanguageDatum.(*DataPlatformLanguageLanguageDatum)
+		if !ok {
+			object = new(DataPlatformLanguageLanguageDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformLanguageLanguageDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformLanguageLanguageDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformLanguageLanguageDatum.(*[]*DataPlatformLanguageLanguageDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformLanguageLanguageDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformLanguageLanguageDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformLanguageLanguageDatumR{}
+		}
+		args = append(args, object.Language)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformLanguageLanguageDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Language) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Language)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_invoice_document_partner_data`),
+		qm.WhereIn(`data_platform_invoice_document_partner_data.Language in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_invoice_document_partner_data")
+	}
+
+	var resultSlice []*DataPlatformInvoiceDocumentPartnerDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_invoice_document_partner_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_invoice_document_partner_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_invoice_document_partner_data")
+	}
+
+	if singular {
+		object.R.LanguageDataPlatformInvoiceDocumentPartnerData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Language, foreign.Language) {
+				local.R.LanguageDataPlatformInvoiceDocumentPartnerData = append(local.R.LanguageDataPlatformInvoiceDocumentPartnerData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // LoadLanguageDataPlatformLanguageLanguageTextData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
 func (dataPlatformLanguageLanguageDatumL) LoadLanguageDataPlatformLanguageLanguageTextData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformLanguageLanguageDatum interface{}, mods queries.Applicator) error {
@@ -1100,6 +1680,103 @@ func (dataPlatformLanguageLanguageDatumL) LoadCountryOfOriginLanguageDataPlatfor
 		for _, local := range slice {
 			if queries.Equal(local.Language, foreign.CountryOfOriginLanguage) {
 				local.R.CountryOfOriginLanguageDataPlatformOrdersItemData = append(local.R.CountryOfOriginLanguageDataPlatformOrdersItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadLanguageDataPlatformOrdersPartnerData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformLanguageLanguageDatumL) LoadLanguageDataPlatformOrdersPartnerData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformLanguageLanguageDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformLanguageLanguageDatum
+	var object *DataPlatformLanguageLanguageDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformLanguageLanguageDatum.(*DataPlatformLanguageLanguageDatum)
+		if !ok {
+			object = new(DataPlatformLanguageLanguageDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformLanguageLanguageDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformLanguageLanguageDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformLanguageLanguageDatum.(*[]*DataPlatformLanguageLanguageDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformLanguageLanguageDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformLanguageLanguageDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformLanguageLanguageDatumR{}
+		}
+		args = append(args, object.Language)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformLanguageLanguageDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Language) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Language)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_orders_partner_data`),
+		qm.WhereIn(`data_platform_orders_partner_data.Language in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_orders_partner_data")
+	}
+
+	var resultSlice []*DataPlatformOrdersPartnerDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_partner_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_partner_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_partner_data")
+	}
+
+	if singular {
+		object.R.LanguageDataPlatformOrdersPartnerData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Language, foreign.Language) {
+				local.R.LanguageDataPlatformOrdersPartnerData = append(local.R.LanguageDataPlatformOrdersPartnerData, foreign)
 				break
 			}
 		}
@@ -1496,6 +2173,297 @@ func (dataPlatformLanguageLanguageDatumL) LoadLanguageDataPlatformProductMasterP
 	return nil
 }
 
+// LoadLanguageDataPlatformProductionOrderPartnerData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformLanguageLanguageDatumL) LoadLanguageDataPlatformProductionOrderPartnerData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformLanguageLanguageDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformLanguageLanguageDatum
+	var object *DataPlatformLanguageLanguageDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformLanguageLanguageDatum.(*DataPlatformLanguageLanguageDatum)
+		if !ok {
+			object = new(DataPlatformLanguageLanguageDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformLanguageLanguageDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformLanguageLanguageDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformLanguageLanguageDatum.(*[]*DataPlatformLanguageLanguageDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformLanguageLanguageDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformLanguageLanguageDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformLanguageLanguageDatumR{}
+		}
+		args = append(args, object.Language)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformLanguageLanguageDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Language) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Language)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_production_order_partner_data`),
+		qm.WhereIn(`data_platform_production_order_partner_data.Language in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_production_order_partner_data")
+	}
+
+	var resultSlice []*DataPlatformProductionOrderPartnerDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_production_order_partner_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_production_order_partner_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_production_order_partner_data")
+	}
+
+	if singular {
+		object.R.LanguageDataPlatformProductionOrderPartnerData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Language, foreign.Language) {
+				local.R.LanguageDataPlatformProductionOrderPartnerData = append(local.R.LanguageDataPlatformProductionOrderPartnerData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadLanguageDataPlatformQuotationsPartnerData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformLanguageLanguageDatumL) LoadLanguageDataPlatformQuotationsPartnerData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformLanguageLanguageDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformLanguageLanguageDatum
+	var object *DataPlatformLanguageLanguageDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformLanguageLanguageDatum.(*DataPlatformLanguageLanguageDatum)
+		if !ok {
+			object = new(DataPlatformLanguageLanguageDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformLanguageLanguageDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformLanguageLanguageDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformLanguageLanguageDatum.(*[]*DataPlatformLanguageLanguageDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformLanguageLanguageDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformLanguageLanguageDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformLanguageLanguageDatumR{}
+		}
+		args = append(args, object.Language)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformLanguageLanguageDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Language) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Language)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_quotations_partner_data`),
+		qm.WhereIn(`data_platform_quotations_partner_data.Language in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_quotations_partner_data")
+	}
+
+	var resultSlice []*DataPlatformQuotationsPartnerDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_quotations_partner_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_quotations_partner_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_quotations_partner_data")
+	}
+
+	if singular {
+		object.R.LanguageDataPlatformQuotationsPartnerData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Language, foreign.Language) {
+				local.R.LanguageDataPlatformQuotationsPartnerData = append(local.R.LanguageDataPlatformQuotationsPartnerData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadLanguageDataPlatformSpecTypeSpecTypeTextData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformLanguageLanguageDatumL) LoadLanguageDataPlatformSpecTypeSpecTypeTextData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformLanguageLanguageDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformLanguageLanguageDatum
+	var object *DataPlatformLanguageLanguageDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformLanguageLanguageDatum.(*DataPlatformLanguageLanguageDatum)
+		if !ok {
+			object = new(DataPlatformLanguageLanguageDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformLanguageLanguageDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformLanguageLanguageDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformLanguageLanguageDatum.(*[]*DataPlatformLanguageLanguageDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformLanguageLanguageDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformLanguageLanguageDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformLanguageLanguageDatumR{}
+		}
+		args = append(args, object.Language)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformLanguageLanguageDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Language {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Language)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_spec_type_spec_type_text_data`),
+		qm.WhereIn(`data_platform_spec_type_spec_type_text_data.Language in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_spec_type_spec_type_text_data")
+	}
+
+	var resultSlice []*DataPlatformSpecTypeSpecTypeTextDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_spec_type_spec_type_text_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_spec_type_spec_type_text_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_spec_type_spec_type_text_data")
+	}
+
+	if singular {
+		object.R.LanguageDataPlatformSpecTypeSpecTypeTextData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Language == foreign.Language {
+				local.R.LanguageDataPlatformSpecTypeSpecTypeTextData = append(local.R.LanguageDataPlatformSpecTypeSpecTypeTextData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // AddLanguageDataPlatformAllergenAllergenTextData adds the given related objects to the existing relationships
 // of the data_platform_language_language_datum, optionally inserting them as new records.
 // Appends related to o.R.LanguageDataPlatformAllergenAllergenTextData.
@@ -1625,6 +2593,214 @@ func (o *DataPlatformLanguageLanguageDatum) AddLanguageDataPlatformCountryCountr
 	return nil
 }
 
+// AddCountryOfOriginLanguageDataPlatformDeliveryDocumentItemData adds the given related objects to the existing relationships
+// of the data_platform_language_language_datum, optionally inserting them as new records.
+// Appends related to o.R.CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData.
+func (o *DataPlatformLanguageLanguageDatum) AddCountryOfOriginLanguageDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.CountryOfOriginLanguage, o.Language)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"CountryOfOriginLanguage"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Language, rel.DeliveryDocument, rel.DeliveryDocumentItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.CountryOfOriginLanguage, o.Language)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformLanguageLanguageDatumR{
+			CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData: related,
+		}
+	} else {
+		o.R.CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData = append(o.R.CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData, related...)
+	}
+
+	return nil
+}
+
+// SetCountryOfOriginLanguageDataPlatformDeliveryDocumentItemData removes all previously related items of the
+// data_platform_language_language_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.CountryOfOriginLanguageDataPlatformLanguageLanguageDatum's CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData accordingly.
+// Replaces o.R.CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData with related.
+func (o *DataPlatformLanguageLanguageDatum) SetCountryOfOriginLanguageDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	query := "update `data_platform_delivery_document_item_data` set `CountryOfOriginLanguage` = null where `CountryOfOriginLanguage` = ?"
+	values := []interface{}{o.Language}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData = nil
+	}
+
+	return o.AddCountryOfOriginLanguageDataPlatformDeliveryDocumentItemData(ctx, exec, insert, related...)
+}
+
+// RemoveCountryOfOriginLanguageDataPlatformDeliveryDocumentItemData relationships from objects passed in.
+// Removes related items from R.CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformLanguageLanguageDatum) RemoveCountryOfOriginLanguageDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.CountryOfOriginLanguage, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("CountryOfOriginLanguage")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData[i] = o.R.CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData[ln-1]
+			}
+			o.R.CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData = o.R.CountryOfOriginLanguageDataPlatformDeliveryDocumentItemData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddLanguageDataPlatformDeliveryDocumentPartnerData adds the given related objects to the existing relationships
+// of the data_platform_language_language_datum, optionally inserting them as new records.
+// Appends related to o.R.LanguageDataPlatformDeliveryDocumentPartnerData.
+func (o *DataPlatformLanguageLanguageDatum) AddLanguageDataPlatformDeliveryDocumentPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentPartnerDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Language, o.Language)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_partner_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Language"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentPartnerDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Language, rel.DeliveryDocument, rel.PartnerFunction, rel.BusinessPartner}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Language, o.Language)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformLanguageLanguageDatumR{
+			LanguageDataPlatformDeliveryDocumentPartnerData: related,
+		}
+	} else {
+		o.R.LanguageDataPlatformDeliveryDocumentPartnerData = append(o.R.LanguageDataPlatformDeliveryDocumentPartnerData, related...)
+	}
+
+	return nil
+}
+
+// SetLanguageDataPlatformDeliveryDocumentPartnerData removes all previously related items of the
+// data_platform_language_language_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.LanguageDataPlatformLanguageLanguageDatum's LanguageDataPlatformDeliveryDocumentPartnerData accordingly.
+// Replaces o.R.LanguageDataPlatformDeliveryDocumentPartnerData with related.
+func (o *DataPlatformLanguageLanguageDatum) SetLanguageDataPlatformDeliveryDocumentPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentPartnerDatum) error {
+	query := "update `data_platform_delivery_document_partner_data` set `Language` = null where `Language` = ?"
+	values := []interface{}{o.Language}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.LanguageDataPlatformDeliveryDocumentPartnerData = nil
+	}
+
+	return o.AddLanguageDataPlatformDeliveryDocumentPartnerData(ctx, exec, insert, related...)
+}
+
+// RemoveLanguageDataPlatformDeliveryDocumentPartnerData relationships from objects passed in.
+// Removes related items from R.LanguageDataPlatformDeliveryDocumentPartnerData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformLanguageLanguageDatum) RemoveLanguageDataPlatformDeliveryDocumentPartnerData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentPartnerDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Language, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Language")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.LanguageDataPlatformDeliveryDocumentPartnerData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.LanguageDataPlatformDeliveryDocumentPartnerData)
+			if ln > 1 && i < ln-1 {
+				o.R.LanguageDataPlatformDeliveryDocumentPartnerData[i] = o.R.LanguageDataPlatformDeliveryDocumentPartnerData[ln-1]
+			}
+			o.R.LanguageDataPlatformDeliveryDocumentPartnerData = o.R.LanguageDataPlatformDeliveryDocumentPartnerData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
 // AddLanguageDataPlatformDivisionDivisionTextData adds the given related objects to the existing relationships
 // of the data_platform_language_language_datum, optionally inserting them as new records.
 // Appends related to o.R.LanguageDataPlatformDivisionDivisionTextData.
@@ -1706,6 +2882,214 @@ func (o *DataPlatformLanguageLanguageDatum) AddLanguageDataPlatformIndustryIndus
 		}
 	} else {
 		o.R.LanguageDataPlatformIndustryIndustryTextData = append(o.R.LanguageDataPlatformIndustryIndustryTextData, related...)
+	}
+
+	return nil
+}
+
+// AddCountryOfOriginLanguageDataPlatformInvoiceDocumentItemData adds the given related objects to the existing relationships
+// of the data_platform_language_language_datum, optionally inserting them as new records.
+// Appends related to o.R.CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData.
+func (o *DataPlatformLanguageLanguageDatum) AddCountryOfOriginLanguageDataPlatformInvoiceDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInvoiceDocumentItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.CountryOfOriginLanguage, o.Language)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_invoice_document_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"CountryOfOriginLanguage"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInvoiceDocumentItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Language, rel.InvoiceDocument, rel.InvoiceDocumentItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.CountryOfOriginLanguage, o.Language)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformLanguageLanguageDatumR{
+			CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData: related,
+		}
+	} else {
+		o.R.CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData = append(o.R.CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData, related...)
+	}
+
+	return nil
+}
+
+// SetCountryOfOriginLanguageDataPlatformInvoiceDocumentItemData removes all previously related items of the
+// data_platform_language_language_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.CountryOfOriginLanguageDataPlatformLanguageLanguageDatum's CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData accordingly.
+// Replaces o.R.CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData with related.
+func (o *DataPlatformLanguageLanguageDatum) SetCountryOfOriginLanguageDataPlatformInvoiceDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInvoiceDocumentItemDatum) error {
+	query := "update `data_platform_invoice_document_item_data` set `CountryOfOriginLanguage` = null where `CountryOfOriginLanguage` = ?"
+	values := []interface{}{o.Language}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData = nil
+	}
+
+	return o.AddCountryOfOriginLanguageDataPlatformInvoiceDocumentItemData(ctx, exec, insert, related...)
+}
+
+// RemoveCountryOfOriginLanguageDataPlatformInvoiceDocumentItemData relationships from objects passed in.
+// Removes related items from R.CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformLanguageLanguageDatum) RemoveCountryOfOriginLanguageDataPlatformInvoiceDocumentItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformInvoiceDocumentItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.CountryOfOriginLanguage, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("CountryOfOriginLanguage")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData[i] = o.R.CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData[ln-1]
+			}
+			o.R.CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData = o.R.CountryOfOriginLanguageDataPlatformInvoiceDocumentItemData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddLanguageDataPlatformInvoiceDocumentPartnerData adds the given related objects to the existing relationships
+// of the data_platform_language_language_datum, optionally inserting them as new records.
+// Appends related to o.R.LanguageDataPlatformInvoiceDocumentPartnerData.
+func (o *DataPlatformLanguageLanguageDatum) AddLanguageDataPlatformInvoiceDocumentPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInvoiceDocumentPartnerDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Language, o.Language)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_invoice_document_partner_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Language"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInvoiceDocumentPartnerDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Language, rel.InvoiceDocument, rel.PartnerFunction, rel.BusinessPartner}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Language, o.Language)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformLanguageLanguageDatumR{
+			LanguageDataPlatformInvoiceDocumentPartnerData: related,
+		}
+	} else {
+		o.R.LanguageDataPlatformInvoiceDocumentPartnerData = append(o.R.LanguageDataPlatformInvoiceDocumentPartnerData, related...)
+	}
+
+	return nil
+}
+
+// SetLanguageDataPlatformInvoiceDocumentPartnerData removes all previously related items of the
+// data_platform_language_language_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.LanguageDataPlatformLanguageLanguageDatum's LanguageDataPlatformInvoiceDocumentPartnerData accordingly.
+// Replaces o.R.LanguageDataPlatformInvoiceDocumentPartnerData with related.
+func (o *DataPlatformLanguageLanguageDatum) SetLanguageDataPlatformInvoiceDocumentPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInvoiceDocumentPartnerDatum) error {
+	query := "update `data_platform_invoice_document_partner_data` set `Language` = null where `Language` = ?"
+	values := []interface{}{o.Language}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.LanguageDataPlatformInvoiceDocumentPartnerData = nil
+	}
+
+	return o.AddLanguageDataPlatformInvoiceDocumentPartnerData(ctx, exec, insert, related...)
+}
+
+// RemoveLanguageDataPlatformInvoiceDocumentPartnerData relationships from objects passed in.
+// Removes related items from R.LanguageDataPlatformInvoiceDocumentPartnerData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformLanguageLanguageDatum) RemoveLanguageDataPlatformInvoiceDocumentPartnerData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformInvoiceDocumentPartnerDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Language, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Language")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.LanguageDataPlatformInvoiceDocumentPartnerData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.LanguageDataPlatformInvoiceDocumentPartnerData)
+			if ln > 1 && i < ln-1 {
+				o.R.LanguageDataPlatformInvoiceDocumentPartnerData[i] = o.R.LanguageDataPlatformInvoiceDocumentPartnerData[ln-1]
+			}
+			o.R.LanguageDataPlatformInvoiceDocumentPartnerData = o.R.LanguageDataPlatformInvoiceDocumentPartnerData[:ln-1]
+			break
+		}
 	}
 
 	return nil
@@ -1851,6 +3235,110 @@ func (o *DataPlatformLanguageLanguageDatum) RemoveCountryOfOriginLanguageDataPla
 				o.R.CountryOfOriginLanguageDataPlatformOrdersItemData[i] = o.R.CountryOfOriginLanguageDataPlatformOrdersItemData[ln-1]
 			}
 			o.R.CountryOfOriginLanguageDataPlatformOrdersItemData = o.R.CountryOfOriginLanguageDataPlatformOrdersItemData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddLanguageDataPlatformOrdersPartnerData adds the given related objects to the existing relationships
+// of the data_platform_language_language_datum, optionally inserting them as new records.
+// Appends related to o.R.LanguageDataPlatformOrdersPartnerData.
+func (o *DataPlatformLanguageLanguageDatum) AddLanguageDataPlatformOrdersPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersPartnerDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Language, o.Language)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_orders_partner_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Language"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersPartnerDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Language, rel.OrderID, rel.PartnerFunction, rel.BusinessPartner}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Language, o.Language)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformLanguageLanguageDatumR{
+			LanguageDataPlatformOrdersPartnerData: related,
+		}
+	} else {
+		o.R.LanguageDataPlatformOrdersPartnerData = append(o.R.LanguageDataPlatformOrdersPartnerData, related...)
+	}
+
+	return nil
+}
+
+// SetLanguageDataPlatformOrdersPartnerData removes all previously related items of the
+// data_platform_language_language_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.LanguageDataPlatformLanguageLanguageDatum's LanguageDataPlatformOrdersPartnerData accordingly.
+// Replaces o.R.LanguageDataPlatformOrdersPartnerData with related.
+func (o *DataPlatformLanguageLanguageDatum) SetLanguageDataPlatformOrdersPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersPartnerDatum) error {
+	query := "update `data_platform_orders_partner_data` set `Language` = null where `Language` = ?"
+	values := []interface{}{o.Language}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.LanguageDataPlatformOrdersPartnerData = nil
+	}
+
+	return o.AddLanguageDataPlatformOrdersPartnerData(ctx, exec, insert, related...)
+}
+
+// RemoveLanguageDataPlatformOrdersPartnerData relationships from objects passed in.
+// Removes related items from R.LanguageDataPlatformOrdersPartnerData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformLanguageLanguageDatum) RemoveLanguageDataPlatformOrdersPartnerData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformOrdersPartnerDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Language, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Language")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.LanguageDataPlatformOrdersPartnerData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.LanguageDataPlatformOrdersPartnerData)
+			if ln > 1 && i < ln-1 {
+				o.R.LanguageDataPlatformOrdersPartnerData[i] = o.R.LanguageDataPlatformOrdersPartnerData[ln-1]
+			}
+			o.R.LanguageDataPlatformOrdersPartnerData = o.R.LanguageDataPlatformOrdersPartnerData[:ln-1]
 			break
 		}
 	}
@@ -2086,6 +3574,257 @@ func (o *DataPlatformLanguageLanguageDatum) AddLanguageDataPlatformProductMaster
 		}
 	} else {
 		o.R.LanguageDataPlatformProductMasterProductDescriptionData = append(o.R.LanguageDataPlatformProductMasterProductDescriptionData, related...)
+	}
+
+	return nil
+}
+
+// AddLanguageDataPlatformProductionOrderPartnerData adds the given related objects to the existing relationships
+// of the data_platform_language_language_datum, optionally inserting them as new records.
+// Appends related to o.R.LanguageDataPlatformProductionOrderPartnerData.
+func (o *DataPlatformLanguageLanguageDatum) AddLanguageDataPlatformProductionOrderPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductionOrderPartnerDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Language, o.Language)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_production_order_partner_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Language"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductionOrderPartnerDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Language, rel.ProductionOrder, rel.PartnerFunction, rel.BusinessPartner}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Language, o.Language)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformLanguageLanguageDatumR{
+			LanguageDataPlatformProductionOrderPartnerData: related,
+		}
+	} else {
+		o.R.LanguageDataPlatformProductionOrderPartnerData = append(o.R.LanguageDataPlatformProductionOrderPartnerData, related...)
+	}
+
+	return nil
+}
+
+// SetLanguageDataPlatformProductionOrderPartnerData removes all previously related items of the
+// data_platform_language_language_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.LanguageDataPlatformLanguageLanguageDatum's LanguageDataPlatformProductionOrderPartnerData accordingly.
+// Replaces o.R.LanguageDataPlatformProductionOrderPartnerData with related.
+func (o *DataPlatformLanguageLanguageDatum) SetLanguageDataPlatformProductionOrderPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductionOrderPartnerDatum) error {
+	query := "update `data_platform_production_order_partner_data` set `Language` = null where `Language` = ?"
+	values := []interface{}{o.Language}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.LanguageDataPlatformProductionOrderPartnerData = nil
+	}
+
+	return o.AddLanguageDataPlatformProductionOrderPartnerData(ctx, exec, insert, related...)
+}
+
+// RemoveLanguageDataPlatformProductionOrderPartnerData relationships from objects passed in.
+// Removes related items from R.LanguageDataPlatformProductionOrderPartnerData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformLanguageLanguageDatum) RemoveLanguageDataPlatformProductionOrderPartnerData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformProductionOrderPartnerDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Language, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Language")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.LanguageDataPlatformProductionOrderPartnerData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.LanguageDataPlatformProductionOrderPartnerData)
+			if ln > 1 && i < ln-1 {
+				o.R.LanguageDataPlatformProductionOrderPartnerData[i] = o.R.LanguageDataPlatformProductionOrderPartnerData[ln-1]
+			}
+			o.R.LanguageDataPlatformProductionOrderPartnerData = o.R.LanguageDataPlatformProductionOrderPartnerData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddLanguageDataPlatformQuotationsPartnerData adds the given related objects to the existing relationships
+// of the data_platform_language_language_datum, optionally inserting them as new records.
+// Appends related to o.R.LanguageDataPlatformQuotationsPartnerData.
+func (o *DataPlatformLanguageLanguageDatum) AddLanguageDataPlatformQuotationsPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformQuotationsPartnerDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Language, o.Language)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_quotations_partner_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Language"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformQuotationsPartnerDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Language, rel.Quotation, rel.PartnerFunction, rel.BusinessPartner}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Language, o.Language)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformLanguageLanguageDatumR{
+			LanguageDataPlatformQuotationsPartnerData: related,
+		}
+	} else {
+		o.R.LanguageDataPlatformQuotationsPartnerData = append(o.R.LanguageDataPlatformQuotationsPartnerData, related...)
+	}
+
+	return nil
+}
+
+// SetLanguageDataPlatformQuotationsPartnerData removes all previously related items of the
+// data_platform_language_language_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.LanguageDataPlatformLanguageLanguageDatum's LanguageDataPlatformQuotationsPartnerData accordingly.
+// Replaces o.R.LanguageDataPlatformQuotationsPartnerData with related.
+func (o *DataPlatformLanguageLanguageDatum) SetLanguageDataPlatformQuotationsPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformQuotationsPartnerDatum) error {
+	query := "update `data_platform_quotations_partner_data` set `Language` = null where `Language` = ?"
+	values := []interface{}{o.Language}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.LanguageDataPlatformQuotationsPartnerData = nil
+	}
+
+	return o.AddLanguageDataPlatformQuotationsPartnerData(ctx, exec, insert, related...)
+}
+
+// RemoveLanguageDataPlatformQuotationsPartnerData relationships from objects passed in.
+// Removes related items from R.LanguageDataPlatformQuotationsPartnerData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformLanguageLanguageDatum) RemoveLanguageDataPlatformQuotationsPartnerData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformQuotationsPartnerDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Language, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Language")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.LanguageDataPlatformQuotationsPartnerData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.LanguageDataPlatformQuotationsPartnerData)
+			if ln > 1 && i < ln-1 {
+				o.R.LanguageDataPlatformQuotationsPartnerData[i] = o.R.LanguageDataPlatformQuotationsPartnerData[ln-1]
+			}
+			o.R.LanguageDataPlatformQuotationsPartnerData = o.R.LanguageDataPlatformQuotationsPartnerData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddLanguageDataPlatformSpecTypeSpecTypeTextData adds the given related objects to the existing relationships
+// of the data_platform_language_language_datum, optionally inserting them as new records.
+// Appends related to o.R.LanguageDataPlatformSpecTypeSpecTypeTextData.
+func (o *DataPlatformLanguageLanguageDatum) AddLanguageDataPlatformSpecTypeSpecTypeTextData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformSpecTypeSpecTypeTextDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.Language = o.Language
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_spec_type_spec_type_text_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Language"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformSpecTypeSpecTypeTextDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Language, rel.SpecType, rel.Language}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.Language = o.Language
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformLanguageLanguageDatumR{
+			LanguageDataPlatformSpecTypeSpecTypeTextData: related,
+		}
+	} else {
+		o.R.LanguageDataPlatformSpecTypeSpecTypeTextData = append(o.R.LanguageDataPlatformSpecTypeSpecTypeTextData, related...)
 	}
 
 	return nil

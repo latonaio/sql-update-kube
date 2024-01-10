@@ -7,7 +7,7 @@ wipe = true
 
 [mysql]
 dbname = "DataPlatformMastersAndTransactionsMysqlKube"
-host = "ec2-35-80-194-134.us-west-2.compute.amazonaws.com"
+host = "44.233.237.28"
 port = 30010
 user = "latona"
 pass = "L@ton@2020!"

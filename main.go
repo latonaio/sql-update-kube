@@ -93,38 +93,38 @@ func callProcess(ctx context.Context, db *database.Mysql, msg rabbitmq.RabbitmqM
 	//		}
 	//	}
 
-	//case "OrdersItem":
-	//	datum := models.DataPlatformOrdersItemDatum{}
-	//	jmap := map[string]interface{}{}
-	//	keys := make([]string, 0, len(jmap))
-	//	json.Unmarshal(str, &jmap)
-	//	for k, v := range jmap {
-	//		if v == nil || v == "" {
-	//			delete(jmap, k)
-	//		} else {
-	//			keys = append(keys, k)
-	//		}
-	//	}
-	//	str, err = json.Marshal(jmap)
-	//	if err != nil {
-	//		l.Error(err)
-	//		return err
-	//	}
-	//	err = json.Unmarshal(str, &datum)
-	//	if err != nil {
-	//		l.Error(err)
-	//		return err
-	//	}
-	//
-	//	err = datum.Insert(ctx, db, boil.Whitelist(keys...))
-	//	if err != nil {
-	//		l.Info("insert failed: %+v ; try update", err)
-	//		err = datum.Update(ctx, db, boil.Whitelist(keys...))
-	//		if err != nil {
-	//			l.Error(err)
-	//			return err
-	//		}
-	//	}
+	case "OrdersItem":
+		datum := models.DataPlatformOrdersItemDatum{}
+		jmap := map[string]interface{}{}
+		keys := make([]string, 0, len(jmap))
+		json.Unmarshal(str, &jmap)
+		for k, v := range jmap {
+			if v == nil || v == "" {
+				delete(jmap, k)
+			} else {
+				keys = append(keys, k)
+			}
+		}
+		str, err = json.Marshal(jmap)
+		if err != nil {
+			l.Error(err)
+			return err
+		}
+		err = json.Unmarshal(str, &datum)
+		if err != nil {
+			l.Error(err)
+			return err
+		}
+
+		err = datum.Insert(ctx, db, boil.Whitelist(keys...))
+		if err != nil {
+			l.Info("insert failed: %+v ; try update", err)
+			err = datum.Update(ctx, db, boil.Whitelist(keys...))
+			if err != nil {
+				l.Error(err)
+				return err
+			}
+		}
 
 	//case "OrdersPartner":
 	//	datum := models.DataPlatformOrdersPartnerDatum{}
@@ -2025,6 +2025,39 @@ func callProcess(ctx context.Context, db *database.Mysql, msg rabbitmq.RabbitmqM
 		}
 
 		err = datum.Insert(ctx, db, boil.Infer())
+		if err != nil {
+			l.Info("insert failed: %+v ; try update", err)
+			err = datum.Update(ctx, db, boil.Whitelist(keys...))
+			if err != nil {
+				l.Error(err)
+				return err
+			}
+		}
+
+	case "UsageControlChainUsageControlChain":
+		datum := models.DataPlatformUsageControlChainUsageControlChainDatum{}
+		jmap := map[string]interface{}{}
+		keys := make([]string, 0, len(jmap))
+		json.Unmarshal(str, &jmap)
+		for k, v := range jmap {
+			if v == nil || v == "" {
+				delete(jmap, k)
+			} else {
+				keys = append(keys, k)
+			}
+		}
+		str, err = json.Marshal(jmap)
+		if err != nil {
+			l.Error(err)
+			return err
+		}
+		err = json.Unmarshal(str, &datum)
+		if err != nil {
+			l.Error(err)
+			return err
+		}
+
+		err = datum.Insert(ctx, db, boil.Whitelist(keys...))
 		if err != nil {
 			l.Info("insert failed: %+v ; try update", err)
 			err = datum.Update(ctx, db, boil.Whitelist(keys...))

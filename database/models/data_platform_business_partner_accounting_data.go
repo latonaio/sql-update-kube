@@ -27,6 +27,8 @@ type DataPlatformBusinessPartnerAccountingDatum struct {
 	BusinessPartner     int         `boil:"BusinessPartner" json:"BusinessPartner" toml:"BusinessPartner" yaml:"BusinessPartner"`
 	ChartOfAccounts     null.String `boil:"ChartOfAccounts" json:"ChartOfAccounts,omitempty" toml:"ChartOfAccounts" yaml:"ChartOfAccounts,omitempty"`
 	FiscalYearVariant   null.String `boil:"FiscalYearVariant" json:"FiscalYearVariant,omitempty" toml:"FiscalYearVariant" yaml:"FiscalYearVariant,omitempty"`
+	CreationDate        string      `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
+	LastChangeDate      string      `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
 	IsMarkedForDeletion null.Bool   `boil:"IsMarkedForDeletion" json:"IsMarkedForDeletion,omitempty" toml:"IsMarkedForDeletion" yaml:"IsMarkedForDeletion,omitempty"`
 
 	R *dataPlatformBusinessPartnerAccountingDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
@@ -37,11 +39,15 @@ var DataPlatformBusinessPartnerAccountingDatumColumns = struct {
 	BusinessPartner     string
 	ChartOfAccounts     string
 	FiscalYearVariant   string
+	CreationDate        string
+	LastChangeDate      string
 	IsMarkedForDeletion string
 }{
 	BusinessPartner:     "BusinessPartner",
 	ChartOfAccounts:     "ChartOfAccounts",
 	FiscalYearVariant:   "FiscalYearVariant",
+	CreationDate:        "CreationDate",
+	LastChangeDate:      "LastChangeDate",
 	IsMarkedForDeletion: "IsMarkedForDeletion",
 }
 
@@ -49,11 +55,15 @@ var DataPlatformBusinessPartnerAccountingDatumTableColumns = struct {
 	BusinessPartner     string
 	ChartOfAccounts     string
 	FiscalYearVariant   string
+	CreationDate        string
+	LastChangeDate      string
 	IsMarkedForDeletion string
 }{
 	BusinessPartner:     "data_platform_business_partner_accounting_data.BusinessPartner",
 	ChartOfAccounts:     "data_platform_business_partner_accounting_data.ChartOfAccounts",
 	FiscalYearVariant:   "data_platform_business_partner_accounting_data.FiscalYearVariant",
+	CreationDate:        "data_platform_business_partner_accounting_data.CreationDate",
+	LastChangeDate:      "data_platform_business_partner_accounting_data.LastChangeDate",
 	IsMarkedForDeletion: "data_platform_business_partner_accounting_data.IsMarkedForDeletion",
 }
 
@@ -63,20 +73,28 @@ var DataPlatformBusinessPartnerAccountingDatumWhere = struct {
 	BusinessPartner     whereHelperint
 	ChartOfAccounts     whereHelpernull_String
 	FiscalYearVariant   whereHelpernull_String
+	CreationDate        whereHelperstring
+	LastChangeDate      whereHelperstring
 	IsMarkedForDeletion whereHelpernull_Bool
 }{
 	BusinessPartner:     whereHelperint{field: "`data_platform_business_partner_accounting_data`.`BusinessPartner`"},
 	ChartOfAccounts:     whereHelpernull_String{field: "`data_platform_business_partner_accounting_data`.`ChartOfAccounts`"},
 	FiscalYearVariant:   whereHelpernull_String{field: "`data_platform_business_partner_accounting_data`.`FiscalYearVariant`"},
+	CreationDate:        whereHelperstring{field: "`data_platform_business_partner_accounting_data`.`CreationDate`"},
+	LastChangeDate:      whereHelperstring{field: "`data_platform_business_partner_accounting_data`.`LastChangeDate`"},
 	IsMarkedForDeletion: whereHelpernull_Bool{field: "`data_platform_business_partner_accounting_data`.`IsMarkedForDeletion`"},
 }
 
 // DataPlatformBusinessPartnerAccountingDatumRels is where relationship names are stored.
 var DataPlatformBusinessPartnerAccountingDatumRels = struct {
-}{}
+	BusinessPartnerDataPlatformBusinessPartnerGeneralDatum string
+}{
+	BusinessPartnerDataPlatformBusinessPartnerGeneralDatum: "BusinessPartnerDataPlatformBusinessPartnerGeneralDatum",
+}
 
 // dataPlatformBusinessPartnerAccountingDatumR is where relationships are stored.
 type dataPlatformBusinessPartnerAccountingDatumR struct {
+	BusinessPartnerDataPlatformBusinessPartnerGeneralDatum *DataPlatformBusinessPartnerGeneralDatum `boil:"BusinessPartnerDataPlatformBusinessPartnerGeneralDatum" json:"BusinessPartnerDataPlatformBusinessPartnerGeneralDatum" toml:"BusinessPartnerDataPlatformBusinessPartnerGeneralDatum" yaml:"BusinessPartnerDataPlatformBusinessPartnerGeneralDatum"`
 }
 
 // NewStruct creates a new relationship struct
@@ -84,12 +102,19 @@ func (*dataPlatformBusinessPartnerAccountingDatumR) NewStruct() *dataPlatformBus
 	return &dataPlatformBusinessPartnerAccountingDatumR{}
 }
 
+func (r *dataPlatformBusinessPartnerAccountingDatumR) GetBusinessPartnerDataPlatformBusinessPartnerGeneralDatum() *DataPlatformBusinessPartnerGeneralDatum {
+	if r == nil {
+		return nil
+	}
+	return r.BusinessPartnerDataPlatformBusinessPartnerGeneralDatum
+}
+
 // dataPlatformBusinessPartnerAccountingDatumL is where Load methods for each relationship are stored.
 type dataPlatformBusinessPartnerAccountingDatumL struct{}
 
 var (
-	dataPlatformBusinessPartnerAccountingDatumAllColumns            = []string{"BusinessPartner", "ChartOfAccounts", "FiscalYearVariant", "IsMarkedForDeletion"}
-	dataPlatformBusinessPartnerAccountingDatumColumnsWithoutDefault = []string{"BusinessPartner", "ChartOfAccounts", "FiscalYearVariant", "IsMarkedForDeletion"}
+	dataPlatformBusinessPartnerAccountingDatumAllColumns            = []string{"BusinessPartner", "ChartOfAccounts", "FiscalYearVariant", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
+	dataPlatformBusinessPartnerAccountingDatumColumnsWithoutDefault = []string{"BusinessPartner", "ChartOfAccounts", "FiscalYearVariant", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
 	dataPlatformBusinessPartnerAccountingDatumColumnsWithDefault    = []string{}
 	dataPlatformBusinessPartnerAccountingDatumPrimaryKeyColumns     = []string{"BusinessPartner"}
 	dataPlatformBusinessPartnerAccountingDatumGeneratedColumns      = []string{}
@@ -184,6 +209,159 @@ func (q dataPlatformBusinessPartnerAccountingDatumQuery) Exists(ctx context.Cont
 	}
 
 	return count > 0, nil
+}
+
+// BusinessPartnerDataPlatformBusinessPartnerGeneralDatum pointed to by the foreign key.
+func (o *DataPlatformBusinessPartnerAccountingDatum) BusinessPartnerDataPlatformBusinessPartnerGeneralDatum(mods ...qm.QueryMod) dataPlatformBusinessPartnerGeneralDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`BusinessPartner` = ?", o.BusinessPartner),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformBusinessPartnerGeneralData(queryMods...)
+}
+
+// LoadBusinessPartnerDataPlatformBusinessPartnerGeneralDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformBusinessPartnerAccountingDatumL) LoadBusinessPartnerDataPlatformBusinessPartnerGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerAccountingDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerAccountingDatum
+	var object *DataPlatformBusinessPartnerAccountingDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerAccountingDatum.(*DataPlatformBusinessPartnerAccountingDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerAccountingDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerAccountingDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerAccountingDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerAccountingDatum.(*[]*DataPlatformBusinessPartnerAccountingDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerAccountingDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerAccountingDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerAccountingDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerAccountingDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_business_partner_general_data`),
+		qm.WhereIn(`data_platform_business_partner_general_data.BusinessPartner in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformBusinessPartnerGeneralDatum")
+	}
+
+	var resultSlice []*DataPlatformBusinessPartnerGeneralDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformBusinessPartnerGeneralDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_business_partner_general_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_business_partner_general_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.BusinessPartnerDataPlatformBusinessPartnerGeneralDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.BusinessPartner == foreign.BusinessPartner {
+				local.R.BusinessPartnerDataPlatformBusinessPartnerGeneralDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// SetBusinessPartnerDataPlatformBusinessPartnerGeneralDatum of the dataPlatformBusinessPartnerAccountingDatum to the related item.
+// Sets o.R.BusinessPartnerDataPlatformBusinessPartnerGeneralDatum to related.
+func (o *DataPlatformBusinessPartnerAccountingDatum) SetBusinessPartnerDataPlatformBusinessPartnerGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformBusinessPartnerGeneralDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_business_partner_accounting_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"BusinessPartner"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformBusinessPartnerAccountingDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.BusinessPartner, o.BusinessPartner}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.BusinessPartner = related.BusinessPartner
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerAccountingDatumR{
+			BusinessPartnerDataPlatformBusinessPartnerGeneralDatum: related,
+		}
+	} else {
+		o.R.BusinessPartnerDataPlatformBusinessPartnerGeneralDatum = related
+	}
+
+	return nil
 }
 
 // DataPlatformBusinessPartnerAccountingData retrieves all the records using an executor.

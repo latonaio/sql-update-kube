@@ -78,6 +78,7 @@ type DataPlatformDeliveryDocumentHeaderDatum struct {
 	HeaderDeliveryBlockStatus              null.Bool    `boil:"HeaderDeliveryBlockStatus" json:"HeaderDeliveryBlockStatus,omitempty" toml:"HeaderDeliveryBlockStatus" yaml:"HeaderDeliveryBlockStatus,omitempty"`
 	HeaderIssuingBlockStatus               null.Bool    `boil:"HeaderIssuingBlockStatus" json:"HeaderIssuingBlockStatus,omitempty" toml:"HeaderIssuingBlockStatus" yaml:"HeaderIssuingBlockStatus,omitempty"`
 	HeaderReceivingBlockStatus             null.Bool    `boil:"HeaderReceivingBlockStatus" json:"HeaderReceivingBlockStatus,omitempty" toml:"HeaderReceivingBlockStatus" yaml:"HeaderReceivingBlockStatus,omitempty"`
+	ExternalReferenceDocument              null.String  `boil:"ExternalReferenceDocument" json:"ExternalReferenceDocument,omitempty" toml:"ExternalReferenceDocument" yaml:"ExternalReferenceDocument,omitempty"`
 	CreationDate                           string       `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
 	CreationTime                           string       `boil:"CreationTime" json:"CreationTime" toml:"CreationTime" yaml:"CreationTime"`
 	LastChangeDate                         string       `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
@@ -144,6 +145,7 @@ var DataPlatformDeliveryDocumentHeaderDatumColumns = struct {
 	HeaderDeliveryBlockStatus              string
 	HeaderIssuingBlockStatus               string
 	HeaderReceivingBlockStatus             string
+	ExternalReferenceDocument              string
 	CreationDate                           string
 	CreationTime                           string
 	LastChangeDate                         string
@@ -205,6 +207,7 @@ var DataPlatformDeliveryDocumentHeaderDatumColumns = struct {
 	HeaderDeliveryBlockStatus:              "HeaderDeliveryBlockStatus",
 	HeaderIssuingBlockStatus:               "HeaderIssuingBlockStatus",
 	HeaderReceivingBlockStatus:             "HeaderReceivingBlockStatus",
+	ExternalReferenceDocument:              "ExternalReferenceDocument",
 	CreationDate:                           "CreationDate",
 	CreationTime:                           "CreationTime",
 	LastChangeDate:                         "LastChangeDate",
@@ -268,6 +271,7 @@ var DataPlatformDeliveryDocumentHeaderDatumTableColumns = struct {
 	HeaderDeliveryBlockStatus              string
 	HeaderIssuingBlockStatus               string
 	HeaderReceivingBlockStatus             string
+	ExternalReferenceDocument              string
 	CreationDate                           string
 	CreationTime                           string
 	LastChangeDate                         string
@@ -329,6 +333,7 @@ var DataPlatformDeliveryDocumentHeaderDatumTableColumns = struct {
 	HeaderDeliveryBlockStatus:              "data_platform_delivery_document_header_data.HeaderDeliveryBlockStatus",
 	HeaderIssuingBlockStatus:               "data_platform_delivery_document_header_data.HeaderIssuingBlockStatus",
 	HeaderReceivingBlockStatus:             "data_platform_delivery_document_header_data.HeaderReceivingBlockStatus",
+	ExternalReferenceDocument:              "data_platform_delivery_document_header_data.ExternalReferenceDocument",
 	CreationDate:                           "data_platform_delivery_document_header_data.CreationDate",
 	CreationTime:                           "data_platform_delivery_document_header_data.CreationTime",
 	LastChangeDate:                         "data_platform_delivery_document_header_data.LastChangeDate",
@@ -394,6 +399,7 @@ var DataPlatformDeliveryDocumentHeaderDatumWhere = struct {
 	HeaderDeliveryBlockStatus              whereHelpernull_Bool
 	HeaderIssuingBlockStatus               whereHelpernull_Bool
 	HeaderReceivingBlockStatus             whereHelpernull_Bool
+	ExternalReferenceDocument              whereHelpernull_String
 	CreationDate                           whereHelperstring
 	CreationTime                           whereHelperstring
 	LastChangeDate                         whereHelperstring
@@ -455,6 +461,7 @@ var DataPlatformDeliveryDocumentHeaderDatumWhere = struct {
 	HeaderDeliveryBlockStatus:              whereHelpernull_Bool{field: "`data_platform_delivery_document_header_data`.`HeaderDeliveryBlockStatus`"},
 	HeaderIssuingBlockStatus:               whereHelpernull_Bool{field: "`data_platform_delivery_document_header_data`.`HeaderIssuingBlockStatus`"},
 	HeaderReceivingBlockStatus:             whereHelpernull_Bool{field: "`data_platform_delivery_document_header_data`.`HeaderReceivingBlockStatus`"},
+	ExternalReferenceDocument:              whereHelpernull_String{field: "`data_platform_delivery_document_header_data`.`ExternalReferenceDocument`"},
 	CreationDate:                           whereHelperstring{field: "`data_platform_delivery_document_header_data`.`CreationDate`"},
 	CreationTime:                           whereHelperstring{field: "`data_platform_delivery_document_header_data`.`CreationTime`"},
 	LastChangeDate:                         whereHelperstring{field: "`data_platform_delivery_document_header_data`.`LastChangeDate`"},
@@ -467,7 +474,8 @@ var DataPlatformDeliveryDocumentHeaderDatumWhere = struct {
 var DataPlatformDeliveryDocumentHeaderDatumRels = struct {
 	BillFromCountryDataPlatformCountryCountryDatum            string
 	BillToCountryDataPlatformCountryCountryDatum              string
-	DeliverToPlantDataPlatformTimeZoneTimeZoneDatum           string
+	DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum string
+	DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum   string
 	HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum string
 	Incoterm                                                  string
 	OrderIDDataPlatformOrdersItemDatum                        string
@@ -477,35 +485,49 @@ var DataPlatformDeliveryDocumentHeaderDatumRels = struct {
 	BuyerDataPlatformSCRDeliveryPlantRelationDatum            string
 	BillFromPartyDataPlatformSCRPaymentRelationDatum          string
 	TransactionCurrencyDataPlatformCurrencyCurrencyDatum      string
+	DeliveryDocumentDataPlatformDeliveryDocumentAddressData   string
+	DeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData string
+	DeliveryDocumentDataPlatformDeliveryDocumentItemData      string
+	DeliveryDocumentDataPlatformDeliveryDocumentPartnerData   string
 }{
 	BillFromCountryDataPlatformCountryCountryDatum:            "BillFromCountryDataPlatformCountryCountryDatum",
 	BillToCountryDataPlatformCountryCountryDatum:              "BillToCountryDataPlatformCountryCountryDatum",
-	DeliverToPlantDataPlatformTimeZoneTimeZoneDatum:           "DeliverToPlantDataPlatformTimeZoneTimeZoneDatum",
+	DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum: "DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum",
+	DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum:   "DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum",
 	HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum: "HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum",
 	Incoterm:                           "Incoterm",
 	OrderIDDataPlatformOrdersItemDatum: "OrderIDDataPlatformOrdersItemDatum",
-	ProductionOrderDataPlatformProductionOrderItemDatum:  "ProductionOrderDataPlatformProductionOrderItemDatum",
-	BillFromPartyDataPlatformSCRBillingRelationDatum:     "BillFromPartyDataPlatformSCRBillingRelationDatum",
-	BuyerDataPlatformSCRDeliveryRelationDatum:            "BuyerDataPlatformSCRDeliveryRelationDatum",
-	BuyerDataPlatformSCRDeliveryPlantRelationDatum:       "BuyerDataPlatformSCRDeliveryPlantRelationDatum",
-	BillFromPartyDataPlatformSCRPaymentRelationDatum:     "BillFromPartyDataPlatformSCRPaymentRelationDatum",
-	TransactionCurrencyDataPlatformCurrencyCurrencyDatum: "TransactionCurrencyDataPlatformCurrencyCurrencyDatum",
+	ProductionOrderDataPlatformProductionOrderItemDatum:       "ProductionOrderDataPlatformProductionOrderItemDatum",
+	BillFromPartyDataPlatformSCRBillingRelationDatum:          "BillFromPartyDataPlatformSCRBillingRelationDatum",
+	BuyerDataPlatformSCRDeliveryRelationDatum:                 "BuyerDataPlatformSCRDeliveryRelationDatum",
+	BuyerDataPlatformSCRDeliveryPlantRelationDatum:            "BuyerDataPlatformSCRDeliveryPlantRelationDatum",
+	BillFromPartyDataPlatformSCRPaymentRelationDatum:          "BillFromPartyDataPlatformSCRPaymentRelationDatum",
+	TransactionCurrencyDataPlatformCurrencyCurrencyDatum:      "TransactionCurrencyDataPlatformCurrencyCurrencyDatum",
+	DeliveryDocumentDataPlatformDeliveryDocumentAddressData:   "DeliveryDocumentDataPlatformDeliveryDocumentAddressData",
+	DeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData: "DeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData",
+	DeliveryDocumentDataPlatformDeliveryDocumentItemData:      "DeliveryDocumentDataPlatformDeliveryDocumentItemData",
+	DeliveryDocumentDataPlatformDeliveryDocumentPartnerData:   "DeliveryDocumentDataPlatformDeliveryDocumentPartnerData",
 }
 
 // dataPlatformDeliveryDocumentHeaderDatumR is where relationships are stored.
 type dataPlatformDeliveryDocumentHeaderDatumR struct {
-	BillFromCountryDataPlatformCountryCountryDatum            *DataPlatformCountryCountryDatum           `boil:"BillFromCountryDataPlatformCountryCountryDatum" json:"BillFromCountryDataPlatformCountryCountryDatum" toml:"BillFromCountryDataPlatformCountryCountryDatum" yaml:"BillFromCountryDataPlatformCountryCountryDatum"`
-	BillToCountryDataPlatformCountryCountryDatum              *DataPlatformCountryCountryDatum           `boil:"BillToCountryDataPlatformCountryCountryDatum" json:"BillToCountryDataPlatformCountryCountryDatum" toml:"BillToCountryDataPlatformCountryCountryDatum" yaml:"BillToCountryDataPlatformCountryCountryDatum"`
-	DeliverToPlantDataPlatformTimeZoneTimeZoneDatum           *DataPlatformTimeZoneTimeZoneDatum         `boil:"DeliverToPlantDataPlatformTimeZoneTimeZoneDatum" json:"DeliverToPlantDataPlatformTimeZoneTimeZoneDatum" toml:"DeliverToPlantDataPlatformTimeZoneTimeZoneDatum" yaml:"DeliverToPlantDataPlatformTimeZoneTimeZoneDatum"`
-	HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum *DataPlatformQuantityUnitQuantityUnitDatum `boil:"HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum"`
-	Incoterm                                                  *DataPlatformIncotermsIncotermsDatum       `boil:"Incoterm" json:"Incoterm" toml:"Incoterm" yaml:"Incoterm"`
-	OrderIDDataPlatformOrdersItemDatum                        *DataPlatformOrdersItemDatum               `boil:"OrderIDDataPlatformOrdersItemDatum" json:"OrderIDDataPlatformOrdersItemDatum" toml:"OrderIDDataPlatformOrdersItemDatum" yaml:"OrderIDDataPlatformOrdersItemDatum"`
-	ProductionOrderDataPlatformProductionOrderItemDatum       *DataPlatformProductionOrderItemDatum      `boil:"ProductionOrderDataPlatformProductionOrderItemDatum" json:"ProductionOrderDataPlatformProductionOrderItemDatum" toml:"ProductionOrderDataPlatformProductionOrderItemDatum" yaml:"ProductionOrderDataPlatformProductionOrderItemDatum"`
-	BillFromPartyDataPlatformSCRBillingRelationDatum          *DataPlatformSCRBillingRelationDatum       `boil:"BillFromPartyDataPlatformSCRBillingRelationDatum" json:"BillFromPartyDataPlatformSCRBillingRelationDatum" toml:"BillFromPartyDataPlatformSCRBillingRelationDatum" yaml:"BillFromPartyDataPlatformSCRBillingRelationDatum"`
-	BuyerDataPlatformSCRDeliveryRelationDatum                 *DataPlatformSCRDeliveryRelationDatum      `boil:"BuyerDataPlatformSCRDeliveryRelationDatum" json:"BuyerDataPlatformSCRDeliveryRelationDatum" toml:"BuyerDataPlatformSCRDeliveryRelationDatum" yaml:"BuyerDataPlatformSCRDeliveryRelationDatum"`
-	BuyerDataPlatformSCRDeliveryPlantRelationDatum            *DataPlatformSCRDeliveryPlantRelationDatum `boil:"BuyerDataPlatformSCRDeliveryPlantRelationDatum" json:"BuyerDataPlatformSCRDeliveryPlantRelationDatum" toml:"BuyerDataPlatformSCRDeliveryPlantRelationDatum" yaml:"BuyerDataPlatformSCRDeliveryPlantRelationDatum"`
-	BillFromPartyDataPlatformSCRPaymentRelationDatum          *DataPlatformSCRPaymentRelationDatum       `boil:"BillFromPartyDataPlatformSCRPaymentRelationDatum" json:"BillFromPartyDataPlatformSCRPaymentRelationDatum" toml:"BillFromPartyDataPlatformSCRPaymentRelationDatum" yaml:"BillFromPartyDataPlatformSCRPaymentRelationDatum"`
-	TransactionCurrencyDataPlatformCurrencyCurrencyDatum      *DataPlatformCurrencyCurrencyDatum         `boil:"TransactionCurrencyDataPlatformCurrencyCurrencyDatum" json:"TransactionCurrencyDataPlatformCurrencyCurrencyDatum" toml:"TransactionCurrencyDataPlatformCurrencyCurrencyDatum" yaml:"TransactionCurrencyDataPlatformCurrencyCurrencyDatum"`
+	BillFromCountryDataPlatformCountryCountryDatum            *DataPlatformCountryCountryDatum                `boil:"BillFromCountryDataPlatformCountryCountryDatum" json:"BillFromCountryDataPlatformCountryCountryDatum" toml:"BillFromCountryDataPlatformCountryCountryDatum" yaml:"BillFromCountryDataPlatformCountryCountryDatum"`
+	BillToCountryDataPlatformCountryCountryDatum              *DataPlatformCountryCountryDatum                `boil:"BillToCountryDataPlatformCountryCountryDatum" json:"BillToCountryDataPlatformCountryCountryDatum" toml:"BillToCountryDataPlatformCountryCountryDatum" yaml:"BillToCountryDataPlatformCountryCountryDatum"`
+	DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum *DataPlatformTimeZoneTimeZoneDatum              `boil:"DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum" json:"DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum" toml:"DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum" yaml:"DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum"`
+	DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum   *DataPlatformTimeZoneTimeZoneDatum              `boil:"DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum" json:"DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum" toml:"DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum" yaml:"DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum"`
+	HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum *DataPlatformQuantityUnitQuantityUnitDatum      `boil:"HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"HeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum"`
+	Incoterm                                                  *DataPlatformIncotermsIncotermsDatum            `boil:"Incoterm" json:"Incoterm" toml:"Incoterm" yaml:"Incoterm"`
+	OrderIDDataPlatformOrdersItemDatum                        *DataPlatformOrdersItemDatum                    `boil:"OrderIDDataPlatformOrdersItemDatum" json:"OrderIDDataPlatformOrdersItemDatum" toml:"OrderIDDataPlatformOrdersItemDatum" yaml:"OrderIDDataPlatformOrdersItemDatum"`
+	ProductionOrderDataPlatformProductionOrderItemDatum       *DataPlatformProductionOrderItemDatum           `boil:"ProductionOrderDataPlatformProductionOrderItemDatum" json:"ProductionOrderDataPlatformProductionOrderItemDatum" toml:"ProductionOrderDataPlatformProductionOrderItemDatum" yaml:"ProductionOrderDataPlatformProductionOrderItemDatum"`
+	BillFromPartyDataPlatformSCRBillingRelationDatum          *DataPlatformSCRBillingRelationDatum            `boil:"BillFromPartyDataPlatformSCRBillingRelationDatum" json:"BillFromPartyDataPlatformSCRBillingRelationDatum" toml:"BillFromPartyDataPlatformSCRBillingRelationDatum" yaml:"BillFromPartyDataPlatformSCRBillingRelationDatum"`
+	BuyerDataPlatformSCRDeliveryRelationDatum                 *DataPlatformSCRDeliveryRelationDatum           `boil:"BuyerDataPlatformSCRDeliveryRelationDatum" json:"BuyerDataPlatformSCRDeliveryRelationDatum" toml:"BuyerDataPlatformSCRDeliveryRelationDatum" yaml:"BuyerDataPlatformSCRDeliveryRelationDatum"`
+	BuyerDataPlatformSCRDeliveryPlantRelationDatum            *DataPlatformSCRDeliveryPlantRelationDatum      `boil:"BuyerDataPlatformSCRDeliveryPlantRelationDatum" json:"BuyerDataPlatformSCRDeliveryPlantRelationDatum" toml:"BuyerDataPlatformSCRDeliveryPlantRelationDatum" yaml:"BuyerDataPlatformSCRDeliveryPlantRelationDatum"`
+	BillFromPartyDataPlatformSCRPaymentRelationDatum          *DataPlatformSCRPaymentRelationDatum            `boil:"BillFromPartyDataPlatformSCRPaymentRelationDatum" json:"BillFromPartyDataPlatformSCRPaymentRelationDatum" toml:"BillFromPartyDataPlatformSCRPaymentRelationDatum" yaml:"BillFromPartyDataPlatformSCRPaymentRelationDatum"`
+	TransactionCurrencyDataPlatformCurrencyCurrencyDatum      *DataPlatformCurrencyCurrencyDatum              `boil:"TransactionCurrencyDataPlatformCurrencyCurrencyDatum" json:"TransactionCurrencyDataPlatformCurrencyCurrencyDatum" toml:"TransactionCurrencyDataPlatformCurrencyCurrencyDatum" yaml:"TransactionCurrencyDataPlatformCurrencyCurrencyDatum"`
+	DeliveryDocumentDataPlatformDeliveryDocumentAddressData   DataPlatformDeliveryDocumentAddressDatumSlice   `boil:"DeliveryDocumentDataPlatformDeliveryDocumentAddressData" json:"DeliveryDocumentDataPlatformDeliveryDocumentAddressData" toml:"DeliveryDocumentDataPlatformDeliveryDocumentAddressData" yaml:"DeliveryDocumentDataPlatformDeliveryDocumentAddressData"`
+	DeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData DataPlatformDeliveryDocumentHeaderDocDatumSlice `boil:"DeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData" json:"DeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData" toml:"DeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData" yaml:"DeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData"`
+	DeliveryDocumentDataPlatformDeliveryDocumentItemData      DataPlatformDeliveryDocumentItemDatumSlice      `boil:"DeliveryDocumentDataPlatformDeliveryDocumentItemData" json:"DeliveryDocumentDataPlatformDeliveryDocumentItemData" toml:"DeliveryDocumentDataPlatformDeliveryDocumentItemData" yaml:"DeliveryDocumentDataPlatformDeliveryDocumentItemData"`
+	DeliveryDocumentDataPlatformDeliveryDocumentPartnerData   DataPlatformDeliveryDocumentPartnerDatumSlice   `boil:"DeliveryDocumentDataPlatformDeliveryDocumentPartnerData" json:"DeliveryDocumentDataPlatformDeliveryDocumentPartnerData" toml:"DeliveryDocumentDataPlatformDeliveryDocumentPartnerData" yaml:"DeliveryDocumentDataPlatformDeliveryDocumentPartnerData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -527,11 +549,18 @@ func (r *dataPlatformDeliveryDocumentHeaderDatumR) GetBillToCountryDataPlatformC
 	return r.BillToCountryDataPlatformCountryCountryDatum
 }
 
-func (r *dataPlatformDeliveryDocumentHeaderDatumR) GetDeliverToPlantDataPlatformTimeZoneTimeZoneDatum() *DataPlatformTimeZoneTimeZoneDatum {
+func (r *dataPlatformDeliveryDocumentHeaderDatumR) GetDeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum() *DataPlatformTimeZoneTimeZoneDatum {
 	if r == nil {
 		return nil
 	}
-	return r.DeliverToPlantDataPlatformTimeZoneTimeZoneDatum
+	return r.DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum
+}
+
+func (r *dataPlatformDeliveryDocumentHeaderDatumR) GetDeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum() *DataPlatformTimeZoneTimeZoneDatum {
+	if r == nil {
+		return nil
+	}
+	return r.DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum
 }
 
 func (r *dataPlatformDeliveryDocumentHeaderDatumR) GetHeaderWeightUnitDataPlatformQuantityUnitQuantityUnitDatum() *DataPlatformQuantityUnitQuantityUnitDatum {
@@ -597,12 +626,40 @@ func (r *dataPlatformDeliveryDocumentHeaderDatumR) GetTransactionCurrencyDataPla
 	return r.TransactionCurrencyDataPlatformCurrencyCurrencyDatum
 }
 
+func (r *dataPlatformDeliveryDocumentHeaderDatumR) GetDeliveryDocumentDataPlatformDeliveryDocumentAddressData() DataPlatformDeliveryDocumentAddressDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DeliveryDocumentDataPlatformDeliveryDocumentAddressData
+}
+
+func (r *dataPlatformDeliveryDocumentHeaderDatumR) GetDeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData() DataPlatformDeliveryDocumentHeaderDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData
+}
+
+func (r *dataPlatformDeliveryDocumentHeaderDatumR) GetDeliveryDocumentDataPlatformDeliveryDocumentItemData() DataPlatformDeliveryDocumentItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DeliveryDocumentDataPlatformDeliveryDocumentItemData
+}
+
+func (r *dataPlatformDeliveryDocumentHeaderDatumR) GetDeliveryDocumentDataPlatformDeliveryDocumentPartnerData() DataPlatformDeliveryDocumentPartnerDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DeliveryDocumentDataPlatformDeliveryDocumentPartnerData
+}
+
 // dataPlatformDeliveryDocumentHeaderDatumL is where Load methods for each relationship are stored.
 type dataPlatformDeliveryDocumentHeaderDatumL struct{}
 
 var (
-	dataPlatformDeliveryDocumentHeaderDatumAllColumns            = []string{"DeliveryDocument", "SupplyChainRelationshipID", "SupplyChainRelationshipDeliveryID", "SupplyChainRelationshipDeliveryPlantID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "Buyer", "Seller", "DeliverToParty", "DeliverFromParty", "DeliverToPlant", "DeliverFromPlant", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "IsExportImport", "DeliverToPlantTimeZone", "DeliverFromPlantTimeZone", "ReferenceDocument", "ReferenceDocumentItem", "OrderID", "OrderItem", "ProductionOrder", "ProductionOrderItem", "Operations", "OperationsItem", "BillOfMaterial", "BillOfMaterialItem", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "DeliveryDocumentDate", "PlannedGoodsIssueDate", "PlannedGoodsIssueTime", "PlannedGoodsReceiptDate", "PlannedGoodsReceiptTime", "InvoiceDocumentDate", "HeaderCompleteDeliveryIsDefined", "HeaderDeliveryStatus", "GoodsIssueOrReceiptSlipNumber", "HeaderBillingStatus", "HeaderBillingConfStatus", "HeaderBillingBlockStatus", "HeaderGrossWeight", "HeaderNetWeight", "HeaderWeightUnit", "Incoterms", "TransactionCurrency", "HeaderDeliveryBlockStatus", "HeaderIssuingBlockStatus", "HeaderReceivingBlockStatus", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
-	dataPlatformDeliveryDocumentHeaderDatumColumnsWithoutDefault = []string{"DeliveryDocument", "SupplyChainRelationshipID", "SupplyChainRelationshipDeliveryID", "SupplyChainRelationshipDeliveryPlantID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "Buyer", "Seller", "DeliverToParty", "DeliverFromParty", "DeliverToPlant", "DeliverFromPlant", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "IsExportImport", "DeliverToPlantTimeZone", "DeliverFromPlantTimeZone", "ReferenceDocument", "ReferenceDocumentItem", "OrderID", "OrderItem", "ProductionOrder", "ProductionOrderItem", "Operations", "OperationsItem", "BillOfMaterial", "BillOfMaterialItem", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "DeliveryDocumentDate", "PlannedGoodsIssueDate", "PlannedGoodsIssueTime", "PlannedGoodsReceiptDate", "PlannedGoodsReceiptTime", "InvoiceDocumentDate", "HeaderCompleteDeliveryIsDefined", "HeaderDeliveryStatus", "GoodsIssueOrReceiptSlipNumber", "HeaderBillingStatus", "HeaderBillingConfStatus", "HeaderBillingBlockStatus", "HeaderGrossWeight", "HeaderNetWeight", "HeaderWeightUnit", "Incoterms", "TransactionCurrency", "HeaderDeliveryBlockStatus", "HeaderIssuingBlockStatus", "HeaderReceivingBlockStatus", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
+	dataPlatformDeliveryDocumentHeaderDatumAllColumns            = []string{"DeliveryDocument", "SupplyChainRelationshipID", "SupplyChainRelationshipDeliveryID", "SupplyChainRelationshipDeliveryPlantID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "Buyer", "Seller", "DeliverToParty", "DeliverFromParty", "DeliverToPlant", "DeliverFromPlant", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "IsExportImport", "DeliverToPlantTimeZone", "DeliverFromPlantTimeZone", "ReferenceDocument", "ReferenceDocumentItem", "OrderID", "OrderItem", "ProductionOrder", "ProductionOrderItem", "Operations", "OperationsItem", "BillOfMaterial", "BillOfMaterialItem", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "DeliveryDocumentDate", "PlannedGoodsIssueDate", "PlannedGoodsIssueTime", "PlannedGoodsReceiptDate", "PlannedGoodsReceiptTime", "InvoiceDocumentDate", "HeaderCompleteDeliveryIsDefined", "HeaderDeliveryStatus", "GoodsIssueOrReceiptSlipNumber", "HeaderBillingStatus", "HeaderBillingConfStatus", "HeaderBillingBlockStatus", "HeaderGrossWeight", "HeaderNetWeight", "HeaderWeightUnit", "Incoterms", "TransactionCurrency", "HeaderDeliveryBlockStatus", "HeaderIssuingBlockStatus", "HeaderReceivingBlockStatus", "ExternalReferenceDocument", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
+	dataPlatformDeliveryDocumentHeaderDatumColumnsWithoutDefault = []string{"DeliveryDocument", "SupplyChainRelationshipID", "SupplyChainRelationshipDeliveryID", "SupplyChainRelationshipDeliveryPlantID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "Buyer", "Seller", "DeliverToParty", "DeliverFromParty", "DeliverToPlant", "DeliverFromPlant", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "IsExportImport", "DeliverToPlantTimeZone", "DeliverFromPlantTimeZone", "ReferenceDocument", "ReferenceDocumentItem", "OrderID", "OrderItem", "ProductionOrder", "ProductionOrderItem", "Operations", "OperationsItem", "BillOfMaterial", "BillOfMaterialItem", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "DeliveryDocumentDate", "PlannedGoodsIssueDate", "PlannedGoodsIssueTime", "PlannedGoodsReceiptDate", "PlannedGoodsReceiptTime", "InvoiceDocumentDate", "HeaderCompleteDeliveryIsDefined", "HeaderDeliveryStatus", "GoodsIssueOrReceiptSlipNumber", "HeaderBillingStatus", "HeaderBillingConfStatus", "HeaderBillingBlockStatus", "HeaderGrossWeight", "HeaderNetWeight", "HeaderWeightUnit", "Incoterms", "TransactionCurrency", "HeaderDeliveryBlockStatus", "HeaderIssuingBlockStatus", "HeaderReceivingBlockStatus", "ExternalReferenceDocument", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
 	dataPlatformDeliveryDocumentHeaderDatumColumnsWithDefault    = []string{}
 	dataPlatformDeliveryDocumentHeaderDatumPrimaryKeyColumns     = []string{"DeliveryDocument"}
 	dataPlatformDeliveryDocumentHeaderDatumGeneratedColumns      = []string{}
@@ -721,10 +778,21 @@ func (o *DataPlatformDeliveryDocumentHeaderDatum) BillToCountryDataPlatformCount
 	return DataPlatformCountryCountryData(queryMods...)
 }
 
-// DeliverToPlantDataPlatformTimeZoneTimeZoneDatum pointed to by the foreign key.
-func (o *DataPlatformDeliveryDocumentHeaderDatum) DeliverToPlantDataPlatformTimeZoneTimeZoneDatum(mods ...qm.QueryMod) dataPlatformTimeZoneTimeZoneDatumQuery {
+// DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum pointed to by the foreign key.
+func (o *DataPlatformDeliveryDocumentHeaderDatum) DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum(mods ...qm.QueryMod) dataPlatformTimeZoneTimeZoneDatumQuery {
 	queryMods := []qm.QueryMod{
-		qm.Where("`TimeZone` = ?", o.DeliverToPlant),
+		qm.Where("`TimeZone` = ?", o.DeliverFromPlantTimeZone),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformTimeZoneTimeZoneData(queryMods...)
+}
+
+// DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum pointed to by the foreign key.
+func (o *DataPlatformDeliveryDocumentHeaderDatum) DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum(mods ...qm.QueryMod) dataPlatformTimeZoneTimeZoneDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`TimeZone` = ?", o.DeliverToPlantTimeZone),
 	}
 
 	queryMods = append(queryMods, mods...)
@@ -829,6 +897,62 @@ func (o *DataPlatformDeliveryDocumentHeaderDatum) TransactionCurrencyDataPlatfor
 	queryMods = append(queryMods, mods...)
 
 	return DataPlatformCurrencyCurrencyData(queryMods...)
+}
+
+// DeliveryDocumentDataPlatformDeliveryDocumentAddressData retrieves all the data_platform_delivery_document_address_datum's DataPlatformDeliveryDocumentAddressData with an executor via DeliveryDocument column.
+func (o *DataPlatformDeliveryDocumentHeaderDatum) DeliveryDocumentDataPlatformDeliveryDocumentAddressData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentAddressDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_address_data`.`DeliveryDocument`=?", o.DeliveryDocument),
+	)
+
+	return DataPlatformDeliveryDocumentAddressData(queryMods...)
+}
+
+// DeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData retrieves all the data_platform_delivery_document_header_doc_datum's DataPlatformDeliveryDocumentHeaderDocData with an executor via DeliveryDocument column.
+func (o *DataPlatformDeliveryDocumentHeaderDatum) DeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentHeaderDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_header_doc_data`.`DeliveryDocument`=?", o.DeliveryDocument),
+	)
+
+	return DataPlatformDeliveryDocumentHeaderDocData(queryMods...)
+}
+
+// DeliveryDocumentDataPlatformDeliveryDocumentItemData retrieves all the data_platform_delivery_document_item_datum's DataPlatformDeliveryDocumentItemData with an executor via DeliveryDocument column.
+func (o *DataPlatformDeliveryDocumentHeaderDatum) DeliveryDocumentDataPlatformDeliveryDocumentItemData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_item_data`.`DeliveryDocument`=?", o.DeliveryDocument),
+	)
+
+	return DataPlatformDeliveryDocumentItemData(queryMods...)
+}
+
+// DeliveryDocumentDataPlatformDeliveryDocumentPartnerData retrieves all the data_platform_delivery_document_partner_datum's DataPlatformDeliveryDocumentPartnerData with an executor via DeliveryDocument column.
+func (o *DataPlatformDeliveryDocumentHeaderDatum) DeliveryDocumentDataPlatformDeliveryDocumentPartnerData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentPartnerDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_partner_data`.`DeliveryDocument`=?", o.DeliveryDocument),
+	)
+
+	return DataPlatformDeliveryDocumentPartnerData(queryMods...)
 }
 
 // LoadBillFromCountryDataPlatformCountryCountryDatum allows an eager lookup of values, cached into the
@@ -1047,9 +1171,9 @@ func (dataPlatformDeliveryDocumentHeaderDatumL) LoadBillToCountryDataPlatformCou
 	return nil
 }
 
-// LoadDeliverToPlantDataPlatformTimeZoneTimeZoneDatum allows an eager lookup of values, cached into the
+// LoadDeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformDeliveryDocumentHeaderDatumL) LoadDeliverToPlantDataPlatformTimeZoneTimeZoneDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDeliveryDocumentHeaderDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformDeliveryDocumentHeaderDatumL) LoadDeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDeliveryDocumentHeaderDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformDeliveryDocumentHeaderDatum
 	var object *DataPlatformDeliveryDocumentHeaderDatum
 
@@ -1080,7 +1204,9 @@ func (dataPlatformDeliveryDocumentHeaderDatumL) LoadDeliverToPlantDataPlatformTi
 		if object.R == nil {
 			object.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
 		}
-		args = append(args, object.DeliverToPlant)
+		if !queries.IsNil(object.DeliverFromPlantTimeZone) {
+			args = append(args, object.DeliverFromPlantTimeZone)
+		}
 
 	} else {
 	Outer:
@@ -1090,12 +1216,14 @@ func (dataPlatformDeliveryDocumentHeaderDatumL) LoadDeliverToPlantDataPlatformTi
 			}
 
 			for _, a := range args {
-				if a == obj.DeliverToPlant {
+				if queries.Equal(a, obj.DeliverFromPlantTimeZone) {
 					continue Outer
 				}
 			}
 
-			args = append(args, obj.DeliverToPlant)
+			if !queries.IsNil(obj.DeliverFromPlantTimeZone) {
+				args = append(args, obj.DeliverFromPlantTimeZone)
+			}
 
 		}
 	}
@@ -1135,14 +1263,122 @@ func (dataPlatformDeliveryDocumentHeaderDatumL) LoadDeliverToPlantDataPlatformTi
 
 	if singular {
 		foreign := resultSlice[0]
-		object.R.DeliverToPlantDataPlatformTimeZoneTimeZoneDatum = foreign
+		object.R.DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum = foreign
 		return nil
 	}
 
 	for _, local := range slice {
 		for _, foreign := range resultSlice {
-			if local.DeliverToPlant == foreign.TimeZone {
-				local.R.DeliverToPlantDataPlatformTimeZoneTimeZoneDatum = foreign
+			if queries.Equal(local.DeliverFromPlantTimeZone, foreign.TimeZone) {
+				local.R.DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformDeliveryDocumentHeaderDatumL) LoadDeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDeliveryDocumentHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDeliveryDocumentHeaderDatum
+	var object *DataPlatformDeliveryDocumentHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDeliveryDocumentHeaderDatum.(*DataPlatformDeliveryDocumentHeaderDatum)
+		if !ok {
+			object = new(DataPlatformDeliveryDocumentHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDeliveryDocumentHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDeliveryDocumentHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDeliveryDocumentHeaderDatum.(*[]*DataPlatformDeliveryDocumentHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDeliveryDocumentHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDeliveryDocumentHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+		}
+		if !queries.IsNil(object.DeliverToPlantTimeZone) {
+			args = append(args, object.DeliverToPlantTimeZone)
+		}
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.DeliverToPlantTimeZone) {
+					continue Outer
+				}
+			}
+
+			if !queries.IsNil(obj.DeliverToPlantTimeZone) {
+				args = append(args, obj.DeliverToPlantTimeZone)
+			}
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_time_zone_time_zone_data`),
+		qm.WhereIn(`data_platform_time_zone_time_zone_data.TimeZone in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformTimeZoneTimeZoneDatum")
+	}
+
+	var resultSlice []*DataPlatformTimeZoneTimeZoneDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformTimeZoneTimeZoneDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_time_zone_time_zone_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_time_zone_time_zone_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if queries.Equal(local.DeliverToPlantTimeZone, foreign.TimeZone) {
+				local.R.DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum = foreign
 				break
 			}
 		}
@@ -2115,6 +2351,394 @@ func (dataPlatformDeliveryDocumentHeaderDatumL) LoadTransactionCurrencyDataPlatf
 	return nil
 }
 
+// LoadDeliveryDocumentDataPlatformDeliveryDocumentAddressData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDeliveryDocumentHeaderDatumL) LoadDeliveryDocumentDataPlatformDeliveryDocumentAddressData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDeliveryDocumentHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDeliveryDocumentHeaderDatum
+	var object *DataPlatformDeliveryDocumentHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDeliveryDocumentHeaderDatum.(*DataPlatformDeliveryDocumentHeaderDatum)
+		if !ok {
+			object = new(DataPlatformDeliveryDocumentHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDeliveryDocumentHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDeliveryDocumentHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDeliveryDocumentHeaderDatum.(*[]*DataPlatformDeliveryDocumentHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDeliveryDocumentHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDeliveryDocumentHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+		}
+		args = append(args, object.DeliveryDocument)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DeliveryDocument {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DeliveryDocument)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_address_data`),
+		qm.WhereIn(`data_platform_delivery_document_address_data.DeliveryDocument in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_address_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentAddressDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_address_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_address_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_address_data")
+	}
+
+	if singular {
+		object.R.DeliveryDocumentDataPlatformDeliveryDocumentAddressData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DeliveryDocument == foreign.DeliveryDocument {
+				local.R.DeliveryDocumentDataPlatformDeliveryDocumentAddressData = append(local.R.DeliveryDocumentDataPlatformDeliveryDocumentAddressData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDeliveryDocumentHeaderDatumL) LoadDeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDeliveryDocumentHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDeliveryDocumentHeaderDatum
+	var object *DataPlatformDeliveryDocumentHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDeliveryDocumentHeaderDatum.(*DataPlatformDeliveryDocumentHeaderDatum)
+		if !ok {
+			object = new(DataPlatformDeliveryDocumentHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDeliveryDocumentHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDeliveryDocumentHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDeliveryDocumentHeaderDatum.(*[]*DataPlatformDeliveryDocumentHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDeliveryDocumentHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDeliveryDocumentHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+		}
+		args = append(args, object.DeliveryDocument)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DeliveryDocument {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DeliveryDocument)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_header_doc_data`),
+		qm.WhereIn(`data_platform_delivery_document_header_doc_data.DeliveryDocument in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_header_doc_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentHeaderDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_header_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_header_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_header_doc_data")
+	}
+
+	if singular {
+		object.R.DeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DeliveryDocument == foreign.DeliveryDocument {
+				local.R.DeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData = append(local.R.DeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDeliveryDocumentDataPlatformDeliveryDocumentItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDeliveryDocumentHeaderDatumL) LoadDeliveryDocumentDataPlatformDeliveryDocumentItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDeliveryDocumentHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDeliveryDocumentHeaderDatum
+	var object *DataPlatformDeliveryDocumentHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDeliveryDocumentHeaderDatum.(*DataPlatformDeliveryDocumentHeaderDatum)
+		if !ok {
+			object = new(DataPlatformDeliveryDocumentHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDeliveryDocumentHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDeliveryDocumentHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDeliveryDocumentHeaderDatum.(*[]*DataPlatformDeliveryDocumentHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDeliveryDocumentHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDeliveryDocumentHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+		}
+		args = append(args, object.DeliveryDocument)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DeliveryDocument {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DeliveryDocument)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_item_data`),
+		qm.WhereIn(`data_platform_delivery_document_item_data.DeliveryDocument in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_item_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_item_data")
+	}
+
+	if singular {
+		object.R.DeliveryDocumentDataPlatformDeliveryDocumentItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DeliveryDocument == foreign.DeliveryDocument {
+				local.R.DeliveryDocumentDataPlatformDeliveryDocumentItemData = append(local.R.DeliveryDocumentDataPlatformDeliveryDocumentItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDeliveryDocumentDataPlatformDeliveryDocumentPartnerData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDeliveryDocumentHeaderDatumL) LoadDeliveryDocumentDataPlatformDeliveryDocumentPartnerData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDeliveryDocumentHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDeliveryDocumentHeaderDatum
+	var object *DataPlatformDeliveryDocumentHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDeliveryDocumentHeaderDatum.(*DataPlatformDeliveryDocumentHeaderDatum)
+		if !ok {
+			object = new(DataPlatformDeliveryDocumentHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDeliveryDocumentHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDeliveryDocumentHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDeliveryDocumentHeaderDatum.(*[]*DataPlatformDeliveryDocumentHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDeliveryDocumentHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDeliveryDocumentHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+		}
+		args = append(args, object.DeliveryDocument)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDeliveryDocumentHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DeliveryDocument {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DeliveryDocument)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_partner_data`),
+		qm.WhereIn(`data_platform_delivery_document_partner_data.DeliveryDocument in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_partner_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentPartnerDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_partner_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_partner_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_partner_data")
+	}
+
+	if singular {
+		object.R.DeliveryDocumentDataPlatformDeliveryDocumentPartnerData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DeliveryDocument == foreign.DeliveryDocument {
+				local.R.DeliveryDocumentDataPlatformDeliveryDocumentPartnerData = append(local.R.DeliveryDocumentDataPlatformDeliveryDocumentPartnerData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // SetBillFromCountryDataPlatformCountryCountryDatum of the dataPlatformDeliveryDocumentHeaderDatum to the related item.
 // Sets o.R.BillFromCountryDataPlatformCountryCountryDatum to related.
 func (o *DataPlatformDeliveryDocumentHeaderDatum) SetBillFromCountryDataPlatformCountryCountryDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformCountryCountryDatum) error {
@@ -2231,9 +2855,9 @@ func (o *DataPlatformDeliveryDocumentHeaderDatum) RemoveBillToCountryDataPlatfor
 	return nil
 }
 
-// SetDeliverToPlantDataPlatformTimeZoneTimeZoneDatum of the dataPlatformDeliveryDocumentHeaderDatum to the related item.
-// Sets o.R.DeliverToPlantDataPlatformTimeZoneTimeZoneDatum to related.
-func (o *DataPlatformDeliveryDocumentHeaderDatum) SetDeliverToPlantDataPlatformTimeZoneTimeZoneDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformTimeZoneTimeZoneDatum) error {
+// SetDeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum of the dataPlatformDeliveryDocumentHeaderDatum to the related item.
+// Sets o.R.DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum to related.
+func (o *DataPlatformDeliveryDocumentHeaderDatum) SetDeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformTimeZoneTimeZoneDatum) error {
 	var err error
 	if insert {
 		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
@@ -2243,7 +2867,7 @@ func (o *DataPlatformDeliveryDocumentHeaderDatum) SetDeliverToPlantDataPlatformT
 
 	updateQuery := fmt.Sprintf(
 		"UPDATE `data_platform_delivery_document_header_data` SET %s WHERE %s",
-		strmangle.SetParamNames("`", "`", 0, []string{"DeliverToPlant"}),
+		strmangle.SetParamNames("`", "`", 0, []string{"DeliverFromPlantTimeZone"}),
 		strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentHeaderDatumPrimaryKeyColumns),
 	)
 	values := []interface{}{related.TimeZone, o.DeliveryDocument}
@@ -2257,13 +2881,91 @@ func (o *DataPlatformDeliveryDocumentHeaderDatum) SetDeliverToPlantDataPlatformT
 		return errors.Wrap(err, "failed to update local table")
 	}
 
-	o.DeliverToPlant = related.TimeZone
+	queries.Assign(&o.DeliverFromPlantTimeZone, related.TimeZone)
 	if o.R == nil {
 		o.R = &dataPlatformDeliveryDocumentHeaderDatumR{
-			DeliverToPlantDataPlatformTimeZoneTimeZoneDatum: related,
+			DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum: related,
 		}
 	} else {
-		o.R.DeliverToPlantDataPlatformTimeZoneTimeZoneDatum = related
+		o.R.DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum = related
+	}
+
+	return nil
+}
+
+// RemoveDeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum relationship.
+// Sets o.R.DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum to nil.
+func (o *DataPlatformDeliveryDocumentHeaderDatum) RemoveDeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformTimeZoneTimeZoneDatum) error {
+	var err error
+
+	queries.SetScanner(&o.DeliverFromPlantTimeZone, nil)
+	if err = o.Update(ctx, exec, boil.Whitelist("DeliverFromPlantTimeZone")); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	if o.R != nil {
+		o.R.DeliverFromPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum = nil
+	}
+	if related == nil || related.R == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// SetDeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum of the dataPlatformDeliveryDocumentHeaderDatum to the related item.
+// Sets o.R.DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum to related.
+func (o *DataPlatformDeliveryDocumentHeaderDatum) SetDeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformTimeZoneTimeZoneDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_delivery_document_header_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"DeliverToPlantTimeZone"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentHeaderDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.TimeZone, o.DeliveryDocument}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	queries.Assign(&o.DeliverToPlantTimeZone, related.TimeZone)
+	if o.R == nil {
+		o.R = &dataPlatformDeliveryDocumentHeaderDatumR{
+			DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum: related,
+		}
+	} else {
+		o.R.DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum = related
+	}
+
+	return nil
+}
+
+// RemoveDeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum relationship.
+// Sets o.R.DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum to nil.
+func (o *DataPlatformDeliveryDocumentHeaderDatum) RemoveDeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformTimeZoneTimeZoneDatum) error {
+	var err error
+
+	queries.SetScanner(&o.DeliverToPlantTimeZone, nil)
+	if err = o.Update(ctx, exec, boil.Whitelist("DeliverToPlantTimeZone")); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	if o.R != nil {
+		o.R.DeliverToPlantTimeZoneDataPlatformTimeZoneTimeZoneDatum = nil
+	}
+	if related == nil || related.R == nil {
+		return nil
 	}
 
 	return nil
@@ -2746,6 +3448,178 @@ func (o *DataPlatformDeliveryDocumentHeaderDatum) RemoveTransactionCurrencyDataP
 	}
 	if related == nil || related.R == nil {
 		return nil
+	}
+
+	return nil
+}
+
+// AddDeliveryDocumentDataPlatformDeliveryDocumentAddressData adds the given related objects to the existing relationships
+// of the data_platform_delivery_document_header_datum, optionally inserting them as new records.
+// Appends related to o.R.DeliveryDocumentDataPlatformDeliveryDocumentAddressData.
+func (o *DataPlatformDeliveryDocumentHeaderDatum) AddDeliveryDocumentDataPlatformDeliveryDocumentAddressData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentAddressDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DeliveryDocument = o.DeliveryDocument
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_address_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DeliveryDocument"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentAddressDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DeliveryDocument, rel.DeliveryDocument, rel.AddressID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DeliveryDocument = o.DeliveryDocument
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDeliveryDocumentHeaderDatumR{
+			DeliveryDocumentDataPlatformDeliveryDocumentAddressData: related,
+		}
+	} else {
+		o.R.DeliveryDocumentDataPlatformDeliveryDocumentAddressData = append(o.R.DeliveryDocumentDataPlatformDeliveryDocumentAddressData, related...)
+	}
+
+	return nil
+}
+
+// AddDeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData adds the given related objects to the existing relationships
+// of the data_platform_delivery_document_header_datum, optionally inserting them as new records.
+// Appends related to o.R.DeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData.
+func (o *DataPlatformDeliveryDocumentHeaderDatum) AddDeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DeliveryDocument = o.DeliveryDocument
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_header_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DeliveryDocument"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentHeaderDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DeliveryDocument, rel.DeliveryDocument, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DeliveryDocument = o.DeliveryDocument
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDeliveryDocumentHeaderDatumR{
+			DeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData: related,
+		}
+	} else {
+		o.R.DeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData = append(o.R.DeliveryDocumentDataPlatformDeliveryDocumentHeaderDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDeliveryDocumentDataPlatformDeliveryDocumentItemData adds the given related objects to the existing relationships
+// of the data_platform_delivery_document_header_datum, optionally inserting them as new records.
+// Appends related to o.R.DeliveryDocumentDataPlatformDeliveryDocumentItemData.
+func (o *DataPlatformDeliveryDocumentHeaderDatum) AddDeliveryDocumentDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DeliveryDocument = o.DeliveryDocument
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DeliveryDocument"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DeliveryDocument, rel.DeliveryDocument, rel.DeliveryDocumentItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DeliveryDocument = o.DeliveryDocument
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDeliveryDocumentHeaderDatumR{
+			DeliveryDocumentDataPlatformDeliveryDocumentItemData: related,
+		}
+	} else {
+		o.R.DeliveryDocumentDataPlatformDeliveryDocumentItemData = append(o.R.DeliveryDocumentDataPlatformDeliveryDocumentItemData, related...)
+	}
+
+	return nil
+}
+
+// AddDeliveryDocumentDataPlatformDeliveryDocumentPartnerData adds the given related objects to the existing relationships
+// of the data_platform_delivery_document_header_datum, optionally inserting them as new records.
+// Appends related to o.R.DeliveryDocumentDataPlatformDeliveryDocumentPartnerData.
+func (o *DataPlatformDeliveryDocumentHeaderDatum) AddDeliveryDocumentDataPlatformDeliveryDocumentPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentPartnerDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DeliveryDocument = o.DeliveryDocument
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_partner_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DeliveryDocument"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentPartnerDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DeliveryDocument, rel.DeliveryDocument, rel.PartnerFunction, rel.BusinessPartner}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DeliveryDocument = o.DeliveryDocument
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDeliveryDocumentHeaderDatumR{
+			DeliveryDocumentDataPlatformDeliveryDocumentPartnerData: related,
+		}
+	} else {
+		o.R.DeliveryDocumentDataPlatformDeliveryDocumentPartnerData = append(o.R.DeliveryDocumentDataPlatformDeliveryDocumentPartnerData, related...)
 	}
 
 	return nil

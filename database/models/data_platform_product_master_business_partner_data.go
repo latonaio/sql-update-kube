@@ -87,19 +87,29 @@ var DataPlatformProductMasterBusinessPartnerDatumWhere = struct {
 
 // DataPlatformProductMasterBusinessPartnerDatumRels is where relationship names are stored.
 var DataPlatformProductMasterBusinessPartnerDatumRels = struct {
-	BusinessPartnerDataPlatformProductMasterProductDescByBPData string
+	BusinessPartnerDataPlatformProductMasterBusinessPartnerDocData string
+	BusinessPartnerDataPlatformProductMasterProductDescByBPData    string
 }{
-	BusinessPartnerDataPlatformProductMasterProductDescByBPData: "BusinessPartnerDataPlatformProductMasterProductDescByBPData",
+	BusinessPartnerDataPlatformProductMasterBusinessPartnerDocData: "BusinessPartnerDataPlatformProductMasterBusinessPartnerDocData",
+	BusinessPartnerDataPlatformProductMasterProductDescByBPData:    "BusinessPartnerDataPlatformProductMasterProductDescByBPData",
 }
 
 // dataPlatformProductMasterBusinessPartnerDatumR is where relationships are stored.
 type dataPlatformProductMasterBusinessPartnerDatumR struct {
-	BusinessPartnerDataPlatformProductMasterProductDescByBPData DataPlatformProductMasterProductDescByBPDatumSlice `boil:"BusinessPartnerDataPlatformProductMasterProductDescByBPData" json:"BusinessPartnerDataPlatformProductMasterProductDescByBPData" toml:"BusinessPartnerDataPlatformProductMasterProductDescByBPData" yaml:"BusinessPartnerDataPlatformProductMasterProductDescByBPData"`
+	BusinessPartnerDataPlatformProductMasterBusinessPartnerDocData DataPlatformProductMasterBusinessPartnerDocDatumSlice `boil:"BusinessPartnerDataPlatformProductMasterBusinessPartnerDocData" json:"BusinessPartnerDataPlatformProductMasterBusinessPartnerDocData" toml:"BusinessPartnerDataPlatformProductMasterBusinessPartnerDocData" yaml:"BusinessPartnerDataPlatformProductMasterBusinessPartnerDocData"`
+	BusinessPartnerDataPlatformProductMasterProductDescByBPData    DataPlatformProductMasterProductDescByBPDatumSlice    `boil:"BusinessPartnerDataPlatformProductMasterProductDescByBPData" json:"BusinessPartnerDataPlatformProductMasterProductDescByBPData" toml:"BusinessPartnerDataPlatformProductMasterProductDescByBPData" yaml:"BusinessPartnerDataPlatformProductMasterProductDescByBPData"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformProductMasterBusinessPartnerDatumR) NewStruct() *dataPlatformProductMasterBusinessPartnerDatumR {
 	return &dataPlatformProductMasterBusinessPartnerDatumR{}
+}
+
+func (r *dataPlatformProductMasterBusinessPartnerDatumR) GetBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData() DataPlatformProductMasterBusinessPartnerDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.BusinessPartnerDataPlatformProductMasterBusinessPartnerDocData
 }
 
 func (r *dataPlatformProductMasterBusinessPartnerDatumR) GetBusinessPartnerDataPlatformProductMasterProductDescByBPData() DataPlatformProductMasterProductDescByBPDatumSlice {
@@ -211,6 +221,20 @@ func (q dataPlatformProductMasterBusinessPartnerDatumQuery) Exists(ctx context.C
 	return count > 0, nil
 }
 
+// BusinessPartnerDataPlatformProductMasterBusinessPartnerDocData retrieves all the data_platform_product_master_business_partner_doc_datum's DataPlatformProductMasterBusinessPartnerDocData with an executor via BusinessPartner column.
+func (o *DataPlatformProductMasterBusinessPartnerDatum) BusinessPartnerDataPlatformProductMasterBusinessPartnerDocData(mods ...qm.QueryMod) dataPlatformProductMasterBusinessPartnerDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_product_master_business_partner_doc_data`.`BusinessPartner`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformProductMasterBusinessPartnerDocData(queryMods...)
+}
+
 // BusinessPartnerDataPlatformProductMasterProductDescByBPData retrieves all the data_platform_product_master_product_desc_by_bp_datum's DataPlatformProductMasterProductDescByBPData with an executor via BusinessPartner column.
 func (o *DataPlatformProductMasterBusinessPartnerDatum) BusinessPartnerDataPlatformProductMasterProductDescByBPData(mods ...qm.QueryMod) dataPlatformProductMasterProductDescByBPDatumQuery {
 	var queryMods []qm.QueryMod
@@ -223,6 +247,103 @@ func (o *DataPlatformProductMasterBusinessPartnerDatum) BusinessPartnerDataPlatf
 	)
 
 	return DataPlatformProductMasterProductDescByBPData(queryMods...)
+}
+
+// LoadBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductMasterBusinessPartnerDatumL) LoadBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterBusinessPartnerDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterBusinessPartnerDatum
+	var object *DataPlatformProductMasterBusinessPartnerDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterBusinessPartnerDatum.(*DataPlatformProductMasterBusinessPartnerDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterBusinessPartnerDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterBusinessPartnerDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterBusinessPartnerDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterBusinessPartnerDatum.(*[]*DataPlatformProductMasterBusinessPartnerDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterBusinessPartnerDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterBusinessPartnerDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterBusinessPartnerDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterBusinessPartnerDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_product_master_business_partner_doc_data`),
+		qm.WhereIn(`data_platform_product_master_business_partner_doc_data.BusinessPartner in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_product_master_business_partner_doc_data")
+	}
+
+	var resultSlice []*DataPlatformProductMasterBusinessPartnerDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_product_master_business_partner_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_product_master_business_partner_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_business_partner_doc_data")
+	}
+
+	if singular {
+		object.R.BusinessPartnerDataPlatformProductMasterBusinessPartnerDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BusinessPartner == foreign.BusinessPartner {
+				local.R.BusinessPartnerDataPlatformProductMasterBusinessPartnerDocData = append(local.R.BusinessPartnerDataPlatformProductMasterBusinessPartnerDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
 }
 
 // LoadBusinessPartnerDataPlatformProductMasterProductDescByBPData allows an eager lookup of values, cached into the
@@ -317,6 +438,49 @@ func (dataPlatformProductMasterBusinessPartnerDatumL) LoadBusinessPartnerDataPla
 				break
 			}
 		}
+	}
+
+	return nil
+}
+
+// AddBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData adds the given related objects to the existing relationships
+// of the data_platform_product_master_business_partner_datum, optionally inserting them as new records.
+// Appends related to o.R.BusinessPartnerDataPlatformProductMasterBusinessPartnerDocData.
+func (o *DataPlatformProductMasterBusinessPartnerDatum) AddBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProductMasterBusinessPartnerDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.BusinessPartner = o.BusinessPartner
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_product_master_business_partner_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"BusinessPartner"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProductMasterBusinessPartnerDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.Product, rel.BusinessPartner, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.BusinessPartner = o.BusinessPartner
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterBusinessPartnerDatumR{
+			BusinessPartnerDataPlatformProductMasterBusinessPartnerDocData: related,
+		}
+	} else {
+		o.R.BusinessPartnerDataPlatformProductMasterBusinessPartnerDocData = append(o.R.BusinessPartnerDataPlatformProductMasterBusinessPartnerDocData, related...)
 	}
 
 	return nil

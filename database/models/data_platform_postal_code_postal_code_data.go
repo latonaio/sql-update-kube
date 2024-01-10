@@ -23,59 +23,70 @@ import (
 
 // DataPlatformPostalCodePostalCodeDatum is an object representing the database table.
 type DataPlatformPostalCodePostalCodeDatum struct {
-	PostalCode   string `boil:"PostalCode" json:"PostalCode" toml:"PostalCode" yaml:"PostalCode"`
-	LocalRegion  string `boil:"LocalRegion" json:"LocalRegion" toml:"LocalRegion" yaml:"LocalRegion"`
-	Country      string `boil:"Country" json:"Country" toml:"Country" yaml:"Country"`
-	GlobalRegion string `boil:"GlobalRegion" json:"GlobalRegion" toml:"GlobalRegion" yaml:"GlobalRegion"`
+	PostalCode     string `boil:"PostalCode" json:"PostalCode" toml:"PostalCode" yaml:"PostalCode"`
+	Country        string `boil:"Country" json:"Country" toml:"Country" yaml:"Country"`
+	LocalSubRegion string `boil:"LocalSubRegion" json:"LocalSubRegion" toml:"LocalSubRegion" yaml:"LocalSubRegion"`
+	LocalRegion    string `boil:"LocalRegion" json:"LocalRegion" toml:"LocalRegion" yaml:"LocalRegion"`
+	GlobalRegion   string `boil:"GlobalRegion" json:"GlobalRegion" toml:"GlobalRegion" yaml:"GlobalRegion"`
 
 	R *dataPlatformPostalCodePostalCodeDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
 	L dataPlatformPostalCodePostalCodeDatumL  `boil:"-" json:"-" toml:"-" yaml:"-"`
 }
 
 var DataPlatformPostalCodePostalCodeDatumColumns = struct {
-	PostalCode   string
-	LocalRegion  string
-	Country      string
-	GlobalRegion string
+	PostalCode     string
+	Country        string
+	LocalSubRegion string
+	LocalRegion    string
+	GlobalRegion   string
 }{
-	PostalCode:   "PostalCode",
-	LocalRegion:  "LocalRegion",
-	Country:      "Country",
-	GlobalRegion: "GlobalRegion",
+	PostalCode:     "PostalCode",
+	Country:        "Country",
+	LocalSubRegion: "LocalSubRegion",
+	LocalRegion:    "LocalRegion",
+	GlobalRegion:   "GlobalRegion",
 }
 
 var DataPlatformPostalCodePostalCodeDatumTableColumns = struct {
-	PostalCode   string
-	LocalRegion  string
-	Country      string
-	GlobalRegion string
+	PostalCode     string
+	Country        string
+	LocalSubRegion string
+	LocalRegion    string
+	GlobalRegion   string
 }{
-	PostalCode:   "data_platform_postal_code_postal_code_data.PostalCode",
-	LocalRegion:  "data_platform_postal_code_postal_code_data.LocalRegion",
-	Country:      "data_platform_postal_code_postal_code_data.Country",
-	GlobalRegion: "data_platform_postal_code_postal_code_data.GlobalRegion",
+	PostalCode:     "data_platform_postal_code_postal_code_data.PostalCode",
+	Country:        "data_platform_postal_code_postal_code_data.Country",
+	LocalSubRegion: "data_platform_postal_code_postal_code_data.LocalSubRegion",
+	LocalRegion:    "data_platform_postal_code_postal_code_data.LocalRegion",
+	GlobalRegion:   "data_platform_postal_code_postal_code_data.GlobalRegion",
 }
 
 // Generated where
 
 var DataPlatformPostalCodePostalCodeDatumWhere = struct {
-	PostalCode   whereHelperstring
-	LocalRegion  whereHelperstring
-	Country      whereHelperstring
-	GlobalRegion whereHelperstring
+	PostalCode     whereHelperstring
+	Country        whereHelperstring
+	LocalSubRegion whereHelperstring
+	LocalRegion    whereHelperstring
+	GlobalRegion   whereHelperstring
 }{
-	PostalCode:   whereHelperstring{field: "`data_platform_postal_code_postal_code_data`.`PostalCode`"},
-	LocalRegion:  whereHelperstring{field: "`data_platform_postal_code_postal_code_data`.`LocalRegion`"},
-	Country:      whereHelperstring{field: "`data_platform_postal_code_postal_code_data`.`Country`"},
-	GlobalRegion: whereHelperstring{field: "`data_platform_postal_code_postal_code_data`.`GlobalRegion`"},
+	PostalCode:     whereHelperstring{field: "`data_platform_postal_code_postal_code_data`.`PostalCode`"},
+	Country:        whereHelperstring{field: "`data_platform_postal_code_postal_code_data`.`Country`"},
+	LocalSubRegion: whereHelperstring{field: "`data_platform_postal_code_postal_code_data`.`LocalSubRegion`"},
+	LocalRegion:    whereHelperstring{field: "`data_platform_postal_code_postal_code_data`.`LocalRegion`"},
+	GlobalRegion:   whereHelperstring{field: "`data_platform_postal_code_postal_code_data`.`GlobalRegion`"},
 }
 
 // DataPlatformPostalCodePostalCodeDatumRels is where relationship names are stored.
 var DataPlatformPostalCodePostalCodeDatumRels = struct {
-}{}
+	CountryDataPlatformUsageControlChainUsageControlChainData string
+}{
+	CountryDataPlatformUsageControlChainUsageControlChainData: "CountryDataPlatformUsageControlChainUsageControlChainData",
+}
 
 // dataPlatformPostalCodePostalCodeDatumR is where relationships are stored.
 type dataPlatformPostalCodePostalCodeDatumR struct {
+	CountryDataPlatformUsageControlChainUsageControlChainData DataPlatformUsageControlChainUsageControlChainDatumSlice `boil:"CountryDataPlatformUsageControlChainUsageControlChainData" json:"CountryDataPlatformUsageControlChainUsageControlChainData" toml:"CountryDataPlatformUsageControlChainUsageControlChainData" yaml:"CountryDataPlatformUsageControlChainUsageControlChainData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -83,14 +94,21 @@ func (*dataPlatformPostalCodePostalCodeDatumR) NewStruct() *dataPlatformPostalCo
 	return &dataPlatformPostalCodePostalCodeDatumR{}
 }
 
+func (r *dataPlatformPostalCodePostalCodeDatumR) GetCountryDataPlatformUsageControlChainUsageControlChainData() DataPlatformUsageControlChainUsageControlChainDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.CountryDataPlatformUsageControlChainUsageControlChainData
+}
+
 // dataPlatformPostalCodePostalCodeDatumL is where Load methods for each relationship are stored.
 type dataPlatformPostalCodePostalCodeDatumL struct{}
 
 var (
-	dataPlatformPostalCodePostalCodeDatumAllColumns            = []string{"PostalCode", "LocalRegion", "Country", "GlobalRegion"}
-	dataPlatformPostalCodePostalCodeDatumColumnsWithoutDefault = []string{"PostalCode", "LocalRegion", "Country", "GlobalRegion"}
+	dataPlatformPostalCodePostalCodeDatumAllColumns            = []string{"PostalCode", "Country", "LocalSubRegion", "LocalRegion", "GlobalRegion"}
+	dataPlatformPostalCodePostalCodeDatumColumnsWithoutDefault = []string{"PostalCode", "Country", "LocalSubRegion", "LocalRegion", "GlobalRegion"}
 	dataPlatformPostalCodePostalCodeDatumColumnsWithDefault    = []string{}
-	dataPlatformPostalCodePostalCodeDatumPrimaryKeyColumns     = []string{"PostalCode", "LocalRegion", "Country"}
+	dataPlatformPostalCodePostalCodeDatumPrimaryKeyColumns     = []string{"PostalCode", "Country"}
 	dataPlatformPostalCodePostalCodeDatumGeneratedColumns      = []string{}
 )
 
@@ -185,6 +203,221 @@ func (q dataPlatformPostalCodePostalCodeDatumQuery) Exists(ctx context.Context, 
 	return count > 0, nil
 }
 
+// CountryDataPlatformUsageControlChainUsageControlChainData retrieves all the data_platform_usage_control_chain_usage_control_chain_datum's DataPlatformUsageControlChainUsageControlChainData with an executor via Country column.
+func (o *DataPlatformPostalCodePostalCodeDatum) CountryDataPlatformUsageControlChainUsageControlChainData(mods ...qm.QueryMod) dataPlatformUsageControlChainUsageControlChainDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_usage_control_chain_usage_control_chain_data`.`Country`=?", o.Country),
+	)
+
+	return DataPlatformUsageControlChainUsageControlChainData(queryMods...)
+}
+
+// LoadCountryDataPlatformUsageControlChainUsageControlChainData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformPostalCodePostalCodeDatumL) LoadCountryDataPlatformUsageControlChainUsageControlChainData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPostalCodePostalCodeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformPostalCodePostalCodeDatum
+	var object *DataPlatformPostalCodePostalCodeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformPostalCodePostalCodeDatum.(*DataPlatformPostalCodePostalCodeDatum)
+		if !ok {
+			object = new(DataPlatformPostalCodePostalCodeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformPostalCodePostalCodeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformPostalCodePostalCodeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformPostalCodePostalCodeDatum.(*[]*DataPlatformPostalCodePostalCodeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformPostalCodePostalCodeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformPostalCodePostalCodeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformPostalCodePostalCodeDatumR{}
+		}
+		args = append(args, object.Country)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformPostalCodePostalCodeDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Country) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Country)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_usage_control_chain_usage_control_chain_data`),
+		qm.WhereIn(`data_platform_usage_control_chain_usage_control_chain_data.Country in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_usage_control_chain_usage_control_chain_data")
+	}
+
+	var resultSlice []*DataPlatformUsageControlChainUsageControlChainDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_usage_control_chain_usage_control_chain_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_usage_control_chain_usage_control_chain_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_usage_control_chain_usage_control_chain_data")
+	}
+
+	if singular {
+		object.R.CountryDataPlatformUsageControlChainUsageControlChainData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Country, foreign.Country) {
+				local.R.CountryDataPlatformUsageControlChainUsageControlChainData = append(local.R.CountryDataPlatformUsageControlChainUsageControlChainData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// AddCountryDataPlatformUsageControlChainUsageControlChainData adds the given related objects to the existing relationships
+// of the data_platform_postal_code_postal_code_datum, optionally inserting them as new records.
+// Appends related to o.R.CountryDataPlatformUsageControlChainUsageControlChainData.
+func (o *DataPlatformPostalCodePostalCodeDatum) AddCountryDataPlatformUsageControlChainUsageControlChainData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformUsageControlChainUsageControlChainDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Country, o.Country)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_usage_control_chain_usage_control_chain_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Country"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformUsageControlChainUsageControlChainDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Country, rel.UsageControlChain}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Country, o.Country)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformPostalCodePostalCodeDatumR{
+			CountryDataPlatformUsageControlChainUsageControlChainData: related,
+		}
+	} else {
+		o.R.CountryDataPlatformUsageControlChainUsageControlChainData = append(o.R.CountryDataPlatformUsageControlChainUsageControlChainData, related...)
+	}
+
+	return nil
+}
+
+// SetCountryDataPlatformUsageControlChainUsageControlChainData removes all previously related items of the
+// data_platform_postal_code_postal_code_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.CountryDataPlatformPostalCodePostalCodeDatum's CountryDataPlatformUsageControlChainUsageControlChainData accordingly.
+// Replaces o.R.CountryDataPlatformUsageControlChainUsageControlChainData with related.
+func (o *DataPlatformPostalCodePostalCodeDatum) SetCountryDataPlatformUsageControlChainUsageControlChainData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformUsageControlChainUsageControlChainDatum) error {
+	query := "update `data_platform_usage_control_chain_usage_control_chain_data` set `Country` = null where `Country` = ?"
+	values := []interface{}{o.Country}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.CountryDataPlatformUsageControlChainUsageControlChainData = nil
+	}
+
+	return o.AddCountryDataPlatformUsageControlChainUsageControlChainData(ctx, exec, insert, related...)
+}
+
+// RemoveCountryDataPlatformUsageControlChainUsageControlChainData relationships from objects passed in.
+// Removes related items from R.CountryDataPlatformUsageControlChainUsageControlChainData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformPostalCodePostalCodeDatum) RemoveCountryDataPlatformUsageControlChainUsageControlChainData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformUsageControlChainUsageControlChainDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Country, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Country")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.CountryDataPlatformUsageControlChainUsageControlChainData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.CountryDataPlatformUsageControlChainUsageControlChainData)
+			if ln > 1 && i < ln-1 {
+				o.R.CountryDataPlatformUsageControlChainUsageControlChainData[i] = o.R.CountryDataPlatformUsageControlChainUsageControlChainData[ln-1]
+			}
+			o.R.CountryDataPlatformUsageControlChainUsageControlChainData = o.R.CountryDataPlatformUsageControlChainUsageControlChainData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
 // DataPlatformPostalCodePostalCodeData retrieves all the records using an executor.
 func DataPlatformPostalCodePostalCodeData(mods ...qm.QueryMod) dataPlatformPostalCodePostalCodeDatumQuery {
 	mods = append(mods, qm.From("`data_platform_postal_code_postal_code_data`"))
@@ -198,7 +431,7 @@ func DataPlatformPostalCodePostalCodeData(mods ...qm.QueryMod) dataPlatformPosta
 
 // FindDataPlatformPostalCodePostalCodeDatum retrieves a single record by ID with an executor.
 // If selectCols is empty Find will return all columns.
-func FindDataPlatformPostalCodePostalCodeDatum(ctx context.Context, exec boil.ContextExecutor, postalCode string, localRegion string, country string, selectCols ...string) (*DataPlatformPostalCodePostalCodeDatum, error) {
+func FindDataPlatformPostalCodePostalCodeDatum(ctx context.Context, exec boil.ContextExecutor, postalCode string, country string, selectCols ...string) (*DataPlatformPostalCodePostalCodeDatum, error) {
 	dataPlatformPostalCodePostalCodeDatumObj := &DataPlatformPostalCodePostalCodeDatum{}
 
 	sel := "*"
@@ -206,10 +439,10 @@ func FindDataPlatformPostalCodePostalCodeDatum(ctx context.Context, exec boil.Co
 		sel = strings.Join(strmangle.IdentQuoteSlice(dialect.LQ, dialect.RQ, selectCols), ",")
 	}
 	query := fmt.Sprintf(
-		"select %s from `data_platform_postal_code_postal_code_data` where `PostalCode`=? AND `LocalRegion`=? AND `Country`=?", sel,
+		"select %s from `data_platform_postal_code_postal_code_data` where `PostalCode`=? AND `Country`=?", sel,
 	)
 
-	q := queries.Raw(query, postalCode, localRegion, country)
+	q := queries.Raw(query, postalCode, country)
 
 	err := q.Bind(ctx, exec, dataPlatformPostalCodePostalCodeDatumObj)
 	if err != nil {
@@ -291,7 +524,6 @@ func (o *DataPlatformPostalCodePostalCodeDatum) Insert(ctx context.Context, exec
 
 	identifierCols = []interface{}{
 		o.PostalCode,
-		o.LocalRegion,
 		o.Country,
 	}
 
@@ -565,7 +797,7 @@ func (o *DataPlatformPostalCodePostalCodeDatum) Delete(ctx context.Context, exec
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformPostalCodePostalCodeDatumPrimaryKeyMapping)
-	sql := "DELETE FROM `data_platform_postal_code_postal_code_data` WHERE `PostalCode`=? AND `LocalRegion`=? AND `Country`=?"
+	sql := "DELETE FROM `data_platform_postal_code_postal_code_data` WHERE `PostalCode`=? AND `Country`=?"
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -627,7 +859,7 @@ func (o DataPlatformPostalCodePostalCodeDatumSlice) DeleteAll(ctx context.Contex
 // Reload refetches the object from the database
 // using the primary keys with an executor.
 func (o *DataPlatformPostalCodePostalCodeDatum) Reload(ctx context.Context, exec boil.ContextExecutor) error {
-	ret, err := FindDataPlatformPostalCodePostalCodeDatum(ctx, exec, o.PostalCode, o.LocalRegion, o.Country)
+	ret, err := FindDataPlatformPostalCodePostalCodeDatum(ctx, exec, o.PostalCode, o.Country)
 	if err != nil {
 		return err
 	}
@@ -666,16 +898,16 @@ func (o *DataPlatformPostalCodePostalCodeDatumSlice) ReloadAll(ctx context.Conte
 }
 
 // DataPlatformPostalCodePostalCodeDatumExists checks if the DataPlatformPostalCodePostalCodeDatum row exists.
-func DataPlatformPostalCodePostalCodeDatumExists(ctx context.Context, exec boil.ContextExecutor, postalCode string, localRegion string, country string) (bool, error) {
+func DataPlatformPostalCodePostalCodeDatumExists(ctx context.Context, exec boil.ContextExecutor, postalCode string, country string) (bool, error) {
 	var exists bool
-	sql := "select exists(select 1 from `data_platform_postal_code_postal_code_data` where `PostalCode`=? AND `LocalRegion`=? AND `Country`=? limit 1)"
+	sql := "select exists(select 1 from `data_platform_postal_code_postal_code_data` where `PostalCode`=? AND `Country`=? limit 1)"
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
 		fmt.Fprintln(writer, sql)
-		fmt.Fprintln(writer, postalCode, localRegion, country)
+		fmt.Fprintln(writer, postalCode, country)
 	}
-	row := exec.QueryRowContext(ctx, sql, postalCode, localRegion, country)
+	row := exec.QueryRowContext(ctx, sql, postalCode, country)
 
 	err := row.Scan(&exists)
 	if err != nil {
@@ -687,5 +919,5 @@ func DataPlatformPostalCodePostalCodeDatumExists(ctx context.Context, exec boil.
 
 // Exists checks if the DataPlatformPostalCodePostalCodeDatum row exists.
 func (o *DataPlatformPostalCodePostalCodeDatum) Exists(ctx context.Context, exec boil.ContextExecutor) (bool, error) {
-	return DataPlatformPostalCodePostalCodeDatumExists(ctx, exec, o.PostalCode, o.LocalRegion, o.Country)
+	return DataPlatformPostalCodePostalCodeDatumExists(ctx, exec, o.PostalCode, o.Country)
 }
