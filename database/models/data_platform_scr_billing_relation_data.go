@@ -153,6 +153,7 @@ var DataPlatformSCRBillingRelationDatumRels = struct {
 	BillFromPartyDataPlatformBusinessPartnerGeneralDatum string
 	BillToPartyDataPlatformBusinessPartnerGeneralDatum   string
 	BuyerDataPlatformSCRGeneralDatum                     string
+	BillFromPartyDataPlatformContractHeaderData          string
 	BillFromPartyDataPlatformDeliveryDocumentHeaderData  string
 	BillFromPartyDataPlatformDeliveryDocumentItemData    string
 	BillFromPartyDataPlatformInvoiceDocumentHeaderData   string
@@ -163,6 +164,7 @@ var DataPlatformSCRBillingRelationDatumRels = struct {
 	BillFromPartyDataPlatformBusinessPartnerGeneralDatum: "BillFromPartyDataPlatformBusinessPartnerGeneralDatum",
 	BillToPartyDataPlatformBusinessPartnerGeneralDatum:   "BillToPartyDataPlatformBusinessPartnerGeneralDatum",
 	BuyerDataPlatformSCRGeneralDatum:                     "BuyerDataPlatformSCRGeneralDatum",
+	BillFromPartyDataPlatformContractHeaderData:          "BillFromPartyDataPlatformContractHeaderData",
 	BillFromPartyDataPlatformDeliveryDocumentHeaderData:  "BillFromPartyDataPlatformDeliveryDocumentHeaderData",
 	BillFromPartyDataPlatformDeliveryDocumentItemData:    "BillFromPartyDataPlatformDeliveryDocumentItemData",
 	BillFromPartyDataPlatformInvoiceDocumentHeaderData:   "BillFromPartyDataPlatformInvoiceDocumentHeaderData",
@@ -176,6 +178,7 @@ type dataPlatformSCRBillingRelationDatumR struct {
 	BillFromPartyDataPlatformBusinessPartnerGeneralDatum *DataPlatformBusinessPartnerGeneralDatum     `boil:"BillFromPartyDataPlatformBusinessPartnerGeneralDatum" json:"BillFromPartyDataPlatformBusinessPartnerGeneralDatum" toml:"BillFromPartyDataPlatformBusinessPartnerGeneralDatum" yaml:"BillFromPartyDataPlatformBusinessPartnerGeneralDatum"`
 	BillToPartyDataPlatformBusinessPartnerGeneralDatum   *DataPlatformBusinessPartnerGeneralDatum     `boil:"BillToPartyDataPlatformBusinessPartnerGeneralDatum" json:"BillToPartyDataPlatformBusinessPartnerGeneralDatum" toml:"BillToPartyDataPlatformBusinessPartnerGeneralDatum" yaml:"BillToPartyDataPlatformBusinessPartnerGeneralDatum"`
 	BuyerDataPlatformSCRGeneralDatum                     *DataPlatformSCRGeneralDatum                 `boil:"BuyerDataPlatformSCRGeneralDatum" json:"BuyerDataPlatformSCRGeneralDatum" toml:"BuyerDataPlatformSCRGeneralDatum" yaml:"BuyerDataPlatformSCRGeneralDatum"`
+	BillFromPartyDataPlatformContractHeaderData          DataPlatformContractHeaderDatumSlice         `boil:"BillFromPartyDataPlatformContractHeaderData" json:"BillFromPartyDataPlatformContractHeaderData" toml:"BillFromPartyDataPlatformContractHeaderData" yaml:"BillFromPartyDataPlatformContractHeaderData"`
 	BillFromPartyDataPlatformDeliveryDocumentHeaderData  DataPlatformDeliveryDocumentHeaderDatumSlice `boil:"BillFromPartyDataPlatformDeliveryDocumentHeaderData" json:"BillFromPartyDataPlatformDeliveryDocumentHeaderData" toml:"BillFromPartyDataPlatformDeliveryDocumentHeaderData" yaml:"BillFromPartyDataPlatformDeliveryDocumentHeaderData"`
 	BillFromPartyDataPlatformDeliveryDocumentItemData    DataPlatformDeliveryDocumentItemDatumSlice   `boil:"BillFromPartyDataPlatformDeliveryDocumentItemData" json:"BillFromPartyDataPlatformDeliveryDocumentItemData" toml:"BillFromPartyDataPlatformDeliveryDocumentItemData" yaml:"BillFromPartyDataPlatformDeliveryDocumentItemData"`
 	BillFromPartyDataPlatformInvoiceDocumentHeaderData   DataPlatformInvoiceDocumentHeaderDatumSlice  `boil:"BillFromPartyDataPlatformInvoiceDocumentHeaderData" json:"BillFromPartyDataPlatformInvoiceDocumentHeaderData" toml:"BillFromPartyDataPlatformInvoiceDocumentHeaderData" yaml:"BillFromPartyDataPlatformInvoiceDocumentHeaderData"`
@@ -208,6 +211,13 @@ func (r *dataPlatformSCRBillingRelationDatumR) GetBuyerDataPlatformSCRGeneralDat
 		return nil
 	}
 	return r.BuyerDataPlatformSCRGeneralDatum
+}
+
+func (r *dataPlatformSCRBillingRelationDatumR) GetBillFromPartyDataPlatformContractHeaderData() DataPlatformContractHeaderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.BillFromPartyDataPlatformContractHeaderData
 }
 
 func (r *dataPlatformSCRBillingRelationDatumR) GetBillFromPartyDataPlatformDeliveryDocumentHeaderData() DataPlatformDeliveryDocumentHeaderDatumSlice {
@@ -385,6 +395,20 @@ func (o *DataPlatformSCRBillingRelationDatum) BuyerDataPlatformSCRGeneralDatum(m
 	queryMods = append(queryMods, mods...)
 
 	return DataPlatformSCRGeneralData(queryMods...)
+}
+
+// BillFromPartyDataPlatformContractHeaderData retrieves all the data_platform_contract_header_datum's DataPlatformContractHeaderData with an executor via BillFromParty column.
+func (o *DataPlatformSCRBillingRelationDatum) BillFromPartyDataPlatformContractHeaderData(mods ...qm.QueryMod) dataPlatformContractHeaderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_contract_header_data`.`BillFromParty`=?", o.BillFromParty),
+	)
+
+	return DataPlatformContractHeaderData(queryMods...)
 }
 
 // BillFromPartyDataPlatformDeliveryDocumentHeaderData retrieves all the data_platform_delivery_document_header_datum's DataPlatformDeliveryDocumentHeaderData with an executor via BillFromParty column.
@@ -775,6 +799,103 @@ func (dataPlatformSCRBillingRelationDatumL) LoadBuyerDataPlatformSCRGeneralDatum
 		for _, foreign := range resultSlice {
 			if local.Buyer == foreign.Buyer {
 				local.R.BuyerDataPlatformSCRGeneralDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadBillFromPartyDataPlatformContractHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformSCRBillingRelationDatumL) LoadBillFromPartyDataPlatformContractHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformSCRBillingRelationDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformSCRBillingRelationDatum
+	var object *DataPlatformSCRBillingRelationDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformSCRBillingRelationDatum.(*DataPlatformSCRBillingRelationDatum)
+		if !ok {
+			object = new(DataPlatformSCRBillingRelationDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformSCRBillingRelationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformSCRBillingRelationDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformSCRBillingRelationDatum.(*[]*DataPlatformSCRBillingRelationDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformSCRBillingRelationDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformSCRBillingRelationDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformSCRBillingRelationDatumR{}
+		}
+		args = append(args, object.BillFromParty)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformSCRBillingRelationDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.BillFromParty) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BillFromParty)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_contract_header_data`),
+		qm.WhereIn(`data_platform_contract_header_data.BillFromParty in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_contract_header_data")
+	}
+
+	var resultSlice []*DataPlatformContractHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_contract_header_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_contract_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_contract_header_data")
+	}
+
+	if singular {
+		object.R.BillFromPartyDataPlatformContractHeaderData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.BillFromParty, foreign.BillFromParty) {
+				local.R.BillFromPartyDataPlatformContractHeaderData = append(local.R.BillFromPartyDataPlatformContractHeaderData, foreign)
 				break
 			}
 		}
@@ -1474,6 +1595,110 @@ func (o *DataPlatformSCRBillingRelationDatum) SetBuyerDataPlatformSCRGeneralDatu
 		}
 	} else {
 		o.R.BuyerDataPlatformSCRGeneralDatum = related
+	}
+
+	return nil
+}
+
+// AddBillFromPartyDataPlatformContractHeaderData adds the given related objects to the existing relationships
+// of the data_platform_scr_billing_relation_datum, optionally inserting them as new records.
+// Appends related to o.R.BillFromPartyDataPlatformContractHeaderData.
+func (o *DataPlatformSCRBillingRelationDatum) AddBillFromPartyDataPlatformContractHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformContractHeaderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.BillFromParty, o.BillFromParty)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_contract_header_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"BillFromParty"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformContractHeaderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BillFromParty, rel.Contract}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.BillFromParty, o.BillFromParty)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformSCRBillingRelationDatumR{
+			BillFromPartyDataPlatformContractHeaderData: related,
+		}
+	} else {
+		o.R.BillFromPartyDataPlatformContractHeaderData = append(o.R.BillFromPartyDataPlatformContractHeaderData, related...)
+	}
+
+	return nil
+}
+
+// SetBillFromPartyDataPlatformContractHeaderData removes all previously related items of the
+// data_platform_scr_billing_relation_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.BillFromPartyDataPlatformSCRBillingRelationDatum's BillFromPartyDataPlatformContractHeaderData accordingly.
+// Replaces o.R.BillFromPartyDataPlatformContractHeaderData with related.
+func (o *DataPlatformSCRBillingRelationDatum) SetBillFromPartyDataPlatformContractHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformContractHeaderDatum) error {
+	query := "update `data_platform_contract_header_data` set `BillFromParty` = null where `BillFromParty` = ?"
+	values := []interface{}{o.BillFromParty}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.BillFromPartyDataPlatformContractHeaderData = nil
+	}
+
+	return o.AddBillFromPartyDataPlatformContractHeaderData(ctx, exec, insert, related...)
+}
+
+// RemoveBillFromPartyDataPlatformContractHeaderData relationships from objects passed in.
+// Removes related items from R.BillFromPartyDataPlatformContractHeaderData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformSCRBillingRelationDatum) RemoveBillFromPartyDataPlatformContractHeaderData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformContractHeaderDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.BillFromParty, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("BillFromParty")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.BillFromPartyDataPlatformContractHeaderData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.BillFromPartyDataPlatformContractHeaderData)
+			if ln > 1 && i < ln-1 {
+				o.R.BillFromPartyDataPlatformContractHeaderData[i] = o.R.BillFromPartyDataPlatformContractHeaderData[ln-1]
+			}
+			o.R.BillFromPartyDataPlatformContractHeaderData = o.R.BillFromPartyDataPlatformContractHeaderData[:ln-1]
+			break
+		}
 	}
 
 	return nil

@@ -439,7 +439,6 @@ var DataPlatformOperationsItemOperationDatumRels = struct {
 	WaitDurationUnitDataPlatformQuantityUnitQuantityUnitDatum             string
 	WorkCenterDataPlatformWorkCenterGeneralDatum                          string
 	Operation                                                             string
-	OperationIDDataPlatformInspectionLotOperationData                     string
 	OperationIDDataPlatformOperationsItemOperationComponentData           string
 	OperationIDDataPlatformProductionOrderItemOperationData               string
 }{
@@ -452,7 +451,6 @@ var DataPlatformOperationsItemOperationDatumRels = struct {
 	WaitDurationUnitDataPlatformQuantityUnitQuantityUnitDatum:             "WaitDurationUnitDataPlatformQuantityUnitQuantityUnitDatum",
 	WorkCenterDataPlatformWorkCenterGeneralDatum:                          "WorkCenterDataPlatformWorkCenterGeneralDatum",
 	Operation: "Operation",
-	OperationIDDataPlatformInspectionLotOperationData:           "OperationIDDataPlatformInspectionLotOperationData",
 	OperationIDDataPlatformOperationsItemOperationComponentData: "OperationIDDataPlatformOperationsItemOperationComponentData",
 	OperationIDDataPlatformProductionOrderItemOperationData:     "OperationIDDataPlatformProductionOrderItemOperationData",
 }
@@ -468,7 +466,6 @@ type dataPlatformOperationsItemOperationDatumR struct {
 	WaitDurationUnitDataPlatformQuantityUnitQuantityUnitDatum             *DataPlatformQuantityUnitQuantityUnitDatum             `boil:"WaitDurationUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"WaitDurationUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"WaitDurationUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"WaitDurationUnitDataPlatformQuantityUnitQuantityUnitDatum"`
 	WorkCenterDataPlatformWorkCenterGeneralDatum                          *DataPlatformWorkCenterGeneralDatum                    `boil:"WorkCenterDataPlatformWorkCenterGeneralDatum" json:"WorkCenterDataPlatformWorkCenterGeneralDatum" toml:"WorkCenterDataPlatformWorkCenterGeneralDatum" yaml:"WorkCenterDataPlatformWorkCenterGeneralDatum"`
 	Operation                                                             *DataPlatformOperationsItemDatum                       `boil:"Operation" json:"Operation" toml:"Operation" yaml:"Operation"`
-	OperationIDDataPlatformInspectionLotOperationData                     DataPlatformInspectionLotOperationDatumSlice           `boil:"OperationIDDataPlatformInspectionLotOperationData" json:"OperationIDDataPlatformInspectionLotOperationData" toml:"OperationIDDataPlatformInspectionLotOperationData" yaml:"OperationIDDataPlatformInspectionLotOperationData"`
 	OperationIDDataPlatformOperationsItemOperationComponentData           DataPlatformOperationsItemOperationComponentDatumSlice `boil:"OperationIDDataPlatformOperationsItemOperationComponentData" json:"OperationIDDataPlatformOperationsItemOperationComponentData" toml:"OperationIDDataPlatformOperationsItemOperationComponentData" yaml:"OperationIDDataPlatformOperationsItemOperationComponentData"`
 	OperationIDDataPlatformProductionOrderItemOperationData               DataPlatformProductionOrderItemOperationDatumSlice     `boil:"OperationIDDataPlatformProductionOrderItemOperationData" json:"OperationIDDataPlatformProductionOrderItemOperationData" toml:"OperationIDDataPlatformProductionOrderItemOperationData" yaml:"OperationIDDataPlatformProductionOrderItemOperationData"`
 }
@@ -539,13 +536,6 @@ func (r *dataPlatformOperationsItemOperationDatumR) GetOperation() *DataPlatform
 		return nil
 	}
 	return r.Operation
-}
-
-func (r *dataPlatformOperationsItemOperationDatumR) GetOperationIDDataPlatformInspectionLotOperationData() DataPlatformInspectionLotOperationDatumSlice {
-	if r == nil {
-		return nil
-	}
-	return r.OperationIDDataPlatformInspectionLotOperationData
 }
 
 func (r *dataPlatformOperationsItemOperationDatumR) GetOperationIDDataPlatformOperationsItemOperationComponentData() DataPlatformOperationsItemOperationComponentDatumSlice {
@@ -761,20 +751,6 @@ func (o *DataPlatformOperationsItemOperationDatum) Operation(mods ...qm.QueryMod
 	queryMods = append(queryMods, mods...)
 
 	return DataPlatformOperationsItemData(queryMods...)
-}
-
-// OperationIDDataPlatformInspectionLotOperationData retrieves all the data_platform_inspection_lot_operation_datum's DataPlatformInspectionLotOperationData with an executor via OperationID column.
-func (o *DataPlatformOperationsItemOperationDatum) OperationIDDataPlatformInspectionLotOperationData(mods ...qm.QueryMod) dataPlatformInspectionLotOperationDatumQuery {
-	var queryMods []qm.QueryMod
-	if len(mods) != 0 {
-		queryMods = append(queryMods, mods...)
-	}
-
-	queryMods = append(queryMods,
-		qm.Where("`data_platform_inspection_lot_operation_data`.`OperationID`=?", o.OperationID),
-	)
-
-	return DataPlatformInspectionLotOperationData(queryMods...)
 }
 
 // OperationIDDataPlatformOperationsItemOperationComponentData retrieves all the data_platform_operations_item_operation_component_datum's DataPlatformOperationsItemOperationComponentData with an executor via OperationID column.
@@ -1761,103 +1737,6 @@ func (dataPlatformOperationsItemOperationDatumL) LoadOperation(ctx context.Conte
 	return nil
 }
 
-// LoadOperationIDDataPlatformInspectionLotOperationData allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformOperationsItemOperationDatumL) LoadOperationIDDataPlatformInspectionLotOperationData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOperationsItemOperationDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformOperationsItemOperationDatum
-	var object *DataPlatformOperationsItemOperationDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformOperationsItemOperationDatum.(*DataPlatformOperationsItemOperationDatum)
-		if !ok {
-			object = new(DataPlatformOperationsItemOperationDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOperationsItemOperationDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOperationsItemOperationDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformOperationsItemOperationDatum.(*[]*DataPlatformOperationsItemOperationDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOperationsItemOperationDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOperationsItemOperationDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformOperationsItemOperationDatumR{}
-		}
-		args = append(args, object.OperationID)
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformOperationsItemOperationDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.OperationID {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.OperationID)
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_inspection_lot_operation_data`),
-		qm.WhereIn(`data_platform_inspection_lot_operation_data.OperationID in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_inspection_lot_operation_data")
-	}
-
-	var resultSlice []*DataPlatformInspectionLotOperationDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_lot_operation_data")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_lot_operation_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_lot_operation_data")
-	}
-
-	if singular {
-		object.R.OperationIDDataPlatformInspectionLotOperationData = resultSlice
-		return nil
-	}
-
-	for _, foreign := range resultSlice {
-		for _, local := range slice {
-			if local.OperationID == foreign.OperationID {
-				local.R.OperationIDDataPlatformInspectionLotOperationData = append(local.R.OperationIDDataPlatformInspectionLotOperationData, foreign)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
 // LoadOperationIDDataPlatformOperationsItemOperationComponentData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
 func (dataPlatformOperationsItemOperationDatumL) LoadOperationIDDataPlatformOperationsItemOperationComponentData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOperationsItemOperationDatum interface{}, mods queries.Applicator) error {
@@ -2489,49 +2368,6 @@ func (o *DataPlatformOperationsItemOperationDatum) SetOperation(ctx context.Cont
 		}
 	} else {
 		o.R.Operation = related
-	}
-
-	return nil
-}
-
-// AddOperationIDDataPlatformInspectionLotOperationData adds the given related objects to the existing relationships
-// of the data_platform_operations_item_operation_datum, optionally inserting them as new records.
-// Appends related to o.R.OperationIDDataPlatformInspectionLotOperationData.
-func (o *DataPlatformOperationsItemOperationDatum) AddOperationIDDataPlatformInspectionLotOperationData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotOperationDatum) error {
-	var err error
-	for _, rel := range related {
-		if insert {
-			rel.OperationID = o.OperationID
-			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
-				return errors.Wrap(err, "failed to insert into foreign table")
-			}
-		} else {
-			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_inspection_lot_operation_data` SET %s WHERE %s",
-				strmangle.SetParamNames("`", "`", 0, []string{"OperationID"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotOperationDatumPrimaryKeyColumns),
-			)
-			values := []interface{}{o.OperationID, rel.InspectionLot, rel.Operations, rel.OperationsItem, rel.OperationID}
-
-			if boil.IsDebug(ctx) {
-				writer := boil.DebugWriterFrom(ctx)
-				fmt.Fprintln(writer, updateQuery)
-				fmt.Fprintln(writer, values)
-			}
-			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-				return errors.Wrap(err, "failed to update foreign table")
-			}
-
-			rel.OperationID = o.OperationID
-		}
-	}
-
-	if o.R == nil {
-		o.R = &dataPlatformOperationsItemOperationDatumR{
-			OperationIDDataPlatformInspectionLotOperationData: related,
-		}
-	} else {
-		o.R.OperationIDDataPlatformInspectionLotOperationData = append(o.R.OperationIDDataPlatformInspectionLotOperationData, related...)
 	}
 
 	return nil

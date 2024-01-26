@@ -51,86 +51,89 @@ var DataPlatformDocTypeDocTypeDatumWhere = struct {
 
 // DataPlatformDocTypeDocTypeDatumRels is where relationship names are stored.
 var DataPlatformDocTypeDocTypeDatumRels = struct {
-	DocTypeDataPlatformBillOfMaterialHeaderDocData            string
-	DocTypeDataPlatformBillOfMaterialItemDocData              string
-	DocTypeDataPlatformBusinessPartnerGeneralDocData          string
-	DocTypeDataPlatformDeliveryDocumentHeaderDocData          string
-	DocTypeDataPlatformDeliveryDocumentItemDocData            string
-	DocTypeDataPlatformDeliveryDocumentItemPickingDocData     string
-	DocTypeDataPlatformEquipmentMasterGeneralDocData          string
-	DocTypeDataPlatformInspectionLotConfirmationHeaderDocData string
-	DocTypeDataPlatformInvoiceDocumentHeaderDocData           string
-	DocTypeDataPlatformInvoiceDocumentItemDocData             string
-	DocTypeDataPlatformOperationsHeaderDocData                string
-	DocTypeDataPlatformOperationsItemDocData                  string
-	DocTypeDataPlatformOrdersHeaderDocData                    string
-	DocTypeDataPlatformOrdersItemDocData                      string
-	DocTypeDataPlatformPlannedOrderHeaderDocData              string
-	DocTypeDataPlatformPlannedOrderItemDocData                string
-	DocTypeDataPlatformProductMasterBPPlantDocData            string
-	DocTypeDataPlatformProductMasterBusinessPartnerDocData    string
-	DocTypeDataPlatformProductMasterGeneralDocData            string
-	DocTypeDataPlatformProductStockProductStockDocData        string
-	DocTypeDataPlatformProductionOrderHeaderDocData           string
-	DocTypeDataPlatformProductionOrderItemDocData             string
-	DocTypeDataPlatformQuotationsHeaderDocData                string
-	DocTypeDataPlatformQuotationsItemDocData                  string
-	DocTypeDataPlatformSCRGeneralDocData                      string
+	DocTypeDataPlatformBillOfMaterialHeaderDocData         string
+	DocTypeDataPlatformBillOfMaterialItemDocData           string
+	DocTypeDataPlatformBusinessPartnerGeneralDocData       string
+	DocTypeDataPlatformDeliveryDocumentHeaderDocData       string
+	DocTypeDataPlatformDeliveryDocumentItemDocData         string
+	DocTypeDataPlatformDeliveryDocumentItemPickingDocData  string
+	DocTypeDataPlatformEquipmentMasterGeneralDocData       string
+	DocTypeDataPlatformInspectionLotHeaderDocData          string
+	DocTypeDataPlatformInspectionPlanHeaderDocData         string
+	DocTypeDataPlatformInvoiceDocumentHeaderDocData        string
+	DocTypeDataPlatformInvoiceDocumentItemDocData          string
+	DocTypeDataPlatformOperationsHeaderDocData             string
+	DocTypeDataPlatformOperationsItemDocData               string
+	DocTypeDataPlatformOrdersHeaderDocData                 string
+	DocTypeDataPlatformOrdersItemDocData                   string
+	DocTypeDataPlatformPlannedOrderHeaderDocData           string
+	DocTypeDataPlatformPlannedOrderItemDocData             string
+	DocTypeDataPlatformProductMasterBPPlantDocData         string
+	DocTypeDataPlatformProductMasterBusinessPartnerDocData string
+	DocTypeDataPlatformProductMasterGeneralDocData         string
+	DocTypeDataPlatformProductStockProductStockDocData     string
+	DocTypeDataPlatformProductionOrderHeaderDocData        string
+	DocTypeDataPlatformProductionOrderItemDocData          string
+	DocTypeDataPlatformQuotationsHeaderDocData             string
+	DocTypeDataPlatformQuotationsItemDocData               string
+	DocTypeDataPlatformSCRGeneralDocData                   string
 }{
-	DocTypeDataPlatformBillOfMaterialHeaderDocData:            "DocTypeDataPlatformBillOfMaterialHeaderDocData",
-	DocTypeDataPlatformBillOfMaterialItemDocData:              "DocTypeDataPlatformBillOfMaterialItemDocData",
-	DocTypeDataPlatformBusinessPartnerGeneralDocData:          "DocTypeDataPlatformBusinessPartnerGeneralDocData",
-	DocTypeDataPlatformDeliveryDocumentHeaderDocData:          "DocTypeDataPlatformDeliveryDocumentHeaderDocData",
-	DocTypeDataPlatformDeliveryDocumentItemDocData:            "DocTypeDataPlatformDeliveryDocumentItemDocData",
-	DocTypeDataPlatformDeliveryDocumentItemPickingDocData:     "DocTypeDataPlatformDeliveryDocumentItemPickingDocData",
-	DocTypeDataPlatformEquipmentMasterGeneralDocData:          "DocTypeDataPlatformEquipmentMasterGeneralDocData",
-	DocTypeDataPlatformInspectionLotConfirmationHeaderDocData: "DocTypeDataPlatformInspectionLotConfirmationHeaderDocData",
-	DocTypeDataPlatformInvoiceDocumentHeaderDocData:           "DocTypeDataPlatformInvoiceDocumentHeaderDocData",
-	DocTypeDataPlatformInvoiceDocumentItemDocData:             "DocTypeDataPlatformInvoiceDocumentItemDocData",
-	DocTypeDataPlatformOperationsHeaderDocData:                "DocTypeDataPlatformOperationsHeaderDocData",
-	DocTypeDataPlatformOperationsItemDocData:                  "DocTypeDataPlatformOperationsItemDocData",
-	DocTypeDataPlatformOrdersHeaderDocData:                    "DocTypeDataPlatformOrdersHeaderDocData",
-	DocTypeDataPlatformOrdersItemDocData:                      "DocTypeDataPlatformOrdersItemDocData",
-	DocTypeDataPlatformPlannedOrderHeaderDocData:              "DocTypeDataPlatformPlannedOrderHeaderDocData",
-	DocTypeDataPlatformPlannedOrderItemDocData:                "DocTypeDataPlatformPlannedOrderItemDocData",
-	DocTypeDataPlatformProductMasterBPPlantDocData:            "DocTypeDataPlatformProductMasterBPPlantDocData",
-	DocTypeDataPlatformProductMasterBusinessPartnerDocData:    "DocTypeDataPlatformProductMasterBusinessPartnerDocData",
-	DocTypeDataPlatformProductMasterGeneralDocData:            "DocTypeDataPlatformProductMasterGeneralDocData",
-	DocTypeDataPlatformProductStockProductStockDocData:        "DocTypeDataPlatformProductStockProductStockDocData",
-	DocTypeDataPlatformProductionOrderHeaderDocData:           "DocTypeDataPlatformProductionOrderHeaderDocData",
-	DocTypeDataPlatformProductionOrderItemDocData:             "DocTypeDataPlatformProductionOrderItemDocData",
-	DocTypeDataPlatformQuotationsHeaderDocData:                "DocTypeDataPlatformQuotationsHeaderDocData",
-	DocTypeDataPlatformQuotationsItemDocData:                  "DocTypeDataPlatformQuotationsItemDocData",
-	DocTypeDataPlatformSCRGeneralDocData:                      "DocTypeDataPlatformSCRGeneralDocData",
+	DocTypeDataPlatformBillOfMaterialHeaderDocData:         "DocTypeDataPlatformBillOfMaterialHeaderDocData",
+	DocTypeDataPlatformBillOfMaterialItemDocData:           "DocTypeDataPlatformBillOfMaterialItemDocData",
+	DocTypeDataPlatformBusinessPartnerGeneralDocData:       "DocTypeDataPlatformBusinessPartnerGeneralDocData",
+	DocTypeDataPlatformDeliveryDocumentHeaderDocData:       "DocTypeDataPlatformDeliveryDocumentHeaderDocData",
+	DocTypeDataPlatformDeliveryDocumentItemDocData:         "DocTypeDataPlatformDeliveryDocumentItemDocData",
+	DocTypeDataPlatformDeliveryDocumentItemPickingDocData:  "DocTypeDataPlatformDeliveryDocumentItemPickingDocData",
+	DocTypeDataPlatformEquipmentMasterGeneralDocData:       "DocTypeDataPlatformEquipmentMasterGeneralDocData",
+	DocTypeDataPlatformInspectionLotHeaderDocData:          "DocTypeDataPlatformInspectionLotHeaderDocData",
+	DocTypeDataPlatformInspectionPlanHeaderDocData:         "DocTypeDataPlatformInspectionPlanHeaderDocData",
+	DocTypeDataPlatformInvoiceDocumentHeaderDocData:        "DocTypeDataPlatformInvoiceDocumentHeaderDocData",
+	DocTypeDataPlatformInvoiceDocumentItemDocData:          "DocTypeDataPlatformInvoiceDocumentItemDocData",
+	DocTypeDataPlatformOperationsHeaderDocData:             "DocTypeDataPlatformOperationsHeaderDocData",
+	DocTypeDataPlatformOperationsItemDocData:               "DocTypeDataPlatformOperationsItemDocData",
+	DocTypeDataPlatformOrdersHeaderDocData:                 "DocTypeDataPlatformOrdersHeaderDocData",
+	DocTypeDataPlatformOrdersItemDocData:                   "DocTypeDataPlatformOrdersItemDocData",
+	DocTypeDataPlatformPlannedOrderHeaderDocData:           "DocTypeDataPlatformPlannedOrderHeaderDocData",
+	DocTypeDataPlatformPlannedOrderItemDocData:             "DocTypeDataPlatformPlannedOrderItemDocData",
+	DocTypeDataPlatformProductMasterBPPlantDocData:         "DocTypeDataPlatformProductMasterBPPlantDocData",
+	DocTypeDataPlatformProductMasterBusinessPartnerDocData: "DocTypeDataPlatformProductMasterBusinessPartnerDocData",
+	DocTypeDataPlatformProductMasterGeneralDocData:         "DocTypeDataPlatformProductMasterGeneralDocData",
+	DocTypeDataPlatformProductStockProductStockDocData:     "DocTypeDataPlatformProductStockProductStockDocData",
+	DocTypeDataPlatformProductionOrderHeaderDocData:        "DocTypeDataPlatformProductionOrderHeaderDocData",
+	DocTypeDataPlatformProductionOrderItemDocData:          "DocTypeDataPlatformProductionOrderItemDocData",
+	DocTypeDataPlatformQuotationsHeaderDocData:             "DocTypeDataPlatformQuotationsHeaderDocData",
+	DocTypeDataPlatformQuotationsItemDocData:               "DocTypeDataPlatformQuotationsItemDocData",
+	DocTypeDataPlatformSCRGeneralDocData:                   "DocTypeDataPlatformSCRGeneralDocData",
 }
 
 // dataPlatformDocTypeDocTypeDatumR is where relationships are stored.
 type dataPlatformDocTypeDocTypeDatumR struct {
-	DocTypeDataPlatformBillOfMaterialHeaderDocData            DataPlatformBillOfMaterialHeaderDocDatumSlice            `boil:"DocTypeDataPlatformBillOfMaterialHeaderDocData" json:"DocTypeDataPlatformBillOfMaterialHeaderDocData" toml:"DocTypeDataPlatformBillOfMaterialHeaderDocData" yaml:"DocTypeDataPlatformBillOfMaterialHeaderDocData"`
-	DocTypeDataPlatformBillOfMaterialItemDocData              DataPlatformBillOfMaterialItemDocDatumSlice              `boil:"DocTypeDataPlatformBillOfMaterialItemDocData" json:"DocTypeDataPlatformBillOfMaterialItemDocData" toml:"DocTypeDataPlatformBillOfMaterialItemDocData" yaml:"DocTypeDataPlatformBillOfMaterialItemDocData"`
-	DocTypeDataPlatformBusinessPartnerGeneralDocData          DataPlatformBusinessPartnerGeneralDocDatumSlice          `boil:"DocTypeDataPlatformBusinessPartnerGeneralDocData" json:"DocTypeDataPlatformBusinessPartnerGeneralDocData" toml:"DocTypeDataPlatformBusinessPartnerGeneralDocData" yaml:"DocTypeDataPlatformBusinessPartnerGeneralDocData"`
-	DocTypeDataPlatformDeliveryDocumentHeaderDocData          DataPlatformDeliveryDocumentHeaderDocDatumSlice          `boil:"DocTypeDataPlatformDeliveryDocumentHeaderDocData" json:"DocTypeDataPlatformDeliveryDocumentHeaderDocData" toml:"DocTypeDataPlatformDeliveryDocumentHeaderDocData" yaml:"DocTypeDataPlatformDeliveryDocumentHeaderDocData"`
-	DocTypeDataPlatformDeliveryDocumentItemDocData            DataPlatformDeliveryDocumentItemDocDatumSlice            `boil:"DocTypeDataPlatformDeliveryDocumentItemDocData" json:"DocTypeDataPlatformDeliveryDocumentItemDocData" toml:"DocTypeDataPlatformDeliveryDocumentItemDocData" yaml:"DocTypeDataPlatformDeliveryDocumentItemDocData"`
-	DocTypeDataPlatformDeliveryDocumentItemPickingDocData     DataPlatformDeliveryDocumentItemPickingDocDatumSlice     `boil:"DocTypeDataPlatformDeliveryDocumentItemPickingDocData" json:"DocTypeDataPlatformDeliveryDocumentItemPickingDocData" toml:"DocTypeDataPlatformDeliveryDocumentItemPickingDocData" yaml:"DocTypeDataPlatformDeliveryDocumentItemPickingDocData"`
-	DocTypeDataPlatformEquipmentMasterGeneralDocData          DataPlatformEquipmentMasterGeneralDocDatumSlice          `boil:"DocTypeDataPlatformEquipmentMasterGeneralDocData" json:"DocTypeDataPlatformEquipmentMasterGeneralDocData" toml:"DocTypeDataPlatformEquipmentMasterGeneralDocData" yaml:"DocTypeDataPlatformEquipmentMasterGeneralDocData"`
-	DocTypeDataPlatformInspectionLotConfirmationHeaderDocData DataPlatformInspectionLotConfirmationHeaderDocDatumSlice `boil:"DocTypeDataPlatformInspectionLotConfirmationHeaderDocData" json:"DocTypeDataPlatformInspectionLotConfirmationHeaderDocData" toml:"DocTypeDataPlatformInspectionLotConfirmationHeaderDocData" yaml:"DocTypeDataPlatformInspectionLotConfirmationHeaderDocData"`
-	DocTypeDataPlatformInvoiceDocumentHeaderDocData           DataPlatformInvoiceDocumentHeaderDocDatumSlice           `boil:"DocTypeDataPlatformInvoiceDocumentHeaderDocData" json:"DocTypeDataPlatformInvoiceDocumentHeaderDocData" toml:"DocTypeDataPlatformInvoiceDocumentHeaderDocData" yaml:"DocTypeDataPlatformInvoiceDocumentHeaderDocData"`
-	DocTypeDataPlatformInvoiceDocumentItemDocData             DataPlatformInvoiceDocumentItemDocDatumSlice             `boil:"DocTypeDataPlatformInvoiceDocumentItemDocData" json:"DocTypeDataPlatformInvoiceDocumentItemDocData" toml:"DocTypeDataPlatformInvoiceDocumentItemDocData" yaml:"DocTypeDataPlatformInvoiceDocumentItemDocData"`
-	DocTypeDataPlatformOperationsHeaderDocData                DataPlatformOperationsHeaderDocDatumSlice                `boil:"DocTypeDataPlatformOperationsHeaderDocData" json:"DocTypeDataPlatformOperationsHeaderDocData" toml:"DocTypeDataPlatformOperationsHeaderDocData" yaml:"DocTypeDataPlatformOperationsHeaderDocData"`
-	DocTypeDataPlatformOperationsItemDocData                  DataPlatformOperationsItemDocDatumSlice                  `boil:"DocTypeDataPlatformOperationsItemDocData" json:"DocTypeDataPlatformOperationsItemDocData" toml:"DocTypeDataPlatformOperationsItemDocData" yaml:"DocTypeDataPlatformOperationsItemDocData"`
-	DocTypeDataPlatformOrdersHeaderDocData                    DataPlatformOrdersHeaderDocDatumSlice                    `boil:"DocTypeDataPlatformOrdersHeaderDocData" json:"DocTypeDataPlatformOrdersHeaderDocData" toml:"DocTypeDataPlatformOrdersHeaderDocData" yaml:"DocTypeDataPlatformOrdersHeaderDocData"`
-	DocTypeDataPlatformOrdersItemDocData                      DataPlatformOrdersItemDocDatumSlice                      `boil:"DocTypeDataPlatformOrdersItemDocData" json:"DocTypeDataPlatformOrdersItemDocData" toml:"DocTypeDataPlatformOrdersItemDocData" yaml:"DocTypeDataPlatformOrdersItemDocData"`
-	DocTypeDataPlatformPlannedOrderHeaderDocData              DataPlatformPlannedOrderHeaderDocDatumSlice              `boil:"DocTypeDataPlatformPlannedOrderHeaderDocData" json:"DocTypeDataPlatformPlannedOrderHeaderDocData" toml:"DocTypeDataPlatformPlannedOrderHeaderDocData" yaml:"DocTypeDataPlatformPlannedOrderHeaderDocData"`
-	DocTypeDataPlatformPlannedOrderItemDocData                DataPlatformPlannedOrderItemDocDatumSlice                `boil:"DocTypeDataPlatformPlannedOrderItemDocData" json:"DocTypeDataPlatformPlannedOrderItemDocData" toml:"DocTypeDataPlatformPlannedOrderItemDocData" yaml:"DocTypeDataPlatformPlannedOrderItemDocData"`
-	DocTypeDataPlatformProductMasterBPPlantDocData            DataPlatformProductMasterBPPlantDocDatumSlice            `boil:"DocTypeDataPlatformProductMasterBPPlantDocData" json:"DocTypeDataPlatformProductMasterBPPlantDocData" toml:"DocTypeDataPlatformProductMasterBPPlantDocData" yaml:"DocTypeDataPlatformProductMasterBPPlantDocData"`
-	DocTypeDataPlatformProductMasterBusinessPartnerDocData    DataPlatformProductMasterBusinessPartnerDocDatumSlice    `boil:"DocTypeDataPlatformProductMasterBusinessPartnerDocData" json:"DocTypeDataPlatformProductMasterBusinessPartnerDocData" toml:"DocTypeDataPlatformProductMasterBusinessPartnerDocData" yaml:"DocTypeDataPlatformProductMasterBusinessPartnerDocData"`
-	DocTypeDataPlatformProductMasterGeneralDocData            DataPlatformProductMasterGeneralDocDatumSlice            `boil:"DocTypeDataPlatformProductMasterGeneralDocData" json:"DocTypeDataPlatformProductMasterGeneralDocData" toml:"DocTypeDataPlatformProductMasterGeneralDocData" yaml:"DocTypeDataPlatformProductMasterGeneralDocData"`
-	DocTypeDataPlatformProductStockProductStockDocData        DataPlatformProductStockProductStockDocDatumSlice        `boil:"DocTypeDataPlatformProductStockProductStockDocData" json:"DocTypeDataPlatformProductStockProductStockDocData" toml:"DocTypeDataPlatformProductStockProductStockDocData" yaml:"DocTypeDataPlatformProductStockProductStockDocData"`
-	DocTypeDataPlatformProductionOrderHeaderDocData           DataPlatformProductionOrderHeaderDocDatumSlice           `boil:"DocTypeDataPlatformProductionOrderHeaderDocData" json:"DocTypeDataPlatformProductionOrderHeaderDocData" toml:"DocTypeDataPlatformProductionOrderHeaderDocData" yaml:"DocTypeDataPlatformProductionOrderHeaderDocData"`
-	DocTypeDataPlatformProductionOrderItemDocData             DataPlatformProductionOrderItemDocDatumSlice             `boil:"DocTypeDataPlatformProductionOrderItemDocData" json:"DocTypeDataPlatformProductionOrderItemDocData" toml:"DocTypeDataPlatformProductionOrderItemDocData" yaml:"DocTypeDataPlatformProductionOrderItemDocData"`
-	DocTypeDataPlatformQuotationsHeaderDocData                DataPlatformQuotationsHeaderDocDatumSlice                `boil:"DocTypeDataPlatformQuotationsHeaderDocData" json:"DocTypeDataPlatformQuotationsHeaderDocData" toml:"DocTypeDataPlatformQuotationsHeaderDocData" yaml:"DocTypeDataPlatformQuotationsHeaderDocData"`
-	DocTypeDataPlatformQuotationsItemDocData                  DataPlatformQuotationsItemDocDatumSlice                  `boil:"DocTypeDataPlatformQuotationsItemDocData" json:"DocTypeDataPlatformQuotationsItemDocData" toml:"DocTypeDataPlatformQuotationsItemDocData" yaml:"DocTypeDataPlatformQuotationsItemDocData"`
-	DocTypeDataPlatformSCRGeneralDocData                      DataPlatformSCRGeneralDocDatumSlice                      `boil:"DocTypeDataPlatformSCRGeneralDocData" json:"DocTypeDataPlatformSCRGeneralDocData" toml:"DocTypeDataPlatformSCRGeneralDocData" yaml:"DocTypeDataPlatformSCRGeneralDocData"`
+	DocTypeDataPlatformBillOfMaterialHeaderDocData         DataPlatformBillOfMaterialHeaderDocDatumSlice         `boil:"DocTypeDataPlatformBillOfMaterialHeaderDocData" json:"DocTypeDataPlatformBillOfMaterialHeaderDocData" toml:"DocTypeDataPlatformBillOfMaterialHeaderDocData" yaml:"DocTypeDataPlatformBillOfMaterialHeaderDocData"`
+	DocTypeDataPlatformBillOfMaterialItemDocData           DataPlatformBillOfMaterialItemDocDatumSlice           `boil:"DocTypeDataPlatformBillOfMaterialItemDocData" json:"DocTypeDataPlatformBillOfMaterialItemDocData" toml:"DocTypeDataPlatformBillOfMaterialItemDocData" yaml:"DocTypeDataPlatformBillOfMaterialItemDocData"`
+	DocTypeDataPlatformBusinessPartnerGeneralDocData       DataPlatformBusinessPartnerGeneralDocDatumSlice       `boil:"DocTypeDataPlatformBusinessPartnerGeneralDocData" json:"DocTypeDataPlatformBusinessPartnerGeneralDocData" toml:"DocTypeDataPlatformBusinessPartnerGeneralDocData" yaml:"DocTypeDataPlatformBusinessPartnerGeneralDocData"`
+	DocTypeDataPlatformDeliveryDocumentHeaderDocData       DataPlatformDeliveryDocumentHeaderDocDatumSlice       `boil:"DocTypeDataPlatformDeliveryDocumentHeaderDocData" json:"DocTypeDataPlatformDeliveryDocumentHeaderDocData" toml:"DocTypeDataPlatformDeliveryDocumentHeaderDocData" yaml:"DocTypeDataPlatformDeliveryDocumentHeaderDocData"`
+	DocTypeDataPlatformDeliveryDocumentItemDocData         DataPlatformDeliveryDocumentItemDocDatumSlice         `boil:"DocTypeDataPlatformDeliveryDocumentItemDocData" json:"DocTypeDataPlatformDeliveryDocumentItemDocData" toml:"DocTypeDataPlatformDeliveryDocumentItemDocData" yaml:"DocTypeDataPlatformDeliveryDocumentItemDocData"`
+	DocTypeDataPlatformDeliveryDocumentItemPickingDocData  DataPlatformDeliveryDocumentItemPickingDocDatumSlice  `boil:"DocTypeDataPlatformDeliveryDocumentItemPickingDocData" json:"DocTypeDataPlatformDeliveryDocumentItemPickingDocData" toml:"DocTypeDataPlatformDeliveryDocumentItemPickingDocData" yaml:"DocTypeDataPlatformDeliveryDocumentItemPickingDocData"`
+	DocTypeDataPlatformEquipmentMasterGeneralDocData       DataPlatformEquipmentMasterGeneralDocDatumSlice       `boil:"DocTypeDataPlatformEquipmentMasterGeneralDocData" json:"DocTypeDataPlatformEquipmentMasterGeneralDocData" toml:"DocTypeDataPlatformEquipmentMasterGeneralDocData" yaml:"DocTypeDataPlatformEquipmentMasterGeneralDocData"`
+	DocTypeDataPlatformInspectionLotHeaderDocData          DataPlatformInspectionLotHeaderDocDatumSlice          `boil:"DocTypeDataPlatformInspectionLotHeaderDocData" json:"DocTypeDataPlatformInspectionLotHeaderDocData" toml:"DocTypeDataPlatformInspectionLotHeaderDocData" yaml:"DocTypeDataPlatformInspectionLotHeaderDocData"`
+	DocTypeDataPlatformInspectionPlanHeaderDocData         DataPlatformInspectionPlanHeaderDocDatumSlice         `boil:"DocTypeDataPlatformInspectionPlanHeaderDocData" json:"DocTypeDataPlatformInspectionPlanHeaderDocData" toml:"DocTypeDataPlatformInspectionPlanHeaderDocData" yaml:"DocTypeDataPlatformInspectionPlanHeaderDocData"`
+	DocTypeDataPlatformInvoiceDocumentHeaderDocData        DataPlatformInvoiceDocumentHeaderDocDatumSlice        `boil:"DocTypeDataPlatformInvoiceDocumentHeaderDocData" json:"DocTypeDataPlatformInvoiceDocumentHeaderDocData" toml:"DocTypeDataPlatformInvoiceDocumentHeaderDocData" yaml:"DocTypeDataPlatformInvoiceDocumentHeaderDocData"`
+	DocTypeDataPlatformInvoiceDocumentItemDocData          DataPlatformInvoiceDocumentItemDocDatumSlice          `boil:"DocTypeDataPlatformInvoiceDocumentItemDocData" json:"DocTypeDataPlatformInvoiceDocumentItemDocData" toml:"DocTypeDataPlatformInvoiceDocumentItemDocData" yaml:"DocTypeDataPlatformInvoiceDocumentItemDocData"`
+	DocTypeDataPlatformOperationsHeaderDocData             DataPlatformOperationsHeaderDocDatumSlice             `boil:"DocTypeDataPlatformOperationsHeaderDocData" json:"DocTypeDataPlatformOperationsHeaderDocData" toml:"DocTypeDataPlatformOperationsHeaderDocData" yaml:"DocTypeDataPlatformOperationsHeaderDocData"`
+	DocTypeDataPlatformOperationsItemDocData               DataPlatformOperationsItemDocDatumSlice               `boil:"DocTypeDataPlatformOperationsItemDocData" json:"DocTypeDataPlatformOperationsItemDocData" toml:"DocTypeDataPlatformOperationsItemDocData" yaml:"DocTypeDataPlatformOperationsItemDocData"`
+	DocTypeDataPlatformOrdersHeaderDocData                 DataPlatformOrdersHeaderDocDatumSlice                 `boil:"DocTypeDataPlatformOrdersHeaderDocData" json:"DocTypeDataPlatformOrdersHeaderDocData" toml:"DocTypeDataPlatformOrdersHeaderDocData" yaml:"DocTypeDataPlatformOrdersHeaderDocData"`
+	DocTypeDataPlatformOrdersItemDocData                   DataPlatformOrdersItemDocDatumSlice                   `boil:"DocTypeDataPlatformOrdersItemDocData" json:"DocTypeDataPlatformOrdersItemDocData" toml:"DocTypeDataPlatformOrdersItemDocData" yaml:"DocTypeDataPlatformOrdersItemDocData"`
+	DocTypeDataPlatformPlannedOrderHeaderDocData           DataPlatformPlannedOrderHeaderDocDatumSlice           `boil:"DocTypeDataPlatformPlannedOrderHeaderDocData" json:"DocTypeDataPlatformPlannedOrderHeaderDocData" toml:"DocTypeDataPlatformPlannedOrderHeaderDocData" yaml:"DocTypeDataPlatformPlannedOrderHeaderDocData"`
+	DocTypeDataPlatformPlannedOrderItemDocData             DataPlatformPlannedOrderItemDocDatumSlice             `boil:"DocTypeDataPlatformPlannedOrderItemDocData" json:"DocTypeDataPlatformPlannedOrderItemDocData" toml:"DocTypeDataPlatformPlannedOrderItemDocData" yaml:"DocTypeDataPlatformPlannedOrderItemDocData"`
+	DocTypeDataPlatformProductMasterBPPlantDocData         DataPlatformProductMasterBPPlantDocDatumSlice         `boil:"DocTypeDataPlatformProductMasterBPPlantDocData" json:"DocTypeDataPlatformProductMasterBPPlantDocData" toml:"DocTypeDataPlatformProductMasterBPPlantDocData" yaml:"DocTypeDataPlatformProductMasterBPPlantDocData"`
+	DocTypeDataPlatformProductMasterBusinessPartnerDocData DataPlatformProductMasterBusinessPartnerDocDatumSlice `boil:"DocTypeDataPlatformProductMasterBusinessPartnerDocData" json:"DocTypeDataPlatformProductMasterBusinessPartnerDocData" toml:"DocTypeDataPlatformProductMasterBusinessPartnerDocData" yaml:"DocTypeDataPlatformProductMasterBusinessPartnerDocData"`
+	DocTypeDataPlatformProductMasterGeneralDocData         DataPlatformProductMasterGeneralDocDatumSlice         `boil:"DocTypeDataPlatformProductMasterGeneralDocData" json:"DocTypeDataPlatformProductMasterGeneralDocData" toml:"DocTypeDataPlatformProductMasterGeneralDocData" yaml:"DocTypeDataPlatformProductMasterGeneralDocData"`
+	DocTypeDataPlatformProductStockProductStockDocData     DataPlatformProductStockProductStockDocDatumSlice     `boil:"DocTypeDataPlatformProductStockProductStockDocData" json:"DocTypeDataPlatformProductStockProductStockDocData" toml:"DocTypeDataPlatformProductStockProductStockDocData" yaml:"DocTypeDataPlatformProductStockProductStockDocData"`
+	DocTypeDataPlatformProductionOrderHeaderDocData        DataPlatformProductionOrderHeaderDocDatumSlice        `boil:"DocTypeDataPlatformProductionOrderHeaderDocData" json:"DocTypeDataPlatformProductionOrderHeaderDocData" toml:"DocTypeDataPlatformProductionOrderHeaderDocData" yaml:"DocTypeDataPlatformProductionOrderHeaderDocData"`
+	DocTypeDataPlatformProductionOrderItemDocData          DataPlatformProductionOrderItemDocDatumSlice          `boil:"DocTypeDataPlatformProductionOrderItemDocData" json:"DocTypeDataPlatformProductionOrderItemDocData" toml:"DocTypeDataPlatformProductionOrderItemDocData" yaml:"DocTypeDataPlatformProductionOrderItemDocData"`
+	DocTypeDataPlatformQuotationsHeaderDocData             DataPlatformQuotationsHeaderDocDatumSlice             `boil:"DocTypeDataPlatformQuotationsHeaderDocData" json:"DocTypeDataPlatformQuotationsHeaderDocData" toml:"DocTypeDataPlatformQuotationsHeaderDocData" yaml:"DocTypeDataPlatformQuotationsHeaderDocData"`
+	DocTypeDataPlatformQuotationsItemDocData               DataPlatformQuotationsItemDocDatumSlice               `boil:"DocTypeDataPlatformQuotationsItemDocData" json:"DocTypeDataPlatformQuotationsItemDocData" toml:"DocTypeDataPlatformQuotationsItemDocData" yaml:"DocTypeDataPlatformQuotationsItemDocData"`
+	DocTypeDataPlatformSCRGeneralDocData                   DataPlatformSCRGeneralDocDatumSlice                   `boil:"DocTypeDataPlatformSCRGeneralDocData" json:"DocTypeDataPlatformSCRGeneralDocData" toml:"DocTypeDataPlatformSCRGeneralDocData" yaml:"DocTypeDataPlatformSCRGeneralDocData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -187,11 +190,18 @@ func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformEquipmentMaster
 	return r.DocTypeDataPlatformEquipmentMasterGeneralDocData
 }
 
-func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformInspectionLotConfirmationHeaderDocData() DataPlatformInspectionLotConfirmationHeaderDocDatumSlice {
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformInspectionLotHeaderDocData() DataPlatformInspectionLotHeaderDocDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.DocTypeDataPlatformInspectionLotConfirmationHeaderDocData
+	return r.DocTypeDataPlatformInspectionLotHeaderDocData
+}
+
+func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformInspectionPlanHeaderDocData() DataPlatformInspectionPlanHeaderDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocTypeDataPlatformInspectionPlanHeaderDocData
 }
 
 func (r *dataPlatformDocTypeDocTypeDatumR) GetDocTypeDataPlatformInvoiceDocumentHeaderDocData() DataPlatformInvoiceDocumentHeaderDocDatumSlice {
@@ -513,18 +523,32 @@ func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformEquipmentMasterGene
 	return DataPlatformEquipmentMasterGeneralDocData(queryMods...)
 }
 
-// DocTypeDataPlatformInspectionLotConfirmationHeaderDocData retrieves all the data_platform_inspection_lot_confirmation_header_doc_datum's DataPlatformInspectionLotConfirmationHeaderDocData with an executor via DocType column.
-func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformInspectionLotConfirmationHeaderDocData(mods ...qm.QueryMod) dataPlatformInspectionLotConfirmationHeaderDocDatumQuery {
+// DocTypeDataPlatformInspectionLotHeaderDocData retrieves all the data_platform_inspection_lot_header_doc_datum's DataPlatformInspectionLotHeaderDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformInspectionLotHeaderDocData(mods ...qm.QueryMod) dataPlatformInspectionLotHeaderDocDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_inspection_lot_confirmation_header_doc_data`.`DocType`=?", o.DocType),
+		qm.Where("`data_platform_inspection_lot_header_doc_data`.`DocType`=?", o.DocType),
 	)
 
-	return DataPlatformInspectionLotConfirmationHeaderDocData(queryMods...)
+	return DataPlatformInspectionLotHeaderDocData(queryMods...)
+}
+
+// DocTypeDataPlatformInspectionPlanHeaderDocData retrieves all the data_platform_inspection_plan_header_doc_datum's DataPlatformInspectionPlanHeaderDocData with an executor via DocType column.
+func (o *DataPlatformDocTypeDocTypeDatum) DocTypeDataPlatformInspectionPlanHeaderDocData(mods ...qm.QueryMod) dataPlatformInspectionPlanHeaderDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_inspection_plan_header_doc_data`.`DocType`=?", o.DocType),
+	)
+
+	return DataPlatformInspectionPlanHeaderDocData(queryMods...)
 }
 
 // DocTypeDataPlatformInvoiceDocumentHeaderDocData retrieves all the data_platform_invoice_document_header_doc_datum's DataPlatformInvoiceDocumentHeaderDocData with an executor via DocType column.
@@ -1444,9 +1468,9 @@ func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformEquipmentMasterGe
 	return nil
 }
 
-// LoadDocTypeDataPlatformInspectionLotConfirmationHeaderDocData allows an eager lookup of values, cached into the
+// LoadDocTypeDataPlatformInspectionLotHeaderDocData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformInspectionLotConfirmationHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformInspectionLotHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformDocTypeDocTypeDatum
 	var object *DataPlatformDocTypeDocTypeDatum
 
@@ -1500,8 +1524,8 @@ func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformInspectionLotConf
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_inspection_lot_confirmation_header_doc_data`),
-		qm.WhereIn(`data_platform_inspection_lot_confirmation_header_doc_data.DocType in ?`, args...),
+		qm.From(`data_platform_inspection_lot_header_doc_data`),
+		qm.WhereIn(`data_platform_inspection_lot_header_doc_data.DocType in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -1509,30 +1533,127 @@ func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformInspectionLotConf
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_inspection_lot_confirmation_header_doc_data")
+		return errors.Wrap(err, "failed to eager load data_platform_inspection_lot_header_doc_data")
 	}
 
-	var resultSlice []*DataPlatformInspectionLotConfirmationHeaderDocDatum
+	var resultSlice []*DataPlatformInspectionLotHeaderDocDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_lot_confirmation_header_doc_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_lot_header_doc_data")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_lot_confirmation_header_doc_data")
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_lot_header_doc_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_lot_confirmation_header_doc_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_lot_header_doc_data")
 	}
 
 	if singular {
-		object.R.DocTypeDataPlatformInspectionLotConfirmationHeaderDocData = resultSlice
+		object.R.DocTypeDataPlatformInspectionLotHeaderDocData = resultSlice
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
 			if local.DocType == foreign.DocType {
-				local.R.DocTypeDataPlatformInspectionLotConfirmationHeaderDocData = append(local.R.DocTypeDataPlatformInspectionLotConfirmationHeaderDocData, foreign)
+				local.R.DocTypeDataPlatformInspectionLotHeaderDocData = append(local.R.DocTypeDataPlatformInspectionLotHeaderDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocTypeDataPlatformInspectionPlanHeaderDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformDocTypeDocTypeDatumL) LoadDocTypeDataPlatformInspectionPlanHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformDocTypeDocTypeDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformDocTypeDocTypeDatum
+	var object *DataPlatformDocTypeDocTypeDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformDocTypeDocTypeDatum.(*DataPlatformDocTypeDocTypeDatum)
+		if !ok {
+			object = new(DataPlatformDocTypeDocTypeDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformDocTypeDocTypeDatum.(*[]*DataPlatformDocTypeDocTypeDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformDocTypeDocTypeDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformDocTypeDocTypeDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformDocTypeDocTypeDatumR{}
+		}
+		args = append(args, object.DocType)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformDocTypeDocTypeDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.DocType {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.DocType)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_inspection_plan_header_doc_data`),
+		qm.WhereIn(`data_platform_inspection_plan_header_doc_data.DocType in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_inspection_plan_header_doc_data")
+	}
+
+	var resultSlice []*DataPlatformInspectionPlanHeaderDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_plan_header_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_plan_header_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_plan_header_doc_data")
+	}
+
+	if singular {
+		object.R.DocTypeDataPlatformInspectionPlanHeaderDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.DocType == foreign.DocType {
+				local.R.DocTypeDataPlatformInspectionPlanHeaderDocData = append(local.R.DocTypeDataPlatformInspectionPlanHeaderDocData, foreign)
 				break
 			}
 		}
@@ -3491,10 +3612,10 @@ func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformEquipmentMasterG
 	return nil
 }
 
-// AddDocTypeDataPlatformInspectionLotConfirmationHeaderDocData adds the given related objects to the existing relationships
+// AddDocTypeDataPlatformInspectionLotHeaderDocData adds the given related objects to the existing relationships
 // of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
-// Appends related to o.R.DocTypeDataPlatformInspectionLotConfirmationHeaderDocData.
-func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformInspectionLotConfirmationHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotConfirmationHeaderDocDatum) error {
+// Appends related to o.R.DocTypeDataPlatformInspectionLotHeaderDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformInspectionLotHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotHeaderDocDatum) error {
 	var err error
 	for _, rel := range related {
 		if insert {
@@ -3504,11 +3625,11 @@ func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformInspectionLotCon
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_inspection_lot_confirmation_header_doc_data` SET %s WHERE %s",
+				"UPDATE `data_platform_inspection_lot_header_doc_data` SET %s WHERE %s",
 				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotConfirmationHeaderDocDatumPrimaryKeyColumns),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotHeaderDocDatumPrimaryKeyColumns),
 			)
-			values := []interface{}{o.DocType, rel.InspectionLot, rel.Operations, rel.OperationsItem, rel.OperationID, rel.ConfirmationCountingID, rel.DocType, rel.DocVersionID, rel.DocID}
+			values := []interface{}{o.DocType, rel.InspectionLot, rel.DocType, rel.DocVersionID, rel.DocID}
 
 			if boil.IsDebug(ctx) {
 				writer := boil.DebugWriterFrom(ctx)
@@ -3525,10 +3646,53 @@ func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformInspectionLotCon
 
 	if o.R == nil {
 		o.R = &dataPlatformDocTypeDocTypeDatumR{
-			DocTypeDataPlatformInspectionLotConfirmationHeaderDocData: related,
+			DocTypeDataPlatformInspectionLotHeaderDocData: related,
 		}
 	} else {
-		o.R.DocTypeDataPlatformInspectionLotConfirmationHeaderDocData = append(o.R.DocTypeDataPlatformInspectionLotConfirmationHeaderDocData, related...)
+		o.R.DocTypeDataPlatformInspectionLotHeaderDocData = append(o.R.DocTypeDataPlatformInspectionLotHeaderDocData, related...)
+	}
+
+	return nil
+}
+
+// AddDocTypeDataPlatformInspectionPlanHeaderDocData adds the given related objects to the existing relationships
+// of the data_platform_doc_type_doc_type_datum, optionally inserting them as new records.
+// Appends related to o.R.DocTypeDataPlatformInspectionPlanHeaderDocData.
+func (o *DataPlatformDocTypeDocTypeDatum) AddDocTypeDataPlatformInspectionPlanHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionPlanHeaderDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DocType = o.DocType
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_inspection_plan_header_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocType"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionPlanHeaderDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.DocType, rel.InspectionPlan, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DocType = o.DocType
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformDocTypeDocTypeDatumR{
+			DocTypeDataPlatformInspectionPlanHeaderDocData: related,
+		}
+	} else {
+		o.R.DocTypeDataPlatformInspectionPlanHeaderDocData = append(o.R.DocTypeDataPlatformInspectionPlanHeaderDocData, related...)
 	}
 
 	return nil

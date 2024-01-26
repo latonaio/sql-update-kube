@@ -122,7 +122,6 @@ var DataPlatformSCRDeliveryRelationDatumRels = struct {
 	ComponentProductBuyerDataPlatformBillOfMaterialItemData                 string
 	BuyerDataPlatformDeliveryDocumentHeaderData                             string
 	BuyerDataPlatformDeliveryDocumentItemData                               string
-	BuyerDataPlatformInspectionLotOperationData                             string
 	BuyerDataPlatformInvoiceDocumentItemData                                string
 	BuyerDataPlatformOperationsHeaderData                                   string
 	BuyerDataPlatformOperationsItemData                                     string
@@ -155,7 +154,6 @@ var DataPlatformSCRDeliveryRelationDatumRels = struct {
 	ComponentProductBuyerDataPlatformBillOfMaterialItemData:                 "ComponentProductBuyerDataPlatformBillOfMaterialItemData",
 	BuyerDataPlatformDeliveryDocumentHeaderData:                             "BuyerDataPlatformDeliveryDocumentHeaderData",
 	BuyerDataPlatformDeliveryDocumentItemData:                               "BuyerDataPlatformDeliveryDocumentItemData",
-	BuyerDataPlatformInspectionLotOperationData:                             "BuyerDataPlatformInspectionLotOperationData",
 	BuyerDataPlatformInvoiceDocumentItemData:                                "BuyerDataPlatformInvoiceDocumentItemData",
 	BuyerDataPlatformOperationsHeaderData:                                   "BuyerDataPlatformOperationsHeaderData",
 	BuyerDataPlatformOperationsItemData:                                     "BuyerDataPlatformOperationsItemData",
@@ -191,7 +189,6 @@ type dataPlatformSCRDeliveryRelationDatumR struct {
 	ComponentProductBuyerDataPlatformBillOfMaterialItemData                 DataPlatformBillOfMaterialItemDatumSlice                   `boil:"ComponentProductBuyerDataPlatformBillOfMaterialItemData" json:"ComponentProductBuyerDataPlatformBillOfMaterialItemData" toml:"ComponentProductBuyerDataPlatformBillOfMaterialItemData" yaml:"ComponentProductBuyerDataPlatformBillOfMaterialItemData"`
 	BuyerDataPlatformDeliveryDocumentHeaderData                             DataPlatformDeliveryDocumentHeaderDatumSlice               `boil:"BuyerDataPlatformDeliveryDocumentHeaderData" json:"BuyerDataPlatformDeliveryDocumentHeaderData" toml:"BuyerDataPlatformDeliveryDocumentHeaderData" yaml:"BuyerDataPlatformDeliveryDocumentHeaderData"`
 	BuyerDataPlatformDeliveryDocumentItemData                               DataPlatformDeliveryDocumentItemDatumSlice                 `boil:"BuyerDataPlatformDeliveryDocumentItemData" json:"BuyerDataPlatformDeliveryDocumentItemData" toml:"BuyerDataPlatformDeliveryDocumentItemData" yaml:"BuyerDataPlatformDeliveryDocumentItemData"`
-	BuyerDataPlatformInspectionLotOperationData                             DataPlatformInspectionLotOperationDatumSlice               `boil:"BuyerDataPlatformInspectionLotOperationData" json:"BuyerDataPlatformInspectionLotOperationData" toml:"BuyerDataPlatformInspectionLotOperationData" yaml:"BuyerDataPlatformInspectionLotOperationData"`
 	BuyerDataPlatformInvoiceDocumentItemData                                DataPlatformInvoiceDocumentItemDatumSlice                  `boil:"BuyerDataPlatformInvoiceDocumentItemData" json:"BuyerDataPlatformInvoiceDocumentItemData" toml:"BuyerDataPlatformInvoiceDocumentItemData" yaml:"BuyerDataPlatformInvoiceDocumentItemData"`
 	BuyerDataPlatformOperationsHeaderData                                   DataPlatformOperationsHeaderDatumSlice                     `boil:"BuyerDataPlatformOperationsHeaderData" json:"BuyerDataPlatformOperationsHeaderData" toml:"BuyerDataPlatformOperationsHeaderData" yaml:"BuyerDataPlatformOperationsHeaderData"`
 	BuyerDataPlatformOperationsItemData                                     DataPlatformOperationsItemDatumSlice                       `boil:"BuyerDataPlatformOperationsItemData" json:"BuyerDataPlatformOperationsItemData" toml:"BuyerDataPlatformOperationsItemData" yaml:"BuyerDataPlatformOperationsItemData"`
@@ -270,13 +267,6 @@ func (r *dataPlatformSCRDeliveryRelationDatumR) GetBuyerDataPlatformDeliveryDocu
 		return nil
 	}
 	return r.BuyerDataPlatformDeliveryDocumentItemData
-}
-
-func (r *dataPlatformSCRDeliveryRelationDatumR) GetBuyerDataPlatformInspectionLotOperationData() DataPlatformInspectionLotOperationDatumSlice {
-	if r == nil {
-		return nil
-	}
-	return r.BuyerDataPlatformInspectionLotOperationData
 }
 
 func (r *dataPlatformSCRDeliveryRelationDatumR) GetBuyerDataPlatformInvoiceDocumentItemData() DataPlatformInvoiceDocumentItemDatumSlice {
@@ -636,20 +626,6 @@ func (o *DataPlatformSCRDeliveryRelationDatum) BuyerDataPlatformDeliveryDocument
 	)
 
 	return DataPlatformDeliveryDocumentItemData(queryMods...)
-}
-
-// BuyerDataPlatformInspectionLotOperationData retrieves all the data_platform_inspection_lot_operation_datum's DataPlatformInspectionLotOperationData with an executor via Buyer column.
-func (o *DataPlatformSCRDeliveryRelationDatum) BuyerDataPlatformInspectionLotOperationData(mods ...qm.QueryMod) dataPlatformInspectionLotOperationDatumQuery {
-	var queryMods []qm.QueryMod
-	if len(mods) != 0 {
-		queryMods = append(queryMods, mods...)
-	}
-
-	queryMods = append(queryMods,
-		qm.Where("`data_platform_inspection_lot_operation_data`.`Buyer`=?", o.Buyer),
-	)
-
-	return DataPlatformInspectionLotOperationData(queryMods...)
 }
 
 // BuyerDataPlatformInvoiceDocumentItemData retrieves all the data_platform_invoice_document_item_datum's DataPlatformInvoiceDocumentItemData with an executor via Buyer column.
@@ -1680,103 +1656,6 @@ func (dataPlatformSCRDeliveryRelationDatumL) LoadBuyerDataPlatformDeliveryDocume
 		for _, local := range slice {
 			if local.Buyer == foreign.Buyer {
 				local.R.BuyerDataPlatformDeliveryDocumentItemData = append(local.R.BuyerDataPlatformDeliveryDocumentItemData, foreign)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
-// LoadBuyerDataPlatformInspectionLotOperationData allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformSCRDeliveryRelationDatumL) LoadBuyerDataPlatformInspectionLotOperationData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformSCRDeliveryRelationDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformSCRDeliveryRelationDatum
-	var object *DataPlatformSCRDeliveryRelationDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformSCRDeliveryRelationDatum.(*DataPlatformSCRDeliveryRelationDatum)
-		if !ok {
-			object = new(DataPlatformSCRDeliveryRelationDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformSCRDeliveryRelationDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformSCRDeliveryRelationDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformSCRDeliveryRelationDatum.(*[]*DataPlatformSCRDeliveryRelationDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformSCRDeliveryRelationDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformSCRDeliveryRelationDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformSCRDeliveryRelationDatumR{}
-		}
-		args = append(args, object.Buyer)
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformSCRDeliveryRelationDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.Buyer {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.Buyer)
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_inspection_lot_operation_data`),
-		qm.WhereIn(`data_platform_inspection_lot_operation_data.Buyer in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_inspection_lot_operation_data")
-	}
-
-	var resultSlice []*DataPlatformInspectionLotOperationDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_lot_operation_data")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_lot_operation_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_lot_operation_data")
-	}
-
-	if singular {
-		object.R.BuyerDataPlatformInspectionLotOperationData = resultSlice
-		return nil
-	}
-
-	for _, foreign := range resultSlice {
-		for _, local := range slice {
-			if local.Buyer == foreign.Buyer {
-				local.R.BuyerDataPlatformInspectionLotOperationData = append(local.R.BuyerDataPlatformInspectionLotOperationData, foreign)
 				break
 			}
 		}
@@ -4394,49 +4273,6 @@ func (o *DataPlatformSCRDeliveryRelationDatum) AddBuyerDataPlatformDeliveryDocum
 		}
 	} else {
 		o.R.BuyerDataPlatformDeliveryDocumentItemData = append(o.R.BuyerDataPlatformDeliveryDocumentItemData, related...)
-	}
-
-	return nil
-}
-
-// AddBuyerDataPlatformInspectionLotOperationData adds the given related objects to the existing relationships
-// of the data_platform_scr_delivery_relation_datum, optionally inserting them as new records.
-// Appends related to o.R.BuyerDataPlatformInspectionLotOperationData.
-func (o *DataPlatformSCRDeliveryRelationDatum) AddBuyerDataPlatformInspectionLotOperationData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotOperationDatum) error {
-	var err error
-	for _, rel := range related {
-		if insert {
-			rel.Buyer = o.Buyer
-			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
-				return errors.Wrap(err, "failed to insert into foreign table")
-			}
-		} else {
-			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_inspection_lot_operation_data` SET %s WHERE %s",
-				strmangle.SetParamNames("`", "`", 0, []string{"Buyer"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotOperationDatumPrimaryKeyColumns),
-			)
-			values := []interface{}{o.Buyer, rel.InspectionLot, rel.Operations, rel.OperationsItem, rel.OperationID}
-
-			if boil.IsDebug(ctx) {
-				writer := boil.DebugWriterFrom(ctx)
-				fmt.Fprintln(writer, updateQuery)
-				fmt.Fprintln(writer, values)
-			}
-			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-				return errors.Wrap(err, "failed to update foreign table")
-			}
-
-			rel.Buyer = o.Buyer
-		}
-	}
-
-	if o.R == nil {
-		o.R = &dataPlatformSCRDeliveryRelationDatumR{
-			BuyerDataPlatformInspectionLotOperationData: related,
-		}
-	} else {
-		o.R.BuyerDataPlatformInspectionLotOperationData = append(o.R.BuyerDataPlatformInspectionLotOperationData, related...)
 	}
 
 	return nil

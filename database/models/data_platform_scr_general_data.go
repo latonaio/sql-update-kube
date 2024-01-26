@@ -91,7 +91,7 @@ var DataPlatformSCRGeneralDatumRels = struct {
 	SellerDataPlatformBusinessPartnerGeneralDatum                           string
 	BuyerDataPlatformBillOfMaterialHeaderData                               string
 	ComponentProductBuyerDataPlatformBillOfMaterialItemData                 string
-	BuyerDataPlatformInspectionLotOperationData                             string
+	BuyerDataPlatformContractHeaderData                                     string
 	BuyerDataPlatformInvoiceDocumentItemPricingElementData                  string
 	BuyerDataPlatformOperationsHeaderData                                   string
 	BuyerDataPlatformOperationsItemData                                     string
@@ -132,7 +132,7 @@ var DataPlatformSCRGeneralDatumRels = struct {
 	SellerDataPlatformBusinessPartnerGeneralDatum:                           "SellerDataPlatformBusinessPartnerGeneralDatum",
 	BuyerDataPlatformBillOfMaterialHeaderData:                               "BuyerDataPlatformBillOfMaterialHeaderData",
 	ComponentProductBuyerDataPlatformBillOfMaterialItemData:                 "ComponentProductBuyerDataPlatformBillOfMaterialItemData",
-	BuyerDataPlatformInspectionLotOperationData:                             "BuyerDataPlatformInspectionLotOperationData",
+	BuyerDataPlatformContractHeaderData:                                     "BuyerDataPlatformContractHeaderData",
 	BuyerDataPlatformInvoiceDocumentItemPricingElementData:                  "BuyerDataPlatformInvoiceDocumentItemPricingElementData",
 	BuyerDataPlatformOperationsHeaderData:                                   "BuyerDataPlatformOperationsHeaderData",
 	BuyerDataPlatformOperationsItemData:                                     "BuyerDataPlatformOperationsItemData",
@@ -176,7 +176,7 @@ type dataPlatformSCRGeneralDatumR struct {
 	SellerDataPlatformBusinessPartnerGeneralDatum                           *DataPlatformBusinessPartnerGeneralDatum                   `boil:"SellerDataPlatformBusinessPartnerGeneralDatum" json:"SellerDataPlatformBusinessPartnerGeneralDatum" toml:"SellerDataPlatformBusinessPartnerGeneralDatum" yaml:"SellerDataPlatformBusinessPartnerGeneralDatum"`
 	BuyerDataPlatformBillOfMaterialHeaderData                               DataPlatformBillOfMaterialHeaderDatumSlice                 `boil:"BuyerDataPlatformBillOfMaterialHeaderData" json:"BuyerDataPlatformBillOfMaterialHeaderData" toml:"BuyerDataPlatformBillOfMaterialHeaderData" yaml:"BuyerDataPlatformBillOfMaterialHeaderData"`
 	ComponentProductBuyerDataPlatformBillOfMaterialItemData                 DataPlatformBillOfMaterialItemDatumSlice                   `boil:"ComponentProductBuyerDataPlatformBillOfMaterialItemData" json:"ComponentProductBuyerDataPlatformBillOfMaterialItemData" toml:"ComponentProductBuyerDataPlatformBillOfMaterialItemData" yaml:"ComponentProductBuyerDataPlatformBillOfMaterialItemData"`
-	BuyerDataPlatformInspectionLotOperationData                             DataPlatformInspectionLotOperationDatumSlice               `boil:"BuyerDataPlatformInspectionLotOperationData" json:"BuyerDataPlatformInspectionLotOperationData" toml:"BuyerDataPlatformInspectionLotOperationData" yaml:"BuyerDataPlatformInspectionLotOperationData"`
+	BuyerDataPlatformContractHeaderData                                     DataPlatformContractHeaderDatumSlice                       `boil:"BuyerDataPlatformContractHeaderData" json:"BuyerDataPlatformContractHeaderData" toml:"BuyerDataPlatformContractHeaderData" yaml:"BuyerDataPlatformContractHeaderData"`
 	BuyerDataPlatformInvoiceDocumentItemPricingElementData                  DataPlatformInvoiceDocumentItemPricingElementDatumSlice    `boil:"BuyerDataPlatformInvoiceDocumentItemPricingElementData" json:"BuyerDataPlatformInvoiceDocumentItemPricingElementData" toml:"BuyerDataPlatformInvoiceDocumentItemPricingElementData" yaml:"BuyerDataPlatformInvoiceDocumentItemPricingElementData"`
 	BuyerDataPlatformOperationsHeaderData                                   DataPlatformOperationsHeaderDatumSlice                     `boil:"BuyerDataPlatformOperationsHeaderData" json:"BuyerDataPlatformOperationsHeaderData" toml:"BuyerDataPlatformOperationsHeaderData" yaml:"BuyerDataPlatformOperationsHeaderData"`
 	BuyerDataPlatformOperationsItemData                                     DataPlatformOperationsItemDatumSlice                       `boil:"BuyerDataPlatformOperationsItemData" json:"BuyerDataPlatformOperationsItemData" toml:"BuyerDataPlatformOperationsItemData" yaml:"BuyerDataPlatformOperationsItemData"`
@@ -247,11 +247,11 @@ func (r *dataPlatformSCRGeneralDatumR) GetComponentProductBuyerDataPlatformBillO
 	return r.ComponentProductBuyerDataPlatformBillOfMaterialItemData
 }
 
-func (r *dataPlatformSCRGeneralDatumR) GetBuyerDataPlatformInspectionLotOperationData() DataPlatformInspectionLotOperationDatumSlice {
+func (r *dataPlatformSCRGeneralDatumR) GetBuyerDataPlatformContractHeaderData() DataPlatformContractHeaderDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.BuyerDataPlatformInspectionLotOperationData
+	return r.BuyerDataPlatformContractHeaderData
 }
 
 func (r *dataPlatformSCRGeneralDatumR) GetBuyerDataPlatformInvoiceDocumentItemPricingElementData() DataPlatformInvoiceDocumentItemPricingElementDatumSlice {
@@ -651,18 +651,18 @@ func (o *DataPlatformSCRGeneralDatum) ComponentProductBuyerDataPlatformBillOfMat
 	return DataPlatformBillOfMaterialItemData(queryMods...)
 }
 
-// BuyerDataPlatformInspectionLotOperationData retrieves all the data_platform_inspection_lot_operation_datum's DataPlatformInspectionLotOperationData with an executor via Buyer column.
-func (o *DataPlatformSCRGeneralDatum) BuyerDataPlatformInspectionLotOperationData(mods ...qm.QueryMod) dataPlatformInspectionLotOperationDatumQuery {
+// BuyerDataPlatformContractHeaderData retrieves all the data_platform_contract_header_datum's DataPlatformContractHeaderData with an executor via Buyer column.
+func (o *DataPlatformSCRGeneralDatum) BuyerDataPlatformContractHeaderData(mods ...qm.QueryMod) dataPlatformContractHeaderDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_inspection_lot_operation_data`.`Buyer`=?", o.Buyer),
+		qm.Where("`data_platform_contract_header_data`.`Buyer`=?", o.Buyer),
 	)
 
-	return DataPlatformInspectionLotOperationData(queryMods...)
+	return DataPlatformContractHeaderData(queryMods...)
 }
 
 // BuyerDataPlatformInvoiceDocumentItemPricingElementData retrieves all the data_platform_invoice_document_item_pricing_element_datum's DataPlatformInvoiceDocumentItemPricingElementData with an executor via Buyer column.
@@ -1557,9 +1557,9 @@ func (dataPlatformSCRGeneralDatumL) LoadComponentProductBuyerDataPlatformBillOfM
 	return nil
 }
 
-// LoadBuyerDataPlatformInspectionLotOperationData allows an eager lookup of values, cached into the
+// LoadBuyerDataPlatformContractHeaderData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformSCRGeneralDatumL) LoadBuyerDataPlatformInspectionLotOperationData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformSCRGeneralDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformSCRGeneralDatumL) LoadBuyerDataPlatformContractHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformSCRGeneralDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformSCRGeneralDatum
 	var object *DataPlatformSCRGeneralDatum
 
@@ -1613,8 +1613,8 @@ func (dataPlatformSCRGeneralDatumL) LoadBuyerDataPlatformInspectionLotOperationD
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_inspection_lot_operation_data`),
-		qm.WhereIn(`data_platform_inspection_lot_operation_data.Buyer in ?`, args...),
+		qm.From(`data_platform_contract_header_data`),
+		qm.WhereIn(`data_platform_contract_header_data.Buyer in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -1622,30 +1622,30 @@ func (dataPlatformSCRGeneralDatumL) LoadBuyerDataPlatformInspectionLotOperationD
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_inspection_lot_operation_data")
+		return errors.Wrap(err, "failed to eager load data_platform_contract_header_data")
 	}
 
-	var resultSlice []*DataPlatformInspectionLotOperationDatum
+	var resultSlice []*DataPlatformContractHeaderDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_lot_operation_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_contract_header_data")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_lot_operation_data")
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_contract_header_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_lot_operation_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_contract_header_data")
 	}
 
 	if singular {
-		object.R.BuyerDataPlatformInspectionLotOperationData = resultSlice
+		object.R.BuyerDataPlatformContractHeaderData = resultSlice
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
 			if local.Buyer == foreign.Buyer {
-				local.R.BuyerDataPlatformInspectionLotOperationData = append(local.R.BuyerDataPlatformInspectionLotOperationData, foreign)
+				local.R.BuyerDataPlatformContractHeaderData = append(local.R.BuyerDataPlatformContractHeaderData, foreign)
 				break
 			}
 		}
@@ -5211,10 +5211,10 @@ func (o *DataPlatformSCRGeneralDatum) AddComponentProductBuyerDataPlatformBillOf
 	return nil
 }
 
-// AddBuyerDataPlatformInspectionLotOperationData adds the given related objects to the existing relationships
+// AddBuyerDataPlatformContractHeaderData adds the given related objects to the existing relationships
 // of the data_platform_scr_general_datum, optionally inserting them as new records.
-// Appends related to o.R.BuyerDataPlatformInspectionLotOperationData.
-func (o *DataPlatformSCRGeneralDatum) AddBuyerDataPlatformInspectionLotOperationData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotOperationDatum) error {
+// Appends related to o.R.BuyerDataPlatformContractHeaderData.
+func (o *DataPlatformSCRGeneralDatum) AddBuyerDataPlatformContractHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformContractHeaderDatum) error {
 	var err error
 	for _, rel := range related {
 		if insert {
@@ -5224,11 +5224,11 @@ func (o *DataPlatformSCRGeneralDatum) AddBuyerDataPlatformInspectionLotOperation
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_inspection_lot_operation_data` SET %s WHERE %s",
+				"UPDATE `data_platform_contract_header_data` SET %s WHERE %s",
 				strmangle.SetParamNames("`", "`", 0, []string{"Buyer"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotOperationDatumPrimaryKeyColumns),
+				strmangle.WhereClause("`", "`", 0, dataPlatformContractHeaderDatumPrimaryKeyColumns),
 			)
-			values := []interface{}{o.Buyer, rel.InspectionLot, rel.Operations, rel.OperationsItem, rel.OperationID}
+			values := []interface{}{o.Buyer, rel.Contract}
 
 			if boil.IsDebug(ctx) {
 				writer := boil.DebugWriterFrom(ctx)
@@ -5245,10 +5245,10 @@ func (o *DataPlatformSCRGeneralDatum) AddBuyerDataPlatformInspectionLotOperation
 
 	if o.R == nil {
 		o.R = &dataPlatformSCRGeneralDatumR{
-			BuyerDataPlatformInspectionLotOperationData: related,
+			BuyerDataPlatformContractHeaderData: related,
 		}
 	} else {
-		o.R.BuyerDataPlatformInspectionLotOperationData = append(o.R.BuyerDataPlatformInspectionLotOperationData, related...)
+		o.R.BuyerDataPlatformContractHeaderData = append(o.R.BuyerDataPlatformContractHeaderData, related...)
 	}
 
 	return nil

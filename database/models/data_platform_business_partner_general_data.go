@@ -241,170 +241,176 @@ var DataPlatformBusinessPartnerGeneralDatumWhere = struct {
 
 // DataPlatformBusinessPartnerGeneralDatumRels is where relationship names are stored.
 var DataPlatformBusinessPartnerGeneralDatumRels = struct {
-	AddressIDDataPlatformAddressAddressDatum                                   string
-	CountryDataPlatformCountryCountryDatum                                     string
-	CurrencyDataPlatformCurrencyCurrencyDatum                                  string
-	IndustryDataPlatformIndustryIndustryDatum                                  string
-	LanguageDataPlatformLanguageLanguageDatum                                  string
-	BusinessPartnerDataPlatformBusinessPartnerAccountingDatum                  string
-	BusinessPartnerDataPlatformBusinessPartnerGeneralDocData                   string
-	BusinessPartnerDataPlatformCodeConversionCodeConversionData                string
-	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData          string
-	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData            string
-	BusinessPartnerDataPlatformDeliveryDocumentPartnerData                     string
-	BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData              string
-	DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData          string
-	OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData    string
-	DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData string
-	BusinessPartnerDataPlatformInvoiceDocumentPartnerData                      string
-	DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData                string
-	DocIssuerBusinessPartnerDataPlatformOperationsItemDocData                  string
-	DocIssuerBusinessPartnerDataPlatformOrdersHeaderDocData                    string
-	DocIssuerBusinessPartnerDataPlatformOrdersItemDocData                      string
-	BusinessPartnerDataPlatformOrdersPartnerData                               string
-	DocIssuerBusinessPartnerDataPlatformPlannedOrderHeaderDocData              string
-	DocIssuerBusinessPartnerDataPlatformPlannedOrderItemDocData                string
-	BusinessPartnerDataPlatformPlantGeneralData                                string
-	DocIssuerBusinessPartnerDataPlatformProductMasterBPPlantDocData            string
-	DocIssuerBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData    string
-	DocIssuerBusinessPartnerDataPlatformProductMasterGeneralDocData            string
-	BusinessPartnerDataPlatformProductStockProductStockDataOlds                string
-	DocIssuerBusinessPartnerDataPlatformProductStockProductStockDocData        string
-	DocIssuerBusinessPartnerDataPlatformProductionOrderHeaderDocData           string
-	DocIssuerBusinessPartnerDataPlatformProductionOrderItemDocData             string
-	BusinessPartnerDataPlatformProductionOrderPartnerData                      string
-	BuyerDataPlatformPurchaseRequisitionHeaderData                             string
-	DeliverFromPartyDataPlatformPurchaseRequisitionItemData                    string
-	DeliverToPartyDataPlatformPurchaseRequisitionItemData                      string
-	SellerDataPlatformPurchaseRequisitionItemData                              string
-	DocIssuerBusinessPartnerDataPlatformQuotationsHeaderDocData                string
-	DocIssuerBusinessPartnerDataPlatformQuotationsItemDocData                  string
-	BusinessPartnerDataPlatformQuotationsPartnerData                           string
-	BillFromPartyDataPlatformSCRBillingRelationData                            string
-	BillToPartyDataPlatformSCRBillingRelationData                              string
-	DeliverFromPartyDataPlatformSCRDeliveryRelationData                        string
-	DeliverToPartyDataPlatformSCRDeliveryRelationData                          string
-	FreightBillFromPartyDataPlatformSCRFreightBillingRelationData              string
-	FreightBillToPartyDataPlatformSCRFreightBillingRelationData                string
-	FreightPayeeDataPlatformSCRFreightPaymentRelationData                      string
-	FreightPayerDataPlatformSCRFreightPaymentRelationData                      string
-	FreightPartnerDataPlatformSCRFreightRelationData                           string
-	BuyerDataPlatformSCRGeneralData                                            string
-	SellerDataPlatformSCRGeneralData                                           string
-	DocIssuerBusinessPartnerDataPlatformSCRGeneralDocData                      string
-	PayeeDataPlatformSCRPaymentRelationData                                    string
-	PayerDataPlatformSCRPaymentRelationData                                    string
+	AddressIDDataPlatformAddressAddressDatum                                string
+	CountryDataPlatformCountryCountryDatum                                  string
+	CurrencyDataPlatformCurrencyCurrencyDatum                               string
+	IndustryDataPlatformIndustryIndustryDatum                               string
+	LanguageDataPlatformLanguageLanguageDatum                               string
+	BusinessPartnerDataPlatformBusinessPartnerAccountingDatum               string
+	BusinessPartnerDataPlatformBusinessPartnerGeneralDocData                string
+	BusinessPartnerDataPlatformCodeConversionCodeConversionData             string
+	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData       string
+	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData         string
+	BusinessPartnerDataPlatformDeliveryDocumentPartnerData                  string
+	BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData           string
+	DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData       string
+	OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData string
+	DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData          string
+	DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData         string
+	BusinessPartnerDataPlatformInvoiceDocumentPartnerData                   string
+	DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData             string
+	DocIssuerBusinessPartnerDataPlatformOperationsItemDocData               string
+	DocIssuerBusinessPartnerDataPlatformOrdersHeaderDocData                 string
+	DocIssuerBusinessPartnerDataPlatformOrdersItemDocData                   string
+	BusinessPartnerDataPlatformOrdersPartnerData                            string
+	DocIssuerBusinessPartnerDataPlatformPlannedOrderHeaderDocData           string
+	DocIssuerBusinessPartnerDataPlatformPlannedOrderItemDocData             string
+	BusinessPartnerDataPlatformPlantGeneralData                             string
+	DocIssuerBusinessPartnerDataPlatformProductMasterBPPlantDocData         string
+	DocIssuerBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData string
+	DocIssuerBusinessPartnerDataPlatformProductMasterGeneralDocData         string
+	BusinessPartnerDataPlatformProductStockProductStockDataOlds             string
+	DocIssuerBusinessPartnerDataPlatformProductStockProductStockDocData     string
+	DocIssuerBusinessPartnerDataPlatformProductionOrderHeaderDocData        string
+	DocIssuerBusinessPartnerDataPlatformProductionOrderItemDocData          string
+	BusinessPartnerDataPlatformProductionOrderPartnerData                   string
+	OwnerBusinessPartnerDataPlatformProjectProjectData                      string
+	BuyerDataPlatformPurchaseRequisitionHeaderData                          string
+	DeliverFromPartyDataPlatformPurchaseRequisitionItemData                 string
+	DeliverToPartyDataPlatformPurchaseRequisitionItemData                   string
+	SellerDataPlatformPurchaseRequisitionItemData                           string
+	DocIssuerBusinessPartnerDataPlatformQuotationsHeaderDocData             string
+	DocIssuerBusinessPartnerDataPlatformQuotationsItemDocData               string
+	BusinessPartnerDataPlatformQuotationsPartnerData                        string
+	BillFromPartyDataPlatformSCRBillingRelationData                         string
+	BillToPartyDataPlatformSCRBillingRelationData                           string
+	DeliverFromPartyDataPlatformSCRDeliveryRelationData                     string
+	DeliverToPartyDataPlatformSCRDeliveryRelationData                       string
+	FreightBillFromPartyDataPlatformSCRFreightBillingRelationData           string
+	FreightBillToPartyDataPlatformSCRFreightBillingRelationData             string
+	FreightPayeeDataPlatformSCRFreightPaymentRelationData                   string
+	FreightPayerDataPlatformSCRFreightPaymentRelationData                   string
+	FreightPartnerDataPlatformSCRFreightRelationData                        string
+	BuyerDataPlatformSCRGeneralData                                         string
+	SellerDataPlatformSCRGeneralData                                        string
+	DocIssuerBusinessPartnerDataPlatformSCRGeneralDocData                   string
+	PayeeDataPlatformSCRPaymentRelationData                                 string
+	PayerDataPlatformSCRPaymentRelationData                                 string
 }{
-	AddressIDDataPlatformAddressAddressDatum:                                   "AddressIDDataPlatformAddressAddressDatum",
-	CountryDataPlatformCountryCountryDatum:                                     "CountryDataPlatformCountryCountryDatum",
-	CurrencyDataPlatformCurrencyCurrencyDatum:                                  "CurrencyDataPlatformCurrencyCurrencyDatum",
-	IndustryDataPlatformIndustryIndustryDatum:                                  "IndustryDataPlatformIndustryIndustryDatum",
-	LanguageDataPlatformLanguageLanguageDatum:                                  "LanguageDataPlatformLanguageLanguageDatum",
-	BusinessPartnerDataPlatformBusinessPartnerAccountingDatum:                  "BusinessPartnerDataPlatformBusinessPartnerAccountingDatum",
-	BusinessPartnerDataPlatformBusinessPartnerGeneralDocData:                   "BusinessPartnerDataPlatformBusinessPartnerGeneralDocData",
-	BusinessPartnerDataPlatformCodeConversionCodeConversionData:                "BusinessPartnerDataPlatformCodeConversionCodeConversionData",
-	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData:          "DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData",
-	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData:            "DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData",
-	BusinessPartnerDataPlatformDeliveryDocumentPartnerData:                     "BusinessPartnerDataPlatformDeliveryDocumentPartnerData",
-	BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData:              "BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData",
-	DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData:          "DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData",
-	OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData:    "OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData",
-	DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData: "DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData",
-	BusinessPartnerDataPlatformInvoiceDocumentPartnerData:                      "BusinessPartnerDataPlatformInvoiceDocumentPartnerData",
-	DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData:                "DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData",
-	DocIssuerBusinessPartnerDataPlatformOperationsItemDocData:                  "DocIssuerBusinessPartnerDataPlatformOperationsItemDocData",
-	DocIssuerBusinessPartnerDataPlatformOrdersHeaderDocData:                    "DocIssuerBusinessPartnerDataPlatformOrdersHeaderDocData",
-	DocIssuerBusinessPartnerDataPlatformOrdersItemDocData:                      "DocIssuerBusinessPartnerDataPlatformOrdersItemDocData",
-	BusinessPartnerDataPlatformOrdersPartnerData:                               "BusinessPartnerDataPlatformOrdersPartnerData",
-	DocIssuerBusinessPartnerDataPlatformPlannedOrderHeaderDocData:              "DocIssuerBusinessPartnerDataPlatformPlannedOrderHeaderDocData",
-	DocIssuerBusinessPartnerDataPlatformPlannedOrderItemDocData:                "DocIssuerBusinessPartnerDataPlatformPlannedOrderItemDocData",
-	BusinessPartnerDataPlatformPlantGeneralData:                                "BusinessPartnerDataPlatformPlantGeneralData",
-	DocIssuerBusinessPartnerDataPlatformProductMasterBPPlantDocData:            "DocIssuerBusinessPartnerDataPlatformProductMasterBPPlantDocData",
-	DocIssuerBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData:    "DocIssuerBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData",
-	DocIssuerBusinessPartnerDataPlatformProductMasterGeneralDocData:            "DocIssuerBusinessPartnerDataPlatformProductMasterGeneralDocData",
-	BusinessPartnerDataPlatformProductStockProductStockDataOlds:                "BusinessPartnerDataPlatformProductStockProductStockDataOlds",
-	DocIssuerBusinessPartnerDataPlatformProductStockProductStockDocData:        "DocIssuerBusinessPartnerDataPlatformProductStockProductStockDocData",
-	DocIssuerBusinessPartnerDataPlatformProductionOrderHeaderDocData:           "DocIssuerBusinessPartnerDataPlatformProductionOrderHeaderDocData",
-	DocIssuerBusinessPartnerDataPlatformProductionOrderItemDocData:             "DocIssuerBusinessPartnerDataPlatformProductionOrderItemDocData",
-	BusinessPartnerDataPlatformProductionOrderPartnerData:                      "BusinessPartnerDataPlatformProductionOrderPartnerData",
-	BuyerDataPlatformPurchaseRequisitionHeaderData:                             "BuyerDataPlatformPurchaseRequisitionHeaderData",
-	DeliverFromPartyDataPlatformPurchaseRequisitionItemData:                    "DeliverFromPartyDataPlatformPurchaseRequisitionItemData",
-	DeliverToPartyDataPlatformPurchaseRequisitionItemData:                      "DeliverToPartyDataPlatformPurchaseRequisitionItemData",
-	SellerDataPlatformPurchaseRequisitionItemData:                              "SellerDataPlatformPurchaseRequisitionItemData",
-	DocIssuerBusinessPartnerDataPlatformQuotationsHeaderDocData:                "DocIssuerBusinessPartnerDataPlatformQuotationsHeaderDocData",
-	DocIssuerBusinessPartnerDataPlatformQuotationsItemDocData:                  "DocIssuerBusinessPartnerDataPlatformQuotationsItemDocData",
-	BusinessPartnerDataPlatformQuotationsPartnerData:                           "BusinessPartnerDataPlatformQuotationsPartnerData",
-	BillFromPartyDataPlatformSCRBillingRelationData:                            "BillFromPartyDataPlatformSCRBillingRelationData",
-	BillToPartyDataPlatformSCRBillingRelationData:                              "BillToPartyDataPlatformSCRBillingRelationData",
-	DeliverFromPartyDataPlatformSCRDeliveryRelationData:                        "DeliverFromPartyDataPlatformSCRDeliveryRelationData",
-	DeliverToPartyDataPlatformSCRDeliveryRelationData:                          "DeliverToPartyDataPlatformSCRDeliveryRelationData",
-	FreightBillFromPartyDataPlatformSCRFreightBillingRelationData:              "FreightBillFromPartyDataPlatformSCRFreightBillingRelationData",
-	FreightBillToPartyDataPlatformSCRFreightBillingRelationData:                "FreightBillToPartyDataPlatformSCRFreightBillingRelationData",
-	FreightPayeeDataPlatformSCRFreightPaymentRelationData:                      "FreightPayeeDataPlatformSCRFreightPaymentRelationData",
-	FreightPayerDataPlatformSCRFreightPaymentRelationData:                      "FreightPayerDataPlatformSCRFreightPaymentRelationData",
-	FreightPartnerDataPlatformSCRFreightRelationData:                           "FreightPartnerDataPlatformSCRFreightRelationData",
-	BuyerDataPlatformSCRGeneralData:                                            "BuyerDataPlatformSCRGeneralData",
-	SellerDataPlatformSCRGeneralData:                                           "SellerDataPlatformSCRGeneralData",
-	DocIssuerBusinessPartnerDataPlatformSCRGeneralDocData:                      "DocIssuerBusinessPartnerDataPlatformSCRGeneralDocData",
-	PayeeDataPlatformSCRPaymentRelationData:                                    "PayeeDataPlatformSCRPaymentRelationData",
-	PayerDataPlatformSCRPaymentRelationData:                                    "PayerDataPlatformSCRPaymentRelationData",
+	AddressIDDataPlatformAddressAddressDatum:                                "AddressIDDataPlatformAddressAddressDatum",
+	CountryDataPlatformCountryCountryDatum:                                  "CountryDataPlatformCountryCountryDatum",
+	CurrencyDataPlatformCurrencyCurrencyDatum:                               "CurrencyDataPlatformCurrencyCurrencyDatum",
+	IndustryDataPlatformIndustryIndustryDatum:                               "IndustryDataPlatformIndustryIndustryDatum",
+	LanguageDataPlatformLanguageLanguageDatum:                               "LanguageDataPlatformLanguageLanguageDatum",
+	BusinessPartnerDataPlatformBusinessPartnerAccountingDatum:               "BusinessPartnerDataPlatformBusinessPartnerAccountingDatum",
+	BusinessPartnerDataPlatformBusinessPartnerGeneralDocData:                "BusinessPartnerDataPlatformBusinessPartnerGeneralDocData",
+	BusinessPartnerDataPlatformCodeConversionCodeConversionData:             "BusinessPartnerDataPlatformCodeConversionCodeConversionData",
+	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData:       "DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData",
+	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData:         "DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData",
+	BusinessPartnerDataPlatformDeliveryDocumentPartnerData:                  "BusinessPartnerDataPlatformDeliveryDocumentPartnerData",
+	BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData:           "BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData",
+	DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData:       "DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData",
+	OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData: "OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData",
+	DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData:          "DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData",
+	DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData:         "DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData",
+	BusinessPartnerDataPlatformInvoiceDocumentPartnerData:                   "BusinessPartnerDataPlatformInvoiceDocumentPartnerData",
+	DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData:             "DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData",
+	DocIssuerBusinessPartnerDataPlatformOperationsItemDocData:               "DocIssuerBusinessPartnerDataPlatformOperationsItemDocData",
+	DocIssuerBusinessPartnerDataPlatformOrdersHeaderDocData:                 "DocIssuerBusinessPartnerDataPlatformOrdersHeaderDocData",
+	DocIssuerBusinessPartnerDataPlatformOrdersItemDocData:                   "DocIssuerBusinessPartnerDataPlatformOrdersItemDocData",
+	BusinessPartnerDataPlatformOrdersPartnerData:                            "BusinessPartnerDataPlatformOrdersPartnerData",
+	DocIssuerBusinessPartnerDataPlatformPlannedOrderHeaderDocData:           "DocIssuerBusinessPartnerDataPlatformPlannedOrderHeaderDocData",
+	DocIssuerBusinessPartnerDataPlatformPlannedOrderItemDocData:             "DocIssuerBusinessPartnerDataPlatformPlannedOrderItemDocData",
+	BusinessPartnerDataPlatformPlantGeneralData:                             "BusinessPartnerDataPlatformPlantGeneralData",
+	DocIssuerBusinessPartnerDataPlatformProductMasterBPPlantDocData:         "DocIssuerBusinessPartnerDataPlatformProductMasterBPPlantDocData",
+	DocIssuerBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData: "DocIssuerBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData",
+	DocIssuerBusinessPartnerDataPlatformProductMasterGeneralDocData:         "DocIssuerBusinessPartnerDataPlatformProductMasterGeneralDocData",
+	BusinessPartnerDataPlatformProductStockProductStockDataOlds:             "BusinessPartnerDataPlatformProductStockProductStockDataOlds",
+	DocIssuerBusinessPartnerDataPlatformProductStockProductStockDocData:     "DocIssuerBusinessPartnerDataPlatformProductStockProductStockDocData",
+	DocIssuerBusinessPartnerDataPlatformProductionOrderHeaderDocData:        "DocIssuerBusinessPartnerDataPlatformProductionOrderHeaderDocData",
+	DocIssuerBusinessPartnerDataPlatformProductionOrderItemDocData:          "DocIssuerBusinessPartnerDataPlatformProductionOrderItemDocData",
+	BusinessPartnerDataPlatformProductionOrderPartnerData:                   "BusinessPartnerDataPlatformProductionOrderPartnerData",
+	OwnerBusinessPartnerDataPlatformProjectProjectData:                      "OwnerBusinessPartnerDataPlatformProjectProjectData",
+	BuyerDataPlatformPurchaseRequisitionHeaderData:                          "BuyerDataPlatformPurchaseRequisitionHeaderData",
+	DeliverFromPartyDataPlatformPurchaseRequisitionItemData:                 "DeliverFromPartyDataPlatformPurchaseRequisitionItemData",
+	DeliverToPartyDataPlatformPurchaseRequisitionItemData:                   "DeliverToPartyDataPlatformPurchaseRequisitionItemData",
+	SellerDataPlatformPurchaseRequisitionItemData:                           "SellerDataPlatformPurchaseRequisitionItemData",
+	DocIssuerBusinessPartnerDataPlatformQuotationsHeaderDocData:             "DocIssuerBusinessPartnerDataPlatformQuotationsHeaderDocData",
+	DocIssuerBusinessPartnerDataPlatformQuotationsItemDocData:               "DocIssuerBusinessPartnerDataPlatformQuotationsItemDocData",
+	BusinessPartnerDataPlatformQuotationsPartnerData:                        "BusinessPartnerDataPlatformQuotationsPartnerData",
+	BillFromPartyDataPlatformSCRBillingRelationData:                         "BillFromPartyDataPlatformSCRBillingRelationData",
+	BillToPartyDataPlatformSCRBillingRelationData:                           "BillToPartyDataPlatformSCRBillingRelationData",
+	DeliverFromPartyDataPlatformSCRDeliveryRelationData:                     "DeliverFromPartyDataPlatformSCRDeliveryRelationData",
+	DeliverToPartyDataPlatformSCRDeliveryRelationData:                       "DeliverToPartyDataPlatformSCRDeliveryRelationData",
+	FreightBillFromPartyDataPlatformSCRFreightBillingRelationData:           "FreightBillFromPartyDataPlatformSCRFreightBillingRelationData",
+	FreightBillToPartyDataPlatformSCRFreightBillingRelationData:             "FreightBillToPartyDataPlatformSCRFreightBillingRelationData",
+	FreightPayeeDataPlatformSCRFreightPaymentRelationData:                   "FreightPayeeDataPlatformSCRFreightPaymentRelationData",
+	FreightPayerDataPlatformSCRFreightPaymentRelationData:                   "FreightPayerDataPlatformSCRFreightPaymentRelationData",
+	FreightPartnerDataPlatformSCRFreightRelationData:                        "FreightPartnerDataPlatformSCRFreightRelationData",
+	BuyerDataPlatformSCRGeneralData:                                         "BuyerDataPlatformSCRGeneralData",
+	SellerDataPlatformSCRGeneralData:                                        "SellerDataPlatformSCRGeneralData",
+	DocIssuerBusinessPartnerDataPlatformSCRGeneralDocData:                   "DocIssuerBusinessPartnerDataPlatformSCRGeneralDocData",
+	PayeeDataPlatformSCRPaymentRelationData:                                 "PayeeDataPlatformSCRPaymentRelationData",
+	PayerDataPlatformSCRPaymentRelationData:                                 "PayerDataPlatformSCRPaymentRelationData",
 }
 
 // dataPlatformBusinessPartnerGeneralDatumR is where relationships are stored.
 type dataPlatformBusinessPartnerGeneralDatumR struct {
-	AddressIDDataPlatformAddressAddressDatum                                   *DataPlatformAddressAddressDatum                          `boil:"AddressIDDataPlatformAddressAddressDatum" json:"AddressIDDataPlatformAddressAddressDatum" toml:"AddressIDDataPlatformAddressAddressDatum" yaml:"AddressIDDataPlatformAddressAddressDatum"`
-	CountryDataPlatformCountryCountryDatum                                     *DataPlatformCountryCountryDatum                          `boil:"CountryDataPlatformCountryCountryDatum" json:"CountryDataPlatformCountryCountryDatum" toml:"CountryDataPlatformCountryCountryDatum" yaml:"CountryDataPlatformCountryCountryDatum"`
-	CurrencyDataPlatformCurrencyCurrencyDatum                                  *DataPlatformCurrencyCurrencyDatum                        `boil:"CurrencyDataPlatformCurrencyCurrencyDatum" json:"CurrencyDataPlatformCurrencyCurrencyDatum" toml:"CurrencyDataPlatformCurrencyCurrencyDatum" yaml:"CurrencyDataPlatformCurrencyCurrencyDatum"`
-	IndustryDataPlatformIndustryIndustryDatum                                  *DataPlatformIndustryIndustryDatum                        `boil:"IndustryDataPlatformIndustryIndustryDatum" json:"IndustryDataPlatformIndustryIndustryDatum" toml:"IndustryDataPlatformIndustryIndustryDatum" yaml:"IndustryDataPlatformIndustryIndustryDatum"`
-	LanguageDataPlatformLanguageLanguageDatum                                  *DataPlatformLanguageLanguageDatum                        `boil:"LanguageDataPlatformLanguageLanguageDatum" json:"LanguageDataPlatformLanguageLanguageDatum" toml:"LanguageDataPlatformLanguageLanguageDatum" yaml:"LanguageDataPlatformLanguageLanguageDatum"`
-	BusinessPartnerDataPlatformBusinessPartnerAccountingDatum                  *DataPlatformBusinessPartnerAccountingDatum               `boil:"BusinessPartnerDataPlatformBusinessPartnerAccountingDatum" json:"BusinessPartnerDataPlatformBusinessPartnerAccountingDatum" toml:"BusinessPartnerDataPlatformBusinessPartnerAccountingDatum" yaml:"BusinessPartnerDataPlatformBusinessPartnerAccountingDatum"`
-	BusinessPartnerDataPlatformBusinessPartnerGeneralDocData                   DataPlatformBusinessPartnerGeneralDocDatumSlice           `boil:"BusinessPartnerDataPlatformBusinessPartnerGeneralDocData" json:"BusinessPartnerDataPlatformBusinessPartnerGeneralDocData" toml:"BusinessPartnerDataPlatformBusinessPartnerGeneralDocData" yaml:"BusinessPartnerDataPlatformBusinessPartnerGeneralDocData"`
-	BusinessPartnerDataPlatformCodeConversionCodeConversionData                DataPlatformCodeConversionCodeConversionDatumSlice        `boil:"BusinessPartnerDataPlatformCodeConversionCodeConversionData" json:"BusinessPartnerDataPlatformCodeConversionCodeConversionData" toml:"BusinessPartnerDataPlatformCodeConversionCodeConversionData" yaml:"BusinessPartnerDataPlatformCodeConversionCodeConversionData"`
-	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData          DataPlatformDeliveryDocumentHeaderDocDatumSlice           `boil:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData"`
-	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData            DataPlatformDeliveryDocumentItemDocDatumSlice             `boil:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData" json:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData" toml:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData" yaml:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData"`
-	BusinessPartnerDataPlatformDeliveryDocumentPartnerData                     DataPlatformDeliveryDocumentPartnerDatumSlice             `boil:"BusinessPartnerDataPlatformDeliveryDocumentPartnerData" json:"BusinessPartnerDataPlatformDeliveryDocumentPartnerData" toml:"BusinessPartnerDataPlatformDeliveryDocumentPartnerData" yaml:"BusinessPartnerDataPlatformDeliveryDocumentPartnerData"`
-	BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData              DataPlatformEquipmentMasterBusinessPartnerDatumSlice      `boil:"BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData" json:"BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData" toml:"BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData" yaml:"BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData"`
-	DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData          DataPlatformEquipmentMasterGeneralDocDatumSlice           `boil:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData" json:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData" toml:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData" yaml:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData"`
-	OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData    DataPlatformEquipmentMasterOwnerBusinessPartnerDatumSlice `boil:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData" json:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData" toml:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData" yaml:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData"`
-	DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData DataPlatformInspectionLotConfirmationHeaderDocDatumSlice  `boil:"DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData"`
-	BusinessPartnerDataPlatformInvoiceDocumentPartnerData                      DataPlatformInvoiceDocumentPartnerDatumSlice              `boil:"BusinessPartnerDataPlatformInvoiceDocumentPartnerData" json:"BusinessPartnerDataPlatformInvoiceDocumentPartnerData" toml:"BusinessPartnerDataPlatformInvoiceDocumentPartnerData" yaml:"BusinessPartnerDataPlatformInvoiceDocumentPartnerData"`
-	DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData                DataPlatformOperationsHeaderDocDatumSlice                 `boil:"DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData"`
-	DocIssuerBusinessPartnerDataPlatformOperationsItemDocData                  DataPlatformOperationsItemDocDatumSlice                   `boil:"DocIssuerBusinessPartnerDataPlatformOperationsItemDocData" json:"DocIssuerBusinessPartnerDataPlatformOperationsItemDocData" toml:"DocIssuerBusinessPartnerDataPlatformOperationsItemDocData" yaml:"DocIssuerBusinessPartnerDataPlatformOperationsItemDocData"`
-	DocIssuerBusinessPartnerDataPlatformOrdersHeaderDocData                    DataPlatformOrdersHeaderDocDatumSlice                     `boil:"DocIssuerBusinessPartnerDataPlatformOrdersHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformOrdersHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformOrdersHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformOrdersHeaderDocData"`
-	DocIssuerBusinessPartnerDataPlatformOrdersItemDocData                      DataPlatformOrdersItemDocDatumSlice                       `boil:"DocIssuerBusinessPartnerDataPlatformOrdersItemDocData" json:"DocIssuerBusinessPartnerDataPlatformOrdersItemDocData" toml:"DocIssuerBusinessPartnerDataPlatformOrdersItemDocData" yaml:"DocIssuerBusinessPartnerDataPlatformOrdersItemDocData"`
-	BusinessPartnerDataPlatformOrdersPartnerData                               DataPlatformOrdersPartnerDatumSlice                       `boil:"BusinessPartnerDataPlatformOrdersPartnerData" json:"BusinessPartnerDataPlatformOrdersPartnerData" toml:"BusinessPartnerDataPlatformOrdersPartnerData" yaml:"BusinessPartnerDataPlatformOrdersPartnerData"`
-	DocIssuerBusinessPartnerDataPlatformPlannedOrderHeaderDocData              DataPlatformPlannedOrderHeaderDocDatumSlice               `boil:"DocIssuerBusinessPartnerDataPlatformPlannedOrderHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformPlannedOrderHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformPlannedOrderHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformPlannedOrderHeaderDocData"`
-	DocIssuerBusinessPartnerDataPlatformPlannedOrderItemDocData                DataPlatformPlannedOrderItemDocDatumSlice                 `boil:"DocIssuerBusinessPartnerDataPlatformPlannedOrderItemDocData" json:"DocIssuerBusinessPartnerDataPlatformPlannedOrderItemDocData" toml:"DocIssuerBusinessPartnerDataPlatformPlannedOrderItemDocData" yaml:"DocIssuerBusinessPartnerDataPlatformPlannedOrderItemDocData"`
-	BusinessPartnerDataPlatformPlantGeneralData                                DataPlatformPlantGeneralDatumSlice                        `boil:"BusinessPartnerDataPlatformPlantGeneralData" json:"BusinessPartnerDataPlatformPlantGeneralData" toml:"BusinessPartnerDataPlatformPlantGeneralData" yaml:"BusinessPartnerDataPlatformPlantGeneralData"`
-	DocIssuerBusinessPartnerDataPlatformProductMasterBPPlantDocData            DataPlatformProductMasterBPPlantDocDatumSlice             `boil:"DocIssuerBusinessPartnerDataPlatformProductMasterBPPlantDocData" json:"DocIssuerBusinessPartnerDataPlatformProductMasterBPPlantDocData" toml:"DocIssuerBusinessPartnerDataPlatformProductMasterBPPlantDocData" yaml:"DocIssuerBusinessPartnerDataPlatformProductMasterBPPlantDocData"`
-	DocIssuerBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData    DataPlatformProductMasterBusinessPartnerDocDatumSlice     `boil:"DocIssuerBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData" json:"DocIssuerBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData" toml:"DocIssuerBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData" yaml:"DocIssuerBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData"`
-	DocIssuerBusinessPartnerDataPlatformProductMasterGeneralDocData            DataPlatformProductMasterGeneralDocDatumSlice             `boil:"DocIssuerBusinessPartnerDataPlatformProductMasterGeneralDocData" json:"DocIssuerBusinessPartnerDataPlatformProductMasterGeneralDocData" toml:"DocIssuerBusinessPartnerDataPlatformProductMasterGeneralDocData" yaml:"DocIssuerBusinessPartnerDataPlatformProductMasterGeneralDocData"`
-	BusinessPartnerDataPlatformProductStockProductStockDataOlds                DataPlatformProductStockProductStockDataOldSlice          `boil:"BusinessPartnerDataPlatformProductStockProductStockDataOlds" json:"BusinessPartnerDataPlatformProductStockProductStockDataOlds" toml:"BusinessPartnerDataPlatformProductStockProductStockDataOlds" yaml:"BusinessPartnerDataPlatformProductStockProductStockDataOlds"`
-	DocIssuerBusinessPartnerDataPlatformProductStockProductStockDocData        DataPlatformProductStockProductStockDocDatumSlice         `boil:"DocIssuerBusinessPartnerDataPlatformProductStockProductStockDocData" json:"DocIssuerBusinessPartnerDataPlatformProductStockProductStockDocData" toml:"DocIssuerBusinessPartnerDataPlatformProductStockProductStockDocData" yaml:"DocIssuerBusinessPartnerDataPlatformProductStockProductStockDocData"`
-	DocIssuerBusinessPartnerDataPlatformProductionOrderHeaderDocData           DataPlatformProductionOrderHeaderDocDatumSlice            `boil:"DocIssuerBusinessPartnerDataPlatformProductionOrderHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformProductionOrderHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformProductionOrderHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformProductionOrderHeaderDocData"`
-	DocIssuerBusinessPartnerDataPlatformProductionOrderItemDocData             DataPlatformProductionOrderItemDocDatumSlice              `boil:"DocIssuerBusinessPartnerDataPlatformProductionOrderItemDocData" json:"DocIssuerBusinessPartnerDataPlatformProductionOrderItemDocData" toml:"DocIssuerBusinessPartnerDataPlatformProductionOrderItemDocData" yaml:"DocIssuerBusinessPartnerDataPlatformProductionOrderItemDocData"`
-	BusinessPartnerDataPlatformProductionOrderPartnerData                      DataPlatformProductionOrderPartnerDatumSlice              `boil:"BusinessPartnerDataPlatformProductionOrderPartnerData" json:"BusinessPartnerDataPlatformProductionOrderPartnerData" toml:"BusinessPartnerDataPlatformProductionOrderPartnerData" yaml:"BusinessPartnerDataPlatformProductionOrderPartnerData"`
-	BuyerDataPlatformPurchaseRequisitionHeaderData                             DataPlatformPurchaseRequisitionHeaderDatumSlice           `boil:"BuyerDataPlatformPurchaseRequisitionHeaderData" json:"BuyerDataPlatformPurchaseRequisitionHeaderData" toml:"BuyerDataPlatformPurchaseRequisitionHeaderData" yaml:"BuyerDataPlatformPurchaseRequisitionHeaderData"`
-	DeliverFromPartyDataPlatformPurchaseRequisitionItemData                    DataPlatformPurchaseRequisitionItemDatumSlice             `boil:"DeliverFromPartyDataPlatformPurchaseRequisitionItemData" json:"DeliverFromPartyDataPlatformPurchaseRequisitionItemData" toml:"DeliverFromPartyDataPlatformPurchaseRequisitionItemData" yaml:"DeliverFromPartyDataPlatformPurchaseRequisitionItemData"`
-	DeliverToPartyDataPlatformPurchaseRequisitionItemData                      DataPlatformPurchaseRequisitionItemDatumSlice             `boil:"DeliverToPartyDataPlatformPurchaseRequisitionItemData" json:"DeliverToPartyDataPlatformPurchaseRequisitionItemData" toml:"DeliverToPartyDataPlatformPurchaseRequisitionItemData" yaml:"DeliverToPartyDataPlatformPurchaseRequisitionItemData"`
-	SellerDataPlatformPurchaseRequisitionItemData                              DataPlatformPurchaseRequisitionItemDatumSlice             `boil:"SellerDataPlatformPurchaseRequisitionItemData" json:"SellerDataPlatformPurchaseRequisitionItemData" toml:"SellerDataPlatformPurchaseRequisitionItemData" yaml:"SellerDataPlatformPurchaseRequisitionItemData"`
-	DocIssuerBusinessPartnerDataPlatformQuotationsHeaderDocData                DataPlatformQuotationsHeaderDocDatumSlice                 `boil:"DocIssuerBusinessPartnerDataPlatformQuotationsHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformQuotationsHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformQuotationsHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformQuotationsHeaderDocData"`
-	DocIssuerBusinessPartnerDataPlatformQuotationsItemDocData                  DataPlatformQuotationsItemDocDatumSlice                   `boil:"DocIssuerBusinessPartnerDataPlatformQuotationsItemDocData" json:"DocIssuerBusinessPartnerDataPlatformQuotationsItemDocData" toml:"DocIssuerBusinessPartnerDataPlatformQuotationsItemDocData" yaml:"DocIssuerBusinessPartnerDataPlatformQuotationsItemDocData"`
-	BusinessPartnerDataPlatformQuotationsPartnerData                           DataPlatformQuotationsPartnerDatumSlice                   `boil:"BusinessPartnerDataPlatformQuotationsPartnerData" json:"BusinessPartnerDataPlatformQuotationsPartnerData" toml:"BusinessPartnerDataPlatformQuotationsPartnerData" yaml:"BusinessPartnerDataPlatformQuotationsPartnerData"`
-	BillFromPartyDataPlatformSCRBillingRelationData                            DataPlatformSCRBillingRelationDatumSlice                  `boil:"BillFromPartyDataPlatformSCRBillingRelationData" json:"BillFromPartyDataPlatformSCRBillingRelationData" toml:"BillFromPartyDataPlatformSCRBillingRelationData" yaml:"BillFromPartyDataPlatformSCRBillingRelationData"`
-	BillToPartyDataPlatformSCRBillingRelationData                              DataPlatformSCRBillingRelationDatumSlice                  `boil:"BillToPartyDataPlatformSCRBillingRelationData" json:"BillToPartyDataPlatformSCRBillingRelationData" toml:"BillToPartyDataPlatformSCRBillingRelationData" yaml:"BillToPartyDataPlatformSCRBillingRelationData"`
-	DeliverFromPartyDataPlatformSCRDeliveryRelationData                        DataPlatformSCRDeliveryRelationDatumSlice                 `boil:"DeliverFromPartyDataPlatformSCRDeliveryRelationData" json:"DeliverFromPartyDataPlatformSCRDeliveryRelationData" toml:"DeliverFromPartyDataPlatformSCRDeliveryRelationData" yaml:"DeliverFromPartyDataPlatformSCRDeliveryRelationData"`
-	DeliverToPartyDataPlatformSCRDeliveryRelationData                          DataPlatformSCRDeliveryRelationDatumSlice                 `boil:"DeliverToPartyDataPlatformSCRDeliveryRelationData" json:"DeliverToPartyDataPlatformSCRDeliveryRelationData" toml:"DeliverToPartyDataPlatformSCRDeliveryRelationData" yaml:"DeliverToPartyDataPlatformSCRDeliveryRelationData"`
-	FreightBillFromPartyDataPlatformSCRFreightBillingRelationData              DataPlatformSCRFreightBillingRelationDatumSlice           `boil:"FreightBillFromPartyDataPlatformSCRFreightBillingRelationData" json:"FreightBillFromPartyDataPlatformSCRFreightBillingRelationData" toml:"FreightBillFromPartyDataPlatformSCRFreightBillingRelationData" yaml:"FreightBillFromPartyDataPlatformSCRFreightBillingRelationData"`
-	FreightBillToPartyDataPlatformSCRFreightBillingRelationData                DataPlatformSCRFreightBillingRelationDatumSlice           `boil:"FreightBillToPartyDataPlatformSCRFreightBillingRelationData" json:"FreightBillToPartyDataPlatformSCRFreightBillingRelationData" toml:"FreightBillToPartyDataPlatformSCRFreightBillingRelationData" yaml:"FreightBillToPartyDataPlatformSCRFreightBillingRelationData"`
-	FreightPayeeDataPlatformSCRFreightPaymentRelationData                      DataPlatformSCRFreightPaymentRelationDatumSlice           `boil:"FreightPayeeDataPlatformSCRFreightPaymentRelationData" json:"FreightPayeeDataPlatformSCRFreightPaymentRelationData" toml:"FreightPayeeDataPlatformSCRFreightPaymentRelationData" yaml:"FreightPayeeDataPlatformSCRFreightPaymentRelationData"`
-	FreightPayerDataPlatformSCRFreightPaymentRelationData                      DataPlatformSCRFreightPaymentRelationDatumSlice           `boil:"FreightPayerDataPlatformSCRFreightPaymentRelationData" json:"FreightPayerDataPlatformSCRFreightPaymentRelationData" toml:"FreightPayerDataPlatformSCRFreightPaymentRelationData" yaml:"FreightPayerDataPlatformSCRFreightPaymentRelationData"`
-	FreightPartnerDataPlatformSCRFreightRelationData                           DataPlatformSCRFreightRelationDatumSlice                  `boil:"FreightPartnerDataPlatformSCRFreightRelationData" json:"FreightPartnerDataPlatformSCRFreightRelationData" toml:"FreightPartnerDataPlatformSCRFreightRelationData" yaml:"FreightPartnerDataPlatformSCRFreightRelationData"`
-	BuyerDataPlatformSCRGeneralData                                            DataPlatformSCRGeneralDatumSlice                          `boil:"BuyerDataPlatformSCRGeneralData" json:"BuyerDataPlatformSCRGeneralData" toml:"BuyerDataPlatformSCRGeneralData" yaml:"BuyerDataPlatformSCRGeneralData"`
-	SellerDataPlatformSCRGeneralData                                           DataPlatformSCRGeneralDatumSlice                          `boil:"SellerDataPlatformSCRGeneralData" json:"SellerDataPlatformSCRGeneralData" toml:"SellerDataPlatformSCRGeneralData" yaml:"SellerDataPlatformSCRGeneralData"`
-	DocIssuerBusinessPartnerDataPlatformSCRGeneralDocData                      DataPlatformSCRGeneralDocDatumSlice                       `boil:"DocIssuerBusinessPartnerDataPlatformSCRGeneralDocData" json:"DocIssuerBusinessPartnerDataPlatformSCRGeneralDocData" toml:"DocIssuerBusinessPartnerDataPlatformSCRGeneralDocData" yaml:"DocIssuerBusinessPartnerDataPlatformSCRGeneralDocData"`
-	PayeeDataPlatformSCRPaymentRelationData                                    DataPlatformSCRPaymentRelationDatumSlice                  `boil:"PayeeDataPlatformSCRPaymentRelationData" json:"PayeeDataPlatformSCRPaymentRelationData" toml:"PayeeDataPlatformSCRPaymentRelationData" yaml:"PayeeDataPlatformSCRPaymentRelationData"`
-	PayerDataPlatformSCRPaymentRelationData                                    DataPlatformSCRPaymentRelationDatumSlice                  `boil:"PayerDataPlatformSCRPaymentRelationData" json:"PayerDataPlatformSCRPaymentRelationData" toml:"PayerDataPlatformSCRPaymentRelationData" yaml:"PayerDataPlatformSCRPaymentRelationData"`
+	AddressIDDataPlatformAddressAddressDatum                                *DataPlatformAddressAddressDatum                          `boil:"AddressIDDataPlatformAddressAddressDatum" json:"AddressIDDataPlatformAddressAddressDatum" toml:"AddressIDDataPlatformAddressAddressDatum" yaml:"AddressIDDataPlatformAddressAddressDatum"`
+	CountryDataPlatformCountryCountryDatum                                  *DataPlatformCountryCountryDatum                          `boil:"CountryDataPlatformCountryCountryDatum" json:"CountryDataPlatformCountryCountryDatum" toml:"CountryDataPlatformCountryCountryDatum" yaml:"CountryDataPlatformCountryCountryDatum"`
+	CurrencyDataPlatformCurrencyCurrencyDatum                               *DataPlatformCurrencyCurrencyDatum                        `boil:"CurrencyDataPlatformCurrencyCurrencyDatum" json:"CurrencyDataPlatformCurrencyCurrencyDatum" toml:"CurrencyDataPlatformCurrencyCurrencyDatum" yaml:"CurrencyDataPlatformCurrencyCurrencyDatum"`
+	IndustryDataPlatformIndustryIndustryDatum                               *DataPlatformIndustryIndustryDatum                        `boil:"IndustryDataPlatformIndustryIndustryDatum" json:"IndustryDataPlatformIndustryIndustryDatum" toml:"IndustryDataPlatformIndustryIndustryDatum" yaml:"IndustryDataPlatformIndustryIndustryDatum"`
+	LanguageDataPlatformLanguageLanguageDatum                               *DataPlatformLanguageLanguageDatum                        `boil:"LanguageDataPlatformLanguageLanguageDatum" json:"LanguageDataPlatformLanguageLanguageDatum" toml:"LanguageDataPlatformLanguageLanguageDatum" yaml:"LanguageDataPlatformLanguageLanguageDatum"`
+	BusinessPartnerDataPlatformBusinessPartnerAccountingDatum               *DataPlatformBusinessPartnerAccountingDatum               `boil:"BusinessPartnerDataPlatformBusinessPartnerAccountingDatum" json:"BusinessPartnerDataPlatformBusinessPartnerAccountingDatum" toml:"BusinessPartnerDataPlatformBusinessPartnerAccountingDatum" yaml:"BusinessPartnerDataPlatformBusinessPartnerAccountingDatum"`
+	BusinessPartnerDataPlatformBusinessPartnerGeneralDocData                DataPlatformBusinessPartnerGeneralDocDatumSlice           `boil:"BusinessPartnerDataPlatformBusinessPartnerGeneralDocData" json:"BusinessPartnerDataPlatformBusinessPartnerGeneralDocData" toml:"BusinessPartnerDataPlatformBusinessPartnerGeneralDocData" yaml:"BusinessPartnerDataPlatformBusinessPartnerGeneralDocData"`
+	BusinessPartnerDataPlatformCodeConversionCodeConversionData             DataPlatformCodeConversionCodeConversionDatumSlice        `boil:"BusinessPartnerDataPlatformCodeConversionCodeConversionData" json:"BusinessPartnerDataPlatformCodeConversionCodeConversionData" toml:"BusinessPartnerDataPlatformCodeConversionCodeConversionData" yaml:"BusinessPartnerDataPlatformCodeConversionCodeConversionData"`
+	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData       DataPlatformDeliveryDocumentHeaderDocDatumSlice           `boil:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData"`
+	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData         DataPlatformDeliveryDocumentItemDocDatumSlice             `boil:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData" json:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData" toml:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData" yaml:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData"`
+	BusinessPartnerDataPlatformDeliveryDocumentPartnerData                  DataPlatformDeliveryDocumentPartnerDatumSlice             `boil:"BusinessPartnerDataPlatformDeliveryDocumentPartnerData" json:"BusinessPartnerDataPlatformDeliveryDocumentPartnerData" toml:"BusinessPartnerDataPlatformDeliveryDocumentPartnerData" yaml:"BusinessPartnerDataPlatformDeliveryDocumentPartnerData"`
+	BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData           DataPlatformEquipmentMasterBusinessPartnerDatumSlice      `boil:"BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData" json:"BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData" toml:"BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData" yaml:"BusinessPartnerDataPlatformEquipmentMasterBusinessPartnerData"`
+	DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData       DataPlatformEquipmentMasterGeneralDocDatumSlice           `boil:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData" json:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData" toml:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData" yaml:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData"`
+	OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData DataPlatformEquipmentMasterOwnerBusinessPartnerDatumSlice `boil:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData" json:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData" toml:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData" yaml:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData"`
+	DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData          DataPlatformInspectionLotHeaderDocDatumSlice              `boil:"DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData"`
+	DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData         DataPlatformInspectionPlanHeaderDocDatumSlice             `boil:"DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData"`
+	BusinessPartnerDataPlatformInvoiceDocumentPartnerData                   DataPlatformInvoiceDocumentPartnerDatumSlice              `boil:"BusinessPartnerDataPlatformInvoiceDocumentPartnerData" json:"BusinessPartnerDataPlatformInvoiceDocumentPartnerData" toml:"BusinessPartnerDataPlatformInvoiceDocumentPartnerData" yaml:"BusinessPartnerDataPlatformInvoiceDocumentPartnerData"`
+	DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData             DataPlatformOperationsHeaderDocDatumSlice                 `boil:"DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData"`
+	DocIssuerBusinessPartnerDataPlatformOperationsItemDocData               DataPlatformOperationsItemDocDatumSlice                   `boil:"DocIssuerBusinessPartnerDataPlatformOperationsItemDocData" json:"DocIssuerBusinessPartnerDataPlatformOperationsItemDocData" toml:"DocIssuerBusinessPartnerDataPlatformOperationsItemDocData" yaml:"DocIssuerBusinessPartnerDataPlatformOperationsItemDocData"`
+	DocIssuerBusinessPartnerDataPlatformOrdersHeaderDocData                 DataPlatformOrdersHeaderDocDatumSlice                     `boil:"DocIssuerBusinessPartnerDataPlatformOrdersHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformOrdersHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformOrdersHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformOrdersHeaderDocData"`
+	DocIssuerBusinessPartnerDataPlatformOrdersItemDocData                   DataPlatformOrdersItemDocDatumSlice                       `boil:"DocIssuerBusinessPartnerDataPlatformOrdersItemDocData" json:"DocIssuerBusinessPartnerDataPlatformOrdersItemDocData" toml:"DocIssuerBusinessPartnerDataPlatformOrdersItemDocData" yaml:"DocIssuerBusinessPartnerDataPlatformOrdersItemDocData"`
+	BusinessPartnerDataPlatformOrdersPartnerData                            DataPlatformOrdersPartnerDatumSlice                       `boil:"BusinessPartnerDataPlatformOrdersPartnerData" json:"BusinessPartnerDataPlatformOrdersPartnerData" toml:"BusinessPartnerDataPlatformOrdersPartnerData" yaml:"BusinessPartnerDataPlatformOrdersPartnerData"`
+	DocIssuerBusinessPartnerDataPlatformPlannedOrderHeaderDocData           DataPlatformPlannedOrderHeaderDocDatumSlice               `boil:"DocIssuerBusinessPartnerDataPlatformPlannedOrderHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformPlannedOrderHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformPlannedOrderHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformPlannedOrderHeaderDocData"`
+	DocIssuerBusinessPartnerDataPlatformPlannedOrderItemDocData             DataPlatformPlannedOrderItemDocDatumSlice                 `boil:"DocIssuerBusinessPartnerDataPlatformPlannedOrderItemDocData" json:"DocIssuerBusinessPartnerDataPlatformPlannedOrderItemDocData" toml:"DocIssuerBusinessPartnerDataPlatformPlannedOrderItemDocData" yaml:"DocIssuerBusinessPartnerDataPlatformPlannedOrderItemDocData"`
+	BusinessPartnerDataPlatformPlantGeneralData                             DataPlatformPlantGeneralDatumSlice                        `boil:"BusinessPartnerDataPlatformPlantGeneralData" json:"BusinessPartnerDataPlatformPlantGeneralData" toml:"BusinessPartnerDataPlatformPlantGeneralData" yaml:"BusinessPartnerDataPlatformPlantGeneralData"`
+	DocIssuerBusinessPartnerDataPlatformProductMasterBPPlantDocData         DataPlatformProductMasterBPPlantDocDatumSlice             `boil:"DocIssuerBusinessPartnerDataPlatformProductMasterBPPlantDocData" json:"DocIssuerBusinessPartnerDataPlatformProductMasterBPPlantDocData" toml:"DocIssuerBusinessPartnerDataPlatformProductMasterBPPlantDocData" yaml:"DocIssuerBusinessPartnerDataPlatformProductMasterBPPlantDocData"`
+	DocIssuerBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData DataPlatformProductMasterBusinessPartnerDocDatumSlice     `boil:"DocIssuerBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData" json:"DocIssuerBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData" toml:"DocIssuerBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData" yaml:"DocIssuerBusinessPartnerDataPlatformProductMasterBusinessPartnerDocData"`
+	DocIssuerBusinessPartnerDataPlatformProductMasterGeneralDocData         DataPlatformProductMasterGeneralDocDatumSlice             `boil:"DocIssuerBusinessPartnerDataPlatformProductMasterGeneralDocData" json:"DocIssuerBusinessPartnerDataPlatformProductMasterGeneralDocData" toml:"DocIssuerBusinessPartnerDataPlatformProductMasterGeneralDocData" yaml:"DocIssuerBusinessPartnerDataPlatformProductMasterGeneralDocData"`
+	BusinessPartnerDataPlatformProductStockProductStockDataOlds             DataPlatformProductStockProductStockDataOldSlice          `boil:"BusinessPartnerDataPlatformProductStockProductStockDataOlds" json:"BusinessPartnerDataPlatformProductStockProductStockDataOlds" toml:"BusinessPartnerDataPlatformProductStockProductStockDataOlds" yaml:"BusinessPartnerDataPlatformProductStockProductStockDataOlds"`
+	DocIssuerBusinessPartnerDataPlatformProductStockProductStockDocData     DataPlatformProductStockProductStockDocDatumSlice         `boil:"DocIssuerBusinessPartnerDataPlatformProductStockProductStockDocData" json:"DocIssuerBusinessPartnerDataPlatformProductStockProductStockDocData" toml:"DocIssuerBusinessPartnerDataPlatformProductStockProductStockDocData" yaml:"DocIssuerBusinessPartnerDataPlatformProductStockProductStockDocData"`
+	DocIssuerBusinessPartnerDataPlatformProductionOrderHeaderDocData        DataPlatformProductionOrderHeaderDocDatumSlice            `boil:"DocIssuerBusinessPartnerDataPlatformProductionOrderHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformProductionOrderHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformProductionOrderHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformProductionOrderHeaderDocData"`
+	DocIssuerBusinessPartnerDataPlatformProductionOrderItemDocData          DataPlatformProductionOrderItemDocDatumSlice              `boil:"DocIssuerBusinessPartnerDataPlatformProductionOrderItemDocData" json:"DocIssuerBusinessPartnerDataPlatformProductionOrderItemDocData" toml:"DocIssuerBusinessPartnerDataPlatformProductionOrderItemDocData" yaml:"DocIssuerBusinessPartnerDataPlatformProductionOrderItemDocData"`
+	BusinessPartnerDataPlatformProductionOrderPartnerData                   DataPlatformProductionOrderPartnerDatumSlice              `boil:"BusinessPartnerDataPlatformProductionOrderPartnerData" json:"BusinessPartnerDataPlatformProductionOrderPartnerData" toml:"BusinessPartnerDataPlatformProductionOrderPartnerData" yaml:"BusinessPartnerDataPlatformProductionOrderPartnerData"`
+	OwnerBusinessPartnerDataPlatformProjectProjectData                      DataPlatformProjectProjectDatumSlice                      `boil:"OwnerBusinessPartnerDataPlatformProjectProjectData" json:"OwnerBusinessPartnerDataPlatformProjectProjectData" toml:"OwnerBusinessPartnerDataPlatformProjectProjectData" yaml:"OwnerBusinessPartnerDataPlatformProjectProjectData"`
+	BuyerDataPlatformPurchaseRequisitionHeaderData                          DataPlatformPurchaseRequisitionHeaderDatumSlice           `boil:"BuyerDataPlatformPurchaseRequisitionHeaderData" json:"BuyerDataPlatformPurchaseRequisitionHeaderData" toml:"BuyerDataPlatformPurchaseRequisitionHeaderData" yaml:"BuyerDataPlatformPurchaseRequisitionHeaderData"`
+	DeliverFromPartyDataPlatformPurchaseRequisitionItemData                 DataPlatformPurchaseRequisitionItemDatumSlice             `boil:"DeliverFromPartyDataPlatformPurchaseRequisitionItemData" json:"DeliverFromPartyDataPlatformPurchaseRequisitionItemData" toml:"DeliverFromPartyDataPlatformPurchaseRequisitionItemData" yaml:"DeliverFromPartyDataPlatformPurchaseRequisitionItemData"`
+	DeliverToPartyDataPlatformPurchaseRequisitionItemData                   DataPlatformPurchaseRequisitionItemDatumSlice             `boil:"DeliverToPartyDataPlatformPurchaseRequisitionItemData" json:"DeliverToPartyDataPlatformPurchaseRequisitionItemData" toml:"DeliverToPartyDataPlatformPurchaseRequisitionItemData" yaml:"DeliverToPartyDataPlatformPurchaseRequisitionItemData"`
+	SellerDataPlatformPurchaseRequisitionItemData                           DataPlatformPurchaseRequisitionItemDatumSlice             `boil:"SellerDataPlatformPurchaseRequisitionItemData" json:"SellerDataPlatformPurchaseRequisitionItemData" toml:"SellerDataPlatformPurchaseRequisitionItemData" yaml:"SellerDataPlatformPurchaseRequisitionItemData"`
+	DocIssuerBusinessPartnerDataPlatformQuotationsHeaderDocData             DataPlatformQuotationsHeaderDocDatumSlice                 `boil:"DocIssuerBusinessPartnerDataPlatformQuotationsHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformQuotationsHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformQuotationsHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformQuotationsHeaderDocData"`
+	DocIssuerBusinessPartnerDataPlatformQuotationsItemDocData               DataPlatformQuotationsItemDocDatumSlice                   `boil:"DocIssuerBusinessPartnerDataPlatformQuotationsItemDocData" json:"DocIssuerBusinessPartnerDataPlatformQuotationsItemDocData" toml:"DocIssuerBusinessPartnerDataPlatformQuotationsItemDocData" yaml:"DocIssuerBusinessPartnerDataPlatformQuotationsItemDocData"`
+	BusinessPartnerDataPlatformQuotationsPartnerData                        DataPlatformQuotationsPartnerDatumSlice                   `boil:"BusinessPartnerDataPlatformQuotationsPartnerData" json:"BusinessPartnerDataPlatformQuotationsPartnerData" toml:"BusinessPartnerDataPlatformQuotationsPartnerData" yaml:"BusinessPartnerDataPlatformQuotationsPartnerData"`
+	BillFromPartyDataPlatformSCRBillingRelationData                         DataPlatformSCRBillingRelationDatumSlice                  `boil:"BillFromPartyDataPlatformSCRBillingRelationData" json:"BillFromPartyDataPlatformSCRBillingRelationData" toml:"BillFromPartyDataPlatformSCRBillingRelationData" yaml:"BillFromPartyDataPlatformSCRBillingRelationData"`
+	BillToPartyDataPlatformSCRBillingRelationData                           DataPlatformSCRBillingRelationDatumSlice                  `boil:"BillToPartyDataPlatformSCRBillingRelationData" json:"BillToPartyDataPlatformSCRBillingRelationData" toml:"BillToPartyDataPlatformSCRBillingRelationData" yaml:"BillToPartyDataPlatformSCRBillingRelationData"`
+	DeliverFromPartyDataPlatformSCRDeliveryRelationData                     DataPlatformSCRDeliveryRelationDatumSlice                 `boil:"DeliverFromPartyDataPlatformSCRDeliveryRelationData" json:"DeliverFromPartyDataPlatformSCRDeliveryRelationData" toml:"DeliverFromPartyDataPlatformSCRDeliveryRelationData" yaml:"DeliverFromPartyDataPlatformSCRDeliveryRelationData"`
+	DeliverToPartyDataPlatformSCRDeliveryRelationData                       DataPlatformSCRDeliveryRelationDatumSlice                 `boil:"DeliverToPartyDataPlatformSCRDeliveryRelationData" json:"DeliverToPartyDataPlatformSCRDeliveryRelationData" toml:"DeliverToPartyDataPlatformSCRDeliveryRelationData" yaml:"DeliverToPartyDataPlatformSCRDeliveryRelationData"`
+	FreightBillFromPartyDataPlatformSCRFreightBillingRelationData           DataPlatformSCRFreightBillingRelationDatumSlice           `boil:"FreightBillFromPartyDataPlatformSCRFreightBillingRelationData" json:"FreightBillFromPartyDataPlatformSCRFreightBillingRelationData" toml:"FreightBillFromPartyDataPlatformSCRFreightBillingRelationData" yaml:"FreightBillFromPartyDataPlatformSCRFreightBillingRelationData"`
+	FreightBillToPartyDataPlatformSCRFreightBillingRelationData             DataPlatformSCRFreightBillingRelationDatumSlice           `boil:"FreightBillToPartyDataPlatformSCRFreightBillingRelationData" json:"FreightBillToPartyDataPlatformSCRFreightBillingRelationData" toml:"FreightBillToPartyDataPlatformSCRFreightBillingRelationData" yaml:"FreightBillToPartyDataPlatformSCRFreightBillingRelationData"`
+	FreightPayeeDataPlatformSCRFreightPaymentRelationData                   DataPlatformSCRFreightPaymentRelationDatumSlice           `boil:"FreightPayeeDataPlatformSCRFreightPaymentRelationData" json:"FreightPayeeDataPlatformSCRFreightPaymentRelationData" toml:"FreightPayeeDataPlatformSCRFreightPaymentRelationData" yaml:"FreightPayeeDataPlatformSCRFreightPaymentRelationData"`
+	FreightPayerDataPlatformSCRFreightPaymentRelationData                   DataPlatformSCRFreightPaymentRelationDatumSlice           `boil:"FreightPayerDataPlatformSCRFreightPaymentRelationData" json:"FreightPayerDataPlatformSCRFreightPaymentRelationData" toml:"FreightPayerDataPlatformSCRFreightPaymentRelationData" yaml:"FreightPayerDataPlatformSCRFreightPaymentRelationData"`
+	FreightPartnerDataPlatformSCRFreightRelationData                        DataPlatformSCRFreightRelationDatumSlice                  `boil:"FreightPartnerDataPlatformSCRFreightRelationData" json:"FreightPartnerDataPlatformSCRFreightRelationData" toml:"FreightPartnerDataPlatformSCRFreightRelationData" yaml:"FreightPartnerDataPlatformSCRFreightRelationData"`
+	BuyerDataPlatformSCRGeneralData                                         DataPlatformSCRGeneralDatumSlice                          `boil:"BuyerDataPlatformSCRGeneralData" json:"BuyerDataPlatformSCRGeneralData" toml:"BuyerDataPlatformSCRGeneralData" yaml:"BuyerDataPlatformSCRGeneralData"`
+	SellerDataPlatformSCRGeneralData                                        DataPlatformSCRGeneralDatumSlice                          `boil:"SellerDataPlatformSCRGeneralData" json:"SellerDataPlatformSCRGeneralData" toml:"SellerDataPlatformSCRGeneralData" yaml:"SellerDataPlatformSCRGeneralData"`
+	DocIssuerBusinessPartnerDataPlatformSCRGeneralDocData                   DataPlatformSCRGeneralDocDatumSlice                       `boil:"DocIssuerBusinessPartnerDataPlatformSCRGeneralDocData" json:"DocIssuerBusinessPartnerDataPlatformSCRGeneralDocData" toml:"DocIssuerBusinessPartnerDataPlatformSCRGeneralDocData" yaml:"DocIssuerBusinessPartnerDataPlatformSCRGeneralDocData"`
+	PayeeDataPlatformSCRPaymentRelationData                                 DataPlatformSCRPaymentRelationDatumSlice                  `boil:"PayeeDataPlatformSCRPaymentRelationData" json:"PayeeDataPlatformSCRPaymentRelationData" toml:"PayeeDataPlatformSCRPaymentRelationData" yaml:"PayeeDataPlatformSCRPaymentRelationData"`
+	PayerDataPlatformSCRPaymentRelationData                                 DataPlatformSCRPaymentRelationDatumSlice                  `boil:"PayerDataPlatformSCRPaymentRelationData" json:"PayerDataPlatformSCRPaymentRelationData" toml:"PayerDataPlatformSCRPaymentRelationData" yaml:"PayerDataPlatformSCRPaymentRelationData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -510,11 +516,18 @@ func (r *dataPlatformBusinessPartnerGeneralDatumR) GetOwnerBusinessPartnerDataPl
 	return r.OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData
 }
 
-func (r *dataPlatformBusinessPartnerGeneralDatumR) GetDocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData() DataPlatformInspectionLotConfirmationHeaderDocDatumSlice {
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetDocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData() DataPlatformInspectionLotHeaderDocDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData
+	return r.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData
+}
+
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetDocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData() DataPlatformInspectionPlanHeaderDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData
 }
 
 func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBusinessPartnerDataPlatformInvoiceDocumentPartnerData() DataPlatformInvoiceDocumentPartnerDatumSlice {
@@ -634,6 +647,13 @@ func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBusinessPartnerDataPlatfor
 		return nil
 	}
 	return r.BusinessPartnerDataPlatformProductionOrderPartnerData
+}
+
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetOwnerBusinessPartnerDataPlatformProjectProjectData() DataPlatformProjectProjectDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.OwnerBusinessPartnerDataPlatformProjectProjectData
 }
 
 func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBuyerDataPlatformPurchaseRequisitionHeaderData() DataPlatformPurchaseRequisitionHeaderDatumSlice {
@@ -1063,18 +1083,32 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) OwnerBusinessPartnerDataPlatfo
 	return DataPlatformEquipmentMasterOwnerBusinessPartnerData(queryMods...)
 }
 
-// DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData retrieves all the data_platform_inspection_lot_confirmation_header_doc_datum's DataPlatformInspectionLotConfirmationHeaderDocData with an executor via DocIssuerBusinessPartner column.
-func (o *DataPlatformBusinessPartnerGeneralDatum) DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData(mods ...qm.QueryMod) dataPlatformInspectionLotConfirmationHeaderDocDatumQuery {
+// DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData retrieves all the data_platform_inspection_lot_header_doc_datum's DataPlatformInspectionLotHeaderDocData with an executor via DocIssuerBusinessPartner column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData(mods ...qm.QueryMod) dataPlatformInspectionLotHeaderDocDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_inspection_lot_confirmation_header_doc_data`.`DocIssuerBusinessPartner`=?", o.BusinessPartner),
+		qm.Where("`data_platform_inspection_lot_header_doc_data`.`DocIssuerBusinessPartner`=?", o.BusinessPartner),
 	)
 
-	return DataPlatformInspectionLotConfirmationHeaderDocData(queryMods...)
+	return DataPlatformInspectionLotHeaderDocData(queryMods...)
+}
+
+// DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData retrieves all the data_platform_inspection_plan_header_doc_datum's DataPlatformInspectionPlanHeaderDocData with an executor via DocIssuerBusinessPartner column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData(mods ...qm.QueryMod) dataPlatformInspectionPlanHeaderDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_inspection_plan_header_doc_data`.`DocIssuerBusinessPartner`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformInspectionPlanHeaderDocData(queryMods...)
 }
 
 // BusinessPartnerDataPlatformInvoiceDocumentPartnerData retrieves all the data_platform_invoice_document_partner_datum's DataPlatformInvoiceDocumentPartnerData with an executor via BusinessPartner column.
@@ -1313,6 +1347,20 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) BusinessPartnerDataPlatformPro
 	)
 
 	return DataPlatformProductionOrderPartnerData(queryMods...)
+}
+
+// OwnerBusinessPartnerDataPlatformProjectProjectData retrieves all the data_platform_project_project_datum's DataPlatformProjectProjectData with an executor via OwnerBusinessPartner column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) OwnerBusinessPartnerDataPlatformProjectProjectData(mods ...qm.QueryMod) dataPlatformProjectProjectDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_project_project_data`.`OwnerBusinessPartner`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformProjectProjectData(queryMods...)
 }
 
 // BuyerDataPlatformPurchaseRequisitionHeaderData retrieves all the data_platform_purchase_requisition_header_datum's DataPlatformPurchaseRequisitionHeaderData with an executor via Buyer column.
@@ -3014,9 +3062,9 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadOwnerBusinessPartnerDataPlat
 	return nil
 }
 
-// LoadDocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData allows an eager lookup of values, cached into the
+// LoadDocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformBusinessPartnerGeneralDatumL) LoadDocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadDocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformBusinessPartnerGeneralDatum
 	var object *DataPlatformBusinessPartnerGeneralDatum
 
@@ -3070,8 +3118,8 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadDocIssuerBusinessPartnerData
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_inspection_lot_confirmation_header_doc_data`),
-		qm.WhereIn(`data_platform_inspection_lot_confirmation_header_doc_data.DocIssuerBusinessPartner in ?`, args...),
+		qm.From(`data_platform_inspection_lot_header_doc_data`),
+		qm.WhereIn(`data_platform_inspection_lot_header_doc_data.DocIssuerBusinessPartner in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -3079,30 +3127,127 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadDocIssuerBusinessPartnerData
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_inspection_lot_confirmation_header_doc_data")
+		return errors.Wrap(err, "failed to eager load data_platform_inspection_lot_header_doc_data")
 	}
 
-	var resultSlice []*DataPlatformInspectionLotConfirmationHeaderDocDatum
+	var resultSlice []*DataPlatformInspectionLotHeaderDocDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_lot_confirmation_header_doc_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_lot_header_doc_data")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_lot_confirmation_header_doc_data")
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_lot_header_doc_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_lot_confirmation_header_doc_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_lot_header_doc_data")
 	}
 
 	if singular {
-		object.R.DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData = resultSlice
+		object.R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData = resultSlice
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
 			if queries.Equal(local.BusinessPartner, foreign.DocIssuerBusinessPartner) {
-				local.R.DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData = append(local.R.DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData, foreign)
+				local.R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData = append(local.R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadDocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDatum
+	var object *DataPlatformBusinessPartnerGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.BusinessPartner) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_inspection_plan_header_doc_data`),
+		qm.WhereIn(`data_platform_inspection_plan_header_doc_data.DocIssuerBusinessPartner in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_inspection_plan_header_doc_data")
+	}
+
+	var resultSlice []*DataPlatformInspectionPlanHeaderDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_plan_header_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_plan_header_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_plan_header_doc_data")
+	}
+
+	if singular {
+		object.R.DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.BusinessPartner, foreign.DocIssuerBusinessPartner) {
+				local.R.DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData = append(local.R.DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData, foreign)
 				break
 			}
 		}
@@ -4752,6 +4897,103 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadBusinessPartnerDataPlatformP
 		for _, local := range slice {
 			if local.BusinessPartner == foreign.BusinessPartner {
 				local.R.BusinessPartnerDataPlatformProductionOrderPartnerData = append(local.R.BusinessPartnerDataPlatformProductionOrderPartnerData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadOwnerBusinessPartnerDataPlatformProjectProjectData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadOwnerBusinessPartnerDataPlatformProjectProjectData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDatum
+	var object *DataPlatformBusinessPartnerGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_project_project_data`),
+		qm.WhereIn(`data_platform_project_project_data.OwnerBusinessPartner in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_project_project_data")
+	}
+
+	var resultSlice []*DataPlatformProjectProjectDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_project_project_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_project_project_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_project_project_data")
+	}
+
+	if singular {
+		object.R.OwnerBusinessPartnerDataPlatformProjectProjectData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BusinessPartner == foreign.OwnerBusinessPartner {
+				local.R.OwnerBusinessPartnerDataPlatformProjectProjectData = append(local.R.OwnerBusinessPartnerDataPlatformProjectProjectData, foreign)
 				break
 			}
 		}
@@ -7596,10 +7838,10 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) AddOwnerBusinessPartnerDataPla
 	return nil
 }
 
-// AddDocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData adds the given related objects to the existing relationships
+// AddDocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData adds the given related objects to the existing relationships
 // of the data_platform_business_partner_general_datum, optionally inserting them as new records.
-// Appends related to o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData.
-func (o *DataPlatformBusinessPartnerGeneralDatum) AddDocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotConfirmationHeaderDocDatum) error {
+// Appends related to o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddDocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotHeaderDocDatum) error {
 	var err error
 	for _, rel := range related {
 		if insert {
@@ -7609,11 +7851,11 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) AddDocIssuerBusinessPartnerDat
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_inspection_lot_confirmation_header_doc_data` SET %s WHERE %s",
+				"UPDATE `data_platform_inspection_lot_header_doc_data` SET %s WHERE %s",
 				strmangle.SetParamNames("`", "`", 0, []string{"DocIssuerBusinessPartner"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotConfirmationHeaderDocDatumPrimaryKeyColumns),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotHeaderDocDatumPrimaryKeyColumns),
 			)
-			values := []interface{}{o.BusinessPartner, rel.InspectionLot, rel.Operations, rel.OperationsItem, rel.OperationID, rel.ConfirmationCountingID, rel.DocType, rel.DocVersionID, rel.DocID}
+			values := []interface{}{o.BusinessPartner, rel.InspectionLot, rel.DocType, rel.DocVersionID, rel.DocID}
 
 			if boil.IsDebug(ctx) {
 				writer := boil.DebugWriterFrom(ctx)
@@ -7630,22 +7872,22 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) AddDocIssuerBusinessPartnerDat
 
 	if o.R == nil {
 		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
-			DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData: related,
+			DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData: related,
 		}
 	} else {
-		o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData = append(o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData, related...)
+		o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData = append(o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData, related...)
 	}
 
 	return nil
 }
 
-// SetDocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData removes all previously related items of the
+// SetDocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData removes all previously related items of the
 // data_platform_business_partner_general_datum replacing them completely with the passed
 // in related items, optionally inserting them as new records.
-// Sets o.R.DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum's DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData accordingly.
-// Replaces o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData with related.
-func (o *DataPlatformBusinessPartnerGeneralDatum) SetDocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotConfirmationHeaderDocDatum) error {
-	query := "update `data_platform_inspection_lot_confirmation_header_doc_data` set `DocIssuerBusinessPartner` = null where `DocIssuerBusinessPartner` = ?"
+// Sets o.R.DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum's DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData accordingly.
+// Replaces o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData with related.
+func (o *DataPlatformBusinessPartnerGeneralDatum) SetDocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotHeaderDocDatum) error {
+	query := "update `data_platform_inspection_lot_header_doc_data` set `DocIssuerBusinessPartner` = null where `DocIssuerBusinessPartner` = ?"
 	values := []interface{}{o.BusinessPartner}
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -7658,15 +7900,15 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) SetDocIssuerBusinessPartnerDat
 	}
 
 	if o.R != nil {
-		o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData = nil
+		o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData = nil
 	}
 
-	return o.AddDocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData(ctx, exec, insert, related...)
+	return o.AddDocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData(ctx, exec, insert, related...)
 }
 
-// RemoveDocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData relationships from objects passed in.
-// Removes related items from R.DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData (uses pointer comparison, removal does not keep order)
-func (o *DataPlatformBusinessPartnerGeneralDatum) RemoveDocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformInspectionLotConfirmationHeaderDocDatum) error {
+// RemoveDocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData relationships from objects passed in.
+// Removes related items from R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformBusinessPartnerGeneralDatum) RemoveDocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformInspectionLotHeaderDocDatum) error {
 	if len(related) == 0 {
 		return nil
 	}
@@ -7683,16 +7925,120 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) RemoveDocIssuerBusinessPartner
 	}
 
 	for _, rel := range related {
-		for i, ri := range o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData {
+		for i, ri := range o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData {
 			if rel != ri {
 				continue
 			}
 
-			ln := len(o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData)
+			ln := len(o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData)
 			if ln > 1 && i < ln-1 {
-				o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData[i] = o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData[ln-1]
+				o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData[i] = o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData[ln-1]
 			}
-			o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData = o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotConfirmationHeaderDocData[:ln-1]
+			o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData = o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddDocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData adds the given related objects to the existing relationships
+// of the data_platform_business_partner_general_datum, optionally inserting them as new records.
+// Appends related to o.R.DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddDocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionPlanHeaderDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.DocIssuerBusinessPartner, o.BusinessPartner)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_inspection_plan_header_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DocIssuerBusinessPartner"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionPlanHeaderDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.InspectionPlan, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.DocIssuerBusinessPartner, o.BusinessPartner)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
+			DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData: related,
+		}
+	} else {
+		o.R.DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData = append(o.R.DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData, related...)
+	}
+
+	return nil
+}
+
+// SetDocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData removes all previously related items of the
+// data_platform_business_partner_general_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.DocIssuerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum's DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData accordingly.
+// Replaces o.R.DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData with related.
+func (o *DataPlatformBusinessPartnerGeneralDatum) SetDocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionPlanHeaderDocDatum) error {
+	query := "update `data_platform_inspection_plan_header_doc_data` set `DocIssuerBusinessPartner` = null where `DocIssuerBusinessPartner` = ?"
+	values := []interface{}{o.BusinessPartner}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData = nil
+	}
+
+	return o.AddDocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData(ctx, exec, insert, related...)
+}
+
+// RemoveDocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData relationships from objects passed in.
+// Removes related items from R.DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformBusinessPartnerGeneralDatum) RemoveDocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformInspectionPlanHeaderDocDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.DocIssuerBusinessPartner, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("DocIssuerBusinessPartner")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData)
+			if ln > 1 && i < ln-1 {
+				o.R.DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData[i] = o.R.DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData[ln-1]
+			}
+			o.R.DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData = o.R.DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData[:ln-1]
 			break
 		}
 	}
@@ -9158,6 +9504,49 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) AddBusinessPartnerDataPlatform
 		}
 	} else {
 		o.R.BusinessPartnerDataPlatformProductionOrderPartnerData = append(o.R.BusinessPartnerDataPlatformProductionOrderPartnerData, related...)
+	}
+
+	return nil
+}
+
+// AddOwnerBusinessPartnerDataPlatformProjectProjectData adds the given related objects to the existing relationships
+// of the data_platform_business_partner_general_datum, optionally inserting them as new records.
+// Appends related to o.R.OwnerBusinessPartnerDataPlatformProjectProjectData.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddOwnerBusinessPartnerDataPlatformProjectProjectData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformProjectProjectDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.OwnerBusinessPartner = o.BusinessPartner
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_project_project_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"OwnerBusinessPartner"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformProjectProjectDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.Project}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.OwnerBusinessPartner = o.BusinessPartner
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
+			OwnerBusinessPartnerDataPlatformProjectProjectData: related,
+		}
+	} else {
+		o.R.OwnerBusinessPartnerDataPlatformProjectProjectData = append(o.R.OwnerBusinessPartnerDataPlatformProjectProjectData, related...)
 	}
 
 	return nil

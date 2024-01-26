@@ -49,6 +49,9 @@ type DataPlatformOrdersItemScheduleLineDatum struct {
 	StockIsFullyConfirmed                           null.Bool    `boil:"StockIsFullyConfirmed" json:"StockIsFullyConfirmed,omitempty" toml:"StockIsFullyConfirmed" yaml:"StockIsFullyConfirmed,omitempty"`
 	PlusMinusFlag                                   string       `boil:"PlusMinusFlag" json:"PlusMinusFlag" toml:"PlusMinusFlag" yaml:"PlusMinusFlag"`
 	ItemScheduleLineDeliveryBlockStatus             null.Bool    `boil:"ItemScheduleLineDeliveryBlockStatus" json:"ItemScheduleLineDeliveryBlockStatus,omitempty" toml:"ItemScheduleLineDeliveryBlockStatus" yaml:"ItemScheduleLineDeliveryBlockStatus,omitempty"`
+	ExternalReferenceDocument                       null.String  `boil:"ExternalReferenceDocument" json:"ExternalReferenceDocument,omitempty" toml:"ExternalReferenceDocument" yaml:"ExternalReferenceDocument,omitempty"`
+	ExternalReferenceDocumentItem                   null.String  `boil:"ExternalReferenceDocumentItem" json:"ExternalReferenceDocumentItem,omitempty" toml:"ExternalReferenceDocumentItem" yaml:"ExternalReferenceDocumentItem,omitempty"`
+	ExternalReferenceDocumentItemScheduleLine       null.String  `boil:"ExternalReferenceDocumentItemScheduleLine" json:"ExternalReferenceDocumentItemScheduleLine,omitempty" toml:"ExternalReferenceDocumentItemScheduleLine" yaml:"ExternalReferenceDocumentItemScheduleLine,omitempty"`
 	CreationDate                                    string       `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
 	CreationTime                                    string       `boil:"CreationTime" json:"CreationTime" toml:"CreationTime" yaml:"CreationTime"`
 	LastChangeDate                                  string       `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
@@ -86,6 +89,9 @@ var DataPlatformOrdersItemScheduleLineDatumColumns = struct {
 	StockIsFullyConfirmed                           string
 	PlusMinusFlag                                   string
 	ItemScheduleLineDeliveryBlockStatus             string
+	ExternalReferenceDocument                       string
+	ExternalReferenceDocumentItem                   string
+	ExternalReferenceDocumentItemScheduleLine       string
 	CreationDate                                    string
 	CreationTime                                    string
 	LastChangeDate                                  string
@@ -118,6 +124,9 @@ var DataPlatformOrdersItemScheduleLineDatumColumns = struct {
 	StockIsFullyConfirmed:                           "StockIsFullyConfirmed",
 	PlusMinusFlag:                                   "PlusMinusFlag",
 	ItemScheduleLineDeliveryBlockStatus:             "ItemScheduleLineDeliveryBlockStatus",
+	ExternalReferenceDocument:                       "ExternalReferenceDocument",
+	ExternalReferenceDocumentItem:                   "ExternalReferenceDocumentItem",
+	ExternalReferenceDocumentItemScheduleLine:       "ExternalReferenceDocumentItemScheduleLine",
 	CreationDate:                                    "CreationDate",
 	CreationTime:                                    "CreationTime",
 	LastChangeDate:                                  "LastChangeDate",
@@ -152,6 +161,9 @@ var DataPlatformOrdersItemScheduleLineDatumTableColumns = struct {
 	StockIsFullyConfirmed                           string
 	PlusMinusFlag                                   string
 	ItemScheduleLineDeliveryBlockStatus             string
+	ExternalReferenceDocument                       string
+	ExternalReferenceDocumentItem                   string
+	ExternalReferenceDocumentItemScheduleLine       string
 	CreationDate                                    string
 	CreationTime                                    string
 	LastChangeDate                                  string
@@ -184,6 +196,9 @@ var DataPlatformOrdersItemScheduleLineDatumTableColumns = struct {
 	StockIsFullyConfirmed:                           "data_platform_orders_item_schedule_line_data.StockIsFullyConfirmed",
 	PlusMinusFlag:                                   "data_platform_orders_item_schedule_line_data.PlusMinusFlag",
 	ItemScheduleLineDeliveryBlockStatus:             "data_platform_orders_item_schedule_line_data.ItemScheduleLineDeliveryBlockStatus",
+	ExternalReferenceDocument:                       "data_platform_orders_item_schedule_line_data.ExternalReferenceDocument",
+	ExternalReferenceDocumentItem:                   "data_platform_orders_item_schedule_line_data.ExternalReferenceDocumentItem",
+	ExternalReferenceDocumentItemScheduleLine:       "data_platform_orders_item_schedule_line_data.ExternalReferenceDocumentItemScheduleLine",
 	CreationDate:                                    "data_platform_orders_item_schedule_line_data.CreationDate",
 	CreationTime:                                    "data_platform_orders_item_schedule_line_data.CreationTime",
 	LastChangeDate:                                  "data_platform_orders_item_schedule_line_data.LastChangeDate",
@@ -220,6 +235,9 @@ var DataPlatformOrdersItemScheduleLineDatumWhere = struct {
 	StockIsFullyConfirmed                           whereHelpernull_Bool
 	PlusMinusFlag                                   whereHelperstring
 	ItemScheduleLineDeliveryBlockStatus             whereHelpernull_Bool
+	ExternalReferenceDocument                       whereHelpernull_String
+	ExternalReferenceDocumentItem                   whereHelpernull_String
+	ExternalReferenceDocumentItemScheduleLine       whereHelpernull_String
 	CreationDate                                    whereHelperstring
 	CreationTime                                    whereHelperstring
 	LastChangeDate                                  whereHelperstring
@@ -252,6 +270,9 @@ var DataPlatformOrdersItemScheduleLineDatumWhere = struct {
 	StockIsFullyConfirmed:                           whereHelpernull_Bool{field: "`data_platform_orders_item_schedule_line_data`.`StockIsFullyConfirmed`"},
 	PlusMinusFlag:                                   whereHelperstring{field: "`data_platform_orders_item_schedule_line_data`.`PlusMinusFlag`"},
 	ItemScheduleLineDeliveryBlockStatus:             whereHelpernull_Bool{field: "`data_platform_orders_item_schedule_line_data`.`ItemScheduleLineDeliveryBlockStatus`"},
+	ExternalReferenceDocument:                       whereHelpernull_String{field: "`data_platform_orders_item_schedule_line_data`.`ExternalReferenceDocument`"},
+	ExternalReferenceDocumentItem:                   whereHelpernull_String{field: "`data_platform_orders_item_schedule_line_data`.`ExternalReferenceDocumentItem`"},
+	ExternalReferenceDocumentItemScheduleLine:       whereHelpernull_String{field: "`data_platform_orders_item_schedule_line_data`.`ExternalReferenceDocumentItemScheduleLine`"},
 	CreationDate:                                    whereHelperstring{field: "`data_platform_orders_item_schedule_line_data`.`CreationDate`"},
 	CreationTime:                                    whereHelperstring{field: "`data_platform_orders_item_schedule_line_data`.`CreationTime`"},
 	LastChangeDate:                                  whereHelperstring{field: "`data_platform_orders_item_schedule_line_data`.`LastChangeDate`"},
@@ -318,8 +339,8 @@ func (r *dataPlatformOrdersItemScheduleLineDatumR) GetOrderIDDataPlatformOrdersI
 type dataPlatformOrdersItemScheduleLineDatumL struct{}
 
 var (
-	dataPlatformOrdersItemScheduleLineDatumAllColumns            = []string{"OrderID", "OrderItem", "ScheduleLine", "SupplyChainRelationshipID", "SupplyChainRelationshipStockConfPlantID", "Product", "StockConfirmationBusinessPartner", "StockConfirmationPlant", "StockConfirmationPlantTimeZone", "StockConfirmationPlantBatch", "StockConfirmationPlantBatchValidityStartDate", "StockConfirmationPlantBatchValidityEndDate", "RequestedDeliveryDate", "RequestedDeliveryTime", "ConfirmedDeliveryDate", "ConfirmedDeliveryTime", "ScheduleLineOrderQuantityInBaseUnit", "OriginalOrderQuantityInBaseUnit", "ConfirmedOrderQuantityByPDTAvailCheckInBaseUnit", "DeliveredQuantityInBaseUnit", "UndeliveredQuantityInBaseUnit", "OpenConfirmedQuantityInBaseUnit", "StockIsFullyConfirmed", "PlusMinusFlag", "ItemScheduleLineDeliveryBlockStatus", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
-	dataPlatformOrdersItemScheduleLineDatumColumnsWithoutDefault = []string{"OrderID", "OrderItem", "ScheduleLine", "SupplyChainRelationshipID", "SupplyChainRelationshipStockConfPlantID", "Product", "StockConfirmationBusinessPartner", "StockConfirmationPlant", "StockConfirmationPlantTimeZone", "StockConfirmationPlantBatch", "StockConfirmationPlantBatchValidityStartDate", "StockConfirmationPlantBatchValidityEndDate", "RequestedDeliveryDate", "RequestedDeliveryTime", "ConfirmedDeliveryDate", "ConfirmedDeliveryTime", "ScheduleLineOrderQuantityInBaseUnit", "OriginalOrderQuantityInBaseUnit", "ConfirmedOrderQuantityByPDTAvailCheckInBaseUnit", "DeliveredQuantityInBaseUnit", "UndeliveredQuantityInBaseUnit", "OpenConfirmedQuantityInBaseUnit", "StockIsFullyConfirmed", "PlusMinusFlag", "ItemScheduleLineDeliveryBlockStatus", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
+	dataPlatformOrdersItemScheduleLineDatumAllColumns            = []string{"OrderID", "OrderItem", "ScheduleLine", "SupplyChainRelationshipID", "SupplyChainRelationshipStockConfPlantID", "Product", "StockConfirmationBusinessPartner", "StockConfirmationPlant", "StockConfirmationPlantTimeZone", "StockConfirmationPlantBatch", "StockConfirmationPlantBatchValidityStartDate", "StockConfirmationPlantBatchValidityEndDate", "RequestedDeliveryDate", "RequestedDeliveryTime", "ConfirmedDeliveryDate", "ConfirmedDeliveryTime", "ScheduleLineOrderQuantityInBaseUnit", "OriginalOrderQuantityInBaseUnit", "ConfirmedOrderQuantityByPDTAvailCheckInBaseUnit", "DeliveredQuantityInBaseUnit", "UndeliveredQuantityInBaseUnit", "OpenConfirmedQuantityInBaseUnit", "StockIsFullyConfirmed", "PlusMinusFlag", "ItemScheduleLineDeliveryBlockStatus", "ExternalReferenceDocument", "ExternalReferenceDocumentItem", "ExternalReferenceDocumentItemScheduleLine", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
+	dataPlatformOrdersItemScheduleLineDatumColumnsWithoutDefault = []string{"OrderID", "OrderItem", "ScheduleLine", "SupplyChainRelationshipID", "SupplyChainRelationshipStockConfPlantID", "Product", "StockConfirmationBusinessPartner", "StockConfirmationPlant", "StockConfirmationPlantTimeZone", "StockConfirmationPlantBatch", "StockConfirmationPlantBatchValidityStartDate", "StockConfirmationPlantBatchValidityEndDate", "RequestedDeliveryDate", "RequestedDeliveryTime", "ConfirmedDeliveryDate", "ConfirmedDeliveryTime", "ScheduleLineOrderQuantityInBaseUnit", "OriginalOrderQuantityInBaseUnit", "ConfirmedOrderQuantityByPDTAvailCheckInBaseUnit", "DeliveredQuantityInBaseUnit", "UndeliveredQuantityInBaseUnit", "OpenConfirmedQuantityInBaseUnit", "StockIsFullyConfirmed", "PlusMinusFlag", "ItemScheduleLineDeliveryBlockStatus", "ExternalReferenceDocument", "ExternalReferenceDocumentItem", "ExternalReferenceDocumentItemScheduleLine", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
 	dataPlatformOrdersItemScheduleLineDatumColumnsWithDefault    = []string{}
 	dataPlatformOrdersItemScheduleLineDatumPrimaryKeyColumns     = []string{"OrderID", "OrderItem", "ScheduleLine"}
 	dataPlatformOrdersItemScheduleLineDatumGeneratedColumns      = []string{}

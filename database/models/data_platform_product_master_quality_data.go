@@ -129,15 +129,36 @@ var DataPlatformProductMasterQualityDatumWhere = struct {
 
 // DataPlatformProductMasterQualityDatumRels is where relationship names are stored.
 var DataPlatformProductMasterQualityDatumRels = struct {
-}{}
+	InspectionPlantDataPlatformInspectionLotHeaderData  string
+	InspectionPlantDataPlatformInspectionPlanHeaderData string
+}{
+	InspectionPlantDataPlatformInspectionLotHeaderData:  "InspectionPlantDataPlatformInspectionLotHeaderData",
+	InspectionPlantDataPlatformInspectionPlanHeaderData: "InspectionPlantDataPlatformInspectionPlanHeaderData",
+}
 
 // dataPlatformProductMasterQualityDatumR is where relationships are stored.
 type dataPlatformProductMasterQualityDatumR struct {
+	InspectionPlantDataPlatformInspectionLotHeaderData  DataPlatformInspectionLotHeaderDatumSlice  `boil:"InspectionPlantDataPlatformInspectionLotHeaderData" json:"InspectionPlantDataPlatformInspectionLotHeaderData" toml:"InspectionPlantDataPlatformInspectionLotHeaderData" yaml:"InspectionPlantDataPlatformInspectionLotHeaderData"`
+	InspectionPlantDataPlatformInspectionPlanHeaderData DataPlatformInspectionPlanHeaderDatumSlice `boil:"InspectionPlantDataPlatformInspectionPlanHeaderData" json:"InspectionPlantDataPlatformInspectionPlanHeaderData" toml:"InspectionPlantDataPlatformInspectionPlanHeaderData" yaml:"InspectionPlantDataPlatformInspectionPlanHeaderData"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformProductMasterQualityDatumR) NewStruct() *dataPlatformProductMasterQualityDatumR {
 	return &dataPlatformProductMasterQualityDatumR{}
+}
+
+func (r *dataPlatformProductMasterQualityDatumR) GetInspectionPlantDataPlatformInspectionLotHeaderData() DataPlatformInspectionLotHeaderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.InspectionPlantDataPlatformInspectionLotHeaderData
+}
+
+func (r *dataPlatformProductMasterQualityDatumR) GetInspectionPlantDataPlatformInspectionPlanHeaderData() DataPlatformInspectionPlanHeaderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.InspectionPlantDataPlatformInspectionPlanHeaderData
 }
 
 // dataPlatformProductMasterQualityDatumL is where Load methods for each relationship are stored.
@@ -240,6 +261,314 @@ func (q dataPlatformProductMasterQualityDatumQuery) Exists(ctx context.Context, 
 	}
 
 	return count > 0, nil
+}
+
+// InspectionPlantDataPlatformInspectionLotHeaderData retrieves all the data_platform_inspection_lot_header_datum's DataPlatformInspectionLotHeaderData with an executor via InspectionPlant column.
+func (o *DataPlatformProductMasterQualityDatum) InspectionPlantDataPlatformInspectionLotHeaderData(mods ...qm.QueryMod) dataPlatformInspectionLotHeaderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_inspection_lot_header_data`.`InspectionPlant`=?", o.Plant),
+	)
+
+	return DataPlatformInspectionLotHeaderData(queryMods...)
+}
+
+// InspectionPlantDataPlatformInspectionPlanHeaderData retrieves all the data_platform_inspection_plan_header_datum's DataPlatformInspectionPlanHeaderData with an executor via InspectionPlant column.
+func (o *DataPlatformProductMasterQualityDatum) InspectionPlantDataPlatformInspectionPlanHeaderData(mods ...qm.QueryMod) dataPlatformInspectionPlanHeaderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_inspection_plan_header_data`.`InspectionPlant`=?", o.Plant),
+	)
+
+	return DataPlatformInspectionPlanHeaderData(queryMods...)
+}
+
+// LoadInspectionPlantDataPlatformInspectionLotHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductMasterQualityDatumL) LoadInspectionPlantDataPlatformInspectionLotHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterQualityDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterQualityDatum
+	var object *DataPlatformProductMasterQualityDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterQualityDatum.(*DataPlatformProductMasterQualityDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterQualityDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterQualityDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterQualityDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterQualityDatum.(*[]*DataPlatformProductMasterQualityDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterQualityDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterQualityDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterQualityDatumR{}
+		}
+		args = append(args, object.Plant)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterQualityDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Plant {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Plant)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_inspection_lot_header_data`),
+		qm.WhereIn(`data_platform_inspection_lot_header_data.InspectionPlant in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_inspection_lot_header_data")
+	}
+
+	var resultSlice []*DataPlatformInspectionLotHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_lot_header_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_lot_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_lot_header_data")
+	}
+
+	if singular {
+		object.R.InspectionPlantDataPlatformInspectionLotHeaderData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Plant == foreign.InspectionPlant {
+				local.R.InspectionPlantDataPlatformInspectionLotHeaderData = append(local.R.InspectionPlantDataPlatformInspectionLotHeaderData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadInspectionPlantDataPlatformInspectionPlanHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductMasterQualityDatumL) LoadInspectionPlantDataPlatformInspectionPlanHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductMasterQualityDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductMasterQualityDatum
+	var object *DataPlatformProductMasterQualityDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductMasterQualityDatum.(*DataPlatformProductMasterQualityDatum)
+		if !ok {
+			object = new(DataPlatformProductMasterQualityDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductMasterQualityDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductMasterQualityDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductMasterQualityDatum.(*[]*DataPlatformProductMasterQualityDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductMasterQualityDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductMasterQualityDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductMasterQualityDatumR{}
+		}
+		args = append(args, object.Plant)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductMasterQualityDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Plant {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Plant)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_inspection_plan_header_data`),
+		qm.WhereIn(`data_platform_inspection_plan_header_data.InspectionPlant in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_inspection_plan_header_data")
+	}
+
+	var resultSlice []*DataPlatformInspectionPlanHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_plan_header_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_plan_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_plan_header_data")
+	}
+
+	if singular {
+		object.R.InspectionPlantDataPlatformInspectionPlanHeaderData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Plant == foreign.InspectionPlant {
+				local.R.InspectionPlantDataPlatformInspectionPlanHeaderData = append(local.R.InspectionPlantDataPlatformInspectionPlanHeaderData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// AddInspectionPlantDataPlatformInspectionLotHeaderData adds the given related objects to the existing relationships
+// of the data_platform_product_master_quality_datum, optionally inserting them as new records.
+// Appends related to o.R.InspectionPlantDataPlatformInspectionLotHeaderData.
+func (o *DataPlatformProductMasterQualityDatum) AddInspectionPlantDataPlatformInspectionLotHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotHeaderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.InspectionPlant = o.Plant
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_inspection_lot_header_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"InspectionPlant"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotHeaderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Plant, rel.InspectionLot}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.InspectionPlant = o.Plant
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterQualityDatumR{
+			InspectionPlantDataPlatformInspectionLotHeaderData: related,
+		}
+	} else {
+		o.R.InspectionPlantDataPlatformInspectionLotHeaderData = append(o.R.InspectionPlantDataPlatformInspectionLotHeaderData, related...)
+	}
+
+	return nil
+}
+
+// AddInspectionPlantDataPlatformInspectionPlanHeaderData adds the given related objects to the existing relationships
+// of the data_platform_product_master_quality_datum, optionally inserting them as new records.
+// Appends related to o.R.InspectionPlantDataPlatformInspectionPlanHeaderData.
+func (o *DataPlatformProductMasterQualityDatum) AddInspectionPlantDataPlatformInspectionPlanHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionPlanHeaderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.InspectionPlant = o.Plant
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_inspection_plan_header_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"InspectionPlant"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionPlanHeaderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Plant, rel.InspectionPlan}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.InspectionPlant = o.Plant
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductMasterQualityDatumR{
+			InspectionPlantDataPlatformInspectionPlanHeaderData: related,
+		}
+	} else {
+		o.R.InspectionPlantDataPlatformInspectionPlanHeaderData = append(o.R.InspectionPlantDataPlatformInspectionPlanHeaderData, related...)
+	}
+
+	return nil
 }
 
 // DataPlatformProductMasterQualityData retrieves all the records using an executor.

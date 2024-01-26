@@ -18,6 +18,8 @@ var TableNames = struct {
 	DataPlatformBusinessPartnerGeneralFinInstData          string
 	DataPlatformBusinessPartnerRoleData                    string
 	DataPlatformCodeConversionCodeConversionData           string
+	DataPlatformContractHeaderData                         string
+	DataPlatformContractItemData                           string
 	DataPlatformCountryCountryData                         string
 	DataPlatformCountryCountryTextData                     string
 	DataPlatformCurrencyCurrencyData                       string
@@ -57,13 +59,18 @@ var TableNames = struct {
 	DataPlatformIncotermsTextData                          string
 	DataPlatformIndustryIndustryData                       string
 	DataPlatformIndustryIndustryTextData                   string
-	DataPlatformInspectionLotConfirmationHeaderData        string
-	DataPlatformInspectionLotConfirmationHeaderDocData     string
-	DataPlatformInspectionLotOperationData                 string
+	DataPlatformInspectionLotComponentCompositionData      string
+	DataPlatformInspectionLotHeaderData                    string
+	DataPlatformInspectionLotHeaderDocData                 string
+	DataPlatformInspectionLotInspectionData                string
+	DataPlatformInspectionLotSpecDetailData                string
+	DataPlatformInspectionLotSpecGeneralData               string
+	DataPlatformInspectionPlanComponentCompositionData     string
 	DataPlatformInspectionPlanHeaderData                   string
-	DataPlatformInspectionPlanOperationData                string
-	DataPlatformInspectionPlanSpecData                     string
-	DataPlatformInspectionPlanTaskListData                 string
+	DataPlatformInspectionPlanHeaderDocData                string
+	DataPlatformInspectionPlanInspectionData               string
+	DataPlatformInspectionPlanSpecDetailData               string
+	DataPlatformInspectionPlanSpecGeneralData              string
 	DataPlatformInvoiceDocumentAddressData                 string
 	DataPlatformInvoiceDocumentHeaderData                  string
 	DataPlatformInvoiceDocumentHeaderDocData               string
@@ -166,6 +173,8 @@ var TableNames = struct {
 	DataPlatformProductionOrderPartnerData                 string
 	DataPlatformProductionVersionHeaderData                string
 	DataPlatformProductionVersionItemData                  string
+	DataPlatformProjectProjectData                         string
+	DataPlatformProjectWBSElementData                      string
 	DataPlatformPurchaseRequisitionHeaderData              string
 	DataPlatformPurchaseRequisitionItemData                string
 	DataPlatformQuantityUnitConversionQuantityUnitConvData string
@@ -219,6 +228,8 @@ var TableNames = struct {
 	DataPlatformBusinessPartnerGeneralFinInstData:          "data_platform_business_partner_general_fin_inst_data",
 	DataPlatformBusinessPartnerRoleData:                    "data_platform_business_partner_role_data",
 	DataPlatformCodeConversionCodeConversionData:           "data_platform_code_conversion_code_conversion_data",
+	DataPlatformContractHeaderData:                         "data_platform_contract_header_data",
+	DataPlatformContractItemData:                           "data_platform_contract_item_data",
 	DataPlatformCountryCountryData:                         "data_platform_country_country_data",
 	DataPlatformCountryCountryTextData:                     "data_platform_country_country_text_data",
 	DataPlatformCurrencyCurrencyData:                       "data_platform_currency_currency_data",
@@ -258,13 +269,18 @@ var TableNames = struct {
 	DataPlatformIncotermsTextData:                          "data_platform_incoterms_text_data",
 	DataPlatformIndustryIndustryData:                       "data_platform_industry_industry_data",
 	DataPlatformIndustryIndustryTextData:                   "data_platform_industry_industry_text_data",
-	DataPlatformInspectionLotConfirmationHeaderData:        "data_platform_inspection_lot_confirmation_header_data",
-	DataPlatformInspectionLotConfirmationHeaderDocData:     "data_platform_inspection_lot_confirmation_header_doc_data",
-	DataPlatformInspectionLotOperationData:                 "data_platform_inspection_lot_operation_data",
+	DataPlatformInspectionLotComponentCompositionData:      "data_platform_inspection_lot_component_composition_data",
+	DataPlatformInspectionLotHeaderData:                    "data_platform_inspection_lot_header_data",
+	DataPlatformInspectionLotHeaderDocData:                 "data_platform_inspection_lot_header_doc_data",
+	DataPlatformInspectionLotInspectionData:                "data_platform_inspection_lot_inspection_data",
+	DataPlatformInspectionLotSpecDetailData:                "data_platform_inspection_lot_spec_detail_data",
+	DataPlatformInspectionLotSpecGeneralData:               "data_platform_inspection_lot_spec_general_data",
+	DataPlatformInspectionPlanComponentCompositionData:     "data_platform_inspection_plan_component_composition_data",
 	DataPlatformInspectionPlanHeaderData:                   "data_platform_inspection_plan_header_data",
-	DataPlatformInspectionPlanOperationData:                "data_platform_inspection_plan_operation_data",
-	DataPlatformInspectionPlanSpecData:                     "data_platform_inspection_plan_spec_data",
-	DataPlatformInspectionPlanTaskListData:                 "data_platform_inspection_plan_task_list_data",
+	DataPlatformInspectionPlanHeaderDocData:                "data_platform_inspection_plan_header_doc_data",
+	DataPlatformInspectionPlanInspectionData:               "data_platform_inspection_plan_inspection_data",
+	DataPlatformInspectionPlanSpecDetailData:               "data_platform_inspection_plan_spec_detail_data",
+	DataPlatformInspectionPlanSpecGeneralData:              "data_platform_inspection_plan_spec_general_data",
 	DataPlatformInvoiceDocumentAddressData:                 "data_platform_invoice_document_address_data",
 	DataPlatformInvoiceDocumentHeaderData:                  "data_platform_invoice_document_header_data",
 	DataPlatformInvoiceDocumentHeaderDocData:               "data_platform_invoice_document_header_doc_data",
@@ -367,6 +383,8 @@ var TableNames = struct {
 	DataPlatformProductionOrderPartnerData:                 "data_platform_production_order_partner_data",
 	DataPlatformProductionVersionHeaderData:                "data_platform_production_version_header_data",
 	DataPlatformProductionVersionItemData:                  "data_platform_production_version_item_data",
+	DataPlatformProjectProjectData:                         "data_platform_project_project_data",
+	DataPlatformProjectWBSElementData:                      "data_platform_project_wbs_element_data",
 	DataPlatformPurchaseRequisitionHeaderData:              "data_platform_purchase_requisition_header_data",
 	DataPlatformPurchaseRequisitionItemData:                "data_platform_purchase_requisition_item_data",
 	DataPlatformQuantityUnitConversionQuantityUnitConvData: "data_platform_quantity_unit_conversion_quantity_unit_conv_data",

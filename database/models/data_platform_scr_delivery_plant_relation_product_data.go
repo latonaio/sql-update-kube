@@ -301,13 +301,11 @@ var DataPlatformSCRDeliveryPlantRelationProductDatumRels = struct {
 	DeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum       string
 	SafetyDurationUnitDataPlatformQuantityUnitQuantityUnitDatum string
 	BuyerDataPlatformSCRDeliveryPlantRelationDatum              string
-	BuyerDataPlatformOrdersItemData                             string
 }{
 	DeliverToPartyDataPlatformProductMasterBPPlantDatum:         "DeliverToPartyDataPlatformProductMasterBPPlantDatum",
 	DeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum:       "DeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum",
 	SafetyDurationUnitDataPlatformQuantityUnitQuantityUnitDatum: "SafetyDurationUnitDataPlatformQuantityUnitQuantityUnitDatum",
 	BuyerDataPlatformSCRDeliveryPlantRelationDatum:              "BuyerDataPlatformSCRDeliveryPlantRelationDatum",
-	BuyerDataPlatformOrdersItemData:                             "BuyerDataPlatformOrdersItemData",
 }
 
 // dataPlatformSCRDeliveryPlantRelationProductDatumR is where relationships are stored.
@@ -316,7 +314,6 @@ type dataPlatformSCRDeliveryPlantRelationProductDatumR struct {
 	DeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum       *DataPlatformQuantityUnitQuantityUnitDatum `boil:"DeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"DeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"DeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"DeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum"`
 	SafetyDurationUnitDataPlatformQuantityUnitQuantityUnitDatum *DataPlatformQuantityUnitQuantityUnitDatum `boil:"SafetyDurationUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"SafetyDurationUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"SafetyDurationUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"SafetyDurationUnitDataPlatformQuantityUnitQuantityUnitDatum"`
 	BuyerDataPlatformSCRDeliveryPlantRelationDatum              *DataPlatformSCRDeliveryPlantRelationDatum `boil:"BuyerDataPlatformSCRDeliveryPlantRelationDatum" json:"BuyerDataPlatformSCRDeliveryPlantRelationDatum" toml:"BuyerDataPlatformSCRDeliveryPlantRelationDatum" yaml:"BuyerDataPlatformSCRDeliveryPlantRelationDatum"`
-	BuyerDataPlatformOrdersItemData                             DataPlatformOrdersItemDatumSlice           `boil:"BuyerDataPlatformOrdersItemData" json:"BuyerDataPlatformOrdersItemData" toml:"BuyerDataPlatformOrdersItemData" yaml:"BuyerDataPlatformOrdersItemData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -350,13 +347,6 @@ func (r *dataPlatformSCRDeliveryPlantRelationProductDatumR) GetBuyerDataPlatform
 		return nil
 	}
 	return r.BuyerDataPlatformSCRDeliveryPlantRelationDatum
-}
-
-func (r *dataPlatformSCRDeliveryPlantRelationProductDatumR) GetBuyerDataPlatformOrdersItemData() DataPlatformOrdersItemDatumSlice {
-	if r == nil {
-		return nil
-	}
-	return r.BuyerDataPlatformOrdersItemData
 }
 
 // dataPlatformSCRDeliveryPlantRelationProductDatumL is where Load methods for each relationship are stored.
@@ -503,20 +493,6 @@ func (o *DataPlatformSCRDeliveryPlantRelationProductDatum) BuyerDataPlatformSCRD
 	queryMods = append(queryMods, mods...)
 
 	return DataPlatformSCRDeliveryPlantRelationData(queryMods...)
-}
-
-// BuyerDataPlatformOrdersItemData retrieves all the data_platform_orders_item_datum's DataPlatformOrdersItemData with an executor via Buyer column.
-func (o *DataPlatformSCRDeliveryPlantRelationProductDatum) BuyerDataPlatformOrdersItemData(mods ...qm.QueryMod) dataPlatformOrdersItemDatumQuery {
-	var queryMods []qm.QueryMod
-	if len(mods) != 0 {
-		queryMods = append(queryMods, mods...)
-	}
-
-	queryMods = append(queryMods,
-		qm.Where("`data_platform_orders_item_data`.`Buyer`=?", o.Buyer),
-	)
-
-	return DataPlatformOrdersItemData(queryMods...)
 }
 
 // LoadDeliverToPartyDataPlatformProductMasterBPPlantDatum allows an eager lookup of values, cached into the
@@ -939,103 +915,6 @@ func (dataPlatformSCRDeliveryPlantRelationProductDatumL) LoadBuyerDataPlatformSC
 	return nil
 }
 
-// LoadBuyerDataPlatformOrdersItemData allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformSCRDeliveryPlantRelationProductDatumL) LoadBuyerDataPlatformOrdersItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformSCRDeliveryPlantRelationProductDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformSCRDeliveryPlantRelationProductDatum
-	var object *DataPlatformSCRDeliveryPlantRelationProductDatum
-
-	if singular {
-		var ok bool
-		object, ok = maybeDataPlatformSCRDeliveryPlantRelationProductDatum.(*DataPlatformSCRDeliveryPlantRelationProductDatum)
-		if !ok {
-			object = new(DataPlatformSCRDeliveryPlantRelationProductDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformSCRDeliveryPlantRelationProductDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformSCRDeliveryPlantRelationProductDatum))
-			}
-		}
-	} else {
-		s, ok := maybeDataPlatformSCRDeliveryPlantRelationProductDatum.(*[]*DataPlatformSCRDeliveryPlantRelationProductDatum)
-		if ok {
-			slice = *s
-		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformSCRDeliveryPlantRelationProductDatum)
-			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformSCRDeliveryPlantRelationProductDatum))
-			}
-		}
-	}
-
-	args := make([]interface{}, 0, 1)
-	if singular {
-		if object.R == nil {
-			object.R = &dataPlatformSCRDeliveryPlantRelationProductDatumR{}
-		}
-		args = append(args, object.Buyer)
-	} else {
-	Outer:
-		for _, obj := range slice {
-			if obj.R == nil {
-				obj.R = &dataPlatformSCRDeliveryPlantRelationProductDatumR{}
-			}
-
-			for _, a := range args {
-				if a == obj.Buyer {
-					continue Outer
-				}
-			}
-
-			args = append(args, obj.Buyer)
-		}
-	}
-
-	if len(args) == 0 {
-		return nil
-	}
-
-	query := NewQuery(
-		qm.From(`data_platform_orders_item_data`),
-		qm.WhereIn(`data_platform_orders_item_data.Buyer in ?`, args...),
-	)
-	if mods != nil {
-		mods.Apply(query)
-	}
-
-	results, err := query.QueryContext(ctx, e)
-	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_orders_item_data")
-	}
-
-	var resultSlice []*DataPlatformOrdersItemDatum
-	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_item_data")
-	}
-
-	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_item_data")
-	}
-	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_item_data")
-	}
-
-	if singular {
-		object.R.BuyerDataPlatformOrdersItemData = resultSlice
-		return nil
-	}
-
-	for _, foreign := range resultSlice {
-		for _, local := range slice {
-			if local.Buyer == foreign.Buyer {
-				local.R.BuyerDataPlatformOrdersItemData = append(local.R.BuyerDataPlatformOrdersItemData, foreign)
-				break
-			}
-		}
-	}
-
-	return nil
-}
-
 // SetDeliverToPartyDataPlatformProductMasterBPPlantDatum of the dataPlatformSCRDeliveryPlantRelationProductDatum to the related item.
 // Sets o.R.DeliverToPartyDataPlatformProductMasterBPPlantDatum to related.
 func (o *DataPlatformSCRDeliveryPlantRelationProductDatum) SetDeliverToPartyDataPlatformProductMasterBPPlantDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformProductMasterBPPlantDatum) error {
@@ -1203,49 +1082,6 @@ func (o *DataPlatformSCRDeliveryPlantRelationProductDatum) SetBuyerDataPlatformS
 		}
 	} else {
 		o.R.BuyerDataPlatformSCRDeliveryPlantRelationDatum = related
-	}
-
-	return nil
-}
-
-// AddBuyerDataPlatformOrdersItemData adds the given related objects to the existing relationships
-// of the data_platform_scr_delivery_plant_relation_product_datum, optionally inserting them as new records.
-// Appends related to o.R.BuyerDataPlatformOrdersItemData.
-func (o *DataPlatformSCRDeliveryPlantRelationProductDatum) AddBuyerDataPlatformOrdersItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemDatum) error {
-	var err error
-	for _, rel := range related {
-		if insert {
-			rel.Buyer = o.Buyer
-			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
-				return errors.Wrap(err, "failed to insert into foreign table")
-			}
-		} else {
-			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_orders_item_data` SET %s WHERE %s",
-				strmangle.SetParamNames("`", "`", 0, []string{"Buyer"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersItemDatumPrimaryKeyColumns),
-			)
-			values := []interface{}{o.Buyer, rel.OrderID, rel.OrderItem}
-
-			if boil.IsDebug(ctx) {
-				writer := boil.DebugWriterFrom(ctx)
-				fmt.Fprintln(writer, updateQuery)
-				fmt.Fprintln(writer, values)
-			}
-			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-				return errors.Wrap(err, "failed to update foreign table")
-			}
-
-			rel.Buyer = o.Buyer
-		}
-	}
-
-	if o.R == nil {
-		o.R = &dataPlatformSCRDeliveryPlantRelationProductDatumR{
-			BuyerDataPlatformOrdersItemData: related,
-		}
-	} else {
-		o.R.BuyerDataPlatformOrdersItemData = append(o.R.BuyerDataPlatformOrdersItemData, related...)
 	}
 
 	return nil

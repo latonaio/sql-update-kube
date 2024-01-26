@@ -24,145 +24,160 @@ import (
 
 // DataPlatformInspectionPlanHeaderDatum is an object representing the database table.
 type DataPlatformInspectionPlanHeaderDatum struct {
+	InspectionPlan                 int         `boil:"InspectionPlan" json:"InspectionPlan" toml:"InspectionPlan" yaml:"InspectionPlan"`
 	InspectionPlantBusinessPartner int         `boil:"InspectionPlantBusinessPartner" json:"InspectionPlantBusinessPartner" toml:"InspectionPlantBusinessPartner" yaml:"InspectionPlantBusinessPartner"`
 	InspectionPlant                string      `boil:"InspectionPlant" json:"InspectionPlant" toml:"InspectionPlant" yaml:"InspectionPlant"`
-	InspectionPlan                 int         `boil:"InspectionPlan" json:"InspectionPlan" toml:"InspectionPlan" yaml:"InspectionPlan"`
-	InspectionPlanGroup            int         `boil:"InspectionPlanGroup" json:"InspectionPlanGroup" toml:"InspectionPlanGroup" yaml:"InspectionPlanGroup"`
-	InspectionPlanInternalVersion  int         `boil:"InspectionPlanInternalVersion" json:"InspectionPlanInternalVersion" toml:"InspectionPlanInternalVersion" yaml:"InspectionPlanInternalVersion"`
+	Product                        null.String `boil:"Product" json:"Product,omitempty" toml:"Product" yaml:"Product,omitempty"`
 	ValidityStartDate              null.String `boil:"ValidityStartDate" json:"ValidityStartDate,omitempty" toml:"ValidityStartDate" yaml:"ValidityStartDate,omitempty"`
 	ValidityEndDate                null.String `boil:"ValidityEndDate" json:"ValidityEndDate,omitempty" toml:"ValidityEndDate" yaml:"ValidityEndDate,omitempty"`
-	Product                        null.String `boil:"Product" json:"Product,omitempty" toml:"Product" yaml:"Product,omitempty"`
-	InspectionPlanText             null.String `boil:"InspectionPlanText" json:"InspectionPlanText,omitempty" toml:"InspectionPlanText" yaml:"InspectionPlanText,omitempty"`
-	CreationDate                   null.String `boil:"CreationDate" json:"CreationDate,omitempty" toml:"CreationDate" yaml:"CreationDate,omitempty"`
-	LastChangeDate                 null.String `boil:"LastChangeDate" json:"LastChangeDate,omitempty" toml:"LastChangeDate" yaml:"LastChangeDate,omitempty"`
+	ProductSpecification           null.String `boil:"ProductSpecification" json:"ProductSpecification,omitempty" toml:"ProductSpecification" yaml:"ProductSpecification,omitempty"`
+	InspectionSpecification        null.String `boil:"InspectionSpecification" json:"InspectionSpecification,omitempty" toml:"InspectionSpecification" yaml:"InspectionSpecification,omitempty"`
+	InspectionPlanHeaderText       null.String `boil:"InspectionPlanHeaderText" json:"InspectionPlanHeaderText,omitempty" toml:"InspectionPlanHeaderText" yaml:"InspectionPlanHeaderText,omitempty"`
+	CertificateAuthorityChain      null.String `boil:"CertificateAuthorityChain" json:"CertificateAuthorityChain,omitempty" toml:"CertificateAuthorityChain" yaml:"CertificateAuthorityChain,omitempty"`
+	UsageControlChain              null.String `boil:"UsageControlChain" json:"UsageControlChain,omitempty" toml:"UsageControlChain" yaml:"UsageControlChain,omitempty"`
+	CreationDate                   string      `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
+	LastChangeDate                 string      `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
 	IsMarkedForDeletion            null.Bool   `boil:"IsMarkedForDeletion" json:"IsMarkedForDeletion,omitempty" toml:"IsMarkedForDeletion" yaml:"IsMarkedForDeletion,omitempty"`
-	BusinessPartner                null.Int    `boil:"BusinessPartner" json:"BusinessPartner,omitempty" toml:"BusinessPartner" yaml:"BusinessPartner,omitempty"`
-	Plant                          null.String `boil:"Plant" json:"Plant,omitempty" toml:"Plant" yaml:"Plant,omitempty"`
 
 	R *dataPlatformInspectionPlanHeaderDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
 	L dataPlatformInspectionPlanHeaderDatumL  `boil:"-" json:"-" toml:"-" yaml:"-"`
 }
 
 var DataPlatformInspectionPlanHeaderDatumColumns = struct {
+	InspectionPlan                 string
 	InspectionPlantBusinessPartner string
 	InspectionPlant                string
-	InspectionPlan                 string
-	InspectionPlanGroup            string
-	InspectionPlanInternalVersion  string
+	Product                        string
 	ValidityStartDate              string
 	ValidityEndDate                string
-	Product                        string
-	InspectionPlanText             string
+	ProductSpecification           string
+	InspectionSpecification        string
+	InspectionPlanHeaderText       string
+	CertificateAuthorityChain      string
+	UsageControlChain              string
 	CreationDate                   string
 	LastChangeDate                 string
 	IsMarkedForDeletion            string
-	BusinessPartner                string
-	Plant                          string
 }{
+	InspectionPlan:                 "InspectionPlan",
 	InspectionPlantBusinessPartner: "InspectionPlantBusinessPartner",
 	InspectionPlant:                "InspectionPlant",
-	InspectionPlan:                 "InspectionPlan",
-	InspectionPlanGroup:            "InspectionPlanGroup",
-	InspectionPlanInternalVersion:  "InspectionPlanInternalVersion",
+	Product:                        "Product",
 	ValidityStartDate:              "ValidityStartDate",
 	ValidityEndDate:                "ValidityEndDate",
-	Product:                        "Product",
-	InspectionPlanText:             "InspectionPlanText",
+	ProductSpecification:           "ProductSpecification",
+	InspectionSpecification:        "InspectionSpecification",
+	InspectionPlanHeaderText:       "InspectionPlanHeaderText",
+	CertificateAuthorityChain:      "CertificateAuthorityChain",
+	UsageControlChain:              "UsageControlChain",
 	CreationDate:                   "CreationDate",
 	LastChangeDate:                 "LastChangeDate",
 	IsMarkedForDeletion:            "IsMarkedForDeletion",
-	BusinessPartner:                "BusinessPartner",
-	Plant:                          "Plant",
 }
 
 var DataPlatformInspectionPlanHeaderDatumTableColumns = struct {
+	InspectionPlan                 string
 	InspectionPlantBusinessPartner string
 	InspectionPlant                string
-	InspectionPlan                 string
-	InspectionPlanGroup            string
-	InspectionPlanInternalVersion  string
+	Product                        string
 	ValidityStartDate              string
 	ValidityEndDate                string
-	Product                        string
-	InspectionPlanText             string
+	ProductSpecification           string
+	InspectionSpecification        string
+	InspectionPlanHeaderText       string
+	CertificateAuthorityChain      string
+	UsageControlChain              string
 	CreationDate                   string
 	LastChangeDate                 string
 	IsMarkedForDeletion            string
-	BusinessPartner                string
-	Plant                          string
 }{
+	InspectionPlan:                 "data_platform_inspection_plan_header_data.InspectionPlan",
 	InspectionPlantBusinessPartner: "data_platform_inspection_plan_header_data.InspectionPlantBusinessPartner",
 	InspectionPlant:                "data_platform_inspection_plan_header_data.InspectionPlant",
-	InspectionPlan:                 "data_platform_inspection_plan_header_data.InspectionPlan",
-	InspectionPlanGroup:            "data_platform_inspection_plan_header_data.InspectionPlanGroup",
-	InspectionPlanInternalVersion:  "data_platform_inspection_plan_header_data.InspectionPlanInternalVersion",
+	Product:                        "data_platform_inspection_plan_header_data.Product",
 	ValidityStartDate:              "data_platform_inspection_plan_header_data.ValidityStartDate",
 	ValidityEndDate:                "data_platform_inspection_plan_header_data.ValidityEndDate",
-	Product:                        "data_platform_inspection_plan_header_data.Product",
-	InspectionPlanText:             "data_platform_inspection_plan_header_data.InspectionPlanText",
+	ProductSpecification:           "data_platform_inspection_plan_header_data.ProductSpecification",
+	InspectionSpecification:        "data_platform_inspection_plan_header_data.InspectionSpecification",
+	InspectionPlanHeaderText:       "data_platform_inspection_plan_header_data.InspectionPlanHeaderText",
+	CertificateAuthorityChain:      "data_platform_inspection_plan_header_data.CertificateAuthorityChain",
+	UsageControlChain:              "data_platform_inspection_plan_header_data.UsageControlChain",
 	CreationDate:                   "data_platform_inspection_plan_header_data.CreationDate",
 	LastChangeDate:                 "data_platform_inspection_plan_header_data.LastChangeDate",
 	IsMarkedForDeletion:            "data_platform_inspection_plan_header_data.IsMarkedForDeletion",
-	BusinessPartner:                "data_platform_inspection_plan_header_data.BusinessPartner",
-	Plant:                          "data_platform_inspection_plan_header_data.Plant",
 }
 
 // Generated where
 
 var DataPlatformInspectionPlanHeaderDatumWhere = struct {
+	InspectionPlan                 whereHelperint
 	InspectionPlantBusinessPartner whereHelperint
 	InspectionPlant                whereHelperstring
-	InspectionPlan                 whereHelperint
-	InspectionPlanGroup            whereHelperint
-	InspectionPlanInternalVersion  whereHelperint
+	Product                        whereHelpernull_String
 	ValidityStartDate              whereHelpernull_String
 	ValidityEndDate                whereHelpernull_String
-	Product                        whereHelpernull_String
-	InspectionPlanText             whereHelpernull_String
-	CreationDate                   whereHelpernull_String
-	LastChangeDate                 whereHelpernull_String
+	ProductSpecification           whereHelpernull_String
+	InspectionSpecification        whereHelpernull_String
+	InspectionPlanHeaderText       whereHelpernull_String
+	CertificateAuthorityChain      whereHelpernull_String
+	UsageControlChain              whereHelpernull_String
+	CreationDate                   whereHelperstring
+	LastChangeDate                 whereHelperstring
 	IsMarkedForDeletion            whereHelpernull_Bool
-	BusinessPartner                whereHelpernull_Int
-	Plant                          whereHelpernull_String
 }{
+	InspectionPlan:                 whereHelperint{field: "`data_platform_inspection_plan_header_data`.`InspectionPlan`"},
 	InspectionPlantBusinessPartner: whereHelperint{field: "`data_platform_inspection_plan_header_data`.`InspectionPlantBusinessPartner`"},
 	InspectionPlant:                whereHelperstring{field: "`data_platform_inspection_plan_header_data`.`InspectionPlant`"},
-	InspectionPlan:                 whereHelperint{field: "`data_platform_inspection_plan_header_data`.`InspectionPlan`"},
-	InspectionPlanGroup:            whereHelperint{field: "`data_platform_inspection_plan_header_data`.`InspectionPlanGroup`"},
-	InspectionPlanInternalVersion:  whereHelperint{field: "`data_platform_inspection_plan_header_data`.`InspectionPlanInternalVersion`"},
+	Product:                        whereHelpernull_String{field: "`data_platform_inspection_plan_header_data`.`Product`"},
 	ValidityStartDate:              whereHelpernull_String{field: "`data_platform_inspection_plan_header_data`.`ValidityStartDate`"},
 	ValidityEndDate:                whereHelpernull_String{field: "`data_platform_inspection_plan_header_data`.`ValidityEndDate`"},
-	Product:                        whereHelpernull_String{field: "`data_platform_inspection_plan_header_data`.`Product`"},
-	InspectionPlanText:             whereHelpernull_String{field: "`data_platform_inspection_plan_header_data`.`InspectionPlanText`"},
-	CreationDate:                   whereHelpernull_String{field: "`data_platform_inspection_plan_header_data`.`CreationDate`"},
-	LastChangeDate:                 whereHelpernull_String{field: "`data_platform_inspection_plan_header_data`.`LastChangeDate`"},
+	ProductSpecification:           whereHelpernull_String{field: "`data_platform_inspection_plan_header_data`.`ProductSpecification`"},
+	InspectionSpecification:        whereHelpernull_String{field: "`data_platform_inspection_plan_header_data`.`InspectionSpecification`"},
+	InspectionPlanHeaderText:       whereHelpernull_String{field: "`data_platform_inspection_plan_header_data`.`InspectionPlanHeaderText`"},
+	CertificateAuthorityChain:      whereHelpernull_String{field: "`data_platform_inspection_plan_header_data`.`CertificateAuthorityChain`"},
+	UsageControlChain:              whereHelpernull_String{field: "`data_platform_inspection_plan_header_data`.`UsageControlChain`"},
+	CreationDate:                   whereHelperstring{field: "`data_platform_inspection_plan_header_data`.`CreationDate`"},
+	LastChangeDate:                 whereHelperstring{field: "`data_platform_inspection_plan_header_data`.`LastChangeDate`"},
 	IsMarkedForDeletion:            whereHelpernull_Bool{field: "`data_platform_inspection_plan_header_data`.`IsMarkedForDeletion`"},
-	BusinessPartner:                whereHelpernull_Int{field: "`data_platform_inspection_plan_header_data`.`BusinessPartner`"},
-	Plant:                          whereHelpernull_String{field: "`data_platform_inspection_plan_header_data`.`Plant`"},
 }
 
 // DataPlatformInspectionPlanHeaderDatumRels is where relationship names are stored.
 var DataPlatformInspectionPlanHeaderDatumRels = struct {
-	ProductDataPlatformProductMasterGeneralDatum          string
-	InspectionPlantDataPlatformPlantGeneralDatum          string
-	InspectionPlanDataPlatformInspectionPlanOperationData string
-	InspectionPlanDataPlatformInspectionPlanSpecData      string
-	InspectionPlanDataPlatformInspectionPlanTaskListData  string
+	InspectionPlantDataPlatformProductMasterQualityDatum             string
+	InspectionPlantDataPlatformPlantGeneralDatum                     string
+	InspectionPlanDataPlatformInspectionPlanSpecGeneralDatum         string
+	InspectionPlanDataPlatformDeliveryDocumentItemData               string
+	InspectionPlanDataPlatformInspectionLotHeaderData                string
+	InspectionPlanDataPlatformInspectionPlanComponentCompositionData string
+	InspectionPlanDataPlatformInspectionPlanHeaderDocData            string
+	InspectionPlanDataPlatformInspectionPlanInspectionData           string
+	InspectionPlanDataPlatformInspectionPlanSpecDetailData           string
+	InspectionPlanDataPlatformOrdersItemData                         string
 }{
-	ProductDataPlatformProductMasterGeneralDatum:          "ProductDataPlatformProductMasterGeneralDatum",
-	InspectionPlantDataPlatformPlantGeneralDatum:          "InspectionPlantDataPlatformPlantGeneralDatum",
-	InspectionPlanDataPlatformInspectionPlanOperationData: "InspectionPlanDataPlatformInspectionPlanOperationData",
-	InspectionPlanDataPlatformInspectionPlanSpecData:      "InspectionPlanDataPlatformInspectionPlanSpecData",
-	InspectionPlanDataPlatformInspectionPlanTaskListData:  "InspectionPlanDataPlatformInspectionPlanTaskListData",
+	InspectionPlantDataPlatformProductMasterQualityDatum:             "InspectionPlantDataPlatformProductMasterQualityDatum",
+	InspectionPlantDataPlatformPlantGeneralDatum:                     "InspectionPlantDataPlatformPlantGeneralDatum",
+	InspectionPlanDataPlatformInspectionPlanSpecGeneralDatum:         "InspectionPlanDataPlatformInspectionPlanSpecGeneralDatum",
+	InspectionPlanDataPlatformDeliveryDocumentItemData:               "InspectionPlanDataPlatformDeliveryDocumentItemData",
+	InspectionPlanDataPlatformInspectionLotHeaderData:                "InspectionPlanDataPlatformInspectionLotHeaderData",
+	InspectionPlanDataPlatformInspectionPlanComponentCompositionData: "InspectionPlanDataPlatformInspectionPlanComponentCompositionData",
+	InspectionPlanDataPlatformInspectionPlanHeaderDocData:            "InspectionPlanDataPlatformInspectionPlanHeaderDocData",
+	InspectionPlanDataPlatformInspectionPlanInspectionData:           "InspectionPlanDataPlatformInspectionPlanInspectionData",
+	InspectionPlanDataPlatformInspectionPlanSpecDetailData:           "InspectionPlanDataPlatformInspectionPlanSpecDetailData",
+	InspectionPlanDataPlatformOrdersItemData:                         "InspectionPlanDataPlatformOrdersItemData",
 }
 
 // dataPlatformInspectionPlanHeaderDatumR is where relationships are stored.
 type dataPlatformInspectionPlanHeaderDatumR struct {
-	ProductDataPlatformProductMasterGeneralDatum          *DataPlatformProductMasterGeneralDatum        `boil:"ProductDataPlatformProductMasterGeneralDatum" json:"ProductDataPlatformProductMasterGeneralDatum" toml:"ProductDataPlatformProductMasterGeneralDatum" yaml:"ProductDataPlatformProductMasterGeneralDatum"`
-	InspectionPlantDataPlatformPlantGeneralDatum          *DataPlatformPlantGeneralDatum                `boil:"InspectionPlantDataPlatformPlantGeneralDatum" json:"InspectionPlantDataPlatformPlantGeneralDatum" toml:"InspectionPlantDataPlatformPlantGeneralDatum" yaml:"InspectionPlantDataPlatformPlantGeneralDatum"`
-	InspectionPlanDataPlatformInspectionPlanOperationData DataPlatformInspectionPlanOperationDatumSlice `boil:"InspectionPlanDataPlatformInspectionPlanOperationData" json:"InspectionPlanDataPlatformInspectionPlanOperationData" toml:"InspectionPlanDataPlatformInspectionPlanOperationData" yaml:"InspectionPlanDataPlatformInspectionPlanOperationData"`
-	InspectionPlanDataPlatformInspectionPlanSpecData      DataPlatformInspectionPlanSpecDatumSlice      `boil:"InspectionPlanDataPlatformInspectionPlanSpecData" json:"InspectionPlanDataPlatformInspectionPlanSpecData" toml:"InspectionPlanDataPlatformInspectionPlanSpecData" yaml:"InspectionPlanDataPlatformInspectionPlanSpecData"`
-	InspectionPlanDataPlatformInspectionPlanTaskListData  DataPlatformInspectionPlanTaskListDatumSlice  `boil:"InspectionPlanDataPlatformInspectionPlanTaskListData" json:"InspectionPlanDataPlatformInspectionPlanTaskListData" toml:"InspectionPlanDataPlatformInspectionPlanTaskListData" yaml:"InspectionPlanDataPlatformInspectionPlanTaskListData"`
+	InspectionPlantDataPlatformProductMasterQualityDatum             *DataPlatformProductMasterQualityDatum                   `boil:"InspectionPlantDataPlatformProductMasterQualityDatum" json:"InspectionPlantDataPlatformProductMasterQualityDatum" toml:"InspectionPlantDataPlatformProductMasterQualityDatum" yaml:"InspectionPlantDataPlatformProductMasterQualityDatum"`
+	InspectionPlantDataPlatformPlantGeneralDatum                     *DataPlatformPlantGeneralDatum                           `boil:"InspectionPlantDataPlatformPlantGeneralDatum" json:"InspectionPlantDataPlatformPlantGeneralDatum" toml:"InspectionPlantDataPlatformPlantGeneralDatum" yaml:"InspectionPlantDataPlatformPlantGeneralDatum"`
+	InspectionPlanDataPlatformInspectionPlanSpecGeneralDatum         *DataPlatformInspectionPlanSpecGeneralDatum              `boil:"InspectionPlanDataPlatformInspectionPlanSpecGeneralDatum" json:"InspectionPlanDataPlatformInspectionPlanSpecGeneralDatum" toml:"InspectionPlanDataPlatformInspectionPlanSpecGeneralDatum" yaml:"InspectionPlanDataPlatformInspectionPlanSpecGeneralDatum"`
+	InspectionPlanDataPlatformDeliveryDocumentItemData               DataPlatformDeliveryDocumentItemDatumSlice               `boil:"InspectionPlanDataPlatformDeliveryDocumentItemData" json:"InspectionPlanDataPlatformDeliveryDocumentItemData" toml:"InspectionPlanDataPlatformDeliveryDocumentItemData" yaml:"InspectionPlanDataPlatformDeliveryDocumentItemData"`
+	InspectionPlanDataPlatformInspectionLotHeaderData                DataPlatformInspectionLotHeaderDatumSlice                `boil:"InspectionPlanDataPlatformInspectionLotHeaderData" json:"InspectionPlanDataPlatformInspectionLotHeaderData" toml:"InspectionPlanDataPlatformInspectionLotHeaderData" yaml:"InspectionPlanDataPlatformInspectionLotHeaderData"`
+	InspectionPlanDataPlatformInspectionPlanComponentCompositionData DataPlatformInspectionPlanComponentCompositionDatumSlice `boil:"InspectionPlanDataPlatformInspectionPlanComponentCompositionData" json:"InspectionPlanDataPlatformInspectionPlanComponentCompositionData" toml:"InspectionPlanDataPlatformInspectionPlanComponentCompositionData" yaml:"InspectionPlanDataPlatformInspectionPlanComponentCompositionData"`
+	InspectionPlanDataPlatformInspectionPlanHeaderDocData            DataPlatformInspectionPlanHeaderDocDatumSlice            `boil:"InspectionPlanDataPlatformInspectionPlanHeaderDocData" json:"InspectionPlanDataPlatformInspectionPlanHeaderDocData" toml:"InspectionPlanDataPlatformInspectionPlanHeaderDocData" yaml:"InspectionPlanDataPlatformInspectionPlanHeaderDocData"`
+	InspectionPlanDataPlatformInspectionPlanInspectionData           DataPlatformInspectionPlanInspectionDatumSlice           `boil:"InspectionPlanDataPlatformInspectionPlanInspectionData" json:"InspectionPlanDataPlatformInspectionPlanInspectionData" toml:"InspectionPlanDataPlatformInspectionPlanInspectionData" yaml:"InspectionPlanDataPlatformInspectionPlanInspectionData"`
+	InspectionPlanDataPlatformInspectionPlanSpecDetailData           DataPlatformInspectionPlanSpecDetailDatumSlice           `boil:"InspectionPlanDataPlatformInspectionPlanSpecDetailData" json:"InspectionPlanDataPlatformInspectionPlanSpecDetailData" toml:"InspectionPlanDataPlatformInspectionPlanSpecDetailData" yaml:"InspectionPlanDataPlatformInspectionPlanSpecDetailData"`
+	InspectionPlanDataPlatformOrdersItemData                         DataPlatformOrdersItemDatumSlice                         `boil:"InspectionPlanDataPlatformOrdersItemData" json:"InspectionPlanDataPlatformOrdersItemData" toml:"InspectionPlanDataPlatformOrdersItemData" yaml:"InspectionPlanDataPlatformOrdersItemData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -170,11 +185,11 @@ func (*dataPlatformInspectionPlanHeaderDatumR) NewStruct() *dataPlatformInspecti
 	return &dataPlatformInspectionPlanHeaderDatumR{}
 }
 
-func (r *dataPlatformInspectionPlanHeaderDatumR) GetProductDataPlatformProductMasterGeneralDatum() *DataPlatformProductMasterGeneralDatum {
+func (r *dataPlatformInspectionPlanHeaderDatumR) GetInspectionPlantDataPlatformProductMasterQualityDatum() *DataPlatformProductMasterQualityDatum {
 	if r == nil {
 		return nil
 	}
-	return r.ProductDataPlatformProductMasterGeneralDatum
+	return r.InspectionPlantDataPlatformProductMasterQualityDatum
 }
 
 func (r *dataPlatformInspectionPlanHeaderDatumR) GetInspectionPlantDataPlatformPlantGeneralDatum() *DataPlatformPlantGeneralDatum {
@@ -184,35 +199,70 @@ func (r *dataPlatformInspectionPlanHeaderDatumR) GetInspectionPlantDataPlatformP
 	return r.InspectionPlantDataPlatformPlantGeneralDatum
 }
 
-func (r *dataPlatformInspectionPlanHeaderDatumR) GetInspectionPlanDataPlatformInspectionPlanOperationData() DataPlatformInspectionPlanOperationDatumSlice {
+func (r *dataPlatformInspectionPlanHeaderDatumR) GetInspectionPlanDataPlatformInspectionPlanSpecGeneralDatum() *DataPlatformInspectionPlanSpecGeneralDatum {
 	if r == nil {
 		return nil
 	}
-	return r.InspectionPlanDataPlatformInspectionPlanOperationData
+	return r.InspectionPlanDataPlatformInspectionPlanSpecGeneralDatum
 }
 
-func (r *dataPlatformInspectionPlanHeaderDatumR) GetInspectionPlanDataPlatformInspectionPlanSpecData() DataPlatformInspectionPlanSpecDatumSlice {
+func (r *dataPlatformInspectionPlanHeaderDatumR) GetInspectionPlanDataPlatformDeliveryDocumentItemData() DataPlatformDeliveryDocumentItemDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.InspectionPlanDataPlatformInspectionPlanSpecData
+	return r.InspectionPlanDataPlatformDeliveryDocumentItemData
 }
 
-func (r *dataPlatformInspectionPlanHeaderDatumR) GetInspectionPlanDataPlatformInspectionPlanTaskListData() DataPlatformInspectionPlanTaskListDatumSlice {
+func (r *dataPlatformInspectionPlanHeaderDatumR) GetInspectionPlanDataPlatformInspectionLotHeaderData() DataPlatformInspectionLotHeaderDatumSlice {
 	if r == nil {
 		return nil
 	}
-	return r.InspectionPlanDataPlatformInspectionPlanTaskListData
+	return r.InspectionPlanDataPlatformInspectionLotHeaderData
+}
+
+func (r *dataPlatformInspectionPlanHeaderDatumR) GetInspectionPlanDataPlatformInspectionPlanComponentCompositionData() DataPlatformInspectionPlanComponentCompositionDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.InspectionPlanDataPlatformInspectionPlanComponentCompositionData
+}
+
+func (r *dataPlatformInspectionPlanHeaderDatumR) GetInspectionPlanDataPlatformInspectionPlanHeaderDocData() DataPlatformInspectionPlanHeaderDocDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.InspectionPlanDataPlatformInspectionPlanHeaderDocData
+}
+
+func (r *dataPlatformInspectionPlanHeaderDatumR) GetInspectionPlanDataPlatformInspectionPlanInspectionData() DataPlatformInspectionPlanInspectionDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.InspectionPlanDataPlatformInspectionPlanInspectionData
+}
+
+func (r *dataPlatformInspectionPlanHeaderDatumR) GetInspectionPlanDataPlatformInspectionPlanSpecDetailData() DataPlatformInspectionPlanSpecDetailDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.InspectionPlanDataPlatformInspectionPlanSpecDetailData
+}
+
+func (r *dataPlatformInspectionPlanHeaderDatumR) GetInspectionPlanDataPlatformOrdersItemData() DataPlatformOrdersItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.InspectionPlanDataPlatformOrdersItemData
 }
 
 // dataPlatformInspectionPlanHeaderDatumL is where Load methods for each relationship are stored.
 type dataPlatformInspectionPlanHeaderDatumL struct{}
 
 var (
-	dataPlatformInspectionPlanHeaderDatumAllColumns            = []string{"InspectionPlantBusinessPartner", "InspectionPlant", "InspectionPlan", "InspectionPlanGroup", "InspectionPlanInternalVersion", "ValidityStartDate", "ValidityEndDate", "Product", "InspectionPlanText", "CreationDate", "LastChangeDate", "IsMarkedForDeletion", "BusinessPartner", "Plant"}
-	dataPlatformInspectionPlanHeaderDatumColumnsWithoutDefault = []string{"InspectionPlantBusinessPartner", "InspectionPlant", "InspectionPlan", "InspectionPlanGroup", "InspectionPlanInternalVersion", "ValidityStartDate", "ValidityEndDate", "Product", "InspectionPlanText", "CreationDate", "LastChangeDate", "IsMarkedForDeletion", "BusinessPartner", "Plant"}
+	dataPlatformInspectionPlanHeaderDatumAllColumns            = []string{"InspectionPlan", "InspectionPlantBusinessPartner", "InspectionPlant", "Product", "ValidityStartDate", "ValidityEndDate", "ProductSpecification", "InspectionSpecification", "InspectionPlanHeaderText", "CertificateAuthorityChain", "UsageControlChain", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
+	dataPlatformInspectionPlanHeaderDatumColumnsWithoutDefault = []string{"InspectionPlan", "InspectionPlantBusinessPartner", "InspectionPlant", "Product", "ValidityStartDate", "ValidityEndDate", "ProductSpecification", "InspectionSpecification", "InspectionPlanHeaderText", "CertificateAuthorityChain", "UsageControlChain", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
 	dataPlatformInspectionPlanHeaderDatumColumnsWithDefault    = []string{}
-	dataPlatformInspectionPlanHeaderDatumPrimaryKeyColumns     = []string{"InspectionPlantBusinessPartner", "InspectionPlant", "InspectionPlan", "InspectionPlanGroup", "InspectionPlanInternalVersion"}
+	dataPlatformInspectionPlanHeaderDatumPrimaryKeyColumns     = []string{"InspectionPlan"}
 	dataPlatformInspectionPlanHeaderDatumGeneratedColumns      = []string{}
 )
 
@@ -307,15 +357,15 @@ func (q dataPlatformInspectionPlanHeaderDatumQuery) Exists(ctx context.Context, 
 	return count > 0, nil
 }
 
-// ProductDataPlatformProductMasterGeneralDatum pointed to by the foreign key.
-func (o *DataPlatformInspectionPlanHeaderDatum) ProductDataPlatformProductMasterGeneralDatum(mods ...qm.QueryMod) dataPlatformProductMasterGeneralDatumQuery {
+// InspectionPlantDataPlatformProductMasterQualityDatum pointed to by the foreign key.
+func (o *DataPlatformInspectionPlanHeaderDatum) InspectionPlantDataPlatformProductMasterQualityDatum(mods ...qm.QueryMod) dataPlatformProductMasterQualityDatumQuery {
 	queryMods := []qm.QueryMod{
-		qm.Where("`Product` = ?", o.Product),
+		qm.Where("`Plant` = ?", o.InspectionPlant),
 	}
 
 	queryMods = append(queryMods, mods...)
 
-	return DataPlatformProductMasterGeneralData(queryMods...)
+	return DataPlatformProductMasterQualityData(queryMods...)
 }
 
 // InspectionPlantDataPlatformPlantGeneralDatum pointed to by the foreign key.
@@ -329,51 +379,118 @@ func (o *DataPlatformInspectionPlanHeaderDatum) InspectionPlantDataPlatformPlant
 	return DataPlatformPlantGeneralData(queryMods...)
 }
 
-// InspectionPlanDataPlatformInspectionPlanOperationData retrieves all the data_platform_inspection_plan_operation_datum's DataPlatformInspectionPlanOperationData with an executor via InspectionPlan column.
-func (o *DataPlatformInspectionPlanHeaderDatum) InspectionPlanDataPlatformInspectionPlanOperationData(mods ...qm.QueryMod) dataPlatformInspectionPlanOperationDatumQuery {
+// InspectionPlanDataPlatformInspectionPlanSpecGeneralDatum pointed to by the foreign key.
+func (o *DataPlatformInspectionPlanHeaderDatum) InspectionPlanDataPlatformInspectionPlanSpecGeneralDatum(mods ...qm.QueryMod) dataPlatformInspectionPlanSpecGeneralDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`InspectionPlan` = ?", o.InspectionPlan),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformInspectionPlanSpecGeneralData(queryMods...)
+}
+
+// InspectionPlanDataPlatformDeliveryDocumentItemData retrieves all the data_platform_delivery_document_item_datum's DataPlatformDeliveryDocumentItemData with an executor via InspectionPlan column.
+func (o *DataPlatformInspectionPlanHeaderDatum) InspectionPlanDataPlatformDeliveryDocumentItemData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentItemDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_inspection_plan_operation_data`.`InspectionPlan`=?", o.InspectionPlan),
+		qm.Where("`data_platform_delivery_document_item_data`.`InspectionPlan`=?", o.InspectionPlan),
 	)
 
-	return DataPlatformInspectionPlanOperationData(queryMods...)
+	return DataPlatformDeliveryDocumentItemData(queryMods...)
 }
 
-// InspectionPlanDataPlatformInspectionPlanSpecData retrieves all the data_platform_inspection_plan_spec_datum's DataPlatformInspectionPlanSpecData with an executor via InspectionPlan column.
-func (o *DataPlatformInspectionPlanHeaderDatum) InspectionPlanDataPlatformInspectionPlanSpecData(mods ...qm.QueryMod) dataPlatformInspectionPlanSpecDatumQuery {
+// InspectionPlanDataPlatformInspectionLotHeaderData retrieves all the data_platform_inspection_lot_header_datum's DataPlatformInspectionLotHeaderData with an executor via InspectionPlan column.
+func (o *DataPlatformInspectionPlanHeaderDatum) InspectionPlanDataPlatformInspectionLotHeaderData(mods ...qm.QueryMod) dataPlatformInspectionLotHeaderDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_inspection_plan_spec_data`.`InspectionPlan`=?", o.InspectionPlan),
+		qm.Where("`data_platform_inspection_lot_header_data`.`InspectionPlan`=?", o.InspectionPlan),
 	)
 
-	return DataPlatformInspectionPlanSpecData(queryMods...)
+	return DataPlatformInspectionLotHeaderData(queryMods...)
 }
 
-// InspectionPlanDataPlatformInspectionPlanTaskListData retrieves all the data_platform_inspection_plan_task_list_datum's DataPlatformInspectionPlanTaskListData with an executor via InspectionPlan column.
-func (o *DataPlatformInspectionPlanHeaderDatum) InspectionPlanDataPlatformInspectionPlanTaskListData(mods ...qm.QueryMod) dataPlatformInspectionPlanTaskListDatumQuery {
+// InspectionPlanDataPlatformInspectionPlanComponentCompositionData retrieves all the data_platform_inspection_plan_component_composition_datum's DataPlatformInspectionPlanComponentCompositionData with an executor via InspectionPlan column.
+func (o *DataPlatformInspectionPlanHeaderDatum) InspectionPlanDataPlatformInspectionPlanComponentCompositionData(mods ...qm.QueryMod) dataPlatformInspectionPlanComponentCompositionDatumQuery {
 	var queryMods []qm.QueryMod
 	if len(mods) != 0 {
 		queryMods = append(queryMods, mods...)
 	}
 
 	queryMods = append(queryMods,
-		qm.Where("`data_platform_inspection_plan_task_list_data`.`InspectionPlan`=?", o.InspectionPlan),
+		qm.Where("`data_platform_inspection_plan_component_composition_data`.`InspectionPlan`=?", o.InspectionPlan),
 	)
 
-	return DataPlatformInspectionPlanTaskListData(queryMods...)
+	return DataPlatformInspectionPlanComponentCompositionData(queryMods...)
 }
 
-// LoadProductDataPlatformProductMasterGeneralDatum allows an eager lookup of values, cached into the
+// InspectionPlanDataPlatformInspectionPlanHeaderDocData retrieves all the data_platform_inspection_plan_header_doc_datum's DataPlatformInspectionPlanHeaderDocData with an executor via InspectionPlan column.
+func (o *DataPlatformInspectionPlanHeaderDatum) InspectionPlanDataPlatformInspectionPlanHeaderDocData(mods ...qm.QueryMod) dataPlatformInspectionPlanHeaderDocDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_inspection_plan_header_doc_data`.`InspectionPlan`=?", o.InspectionPlan),
+	)
+
+	return DataPlatformInspectionPlanHeaderDocData(queryMods...)
+}
+
+// InspectionPlanDataPlatformInspectionPlanInspectionData retrieves all the data_platform_inspection_plan_inspection_datum's DataPlatformInspectionPlanInspectionData with an executor via InspectionPlan column.
+func (o *DataPlatformInspectionPlanHeaderDatum) InspectionPlanDataPlatformInspectionPlanInspectionData(mods ...qm.QueryMod) dataPlatformInspectionPlanInspectionDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_inspection_plan_inspection_data`.`InspectionPlan`=?", o.InspectionPlan),
+	)
+
+	return DataPlatformInspectionPlanInspectionData(queryMods...)
+}
+
+// InspectionPlanDataPlatformInspectionPlanSpecDetailData retrieves all the data_platform_inspection_plan_spec_detail_datum's DataPlatformInspectionPlanSpecDetailData with an executor via InspectionPlan column.
+func (o *DataPlatformInspectionPlanHeaderDatum) InspectionPlanDataPlatformInspectionPlanSpecDetailData(mods ...qm.QueryMod) dataPlatformInspectionPlanSpecDetailDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_inspection_plan_spec_detail_data`.`InspectionPlan`=?", o.InspectionPlan),
+	)
+
+	return DataPlatformInspectionPlanSpecDetailData(queryMods...)
+}
+
+// InspectionPlanDataPlatformOrdersItemData retrieves all the data_platform_orders_item_datum's DataPlatformOrdersItemData with an executor via InspectionPlan column.
+func (o *DataPlatformInspectionPlanHeaderDatum) InspectionPlanDataPlatformOrdersItemData(mods ...qm.QueryMod) dataPlatformOrdersItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_orders_item_data`.`InspectionPlan`=?", o.InspectionPlan),
+	)
+
+	return DataPlatformOrdersItemData(queryMods...)
+}
+
+// LoadInspectionPlantDataPlatformProductMasterQualityDatum allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformInspectionPlanHeaderDatumL) LoadProductDataPlatformProductMasterGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionPlanHeaderDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlantDataPlatformProductMasterQualityDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionPlanHeaderDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformInspectionPlanHeaderDatum
 	var object *DataPlatformInspectionPlanHeaderDatum
 
@@ -404,9 +521,7 @@ func (dataPlatformInspectionPlanHeaderDatumL) LoadProductDataPlatformProductMast
 		if object.R == nil {
 			object.R = &dataPlatformInspectionPlanHeaderDatumR{}
 		}
-		if !queries.IsNil(object.Product) {
-			args = append(args, object.Product)
-		}
+		args = append(args, object.InspectionPlant)
 
 	} else {
 	Outer:
@@ -416,14 +531,12 @@ func (dataPlatformInspectionPlanHeaderDatumL) LoadProductDataPlatformProductMast
 			}
 
 			for _, a := range args {
-				if queries.Equal(a, obj.Product) {
+				if a == obj.InspectionPlant {
 					continue Outer
 				}
 			}
 
-			if !queries.IsNil(obj.Product) {
-				args = append(args, obj.Product)
-			}
+			args = append(args, obj.InspectionPlant)
 
 		}
 	}
@@ -433,8 +546,8 @@ func (dataPlatformInspectionPlanHeaderDatumL) LoadProductDataPlatformProductMast
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_product_master_general_data`),
-		qm.WhereIn(`data_platform_product_master_general_data.Product in ?`, args...),
+		qm.From(`data_platform_product_master_quality_data`),
+		qm.WhereIn(`data_platform_product_master_quality_data.Plant in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -442,19 +555,19 @@ func (dataPlatformInspectionPlanHeaderDatumL) LoadProductDataPlatformProductMast
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load DataPlatformProductMasterGeneralDatum")
+		return errors.Wrap(err, "failed to eager load DataPlatformProductMasterQualityDatum")
 	}
 
-	var resultSlice []*DataPlatformProductMasterGeneralDatum
+	var resultSlice []*DataPlatformProductMasterQualityDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformProductMasterGeneralDatum")
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformProductMasterQualityDatum")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results of eager load for data_platform_product_master_general_data")
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_product_master_quality_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_general_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_product_master_quality_data")
 	}
 
 	if len(resultSlice) == 0 {
@@ -463,14 +576,14 @@ func (dataPlatformInspectionPlanHeaderDatumL) LoadProductDataPlatformProductMast
 
 	if singular {
 		foreign := resultSlice[0]
-		object.R.ProductDataPlatformProductMasterGeneralDatum = foreign
+		object.R.InspectionPlantDataPlatformProductMasterQualityDatum = foreign
 		return nil
 	}
 
 	for _, local := range slice {
 		for _, foreign := range resultSlice {
-			if queries.Equal(local.Product, foreign.Product) {
-				local.R.ProductDataPlatformProductMasterGeneralDatum = foreign
+			if local.InspectionPlant == foreign.Plant {
+				local.R.InspectionPlantDataPlatformProductMasterQualityDatum = foreign
 				break
 			}
 		}
@@ -583,9 +696,9 @@ func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlantDataPlatformPla
 	return nil
 }
 
-// LoadInspectionPlanDataPlatformInspectionPlanOperationData allows an eager lookup of values, cached into the
-// loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformInspectionPlanOperationData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionPlanHeaderDatum interface{}, mods queries.Applicator) error {
+// LoadInspectionPlanDataPlatformInspectionPlanSpecGeneralDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-1 relationship.
+func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformInspectionPlanSpecGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionPlanHeaderDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformInspectionPlanHeaderDatum
 	var object *DataPlatformInspectionPlanHeaderDatum
 
@@ -639,8 +752,8 @@ func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformInsp
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_inspection_plan_operation_data`),
-		qm.WhereIn(`data_platform_inspection_plan_operation_data.InspectionPlan in ?`, args...),
+		qm.From(`data_platform_inspection_plan_spec_general_data`),
+		qm.WhereIn(`data_platform_inspection_plan_spec_general_data.InspectionPlan in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -648,30 +761,34 @@ func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformInsp
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_inspection_plan_operation_data")
+		return errors.Wrap(err, "failed to eager load DataPlatformInspectionPlanSpecGeneralDatum")
 	}
 
-	var resultSlice []*DataPlatformInspectionPlanOperationDatum
+	var resultSlice []*DataPlatformInspectionPlanSpecGeneralDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_plan_operation_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformInspectionPlanSpecGeneralDatum")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_plan_operation_data")
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_inspection_plan_spec_general_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_plan_operation_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_plan_spec_general_data")
 	}
 
-	if singular {
-		object.R.InspectionPlanDataPlatformInspectionPlanOperationData = resultSlice
+	if len(resultSlice) == 0 {
 		return nil
 	}
 
-	for _, foreign := range resultSlice {
-		for _, local := range slice {
+	if singular {
+		foreign := resultSlice[0]
+		object.R.InspectionPlanDataPlatformInspectionPlanSpecGeneralDatum = foreign
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
 			if local.InspectionPlan == foreign.InspectionPlan {
-				local.R.InspectionPlanDataPlatformInspectionPlanOperationData = append(local.R.InspectionPlanDataPlatformInspectionPlanOperationData, foreign)
+				local.R.InspectionPlanDataPlatformInspectionPlanSpecGeneralDatum = foreign
 				break
 			}
 		}
@@ -680,9 +797,106 @@ func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformInsp
 	return nil
 }
 
-// LoadInspectionPlanDataPlatformInspectionPlanSpecData allows an eager lookup of values, cached into the
+// LoadInspectionPlanDataPlatformDeliveryDocumentItemData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformInspectionPlanSpecData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionPlanHeaderDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformDeliveryDocumentItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionPlanHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformInspectionPlanHeaderDatum
+	var object *DataPlatformInspectionPlanHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformInspectionPlanHeaderDatum.(*DataPlatformInspectionPlanHeaderDatum)
+		if !ok {
+			object = new(DataPlatformInspectionPlanHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformInspectionPlanHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformInspectionPlanHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformInspectionPlanHeaderDatum.(*[]*DataPlatformInspectionPlanHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformInspectionPlanHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformInspectionPlanHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformInspectionPlanHeaderDatumR{}
+		}
+		args = append(args, object.InspectionPlan)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformInspectionPlanHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.InspectionPlan) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.InspectionPlan)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_item_data`),
+		qm.WhereIn(`data_platform_delivery_document_item_data.InspectionPlan in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_item_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_item_data")
+	}
+
+	if singular {
+		object.R.InspectionPlanDataPlatformDeliveryDocumentItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.InspectionPlan, foreign.InspectionPlan) {
+				local.R.InspectionPlanDataPlatformDeliveryDocumentItemData = append(local.R.InspectionPlanDataPlatformDeliveryDocumentItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadInspectionPlanDataPlatformInspectionLotHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformInspectionLotHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionPlanHeaderDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformInspectionPlanHeaderDatum
 	var object *DataPlatformInspectionPlanHeaderDatum
 
@@ -736,8 +950,8 @@ func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformInsp
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_inspection_plan_spec_data`),
-		qm.WhereIn(`data_platform_inspection_plan_spec_data.InspectionPlan in ?`, args...),
+		qm.From(`data_platform_inspection_lot_header_data`),
+		qm.WhereIn(`data_platform_inspection_lot_header_data.InspectionPlan in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -745,30 +959,30 @@ func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformInsp
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_inspection_plan_spec_data")
+		return errors.Wrap(err, "failed to eager load data_platform_inspection_lot_header_data")
 	}
 
-	var resultSlice []*DataPlatformInspectionPlanSpecDatum
+	var resultSlice []*DataPlatformInspectionLotHeaderDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_plan_spec_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_lot_header_data")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_plan_spec_data")
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_lot_header_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_plan_spec_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_lot_header_data")
 	}
 
 	if singular {
-		object.R.InspectionPlanDataPlatformInspectionPlanSpecData = resultSlice
+		object.R.InspectionPlanDataPlatformInspectionLotHeaderData = resultSlice
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
 			if local.InspectionPlan == foreign.InspectionPlan {
-				local.R.InspectionPlanDataPlatformInspectionPlanSpecData = append(local.R.InspectionPlanDataPlatformInspectionPlanSpecData, foreign)
+				local.R.InspectionPlanDataPlatformInspectionLotHeaderData = append(local.R.InspectionPlanDataPlatformInspectionLotHeaderData, foreign)
 				break
 			}
 		}
@@ -777,9 +991,9 @@ func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformInsp
 	return nil
 }
 
-// LoadInspectionPlanDataPlatformInspectionPlanTaskListData allows an eager lookup of values, cached into the
+// LoadInspectionPlanDataPlatformInspectionPlanComponentCompositionData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
-func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformInspectionPlanTaskListData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionPlanHeaderDatum interface{}, mods queries.Applicator) error {
+func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformInspectionPlanComponentCompositionData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionPlanHeaderDatum interface{}, mods queries.Applicator) error {
 	var slice []*DataPlatformInspectionPlanHeaderDatum
 	var object *DataPlatformInspectionPlanHeaderDatum
 
@@ -833,8 +1047,8 @@ func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformInsp
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_inspection_plan_task_list_data`),
-		qm.WhereIn(`data_platform_inspection_plan_task_list_data.InspectionPlan in ?`, args...),
+		qm.From(`data_platform_inspection_plan_component_composition_data`),
+		qm.WhereIn(`data_platform_inspection_plan_component_composition_data.InspectionPlan in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -842,30 +1056,30 @@ func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformInsp
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load data_platform_inspection_plan_task_list_data")
+		return errors.Wrap(err, "failed to eager load data_platform_inspection_plan_component_composition_data")
 	}
 
-	var resultSlice []*DataPlatformInspectionPlanTaskListDatum
+	var resultSlice []*DataPlatformInspectionPlanComponentCompositionDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_plan_task_list_data")
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_plan_component_composition_data")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_plan_task_list_data")
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_plan_component_composition_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_plan_task_list_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_plan_component_composition_data")
 	}
 
 	if singular {
-		object.R.InspectionPlanDataPlatformInspectionPlanTaskListData = resultSlice
+		object.R.InspectionPlanDataPlatformInspectionPlanComponentCompositionData = resultSlice
 		return nil
 	}
 
 	for _, foreign := range resultSlice {
 		for _, local := range slice {
 			if local.InspectionPlan == foreign.InspectionPlan {
-				local.R.InspectionPlanDataPlatformInspectionPlanTaskListData = append(local.R.InspectionPlanDataPlatformInspectionPlanTaskListData, foreign)
+				local.R.InspectionPlanDataPlatformInspectionPlanComponentCompositionData = append(local.R.InspectionPlanDataPlatformInspectionPlanComponentCompositionData, foreign)
 				break
 			}
 		}
@@ -874,9 +1088,397 @@ func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformInsp
 	return nil
 }
 
-// SetProductDataPlatformProductMasterGeneralDatum of the dataPlatformInspectionPlanHeaderDatum to the related item.
-// Sets o.R.ProductDataPlatformProductMasterGeneralDatum to related.
-func (o *DataPlatformInspectionPlanHeaderDatum) SetProductDataPlatformProductMasterGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformProductMasterGeneralDatum) error {
+// LoadInspectionPlanDataPlatformInspectionPlanHeaderDocData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformInspectionPlanHeaderDocData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionPlanHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformInspectionPlanHeaderDatum
+	var object *DataPlatformInspectionPlanHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformInspectionPlanHeaderDatum.(*DataPlatformInspectionPlanHeaderDatum)
+		if !ok {
+			object = new(DataPlatformInspectionPlanHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformInspectionPlanHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformInspectionPlanHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformInspectionPlanHeaderDatum.(*[]*DataPlatformInspectionPlanHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformInspectionPlanHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformInspectionPlanHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformInspectionPlanHeaderDatumR{}
+		}
+		args = append(args, object.InspectionPlan)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformInspectionPlanHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.InspectionPlan {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.InspectionPlan)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_inspection_plan_header_doc_data`),
+		qm.WhereIn(`data_platform_inspection_plan_header_doc_data.InspectionPlan in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_inspection_plan_header_doc_data")
+	}
+
+	var resultSlice []*DataPlatformInspectionPlanHeaderDocDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_plan_header_doc_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_plan_header_doc_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_plan_header_doc_data")
+	}
+
+	if singular {
+		object.R.InspectionPlanDataPlatformInspectionPlanHeaderDocData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.InspectionPlan == foreign.InspectionPlan {
+				local.R.InspectionPlanDataPlatformInspectionPlanHeaderDocData = append(local.R.InspectionPlanDataPlatformInspectionPlanHeaderDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadInspectionPlanDataPlatformInspectionPlanInspectionData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformInspectionPlanInspectionData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionPlanHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformInspectionPlanHeaderDatum
+	var object *DataPlatformInspectionPlanHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformInspectionPlanHeaderDatum.(*DataPlatformInspectionPlanHeaderDatum)
+		if !ok {
+			object = new(DataPlatformInspectionPlanHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformInspectionPlanHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformInspectionPlanHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformInspectionPlanHeaderDatum.(*[]*DataPlatformInspectionPlanHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformInspectionPlanHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformInspectionPlanHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformInspectionPlanHeaderDatumR{}
+		}
+		args = append(args, object.InspectionPlan)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformInspectionPlanHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.InspectionPlan {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.InspectionPlan)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_inspection_plan_inspection_data`),
+		qm.WhereIn(`data_platform_inspection_plan_inspection_data.InspectionPlan in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_inspection_plan_inspection_data")
+	}
+
+	var resultSlice []*DataPlatformInspectionPlanInspectionDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_plan_inspection_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_plan_inspection_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_plan_inspection_data")
+	}
+
+	if singular {
+		object.R.InspectionPlanDataPlatformInspectionPlanInspectionData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.InspectionPlan == foreign.InspectionPlan {
+				local.R.InspectionPlanDataPlatformInspectionPlanInspectionData = append(local.R.InspectionPlanDataPlatformInspectionPlanInspectionData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadInspectionPlanDataPlatformInspectionPlanSpecDetailData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformInspectionPlanSpecDetailData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionPlanHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformInspectionPlanHeaderDatum
+	var object *DataPlatformInspectionPlanHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformInspectionPlanHeaderDatum.(*DataPlatformInspectionPlanHeaderDatum)
+		if !ok {
+			object = new(DataPlatformInspectionPlanHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformInspectionPlanHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformInspectionPlanHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformInspectionPlanHeaderDatum.(*[]*DataPlatformInspectionPlanHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformInspectionPlanHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformInspectionPlanHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformInspectionPlanHeaderDatumR{}
+		}
+		args = append(args, object.InspectionPlan)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformInspectionPlanHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.InspectionPlan {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.InspectionPlan)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_inspection_plan_spec_detail_data`),
+		qm.WhereIn(`data_platform_inspection_plan_spec_detail_data.InspectionPlan in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_inspection_plan_spec_detail_data")
+	}
+
+	var resultSlice []*DataPlatformInspectionPlanSpecDetailDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_plan_spec_detail_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_plan_spec_detail_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_plan_spec_detail_data")
+	}
+
+	if singular {
+		object.R.InspectionPlanDataPlatformInspectionPlanSpecDetailData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.InspectionPlan == foreign.InspectionPlan {
+				local.R.InspectionPlanDataPlatformInspectionPlanSpecDetailData = append(local.R.InspectionPlanDataPlatformInspectionPlanSpecDetailData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadInspectionPlanDataPlatformOrdersItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformInspectionPlanHeaderDatumL) LoadInspectionPlanDataPlatformOrdersItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionPlanHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformInspectionPlanHeaderDatum
+	var object *DataPlatformInspectionPlanHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformInspectionPlanHeaderDatum.(*DataPlatformInspectionPlanHeaderDatum)
+		if !ok {
+			object = new(DataPlatformInspectionPlanHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformInspectionPlanHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformInspectionPlanHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformInspectionPlanHeaderDatum.(*[]*DataPlatformInspectionPlanHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformInspectionPlanHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformInspectionPlanHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformInspectionPlanHeaderDatumR{}
+		}
+		args = append(args, object.InspectionPlan)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformInspectionPlanHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.InspectionPlan) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.InspectionPlan)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_orders_item_data`),
+		qm.WhereIn(`data_platform_orders_item_data.InspectionPlan in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_orders_item_data")
+	}
+
+	var resultSlice []*DataPlatformOrdersItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_item_data")
+	}
+
+	if singular {
+		object.R.InspectionPlanDataPlatformOrdersItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.InspectionPlan, foreign.InspectionPlan) {
+				local.R.InspectionPlanDataPlatformOrdersItemData = append(local.R.InspectionPlanDataPlatformOrdersItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// SetInspectionPlantDataPlatformProductMasterQualityDatum of the dataPlatformInspectionPlanHeaderDatum to the related item.
+// Sets o.R.InspectionPlantDataPlatformProductMasterQualityDatum to related.
+func (o *DataPlatformInspectionPlanHeaderDatum) SetInspectionPlantDataPlatformProductMasterQualityDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformProductMasterQualityDatum) error {
 	var err error
 	if insert {
 		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
@@ -886,10 +1488,10 @@ func (o *DataPlatformInspectionPlanHeaderDatum) SetProductDataPlatformProductMas
 
 	updateQuery := fmt.Sprintf(
 		"UPDATE `data_platform_inspection_plan_header_data` SET %s WHERE %s",
-		strmangle.SetParamNames("`", "`", 0, []string{"Product"}),
+		strmangle.SetParamNames("`", "`", 0, []string{"InspectionPlant"}),
 		strmangle.WhereClause("`", "`", 0, dataPlatformInspectionPlanHeaderDatumPrimaryKeyColumns),
 	)
-	values := []interface{}{related.Product, o.InspectionPlantBusinessPartner, o.InspectionPlant, o.InspectionPlan, o.InspectionPlanGroup, o.InspectionPlanInternalVersion}
+	values := []interface{}{related.Plant, o.InspectionPlan}
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -900,33 +1502,13 @@ func (o *DataPlatformInspectionPlanHeaderDatum) SetProductDataPlatformProductMas
 		return errors.Wrap(err, "failed to update local table")
 	}
 
-	queries.Assign(&o.Product, related.Product)
+	o.InspectionPlant = related.Plant
 	if o.R == nil {
 		o.R = &dataPlatformInspectionPlanHeaderDatumR{
-			ProductDataPlatformProductMasterGeneralDatum: related,
+			InspectionPlantDataPlatformProductMasterQualityDatum: related,
 		}
 	} else {
-		o.R.ProductDataPlatformProductMasterGeneralDatum = related
-	}
-
-	return nil
-}
-
-// RemoveProductDataPlatformProductMasterGeneralDatum relationship.
-// Sets o.R.ProductDataPlatformProductMasterGeneralDatum to nil.
-func (o *DataPlatformInspectionPlanHeaderDatum) RemoveProductDataPlatformProductMasterGeneralDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformProductMasterGeneralDatum) error {
-	var err error
-
-	queries.SetScanner(&o.Product, nil)
-	if err = o.Update(ctx, exec, boil.Whitelist("Product")); err != nil {
-		return errors.Wrap(err, "failed to update local table")
-	}
-
-	if o.R != nil {
-		o.R.ProductDataPlatformProductMasterGeneralDatum = nil
-	}
-	if related == nil || related.R == nil {
-		return nil
+		o.R.InspectionPlantDataPlatformProductMasterQualityDatum = related
 	}
 
 	return nil
@@ -947,7 +1529,7 @@ func (o *DataPlatformInspectionPlanHeaderDatum) SetInspectionPlantDataPlatformPl
 		strmangle.SetParamNames("`", "`", 0, []string{"InspectionPlant"}),
 		strmangle.WhereClause("`", "`", 0, dataPlatformInspectionPlanHeaderDatumPrimaryKeyColumns),
 	)
-	values := []interface{}{related.Plant, o.InspectionPlantBusinessPartner, o.InspectionPlant, o.InspectionPlan, o.InspectionPlanGroup, o.InspectionPlanInternalVersion}
+	values := []interface{}{related.Plant, o.InspectionPlan}
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -970,67 +1552,66 @@ func (o *DataPlatformInspectionPlanHeaderDatum) SetInspectionPlantDataPlatformPl
 	return nil
 }
 
-// AddInspectionPlanDataPlatformInspectionPlanOperationData adds the given related objects to the existing relationships
-// of the data_platform_inspection_plan_header_datum, optionally inserting them as new records.
-// Appends related to o.R.InspectionPlanDataPlatformInspectionPlanOperationData.
-func (o *DataPlatformInspectionPlanHeaderDatum) AddInspectionPlanDataPlatformInspectionPlanOperationData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionPlanOperationDatum) error {
+// SetInspectionPlanDataPlatformInspectionPlanSpecGeneralDatum of the dataPlatformInspectionPlanHeaderDatum to the related item.
+// Sets o.R.InspectionPlanDataPlatformInspectionPlanSpecGeneralDatum to related.
+func (o *DataPlatformInspectionPlanHeaderDatum) SetInspectionPlanDataPlatformInspectionPlanSpecGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformInspectionPlanSpecGeneralDatum) error {
 	var err error
-	for _, rel := range related {
-		if insert {
-			rel.InspectionPlan = o.InspectionPlan
-			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
-				return errors.Wrap(err, "failed to insert into foreign table")
-			}
-		} else {
-			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_inspection_plan_operation_data` SET %s WHERE %s",
-				strmangle.SetParamNames("`", "`", 0, []string{"InspectionPlan"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionPlanOperationDatumPrimaryKeyColumns),
-			)
-			values := []interface{}{o.InspectionPlan, rel.InspectionPlantBusinessPartner, rel.InspectionPlant, rel.InspectionPlan, rel.InspectionPlanOperationGroup, rel.InspectionPlanInternalVersion, rel.InspectionPlanOperation, rel.InspectionPlanOperationSequence}
 
-			if boil.IsDebug(ctx) {
-				writer := boil.DebugWriterFrom(ctx)
-				fmt.Fprintln(writer, updateQuery)
-				fmt.Fprintln(writer, values)
-			}
-			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
-				return errors.Wrap(err, "failed to update foreign table")
-			}
+	if insert {
+		related.InspectionPlan = o.InspectionPlan
 
-			rel.InspectionPlan = o.InspectionPlan
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
 		}
+	} else {
+		updateQuery := fmt.Sprintf(
+			"UPDATE `data_platform_inspection_plan_spec_general_data` SET %s WHERE %s",
+			strmangle.SetParamNames("`", "`", 0, []string{"InspectionPlan"}),
+			strmangle.WhereClause("`", "`", 0, dataPlatformInspectionPlanSpecGeneralDatumPrimaryKeyColumns),
+		)
+		values := []interface{}{o.InspectionPlan, related.InspectionPlan}
+
+		if boil.IsDebug(ctx) {
+			writer := boil.DebugWriterFrom(ctx)
+			fmt.Fprintln(writer, updateQuery)
+			fmt.Fprintln(writer, values)
+		}
+		if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+			return errors.Wrap(err, "failed to update foreign table")
+		}
+
+		related.InspectionPlan = o.InspectionPlan
 	}
 
 	if o.R == nil {
 		o.R = &dataPlatformInspectionPlanHeaderDatumR{
-			InspectionPlanDataPlatformInspectionPlanOperationData: related,
+			InspectionPlanDataPlatformInspectionPlanSpecGeneralDatum: related,
 		}
 	} else {
-		o.R.InspectionPlanDataPlatformInspectionPlanOperationData = append(o.R.InspectionPlanDataPlatformInspectionPlanOperationData, related...)
+		o.R.InspectionPlanDataPlatformInspectionPlanSpecGeneralDatum = related
 	}
 
 	return nil
 }
 
-// AddInspectionPlanDataPlatformInspectionPlanSpecData adds the given related objects to the existing relationships
+// AddInspectionPlanDataPlatformDeliveryDocumentItemData adds the given related objects to the existing relationships
 // of the data_platform_inspection_plan_header_datum, optionally inserting them as new records.
-// Appends related to o.R.InspectionPlanDataPlatformInspectionPlanSpecData.
-func (o *DataPlatformInspectionPlanHeaderDatum) AddInspectionPlanDataPlatformInspectionPlanSpecData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionPlanSpecDatum) error {
+// Appends related to o.R.InspectionPlanDataPlatformDeliveryDocumentItemData.
+func (o *DataPlatformInspectionPlanHeaderDatum) AddInspectionPlanDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
 	var err error
 	for _, rel := range related {
 		if insert {
-			rel.InspectionPlan = o.InspectionPlan
+			queries.Assign(&rel.InspectionPlan, o.InspectionPlan)
 			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
 				return errors.Wrap(err, "failed to insert into foreign table")
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_inspection_plan_spec_data` SET %s WHERE %s",
+				"UPDATE `data_platform_delivery_document_item_data` SET %s WHERE %s",
 				strmangle.SetParamNames("`", "`", 0, []string{"InspectionPlan"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionPlanSpecDatumPrimaryKeyColumns),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentItemDatumPrimaryKeyColumns),
 			)
-			values := []interface{}{o.InspectionPlan, rel.InspectionPlantBusinessPartner, rel.InspectionPlant, rel.InspectionPlan, rel.InspectionPlanGroup, rel.InspectionPlanInternalVersion, rel.SpecType}
+			values := []interface{}{o.InspectionPlan, rel.DeliveryDocument, rel.DeliveryDocumentItem}
 
 			if boil.IsDebug(ctx) {
 				writer := boil.DebugWriterFrom(ctx)
@@ -1041,25 +1622,86 @@ func (o *DataPlatformInspectionPlanHeaderDatum) AddInspectionPlanDataPlatformIns
 				return errors.Wrap(err, "failed to update foreign table")
 			}
 
-			rel.InspectionPlan = o.InspectionPlan
+			queries.Assign(&rel.InspectionPlan, o.InspectionPlan)
 		}
 	}
 
 	if o.R == nil {
 		o.R = &dataPlatformInspectionPlanHeaderDatumR{
-			InspectionPlanDataPlatformInspectionPlanSpecData: related,
+			InspectionPlanDataPlatformDeliveryDocumentItemData: related,
 		}
 	} else {
-		o.R.InspectionPlanDataPlatformInspectionPlanSpecData = append(o.R.InspectionPlanDataPlatformInspectionPlanSpecData, related...)
+		o.R.InspectionPlanDataPlatformDeliveryDocumentItemData = append(o.R.InspectionPlanDataPlatformDeliveryDocumentItemData, related...)
 	}
 
 	return nil
 }
 
-// AddInspectionPlanDataPlatformInspectionPlanTaskListData adds the given related objects to the existing relationships
+// SetInspectionPlanDataPlatformDeliveryDocumentItemData removes all previously related items of the
+// data_platform_inspection_plan_header_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.InspectionPlanDataPlatformInspectionPlanHeaderDatum's InspectionPlanDataPlatformDeliveryDocumentItemData accordingly.
+// Replaces o.R.InspectionPlanDataPlatformDeliveryDocumentItemData with related.
+func (o *DataPlatformInspectionPlanHeaderDatum) SetInspectionPlanDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	query := "update `data_platform_delivery_document_item_data` set `InspectionPlan` = null where `InspectionPlan` = ?"
+	values := []interface{}{o.InspectionPlan}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.InspectionPlanDataPlatformDeliveryDocumentItemData = nil
+	}
+
+	return o.AddInspectionPlanDataPlatformDeliveryDocumentItemData(ctx, exec, insert, related...)
+}
+
+// RemoveInspectionPlanDataPlatformDeliveryDocumentItemData relationships from objects passed in.
+// Removes related items from R.InspectionPlanDataPlatformDeliveryDocumentItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformInspectionPlanHeaderDatum) RemoveInspectionPlanDataPlatformDeliveryDocumentItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.InspectionPlan, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("InspectionPlan")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.InspectionPlanDataPlatformDeliveryDocumentItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.InspectionPlanDataPlatformDeliveryDocumentItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.InspectionPlanDataPlatformDeliveryDocumentItemData[i] = o.R.InspectionPlanDataPlatformDeliveryDocumentItemData[ln-1]
+			}
+			o.R.InspectionPlanDataPlatformDeliveryDocumentItemData = o.R.InspectionPlanDataPlatformDeliveryDocumentItemData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddInspectionPlanDataPlatformInspectionLotHeaderData adds the given related objects to the existing relationships
 // of the data_platform_inspection_plan_header_datum, optionally inserting them as new records.
-// Appends related to o.R.InspectionPlanDataPlatformInspectionPlanTaskListData.
-func (o *DataPlatformInspectionPlanHeaderDatum) AddInspectionPlanDataPlatformInspectionPlanTaskListData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionPlanTaskListDatum) error {
+// Appends related to o.R.InspectionPlanDataPlatformInspectionLotHeaderData.
+func (o *DataPlatformInspectionPlanHeaderDatum) AddInspectionPlanDataPlatformInspectionLotHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotHeaderDatum) error {
 	var err error
 	for _, rel := range related {
 		if insert {
@@ -1069,11 +1711,11 @@ func (o *DataPlatformInspectionPlanHeaderDatum) AddInspectionPlanDataPlatformIns
 			}
 		} else {
 			updateQuery := fmt.Sprintf(
-				"UPDATE `data_platform_inspection_plan_task_list_data` SET %s WHERE %s",
+				"UPDATE `data_platform_inspection_lot_header_data` SET %s WHERE %s",
 				strmangle.SetParamNames("`", "`", 0, []string{"InspectionPlan"}),
-				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionPlanTaskListDatumPrimaryKeyColumns),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotHeaderDatumPrimaryKeyColumns),
 			)
-			values := []interface{}{o.InspectionPlan, rel.InspectionPlantBusinessPartner, rel.InspectionPlant, rel.InspectionPlan, rel.InspectionPlanGroup, rel.InspectionPlanInternalVersion, rel.InspectionPlanTaskList}
+			values := []interface{}{o.InspectionPlan, rel.InspectionLot}
 
 			if boil.IsDebug(ctx) {
 				writer := boil.DebugWriterFrom(ctx)
@@ -1090,10 +1732,286 @@ func (o *DataPlatformInspectionPlanHeaderDatum) AddInspectionPlanDataPlatformIns
 
 	if o.R == nil {
 		o.R = &dataPlatformInspectionPlanHeaderDatumR{
-			InspectionPlanDataPlatformInspectionPlanTaskListData: related,
+			InspectionPlanDataPlatformInspectionLotHeaderData: related,
 		}
 	} else {
-		o.R.InspectionPlanDataPlatformInspectionPlanTaskListData = append(o.R.InspectionPlanDataPlatformInspectionPlanTaskListData, related...)
+		o.R.InspectionPlanDataPlatformInspectionLotHeaderData = append(o.R.InspectionPlanDataPlatformInspectionLotHeaderData, related...)
+	}
+
+	return nil
+}
+
+// AddInspectionPlanDataPlatformInspectionPlanComponentCompositionData adds the given related objects to the existing relationships
+// of the data_platform_inspection_plan_header_datum, optionally inserting them as new records.
+// Appends related to o.R.InspectionPlanDataPlatformInspectionPlanComponentCompositionData.
+func (o *DataPlatformInspectionPlanHeaderDatum) AddInspectionPlanDataPlatformInspectionPlanComponentCompositionData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionPlanComponentCompositionDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.InspectionPlan = o.InspectionPlan
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_inspection_plan_component_composition_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"InspectionPlan"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionPlanComponentCompositionDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.InspectionPlan, rel.InspectionPlan, rel.ComponentCompositionType}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.InspectionPlan = o.InspectionPlan
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformInspectionPlanHeaderDatumR{
+			InspectionPlanDataPlatformInspectionPlanComponentCompositionData: related,
+		}
+	} else {
+		o.R.InspectionPlanDataPlatformInspectionPlanComponentCompositionData = append(o.R.InspectionPlanDataPlatformInspectionPlanComponentCompositionData, related...)
+	}
+
+	return nil
+}
+
+// AddInspectionPlanDataPlatformInspectionPlanHeaderDocData adds the given related objects to the existing relationships
+// of the data_platform_inspection_plan_header_datum, optionally inserting them as new records.
+// Appends related to o.R.InspectionPlanDataPlatformInspectionPlanHeaderDocData.
+func (o *DataPlatformInspectionPlanHeaderDatum) AddInspectionPlanDataPlatformInspectionPlanHeaderDocData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionPlanHeaderDocDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.InspectionPlan = o.InspectionPlan
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_inspection_plan_header_doc_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"InspectionPlan"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionPlanHeaderDocDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.InspectionPlan, rel.InspectionPlan, rel.DocType, rel.DocVersionID, rel.DocID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.InspectionPlan = o.InspectionPlan
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformInspectionPlanHeaderDatumR{
+			InspectionPlanDataPlatformInspectionPlanHeaderDocData: related,
+		}
+	} else {
+		o.R.InspectionPlanDataPlatformInspectionPlanHeaderDocData = append(o.R.InspectionPlanDataPlatformInspectionPlanHeaderDocData, related...)
+	}
+
+	return nil
+}
+
+// AddInspectionPlanDataPlatformInspectionPlanInspectionData adds the given related objects to the existing relationships
+// of the data_platform_inspection_plan_header_datum, optionally inserting them as new records.
+// Appends related to o.R.InspectionPlanDataPlatformInspectionPlanInspectionData.
+func (o *DataPlatformInspectionPlanHeaderDatum) AddInspectionPlanDataPlatformInspectionPlanInspectionData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionPlanInspectionDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.InspectionPlan = o.InspectionPlan
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_inspection_plan_inspection_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"InspectionPlan"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionPlanInspectionDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.InspectionPlan, rel.InspectionPlan, rel.Inspection}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.InspectionPlan = o.InspectionPlan
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformInspectionPlanHeaderDatumR{
+			InspectionPlanDataPlatformInspectionPlanInspectionData: related,
+		}
+	} else {
+		o.R.InspectionPlanDataPlatformInspectionPlanInspectionData = append(o.R.InspectionPlanDataPlatformInspectionPlanInspectionData, related...)
+	}
+
+	return nil
+}
+
+// AddInspectionPlanDataPlatformInspectionPlanSpecDetailData adds the given related objects to the existing relationships
+// of the data_platform_inspection_plan_header_datum, optionally inserting them as new records.
+// Appends related to o.R.InspectionPlanDataPlatformInspectionPlanSpecDetailData.
+func (o *DataPlatformInspectionPlanHeaderDatum) AddInspectionPlanDataPlatformInspectionPlanSpecDetailData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionPlanSpecDetailDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.InspectionPlan = o.InspectionPlan
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_inspection_plan_spec_detail_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"InspectionPlan"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionPlanSpecDetailDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.InspectionPlan, rel.InspectionPlan, rel.SpecType}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.InspectionPlan = o.InspectionPlan
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformInspectionPlanHeaderDatumR{
+			InspectionPlanDataPlatformInspectionPlanSpecDetailData: related,
+		}
+	} else {
+		o.R.InspectionPlanDataPlatformInspectionPlanSpecDetailData = append(o.R.InspectionPlanDataPlatformInspectionPlanSpecDetailData, related...)
+	}
+
+	return nil
+}
+
+// AddInspectionPlanDataPlatformOrdersItemData adds the given related objects to the existing relationships
+// of the data_platform_inspection_plan_header_datum, optionally inserting them as new records.
+// Appends related to o.R.InspectionPlanDataPlatformOrdersItemData.
+func (o *DataPlatformInspectionPlanHeaderDatum) AddInspectionPlanDataPlatformOrdersItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.InspectionPlan, o.InspectionPlan)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_orders_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"InspectionPlan"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.InspectionPlan, rel.OrderID, rel.OrderItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.InspectionPlan, o.InspectionPlan)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformInspectionPlanHeaderDatumR{
+			InspectionPlanDataPlatformOrdersItemData: related,
+		}
+	} else {
+		o.R.InspectionPlanDataPlatformOrdersItemData = append(o.R.InspectionPlanDataPlatformOrdersItemData, related...)
+	}
+
+	return nil
+}
+
+// SetInspectionPlanDataPlatformOrdersItemData removes all previously related items of the
+// data_platform_inspection_plan_header_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.InspectionPlanDataPlatformInspectionPlanHeaderDatum's InspectionPlanDataPlatformOrdersItemData accordingly.
+// Replaces o.R.InspectionPlanDataPlatformOrdersItemData with related.
+func (o *DataPlatformInspectionPlanHeaderDatum) SetInspectionPlanDataPlatformOrdersItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemDatum) error {
+	query := "update `data_platform_orders_item_data` set `InspectionPlan` = null where `InspectionPlan` = ?"
+	values := []interface{}{o.InspectionPlan}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.InspectionPlanDataPlatformOrdersItemData = nil
+	}
+
+	return o.AddInspectionPlanDataPlatformOrdersItemData(ctx, exec, insert, related...)
+}
+
+// RemoveInspectionPlanDataPlatformOrdersItemData relationships from objects passed in.
+// Removes related items from R.InspectionPlanDataPlatformOrdersItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformInspectionPlanHeaderDatum) RemoveInspectionPlanDataPlatformOrdersItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformOrdersItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.InspectionPlan, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("InspectionPlan")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.InspectionPlanDataPlatformOrdersItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.InspectionPlanDataPlatformOrdersItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.InspectionPlanDataPlatformOrdersItemData[i] = o.R.InspectionPlanDataPlatformOrdersItemData[ln-1]
+			}
+			o.R.InspectionPlanDataPlatformOrdersItemData = o.R.InspectionPlanDataPlatformOrdersItemData[:ln-1]
+			break
+		}
 	}
 
 	return nil
@@ -1112,7 +2030,7 @@ func DataPlatformInspectionPlanHeaderData(mods ...qm.QueryMod) dataPlatformInspe
 
 // FindDataPlatformInspectionPlanHeaderDatum retrieves a single record by ID with an executor.
 // If selectCols is empty Find will return all columns.
-func FindDataPlatformInspectionPlanHeaderDatum(ctx context.Context, exec boil.ContextExecutor, inspectionPlantBusinessPartner int, inspectionPlant string, inspectionPlan int, inspectionPlanGroup int, inspectionPlanInternalVersion int, selectCols ...string) (*DataPlatformInspectionPlanHeaderDatum, error) {
+func FindDataPlatformInspectionPlanHeaderDatum(ctx context.Context, exec boil.ContextExecutor, inspectionPlan int, selectCols ...string) (*DataPlatformInspectionPlanHeaderDatum, error) {
 	dataPlatformInspectionPlanHeaderDatumObj := &DataPlatformInspectionPlanHeaderDatum{}
 
 	sel := "*"
@@ -1120,10 +2038,10 @@ func FindDataPlatformInspectionPlanHeaderDatum(ctx context.Context, exec boil.Co
 		sel = strings.Join(strmangle.IdentQuoteSlice(dialect.LQ, dialect.RQ, selectCols), ",")
 	}
 	query := fmt.Sprintf(
-		"select %s from `data_platform_inspection_plan_header_data` where `InspectionPlantBusinessPartner`=? AND `InspectionPlant`=? AND `InspectionPlan`=? AND `InspectionPlanGroup`=? AND `InspectionPlanInternalVersion`=?", sel,
+		"select %s from `data_platform_inspection_plan_header_data` where `InspectionPlan`=?", sel,
 	)
 
-	q := queries.Raw(query, inspectionPlantBusinessPartner, inspectionPlant, inspectionPlan, inspectionPlanGroup, inspectionPlanInternalVersion)
+	q := queries.Raw(query, inspectionPlan)
 
 	err := q.Bind(ctx, exec, dataPlatformInspectionPlanHeaderDatumObj)
 	if err != nil {
@@ -1204,11 +2122,7 @@ func (o *DataPlatformInspectionPlanHeaderDatum) Insert(ctx context.Context, exec
 	}
 
 	identifierCols = []interface{}{
-		o.InspectionPlantBusinessPartner,
-		o.InspectionPlant,
 		o.InspectionPlan,
-		o.InspectionPlanGroup,
-		o.InspectionPlanInternalVersion,
 	}
 
 	if boil.IsDebug(ctx) {
@@ -1341,7 +2255,9 @@ func (o DataPlatformInspectionPlanHeaderDatumSlice) UpdateAll(ctx context.Contex
 	return nil
 }
 
-var mySQLDataPlatformInspectionPlanHeaderDatumUniqueColumns = []string{}
+var mySQLDataPlatformInspectionPlanHeaderDatumUniqueColumns = []string{
+	"InspectionPlan",
+}
 
 // Upsert attempts an insert using an executor, and does an update or ignore on conflict.
 // See boil.Columns documentation for how to properly use updateColumns and insertColumns.
@@ -1481,7 +2397,7 @@ func (o *DataPlatformInspectionPlanHeaderDatum) Delete(ctx context.Context, exec
 	}
 
 	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformInspectionPlanHeaderDatumPrimaryKeyMapping)
-	sql := "DELETE FROM `data_platform_inspection_plan_header_data` WHERE `InspectionPlantBusinessPartner`=? AND `InspectionPlant`=? AND `InspectionPlan`=? AND `InspectionPlanGroup`=? AND `InspectionPlanInternalVersion`=?"
+	sql := "DELETE FROM `data_platform_inspection_plan_header_data` WHERE `InspectionPlan`=?"
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -1543,7 +2459,7 @@ func (o DataPlatformInspectionPlanHeaderDatumSlice) DeleteAll(ctx context.Contex
 // Reload refetches the object from the database
 // using the primary keys with an executor.
 func (o *DataPlatformInspectionPlanHeaderDatum) Reload(ctx context.Context, exec boil.ContextExecutor) error {
-	ret, err := FindDataPlatformInspectionPlanHeaderDatum(ctx, exec, o.InspectionPlantBusinessPartner, o.InspectionPlant, o.InspectionPlan, o.InspectionPlanGroup, o.InspectionPlanInternalVersion)
+	ret, err := FindDataPlatformInspectionPlanHeaderDatum(ctx, exec, o.InspectionPlan)
 	if err != nil {
 		return err
 	}
@@ -1582,16 +2498,16 @@ func (o *DataPlatformInspectionPlanHeaderDatumSlice) ReloadAll(ctx context.Conte
 }
 
 // DataPlatformInspectionPlanHeaderDatumExists checks if the DataPlatformInspectionPlanHeaderDatum row exists.
-func DataPlatformInspectionPlanHeaderDatumExists(ctx context.Context, exec boil.ContextExecutor, inspectionPlantBusinessPartner int, inspectionPlant string, inspectionPlan int, inspectionPlanGroup int, inspectionPlanInternalVersion int) (bool, error) {
+func DataPlatformInspectionPlanHeaderDatumExists(ctx context.Context, exec boil.ContextExecutor, inspectionPlan int) (bool, error) {
 	var exists bool
-	sql := "select exists(select 1 from `data_platform_inspection_plan_header_data` where `InspectionPlantBusinessPartner`=? AND `InspectionPlant`=? AND `InspectionPlan`=? AND `InspectionPlanGroup`=? AND `InspectionPlanInternalVersion`=? limit 1)"
+	sql := "select exists(select 1 from `data_platform_inspection_plan_header_data` where `InspectionPlan`=? limit 1)"
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
 		fmt.Fprintln(writer, sql)
-		fmt.Fprintln(writer, inspectionPlantBusinessPartner, inspectionPlant, inspectionPlan, inspectionPlanGroup, inspectionPlanInternalVersion)
+		fmt.Fprintln(writer, inspectionPlan)
 	}
-	row := exec.QueryRowContext(ctx, sql, inspectionPlantBusinessPartner, inspectionPlant, inspectionPlan, inspectionPlanGroup, inspectionPlanInternalVersion)
+	row := exec.QueryRowContext(ctx, sql, inspectionPlan)
 
 	err := row.Scan(&exists)
 	if err != nil {
@@ -1603,5 +2519,5 @@ func DataPlatformInspectionPlanHeaderDatumExists(ctx context.Context, exec boil.
 
 // Exists checks if the DataPlatformInspectionPlanHeaderDatum row exists.
 func (o *DataPlatformInspectionPlanHeaderDatum) Exists(ctx context.Context, exec boil.ContextExecutor) (bool, error) {
-	return DataPlatformInspectionPlanHeaderDatumExists(ctx, exec, o.InspectionPlantBusinessPartner, o.InspectionPlant, o.InspectionPlan, o.InspectionPlanGroup, o.InspectionPlanInternalVersion)
+	return DataPlatformInspectionPlanHeaderDatumExists(ctx, exec, o.InspectionPlan)
 }

@@ -298,6 +298,7 @@ var DataPlatformBillOfMaterialItemDatumRels = struct {
 	BillOfMaterialDataPlatformBillOfMaterialHeaderDatum                   string
 	ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum     string
 	ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum string
+	BillOfMaterialDataPlatformDeliveryDocumentHeaderData                  string
 	BillOfMaterialDataPlatformDeliveryDocumentItemData                    string
 	BillOfMaterialDataPlatformOperationsItemOperationComponentData        string
 	BillOfMaterialDataPlatformOrdersItemData                              string
@@ -309,6 +310,7 @@ var DataPlatformBillOfMaterialItemDatumRels = struct {
 	BillOfMaterialDataPlatformBillOfMaterialHeaderDatum:                   "BillOfMaterialDataPlatformBillOfMaterialHeaderDatum",
 	ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum:     "ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum",
 	ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum: "ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum",
+	BillOfMaterialDataPlatformDeliveryDocumentHeaderData:                  "BillOfMaterialDataPlatformDeliveryDocumentHeaderData",
 	BillOfMaterialDataPlatformDeliveryDocumentItemData:                    "BillOfMaterialDataPlatformDeliveryDocumentItemData",
 	BillOfMaterialDataPlatformOperationsItemOperationComponentData:        "BillOfMaterialDataPlatformOperationsItemOperationComponentData",
 	BillOfMaterialDataPlatformOrdersItemData:                              "BillOfMaterialDataPlatformOrdersItemData",
@@ -323,6 +325,7 @@ type dataPlatformBillOfMaterialItemDatumR struct {
 	BillOfMaterialDataPlatformBillOfMaterialHeaderDatum                   *DataPlatformBillOfMaterialHeaderDatum                 `boil:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum" json:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum" toml:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum" yaml:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum"`
 	ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum     *DataPlatformQuantityUnitQuantityUnitDatum             `boil:"ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"ComponentProductBaseUnitDataPlatformQuantityUnitQuantityUnitDatum"`
 	ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum *DataPlatformQuantityUnitQuantityUnitDatum             `boil:"ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum" json:"ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum" toml:"ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum" yaml:"ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum"`
+	BillOfMaterialDataPlatformDeliveryDocumentHeaderData                  DataPlatformDeliveryDocumentHeaderDatumSlice           `boil:"BillOfMaterialDataPlatformDeliveryDocumentHeaderData" json:"BillOfMaterialDataPlatformDeliveryDocumentHeaderData" toml:"BillOfMaterialDataPlatformDeliveryDocumentHeaderData" yaml:"BillOfMaterialDataPlatformDeliveryDocumentHeaderData"`
 	BillOfMaterialDataPlatformDeliveryDocumentItemData                    DataPlatformDeliveryDocumentItemDatumSlice             `boil:"BillOfMaterialDataPlatformDeliveryDocumentItemData" json:"BillOfMaterialDataPlatformDeliveryDocumentItemData" toml:"BillOfMaterialDataPlatformDeliveryDocumentItemData" yaml:"BillOfMaterialDataPlatformDeliveryDocumentItemData"`
 	BillOfMaterialDataPlatformOperationsItemOperationComponentData        DataPlatformOperationsItemOperationComponentDatumSlice `boil:"BillOfMaterialDataPlatformOperationsItemOperationComponentData" json:"BillOfMaterialDataPlatformOperationsItemOperationComponentData" toml:"BillOfMaterialDataPlatformOperationsItemOperationComponentData" yaml:"BillOfMaterialDataPlatformOperationsItemOperationComponentData"`
 	BillOfMaterialDataPlatformOrdersItemData                              DataPlatformOrdersItemDatumSlice                       `boil:"BillOfMaterialDataPlatformOrdersItemData" json:"BillOfMaterialDataPlatformOrdersItemData" toml:"BillOfMaterialDataPlatformOrdersItemData" yaml:"BillOfMaterialDataPlatformOrdersItemData"`
@@ -368,6 +371,13 @@ func (r *dataPlatformBillOfMaterialItemDatumR) GetComponentProductDeliveryUnitDa
 		return nil
 	}
 	return r.ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum
+}
+
+func (r *dataPlatformBillOfMaterialItemDatumR) GetBillOfMaterialDataPlatformDeliveryDocumentHeaderData() DataPlatformDeliveryDocumentHeaderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.BillOfMaterialDataPlatformDeliveryDocumentHeaderData
 }
 
 func (r *dataPlatformBillOfMaterialItemDatumR) GetBillOfMaterialDataPlatformDeliveryDocumentItemData() DataPlatformDeliveryDocumentItemDatumSlice {
@@ -560,6 +570,20 @@ func (o *DataPlatformBillOfMaterialItemDatum) ComponentProductDeliveryUnitDataPl
 	queryMods = append(queryMods, mods...)
 
 	return DataPlatformQuantityUnitQuantityUnitData(queryMods...)
+}
+
+// BillOfMaterialDataPlatformDeliveryDocumentHeaderData retrieves all the data_platform_delivery_document_header_datum's DataPlatformDeliveryDocumentHeaderData with an executor via BillOfMaterial column.
+func (o *DataPlatformBillOfMaterialItemDatum) BillOfMaterialDataPlatformDeliveryDocumentHeaderData(mods ...qm.QueryMod) dataPlatformDeliveryDocumentHeaderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_delivery_document_header_data`.`BillOfMaterial`=?", o.BillOfMaterial),
+	)
+
+	return DataPlatformDeliveryDocumentHeaderData(queryMods...)
 }
 
 // BillOfMaterialDataPlatformDeliveryDocumentItemData retrieves all the data_platform_delivery_document_item_datum's DataPlatformDeliveryDocumentItemData with an executor via BillOfMaterial column.
@@ -1144,6 +1168,103 @@ func (dataPlatformBillOfMaterialItemDatumL) LoadComponentProductDeliveryUnitData
 		for _, foreign := range resultSlice {
 			if local.ComponentProductDeliveryUnit == foreign.QuantityUnit {
 				local.R.ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadBillOfMaterialDataPlatformDeliveryDocumentHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBillOfMaterialItemDatumL) LoadBillOfMaterialDataPlatformDeliveryDocumentHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBillOfMaterialItemDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBillOfMaterialItemDatum
+	var object *DataPlatformBillOfMaterialItemDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBillOfMaterialItemDatum.(*DataPlatformBillOfMaterialItemDatum)
+		if !ok {
+			object = new(DataPlatformBillOfMaterialItemDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBillOfMaterialItemDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBillOfMaterialItemDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBillOfMaterialItemDatum.(*[]*DataPlatformBillOfMaterialItemDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBillOfMaterialItemDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBillOfMaterialItemDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBillOfMaterialItemDatumR{}
+		}
+		args = append(args, object.BillOfMaterial)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBillOfMaterialItemDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.BillOfMaterial) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BillOfMaterial)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_delivery_document_header_data`),
+		qm.WhereIn(`data_platform_delivery_document_header_data.BillOfMaterial in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_delivery_document_header_data")
+	}
+
+	var resultSlice []*DataPlatformDeliveryDocumentHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_delivery_document_header_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_delivery_document_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_delivery_document_header_data")
+	}
+
+	if singular {
+		object.R.BillOfMaterialDataPlatformDeliveryDocumentHeaderData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.BillOfMaterial, foreign.BillOfMaterial) {
+				local.R.BillOfMaterialDataPlatformDeliveryDocumentHeaderData = append(local.R.BillOfMaterialDataPlatformDeliveryDocumentHeaderData, foreign)
 				break
 			}
 		}
@@ -1822,6 +1943,110 @@ func (o *DataPlatformBillOfMaterialItemDatum) SetComponentProductDeliveryUnitDat
 		}
 	} else {
 		o.R.ComponentProductDeliveryUnitDataPlatformQuantityUnitQuantityUnitDatum = related
+	}
+
+	return nil
+}
+
+// AddBillOfMaterialDataPlatformDeliveryDocumentHeaderData adds the given related objects to the existing relationships
+// of the data_platform_bill_of_material_item_datum, optionally inserting them as new records.
+// Appends related to o.R.BillOfMaterialDataPlatformDeliveryDocumentHeaderData.
+func (o *DataPlatformBillOfMaterialItemDatum) AddBillOfMaterialDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.BillOfMaterial, o.BillOfMaterial)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_delivery_document_header_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"BillOfMaterial"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformDeliveryDocumentHeaderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BillOfMaterial, rel.DeliveryDocument}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.BillOfMaterial, o.BillOfMaterial)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBillOfMaterialItemDatumR{
+			BillOfMaterialDataPlatformDeliveryDocumentHeaderData: related,
+		}
+	} else {
+		o.R.BillOfMaterialDataPlatformDeliveryDocumentHeaderData = append(o.R.BillOfMaterialDataPlatformDeliveryDocumentHeaderData, related...)
+	}
+
+	return nil
+}
+
+// SetBillOfMaterialDataPlatformDeliveryDocumentHeaderData removes all previously related items of the
+// data_platform_bill_of_material_item_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.BillOfMaterialDataPlatformBillOfMaterialItemDatum's BillOfMaterialDataPlatformDeliveryDocumentHeaderData accordingly.
+// Replaces o.R.BillOfMaterialDataPlatformDeliveryDocumentHeaderData with related.
+func (o *DataPlatformBillOfMaterialItemDatum) SetBillOfMaterialDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	query := "update `data_platform_delivery_document_header_data` set `BillOfMaterial` = null where `BillOfMaterial` = ?"
+	values := []interface{}{o.BillOfMaterial}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.BillOfMaterialDataPlatformDeliveryDocumentHeaderData = nil
+	}
+
+	return o.AddBillOfMaterialDataPlatformDeliveryDocumentHeaderData(ctx, exec, insert, related...)
+}
+
+// RemoveBillOfMaterialDataPlatformDeliveryDocumentHeaderData relationships from objects passed in.
+// Removes related items from R.BillOfMaterialDataPlatformDeliveryDocumentHeaderData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformBillOfMaterialItemDatum) RemoveBillOfMaterialDataPlatformDeliveryDocumentHeaderData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformDeliveryDocumentHeaderDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.BillOfMaterial, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("BillOfMaterial")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.BillOfMaterialDataPlatformDeliveryDocumentHeaderData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.BillOfMaterialDataPlatformDeliveryDocumentHeaderData)
+			if ln > 1 && i < ln-1 {
+				o.R.BillOfMaterialDataPlatformDeliveryDocumentHeaderData[i] = o.R.BillOfMaterialDataPlatformDeliveryDocumentHeaderData[ln-1]
+			}
+			o.R.BillOfMaterialDataPlatformDeliveryDocumentHeaderData = o.R.BillOfMaterialDataPlatformDeliveryDocumentHeaderData[:ln-1]
+			break
+		}
 	}
 
 	return nil

@@ -153,6 +153,8 @@ var DataPlatformProductionVersionItemDatumRels = struct {
 	BillOfMaterialDataPlatformBillOfMaterialHeaderDatum           string
 	Operation                                                     string
 	ProductionVersionDataPlatformProductionVersionHeaderDatum     string
+	ProductionVersionDataPlatformOrdersHeaderData                 string
+	ProductionVersionDataPlatformOrdersItemData                   string
 	ProductionVersionDataPlatformPlannedOrderItemComponentData    string
 	ProductionVersionDataPlatformPlannedOrderItemData             string
 	ProductionVersionDataPlatformPlannedOrderItemOperationData    string
@@ -161,6 +163,8 @@ var DataPlatformProductionVersionItemDatumRels = struct {
 	BillOfMaterialDataPlatformBillOfMaterialHeaderDatum: "BillOfMaterialDataPlatformBillOfMaterialHeaderDatum",
 	Operation: "Operation",
 	ProductionVersionDataPlatformProductionVersionHeaderDatum:     "ProductionVersionDataPlatformProductionVersionHeaderDatum",
+	ProductionVersionDataPlatformOrdersHeaderData:                 "ProductionVersionDataPlatformOrdersHeaderData",
+	ProductionVersionDataPlatformOrdersItemData:                   "ProductionVersionDataPlatformOrdersItemData",
 	ProductionVersionDataPlatformPlannedOrderItemComponentData:    "ProductionVersionDataPlatformPlannedOrderItemComponentData",
 	ProductionVersionDataPlatformPlannedOrderItemData:             "ProductionVersionDataPlatformPlannedOrderItemData",
 	ProductionVersionDataPlatformPlannedOrderItemOperationData:    "ProductionVersionDataPlatformPlannedOrderItemOperationData",
@@ -172,6 +176,8 @@ type dataPlatformProductionVersionItemDatumR struct {
 	BillOfMaterialDataPlatformBillOfMaterialHeaderDatum           *DataPlatformBillOfMaterialHeaderDatum             `boil:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum" json:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum" toml:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum" yaml:"BillOfMaterialDataPlatformBillOfMaterialHeaderDatum"`
 	Operation                                                     *DataPlatformOperationsHeaderDatum                 `boil:"Operation" json:"Operation" toml:"Operation" yaml:"Operation"`
 	ProductionVersionDataPlatformProductionVersionHeaderDatum     *DataPlatformProductionVersionHeaderDatum          `boil:"ProductionVersionDataPlatformProductionVersionHeaderDatum" json:"ProductionVersionDataPlatformProductionVersionHeaderDatum" toml:"ProductionVersionDataPlatformProductionVersionHeaderDatum" yaml:"ProductionVersionDataPlatformProductionVersionHeaderDatum"`
+	ProductionVersionDataPlatformOrdersHeaderData                 DataPlatformOrdersHeaderDatumSlice                 `boil:"ProductionVersionDataPlatformOrdersHeaderData" json:"ProductionVersionDataPlatformOrdersHeaderData" toml:"ProductionVersionDataPlatformOrdersHeaderData" yaml:"ProductionVersionDataPlatformOrdersHeaderData"`
+	ProductionVersionDataPlatformOrdersItemData                   DataPlatformOrdersItemDatumSlice                   `boil:"ProductionVersionDataPlatformOrdersItemData" json:"ProductionVersionDataPlatformOrdersItemData" toml:"ProductionVersionDataPlatformOrdersItemData" yaml:"ProductionVersionDataPlatformOrdersItemData"`
 	ProductionVersionDataPlatformPlannedOrderItemComponentData    DataPlatformPlannedOrderItemComponentDatumSlice    `boil:"ProductionVersionDataPlatformPlannedOrderItemComponentData" json:"ProductionVersionDataPlatformPlannedOrderItemComponentData" toml:"ProductionVersionDataPlatformPlannedOrderItemComponentData" yaml:"ProductionVersionDataPlatformPlannedOrderItemComponentData"`
 	ProductionVersionDataPlatformPlannedOrderItemData             DataPlatformPlannedOrderItemDatumSlice             `boil:"ProductionVersionDataPlatformPlannedOrderItemData" json:"ProductionVersionDataPlatformPlannedOrderItemData" toml:"ProductionVersionDataPlatformPlannedOrderItemData" yaml:"ProductionVersionDataPlatformPlannedOrderItemData"`
 	ProductionVersionDataPlatformPlannedOrderItemOperationData    DataPlatformPlannedOrderItemOperationDatumSlice    `boil:"ProductionVersionDataPlatformPlannedOrderItemOperationData" json:"ProductionVersionDataPlatformPlannedOrderItemOperationData" toml:"ProductionVersionDataPlatformPlannedOrderItemOperationData" yaml:"ProductionVersionDataPlatformPlannedOrderItemOperationData"`
@@ -202,6 +208,20 @@ func (r *dataPlatformProductionVersionItemDatumR) GetProductionVersionDataPlatfo
 		return nil
 	}
 	return r.ProductionVersionDataPlatformProductionVersionHeaderDatum
+}
+
+func (r *dataPlatformProductionVersionItemDatumR) GetProductionVersionDataPlatformOrdersHeaderData() DataPlatformOrdersHeaderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductionVersionDataPlatformOrdersHeaderData
+}
+
+func (r *dataPlatformProductionVersionItemDatumR) GetProductionVersionDataPlatformOrdersItemData() DataPlatformOrdersItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProductionVersionDataPlatformOrdersItemData
 }
 
 func (r *dataPlatformProductionVersionItemDatumR) GetProductionVersionDataPlatformPlannedOrderItemComponentData() DataPlatformPlannedOrderItemComponentDatumSlice {
@@ -365,6 +385,34 @@ func (o *DataPlatformProductionVersionItemDatum) ProductionVersionDataPlatformPr
 	queryMods = append(queryMods, mods...)
 
 	return DataPlatformProductionVersionHeaderData(queryMods...)
+}
+
+// ProductionVersionDataPlatformOrdersHeaderData retrieves all the data_platform_orders_header_datum's DataPlatformOrdersHeaderData with an executor via ProductionVersion column.
+func (o *DataPlatformProductionVersionItemDatum) ProductionVersionDataPlatformOrdersHeaderData(mods ...qm.QueryMod) dataPlatformOrdersHeaderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_orders_header_data`.`ProductionVersion`=?", o.ProductionVersion),
+	)
+
+	return DataPlatformOrdersHeaderData(queryMods...)
+}
+
+// ProductionVersionDataPlatformOrdersItemData retrieves all the data_platform_orders_item_datum's DataPlatformOrdersItemData with an executor via ProductionVersion column.
+func (o *DataPlatformProductionVersionItemDatum) ProductionVersionDataPlatformOrdersItemData(mods ...qm.QueryMod) dataPlatformOrdersItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_orders_item_data`.`ProductionVersion`=?", o.ProductionVersion),
+	)
+
+	return DataPlatformOrdersItemData(queryMods...)
 }
 
 // ProductionVersionDataPlatformPlannedOrderItemComponentData retrieves all the data_platform_planned_order_item_component_datum's DataPlatformPlannedOrderItemComponentData with an executor via ProductionVersion column.
@@ -727,6 +775,200 @@ func (dataPlatformProductionVersionItemDatumL) LoadProductionVersionDataPlatform
 		for _, foreign := range resultSlice {
 			if local.ProductionVersion == foreign.ProductionVersion {
 				local.R.ProductionVersionDataPlatformProductionVersionHeaderDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductionVersionDataPlatformOrdersHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductionVersionItemDatumL) LoadProductionVersionDataPlatformOrdersHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductionVersionItemDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductionVersionItemDatum
+	var object *DataPlatformProductionVersionItemDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductionVersionItemDatum.(*DataPlatformProductionVersionItemDatum)
+		if !ok {
+			object = new(DataPlatformProductionVersionItemDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductionVersionItemDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductionVersionItemDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductionVersionItemDatum.(*[]*DataPlatformProductionVersionItemDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductionVersionItemDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductionVersionItemDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductionVersionItemDatumR{}
+		}
+		args = append(args, object.ProductionVersion)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductionVersionItemDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.ProductionVersion) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.ProductionVersion)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_orders_header_data`),
+		qm.WhereIn(`data_platform_orders_header_data.ProductionVersion in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_orders_header_data")
+	}
+
+	var resultSlice []*DataPlatformOrdersHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_header_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_header_data")
+	}
+
+	if singular {
+		object.R.ProductionVersionDataPlatformOrdersHeaderData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.ProductionVersion, foreign.ProductionVersion) {
+				local.R.ProductionVersionDataPlatformOrdersHeaderData = append(local.R.ProductionVersionDataPlatformOrdersHeaderData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductionVersionDataPlatformOrdersItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProductionVersionItemDatumL) LoadProductionVersionDataPlatformOrdersItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProductionVersionItemDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProductionVersionItemDatum
+	var object *DataPlatformProductionVersionItemDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProductionVersionItemDatum.(*DataPlatformProductionVersionItemDatum)
+		if !ok {
+			object = new(DataPlatformProductionVersionItemDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProductionVersionItemDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProductionVersionItemDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProductionVersionItemDatum.(*[]*DataPlatformProductionVersionItemDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProductionVersionItemDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProductionVersionItemDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProductionVersionItemDatumR{}
+		}
+		args = append(args, object.ProductionVersion)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProductionVersionItemDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.ProductionVersion) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.ProductionVersion)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_orders_item_data`),
+		qm.WhereIn(`data_platform_orders_item_data.ProductionVersion in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_orders_item_data")
+	}
+
+	var resultSlice []*DataPlatformOrdersItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_orders_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_orders_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_item_data")
+	}
+
+	if singular {
+		object.R.ProductionVersionDataPlatformOrdersItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.ProductionVersion, foreign.ProductionVersion) {
+				local.R.ProductionVersionDataPlatformOrdersItemData = append(local.R.ProductionVersionDataPlatformOrdersItemData, foreign)
 				break
 			}
 		}
@@ -1232,6 +1474,214 @@ func (o *DataPlatformProductionVersionItemDatum) SetProductionVersionDataPlatfor
 		}
 	} else {
 		o.R.ProductionVersionDataPlatformProductionVersionHeaderDatum = related
+	}
+
+	return nil
+}
+
+// AddProductionVersionDataPlatformOrdersHeaderData adds the given related objects to the existing relationships
+// of the data_platform_production_version_item_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductionVersionDataPlatformOrdersHeaderData.
+func (o *DataPlatformProductionVersionItemDatum) AddProductionVersionDataPlatformOrdersHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersHeaderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.ProductionVersion, o.ProductionVersion)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_orders_header_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"ProductionVersion"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersHeaderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.ProductionVersion, rel.OrderID}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.ProductionVersion, o.ProductionVersion)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductionVersionItemDatumR{
+			ProductionVersionDataPlatformOrdersHeaderData: related,
+		}
+	} else {
+		o.R.ProductionVersionDataPlatformOrdersHeaderData = append(o.R.ProductionVersionDataPlatformOrdersHeaderData, related...)
+	}
+
+	return nil
+}
+
+// SetProductionVersionDataPlatformOrdersHeaderData removes all previously related items of the
+// data_platform_production_version_item_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.ProductionVersionDataPlatformProductionVersionItemDatum's ProductionVersionDataPlatformOrdersHeaderData accordingly.
+// Replaces o.R.ProductionVersionDataPlatformOrdersHeaderData with related.
+func (o *DataPlatformProductionVersionItemDatum) SetProductionVersionDataPlatformOrdersHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersHeaderDatum) error {
+	query := "update `data_platform_orders_header_data` set `ProductionVersion` = null where `ProductionVersion` = ?"
+	values := []interface{}{o.ProductionVersion}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.ProductionVersionDataPlatformOrdersHeaderData = nil
+	}
+
+	return o.AddProductionVersionDataPlatformOrdersHeaderData(ctx, exec, insert, related...)
+}
+
+// RemoveProductionVersionDataPlatformOrdersHeaderData relationships from objects passed in.
+// Removes related items from R.ProductionVersionDataPlatformOrdersHeaderData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformProductionVersionItemDatum) RemoveProductionVersionDataPlatformOrdersHeaderData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformOrdersHeaderDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.ProductionVersion, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("ProductionVersion")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.ProductionVersionDataPlatformOrdersHeaderData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.ProductionVersionDataPlatformOrdersHeaderData)
+			if ln > 1 && i < ln-1 {
+				o.R.ProductionVersionDataPlatformOrdersHeaderData[i] = o.R.ProductionVersionDataPlatformOrdersHeaderData[ln-1]
+			}
+			o.R.ProductionVersionDataPlatformOrdersHeaderData = o.R.ProductionVersionDataPlatformOrdersHeaderData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddProductionVersionDataPlatformOrdersItemData adds the given related objects to the existing relationships
+// of the data_platform_production_version_item_datum, optionally inserting them as new records.
+// Appends related to o.R.ProductionVersionDataPlatformOrdersItemData.
+func (o *DataPlatformProductionVersionItemDatum) AddProductionVersionDataPlatformOrdersItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.ProductionVersion, o.ProductionVersion)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_orders_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"ProductionVersion"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformOrdersItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.ProductionVersion, rel.OrderID, rel.OrderItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.ProductionVersion, o.ProductionVersion)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProductionVersionItemDatumR{
+			ProductionVersionDataPlatformOrdersItemData: related,
+		}
+	} else {
+		o.R.ProductionVersionDataPlatformOrdersItemData = append(o.R.ProductionVersionDataPlatformOrdersItemData, related...)
+	}
+
+	return nil
+}
+
+// SetProductionVersionDataPlatformOrdersItemData removes all previously related items of the
+// data_platform_production_version_item_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.ProductionVersionDataPlatformProductionVersionItemDatum's ProductionVersionDataPlatformOrdersItemData accordingly.
+// Replaces o.R.ProductionVersionDataPlatformOrdersItemData with related.
+func (o *DataPlatformProductionVersionItemDatum) SetProductionVersionDataPlatformOrdersItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformOrdersItemDatum) error {
+	query := "update `data_platform_orders_item_data` set `ProductionVersion` = null where `ProductionVersion` = ?"
+	values := []interface{}{o.ProductionVersion}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.ProductionVersionDataPlatformOrdersItemData = nil
+	}
+
+	return o.AddProductionVersionDataPlatformOrdersItemData(ctx, exec, insert, related...)
+}
+
+// RemoveProductionVersionDataPlatformOrdersItemData relationships from objects passed in.
+// Removes related items from R.ProductionVersionDataPlatformOrdersItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformProductionVersionItemDatum) RemoveProductionVersionDataPlatformOrdersItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformOrdersItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.ProductionVersion, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("ProductionVersion")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.ProductionVersionDataPlatformOrdersItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.ProductionVersionDataPlatformOrdersItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.ProductionVersionDataPlatformOrdersItemData[i] = o.R.ProductionVersionDataPlatformOrdersItemData[ln-1]
+			}
+			o.R.ProductionVersionDataPlatformOrdersItemData = o.R.ProductionVersionDataPlatformOrdersItemData[:ln-1]
+			break
+		}
 	}
 
 	return nil

@@ -59,6 +59,15 @@ type DataPlatformOrdersHeaderDatum struct {
 	Incoterms                        null.String  `boil:"Incoterms" json:"Incoterms,omitempty" toml:"Incoterms" yaml:"Incoterms,omitempty"`
 	PaymentTerms                     string       `boil:"PaymentTerms" json:"PaymentTerms" toml:"PaymentTerms" yaml:"PaymentTerms"`
 	PaymentMethod                    string       `boil:"PaymentMethod" json:"PaymentMethod" toml:"PaymentMethod" yaml:"PaymentMethod"`
+	Contract                         null.Int     `boil:"Contract" json:"Contract,omitempty" toml:"Contract" yaml:"Contract,omitempty"`
+	ContractItem                     null.Int     `boil:"ContractItem" json:"ContractItem,omitempty" toml:"ContractItem" yaml:"ContractItem,omitempty"`
+	ProductionVersion                null.Int     `boil:"ProductionVersion" json:"ProductionVersion,omitempty" toml:"ProductionVersion" yaml:"ProductionVersion,omitempty"`
+	ProductionVersionItem            null.Int     `boil:"ProductionVersionItem" json:"ProductionVersionItem,omitempty" toml:"ProductionVersionItem" yaml:"ProductionVersionItem,omitempty"`
+	ProductionOrder                  null.Int     `boil:"ProductionOrder" json:"ProductionOrder,omitempty" toml:"ProductionOrder" yaml:"ProductionOrder,omitempty"`
+	ProductionOrderItem              null.Int     `boil:"ProductionOrderItem" json:"ProductionOrderItem,omitempty" toml:"ProductionOrderItem" yaml:"ProductionOrderItem,omitempty"`
+	Operations                       null.Int     `boil:"Operations" json:"Operations,omitempty" toml:"Operations" yaml:"Operations,omitempty"`
+	OperationsItem                   null.Int     `boil:"OperationsItem" json:"OperationsItem,omitempty" toml:"OperationsItem" yaml:"OperationsItem,omitempty"`
+	OperationID                      null.Int     `boil:"OperationID" json:"OperationID,omitempty" toml:"OperationID" yaml:"OperationID,omitempty"`
 	ReferenceDocument                null.Int     `boil:"ReferenceDocument" json:"ReferenceDocument,omitempty" toml:"ReferenceDocument" yaml:"ReferenceDocument,omitempty"`
 	ReferenceDocumentItem            null.Int     `boil:"ReferenceDocumentItem" json:"ReferenceDocumentItem,omitempty" toml:"ReferenceDocumentItem" yaml:"ReferenceDocumentItem,omitempty"`
 	AccountAssignmentGroup           string       `boil:"AccountAssignmentGroup" json:"AccountAssignmentGroup" toml:"AccountAssignmentGroup" yaml:"AccountAssignmentGroup"`
@@ -70,6 +79,8 @@ type DataPlatformOrdersHeaderDatum struct {
 	HeaderDeliveryBlockStatus        null.Bool    `boil:"HeaderDeliveryBlockStatus" json:"HeaderDeliveryBlockStatus,omitempty" toml:"HeaderDeliveryBlockStatus" yaml:"HeaderDeliveryBlockStatus,omitempty"`
 	HeaderBillingBlockStatus         null.Bool    `boil:"HeaderBillingBlockStatus" json:"HeaderBillingBlockStatus,omitempty" toml:"HeaderBillingBlockStatus" yaml:"HeaderBillingBlockStatus,omitempty"`
 	ExternalReferenceDocument        null.String  `boil:"ExternalReferenceDocument" json:"ExternalReferenceDocument,omitempty" toml:"ExternalReferenceDocument" yaml:"ExternalReferenceDocument,omitempty"`
+	CertificateAuthorityChain        null.String  `boil:"CertificateAuthorityChain" json:"CertificateAuthorityChain,omitempty" toml:"CertificateAuthorityChain" yaml:"CertificateAuthorityChain,omitempty"`
+	UsageControlChain                null.String  `boil:"UsageControlChain" json:"UsageControlChain,omitempty" toml:"UsageControlChain" yaml:"UsageControlChain,omitempty"`
 	CreationDate                     string       `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
 	CreationTime                     string       `boil:"CreationTime" json:"CreationTime" toml:"CreationTime" yaml:"CreationTime"`
 	LastChangeDate                   string       `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
@@ -117,6 +128,15 @@ var DataPlatformOrdersHeaderDatumColumns = struct {
 	Incoterms                        string
 	PaymentTerms                     string
 	PaymentMethod                    string
+	Contract                         string
+	ContractItem                     string
+	ProductionVersion                string
+	ProductionVersionItem            string
+	ProductionOrder                  string
+	ProductionOrderItem              string
+	Operations                       string
+	OperationsItem                   string
+	OperationID                      string
 	ReferenceDocument                string
 	ReferenceDocumentItem            string
 	AccountAssignmentGroup           string
@@ -128,6 +148,8 @@ var DataPlatformOrdersHeaderDatumColumns = struct {
 	HeaderDeliveryBlockStatus        string
 	HeaderBillingBlockStatus         string
 	ExternalReferenceDocument        string
+	CertificateAuthorityChain        string
+	UsageControlChain                string
 	CreationDate                     string
 	CreationTime                     string
 	LastChangeDate                   string
@@ -170,6 +192,15 @@ var DataPlatformOrdersHeaderDatumColumns = struct {
 	Incoterms:                        "Incoterms",
 	PaymentTerms:                     "PaymentTerms",
 	PaymentMethod:                    "PaymentMethod",
+	Contract:                         "Contract",
+	ContractItem:                     "ContractItem",
+	ProductionVersion:                "ProductionVersion",
+	ProductionVersionItem:            "ProductionVersionItem",
+	ProductionOrder:                  "ProductionOrder",
+	ProductionOrderItem:              "ProductionOrderItem",
+	Operations:                       "Operations",
+	OperationsItem:                   "OperationsItem",
+	OperationID:                      "OperationID",
 	ReferenceDocument:                "ReferenceDocument",
 	ReferenceDocumentItem:            "ReferenceDocumentItem",
 	AccountAssignmentGroup:           "AccountAssignmentGroup",
@@ -181,6 +212,8 @@ var DataPlatformOrdersHeaderDatumColumns = struct {
 	HeaderDeliveryBlockStatus:        "HeaderDeliveryBlockStatus",
 	HeaderBillingBlockStatus:         "HeaderBillingBlockStatus",
 	ExternalReferenceDocument:        "ExternalReferenceDocument",
+	CertificateAuthorityChain:        "CertificateAuthorityChain",
+	UsageControlChain:                "UsageControlChain",
 	CreationDate:                     "CreationDate",
 	CreationTime:                     "CreationTime",
 	LastChangeDate:                   "LastChangeDate",
@@ -225,6 +258,15 @@ var DataPlatformOrdersHeaderDatumTableColumns = struct {
 	Incoterms                        string
 	PaymentTerms                     string
 	PaymentMethod                    string
+	Contract                         string
+	ContractItem                     string
+	ProductionVersion                string
+	ProductionVersionItem            string
+	ProductionOrder                  string
+	ProductionOrderItem              string
+	Operations                       string
+	OperationsItem                   string
+	OperationID                      string
 	ReferenceDocument                string
 	ReferenceDocumentItem            string
 	AccountAssignmentGroup           string
@@ -236,6 +278,8 @@ var DataPlatformOrdersHeaderDatumTableColumns = struct {
 	HeaderDeliveryBlockStatus        string
 	HeaderBillingBlockStatus         string
 	ExternalReferenceDocument        string
+	CertificateAuthorityChain        string
+	UsageControlChain                string
 	CreationDate                     string
 	CreationTime                     string
 	LastChangeDate                   string
@@ -278,6 +322,15 @@ var DataPlatformOrdersHeaderDatumTableColumns = struct {
 	Incoterms:                        "data_platform_orders_header_data.Incoterms",
 	PaymentTerms:                     "data_platform_orders_header_data.PaymentTerms",
 	PaymentMethod:                    "data_platform_orders_header_data.PaymentMethod",
+	Contract:                         "data_platform_orders_header_data.Contract",
+	ContractItem:                     "data_platform_orders_header_data.ContractItem",
+	ProductionVersion:                "data_platform_orders_header_data.ProductionVersion",
+	ProductionVersionItem:            "data_platform_orders_header_data.ProductionVersionItem",
+	ProductionOrder:                  "data_platform_orders_header_data.ProductionOrder",
+	ProductionOrderItem:              "data_platform_orders_header_data.ProductionOrderItem",
+	Operations:                       "data_platform_orders_header_data.Operations",
+	OperationsItem:                   "data_platform_orders_header_data.OperationsItem",
+	OperationID:                      "data_platform_orders_header_data.OperationID",
 	ReferenceDocument:                "data_platform_orders_header_data.ReferenceDocument",
 	ReferenceDocumentItem:            "data_platform_orders_header_data.ReferenceDocumentItem",
 	AccountAssignmentGroup:           "data_platform_orders_header_data.AccountAssignmentGroup",
@@ -289,6 +342,8 @@ var DataPlatformOrdersHeaderDatumTableColumns = struct {
 	HeaderDeliveryBlockStatus:        "data_platform_orders_header_data.HeaderDeliveryBlockStatus",
 	HeaderBillingBlockStatus:         "data_platform_orders_header_data.HeaderBillingBlockStatus",
 	ExternalReferenceDocument:        "data_platform_orders_header_data.ExternalReferenceDocument",
+	CertificateAuthorityChain:        "data_platform_orders_header_data.CertificateAuthorityChain",
+	UsageControlChain:                "data_platform_orders_header_data.UsageControlChain",
 	CreationDate:                     "data_platform_orders_header_data.CreationDate",
 	CreationTime:                     "data_platform_orders_header_data.CreationTime",
 	LastChangeDate:                   "data_platform_orders_header_data.LastChangeDate",
@@ -335,6 +390,15 @@ var DataPlatformOrdersHeaderDatumWhere = struct {
 	Incoterms                        whereHelpernull_String
 	PaymentTerms                     whereHelperstring
 	PaymentMethod                    whereHelperstring
+	Contract                         whereHelpernull_Int
+	ContractItem                     whereHelpernull_Int
+	ProductionVersion                whereHelpernull_Int
+	ProductionVersionItem            whereHelpernull_Int
+	ProductionOrder                  whereHelpernull_Int
+	ProductionOrderItem              whereHelpernull_Int
+	Operations                       whereHelpernull_Int
+	OperationsItem                   whereHelpernull_Int
+	OperationID                      whereHelpernull_Int
 	ReferenceDocument                whereHelpernull_Int
 	ReferenceDocumentItem            whereHelpernull_Int
 	AccountAssignmentGroup           whereHelperstring
@@ -346,6 +410,8 @@ var DataPlatformOrdersHeaderDatumWhere = struct {
 	HeaderDeliveryBlockStatus        whereHelpernull_Bool
 	HeaderBillingBlockStatus         whereHelpernull_Bool
 	ExternalReferenceDocument        whereHelpernull_String
+	CertificateAuthorityChain        whereHelpernull_String
+	UsageControlChain                whereHelpernull_String
 	CreationDate                     whereHelperstring
 	CreationTime                     whereHelperstring
 	LastChangeDate                   whereHelperstring
@@ -388,6 +454,15 @@ var DataPlatformOrdersHeaderDatumWhere = struct {
 	Incoterms:                        whereHelpernull_String{field: "`data_platform_orders_header_data`.`Incoterms`"},
 	PaymentTerms:                     whereHelperstring{field: "`data_platform_orders_header_data`.`PaymentTerms`"},
 	PaymentMethod:                    whereHelperstring{field: "`data_platform_orders_header_data`.`PaymentMethod`"},
+	Contract:                         whereHelpernull_Int{field: "`data_platform_orders_header_data`.`Contract`"},
+	ContractItem:                     whereHelpernull_Int{field: "`data_platform_orders_header_data`.`ContractItem`"},
+	ProductionVersion:                whereHelpernull_Int{field: "`data_platform_orders_header_data`.`ProductionVersion`"},
+	ProductionVersionItem:            whereHelpernull_Int{field: "`data_platform_orders_header_data`.`ProductionVersionItem`"},
+	ProductionOrder:                  whereHelpernull_Int{field: "`data_platform_orders_header_data`.`ProductionOrder`"},
+	ProductionOrderItem:              whereHelpernull_Int{field: "`data_platform_orders_header_data`.`ProductionOrderItem`"},
+	Operations:                       whereHelpernull_Int{field: "`data_platform_orders_header_data`.`Operations`"},
+	OperationsItem:                   whereHelpernull_Int{field: "`data_platform_orders_header_data`.`OperationsItem`"},
+	OperationID:                      whereHelpernull_Int{field: "`data_platform_orders_header_data`.`OperationID`"},
 	ReferenceDocument:                whereHelpernull_Int{field: "`data_platform_orders_header_data`.`ReferenceDocument`"},
 	ReferenceDocumentItem:            whereHelpernull_Int{field: "`data_platform_orders_header_data`.`ReferenceDocumentItem`"},
 	AccountAssignmentGroup:           whereHelperstring{field: "`data_platform_orders_header_data`.`AccountAssignmentGroup`"},
@@ -399,6 +474,8 @@ var DataPlatformOrdersHeaderDatumWhere = struct {
 	HeaderDeliveryBlockStatus:        whereHelpernull_Bool{field: "`data_platform_orders_header_data`.`HeaderDeliveryBlockStatus`"},
 	HeaderBillingBlockStatus:         whereHelpernull_Bool{field: "`data_platform_orders_header_data`.`HeaderBillingBlockStatus`"},
 	ExternalReferenceDocument:        whereHelpernull_String{field: "`data_platform_orders_header_data`.`ExternalReferenceDocument`"},
+	CertificateAuthorityChain:        whereHelpernull_String{field: "`data_platform_orders_header_data`.`CertificateAuthorityChain`"},
+	UsageControlChain:                whereHelpernull_String{field: "`data_platform_orders_header_data`.`UsageControlChain`"},
 	CreationDate:                     whereHelperstring{field: "`data_platform_orders_header_data`.`CreationDate`"},
 	CreationTime:                     whereHelperstring{field: "`data_platform_orders_header_data`.`CreationTime`"},
 	LastChangeDate:                   whereHelperstring{field: "`data_platform_orders_header_data`.`LastChangeDate`"},
@@ -411,9 +488,14 @@ var DataPlatformOrdersHeaderDatumWhere = struct {
 var DataPlatformOrdersHeaderDatumRels = struct {
 	BillFromCountryDataPlatformCountryCountryDatum            string
 	BillToCountryDataPlatformCountryCountryDatum              string
+	ContractDataPlatformContractItemDatum                     string
+	ContractDataPlatformContractHeaderDatum                   string
 	Incoterm                                                  string
 	PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum  string
 	PaymentTerm                                               string
+	OperationIDDataPlatformProductionOrderItemOperationDatum  string
+	ProductionOrderDataPlatformProductionOrderItemDatum       string
+	ProductionVersionDataPlatformProductionVersionItemDatum   string
 	BillFromPartyDataPlatformSCRBillingRelationDatum          string
 	BuyerDataPlatformSCRGeneralDatum                          string
 	BillFromPartyDataPlatformSCRPaymentRelationDatum          string
@@ -424,11 +506,16 @@ var DataPlatformOrdersHeaderDatumRels = struct {
 	OrderIDDataPlatformOrdersPartnerData                      string
 	PrecedingOrderIDDataPlatformPurchaseRequisitionHeaderData string
 }{
-	BillFromCountryDataPlatformCountryCountryDatum: "BillFromCountryDataPlatformCountryCountryDatum",
-	BillToCountryDataPlatformCountryCountryDatum:   "BillToCountryDataPlatformCountryCountryDatum",
-	Incoterm: "Incoterm",
+	BillFromCountryDataPlatformCountryCountryDatum:           "BillFromCountryDataPlatformCountryCountryDatum",
+	BillToCountryDataPlatformCountryCountryDatum:             "BillToCountryDataPlatformCountryCountryDatum",
+	ContractDataPlatformContractItemDatum:                    "ContractDataPlatformContractItemDatum",
+	ContractDataPlatformContractHeaderDatum:                  "ContractDataPlatformContractHeaderDatum",
+	Incoterm:                                                 "Incoterm",
 	PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum: "PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum",
 	PaymentTerm: "PaymentTerm",
+	OperationIDDataPlatformProductionOrderItemOperationDatum:  "OperationIDDataPlatformProductionOrderItemOperationDatum",
+	ProductionOrderDataPlatformProductionOrderItemDatum:       "ProductionOrderDataPlatformProductionOrderItemDatum",
+	ProductionVersionDataPlatformProductionVersionItemDatum:   "ProductionVersionDataPlatformProductionVersionItemDatum",
 	BillFromPartyDataPlatformSCRBillingRelationDatum:          "BillFromPartyDataPlatformSCRBillingRelationDatum",
 	BuyerDataPlatformSCRGeneralDatum:                          "BuyerDataPlatformSCRGeneralDatum",
 	BillFromPartyDataPlatformSCRPaymentRelationDatum:          "BillFromPartyDataPlatformSCRPaymentRelationDatum",
@@ -444,9 +531,14 @@ var DataPlatformOrdersHeaderDatumRels = struct {
 type dataPlatformOrdersHeaderDatumR struct {
 	BillFromCountryDataPlatformCountryCountryDatum            *DataPlatformCountryCountryDatum                `boil:"BillFromCountryDataPlatformCountryCountryDatum" json:"BillFromCountryDataPlatformCountryCountryDatum" toml:"BillFromCountryDataPlatformCountryCountryDatum" yaml:"BillFromCountryDataPlatformCountryCountryDatum"`
 	BillToCountryDataPlatformCountryCountryDatum              *DataPlatformCountryCountryDatum                `boil:"BillToCountryDataPlatformCountryCountryDatum" json:"BillToCountryDataPlatformCountryCountryDatum" toml:"BillToCountryDataPlatformCountryCountryDatum" yaml:"BillToCountryDataPlatformCountryCountryDatum"`
+	ContractDataPlatformContractItemDatum                     *DataPlatformContractItemDatum                  `boil:"ContractDataPlatformContractItemDatum" json:"ContractDataPlatformContractItemDatum" toml:"ContractDataPlatformContractItemDatum" yaml:"ContractDataPlatformContractItemDatum"`
+	ContractDataPlatformContractHeaderDatum                   *DataPlatformContractHeaderDatum                `boil:"ContractDataPlatformContractHeaderDatum" json:"ContractDataPlatformContractHeaderDatum" toml:"ContractDataPlatformContractHeaderDatum" yaml:"ContractDataPlatformContractHeaderDatum"`
 	Incoterm                                                  *DataPlatformIncotermsIncotermsDatum            `boil:"Incoterm" json:"Incoterm" toml:"Incoterm" yaml:"Incoterm"`
 	PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum  *DataPlatformPaymentMethodPaymentMethodDatum    `boil:"PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum" json:"PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum" toml:"PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum" yaml:"PaymentMethodDataPlatformPaymentMethodPaymentMethodDatum"`
 	PaymentTerm                                               *DataPlatformPaymentTermsPaymentTermsDatum      `boil:"PaymentTerm" json:"PaymentTerm" toml:"PaymentTerm" yaml:"PaymentTerm"`
+	OperationIDDataPlatformProductionOrderItemOperationDatum  *DataPlatformProductionOrderItemOperationDatum  `boil:"OperationIDDataPlatformProductionOrderItemOperationDatum" json:"OperationIDDataPlatformProductionOrderItemOperationDatum" toml:"OperationIDDataPlatformProductionOrderItemOperationDatum" yaml:"OperationIDDataPlatformProductionOrderItemOperationDatum"`
+	ProductionOrderDataPlatformProductionOrderItemDatum       *DataPlatformProductionOrderItemDatum           `boil:"ProductionOrderDataPlatformProductionOrderItemDatum" json:"ProductionOrderDataPlatformProductionOrderItemDatum" toml:"ProductionOrderDataPlatformProductionOrderItemDatum" yaml:"ProductionOrderDataPlatformProductionOrderItemDatum"`
+	ProductionVersionDataPlatformProductionVersionItemDatum   *DataPlatformProductionVersionItemDatum         `boil:"ProductionVersionDataPlatformProductionVersionItemDatum" json:"ProductionVersionDataPlatformProductionVersionItemDatum" toml:"ProductionVersionDataPlatformProductionVersionItemDatum" yaml:"ProductionVersionDataPlatformProductionVersionItemDatum"`
 	BillFromPartyDataPlatformSCRBillingRelationDatum          *DataPlatformSCRBillingRelationDatum            `boil:"BillFromPartyDataPlatformSCRBillingRelationDatum" json:"BillFromPartyDataPlatformSCRBillingRelationDatum" toml:"BillFromPartyDataPlatformSCRBillingRelationDatum" yaml:"BillFromPartyDataPlatformSCRBillingRelationDatum"`
 	BuyerDataPlatformSCRGeneralDatum                          *DataPlatformSCRGeneralDatum                    `boil:"BuyerDataPlatformSCRGeneralDatum" json:"BuyerDataPlatformSCRGeneralDatum" toml:"BuyerDataPlatformSCRGeneralDatum" yaml:"BuyerDataPlatformSCRGeneralDatum"`
 	BillFromPartyDataPlatformSCRPaymentRelationDatum          *DataPlatformSCRPaymentRelationDatum            `boil:"BillFromPartyDataPlatformSCRPaymentRelationDatum" json:"BillFromPartyDataPlatformSCRPaymentRelationDatum" toml:"BillFromPartyDataPlatformSCRPaymentRelationDatum" yaml:"BillFromPartyDataPlatformSCRPaymentRelationDatum"`
@@ -477,6 +569,20 @@ func (r *dataPlatformOrdersHeaderDatumR) GetBillToCountryDataPlatformCountryCoun
 	return r.BillToCountryDataPlatformCountryCountryDatum
 }
 
+func (r *dataPlatformOrdersHeaderDatumR) GetContractDataPlatformContractItemDatum() *DataPlatformContractItemDatum {
+	if r == nil {
+		return nil
+	}
+	return r.ContractDataPlatformContractItemDatum
+}
+
+func (r *dataPlatformOrdersHeaderDatumR) GetContractDataPlatformContractHeaderDatum() *DataPlatformContractHeaderDatum {
+	if r == nil {
+		return nil
+	}
+	return r.ContractDataPlatformContractHeaderDatum
+}
+
 func (r *dataPlatformOrdersHeaderDatumR) GetIncoterm() *DataPlatformIncotermsIncotermsDatum {
 	if r == nil {
 		return nil
@@ -496,6 +602,27 @@ func (r *dataPlatformOrdersHeaderDatumR) GetPaymentTerm() *DataPlatformPaymentTe
 		return nil
 	}
 	return r.PaymentTerm
+}
+
+func (r *dataPlatformOrdersHeaderDatumR) GetOperationIDDataPlatformProductionOrderItemOperationDatum() *DataPlatformProductionOrderItemOperationDatum {
+	if r == nil {
+		return nil
+	}
+	return r.OperationIDDataPlatformProductionOrderItemOperationDatum
+}
+
+func (r *dataPlatformOrdersHeaderDatumR) GetProductionOrderDataPlatformProductionOrderItemDatum() *DataPlatformProductionOrderItemDatum {
+	if r == nil {
+		return nil
+	}
+	return r.ProductionOrderDataPlatformProductionOrderItemDatum
+}
+
+func (r *dataPlatformOrdersHeaderDatumR) GetProductionVersionDataPlatformProductionVersionItemDatum() *DataPlatformProductionVersionItemDatum {
+	if r == nil {
+		return nil
+	}
+	return r.ProductionVersionDataPlatformProductionVersionItemDatum
 }
 
 func (r *dataPlatformOrdersHeaderDatumR) GetBillFromPartyDataPlatformSCRBillingRelationDatum() *DataPlatformSCRBillingRelationDatum {
@@ -565,8 +692,8 @@ func (r *dataPlatformOrdersHeaderDatumR) GetPrecedingOrderIDDataPlatformPurchase
 type dataPlatformOrdersHeaderDatumL struct{}
 
 var (
-	dataPlatformOrdersHeaderDatumAllColumns            = []string{"OrderID", "OrderDate", "OrderType", "OrderStatus", "SupplyChainRelationshipID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "Buyer", "Seller", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "InvoicePeriodStartDate", "InvoicePeriodEndDate", "TotalNetAmount", "TotalTaxAmount", "TotalGrossAmount", "HeaderDeliveryStatus", "HeaderBillingStatus", "HeaderDocReferenceStatus", "TransactionCurrency", "PricingDate", "PriceDetnExchangeRate", "RequestedDeliveryDate", "RequestedDeliveryTime", "HeaderCompleteDeliveryIsDefined", "Incoterms", "PaymentTerms", "PaymentMethod", "ReferenceDocument", "ReferenceDocumentItem", "AccountAssignmentGroup", "AccountingExchangeRate", "InvoiceDocumentDate", "IsExportImport", "HeaderText", "HeaderBlockStatus", "HeaderDeliveryBlockStatus", "HeaderBillingBlockStatus", "ExternalReferenceDocument", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
-	dataPlatformOrdersHeaderDatumColumnsWithoutDefault = []string{"OrderID", "OrderDate", "OrderType", "OrderStatus", "SupplyChainRelationshipID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "Buyer", "Seller", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "InvoicePeriodStartDate", "InvoicePeriodEndDate", "TotalNetAmount", "TotalTaxAmount", "TotalGrossAmount", "HeaderDeliveryStatus", "HeaderBillingStatus", "HeaderDocReferenceStatus", "TransactionCurrency", "PricingDate", "PriceDetnExchangeRate", "RequestedDeliveryDate", "RequestedDeliveryTime", "HeaderCompleteDeliveryIsDefined", "Incoterms", "PaymentTerms", "PaymentMethod", "ReferenceDocument", "ReferenceDocumentItem", "AccountAssignmentGroup", "AccountingExchangeRate", "InvoiceDocumentDate", "IsExportImport", "HeaderText", "HeaderBlockStatus", "HeaderDeliveryBlockStatus", "HeaderBillingBlockStatus", "ExternalReferenceDocument", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
+	dataPlatformOrdersHeaderDatumAllColumns            = []string{"OrderID", "OrderDate", "OrderType", "OrderStatus", "SupplyChainRelationshipID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "Buyer", "Seller", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "InvoicePeriodStartDate", "InvoicePeriodEndDate", "TotalNetAmount", "TotalTaxAmount", "TotalGrossAmount", "HeaderDeliveryStatus", "HeaderBillingStatus", "HeaderDocReferenceStatus", "TransactionCurrency", "PricingDate", "PriceDetnExchangeRate", "RequestedDeliveryDate", "RequestedDeliveryTime", "HeaderCompleteDeliveryIsDefined", "Incoterms", "PaymentTerms", "PaymentMethod", "Contract", "ContractItem", "ProductionVersion", "ProductionVersionItem", "ProductionOrder", "ProductionOrderItem", "Operations", "OperationsItem", "OperationID", "ReferenceDocument", "ReferenceDocumentItem", "AccountAssignmentGroup", "AccountingExchangeRate", "InvoiceDocumentDate", "IsExportImport", "HeaderText", "HeaderBlockStatus", "HeaderDeliveryBlockStatus", "HeaderBillingBlockStatus", "ExternalReferenceDocument", "CertificateAuthorityChain", "UsageControlChain", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
+	dataPlatformOrdersHeaderDatumColumnsWithoutDefault = []string{"OrderID", "OrderDate", "OrderType", "OrderStatus", "SupplyChainRelationshipID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "Buyer", "Seller", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "InvoicePeriodStartDate", "InvoicePeriodEndDate", "TotalNetAmount", "TotalTaxAmount", "TotalGrossAmount", "HeaderDeliveryStatus", "HeaderBillingStatus", "HeaderDocReferenceStatus", "TransactionCurrency", "PricingDate", "PriceDetnExchangeRate", "RequestedDeliveryDate", "RequestedDeliveryTime", "HeaderCompleteDeliveryIsDefined", "Incoterms", "PaymentTerms", "PaymentMethod", "Contract", "ContractItem", "ProductionVersion", "ProductionVersionItem", "ProductionOrder", "ProductionOrderItem", "Operations", "OperationsItem", "OperationID", "ReferenceDocument", "ReferenceDocumentItem", "AccountAssignmentGroup", "AccountingExchangeRate", "InvoiceDocumentDate", "IsExportImport", "HeaderText", "HeaderBlockStatus", "HeaderDeliveryBlockStatus", "HeaderBillingBlockStatus", "ExternalReferenceDocument", "CertificateAuthorityChain", "UsageControlChain", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
 	dataPlatformOrdersHeaderDatumColumnsWithDefault    = []string{}
 	dataPlatformOrdersHeaderDatumPrimaryKeyColumns     = []string{"OrderID"}
 	dataPlatformOrdersHeaderDatumGeneratedColumns      = []string{}
@@ -685,6 +812,28 @@ func (o *DataPlatformOrdersHeaderDatum) BillToCountryDataPlatformCountryCountryD
 	return DataPlatformCountryCountryData(queryMods...)
 }
 
+// ContractDataPlatformContractItemDatum pointed to by the foreign key.
+func (o *DataPlatformOrdersHeaderDatum) ContractDataPlatformContractItemDatum(mods ...qm.QueryMod) dataPlatformContractItemDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`Contract` = ?", o.Contract),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformContractItemData(queryMods...)
+}
+
+// ContractDataPlatformContractHeaderDatum pointed to by the foreign key.
+func (o *DataPlatformOrdersHeaderDatum) ContractDataPlatformContractHeaderDatum(mods ...qm.QueryMod) dataPlatformContractHeaderDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`Contract` = ?", o.Contract),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformContractHeaderData(queryMods...)
+}
+
 // Incoterm pointed to by the foreign key.
 func (o *DataPlatformOrdersHeaderDatum) Incoterm(mods ...qm.QueryMod) dataPlatformIncotermsIncotermsDatumQuery {
 	queryMods := []qm.QueryMod{
@@ -716,6 +865,39 @@ func (o *DataPlatformOrdersHeaderDatum) PaymentTerm(mods ...qm.QueryMod) dataPla
 	queryMods = append(queryMods, mods...)
 
 	return DataPlatformPaymentTermsPaymentTermsData(queryMods...)
+}
+
+// OperationIDDataPlatformProductionOrderItemOperationDatum pointed to by the foreign key.
+func (o *DataPlatformOrdersHeaderDatum) OperationIDDataPlatformProductionOrderItemOperationDatum(mods ...qm.QueryMod) dataPlatformProductionOrderItemOperationDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`OperationID` = ?", o.OperationID),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformProductionOrderItemOperationData(queryMods...)
+}
+
+// ProductionOrderDataPlatformProductionOrderItemDatum pointed to by the foreign key.
+func (o *DataPlatformOrdersHeaderDatum) ProductionOrderDataPlatformProductionOrderItemDatum(mods ...qm.QueryMod) dataPlatformProductionOrderItemDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`ProductionOrder` = ?", o.ProductionOrder),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformProductionOrderItemData(queryMods...)
+}
+
+// ProductionVersionDataPlatformProductionVersionItemDatum pointed to by the foreign key.
+func (o *DataPlatformOrdersHeaderDatum) ProductionVersionDataPlatformProductionVersionItemDatum(mods ...qm.QueryMod) dataPlatformProductionVersionItemDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`ProductionVersion` = ?", o.ProductionVersion),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformProductionVersionItemData(queryMods...)
 }
 
 // BillFromPartyDataPlatformSCRBillingRelationDatum pointed to by the foreign key.
@@ -1048,6 +1230,222 @@ func (dataPlatformOrdersHeaderDatumL) LoadBillToCountryDataPlatformCountryCountr
 	return nil
 }
 
+// LoadContractDataPlatformContractItemDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformOrdersHeaderDatumL) LoadContractDataPlatformContractItemDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformOrdersHeaderDatum
+	var object *DataPlatformOrdersHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformOrdersHeaderDatum.(*DataPlatformOrdersHeaderDatum)
+		if !ok {
+			object = new(DataPlatformOrdersHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformOrdersHeaderDatum.(*[]*DataPlatformOrdersHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformOrdersHeaderDatumR{}
+		}
+		if !queries.IsNil(object.Contract) {
+			args = append(args, object.Contract)
+		}
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformOrdersHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Contract) {
+					continue Outer
+				}
+			}
+
+			if !queries.IsNil(obj.Contract) {
+				args = append(args, obj.Contract)
+			}
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_contract_item_data`),
+		qm.WhereIn(`data_platform_contract_item_data.Contract in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformContractItemDatum")
+	}
+
+	var resultSlice []*DataPlatformContractItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformContractItemDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_contract_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_contract_item_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.ContractDataPlatformContractItemDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if queries.Equal(local.Contract, foreign.Contract) {
+				local.R.ContractDataPlatformContractItemDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadContractDataPlatformContractHeaderDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformOrdersHeaderDatumL) LoadContractDataPlatformContractHeaderDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformOrdersHeaderDatum
+	var object *DataPlatformOrdersHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformOrdersHeaderDatum.(*DataPlatformOrdersHeaderDatum)
+		if !ok {
+			object = new(DataPlatformOrdersHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformOrdersHeaderDatum.(*[]*DataPlatformOrdersHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformOrdersHeaderDatumR{}
+		}
+		if !queries.IsNil(object.Contract) {
+			args = append(args, object.Contract)
+		}
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformOrdersHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Contract) {
+					continue Outer
+				}
+			}
+
+			if !queries.IsNil(obj.Contract) {
+				args = append(args, obj.Contract)
+			}
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_contract_header_data`),
+		qm.WhereIn(`data_platform_contract_header_data.Contract in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformContractHeaderDatum")
+	}
+
+	var resultSlice []*DataPlatformContractHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformContractHeaderDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_contract_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_contract_header_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.ContractDataPlatformContractHeaderDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if queries.Equal(local.Contract, foreign.Contract) {
+				local.R.ContractDataPlatformContractHeaderDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // LoadIncoterm allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for an N-1 relationship.
 func (dataPlatformOrdersHeaderDatumL) LoadIncoterm(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersHeaderDatum interface{}, mods queries.Applicator) error {
@@ -1356,6 +1754,330 @@ func (dataPlatformOrdersHeaderDatumL) LoadPaymentTerm(ctx context.Context, e boi
 		for _, foreign := range resultSlice {
 			if local.PaymentTerms == foreign.PaymentTerms {
 				local.R.PaymentTerm = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadOperationIDDataPlatformProductionOrderItemOperationDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformOrdersHeaderDatumL) LoadOperationIDDataPlatformProductionOrderItemOperationDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformOrdersHeaderDatum
+	var object *DataPlatformOrdersHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformOrdersHeaderDatum.(*DataPlatformOrdersHeaderDatum)
+		if !ok {
+			object = new(DataPlatformOrdersHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformOrdersHeaderDatum.(*[]*DataPlatformOrdersHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformOrdersHeaderDatumR{}
+		}
+		if !queries.IsNil(object.OperationID) {
+			args = append(args, object.OperationID)
+		}
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformOrdersHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.OperationID) {
+					continue Outer
+				}
+			}
+
+			if !queries.IsNil(obj.OperationID) {
+				args = append(args, obj.OperationID)
+			}
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_production_order_item_operation_data`),
+		qm.WhereIn(`data_platform_production_order_item_operation_data.OperationID in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformProductionOrderItemOperationDatum")
+	}
+
+	var resultSlice []*DataPlatformProductionOrderItemOperationDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformProductionOrderItemOperationDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_production_order_item_operation_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_production_order_item_operation_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.OperationIDDataPlatformProductionOrderItemOperationDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if queries.Equal(local.OperationID, foreign.OperationID) {
+				local.R.OperationIDDataPlatformProductionOrderItemOperationDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductionOrderDataPlatformProductionOrderItemDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformOrdersHeaderDatumL) LoadProductionOrderDataPlatformProductionOrderItemDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformOrdersHeaderDatum
+	var object *DataPlatformOrdersHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformOrdersHeaderDatum.(*DataPlatformOrdersHeaderDatum)
+		if !ok {
+			object = new(DataPlatformOrdersHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformOrdersHeaderDatum.(*[]*DataPlatformOrdersHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformOrdersHeaderDatumR{}
+		}
+		if !queries.IsNil(object.ProductionOrder) {
+			args = append(args, object.ProductionOrder)
+		}
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformOrdersHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.ProductionOrder) {
+					continue Outer
+				}
+			}
+
+			if !queries.IsNil(obj.ProductionOrder) {
+				args = append(args, obj.ProductionOrder)
+			}
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_production_order_item_data`),
+		qm.WhereIn(`data_platform_production_order_item_data.ProductionOrder in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformProductionOrderItemDatum")
+	}
+
+	var resultSlice []*DataPlatformProductionOrderItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformProductionOrderItemDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_production_order_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_production_order_item_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.ProductionOrderDataPlatformProductionOrderItemDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if queries.Equal(local.ProductionOrder, foreign.ProductionOrder) {
+				local.R.ProductionOrderDataPlatformProductionOrderItemDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadProductionVersionDataPlatformProductionVersionItemDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformOrdersHeaderDatumL) LoadProductionVersionDataPlatformProductionVersionItemDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformOrdersHeaderDatum
+	var object *DataPlatformOrdersHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformOrdersHeaderDatum.(*DataPlatformOrdersHeaderDatum)
+		if !ok {
+			object = new(DataPlatformOrdersHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformOrdersHeaderDatum.(*[]*DataPlatformOrdersHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformOrdersHeaderDatumR{}
+		}
+		if !queries.IsNil(object.ProductionVersion) {
+			args = append(args, object.ProductionVersion)
+		}
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformOrdersHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.ProductionVersion) {
+					continue Outer
+				}
+			}
+
+			if !queries.IsNil(obj.ProductionVersion) {
+				args = append(args, obj.ProductionVersion)
+			}
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_production_version_item_data`),
+		qm.WhereIn(`data_platform_production_version_item_data.ProductionVersion in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformProductionVersionItemDatum")
+	}
+
+	var resultSlice []*DataPlatformProductionVersionItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformProductionVersionItemDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_production_version_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_production_version_item_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.ProductionVersionDataPlatformProductionVersionItemDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if queries.Equal(local.ProductionVersion, foreign.ProductionVersion) {
+				local.R.ProductionVersionDataPlatformProductionVersionItemDatum = foreign
 				break
 			}
 		}
@@ -2389,6 +3111,122 @@ func (o *DataPlatformOrdersHeaderDatum) RemoveBillToCountryDataPlatformCountryCo
 	return nil
 }
 
+// SetContractDataPlatformContractItemDatum of the dataPlatformOrdersHeaderDatum to the related item.
+// Sets o.R.ContractDataPlatformContractItemDatum to related.
+func (o *DataPlatformOrdersHeaderDatum) SetContractDataPlatformContractItemDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformContractItemDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_orders_header_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"Contract"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformOrdersHeaderDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.Contract, o.OrderID}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	queries.Assign(&o.Contract, related.Contract)
+	if o.R == nil {
+		o.R = &dataPlatformOrdersHeaderDatumR{
+			ContractDataPlatformContractItemDatum: related,
+		}
+	} else {
+		o.R.ContractDataPlatformContractItemDatum = related
+	}
+
+	return nil
+}
+
+// RemoveContractDataPlatformContractItemDatum relationship.
+// Sets o.R.ContractDataPlatformContractItemDatum to nil.
+func (o *DataPlatformOrdersHeaderDatum) RemoveContractDataPlatformContractItemDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformContractItemDatum) error {
+	var err error
+
+	queries.SetScanner(&o.Contract, nil)
+	if err = o.Update(ctx, exec, boil.Whitelist("Contract")); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	if o.R != nil {
+		o.R.ContractDataPlatformContractItemDatum = nil
+	}
+	if related == nil || related.R == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// SetContractDataPlatformContractHeaderDatum of the dataPlatformOrdersHeaderDatum to the related item.
+// Sets o.R.ContractDataPlatformContractHeaderDatum to related.
+func (o *DataPlatformOrdersHeaderDatum) SetContractDataPlatformContractHeaderDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformContractHeaderDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_orders_header_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"Contract"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformOrdersHeaderDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.Contract, o.OrderID}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	queries.Assign(&o.Contract, related.Contract)
+	if o.R == nil {
+		o.R = &dataPlatformOrdersHeaderDatumR{
+			ContractDataPlatformContractHeaderDatum: related,
+		}
+	} else {
+		o.R.ContractDataPlatformContractHeaderDatum = related
+	}
+
+	return nil
+}
+
+// RemoveContractDataPlatformContractHeaderDatum relationship.
+// Sets o.R.ContractDataPlatformContractHeaderDatum to nil.
+func (o *DataPlatformOrdersHeaderDatum) RemoveContractDataPlatformContractHeaderDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformContractHeaderDatum) error {
+	var err error
+
+	queries.SetScanner(&o.Contract, nil)
+	if err = o.Update(ctx, exec, boil.Whitelist("Contract")); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	if o.R != nil {
+		o.R.ContractDataPlatformContractHeaderDatum = nil
+	}
+	if related == nil || related.R == nil {
+		return nil
+	}
+
+	return nil
+}
+
 // SetIncoterm of the dataPlatformOrdersHeaderDatum to the related item.
 // Sets o.R.Incoterm to related.
 func (o *DataPlatformOrdersHeaderDatum) SetIncoterm(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformIncotermsIncotermsDatum) error {
@@ -2518,6 +3356,180 @@ func (o *DataPlatformOrdersHeaderDatum) SetPaymentTerm(ctx context.Context, exec
 		}
 	} else {
 		o.R.PaymentTerm = related
+	}
+
+	return nil
+}
+
+// SetOperationIDDataPlatformProductionOrderItemOperationDatum of the dataPlatformOrdersHeaderDatum to the related item.
+// Sets o.R.OperationIDDataPlatformProductionOrderItemOperationDatum to related.
+func (o *DataPlatformOrdersHeaderDatum) SetOperationIDDataPlatformProductionOrderItemOperationDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformProductionOrderItemOperationDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_orders_header_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"OperationID"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformOrdersHeaderDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.OperationID, o.OrderID}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	queries.Assign(&o.OperationID, related.OperationID)
+	if o.R == nil {
+		o.R = &dataPlatformOrdersHeaderDatumR{
+			OperationIDDataPlatformProductionOrderItemOperationDatum: related,
+		}
+	} else {
+		o.R.OperationIDDataPlatformProductionOrderItemOperationDatum = related
+	}
+
+	return nil
+}
+
+// RemoveOperationIDDataPlatformProductionOrderItemOperationDatum relationship.
+// Sets o.R.OperationIDDataPlatformProductionOrderItemOperationDatum to nil.
+func (o *DataPlatformOrdersHeaderDatum) RemoveOperationIDDataPlatformProductionOrderItemOperationDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformProductionOrderItemOperationDatum) error {
+	var err error
+
+	queries.SetScanner(&o.OperationID, nil)
+	if err = o.Update(ctx, exec, boil.Whitelist("OperationID")); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	if o.R != nil {
+		o.R.OperationIDDataPlatformProductionOrderItemOperationDatum = nil
+	}
+	if related == nil || related.R == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// SetProductionOrderDataPlatformProductionOrderItemDatum of the dataPlatformOrdersHeaderDatum to the related item.
+// Sets o.R.ProductionOrderDataPlatformProductionOrderItemDatum to related.
+func (o *DataPlatformOrdersHeaderDatum) SetProductionOrderDataPlatformProductionOrderItemDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformProductionOrderItemDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_orders_header_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"ProductionOrder"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformOrdersHeaderDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.ProductionOrder, o.OrderID}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	queries.Assign(&o.ProductionOrder, related.ProductionOrder)
+	if o.R == nil {
+		o.R = &dataPlatformOrdersHeaderDatumR{
+			ProductionOrderDataPlatformProductionOrderItemDatum: related,
+		}
+	} else {
+		o.R.ProductionOrderDataPlatformProductionOrderItemDatum = related
+	}
+
+	return nil
+}
+
+// RemoveProductionOrderDataPlatformProductionOrderItemDatum relationship.
+// Sets o.R.ProductionOrderDataPlatformProductionOrderItemDatum to nil.
+func (o *DataPlatformOrdersHeaderDatum) RemoveProductionOrderDataPlatformProductionOrderItemDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformProductionOrderItemDatum) error {
+	var err error
+
+	queries.SetScanner(&o.ProductionOrder, nil)
+	if err = o.Update(ctx, exec, boil.Whitelist("ProductionOrder")); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	if o.R != nil {
+		o.R.ProductionOrderDataPlatformProductionOrderItemDatum = nil
+	}
+	if related == nil || related.R == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// SetProductionVersionDataPlatformProductionVersionItemDatum of the dataPlatformOrdersHeaderDatum to the related item.
+// Sets o.R.ProductionVersionDataPlatformProductionVersionItemDatum to related.
+func (o *DataPlatformOrdersHeaderDatum) SetProductionVersionDataPlatformProductionVersionItemDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformProductionVersionItemDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_orders_header_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"ProductionVersion"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformOrdersHeaderDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.ProductionVersion, o.OrderID}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	queries.Assign(&o.ProductionVersion, related.ProductionVersion)
+	if o.R == nil {
+		o.R = &dataPlatformOrdersHeaderDatumR{
+			ProductionVersionDataPlatformProductionVersionItemDatum: related,
+		}
+	} else {
+		o.R.ProductionVersionDataPlatformProductionVersionItemDatum = related
+	}
+
+	return nil
+}
+
+// RemoveProductionVersionDataPlatformProductionVersionItemDatum relationship.
+// Sets o.R.ProductionVersionDataPlatformProductionVersionItemDatum to nil.
+func (o *DataPlatformOrdersHeaderDatum) RemoveProductionVersionDataPlatformProductionVersionItemDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformProductionVersionItemDatum) error {
+	var err error
+
+	queries.SetScanner(&o.ProductionVersion, nil)
+	if err = o.Update(ctx, exec, boil.Whitelist("ProductionVersion")); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	if o.R != nil {
+		o.R.ProductionVersionDataPlatformProductionVersionItemDatum = nil
+	}
+	if related == nil || related.R == nil {
+		return nil
 	}
 
 	return nil
