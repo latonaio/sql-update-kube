@@ -24,12 +24,15 @@ import (
 
 // DataPlatformPaymentTermsPaymentTermsDatum is an object representing the database table.
 type DataPlatformPaymentTermsPaymentTermsDatum struct {
-	PaymentTerms                string   `boil:"PaymentTerms" json:"PaymentTerms" toml:"PaymentTerms" yaml:"PaymentTerms"`
-	BaseDate                    int      `boil:"BaseDate" json:"BaseDate" toml:"BaseDate" yaml:"BaseDate"`
-	BaseDateCalcAddMonth        null.Int `boil:"BaseDateCalcAddMonth" json:"BaseDateCalcAddMonth,omitempty" toml:"BaseDateCalcAddMonth" yaml:"BaseDateCalcAddMonth,omitempty"`
-	BaseDateCalcFixedDate       null.Int `boil:"BaseDateCalcFixedDate" json:"BaseDateCalcFixedDate,omitempty" toml:"BaseDateCalcFixedDate" yaml:"BaseDateCalcFixedDate,omitempty"`
-	PaymentDueDateCalcAddMonth  null.Int `boil:"PaymentDueDateCalcAddMonth" json:"PaymentDueDateCalcAddMonth,omitempty" toml:"PaymentDueDateCalcAddMonth" yaml:"PaymentDueDateCalcAddMonth,omitempty"`
-	PaymentDueDateCalcFixedDate null.Int `boil:"PaymentDueDateCalcFixedDate" json:"PaymentDueDateCalcFixedDate,omitempty" toml:"PaymentDueDateCalcFixedDate" yaml:"PaymentDueDateCalcFixedDate,omitempty"`
+	PaymentTerms                string    `boil:"PaymentTerms" json:"PaymentTerms" toml:"PaymentTerms" yaml:"PaymentTerms"`
+	BaseDate                    int       `boil:"BaseDate" json:"BaseDate" toml:"BaseDate" yaml:"BaseDate"`
+	BaseDateCalcAddMonth        null.Int  `boil:"BaseDateCalcAddMonth" json:"BaseDateCalcAddMonth,omitempty" toml:"BaseDateCalcAddMonth" yaml:"BaseDateCalcAddMonth,omitempty"`
+	BaseDateCalcFixedDate       null.Int  `boil:"BaseDateCalcFixedDate" json:"BaseDateCalcFixedDate,omitempty" toml:"BaseDateCalcFixedDate" yaml:"BaseDateCalcFixedDate,omitempty"`
+	PaymentDueDateCalcAddMonth  null.Int  `boil:"PaymentDueDateCalcAddMonth" json:"PaymentDueDateCalcAddMonth,omitempty" toml:"PaymentDueDateCalcAddMonth" yaml:"PaymentDueDateCalcAddMonth,omitempty"`
+	PaymentDueDateCalcFixedDate null.Int  `boil:"PaymentDueDateCalcFixedDate" json:"PaymentDueDateCalcFixedDate,omitempty" toml:"PaymentDueDateCalcFixedDate" yaml:"PaymentDueDateCalcFixedDate,omitempty"`
+	CreationDate                string    `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
+	LastChangeDate              string    `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
+	IsMarkedForDeletion         null.Bool `boil:"IsMarkedForDeletion" json:"IsMarkedForDeletion,omitempty" toml:"IsMarkedForDeletion" yaml:"IsMarkedForDeletion,omitempty"`
 
 	R *dataPlatformPaymentTermsPaymentTermsDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
 	L dataPlatformPaymentTermsPaymentTermsDatumL  `boil:"-" json:"-" toml:"-" yaml:"-"`
@@ -42,6 +45,9 @@ var DataPlatformPaymentTermsPaymentTermsDatumColumns = struct {
 	BaseDateCalcFixedDate       string
 	PaymentDueDateCalcAddMonth  string
 	PaymentDueDateCalcFixedDate string
+	CreationDate                string
+	LastChangeDate              string
+	IsMarkedForDeletion         string
 }{
 	PaymentTerms:                "PaymentTerms",
 	BaseDate:                    "BaseDate",
@@ -49,6 +55,9 @@ var DataPlatformPaymentTermsPaymentTermsDatumColumns = struct {
 	BaseDateCalcFixedDate:       "BaseDateCalcFixedDate",
 	PaymentDueDateCalcAddMonth:  "PaymentDueDateCalcAddMonth",
 	PaymentDueDateCalcFixedDate: "PaymentDueDateCalcFixedDate",
+	CreationDate:                "CreationDate",
+	LastChangeDate:              "LastChangeDate",
+	IsMarkedForDeletion:         "IsMarkedForDeletion",
 }
 
 var DataPlatformPaymentTermsPaymentTermsDatumTableColumns = struct {
@@ -58,6 +67,9 @@ var DataPlatformPaymentTermsPaymentTermsDatumTableColumns = struct {
 	BaseDateCalcFixedDate       string
 	PaymentDueDateCalcAddMonth  string
 	PaymentDueDateCalcFixedDate string
+	CreationDate                string
+	LastChangeDate              string
+	IsMarkedForDeletion         string
 }{
 	PaymentTerms:                "data_platform_payment_terms_payment_terms_data.PaymentTerms",
 	BaseDate:                    "data_platform_payment_terms_payment_terms_data.BaseDate",
@@ -65,6 +77,9 @@ var DataPlatformPaymentTermsPaymentTermsDatumTableColumns = struct {
 	BaseDateCalcFixedDate:       "data_platform_payment_terms_payment_terms_data.BaseDateCalcFixedDate",
 	PaymentDueDateCalcAddMonth:  "data_platform_payment_terms_payment_terms_data.PaymentDueDateCalcAddMonth",
 	PaymentDueDateCalcFixedDate: "data_platform_payment_terms_payment_terms_data.PaymentDueDateCalcFixedDate",
+	CreationDate:                "data_platform_payment_terms_payment_terms_data.CreationDate",
+	LastChangeDate:              "data_platform_payment_terms_payment_terms_data.LastChangeDate",
+	IsMarkedForDeletion:         "data_platform_payment_terms_payment_terms_data.IsMarkedForDeletion",
 }
 
 // Generated where
@@ -76,6 +91,9 @@ var DataPlatformPaymentTermsPaymentTermsDatumWhere = struct {
 	BaseDateCalcFixedDate       whereHelpernull_Int
 	PaymentDueDateCalcAddMonth  whereHelpernull_Int
 	PaymentDueDateCalcFixedDate whereHelpernull_Int
+	CreationDate                whereHelperstring
+	LastChangeDate              whereHelperstring
+	IsMarkedForDeletion         whereHelpernull_Bool
 }{
 	PaymentTerms:                whereHelperstring{field: "`data_platform_payment_terms_payment_terms_data`.`PaymentTerms`"},
 	BaseDate:                    whereHelperint{field: "`data_platform_payment_terms_payment_terms_data`.`BaseDate`"},
@@ -83,6 +101,9 @@ var DataPlatformPaymentTermsPaymentTermsDatumWhere = struct {
 	BaseDateCalcFixedDate:       whereHelpernull_Int{field: "`data_platform_payment_terms_payment_terms_data`.`BaseDateCalcFixedDate`"},
 	PaymentDueDateCalcAddMonth:  whereHelpernull_Int{field: "`data_platform_payment_terms_payment_terms_data`.`PaymentDueDateCalcAddMonth`"},
 	PaymentDueDateCalcFixedDate: whereHelpernull_Int{field: "`data_platform_payment_terms_payment_terms_data`.`PaymentDueDateCalcFixedDate`"},
+	CreationDate:                whereHelperstring{field: "`data_platform_payment_terms_payment_terms_data`.`CreationDate`"},
+	LastChangeDate:              whereHelperstring{field: "`data_platform_payment_terms_payment_terms_data`.`LastChangeDate`"},
+	IsMarkedForDeletion:         whereHelpernull_Bool{field: "`data_platform_payment_terms_payment_terms_data`.`IsMarkedForDeletion`"},
 }
 
 // DataPlatformPaymentTermsPaymentTermsDatumRels is where relationship names are stored.
@@ -183,8 +204,8 @@ func (r *dataPlatformPaymentTermsPaymentTermsDatumR) GetPaymentTermDataPlatformS
 type dataPlatformPaymentTermsPaymentTermsDatumL struct{}
 
 var (
-	dataPlatformPaymentTermsPaymentTermsDatumAllColumns            = []string{"PaymentTerms", "BaseDate", "BaseDateCalcAddMonth", "BaseDateCalcFixedDate", "PaymentDueDateCalcAddMonth", "PaymentDueDateCalcFixedDate"}
-	dataPlatformPaymentTermsPaymentTermsDatumColumnsWithoutDefault = []string{"PaymentTerms", "BaseDate", "BaseDateCalcAddMonth", "BaseDateCalcFixedDate", "PaymentDueDateCalcAddMonth", "PaymentDueDateCalcFixedDate"}
+	dataPlatformPaymentTermsPaymentTermsDatumAllColumns            = []string{"PaymentTerms", "BaseDate", "BaseDateCalcAddMonth", "BaseDateCalcFixedDate", "PaymentDueDateCalcAddMonth", "PaymentDueDateCalcFixedDate", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
+	dataPlatformPaymentTermsPaymentTermsDatumColumnsWithoutDefault = []string{"PaymentTerms", "BaseDate", "BaseDateCalcAddMonth", "BaseDateCalcFixedDate", "PaymentDueDateCalcAddMonth", "PaymentDueDateCalcFixedDate", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
 	dataPlatformPaymentTermsPaymentTermsDatumColumnsWithDefault    = []string{}
 	dataPlatformPaymentTermsPaymentTermsDatumPrimaryKeyColumns     = []string{"PaymentTerms", "BaseDate"}
 	dataPlatformPaymentTermsPaymentTermsDatumGeneratedColumns      = []string{}

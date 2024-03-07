@@ -14,6 +14,7 @@ import (
 	"time"
 
 	"github.com/friendsofgo/errors"
+	"github.com/volatiletech/null/v8"
 	"github.com/volatiletech/sqlboiler/v4/boil"
 	"github.com/volatiletech/sqlboiler/v4/queries"
 	"github.com/volatiletech/sqlboiler/v4/queries/qm"
@@ -23,30 +24,51 @@ import (
 
 // DataPlatformIncotermsIncotermsDatum is an object representing the database table.
 type DataPlatformIncotermsIncotermsDatum struct {
-	Incoterms string `boil:"Incoterms" json:"Incoterms" toml:"Incoterms" yaml:"Incoterms"`
+	Incoterms           string    `boil:"Incoterms" json:"Incoterms" toml:"Incoterms" yaml:"Incoterms"`
+	CreationDate        string    `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
+	LastChangeDate      string    `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
+	IsMarkedForDeletion null.Bool `boil:"IsMarkedForDeletion" json:"IsMarkedForDeletion,omitempty" toml:"IsMarkedForDeletion" yaml:"IsMarkedForDeletion,omitempty"`
 
 	R *dataPlatformIncotermsIncotermsDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
 	L dataPlatformIncotermsIncotermsDatumL  `boil:"-" json:"-" toml:"-" yaml:"-"`
 }
 
 var DataPlatformIncotermsIncotermsDatumColumns = struct {
-	Incoterms string
+	Incoterms           string
+	CreationDate        string
+	LastChangeDate      string
+	IsMarkedForDeletion string
 }{
-	Incoterms: "Incoterms",
+	Incoterms:           "Incoterms",
+	CreationDate:        "CreationDate",
+	LastChangeDate:      "LastChangeDate",
+	IsMarkedForDeletion: "IsMarkedForDeletion",
 }
 
 var DataPlatformIncotermsIncotermsDatumTableColumns = struct {
-	Incoterms string
+	Incoterms           string
+	CreationDate        string
+	LastChangeDate      string
+	IsMarkedForDeletion string
 }{
-	Incoterms: "data_platform_incoterms_incoterms_data.Incoterms",
+	Incoterms:           "data_platform_incoterms_incoterms_data.Incoterms",
+	CreationDate:        "data_platform_incoterms_incoterms_data.CreationDate",
+	LastChangeDate:      "data_platform_incoterms_incoterms_data.LastChangeDate",
+	IsMarkedForDeletion: "data_platform_incoterms_incoterms_data.IsMarkedForDeletion",
 }
 
 // Generated where
 
 var DataPlatformIncotermsIncotermsDatumWhere = struct {
-	Incoterms whereHelperstring
+	Incoterms           whereHelperstring
+	CreationDate        whereHelperstring
+	LastChangeDate      whereHelperstring
+	IsMarkedForDeletion whereHelpernull_Bool
 }{
-	Incoterms: whereHelperstring{field: "`data_platform_incoterms_incoterms_data`.`Incoterms`"},
+	Incoterms:           whereHelperstring{field: "`data_platform_incoterms_incoterms_data`.`Incoterms`"},
+	CreationDate:        whereHelperstring{field: "`data_platform_incoterms_incoterms_data`.`CreationDate`"},
+	LastChangeDate:      whereHelperstring{field: "`data_platform_incoterms_incoterms_data`.`LastChangeDate`"},
+	IsMarkedForDeletion: whereHelpernull_Bool{field: "`data_platform_incoterms_incoterms_data`.`IsMarkedForDeletion`"},
 }
 
 // DataPlatformIncotermsIncotermsDatumRels is where relationship names are stored.
@@ -56,6 +78,7 @@ var DataPlatformIncotermsIncotermsDatumRels = struct {
 	IncotermDataPlatformOrdersHeaderData           string
 	IncotermDataPlatformOrdersItemData             string
 	IncotermDataPlatformQuotationsHeaderData       string
+	IncotermDataPlatformQuotationsItemData         string
 	IncotermDataPlatformSCRFreightTransactionData  string
 	IncotermDataPlatformSCRTransactionData         string
 }{
@@ -64,6 +87,7 @@ var DataPlatformIncotermsIncotermsDatumRels = struct {
 	IncotermDataPlatformOrdersHeaderData:           "IncotermDataPlatformOrdersHeaderData",
 	IncotermDataPlatformOrdersItemData:             "IncotermDataPlatformOrdersItemData",
 	IncotermDataPlatformQuotationsHeaderData:       "IncotermDataPlatformQuotationsHeaderData",
+	IncotermDataPlatformQuotationsItemData:         "IncotermDataPlatformQuotationsItemData",
 	IncotermDataPlatformSCRFreightTransactionData:  "IncotermDataPlatformSCRFreightTransactionData",
 	IncotermDataPlatformSCRTransactionData:         "IncotermDataPlatformSCRTransactionData",
 }
@@ -75,6 +99,7 @@ type dataPlatformIncotermsIncotermsDatumR struct {
 	IncotermDataPlatformOrdersHeaderData           DataPlatformOrdersHeaderDatumSlice           `boil:"IncotermDataPlatformOrdersHeaderData" json:"IncotermDataPlatformOrdersHeaderData" toml:"IncotermDataPlatformOrdersHeaderData" yaml:"IncotermDataPlatformOrdersHeaderData"`
 	IncotermDataPlatformOrdersItemData             DataPlatformOrdersItemDatumSlice             `boil:"IncotermDataPlatformOrdersItemData" json:"IncotermDataPlatformOrdersItemData" toml:"IncotermDataPlatformOrdersItemData" yaml:"IncotermDataPlatformOrdersItemData"`
 	IncotermDataPlatformQuotationsHeaderData       DataPlatformQuotationsHeaderDatumSlice       `boil:"IncotermDataPlatformQuotationsHeaderData" json:"IncotermDataPlatformQuotationsHeaderData" toml:"IncotermDataPlatformQuotationsHeaderData" yaml:"IncotermDataPlatformQuotationsHeaderData"`
+	IncotermDataPlatformQuotationsItemData         DataPlatformQuotationsItemDatumSlice         `boil:"IncotermDataPlatformQuotationsItemData" json:"IncotermDataPlatformQuotationsItemData" toml:"IncotermDataPlatformQuotationsItemData" yaml:"IncotermDataPlatformQuotationsItemData"`
 	IncotermDataPlatformSCRFreightTransactionData  DataPlatformSCRFreightTransactionDatumSlice  `boil:"IncotermDataPlatformSCRFreightTransactionData" json:"IncotermDataPlatformSCRFreightTransactionData" toml:"IncotermDataPlatformSCRFreightTransactionData" yaml:"IncotermDataPlatformSCRFreightTransactionData"`
 	IncotermDataPlatformSCRTransactionData         DataPlatformSCRTransactionDatumSlice         `boil:"IncotermDataPlatformSCRTransactionData" json:"IncotermDataPlatformSCRTransactionData" toml:"IncotermDataPlatformSCRTransactionData" yaml:"IncotermDataPlatformSCRTransactionData"`
 }
@@ -119,6 +144,13 @@ func (r *dataPlatformIncotermsIncotermsDatumR) GetIncotermDataPlatformQuotations
 	return r.IncotermDataPlatformQuotationsHeaderData
 }
 
+func (r *dataPlatformIncotermsIncotermsDatumR) GetIncotermDataPlatformQuotationsItemData() DataPlatformQuotationsItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.IncotermDataPlatformQuotationsItemData
+}
+
 func (r *dataPlatformIncotermsIncotermsDatumR) GetIncotermDataPlatformSCRFreightTransactionData() DataPlatformSCRFreightTransactionDatumSlice {
 	if r == nil {
 		return nil
@@ -137,8 +169,8 @@ func (r *dataPlatformIncotermsIncotermsDatumR) GetIncotermDataPlatformSCRTransac
 type dataPlatformIncotermsIncotermsDatumL struct{}
 
 var (
-	dataPlatformIncotermsIncotermsDatumAllColumns            = []string{"Incoterms"}
-	dataPlatformIncotermsIncotermsDatumColumnsWithoutDefault = []string{"Incoterms"}
+	dataPlatformIncotermsIncotermsDatumAllColumns            = []string{"Incoterms", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
+	dataPlatformIncotermsIncotermsDatumColumnsWithoutDefault = []string{"Incoterms", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
 	dataPlatformIncotermsIncotermsDatumColumnsWithDefault    = []string{}
 	dataPlatformIncotermsIncotermsDatumPrimaryKeyColumns     = []string{"Incoterms"}
 	dataPlatformIncotermsIncotermsDatumGeneratedColumns      = []string{}
@@ -303,6 +335,20 @@ func (o *DataPlatformIncotermsIncotermsDatum) IncotermDataPlatformQuotationsHead
 	)
 
 	return DataPlatformQuotationsHeaderData(queryMods...)
+}
+
+// IncotermDataPlatformQuotationsItemData retrieves all the data_platform_quotations_item_datum's DataPlatformQuotationsItemData with an executor via Incoterms column.
+func (o *DataPlatformIncotermsIncotermsDatum) IncotermDataPlatformQuotationsItemData(mods ...qm.QueryMod) dataPlatformQuotationsItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_quotations_item_data`.`Incoterms`=?", o.Incoterms),
+	)
+
+	return DataPlatformQuotationsItemData(queryMods...)
 }
 
 // IncotermDataPlatformSCRFreightTransactionData retrieves all the data_platform_scr_freight_transaction_datum's DataPlatformSCRFreightTransactionData with an executor via Incoterms column.
@@ -810,6 +856,103 @@ func (dataPlatformIncotermsIncotermsDatumL) LoadIncotermDataPlatformQuotationsHe
 		for _, local := range slice {
 			if queries.Equal(local.Incoterms, foreign.Incoterms) {
 				local.R.IncotermDataPlatformQuotationsHeaderData = append(local.R.IncotermDataPlatformQuotationsHeaderData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadIncotermDataPlatformQuotationsItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformIncotermsIncotermsDatumL) LoadIncotermDataPlatformQuotationsItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformIncotermsIncotermsDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformIncotermsIncotermsDatum
+	var object *DataPlatformIncotermsIncotermsDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformIncotermsIncotermsDatum.(*DataPlatformIncotermsIncotermsDatum)
+		if !ok {
+			object = new(DataPlatformIncotermsIncotermsDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformIncotermsIncotermsDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformIncotermsIncotermsDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformIncotermsIncotermsDatum.(*[]*DataPlatformIncotermsIncotermsDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformIncotermsIncotermsDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformIncotermsIncotermsDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformIncotermsIncotermsDatumR{}
+		}
+		args = append(args, object.Incoterms)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformIncotermsIncotermsDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Incoterms) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Incoterms)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_quotations_item_data`),
+		qm.WhereIn(`data_platform_quotations_item_data.Incoterms in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_quotations_item_data")
+	}
+
+	var resultSlice []*DataPlatformQuotationsItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_quotations_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_quotations_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_quotations_item_data")
+	}
+
+	if singular {
+		object.R.IncotermDataPlatformQuotationsItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Incoterms, foreign.Incoterms) {
+				local.R.IncotermDataPlatformQuotationsItemData = append(local.R.IncotermDataPlatformQuotationsItemData, foreign)
 				break
 			}
 		}
@@ -1525,6 +1668,110 @@ func (o *DataPlatformIncotermsIncotermsDatum) RemoveIncotermDataPlatformQuotatio
 				o.R.IncotermDataPlatformQuotationsHeaderData[i] = o.R.IncotermDataPlatformQuotationsHeaderData[ln-1]
 			}
 			o.R.IncotermDataPlatformQuotationsHeaderData = o.R.IncotermDataPlatformQuotationsHeaderData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddIncotermDataPlatformQuotationsItemData adds the given related objects to the existing relationships
+// of the data_platform_incoterms_incoterms_datum, optionally inserting them as new records.
+// Appends related to o.R.IncotermDataPlatformQuotationsItemData.
+func (o *DataPlatformIncotermsIncotermsDatum) AddIncotermDataPlatformQuotationsItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformQuotationsItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Incoterms, o.Incoterms)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_quotations_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Incoterms"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformQuotationsItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Incoterms, rel.Quotation, rel.QuotationItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Incoterms, o.Incoterms)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformIncotermsIncotermsDatumR{
+			IncotermDataPlatformQuotationsItemData: related,
+		}
+	} else {
+		o.R.IncotermDataPlatformQuotationsItemData = append(o.R.IncotermDataPlatformQuotationsItemData, related...)
+	}
+
+	return nil
+}
+
+// SetIncotermDataPlatformQuotationsItemData removes all previously related items of the
+// data_platform_incoterms_incoterms_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.Incoterm's IncotermDataPlatformQuotationsItemData accordingly.
+// Replaces o.R.IncotermDataPlatformQuotationsItemData with related.
+func (o *DataPlatformIncotermsIncotermsDatum) SetIncotermDataPlatformQuotationsItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformQuotationsItemDatum) error {
+	query := "update `data_platform_quotations_item_data` set `Incoterms` = null where `Incoterms` = ?"
+	values := []interface{}{o.Incoterms}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.IncotermDataPlatformQuotationsItemData = nil
+	}
+
+	return o.AddIncotermDataPlatformQuotationsItemData(ctx, exec, insert, related...)
+}
+
+// RemoveIncotermDataPlatformQuotationsItemData relationships from objects passed in.
+// Removes related items from R.IncotermDataPlatformQuotationsItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformIncotermsIncotermsDatum) RemoveIncotermDataPlatformQuotationsItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformQuotationsItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Incoterms, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Incoterms")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.IncotermDataPlatformQuotationsItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.IncotermDataPlatformQuotationsItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.IncotermDataPlatformQuotationsItemData[i] = o.R.IncotermDataPlatformQuotationsItemData[ln-1]
+			}
+			o.R.IncotermDataPlatformQuotationsItemData = o.R.IncotermDataPlatformQuotationsItemData[:ln-1]
 			break
 		}
 	}

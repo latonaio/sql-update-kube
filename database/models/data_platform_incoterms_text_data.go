@@ -24,44 +24,65 @@ import (
 
 // DataPlatformIncotermsTextDatum is an object representing the database table.
 type DataPlatformIncotermsTextDatum struct {
-	Incoterms     string      `boil:"Incoterms" json:"Incoterms" toml:"Incoterms" yaml:"Incoterms"`
-	Language      string      `boil:"Language" json:"Language" toml:"Language" yaml:"Language"`
-	IncotermsName null.String `boil:"IncotermsName" json:"IncotermsName,omitempty" toml:"IncotermsName" yaml:"IncotermsName,omitempty"`
+	Incoterms           string      `boil:"Incoterms" json:"Incoterms" toml:"Incoterms" yaml:"Incoterms"`
+	Language            string      `boil:"Language" json:"Language" toml:"Language" yaml:"Language"`
+	IncotermsName       null.String `boil:"IncotermsName" json:"IncotermsName,omitempty" toml:"IncotermsName" yaml:"IncotermsName,omitempty"`
+	CreationDate        string      `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
+	LastChangeDate      string      `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
+	IsMarkedForDeletion null.Bool   `boil:"IsMarkedForDeletion" json:"IsMarkedForDeletion,omitempty" toml:"IsMarkedForDeletion" yaml:"IsMarkedForDeletion,omitempty"`
 
 	R *dataPlatformIncotermsTextDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
 	L dataPlatformIncotermsTextDatumL  `boil:"-" json:"-" toml:"-" yaml:"-"`
 }
 
 var DataPlatformIncotermsTextDatumColumns = struct {
-	Incoterms     string
-	Language      string
-	IncotermsName string
+	Incoterms           string
+	Language            string
+	IncotermsName       string
+	CreationDate        string
+	LastChangeDate      string
+	IsMarkedForDeletion string
 }{
-	Incoterms:     "Incoterms",
-	Language:      "Language",
-	IncotermsName: "IncotermsName",
+	Incoterms:           "Incoterms",
+	Language:            "Language",
+	IncotermsName:       "IncotermsName",
+	CreationDate:        "CreationDate",
+	LastChangeDate:      "LastChangeDate",
+	IsMarkedForDeletion: "IsMarkedForDeletion",
 }
 
 var DataPlatformIncotermsTextDatumTableColumns = struct {
-	Incoterms     string
-	Language      string
-	IncotermsName string
+	Incoterms           string
+	Language            string
+	IncotermsName       string
+	CreationDate        string
+	LastChangeDate      string
+	IsMarkedForDeletion string
 }{
-	Incoterms:     "data_platform_incoterms_text_data.Incoterms",
-	Language:      "data_platform_incoterms_text_data.Language",
-	IncotermsName: "data_platform_incoterms_text_data.IncotermsName",
+	Incoterms:           "data_platform_incoterms_text_data.Incoterms",
+	Language:            "data_platform_incoterms_text_data.Language",
+	IncotermsName:       "data_platform_incoterms_text_data.IncotermsName",
+	CreationDate:        "data_platform_incoterms_text_data.CreationDate",
+	LastChangeDate:      "data_platform_incoterms_text_data.LastChangeDate",
+	IsMarkedForDeletion: "data_platform_incoterms_text_data.IsMarkedForDeletion",
 }
 
 // Generated where
 
 var DataPlatformIncotermsTextDatumWhere = struct {
-	Incoterms     whereHelperstring
-	Language      whereHelperstring
-	IncotermsName whereHelpernull_String
+	Incoterms           whereHelperstring
+	Language            whereHelperstring
+	IncotermsName       whereHelpernull_String
+	CreationDate        whereHelperstring
+	LastChangeDate      whereHelperstring
+	IsMarkedForDeletion whereHelpernull_Bool
 }{
-	Incoterms:     whereHelperstring{field: "`data_platform_incoterms_text_data`.`Incoterms`"},
-	Language:      whereHelperstring{field: "`data_platform_incoterms_text_data`.`Language`"},
-	IncotermsName: whereHelpernull_String{field: "`data_platform_incoterms_text_data`.`IncotermsName`"},
+	Incoterms:           whereHelperstring{field: "`data_platform_incoterms_text_data`.`Incoterms`"},
+	Language:            whereHelperstring{field: "`data_platform_incoterms_text_data`.`Language`"},
+	IncotermsName:       whereHelpernull_String{field: "`data_platform_incoterms_text_data`.`IncotermsName`"},
+	CreationDate:        whereHelperstring{field: "`data_platform_incoterms_text_data`.`CreationDate`"},
+	LastChangeDate:      whereHelperstring{field: "`data_platform_incoterms_text_data`.`LastChangeDate`"},
+	IsMarkedForDeletion: whereHelpernull_Bool{field: "`data_platform_incoterms_text_data`.`IsMarkedForDeletion`"},
 }
 
 // DataPlatformIncotermsTextDatumRels is where relationship names are stored.
@@ -81,8 +102,8 @@ func (*dataPlatformIncotermsTextDatumR) NewStruct() *dataPlatformIncotermsTextDa
 type dataPlatformIncotermsTextDatumL struct{}
 
 var (
-	dataPlatformIncotermsTextDatumAllColumns            = []string{"Incoterms", "Language", "IncotermsName"}
-	dataPlatformIncotermsTextDatumColumnsWithoutDefault = []string{"Incoterms", "Language", "IncotermsName"}
+	dataPlatformIncotermsTextDatumAllColumns            = []string{"Incoterms", "Language", "IncotermsName", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
+	dataPlatformIncotermsTextDatumColumnsWithoutDefault = []string{"Incoterms", "Language", "IncotermsName", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
 	dataPlatformIncotermsTextDatumColumnsWithDefault    = []string{}
 	dataPlatformIncotermsTextDatumPrimaryKeyColumns     = []string{"Incoterms", "Language"}
 	dataPlatformIncotermsTextDatumGeneratedColumns      = []string{}

@@ -17,6 +17,8 @@ var TableNames = struct {
 	DataPlatformBusinessPartnerGeneralDocData              string
 	DataPlatformBusinessPartnerGeneralFinInstData          string
 	DataPlatformBusinessPartnerRoleData                    string
+	DataPlatformCaChainCaChainData                         string
+	DataPlatformCertificateAuthorityData                   string
 	DataPlatformCodeConversionCodeConversionData           string
 	DataPlatformContractHeaderData                         string
 	DataPlatformContractItemData                           string
@@ -63,6 +65,7 @@ var TableNames = struct {
 	DataPlatformInspectionLotHeaderData                    string
 	DataPlatformInspectionLotHeaderDocData                 string
 	DataPlatformInspectionLotInspectionData                string
+	DataPlatformInspectionLotPartnerData                   string
 	DataPlatformInspectionLotSpecDetailData                string
 	DataPlatformInspectionLotSpecGeneralData               string
 	DataPlatformInspectionPlanComponentCompositionData     string
@@ -183,6 +186,7 @@ var TableNames = struct {
 	DataPlatformQuotationsAddressData                      string
 	DataPlatformQuotationsHeaderData                       string
 	DataPlatformQuotationsHeaderDocData                    string
+	DataPlatformQuotationsItemData                         string
 	DataPlatformQuotationsItemDocData                      string
 	DataPlatformQuotationsItemPricingElementData           string
 	DataPlatformQuotationsPartnerData                      string
@@ -227,6 +231,8 @@ var TableNames = struct {
 	DataPlatformBusinessPartnerGeneralDocData:              "data_platform_business_partner_general_doc_data",
 	DataPlatformBusinessPartnerGeneralFinInstData:          "data_platform_business_partner_general_fin_inst_data",
 	DataPlatformBusinessPartnerRoleData:                    "data_platform_business_partner_role_data",
+	DataPlatformCaChainCaChainData:                         "data_platform_ca_chain_ca_chain_data",
+	DataPlatformCertificateAuthorityData:                   "data_platform_certificate_authority_data",
 	DataPlatformCodeConversionCodeConversionData:           "data_platform_code_conversion_code_conversion_data",
 	DataPlatformContractHeaderData:                         "data_platform_contract_header_data",
 	DataPlatformContractItemData:                           "data_platform_contract_item_data",
@@ -273,6 +279,7 @@ var TableNames = struct {
 	DataPlatformInspectionLotHeaderData:                    "data_platform_inspection_lot_header_data",
 	DataPlatformInspectionLotHeaderDocData:                 "data_platform_inspection_lot_header_doc_data",
 	DataPlatformInspectionLotInspectionData:                "data_platform_inspection_lot_inspection_data",
+	DataPlatformInspectionLotPartnerData:                   "data_platform_inspection_lot_partner_data",
 	DataPlatformInspectionLotSpecDetailData:                "data_platform_inspection_lot_spec_detail_data",
 	DataPlatformInspectionLotSpecGeneralData:               "data_platform_inspection_lot_spec_general_data",
 	DataPlatformInspectionPlanComponentCompositionData:     "data_platform_inspection_plan_component_composition_data",
@@ -393,6 +400,7 @@ var TableNames = struct {
 	DataPlatformQuotationsAddressData:                      "data_platform_quotations_address_data",
 	DataPlatformQuotationsHeaderData:                       "data_platform_quotations_header_data",
 	DataPlatformQuotationsHeaderDocData:                    "data_platform_quotations_header_doc_data",
+	DataPlatformQuotationsItemData:                         "data_platform_quotations_item_data",
 	DataPlatformQuotationsItemDocData:                      "data_platform_quotations_item_doc_data",
 	DataPlatformQuotationsItemPricingElementData:           "data_platform_quotations_item_pricing_element_data",
 	DataPlatformQuotationsPartnerData:                      "data_platform_quotations_partner_data",

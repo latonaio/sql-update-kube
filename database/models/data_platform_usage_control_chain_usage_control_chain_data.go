@@ -41,14 +41,14 @@ type DataPlatformUsageControlChainUsageControlChainDatum struct {
 	BusinessPartnerRoleRestriction null.String  `boil:"BusinessPartnerRoleRestriction" json:"BusinessPartnerRoleRestriction,omitempty" toml:"BusinessPartnerRoleRestriction" yaml:"BusinessPartnerRoleRestriction,omitempty"`
 	DataStateRestriction           null.String  `boil:"DataStateRestriction" json:"DataStateRestriction,omitempty" toml:"DataStateRestriction" yaml:"DataStateRestriction,omitempty"`
 	NumberOfUsageRestriction       null.Int     `boil:"NumberOfUsageRestriction" json:"NumberOfUsageRestriction,omitempty" toml:"NumberOfUsageRestriction" yaml:"NumberOfUsageRestriction,omitempty"`
-	NumberOfActuaUsage             null.Int     `boil:"NumberOfActuaUsage" json:"NumberOfActuaUsage,omitempty" toml:"NumberOfActuaUsage" yaml:"NumberOfActuaUsage,omitempty"`
+	NumberOfActualUsage            null.Int     `boil:"NumberOfActualUsage" json:"NumberOfActualUsage,omitempty" toml:"NumberOfActualUsage" yaml:"NumberOfActualUsage,omitempty"`
 	IPAddressRestriction           null.String  `boil:"IPAddressRestriction" json:"IPAddressRestriction,omitempty" toml:"IPAddressRestriction" yaml:"IPAddressRestriction,omitempty"`
 	MACAddressRestriction          null.String  `boil:"MACAddressRestriction" json:"MACAddressRestriction,omitempty" toml:"MACAddressRestriction" yaml:"MACAddressRestriction,omitempty"`
 	ModifyIsAllowed                null.Bool    `boil:"ModifyIsAllowed" json:"ModifyIsAllowed,omitempty" toml:"ModifyIsAllowed" yaml:"ModifyIsAllowed,omitempty"`
 	LocalLoggingIsAllowed          null.Bool    `boil:"LocalLoggingIsAllowed" json:"LocalLoggingIsAllowed,omitempty" toml:"LocalLoggingIsAllowed" yaml:"LocalLoggingIsAllowed,omitempty"`
 	RemoteNotificationIsAllowed    null.String  `boil:"RemoteNotificationIsAllowed" json:"RemoteNotificationIsAllowed,omitempty" toml:"RemoteNotificationIsAllowed" yaml:"RemoteNotificationIsAllowed,omitempty"`
-	DestributeOnlyIfEncrypted      null.Bool    `boil:"DestributeOnlyIfEncrypted" json:"DestributeOnlyIfEncrypted,omitempty" toml:"DestributeOnlyIfEncrypted" yaml:"DestributeOnlyIfEncrypted,omitempty"`
-	AttachPolicyWhenDestribute     null.Bool    `boil:"AttachPolicyWhenDestribute" json:"AttachPolicyWhenDestribute,omitempty" toml:"AttachPolicyWhenDestribute" yaml:"AttachPolicyWhenDestribute,omitempty"`
+	DistributeOnlyIfEncrypted      null.Bool    `boil:"DistributeOnlyIfEncrypted" json:"DistributeOnlyIfEncrypted,omitempty" toml:"DistributeOnlyIfEncrypted" yaml:"DistributeOnlyIfEncrypted,omitempty"`
+	AttachPolicyWhenDistribute     null.Bool    `boil:"AttachPolicyWhenDistribute" json:"AttachPolicyWhenDistribute,omitempty" toml:"AttachPolicyWhenDistribute" yaml:"AttachPolicyWhenDistribute,omitempty"`
 	PostalCode                     null.String  `boil:"PostalCode" json:"PostalCode,omitempty" toml:"PostalCode" yaml:"PostalCode,omitempty"`
 	LocalSubRegion                 null.String  `boil:"LocalSubRegion" json:"LocalSubRegion,omitempty" toml:"LocalSubRegion" yaml:"LocalSubRegion,omitempty"`
 	LocalRegion                    null.String  `boil:"LocalRegion" json:"LocalRegion,omitempty" toml:"LocalRegion" yaml:"LocalRegion,omitempty"`
@@ -83,14 +83,14 @@ var DataPlatformUsageControlChainUsageControlChainDatumColumns = struct {
 	BusinessPartnerRoleRestriction string
 	DataStateRestriction           string
 	NumberOfUsageRestriction       string
-	NumberOfActuaUsage             string
+	NumberOfActualUsage            string
 	IPAddressRestriction           string
 	MACAddressRestriction          string
 	ModifyIsAllowed                string
 	LocalLoggingIsAllowed          string
 	RemoteNotificationIsAllowed    string
-	DestributeOnlyIfEncrypted      string
-	AttachPolicyWhenDestribute     string
+	DistributeOnlyIfEncrypted      string
+	AttachPolicyWhenDistribute     string
 	PostalCode                     string
 	LocalSubRegion                 string
 	LocalRegion                    string
@@ -120,14 +120,14 @@ var DataPlatformUsageControlChainUsageControlChainDatumColumns = struct {
 	BusinessPartnerRoleRestriction: "BusinessPartnerRoleRestriction",
 	DataStateRestriction:           "DataStateRestriction",
 	NumberOfUsageRestriction:       "NumberOfUsageRestriction",
-	NumberOfActuaUsage:             "NumberOfActuaUsage",
+	NumberOfActualUsage:            "NumberOfActualUsage",
 	IPAddressRestriction:           "IPAddressRestriction",
 	MACAddressRestriction:          "MACAddressRestriction",
 	ModifyIsAllowed:                "ModifyIsAllowed",
 	LocalLoggingIsAllowed:          "LocalLoggingIsAllowed",
 	RemoteNotificationIsAllowed:    "RemoteNotificationIsAllowed",
-	DestributeOnlyIfEncrypted:      "DestributeOnlyIfEncrypted",
-	AttachPolicyWhenDestribute:     "AttachPolicyWhenDestribute",
+	DistributeOnlyIfEncrypted:      "DistributeOnlyIfEncrypted",
+	AttachPolicyWhenDistribute:     "AttachPolicyWhenDistribute",
 	PostalCode:                     "PostalCode",
 	LocalSubRegion:                 "LocalSubRegion",
 	LocalRegion:                    "LocalRegion",
@@ -159,14 +159,14 @@ var DataPlatformUsageControlChainUsageControlChainDatumTableColumns = struct {
 	BusinessPartnerRoleRestriction string
 	DataStateRestriction           string
 	NumberOfUsageRestriction       string
-	NumberOfActuaUsage             string
+	NumberOfActualUsage            string
 	IPAddressRestriction           string
 	MACAddressRestriction          string
 	ModifyIsAllowed                string
 	LocalLoggingIsAllowed          string
 	RemoteNotificationIsAllowed    string
-	DestributeOnlyIfEncrypted      string
-	AttachPolicyWhenDestribute     string
+	DistributeOnlyIfEncrypted      string
+	AttachPolicyWhenDistribute     string
 	PostalCode                     string
 	LocalSubRegion                 string
 	LocalRegion                    string
@@ -196,14 +196,14 @@ var DataPlatformUsageControlChainUsageControlChainDatumTableColumns = struct {
 	BusinessPartnerRoleRestriction: "data_platform_usage_control_chain_usage_control_chain_data.BusinessPartnerRoleRestriction",
 	DataStateRestriction:           "data_platform_usage_control_chain_usage_control_chain_data.DataStateRestriction",
 	NumberOfUsageRestriction:       "data_platform_usage_control_chain_usage_control_chain_data.NumberOfUsageRestriction",
-	NumberOfActuaUsage:             "data_platform_usage_control_chain_usage_control_chain_data.NumberOfActuaUsage",
+	NumberOfActualUsage:            "data_platform_usage_control_chain_usage_control_chain_data.NumberOfActualUsage",
 	IPAddressRestriction:           "data_platform_usage_control_chain_usage_control_chain_data.IPAddressRestriction",
 	MACAddressRestriction:          "data_platform_usage_control_chain_usage_control_chain_data.MACAddressRestriction",
 	ModifyIsAllowed:                "data_platform_usage_control_chain_usage_control_chain_data.ModifyIsAllowed",
 	LocalLoggingIsAllowed:          "data_platform_usage_control_chain_usage_control_chain_data.LocalLoggingIsAllowed",
 	RemoteNotificationIsAllowed:    "data_platform_usage_control_chain_usage_control_chain_data.RemoteNotificationIsAllowed",
-	DestributeOnlyIfEncrypted:      "data_platform_usage_control_chain_usage_control_chain_data.DestributeOnlyIfEncrypted",
-	AttachPolicyWhenDestribute:     "data_platform_usage_control_chain_usage_control_chain_data.AttachPolicyWhenDestribute",
+	DistributeOnlyIfEncrypted:      "data_platform_usage_control_chain_usage_control_chain_data.DistributeOnlyIfEncrypted",
+	AttachPolicyWhenDistribute:     "data_platform_usage_control_chain_usage_control_chain_data.AttachPolicyWhenDistribute",
 	PostalCode:                     "data_platform_usage_control_chain_usage_control_chain_data.PostalCode",
 	LocalSubRegion:                 "data_platform_usage_control_chain_usage_control_chain_data.LocalSubRegion",
 	LocalRegion:                    "data_platform_usage_control_chain_usage_control_chain_data.LocalRegion",
@@ -237,14 +237,14 @@ var DataPlatformUsageControlChainUsageControlChainDatumWhere = struct {
 	BusinessPartnerRoleRestriction whereHelpernull_String
 	DataStateRestriction           whereHelpernull_String
 	NumberOfUsageRestriction       whereHelpernull_Int
-	NumberOfActuaUsage             whereHelpernull_Int
+	NumberOfActualUsage            whereHelpernull_Int
 	IPAddressRestriction           whereHelpernull_String
 	MACAddressRestriction          whereHelpernull_String
 	ModifyIsAllowed                whereHelpernull_Bool
 	LocalLoggingIsAllowed          whereHelpernull_Bool
 	RemoteNotificationIsAllowed    whereHelpernull_String
-	DestributeOnlyIfEncrypted      whereHelpernull_Bool
-	AttachPolicyWhenDestribute     whereHelpernull_Bool
+	DistributeOnlyIfEncrypted      whereHelpernull_Bool
+	AttachPolicyWhenDistribute     whereHelpernull_Bool
 	PostalCode                     whereHelpernull_String
 	LocalSubRegion                 whereHelpernull_String
 	LocalRegion                    whereHelpernull_String
@@ -274,14 +274,14 @@ var DataPlatformUsageControlChainUsageControlChainDatumWhere = struct {
 	BusinessPartnerRoleRestriction: whereHelpernull_String{field: "`data_platform_usage_control_chain_usage_control_chain_data`.`BusinessPartnerRoleRestriction`"},
 	DataStateRestriction:           whereHelpernull_String{field: "`data_platform_usage_control_chain_usage_control_chain_data`.`DataStateRestriction`"},
 	NumberOfUsageRestriction:       whereHelpernull_Int{field: "`data_platform_usage_control_chain_usage_control_chain_data`.`NumberOfUsageRestriction`"},
-	NumberOfActuaUsage:             whereHelpernull_Int{field: "`data_platform_usage_control_chain_usage_control_chain_data`.`NumberOfActuaUsage`"},
+	NumberOfActualUsage:            whereHelpernull_Int{field: "`data_platform_usage_control_chain_usage_control_chain_data`.`NumberOfActualUsage`"},
 	IPAddressRestriction:           whereHelpernull_String{field: "`data_platform_usage_control_chain_usage_control_chain_data`.`IPAddressRestriction`"},
 	MACAddressRestriction:          whereHelpernull_String{field: "`data_platform_usage_control_chain_usage_control_chain_data`.`MACAddressRestriction`"},
 	ModifyIsAllowed:                whereHelpernull_Bool{field: "`data_platform_usage_control_chain_usage_control_chain_data`.`ModifyIsAllowed`"},
 	LocalLoggingIsAllowed:          whereHelpernull_Bool{field: "`data_platform_usage_control_chain_usage_control_chain_data`.`LocalLoggingIsAllowed`"},
 	RemoteNotificationIsAllowed:    whereHelpernull_String{field: "`data_platform_usage_control_chain_usage_control_chain_data`.`RemoteNotificationIsAllowed`"},
-	DestributeOnlyIfEncrypted:      whereHelpernull_Bool{field: "`data_platform_usage_control_chain_usage_control_chain_data`.`DestributeOnlyIfEncrypted`"},
-	AttachPolicyWhenDestribute:     whereHelpernull_Bool{field: "`data_platform_usage_control_chain_usage_control_chain_data`.`AttachPolicyWhenDestribute`"},
+	DistributeOnlyIfEncrypted:      whereHelpernull_Bool{field: "`data_platform_usage_control_chain_usage_control_chain_data`.`DistributeOnlyIfEncrypted`"},
+	AttachPolicyWhenDistribute:     whereHelpernull_Bool{field: "`data_platform_usage_control_chain_usage_control_chain_data`.`AttachPolicyWhenDistribute`"},
 	PostalCode:                     whereHelpernull_String{field: "`data_platform_usage_control_chain_usage_control_chain_data`.`PostalCode`"},
 	LocalSubRegion:                 whereHelpernull_String{field: "`data_platform_usage_control_chain_usage_control_chain_data`.`LocalSubRegion`"},
 	LocalRegion:                    whereHelpernull_String{field: "`data_platform_usage_control_chain_usage_control_chain_data`.`LocalRegion`"},
@@ -333,8 +333,8 @@ func (r *dataPlatformUsageControlChainUsageControlChainDatumR) GetCountryDataPla
 type dataPlatformUsageControlChainUsageControlChainDatumL struct{}
 
 var (
-	dataPlatformUsageControlChainUsageControlChainDatumAllColumns            = []string{"UsageControlChain", "UsageControlLess", "Perpetual", "Rental", "Duration", "DurationUnit", "ValidityStartDate", "ValidityStartTime", "ValidityEndDate", "ValidityEndTime", "DeleteAfterValidityEnd", "ServiceLabelRestriction", "ApplicationRestriction", "PurposeRestriction", "BusinessPartnerRoleRestriction", "DataStateRestriction", "NumberOfUsageRestriction", "NumberOfActuaUsage", "IPAddressRestriction", "MACAddressRestriction", "ModifyIsAllowed", "LocalLoggingIsAllowed", "RemoteNotificationIsAllowed", "DestributeOnlyIfEncrypted", "AttachPolicyWhenDestribute", "PostalCode", "LocalSubRegion", "LocalRegion", "Country", "GlobalRegion", "TimeZone", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsMarkedForDeletion"}
-	dataPlatformUsageControlChainUsageControlChainDatumColumnsWithoutDefault = []string{"UsageControlChain", "UsageControlLess", "Perpetual", "Rental", "Duration", "DurationUnit", "ValidityStartDate", "ValidityStartTime", "ValidityEndDate", "ValidityEndTime", "DeleteAfterValidityEnd", "ServiceLabelRestriction", "ApplicationRestriction", "PurposeRestriction", "BusinessPartnerRoleRestriction", "DataStateRestriction", "NumberOfUsageRestriction", "NumberOfActuaUsage", "IPAddressRestriction", "MACAddressRestriction", "ModifyIsAllowed", "LocalLoggingIsAllowed", "RemoteNotificationIsAllowed", "DestributeOnlyIfEncrypted", "AttachPolicyWhenDestribute", "PostalCode", "LocalSubRegion", "LocalRegion", "Country", "GlobalRegion", "TimeZone", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsMarkedForDeletion"}
+	dataPlatformUsageControlChainUsageControlChainDatumAllColumns            = []string{"UsageControlChain", "UsageControlLess", "Perpetual", "Rental", "Duration", "DurationUnit", "ValidityStartDate", "ValidityStartTime", "ValidityEndDate", "ValidityEndTime", "DeleteAfterValidityEnd", "ServiceLabelRestriction", "ApplicationRestriction", "PurposeRestriction", "BusinessPartnerRoleRestriction", "DataStateRestriction", "NumberOfUsageRestriction", "NumberOfActualUsage", "IPAddressRestriction", "MACAddressRestriction", "ModifyIsAllowed", "LocalLoggingIsAllowed", "RemoteNotificationIsAllowed", "DistributeOnlyIfEncrypted", "AttachPolicyWhenDistribute", "PostalCode", "LocalSubRegion", "LocalRegion", "Country", "GlobalRegion", "TimeZone", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsMarkedForDeletion"}
+	dataPlatformUsageControlChainUsageControlChainDatumColumnsWithoutDefault = []string{"UsageControlChain", "UsageControlLess", "Perpetual", "Rental", "Duration", "DurationUnit", "ValidityStartDate", "ValidityStartTime", "ValidityEndDate", "ValidityEndTime", "DeleteAfterValidityEnd", "ServiceLabelRestriction", "ApplicationRestriction", "PurposeRestriction", "BusinessPartnerRoleRestriction", "DataStateRestriction", "NumberOfUsageRestriction", "NumberOfActualUsage", "IPAddressRestriction", "MACAddressRestriction", "ModifyIsAllowed", "LocalLoggingIsAllowed", "RemoteNotificationIsAllowed", "DistributeOnlyIfEncrypted", "AttachPolicyWhenDistribute", "PostalCode", "LocalSubRegion", "LocalRegion", "Country", "GlobalRegion", "TimeZone", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsMarkedForDeletion"}
 	dataPlatformUsageControlChainUsageControlChainDatumColumnsWithDefault    = []string{}
 	dataPlatformUsageControlChainUsageControlChainDatumPrimaryKeyColumns     = []string{"UsageControlChain"}
 	dataPlatformUsageControlChainUsageControlChainDatumGeneratedColumns      = []string{}

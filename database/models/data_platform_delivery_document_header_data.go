@@ -54,6 +54,8 @@ type DataPlatformDeliveryDocumentHeaderDatum struct {
 	OrderItem                              null.Int     `boil:"OrderItem" json:"OrderItem,omitempty" toml:"OrderItem" yaml:"OrderItem,omitempty"`
 	Contract                               null.Int     `boil:"Contract" json:"Contract,omitempty" toml:"Contract" yaml:"Contract,omitempty"`
 	ContractItem                           null.Int     `boil:"ContractItem" json:"ContractItem,omitempty" toml:"ContractItem" yaml:"ContractItem,omitempty"`
+	Project                                null.Int     `boil:"Project" json:"Project,omitempty" toml:"Project" yaml:"Project,omitempty"`
+	WBSElement                             null.Int     `boil:"WBSElement" json:"WBSElement,omitempty" toml:"WBSElement" yaml:"WBSElement,omitempty"`
 	ProductionVersion                      null.Int     `boil:"ProductionVersion" json:"ProductionVersion,omitempty" toml:"ProductionVersion" yaml:"ProductionVersion,omitempty"`
 	ProductionVersionItem                  null.Int     `boil:"ProductionVersionItem" json:"ProductionVersionItem,omitempty" toml:"ProductionVersionItem" yaml:"ProductionVersionItem,omitempty"`
 	ProductionOrder                        null.Int     `boil:"ProductionOrder" json:"ProductionOrder,omitempty" toml:"ProductionOrder" yaml:"ProductionOrder,omitempty"`
@@ -131,6 +133,8 @@ var DataPlatformDeliveryDocumentHeaderDatumColumns = struct {
 	OrderItem                              string
 	Contract                               string
 	ContractItem                           string
+	Project                                string
+	WBSElement                             string
 	ProductionVersion                      string
 	ProductionVersionItem                  string
 	ProductionOrder                        string
@@ -203,6 +207,8 @@ var DataPlatformDeliveryDocumentHeaderDatumColumns = struct {
 	OrderItem:                              "OrderItem",
 	Contract:                               "Contract",
 	ContractItem:                           "ContractItem",
+	Project:                                "Project",
+	WBSElement:                             "WBSElement",
 	ProductionVersion:                      "ProductionVersion",
 	ProductionVersionItem:                  "ProductionVersionItem",
 	ProductionOrder:                        "ProductionOrder",
@@ -277,6 +283,8 @@ var DataPlatformDeliveryDocumentHeaderDatumTableColumns = struct {
 	OrderItem                              string
 	Contract                               string
 	ContractItem                           string
+	Project                                string
+	WBSElement                             string
 	ProductionVersion                      string
 	ProductionVersionItem                  string
 	ProductionOrder                        string
@@ -349,6 +357,8 @@ var DataPlatformDeliveryDocumentHeaderDatumTableColumns = struct {
 	OrderItem:                              "data_platform_delivery_document_header_data.OrderItem",
 	Contract:                               "data_platform_delivery_document_header_data.Contract",
 	ContractItem:                           "data_platform_delivery_document_header_data.ContractItem",
+	Project:                                "data_platform_delivery_document_header_data.Project",
+	WBSElement:                             "data_platform_delivery_document_header_data.WBSElement",
 	ProductionVersion:                      "data_platform_delivery_document_header_data.ProductionVersion",
 	ProductionVersionItem:                  "data_platform_delivery_document_header_data.ProductionVersionItem",
 	ProductionOrder:                        "data_platform_delivery_document_header_data.ProductionOrder",
@@ -425,6 +435,8 @@ var DataPlatformDeliveryDocumentHeaderDatumWhere = struct {
 	OrderItem                              whereHelpernull_Int
 	Contract                               whereHelpernull_Int
 	ContractItem                           whereHelpernull_Int
+	Project                                whereHelpernull_Int
+	WBSElement                             whereHelpernull_Int
 	ProductionVersion                      whereHelpernull_Int
 	ProductionVersionItem                  whereHelpernull_Int
 	ProductionOrder                        whereHelpernull_Int
@@ -497,6 +509,8 @@ var DataPlatformDeliveryDocumentHeaderDatumWhere = struct {
 	OrderItem:                              whereHelpernull_Int{field: "`data_platform_delivery_document_header_data`.`OrderItem`"},
 	Contract:                               whereHelpernull_Int{field: "`data_platform_delivery_document_header_data`.`Contract`"},
 	ContractItem:                           whereHelpernull_Int{field: "`data_platform_delivery_document_header_data`.`ContractItem`"},
+	Project:                                whereHelpernull_Int{field: "`data_platform_delivery_document_header_data`.`Project`"},
+	WBSElement:                             whereHelpernull_Int{field: "`data_platform_delivery_document_header_data`.`WBSElement`"},
 	ProductionVersion:                      whereHelpernull_Int{field: "`data_platform_delivery_document_header_data`.`ProductionVersion`"},
 	ProductionVersionItem:                  whereHelpernull_Int{field: "`data_platform_delivery_document_header_data`.`ProductionVersionItem`"},
 	ProductionOrder:                        whereHelpernull_Int{field: "`data_platform_delivery_document_header_data`.`ProductionOrder`"},
@@ -768,8 +782,8 @@ func (r *dataPlatformDeliveryDocumentHeaderDatumR) GetDeliveryDocumentDataPlatfo
 type dataPlatformDeliveryDocumentHeaderDatumL struct{}
 
 var (
-	dataPlatformDeliveryDocumentHeaderDatumAllColumns            = []string{"DeliveryDocument", "DeliveryDocumentDate", "SupplyChainRelationshipID", "SupplyChainRelationshipDeliveryID", "SupplyChainRelationshipDeliveryPlantID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "SupplyChainRelationshipFreightID", "Buyer", "Seller", "DeliverToParty", "DeliverFromParty", "DeliverToPlant", "DeliverFromPlant", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "FreightPartner", "IsExportImport", "DeliverToPlantTimeZone", "DeliverFromPlantTimeZone", "ReferenceDocument", "ReferenceDocumentItem", "OrderID", "OrderItem", "Contract", "ContractItem", "ProductionVersion", "ProductionVersionItem", "ProductionOrder", "ProductionOrderItem", "Operations", "OperationsItem", "OperationID", "BillOfMaterial", "BillOfMaterialItem", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "PlannedGoodsIssueDate", "PlannedGoodsIssueTime", "PlannedGoodsReceiptDate", "PlannedGoodsReceiptTime", "FreightOrder", "InvoiceDocumentDate", "HeaderCompleteDeliveryIsDefined", "HeaderDeliveryStatus", "GoodsIssueOrReceiptSlipNumber", "HeaderBillingStatus", "HeaderBillingConfStatus", "HeaderBillingBlockStatus", "HeaderGrossWeight", "HeaderNetWeight", "HeaderWeightUnit", "Incoterms", "TransactionCurrency", "HeaderDeliveryBlockStatus", "HeaderIssuingBlockStatus", "HeaderReceivingBlockStatus", "ExternalReferenceDocument", "CertificateAuthorityChain", "UsageControlChain", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
-	dataPlatformDeliveryDocumentHeaderDatumColumnsWithoutDefault = []string{"DeliveryDocument", "DeliveryDocumentDate", "SupplyChainRelationshipID", "SupplyChainRelationshipDeliveryID", "SupplyChainRelationshipDeliveryPlantID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "SupplyChainRelationshipFreightID", "Buyer", "Seller", "DeliverToParty", "DeliverFromParty", "DeliverToPlant", "DeliverFromPlant", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "FreightPartner", "IsExportImport", "DeliverToPlantTimeZone", "DeliverFromPlantTimeZone", "ReferenceDocument", "ReferenceDocumentItem", "OrderID", "OrderItem", "Contract", "ContractItem", "ProductionVersion", "ProductionVersionItem", "ProductionOrder", "ProductionOrderItem", "Operations", "OperationsItem", "OperationID", "BillOfMaterial", "BillOfMaterialItem", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "PlannedGoodsIssueDate", "PlannedGoodsIssueTime", "PlannedGoodsReceiptDate", "PlannedGoodsReceiptTime", "FreightOrder", "InvoiceDocumentDate", "HeaderCompleteDeliveryIsDefined", "HeaderDeliveryStatus", "GoodsIssueOrReceiptSlipNumber", "HeaderBillingStatus", "HeaderBillingConfStatus", "HeaderBillingBlockStatus", "HeaderGrossWeight", "HeaderNetWeight", "HeaderWeightUnit", "Incoterms", "TransactionCurrency", "HeaderDeliveryBlockStatus", "HeaderIssuingBlockStatus", "HeaderReceivingBlockStatus", "ExternalReferenceDocument", "CertificateAuthorityChain", "UsageControlChain", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
+	dataPlatformDeliveryDocumentHeaderDatumAllColumns            = []string{"DeliveryDocument", "DeliveryDocumentDate", "SupplyChainRelationshipID", "SupplyChainRelationshipDeliveryID", "SupplyChainRelationshipDeliveryPlantID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "SupplyChainRelationshipFreightID", "Buyer", "Seller", "DeliverToParty", "DeliverFromParty", "DeliverToPlant", "DeliverFromPlant", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "FreightPartner", "IsExportImport", "DeliverToPlantTimeZone", "DeliverFromPlantTimeZone", "ReferenceDocument", "ReferenceDocumentItem", "OrderID", "OrderItem", "Contract", "ContractItem", "Project", "WBSElement", "ProductionVersion", "ProductionVersionItem", "ProductionOrder", "ProductionOrderItem", "Operations", "OperationsItem", "OperationID", "BillOfMaterial", "BillOfMaterialItem", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "PlannedGoodsIssueDate", "PlannedGoodsIssueTime", "PlannedGoodsReceiptDate", "PlannedGoodsReceiptTime", "FreightOrder", "InvoiceDocumentDate", "HeaderCompleteDeliveryIsDefined", "HeaderDeliveryStatus", "GoodsIssueOrReceiptSlipNumber", "HeaderBillingStatus", "HeaderBillingConfStatus", "HeaderBillingBlockStatus", "HeaderGrossWeight", "HeaderNetWeight", "HeaderWeightUnit", "Incoterms", "TransactionCurrency", "HeaderDeliveryBlockStatus", "HeaderIssuingBlockStatus", "HeaderReceivingBlockStatus", "ExternalReferenceDocument", "CertificateAuthorityChain", "UsageControlChain", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
+	dataPlatformDeliveryDocumentHeaderDatumColumnsWithoutDefault = []string{"DeliveryDocument", "DeliveryDocumentDate", "SupplyChainRelationshipID", "SupplyChainRelationshipDeliveryID", "SupplyChainRelationshipDeliveryPlantID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "SupplyChainRelationshipFreightID", "Buyer", "Seller", "DeliverToParty", "DeliverFromParty", "DeliverToPlant", "DeliverFromPlant", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "FreightPartner", "IsExportImport", "DeliverToPlantTimeZone", "DeliverFromPlantTimeZone", "ReferenceDocument", "ReferenceDocumentItem", "OrderID", "OrderItem", "Contract", "ContractItem", "Project", "WBSElement", "ProductionVersion", "ProductionVersionItem", "ProductionOrder", "ProductionOrderItem", "Operations", "OperationsItem", "OperationID", "BillOfMaterial", "BillOfMaterialItem", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "PlannedGoodsIssueDate", "PlannedGoodsIssueTime", "PlannedGoodsReceiptDate", "PlannedGoodsReceiptTime", "FreightOrder", "InvoiceDocumentDate", "HeaderCompleteDeliveryIsDefined", "HeaderDeliveryStatus", "GoodsIssueOrReceiptSlipNumber", "HeaderBillingStatus", "HeaderBillingConfStatus", "HeaderBillingBlockStatus", "HeaderGrossWeight", "HeaderNetWeight", "HeaderWeightUnit", "Incoterms", "TransactionCurrency", "HeaderDeliveryBlockStatus", "HeaderIssuingBlockStatus", "HeaderReceivingBlockStatus", "ExternalReferenceDocument", "CertificateAuthorityChain", "UsageControlChain", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
 	dataPlatformDeliveryDocumentHeaderDatumColumnsWithDefault    = []string{}
 	dataPlatformDeliveryDocumentHeaderDatumPrimaryKeyColumns     = []string{"DeliveryDocument"}
 	dataPlatformDeliveryDocumentHeaderDatumGeneratedColumns      = []string{}

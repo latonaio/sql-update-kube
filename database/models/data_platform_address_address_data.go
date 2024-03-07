@@ -269,6 +269,7 @@ var DataPlatformAddressAddressDatumRels = struct {
 	AddressIDDataPlatformDeliveryDocumentAddressData string
 	AddressIDDataPlatformDeliveryDocumentPartnerData string
 	AddressIDDataPlatformEquipmentMasterAddressData  string
+	AddressIDDataPlatformInspectionLotPartnerData    string
 	AddressIDDataPlatformInvoiceDocumentAddressData  string
 	AddressIDDataPlatformInvoiceDocumentPartnerData  string
 	AddressIDDataPlatformOrdersAddressData           string
@@ -283,6 +284,7 @@ var DataPlatformAddressAddressDatumRels = struct {
 	AddressIDDataPlatformDeliveryDocumentAddressData: "AddressIDDataPlatformDeliveryDocumentAddressData",
 	AddressIDDataPlatformDeliveryDocumentPartnerData: "AddressIDDataPlatformDeliveryDocumentPartnerData",
 	AddressIDDataPlatformEquipmentMasterAddressData:  "AddressIDDataPlatformEquipmentMasterAddressData",
+	AddressIDDataPlatformInspectionLotPartnerData:    "AddressIDDataPlatformInspectionLotPartnerData",
 	AddressIDDataPlatformInvoiceDocumentAddressData:  "AddressIDDataPlatformInvoiceDocumentAddressData",
 	AddressIDDataPlatformInvoiceDocumentPartnerData:  "AddressIDDataPlatformInvoiceDocumentPartnerData",
 	AddressIDDataPlatformOrdersAddressData:           "AddressIDDataPlatformOrdersAddressData",
@@ -300,6 +302,7 @@ type dataPlatformAddressAddressDatumR struct {
 	AddressIDDataPlatformDeliveryDocumentAddressData DataPlatformDeliveryDocumentAddressDatumSlice `boil:"AddressIDDataPlatformDeliveryDocumentAddressData" json:"AddressIDDataPlatformDeliveryDocumentAddressData" toml:"AddressIDDataPlatformDeliveryDocumentAddressData" yaml:"AddressIDDataPlatformDeliveryDocumentAddressData"`
 	AddressIDDataPlatformDeliveryDocumentPartnerData DataPlatformDeliveryDocumentPartnerDatumSlice `boil:"AddressIDDataPlatformDeliveryDocumentPartnerData" json:"AddressIDDataPlatformDeliveryDocumentPartnerData" toml:"AddressIDDataPlatformDeliveryDocumentPartnerData" yaml:"AddressIDDataPlatformDeliveryDocumentPartnerData"`
 	AddressIDDataPlatformEquipmentMasterAddressData  DataPlatformEquipmentMasterAddressDatumSlice  `boil:"AddressIDDataPlatformEquipmentMasterAddressData" json:"AddressIDDataPlatformEquipmentMasterAddressData" toml:"AddressIDDataPlatformEquipmentMasterAddressData" yaml:"AddressIDDataPlatformEquipmentMasterAddressData"`
+	AddressIDDataPlatformInspectionLotPartnerData    DataPlatformInspectionLotPartnerDatumSlice    `boil:"AddressIDDataPlatformInspectionLotPartnerData" json:"AddressIDDataPlatformInspectionLotPartnerData" toml:"AddressIDDataPlatformInspectionLotPartnerData" yaml:"AddressIDDataPlatformInspectionLotPartnerData"`
 	AddressIDDataPlatformInvoiceDocumentAddressData  DataPlatformInvoiceDocumentAddressDatumSlice  `boil:"AddressIDDataPlatformInvoiceDocumentAddressData" json:"AddressIDDataPlatformInvoiceDocumentAddressData" toml:"AddressIDDataPlatformInvoiceDocumentAddressData" yaml:"AddressIDDataPlatformInvoiceDocumentAddressData"`
 	AddressIDDataPlatformInvoiceDocumentPartnerData  DataPlatformInvoiceDocumentPartnerDatumSlice  `boil:"AddressIDDataPlatformInvoiceDocumentPartnerData" json:"AddressIDDataPlatformInvoiceDocumentPartnerData" toml:"AddressIDDataPlatformInvoiceDocumentPartnerData" yaml:"AddressIDDataPlatformInvoiceDocumentPartnerData"`
 	AddressIDDataPlatformOrdersAddressData           DataPlatformOrdersAddressDatumSlice           `boil:"AddressIDDataPlatformOrdersAddressData" json:"AddressIDDataPlatformOrdersAddressData" toml:"AddressIDDataPlatformOrdersAddressData" yaml:"AddressIDDataPlatformOrdersAddressData"`
@@ -342,6 +345,13 @@ func (r *dataPlatformAddressAddressDatumR) GetAddressIDDataPlatformEquipmentMast
 		return nil
 	}
 	return r.AddressIDDataPlatformEquipmentMasterAddressData
+}
+
+func (r *dataPlatformAddressAddressDatumR) GetAddressIDDataPlatformInspectionLotPartnerData() DataPlatformInspectionLotPartnerDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.AddressIDDataPlatformInspectionLotPartnerData
 }
 
 func (r *dataPlatformAddressAddressDatumR) GetAddressIDDataPlatformInvoiceDocumentAddressData() DataPlatformInvoiceDocumentAddressDatumSlice {
@@ -563,6 +573,20 @@ func (o *DataPlatformAddressAddressDatum) AddressIDDataPlatformEquipmentMasterAd
 	)
 
 	return DataPlatformEquipmentMasterAddressData(queryMods...)
+}
+
+// AddressIDDataPlatformInspectionLotPartnerData retrieves all the data_platform_inspection_lot_partner_datum's DataPlatformInspectionLotPartnerData with an executor via AddressID column.
+func (o *DataPlatformAddressAddressDatum) AddressIDDataPlatformInspectionLotPartnerData(mods ...qm.QueryMod) dataPlatformInspectionLotPartnerDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_inspection_lot_partner_data`.`AddressID`=?", o.AddressID),
+	)
+
+	return DataPlatformInspectionLotPartnerData(queryMods...)
 }
 
 // AddressIDDataPlatformInvoiceDocumentAddressData retrieves all the data_platform_invoice_document_address_datum's DataPlatformInvoiceDocumentAddressData with an executor via AddressID column.
@@ -1071,6 +1095,103 @@ func (dataPlatformAddressAddressDatumL) LoadAddressIDDataPlatformEquipmentMaster
 		for _, local := range slice {
 			if local.AddressID == foreign.AddressID {
 				local.R.AddressIDDataPlatformEquipmentMasterAddressData = append(local.R.AddressIDDataPlatformEquipmentMasterAddressData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadAddressIDDataPlatformInspectionLotPartnerData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformAddressAddressDatumL) LoadAddressIDDataPlatformInspectionLotPartnerData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformAddressAddressDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformAddressAddressDatum
+	var object *DataPlatformAddressAddressDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformAddressAddressDatum.(*DataPlatformAddressAddressDatum)
+		if !ok {
+			object = new(DataPlatformAddressAddressDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformAddressAddressDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformAddressAddressDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformAddressAddressDatum.(*[]*DataPlatformAddressAddressDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformAddressAddressDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformAddressAddressDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformAddressAddressDatumR{}
+		}
+		args = append(args, object.AddressID)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformAddressAddressDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.AddressID) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.AddressID)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_inspection_lot_partner_data`),
+		qm.WhereIn(`data_platform_inspection_lot_partner_data.AddressID in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_inspection_lot_partner_data")
+	}
+
+	var resultSlice []*DataPlatformInspectionLotPartnerDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_lot_partner_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_lot_partner_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_lot_partner_data")
+	}
+
+	if singular {
+		object.R.AddressIDDataPlatformInspectionLotPartnerData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.AddressID, foreign.AddressID) {
+				local.R.AddressIDDataPlatformInspectionLotPartnerData = append(local.R.AddressIDDataPlatformInspectionLotPartnerData, foreign)
 				break
 			}
 		}
@@ -2241,6 +2362,110 @@ func (o *DataPlatformAddressAddressDatum) AddAddressIDDataPlatformEquipmentMaste
 		}
 	} else {
 		o.R.AddressIDDataPlatformEquipmentMasterAddressData = append(o.R.AddressIDDataPlatformEquipmentMasterAddressData, related...)
+	}
+
+	return nil
+}
+
+// AddAddressIDDataPlatformInspectionLotPartnerData adds the given related objects to the existing relationships
+// of the data_platform_address_address_datum, optionally inserting them as new records.
+// Appends related to o.R.AddressIDDataPlatformInspectionLotPartnerData.
+func (o *DataPlatformAddressAddressDatum) AddAddressIDDataPlatformInspectionLotPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotPartnerDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.AddressID, o.AddressID)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_inspection_lot_partner_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"AddressID"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.AddressID, rel.InspectionLot, rel.PartnerFunction, rel.BusinessPartner}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.AddressID, o.AddressID)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformAddressAddressDatumR{
+			AddressIDDataPlatformInspectionLotPartnerData: related,
+		}
+	} else {
+		o.R.AddressIDDataPlatformInspectionLotPartnerData = append(o.R.AddressIDDataPlatformInspectionLotPartnerData, related...)
+	}
+
+	return nil
+}
+
+// SetAddressIDDataPlatformInspectionLotPartnerData removes all previously related items of the
+// data_platform_address_address_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.AddressIDDataPlatformAddressAddressDatum's AddressIDDataPlatformInspectionLotPartnerData accordingly.
+// Replaces o.R.AddressIDDataPlatformInspectionLotPartnerData with related.
+func (o *DataPlatformAddressAddressDatum) SetAddressIDDataPlatformInspectionLotPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotPartnerDatum) error {
+	query := "update `data_platform_inspection_lot_partner_data` set `AddressID` = null where `AddressID` = ?"
+	values := []interface{}{o.AddressID}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.AddressIDDataPlatformInspectionLotPartnerData = nil
+	}
+
+	return o.AddAddressIDDataPlatformInspectionLotPartnerData(ctx, exec, insert, related...)
+}
+
+// RemoveAddressIDDataPlatformInspectionLotPartnerData relationships from objects passed in.
+// Removes related items from R.AddressIDDataPlatformInspectionLotPartnerData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformAddressAddressDatum) RemoveAddressIDDataPlatformInspectionLotPartnerData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformInspectionLotPartnerDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.AddressID, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("AddressID")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.AddressIDDataPlatformInspectionLotPartnerData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.AddressIDDataPlatformInspectionLotPartnerData)
+			if ln > 1 && i < ln-1 {
+				o.R.AddressIDDataPlatformInspectionLotPartnerData[i] = o.R.AddressIDDataPlatformInspectionLotPartnerData[ln-1]
+			}
+			o.R.AddressIDDataPlatformInspectionLotPartnerData = o.R.AddressIDDataPlatformInspectionLotPartnerData[:ln-1]
+			break
+		}
 	}
 
 	return nil

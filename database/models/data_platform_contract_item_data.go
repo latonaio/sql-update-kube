@@ -553,11 +553,15 @@ var DataPlatformContractItemDatumRels = struct {
 	ContractDataPlatformDeliveryDocumentItemData   string
 	ContractDataPlatformOrdersHeaderData           string
 	ContractDataPlatformOrdersItemData             string
+	ContractDataPlatformQuotationsHeaderData       string
+	ContractDataPlatformQuotationsItemData         string
 }{
 	ContractDataPlatformDeliveryDocumentHeaderData: "ContractDataPlatformDeliveryDocumentHeaderData",
 	ContractDataPlatformDeliveryDocumentItemData:   "ContractDataPlatformDeliveryDocumentItemData",
 	ContractDataPlatformOrdersHeaderData:           "ContractDataPlatformOrdersHeaderData",
 	ContractDataPlatformOrdersItemData:             "ContractDataPlatformOrdersItemData",
+	ContractDataPlatformQuotationsHeaderData:       "ContractDataPlatformQuotationsHeaderData",
+	ContractDataPlatformQuotationsItemData:         "ContractDataPlatformQuotationsItemData",
 }
 
 // dataPlatformContractItemDatumR is where relationships are stored.
@@ -566,6 +570,8 @@ type dataPlatformContractItemDatumR struct {
 	ContractDataPlatformDeliveryDocumentItemData   DataPlatformDeliveryDocumentItemDatumSlice   `boil:"ContractDataPlatformDeliveryDocumentItemData" json:"ContractDataPlatformDeliveryDocumentItemData" toml:"ContractDataPlatformDeliveryDocumentItemData" yaml:"ContractDataPlatformDeliveryDocumentItemData"`
 	ContractDataPlatformOrdersHeaderData           DataPlatformOrdersHeaderDatumSlice           `boil:"ContractDataPlatformOrdersHeaderData" json:"ContractDataPlatformOrdersHeaderData" toml:"ContractDataPlatformOrdersHeaderData" yaml:"ContractDataPlatformOrdersHeaderData"`
 	ContractDataPlatformOrdersItemData             DataPlatformOrdersItemDatumSlice             `boil:"ContractDataPlatformOrdersItemData" json:"ContractDataPlatformOrdersItemData" toml:"ContractDataPlatformOrdersItemData" yaml:"ContractDataPlatformOrdersItemData"`
+	ContractDataPlatformQuotationsHeaderData       DataPlatformQuotationsHeaderDatumSlice       `boil:"ContractDataPlatformQuotationsHeaderData" json:"ContractDataPlatformQuotationsHeaderData" toml:"ContractDataPlatformQuotationsHeaderData" yaml:"ContractDataPlatformQuotationsHeaderData"`
+	ContractDataPlatformQuotationsItemData         DataPlatformQuotationsItemDatumSlice         `boil:"ContractDataPlatformQuotationsItemData" json:"ContractDataPlatformQuotationsItemData" toml:"ContractDataPlatformQuotationsItemData" yaml:"ContractDataPlatformQuotationsItemData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -599,6 +605,20 @@ func (r *dataPlatformContractItemDatumR) GetContractDataPlatformOrdersItemData()
 		return nil
 	}
 	return r.ContractDataPlatformOrdersItemData
+}
+
+func (r *dataPlatformContractItemDatumR) GetContractDataPlatformQuotationsHeaderData() DataPlatformQuotationsHeaderDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ContractDataPlatformQuotationsHeaderData
+}
+
+func (r *dataPlatformContractItemDatumR) GetContractDataPlatformQuotationsItemData() DataPlatformQuotationsItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ContractDataPlatformQuotationsItemData
 }
 
 // dataPlatformContractItemDatumL is where Load methods for each relationship are stored.
@@ -757,6 +777,34 @@ func (o *DataPlatformContractItemDatum) ContractDataPlatformOrdersItemData(mods 
 	)
 
 	return DataPlatformOrdersItemData(queryMods...)
+}
+
+// ContractDataPlatformQuotationsHeaderData retrieves all the data_platform_quotations_header_datum's DataPlatformQuotationsHeaderData with an executor via Contract column.
+func (o *DataPlatformContractItemDatum) ContractDataPlatformQuotationsHeaderData(mods ...qm.QueryMod) dataPlatformQuotationsHeaderDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_quotations_header_data`.`Contract`=?", o.Contract),
+	)
+
+	return DataPlatformQuotationsHeaderData(queryMods...)
+}
+
+// ContractDataPlatformQuotationsItemData retrieves all the data_platform_quotations_item_datum's DataPlatformQuotationsItemData with an executor via Contract column.
+func (o *DataPlatformContractItemDatum) ContractDataPlatformQuotationsItemData(mods ...qm.QueryMod) dataPlatformQuotationsItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_quotations_item_data`.`Contract`=?", o.Contract),
+	)
+
+	return DataPlatformQuotationsItemData(queryMods...)
 }
 
 // LoadContractDataPlatformDeliveryDocumentHeaderData allows an eager lookup of values, cached into the
@@ -1139,6 +1187,200 @@ func (dataPlatformContractItemDatumL) LoadContractDataPlatformOrdersItemData(ctx
 		for _, local := range slice {
 			if queries.Equal(local.Contract, foreign.Contract) {
 				local.R.ContractDataPlatformOrdersItemData = append(local.R.ContractDataPlatformOrdersItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadContractDataPlatformQuotationsHeaderData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformContractItemDatumL) LoadContractDataPlatformQuotationsHeaderData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformContractItemDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformContractItemDatum
+	var object *DataPlatformContractItemDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformContractItemDatum.(*DataPlatformContractItemDatum)
+		if !ok {
+			object = new(DataPlatformContractItemDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformContractItemDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformContractItemDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformContractItemDatum.(*[]*DataPlatformContractItemDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformContractItemDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformContractItemDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformContractItemDatumR{}
+		}
+		args = append(args, object.Contract)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformContractItemDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Contract) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Contract)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_quotations_header_data`),
+		qm.WhereIn(`data_platform_quotations_header_data.Contract in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_quotations_header_data")
+	}
+
+	var resultSlice []*DataPlatformQuotationsHeaderDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_quotations_header_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_quotations_header_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_quotations_header_data")
+	}
+
+	if singular {
+		object.R.ContractDataPlatformQuotationsHeaderData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Contract, foreign.Contract) {
+				local.R.ContractDataPlatformQuotationsHeaderData = append(local.R.ContractDataPlatformQuotationsHeaderData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadContractDataPlatformQuotationsItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformContractItemDatumL) LoadContractDataPlatformQuotationsItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformContractItemDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformContractItemDatum
+	var object *DataPlatformContractItemDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformContractItemDatum.(*DataPlatformContractItemDatum)
+		if !ok {
+			object = new(DataPlatformContractItemDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformContractItemDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformContractItemDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformContractItemDatum.(*[]*DataPlatformContractItemDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformContractItemDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformContractItemDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformContractItemDatumR{}
+		}
+		args = append(args, object.Contract)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformContractItemDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Contract) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Contract)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_quotations_item_data`),
+		qm.WhereIn(`data_platform_quotations_item_data.Contract in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_quotations_item_data")
+	}
+
+	var resultSlice []*DataPlatformQuotationsItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_quotations_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_quotations_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_quotations_item_data")
+	}
+
+	if singular {
+		object.R.ContractDataPlatformQuotationsItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Contract, foreign.Contract) {
+				local.R.ContractDataPlatformQuotationsItemData = append(local.R.ContractDataPlatformQuotationsItemData, foreign)
 				break
 			}
 		}
@@ -1556,6 +1798,214 @@ func (o *DataPlatformContractItemDatum) RemoveContractDataPlatformOrdersItemData
 				o.R.ContractDataPlatformOrdersItemData[i] = o.R.ContractDataPlatformOrdersItemData[ln-1]
 			}
 			o.R.ContractDataPlatformOrdersItemData = o.R.ContractDataPlatformOrdersItemData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddContractDataPlatformQuotationsHeaderData adds the given related objects to the existing relationships
+// of the data_platform_contract_item_datum, optionally inserting them as new records.
+// Appends related to o.R.ContractDataPlatformQuotationsHeaderData.
+func (o *DataPlatformContractItemDatum) AddContractDataPlatformQuotationsHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformQuotationsHeaderDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Contract, o.Contract)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_quotations_header_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Contract"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformQuotationsHeaderDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Contract, rel.Quotation}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Contract, o.Contract)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformContractItemDatumR{
+			ContractDataPlatformQuotationsHeaderData: related,
+		}
+	} else {
+		o.R.ContractDataPlatformQuotationsHeaderData = append(o.R.ContractDataPlatformQuotationsHeaderData, related...)
+	}
+
+	return nil
+}
+
+// SetContractDataPlatformQuotationsHeaderData removes all previously related items of the
+// data_platform_contract_item_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.ContractDataPlatformContractItemDatum's ContractDataPlatformQuotationsHeaderData accordingly.
+// Replaces o.R.ContractDataPlatformQuotationsHeaderData with related.
+func (o *DataPlatformContractItemDatum) SetContractDataPlatformQuotationsHeaderData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformQuotationsHeaderDatum) error {
+	query := "update `data_platform_quotations_header_data` set `Contract` = null where `Contract` = ?"
+	values := []interface{}{o.Contract}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.ContractDataPlatformQuotationsHeaderData = nil
+	}
+
+	return o.AddContractDataPlatformQuotationsHeaderData(ctx, exec, insert, related...)
+}
+
+// RemoveContractDataPlatformQuotationsHeaderData relationships from objects passed in.
+// Removes related items from R.ContractDataPlatformQuotationsHeaderData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformContractItemDatum) RemoveContractDataPlatformQuotationsHeaderData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformQuotationsHeaderDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Contract, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Contract")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.ContractDataPlatformQuotationsHeaderData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.ContractDataPlatformQuotationsHeaderData)
+			if ln > 1 && i < ln-1 {
+				o.R.ContractDataPlatformQuotationsHeaderData[i] = o.R.ContractDataPlatformQuotationsHeaderData[ln-1]
+			}
+			o.R.ContractDataPlatformQuotationsHeaderData = o.R.ContractDataPlatformQuotationsHeaderData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddContractDataPlatformQuotationsItemData adds the given related objects to the existing relationships
+// of the data_platform_contract_item_datum, optionally inserting them as new records.
+// Appends related to o.R.ContractDataPlatformQuotationsItemData.
+func (o *DataPlatformContractItemDatum) AddContractDataPlatformQuotationsItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformQuotationsItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Contract, o.Contract)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_quotations_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Contract"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformQuotationsItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Contract, rel.Quotation, rel.QuotationItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Contract, o.Contract)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformContractItemDatumR{
+			ContractDataPlatformQuotationsItemData: related,
+		}
+	} else {
+		o.R.ContractDataPlatformQuotationsItemData = append(o.R.ContractDataPlatformQuotationsItemData, related...)
+	}
+
+	return nil
+}
+
+// SetContractDataPlatformQuotationsItemData removes all previously related items of the
+// data_platform_contract_item_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.ContractDataPlatformContractItemDatum's ContractDataPlatformQuotationsItemData accordingly.
+// Replaces o.R.ContractDataPlatformQuotationsItemData with related.
+func (o *DataPlatformContractItemDatum) SetContractDataPlatformQuotationsItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformQuotationsItemDatum) error {
+	query := "update `data_platform_quotations_item_data` set `Contract` = null where `Contract` = ?"
+	values := []interface{}{o.Contract}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.ContractDataPlatformQuotationsItemData = nil
+	}
+
+	return o.AddContractDataPlatformQuotationsItemData(ctx, exec, insert, related...)
+}
+
+// RemoveContractDataPlatformQuotationsItemData relationships from objects passed in.
+// Removes related items from R.ContractDataPlatformQuotationsItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformContractItemDatum) RemoveContractDataPlatformQuotationsItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformQuotationsItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Contract, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Contract")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.ContractDataPlatformQuotationsItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.ContractDataPlatformQuotationsItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.ContractDataPlatformQuotationsItemData[i] = o.R.ContractDataPlatformQuotationsItemData[ln-1]
+			}
+			o.R.ContractDataPlatformQuotationsItemData = o.R.ContractDataPlatformQuotationsItemData[:ln-1]
 			break
 		}
 	}

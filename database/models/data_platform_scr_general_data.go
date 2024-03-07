@@ -119,6 +119,7 @@ var DataPlatformSCRGeneralDatumRels = struct {
 	BuyerDataPlatformProductionOrderItemData                                string
 	BuyerDataPlatformProductionOrderItemOperationData                       string
 	BuyerDataPlatformQuotationsHeaderData                                   string
+	BuyerDataPlatformQuotationsItemData                                     string
 	BuyerDataPlatformQuotationsItemPricingElementData                       string
 	BuyerDataPlatformSCRBillingRelationData                                 string
 	BuyerDataPlatformSCRDeliveryRelationData                                string
@@ -160,6 +161,7 @@ var DataPlatformSCRGeneralDatumRels = struct {
 	BuyerDataPlatformProductionOrderItemData:                                "BuyerDataPlatformProductionOrderItemData",
 	BuyerDataPlatformProductionOrderItemOperationData:                       "BuyerDataPlatformProductionOrderItemOperationData",
 	BuyerDataPlatformQuotationsHeaderData:                                   "BuyerDataPlatformQuotationsHeaderData",
+	BuyerDataPlatformQuotationsItemData:                                     "BuyerDataPlatformQuotationsItemData",
 	BuyerDataPlatformQuotationsItemPricingElementData:                       "BuyerDataPlatformQuotationsItemPricingElementData",
 	BuyerDataPlatformSCRBillingRelationData:                                 "BuyerDataPlatformSCRBillingRelationData",
 	BuyerDataPlatformSCRDeliveryRelationData:                                "BuyerDataPlatformSCRDeliveryRelationData",
@@ -204,6 +206,7 @@ type dataPlatformSCRGeneralDatumR struct {
 	BuyerDataPlatformProductionOrderItemData                                DataPlatformProductionOrderItemDatumSlice                  `boil:"BuyerDataPlatformProductionOrderItemData" json:"BuyerDataPlatformProductionOrderItemData" toml:"BuyerDataPlatformProductionOrderItemData" yaml:"BuyerDataPlatformProductionOrderItemData"`
 	BuyerDataPlatformProductionOrderItemOperationData                       DataPlatformProductionOrderItemOperationDatumSlice         `boil:"BuyerDataPlatformProductionOrderItemOperationData" json:"BuyerDataPlatformProductionOrderItemOperationData" toml:"BuyerDataPlatformProductionOrderItemOperationData" yaml:"BuyerDataPlatformProductionOrderItemOperationData"`
 	BuyerDataPlatformQuotationsHeaderData                                   DataPlatformQuotationsHeaderDatumSlice                     `boil:"BuyerDataPlatformQuotationsHeaderData" json:"BuyerDataPlatformQuotationsHeaderData" toml:"BuyerDataPlatformQuotationsHeaderData" yaml:"BuyerDataPlatformQuotationsHeaderData"`
+	BuyerDataPlatformQuotationsItemData                                     DataPlatformQuotationsItemDatumSlice                       `boil:"BuyerDataPlatformQuotationsItemData" json:"BuyerDataPlatformQuotationsItemData" toml:"BuyerDataPlatformQuotationsItemData" yaml:"BuyerDataPlatformQuotationsItemData"`
 	BuyerDataPlatformQuotationsItemPricingElementData                       DataPlatformQuotationsItemPricingElementDatumSlice         `boil:"BuyerDataPlatformQuotationsItemPricingElementData" json:"BuyerDataPlatformQuotationsItemPricingElementData" toml:"BuyerDataPlatformQuotationsItemPricingElementData" yaml:"BuyerDataPlatformQuotationsItemPricingElementData"`
 	BuyerDataPlatformSCRBillingRelationData                                 DataPlatformSCRBillingRelationDatumSlice                   `boil:"BuyerDataPlatformSCRBillingRelationData" json:"BuyerDataPlatformSCRBillingRelationData" toml:"BuyerDataPlatformSCRBillingRelationData" yaml:"BuyerDataPlatformSCRBillingRelationData"`
 	BuyerDataPlatformSCRDeliveryRelationData                                DataPlatformSCRDeliveryRelationDatumSlice                  `boil:"BuyerDataPlatformSCRDeliveryRelationData" json:"BuyerDataPlatformSCRDeliveryRelationData" toml:"BuyerDataPlatformSCRDeliveryRelationData" yaml:"BuyerDataPlatformSCRDeliveryRelationData"`
@@ -441,6 +444,13 @@ func (r *dataPlatformSCRGeneralDatumR) GetBuyerDataPlatformQuotationsHeaderData(
 		return nil
 	}
 	return r.BuyerDataPlatformQuotationsHeaderData
+}
+
+func (r *dataPlatformSCRGeneralDatumR) GetBuyerDataPlatformQuotationsItemData() DataPlatformQuotationsItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.BuyerDataPlatformQuotationsItemData
 }
 
 func (r *dataPlatformSCRGeneralDatumR) GetBuyerDataPlatformQuotationsItemPricingElementData() DataPlatformQuotationsItemPricingElementDatumSlice {
@@ -1041,6 +1051,20 @@ func (o *DataPlatformSCRGeneralDatum) BuyerDataPlatformQuotationsHeaderData(mods
 	)
 
 	return DataPlatformQuotationsHeaderData(queryMods...)
+}
+
+// BuyerDataPlatformQuotationsItemData retrieves all the data_platform_quotations_item_datum's DataPlatformQuotationsItemData with an executor via Buyer column.
+func (o *DataPlatformSCRGeneralDatum) BuyerDataPlatformQuotationsItemData(mods ...qm.QueryMod) dataPlatformQuotationsItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_quotations_item_data`.`Buyer`=?", o.Buyer),
+	)
+
+	return DataPlatformQuotationsItemData(queryMods...)
 }
 
 // BuyerDataPlatformQuotationsItemPricingElementData retrieves all the data_platform_quotations_item_pricing_element_datum's DataPlatformQuotationsItemPricingElementData with an executor via Buyer column.
@@ -4273,6 +4297,103 @@ func (dataPlatformSCRGeneralDatumL) LoadBuyerDataPlatformQuotationsHeaderData(ct
 	return nil
 }
 
+// LoadBuyerDataPlatformQuotationsItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformSCRGeneralDatumL) LoadBuyerDataPlatformQuotationsItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformSCRGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformSCRGeneralDatum
+	var object *DataPlatformSCRGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformSCRGeneralDatum.(*DataPlatformSCRGeneralDatum)
+		if !ok {
+			object = new(DataPlatformSCRGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformSCRGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformSCRGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformSCRGeneralDatum.(*[]*DataPlatformSCRGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformSCRGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformSCRGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformSCRGeneralDatumR{}
+		}
+		args = append(args, object.Buyer)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformSCRGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.Buyer {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Buyer)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_quotations_item_data`),
+		qm.WhereIn(`data_platform_quotations_item_data.Buyer in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_quotations_item_data")
+	}
+
+	var resultSlice []*DataPlatformQuotationsItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_quotations_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_quotations_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_quotations_item_data")
+	}
+
+	if singular {
+		object.R.BuyerDataPlatformQuotationsItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.Buyer == foreign.Buyer {
+				local.R.BuyerDataPlatformQuotationsItemData = append(local.R.BuyerDataPlatformQuotationsItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // LoadBuyerDataPlatformQuotationsItemPricingElementData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
 func (dataPlatformSCRGeneralDatumL) LoadBuyerDataPlatformQuotationsItemPricingElementData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformSCRGeneralDatum interface{}, mods queries.Applicator) error {
@@ -6410,6 +6531,49 @@ func (o *DataPlatformSCRGeneralDatum) AddBuyerDataPlatformQuotationsHeaderData(c
 		}
 	} else {
 		o.R.BuyerDataPlatformQuotationsHeaderData = append(o.R.BuyerDataPlatformQuotationsHeaderData, related...)
+	}
+
+	return nil
+}
+
+// AddBuyerDataPlatformQuotationsItemData adds the given related objects to the existing relationships
+// of the data_platform_scr_general_datum, optionally inserting them as new records.
+// Appends related to o.R.BuyerDataPlatformQuotationsItemData.
+func (o *DataPlatformSCRGeneralDatum) AddBuyerDataPlatformQuotationsItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformQuotationsItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.Buyer = o.Buyer
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_quotations_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Buyer"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformQuotationsItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Buyer, rel.Quotation, rel.QuotationItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.Buyer = o.Buyer
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformSCRGeneralDatumR{
+			BuyerDataPlatformQuotationsItemData: related,
+		}
+	} else {
+		o.R.BuyerDataPlatformQuotationsItemData = append(o.R.BuyerDataPlatformQuotationsItemData, related...)
 	}
 
 	return nil

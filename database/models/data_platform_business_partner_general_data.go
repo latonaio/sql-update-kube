@@ -248,6 +248,9 @@ var DataPlatformBusinessPartnerGeneralDatumRels = struct {
 	LanguageDataPlatformLanguageLanguageDatum                               string
 	BusinessPartnerDataPlatformBusinessPartnerAccountingDatum               string
 	BusinessPartnerDataPlatformBusinessPartnerGeneralDocData                string
+	DataAuthorizerDataPlatformCertificateAuthorityData                      string
+	DataDistributorDataPlatformCertificateAuthorityData                     string
+	DataIssuerDataPlatformCertificateAuthorityData                          string
 	BusinessPartnerDataPlatformCodeConversionCodeConversionData             string
 	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData       string
 	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData         string
@@ -256,6 +259,7 @@ var DataPlatformBusinessPartnerGeneralDatumRels = struct {
 	DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData       string
 	OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData string
 	DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData          string
+	BusinessPartnerDataPlatformInspectionLotPartnerData                     string
 	DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData         string
 	BusinessPartnerDataPlatformInvoiceDocumentPartnerData                   string
 	DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData             string
@@ -304,6 +308,9 @@ var DataPlatformBusinessPartnerGeneralDatumRels = struct {
 	LanguageDataPlatformLanguageLanguageDatum:                               "LanguageDataPlatformLanguageLanguageDatum",
 	BusinessPartnerDataPlatformBusinessPartnerAccountingDatum:               "BusinessPartnerDataPlatformBusinessPartnerAccountingDatum",
 	BusinessPartnerDataPlatformBusinessPartnerGeneralDocData:                "BusinessPartnerDataPlatformBusinessPartnerGeneralDocData",
+	DataAuthorizerDataPlatformCertificateAuthorityData:                      "DataAuthorizerDataPlatformCertificateAuthorityData",
+	DataDistributorDataPlatformCertificateAuthorityData:                     "DataDistributorDataPlatformCertificateAuthorityData",
+	DataIssuerDataPlatformCertificateAuthorityData:                          "DataIssuerDataPlatformCertificateAuthorityData",
 	BusinessPartnerDataPlatformCodeConversionCodeConversionData:             "BusinessPartnerDataPlatformCodeConversionCodeConversionData",
 	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData:       "DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData",
 	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData:         "DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData",
@@ -312,6 +319,7 @@ var DataPlatformBusinessPartnerGeneralDatumRels = struct {
 	DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData:       "DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData",
 	OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData: "OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData",
 	DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData:          "DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData",
+	BusinessPartnerDataPlatformInspectionLotPartnerData:                     "BusinessPartnerDataPlatformInspectionLotPartnerData",
 	DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData:         "DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData",
 	BusinessPartnerDataPlatformInvoiceDocumentPartnerData:                   "BusinessPartnerDataPlatformInvoiceDocumentPartnerData",
 	DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData:             "DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData",
@@ -363,6 +371,9 @@ type dataPlatformBusinessPartnerGeneralDatumR struct {
 	LanguageDataPlatformLanguageLanguageDatum                               *DataPlatformLanguageLanguageDatum                        `boil:"LanguageDataPlatformLanguageLanguageDatum" json:"LanguageDataPlatformLanguageLanguageDatum" toml:"LanguageDataPlatformLanguageLanguageDatum" yaml:"LanguageDataPlatformLanguageLanguageDatum"`
 	BusinessPartnerDataPlatformBusinessPartnerAccountingDatum               *DataPlatformBusinessPartnerAccountingDatum               `boil:"BusinessPartnerDataPlatformBusinessPartnerAccountingDatum" json:"BusinessPartnerDataPlatformBusinessPartnerAccountingDatum" toml:"BusinessPartnerDataPlatformBusinessPartnerAccountingDatum" yaml:"BusinessPartnerDataPlatformBusinessPartnerAccountingDatum"`
 	BusinessPartnerDataPlatformBusinessPartnerGeneralDocData                DataPlatformBusinessPartnerGeneralDocDatumSlice           `boil:"BusinessPartnerDataPlatformBusinessPartnerGeneralDocData" json:"BusinessPartnerDataPlatformBusinessPartnerGeneralDocData" toml:"BusinessPartnerDataPlatformBusinessPartnerGeneralDocData" yaml:"BusinessPartnerDataPlatformBusinessPartnerGeneralDocData"`
+	DataAuthorizerDataPlatformCertificateAuthorityData                      DataPlatformCertificateAuthorityDatumSlice                `boil:"DataAuthorizerDataPlatformCertificateAuthorityData" json:"DataAuthorizerDataPlatformCertificateAuthorityData" toml:"DataAuthorizerDataPlatformCertificateAuthorityData" yaml:"DataAuthorizerDataPlatformCertificateAuthorityData"`
+	DataDistributorDataPlatformCertificateAuthorityData                     DataPlatformCertificateAuthorityDatumSlice                `boil:"DataDistributorDataPlatformCertificateAuthorityData" json:"DataDistributorDataPlatformCertificateAuthorityData" toml:"DataDistributorDataPlatformCertificateAuthorityData" yaml:"DataDistributorDataPlatformCertificateAuthorityData"`
+	DataIssuerDataPlatformCertificateAuthorityData                          DataPlatformCertificateAuthorityDatumSlice                `boil:"DataIssuerDataPlatformCertificateAuthorityData" json:"DataIssuerDataPlatformCertificateAuthorityData" toml:"DataIssuerDataPlatformCertificateAuthorityData" yaml:"DataIssuerDataPlatformCertificateAuthorityData"`
 	BusinessPartnerDataPlatformCodeConversionCodeConversionData             DataPlatformCodeConversionCodeConversionDatumSlice        `boil:"BusinessPartnerDataPlatformCodeConversionCodeConversionData" json:"BusinessPartnerDataPlatformCodeConversionCodeConversionData" toml:"BusinessPartnerDataPlatformCodeConversionCodeConversionData" yaml:"BusinessPartnerDataPlatformCodeConversionCodeConversionData"`
 	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData       DataPlatformDeliveryDocumentHeaderDocDatumSlice           `boil:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentHeaderDocData"`
 	DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData         DataPlatformDeliveryDocumentItemDocDatumSlice             `boil:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData" json:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData" toml:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData" yaml:"DocIssuerBusinessPartnerDataPlatformDeliveryDocumentItemDocData"`
@@ -371,6 +382,7 @@ type dataPlatformBusinessPartnerGeneralDatumR struct {
 	DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData       DataPlatformEquipmentMasterGeneralDocDatumSlice           `boil:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData" json:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData" toml:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData" yaml:"DocIssuerBusinessPartnerDataPlatformEquipmentMasterGeneralDocData"`
 	OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData DataPlatformEquipmentMasterOwnerBusinessPartnerDatumSlice `boil:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData" json:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData" toml:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData" yaml:"OwnerBusinessPartnerDataPlatformEquipmentMasterOwnerBusinessPartnerData"`
 	DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData          DataPlatformInspectionLotHeaderDocDatumSlice              `boil:"DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData"`
+	BusinessPartnerDataPlatformInspectionLotPartnerData                     DataPlatformInspectionLotPartnerDatumSlice                `boil:"BusinessPartnerDataPlatformInspectionLotPartnerData" json:"BusinessPartnerDataPlatformInspectionLotPartnerData" toml:"BusinessPartnerDataPlatformInspectionLotPartnerData" yaml:"BusinessPartnerDataPlatformInspectionLotPartnerData"`
 	DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData         DataPlatformInspectionPlanHeaderDocDatumSlice             `boil:"DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData"`
 	BusinessPartnerDataPlatformInvoiceDocumentPartnerData                   DataPlatformInvoiceDocumentPartnerDatumSlice              `boil:"BusinessPartnerDataPlatformInvoiceDocumentPartnerData" json:"BusinessPartnerDataPlatformInvoiceDocumentPartnerData" toml:"BusinessPartnerDataPlatformInvoiceDocumentPartnerData" yaml:"BusinessPartnerDataPlatformInvoiceDocumentPartnerData"`
 	DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData             DataPlatformOperationsHeaderDocDatumSlice                 `boil:"DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData" json:"DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData" toml:"DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData" yaml:"DocIssuerBusinessPartnerDataPlatformOperationsHeaderDocData"`
@@ -467,6 +479,27 @@ func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBusinessPartnerDataPlatfor
 	return r.BusinessPartnerDataPlatformBusinessPartnerGeneralDocData
 }
 
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetDataAuthorizerDataPlatformCertificateAuthorityData() DataPlatformCertificateAuthorityDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DataAuthorizerDataPlatformCertificateAuthorityData
+}
+
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetDataDistributorDataPlatformCertificateAuthorityData() DataPlatformCertificateAuthorityDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DataDistributorDataPlatformCertificateAuthorityData
+}
+
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetDataIssuerDataPlatformCertificateAuthorityData() DataPlatformCertificateAuthorityDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.DataIssuerDataPlatformCertificateAuthorityData
+}
+
 func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBusinessPartnerDataPlatformCodeConversionCodeConversionData() DataPlatformCodeConversionCodeConversionDatumSlice {
 	if r == nil {
 		return nil
@@ -521,6 +554,13 @@ func (r *dataPlatformBusinessPartnerGeneralDatumR) GetDocIssuerBusinessPartnerDa
 		return nil
 	}
 	return r.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData
+}
+
+func (r *dataPlatformBusinessPartnerGeneralDatumR) GetBusinessPartnerDataPlatformInspectionLotPartnerData() DataPlatformInspectionLotPartnerDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.BusinessPartnerDataPlatformInspectionLotPartnerData
 }
 
 func (r *dataPlatformBusinessPartnerGeneralDatumR) GetDocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData() DataPlatformInspectionPlanHeaderDocDatumSlice {
@@ -985,6 +1025,48 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) BusinessPartnerDataPlatformBus
 	return DataPlatformBusinessPartnerGeneralDocData(queryMods...)
 }
 
+// DataAuthorizerDataPlatformCertificateAuthorityData retrieves all the data_platform_certificate_authority_datum's DataPlatformCertificateAuthorityData with an executor via DataAuthorizer column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) DataAuthorizerDataPlatformCertificateAuthorityData(mods ...qm.QueryMod) dataPlatformCertificateAuthorityDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_certificate_authority_data`.`DataAuthorizer`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformCertificateAuthorityData(queryMods...)
+}
+
+// DataDistributorDataPlatformCertificateAuthorityData retrieves all the data_platform_certificate_authority_datum's DataPlatformCertificateAuthorityData with an executor via DataDistributor column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) DataDistributorDataPlatformCertificateAuthorityData(mods ...qm.QueryMod) dataPlatformCertificateAuthorityDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_certificate_authority_data`.`DataDistributor`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformCertificateAuthorityData(queryMods...)
+}
+
+// DataIssuerDataPlatformCertificateAuthorityData retrieves all the data_platform_certificate_authority_datum's DataPlatformCertificateAuthorityData with an executor via DataIssuer column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) DataIssuerDataPlatformCertificateAuthorityData(mods ...qm.QueryMod) dataPlatformCertificateAuthorityDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_certificate_authority_data`.`DataIssuer`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformCertificateAuthorityData(queryMods...)
+}
+
 // BusinessPartnerDataPlatformCodeConversionCodeConversionData retrieves all the data_platform_code_conversion_code_conversion_datum's DataPlatformCodeConversionCodeConversionData with an executor via BusinessPartner column.
 func (o *DataPlatformBusinessPartnerGeneralDatum) BusinessPartnerDataPlatformCodeConversionCodeConversionData(mods ...qm.QueryMod) dataPlatformCodeConversionCodeConversionDatumQuery {
 	var queryMods []qm.QueryMod
@@ -1095,6 +1177,20 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) DocIssuerBusinessPartnerDataPl
 	)
 
 	return DataPlatformInspectionLotHeaderDocData(queryMods...)
+}
+
+// BusinessPartnerDataPlatformInspectionLotPartnerData retrieves all the data_platform_inspection_lot_partner_datum's DataPlatformInspectionLotPartnerData with an executor via BusinessPartner column.
+func (o *DataPlatformBusinessPartnerGeneralDatum) BusinessPartnerDataPlatformInspectionLotPartnerData(mods ...qm.QueryMod) dataPlatformInspectionLotPartnerDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_inspection_lot_partner_data`.`BusinessPartner`=?", o.BusinessPartner),
+	)
+
+	return DataPlatformInspectionLotPartnerData(queryMods...)
 }
 
 // DocIssuerBusinessPartnerDataPlatformInspectionPlanHeaderDocData retrieves all the data_platform_inspection_plan_header_doc_datum's DataPlatformInspectionPlanHeaderDocData with an executor via DocIssuerBusinessPartner column.
@@ -2383,6 +2479,297 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadBusinessPartnerDataPlatformB
 	return nil
 }
 
+// LoadDataAuthorizerDataPlatformCertificateAuthorityData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadDataAuthorizerDataPlatformCertificateAuthorityData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDatum
+	var object *DataPlatformBusinessPartnerGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_certificate_authority_data`),
+		qm.WhereIn(`data_platform_certificate_authority_data.DataAuthorizer in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_certificate_authority_data")
+	}
+
+	var resultSlice []*DataPlatformCertificateAuthorityDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_certificate_authority_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_certificate_authority_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_certificate_authority_data")
+	}
+
+	if singular {
+		object.R.DataAuthorizerDataPlatformCertificateAuthorityData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BusinessPartner == foreign.DataAuthorizer {
+				local.R.DataAuthorizerDataPlatformCertificateAuthorityData = append(local.R.DataAuthorizerDataPlatformCertificateAuthorityData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDataDistributorDataPlatformCertificateAuthorityData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadDataDistributorDataPlatformCertificateAuthorityData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDatum
+	var object *DataPlatformBusinessPartnerGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_certificate_authority_data`),
+		qm.WhereIn(`data_platform_certificate_authority_data.DataDistributor in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_certificate_authority_data")
+	}
+
+	var resultSlice []*DataPlatformCertificateAuthorityDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_certificate_authority_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_certificate_authority_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_certificate_authority_data")
+	}
+
+	if singular {
+		object.R.DataDistributorDataPlatformCertificateAuthorityData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BusinessPartner == foreign.DataDistributor {
+				local.R.DataDistributorDataPlatformCertificateAuthorityData = append(local.R.DataDistributorDataPlatformCertificateAuthorityData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadDataIssuerDataPlatformCertificateAuthorityData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadDataIssuerDataPlatformCertificateAuthorityData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDatum
+	var object *DataPlatformBusinessPartnerGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_certificate_authority_data`),
+		qm.WhereIn(`data_platform_certificate_authority_data.DataIssuer in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_certificate_authority_data")
+	}
+
+	var resultSlice []*DataPlatformCertificateAuthorityDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_certificate_authority_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_certificate_authority_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_certificate_authority_data")
+	}
+
+	if singular {
+		object.R.DataIssuerDataPlatformCertificateAuthorityData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BusinessPartner == foreign.DataIssuer {
+				local.R.DataIssuerDataPlatformCertificateAuthorityData = append(local.R.DataIssuerDataPlatformCertificateAuthorityData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // LoadBusinessPartnerDataPlatformCodeConversionCodeConversionData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
 func (dataPlatformBusinessPartnerGeneralDatumL) LoadBusinessPartnerDataPlatformCodeConversionCodeConversionData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
@@ -3151,6 +3538,103 @@ func (dataPlatformBusinessPartnerGeneralDatumL) LoadDocIssuerBusinessPartnerData
 		for _, local := range slice {
 			if queries.Equal(local.BusinessPartner, foreign.DocIssuerBusinessPartner) {
 				local.R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData = append(local.R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadBusinessPartnerDataPlatformInspectionLotPartnerData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformBusinessPartnerGeneralDatumL) LoadBusinessPartnerDataPlatformInspectionLotPartnerData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformBusinessPartnerGeneralDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformBusinessPartnerGeneralDatum
+	var object *DataPlatformBusinessPartnerGeneralDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformBusinessPartnerGeneralDatum.(*DataPlatformBusinessPartnerGeneralDatum)
+		if !ok {
+			object = new(DataPlatformBusinessPartnerGeneralDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformBusinessPartnerGeneralDatum.(*[]*DataPlatformBusinessPartnerGeneralDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformBusinessPartnerGeneralDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformBusinessPartnerGeneralDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+		}
+		args = append(args, object.BusinessPartner)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformBusinessPartnerGeneralDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.BusinessPartner {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.BusinessPartner)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_inspection_lot_partner_data`),
+		qm.WhereIn(`data_platform_inspection_lot_partner_data.BusinessPartner in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_inspection_lot_partner_data")
+	}
+
+	var resultSlice []*DataPlatformInspectionLotPartnerDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_lot_partner_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_lot_partner_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_lot_partner_data")
+	}
+
+	if singular {
+		object.R.BusinessPartnerDataPlatformInspectionLotPartnerData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.BusinessPartner == foreign.BusinessPartner {
+				local.R.BusinessPartnerDataPlatformInspectionLotPartnerData = append(local.R.BusinessPartnerDataPlatformInspectionLotPartnerData, foreign)
 				break
 			}
 		}
@@ -7354,6 +7838,135 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) AddBusinessPartnerDataPlatform
 	return nil
 }
 
+// AddDataAuthorizerDataPlatformCertificateAuthorityData adds the given related objects to the existing relationships
+// of the data_platform_business_partner_general_datum, optionally inserting them as new records.
+// Appends related to o.R.DataAuthorizerDataPlatformCertificateAuthorityData.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddDataAuthorizerDataPlatformCertificateAuthorityData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformCertificateAuthorityDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DataAuthorizer = o.BusinessPartner
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_certificate_authority_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DataAuthorizer"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformCertificateAuthorityDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.CertificateAuthorityChain}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DataAuthorizer = o.BusinessPartner
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
+			DataAuthorizerDataPlatformCertificateAuthorityData: related,
+		}
+	} else {
+		o.R.DataAuthorizerDataPlatformCertificateAuthorityData = append(o.R.DataAuthorizerDataPlatformCertificateAuthorityData, related...)
+	}
+
+	return nil
+}
+
+// AddDataDistributorDataPlatformCertificateAuthorityData adds the given related objects to the existing relationships
+// of the data_platform_business_partner_general_datum, optionally inserting them as new records.
+// Appends related to o.R.DataDistributorDataPlatformCertificateAuthorityData.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddDataDistributorDataPlatformCertificateAuthorityData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformCertificateAuthorityDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DataDistributor = o.BusinessPartner
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_certificate_authority_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DataDistributor"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformCertificateAuthorityDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.CertificateAuthorityChain}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DataDistributor = o.BusinessPartner
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
+			DataDistributorDataPlatformCertificateAuthorityData: related,
+		}
+	} else {
+		o.R.DataDistributorDataPlatformCertificateAuthorityData = append(o.R.DataDistributorDataPlatformCertificateAuthorityData, related...)
+	}
+
+	return nil
+}
+
+// AddDataIssuerDataPlatformCertificateAuthorityData adds the given related objects to the existing relationships
+// of the data_platform_business_partner_general_datum, optionally inserting them as new records.
+// Appends related to o.R.DataIssuerDataPlatformCertificateAuthorityData.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddDataIssuerDataPlatformCertificateAuthorityData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformCertificateAuthorityDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.DataIssuer = o.BusinessPartner
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_certificate_authority_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"DataIssuer"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformCertificateAuthorityDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.CertificateAuthorityChain}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.DataIssuer = o.BusinessPartner
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
+			DataIssuerDataPlatformCertificateAuthorityData: related,
+		}
+	} else {
+		o.R.DataIssuerDataPlatformCertificateAuthorityData = append(o.R.DataIssuerDataPlatformCertificateAuthorityData, related...)
+	}
+
+	return nil
+}
+
 // AddBusinessPartnerDataPlatformCodeConversionCodeConversionData adds the given related objects to the existing relationships
 // of the data_platform_business_partner_general_datum, optionally inserting them as new records.
 // Appends related to o.R.BusinessPartnerDataPlatformCodeConversionCodeConversionData.
@@ -7937,6 +8550,49 @@ func (o *DataPlatformBusinessPartnerGeneralDatum) RemoveDocIssuerBusinessPartner
 			o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData = o.R.DocIssuerBusinessPartnerDataPlatformInspectionLotHeaderDocData[:ln-1]
 			break
 		}
+	}
+
+	return nil
+}
+
+// AddBusinessPartnerDataPlatformInspectionLotPartnerData adds the given related objects to the existing relationships
+// of the data_platform_business_partner_general_datum, optionally inserting them as new records.
+// Appends related to o.R.BusinessPartnerDataPlatformInspectionLotPartnerData.
+func (o *DataPlatformBusinessPartnerGeneralDatum) AddBusinessPartnerDataPlatformInspectionLotPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotPartnerDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.BusinessPartner = o.BusinessPartner
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_inspection_lot_partner_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"BusinessPartner"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.BusinessPartner, rel.InspectionLot, rel.PartnerFunction, rel.BusinessPartner}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.BusinessPartner = o.BusinessPartner
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformBusinessPartnerGeneralDatumR{
+			BusinessPartnerDataPlatformInspectionLotPartnerData: related,
+		}
+	} else {
+		o.R.BusinessPartnerDataPlatformInspectionLotPartnerData = append(o.R.BusinessPartnerDataPlatformInspectionLotPartnerData, related...)
 	}
 
 	return nil

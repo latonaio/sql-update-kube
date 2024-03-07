@@ -52,12 +52,14 @@ var DataPlatformPartnerFunctionPartnerFunctionDatumWhere = struct {
 // DataPlatformPartnerFunctionPartnerFunctionDatumRels is where relationship names are stored.
 var DataPlatformPartnerFunctionPartnerFunctionDatumRels = struct {
 	PartnerFunctionDataPlatformDeliveryDocumentPartnerData string
+	PartnerFunctionDataPlatformInspectionLotPartnerData    string
 	PartnerFunctionDataPlatformInvoiceDocumentPartnerData  string
 	PartnerFunctionDataPlatformOrdersPartnerData           string
 	PartnerFunctionDataPlatformProductionOrderPartnerData  string
 	PartnerFunctionDataPlatformQuotationsPartnerData       string
 }{
 	PartnerFunctionDataPlatformDeliveryDocumentPartnerData: "PartnerFunctionDataPlatformDeliveryDocumentPartnerData",
+	PartnerFunctionDataPlatformInspectionLotPartnerData:    "PartnerFunctionDataPlatformInspectionLotPartnerData",
 	PartnerFunctionDataPlatformInvoiceDocumentPartnerData:  "PartnerFunctionDataPlatformInvoiceDocumentPartnerData",
 	PartnerFunctionDataPlatformOrdersPartnerData:           "PartnerFunctionDataPlatformOrdersPartnerData",
 	PartnerFunctionDataPlatformProductionOrderPartnerData:  "PartnerFunctionDataPlatformProductionOrderPartnerData",
@@ -67,6 +69,7 @@ var DataPlatformPartnerFunctionPartnerFunctionDatumRels = struct {
 // dataPlatformPartnerFunctionPartnerFunctionDatumR is where relationships are stored.
 type dataPlatformPartnerFunctionPartnerFunctionDatumR struct {
 	PartnerFunctionDataPlatformDeliveryDocumentPartnerData DataPlatformDeliveryDocumentPartnerDatumSlice `boil:"PartnerFunctionDataPlatformDeliveryDocumentPartnerData" json:"PartnerFunctionDataPlatformDeliveryDocumentPartnerData" toml:"PartnerFunctionDataPlatformDeliveryDocumentPartnerData" yaml:"PartnerFunctionDataPlatformDeliveryDocumentPartnerData"`
+	PartnerFunctionDataPlatformInspectionLotPartnerData    DataPlatformInspectionLotPartnerDatumSlice    `boil:"PartnerFunctionDataPlatformInspectionLotPartnerData" json:"PartnerFunctionDataPlatformInspectionLotPartnerData" toml:"PartnerFunctionDataPlatformInspectionLotPartnerData" yaml:"PartnerFunctionDataPlatformInspectionLotPartnerData"`
 	PartnerFunctionDataPlatformInvoiceDocumentPartnerData  DataPlatformInvoiceDocumentPartnerDatumSlice  `boil:"PartnerFunctionDataPlatformInvoiceDocumentPartnerData" json:"PartnerFunctionDataPlatformInvoiceDocumentPartnerData" toml:"PartnerFunctionDataPlatformInvoiceDocumentPartnerData" yaml:"PartnerFunctionDataPlatformInvoiceDocumentPartnerData"`
 	PartnerFunctionDataPlatformOrdersPartnerData           DataPlatformOrdersPartnerDatumSlice           `boil:"PartnerFunctionDataPlatformOrdersPartnerData" json:"PartnerFunctionDataPlatformOrdersPartnerData" toml:"PartnerFunctionDataPlatformOrdersPartnerData" yaml:"PartnerFunctionDataPlatformOrdersPartnerData"`
 	PartnerFunctionDataPlatformProductionOrderPartnerData  DataPlatformProductionOrderPartnerDatumSlice  `boil:"PartnerFunctionDataPlatformProductionOrderPartnerData" json:"PartnerFunctionDataPlatformProductionOrderPartnerData" toml:"PartnerFunctionDataPlatformProductionOrderPartnerData" yaml:"PartnerFunctionDataPlatformProductionOrderPartnerData"`
@@ -83,6 +86,13 @@ func (r *dataPlatformPartnerFunctionPartnerFunctionDatumR) GetPartnerFunctionDat
 		return nil
 	}
 	return r.PartnerFunctionDataPlatformDeliveryDocumentPartnerData
+}
+
+func (r *dataPlatformPartnerFunctionPartnerFunctionDatumR) GetPartnerFunctionDataPlatformInspectionLotPartnerData() DataPlatformInspectionLotPartnerDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.PartnerFunctionDataPlatformInspectionLotPartnerData
 }
 
 func (r *dataPlatformPartnerFunctionPartnerFunctionDatumR) GetPartnerFunctionDataPlatformInvoiceDocumentPartnerData() DataPlatformInvoiceDocumentPartnerDatumSlice {
@@ -227,6 +237,20 @@ func (o *DataPlatformPartnerFunctionPartnerFunctionDatum) PartnerFunctionDataPla
 	)
 
 	return DataPlatformDeliveryDocumentPartnerData(queryMods...)
+}
+
+// PartnerFunctionDataPlatformInspectionLotPartnerData retrieves all the data_platform_inspection_lot_partner_datum's DataPlatformInspectionLotPartnerData with an executor via PartnerFunction column.
+func (o *DataPlatformPartnerFunctionPartnerFunctionDatum) PartnerFunctionDataPlatformInspectionLotPartnerData(mods ...qm.QueryMod) dataPlatformInspectionLotPartnerDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_inspection_lot_partner_data`.`PartnerFunction`=?", o.PartnerFunction),
+	)
+
+	return DataPlatformInspectionLotPartnerData(queryMods...)
 }
 
 // PartnerFunctionDataPlatformInvoiceDocumentPartnerData retrieves all the data_platform_invoice_document_partner_datum's DataPlatformInvoiceDocumentPartnerData with an executor via PartnerFunction column.
@@ -374,6 +398,103 @@ func (dataPlatformPartnerFunctionPartnerFunctionDatumL) LoadPartnerFunctionDataP
 		for _, local := range slice {
 			if local.PartnerFunction == foreign.PartnerFunction {
 				local.R.PartnerFunctionDataPlatformDeliveryDocumentPartnerData = append(local.R.PartnerFunctionDataPlatformDeliveryDocumentPartnerData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadPartnerFunctionDataPlatformInspectionLotPartnerData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformPartnerFunctionPartnerFunctionDatumL) LoadPartnerFunctionDataPlatformInspectionLotPartnerData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformPartnerFunctionPartnerFunctionDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformPartnerFunctionPartnerFunctionDatum
+	var object *DataPlatformPartnerFunctionPartnerFunctionDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformPartnerFunctionPartnerFunctionDatum.(*DataPlatformPartnerFunctionPartnerFunctionDatum)
+		if !ok {
+			object = new(DataPlatformPartnerFunctionPartnerFunctionDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformPartnerFunctionPartnerFunctionDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformPartnerFunctionPartnerFunctionDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformPartnerFunctionPartnerFunctionDatum.(*[]*DataPlatformPartnerFunctionPartnerFunctionDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformPartnerFunctionPartnerFunctionDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformPartnerFunctionPartnerFunctionDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformPartnerFunctionPartnerFunctionDatumR{}
+		}
+		args = append(args, object.PartnerFunction)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformPartnerFunctionPartnerFunctionDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.PartnerFunction {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.PartnerFunction)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_inspection_lot_partner_data`),
+		qm.WhereIn(`data_platform_inspection_lot_partner_data.PartnerFunction in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_inspection_lot_partner_data")
+	}
+
+	var resultSlice []*DataPlatformInspectionLotPartnerDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_lot_partner_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_lot_partner_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_lot_partner_data")
+	}
+
+	if singular {
+		object.R.PartnerFunctionDataPlatformInspectionLotPartnerData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.PartnerFunction == foreign.PartnerFunction {
+				local.R.PartnerFunctionDataPlatformInspectionLotPartnerData = append(local.R.PartnerFunctionDataPlatformInspectionLotPartnerData, foreign)
 				break
 			}
 		}
@@ -808,6 +929,49 @@ func (o *DataPlatformPartnerFunctionPartnerFunctionDatum) AddPartnerFunctionData
 		}
 	} else {
 		o.R.PartnerFunctionDataPlatformDeliveryDocumentPartnerData = append(o.R.PartnerFunctionDataPlatformDeliveryDocumentPartnerData, related...)
+	}
+
+	return nil
+}
+
+// AddPartnerFunctionDataPlatformInspectionLotPartnerData adds the given related objects to the existing relationships
+// of the data_platform_partner_function_partner_function_datum, optionally inserting them as new records.
+// Appends related to o.R.PartnerFunctionDataPlatformInspectionLotPartnerData.
+func (o *DataPlatformPartnerFunctionPartnerFunctionDatum) AddPartnerFunctionDataPlatformInspectionLotPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotPartnerDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.PartnerFunction = o.PartnerFunction
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_inspection_lot_partner_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"PartnerFunction"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.PartnerFunction, rel.InspectionLot, rel.PartnerFunction, rel.BusinessPartner}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.PartnerFunction = o.PartnerFunction
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformPartnerFunctionPartnerFunctionDatumR{
+			PartnerFunctionDataPlatformInspectionLotPartnerData: related,
+		}
+	} else {
+		o.R.PartnerFunctionDataPlatformInspectionLotPartnerData = append(o.R.PartnerFunctionDataPlatformInspectionLotPartnerData, related...)
 	}
 
 	return nil

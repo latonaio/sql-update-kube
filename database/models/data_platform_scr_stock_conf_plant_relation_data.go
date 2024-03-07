@@ -36,7 +36,6 @@ type DataPlatformSCRStockConfPlantRelationDatum struct {
 	CreationDate                            string      `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
 	LastChangeDate                          string      `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
 	IsMarkedForDeletion                     null.Bool   `boil:"IsMarkedForDeletion" json:"IsMarkedForDeletion,omitempty" toml:"IsMarkedForDeletion" yaml:"IsMarkedForDeletion,omitempty"`
-	Product                                 string      `boil:"Product" json:"Product" toml:"Product" yaml:"Product"`
 
 	R *dataPlatformSCRStockConfPlantRelationDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
 	L dataPlatformSCRStockConfPlantRelationDatumL  `boil:"-" json:"-" toml:"-" yaml:"-"`
@@ -55,7 +54,6 @@ var DataPlatformSCRStockConfPlantRelationDatumColumns = struct {
 	CreationDate                            string
 	LastChangeDate                          string
 	IsMarkedForDeletion                     string
-	Product                                 string
 }{
 	SupplyChainRelationshipID:               "SupplyChainRelationshipID",
 	SupplyChainRelationshipStockConfPlantID: "SupplyChainRelationshipStockConfPlantID",
@@ -69,7 +67,6 @@ var DataPlatformSCRStockConfPlantRelationDatumColumns = struct {
 	CreationDate:                            "CreationDate",
 	LastChangeDate:                          "LastChangeDate",
 	IsMarkedForDeletion:                     "IsMarkedForDeletion",
-	Product:                                 "Product",
 }
 
 var DataPlatformSCRStockConfPlantRelationDatumTableColumns = struct {
@@ -85,7 +82,6 @@ var DataPlatformSCRStockConfPlantRelationDatumTableColumns = struct {
 	CreationDate                            string
 	LastChangeDate                          string
 	IsMarkedForDeletion                     string
-	Product                                 string
 }{
 	SupplyChainRelationshipID:               "data_platform_scr_stock_conf_plant_relation_data.SupplyChainRelationshipID",
 	SupplyChainRelationshipStockConfPlantID: "data_platform_scr_stock_conf_plant_relation_data.SupplyChainRelationshipStockConfPlantID",
@@ -99,7 +95,6 @@ var DataPlatformSCRStockConfPlantRelationDatumTableColumns = struct {
 	CreationDate:                            "data_platform_scr_stock_conf_plant_relation_data.CreationDate",
 	LastChangeDate:                          "data_platform_scr_stock_conf_plant_relation_data.LastChangeDate",
 	IsMarkedForDeletion:                     "data_platform_scr_stock_conf_plant_relation_data.IsMarkedForDeletion",
-	Product:                                 "data_platform_scr_stock_conf_plant_relation_data.Product",
 }
 
 // Generated where
@@ -117,7 +112,6 @@ var DataPlatformSCRStockConfPlantRelationDatumWhere = struct {
 	CreationDate                            whereHelperstring
 	LastChangeDate                          whereHelperstring
 	IsMarkedForDeletion                     whereHelpernull_Bool
-	Product                                 whereHelperstring
 }{
 	SupplyChainRelationshipID:               whereHelperint{field: "`data_platform_scr_stock_conf_plant_relation_data`.`SupplyChainRelationshipID`"},
 	SupplyChainRelationshipStockConfPlantID: whereHelperint{field: "`data_platform_scr_stock_conf_plant_relation_data`.`SupplyChainRelationshipStockConfPlantID`"},
@@ -131,7 +125,6 @@ var DataPlatformSCRStockConfPlantRelationDatumWhere = struct {
 	CreationDate:                            whereHelperstring{field: "`data_platform_scr_stock_conf_plant_relation_data`.`CreationDate`"},
 	LastChangeDate:                          whereHelperstring{field: "`data_platform_scr_stock_conf_plant_relation_data`.`LastChangeDate`"},
 	IsMarkedForDeletion:                     whereHelpernull_Bool{field: "`data_platform_scr_stock_conf_plant_relation_data`.`IsMarkedForDeletion`"},
-	Product:                                 whereHelperstring{field: "`data_platform_scr_stock_conf_plant_relation_data`.`Product`"},
 }
 
 // DataPlatformSCRStockConfPlantRelationDatumRels is where relationship names are stored.
@@ -202,8 +195,8 @@ func (r *dataPlatformSCRStockConfPlantRelationDatumR) GetBuyerDataPlatformSCRSto
 type dataPlatformSCRStockConfPlantRelationDatumL struct{}
 
 var (
-	dataPlatformSCRStockConfPlantRelationDatumAllColumns            = []string{"SupplyChainRelationshipID", "SupplyChainRelationshipStockConfPlantID", "Buyer", "Seller", "StockConfirmationBusinessPartner", "StockConfirmationPlant", "DefaultRelation", "MRPType", "MRPController", "CreationDate", "LastChangeDate", "IsMarkedForDeletion", "Product"}
-	dataPlatformSCRStockConfPlantRelationDatumColumnsWithoutDefault = []string{"SupplyChainRelationshipID", "SupplyChainRelationshipStockConfPlantID", "Buyer", "Seller", "StockConfirmationBusinessPartner", "StockConfirmationPlant", "DefaultRelation", "MRPType", "MRPController", "CreationDate", "LastChangeDate", "IsMarkedForDeletion", "Product"}
+	dataPlatformSCRStockConfPlantRelationDatumAllColumns            = []string{"SupplyChainRelationshipID", "SupplyChainRelationshipStockConfPlantID", "Buyer", "Seller", "StockConfirmationBusinessPartner", "StockConfirmationPlant", "DefaultRelation", "MRPType", "MRPController", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
+	dataPlatformSCRStockConfPlantRelationDatumColumnsWithoutDefault = []string{"SupplyChainRelationshipID", "SupplyChainRelationshipStockConfPlantID", "Buyer", "Seller", "StockConfirmationBusinessPartner", "StockConfirmationPlant", "DefaultRelation", "MRPType", "MRPController", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
 	dataPlatformSCRStockConfPlantRelationDatumColumnsWithDefault    = []string{}
 	dataPlatformSCRStockConfPlantRelationDatumPrimaryKeyColumns     = []string{"SupplyChainRelationshipID", "SupplyChainRelationshipStockConfPlantID", "Buyer", "Seller", "StockConfirmationBusinessPartner", "StockConfirmationPlant"}
 	dataPlatformSCRStockConfPlantRelationDatumGeneratedColumns      = []string{}

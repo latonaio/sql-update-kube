@@ -24,44 +24,65 @@ import (
 
 // DataPlatformPaymentTermsPaymentTermsTextDatum is an object representing the database table.
 type DataPlatformPaymentTermsPaymentTermsTextDatum struct {
-	PaymentTerms     string      `boil:"PaymentTerms" json:"PaymentTerms" toml:"PaymentTerms" yaml:"PaymentTerms"`
-	Language         string      `boil:"Language" json:"Language" toml:"Language" yaml:"Language"`
-	PaymentTermsName null.String `boil:"PaymentTermsName" json:"PaymentTermsName,omitempty" toml:"PaymentTermsName" yaml:"PaymentTermsName,omitempty"`
+	PaymentTerms        string      `boil:"PaymentTerms" json:"PaymentTerms" toml:"PaymentTerms" yaml:"PaymentTerms"`
+	Language            string      `boil:"Language" json:"Language" toml:"Language" yaml:"Language"`
+	PaymentTermsName    null.String `boil:"PaymentTermsName" json:"PaymentTermsName,omitempty" toml:"PaymentTermsName" yaml:"PaymentTermsName,omitempty"`
+	CreationDate        string      `boil:"CreationDate" json:"CreationDate" toml:"CreationDate" yaml:"CreationDate"`
+	LastChangeDate      string      `boil:"LastChangeDate" json:"LastChangeDate" toml:"LastChangeDate" yaml:"LastChangeDate"`
+	IsMarkedForDeletion null.Bool   `boil:"IsMarkedForDeletion" json:"IsMarkedForDeletion,omitempty" toml:"IsMarkedForDeletion" yaml:"IsMarkedForDeletion,omitempty"`
 
 	R *dataPlatformPaymentTermsPaymentTermsTextDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
 	L dataPlatformPaymentTermsPaymentTermsTextDatumL  `boil:"-" json:"-" toml:"-" yaml:"-"`
 }
 
 var DataPlatformPaymentTermsPaymentTermsTextDatumColumns = struct {
-	PaymentTerms     string
-	Language         string
-	PaymentTermsName string
+	PaymentTerms        string
+	Language            string
+	PaymentTermsName    string
+	CreationDate        string
+	LastChangeDate      string
+	IsMarkedForDeletion string
 }{
-	PaymentTerms:     "PaymentTerms",
-	Language:         "Language",
-	PaymentTermsName: "PaymentTermsName",
+	PaymentTerms:        "PaymentTerms",
+	Language:            "Language",
+	PaymentTermsName:    "PaymentTermsName",
+	CreationDate:        "CreationDate",
+	LastChangeDate:      "LastChangeDate",
+	IsMarkedForDeletion: "IsMarkedForDeletion",
 }
 
 var DataPlatformPaymentTermsPaymentTermsTextDatumTableColumns = struct {
-	PaymentTerms     string
-	Language         string
-	PaymentTermsName string
+	PaymentTerms        string
+	Language            string
+	PaymentTermsName    string
+	CreationDate        string
+	LastChangeDate      string
+	IsMarkedForDeletion string
 }{
-	PaymentTerms:     "data_platform_payment_terms_payment_terms_text_data.PaymentTerms",
-	Language:         "data_platform_payment_terms_payment_terms_text_data.Language",
-	PaymentTermsName: "data_platform_payment_terms_payment_terms_text_data.PaymentTermsName",
+	PaymentTerms:        "data_platform_payment_terms_payment_terms_text_data.PaymentTerms",
+	Language:            "data_platform_payment_terms_payment_terms_text_data.Language",
+	PaymentTermsName:    "data_platform_payment_terms_payment_terms_text_data.PaymentTermsName",
+	CreationDate:        "data_platform_payment_terms_payment_terms_text_data.CreationDate",
+	LastChangeDate:      "data_platform_payment_terms_payment_terms_text_data.LastChangeDate",
+	IsMarkedForDeletion: "data_platform_payment_terms_payment_terms_text_data.IsMarkedForDeletion",
 }
 
 // Generated where
 
 var DataPlatformPaymentTermsPaymentTermsTextDatumWhere = struct {
-	PaymentTerms     whereHelperstring
-	Language         whereHelperstring
-	PaymentTermsName whereHelpernull_String
+	PaymentTerms        whereHelperstring
+	Language            whereHelperstring
+	PaymentTermsName    whereHelpernull_String
+	CreationDate        whereHelperstring
+	LastChangeDate      whereHelperstring
+	IsMarkedForDeletion whereHelpernull_Bool
 }{
-	PaymentTerms:     whereHelperstring{field: "`data_platform_payment_terms_payment_terms_text_data`.`PaymentTerms`"},
-	Language:         whereHelperstring{field: "`data_platform_payment_terms_payment_terms_text_data`.`Language`"},
-	PaymentTermsName: whereHelpernull_String{field: "`data_platform_payment_terms_payment_terms_text_data`.`PaymentTermsName`"},
+	PaymentTerms:        whereHelperstring{field: "`data_platform_payment_terms_payment_terms_text_data`.`PaymentTerms`"},
+	Language:            whereHelperstring{field: "`data_platform_payment_terms_payment_terms_text_data`.`Language`"},
+	PaymentTermsName:    whereHelpernull_String{field: "`data_platform_payment_terms_payment_terms_text_data`.`PaymentTermsName`"},
+	CreationDate:        whereHelperstring{field: "`data_platform_payment_terms_payment_terms_text_data`.`CreationDate`"},
+	LastChangeDate:      whereHelperstring{field: "`data_platform_payment_terms_payment_terms_text_data`.`LastChangeDate`"},
+	IsMarkedForDeletion: whereHelpernull_Bool{field: "`data_platform_payment_terms_payment_terms_text_data`.`IsMarkedForDeletion`"},
 }
 
 // DataPlatformPaymentTermsPaymentTermsTextDatumRels is where relationship names are stored.
@@ -92,8 +113,8 @@ func (r *dataPlatformPaymentTermsPaymentTermsTextDatumR) GetPaymentTerm() *DataP
 type dataPlatformPaymentTermsPaymentTermsTextDatumL struct{}
 
 var (
-	dataPlatformPaymentTermsPaymentTermsTextDatumAllColumns            = []string{"PaymentTerms", "Language", "PaymentTermsName"}
-	dataPlatformPaymentTermsPaymentTermsTextDatumColumnsWithoutDefault = []string{"PaymentTerms", "Language", "PaymentTermsName"}
+	dataPlatformPaymentTermsPaymentTermsTextDatumAllColumns            = []string{"PaymentTerms", "Language", "PaymentTermsName", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
+	dataPlatformPaymentTermsPaymentTermsTextDatumColumnsWithoutDefault = []string{"PaymentTerms", "Language", "PaymentTermsName", "CreationDate", "LastChangeDate", "IsMarkedForDeletion"}
 	dataPlatformPaymentTermsPaymentTermsTextDatumColumnsWithDefault    = []string{}
 	dataPlatformPaymentTermsPaymentTermsTextDatumPrimaryKeyColumns     = []string{"PaymentTerms", "Language"}
 	dataPlatformPaymentTermsPaymentTermsTextDatumGeneratedColumns      = []string{}

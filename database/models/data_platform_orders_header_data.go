@@ -61,6 +61,8 @@ type DataPlatformOrdersHeaderDatum struct {
 	PaymentMethod                    string       `boil:"PaymentMethod" json:"PaymentMethod" toml:"PaymentMethod" yaml:"PaymentMethod"`
 	Contract                         null.Int     `boil:"Contract" json:"Contract,omitempty" toml:"Contract" yaml:"Contract,omitempty"`
 	ContractItem                     null.Int     `boil:"ContractItem" json:"ContractItem,omitempty" toml:"ContractItem" yaml:"ContractItem,omitempty"`
+	Project                          null.Int     `boil:"Project" json:"Project,omitempty" toml:"Project" yaml:"Project,omitempty"`
+	WBSElement                       null.Int     `boil:"WBSElement" json:"WBSElement,omitempty" toml:"WBSElement" yaml:"WBSElement,omitempty"`
 	ProductionVersion                null.Int     `boil:"ProductionVersion" json:"ProductionVersion,omitempty" toml:"ProductionVersion" yaml:"ProductionVersion,omitempty"`
 	ProductionVersionItem            null.Int     `boil:"ProductionVersionItem" json:"ProductionVersionItem,omitempty" toml:"ProductionVersionItem" yaml:"ProductionVersionItem,omitempty"`
 	ProductionOrder                  null.Int     `boil:"ProductionOrder" json:"ProductionOrder,omitempty" toml:"ProductionOrder" yaml:"ProductionOrder,omitempty"`
@@ -130,6 +132,8 @@ var DataPlatformOrdersHeaderDatumColumns = struct {
 	PaymentMethod                    string
 	Contract                         string
 	ContractItem                     string
+	Project                          string
+	WBSElement                       string
 	ProductionVersion                string
 	ProductionVersionItem            string
 	ProductionOrder                  string
@@ -194,6 +198,8 @@ var DataPlatformOrdersHeaderDatumColumns = struct {
 	PaymentMethod:                    "PaymentMethod",
 	Contract:                         "Contract",
 	ContractItem:                     "ContractItem",
+	Project:                          "Project",
+	WBSElement:                       "WBSElement",
 	ProductionVersion:                "ProductionVersion",
 	ProductionVersionItem:            "ProductionVersionItem",
 	ProductionOrder:                  "ProductionOrder",
@@ -260,6 +266,8 @@ var DataPlatformOrdersHeaderDatumTableColumns = struct {
 	PaymentMethod                    string
 	Contract                         string
 	ContractItem                     string
+	Project                          string
+	WBSElement                       string
 	ProductionVersion                string
 	ProductionVersionItem            string
 	ProductionOrder                  string
@@ -324,6 +332,8 @@ var DataPlatformOrdersHeaderDatumTableColumns = struct {
 	PaymentMethod:                    "data_platform_orders_header_data.PaymentMethod",
 	Contract:                         "data_platform_orders_header_data.Contract",
 	ContractItem:                     "data_platform_orders_header_data.ContractItem",
+	Project:                          "data_platform_orders_header_data.Project",
+	WBSElement:                       "data_platform_orders_header_data.WBSElement",
 	ProductionVersion:                "data_platform_orders_header_data.ProductionVersion",
 	ProductionVersionItem:            "data_platform_orders_header_data.ProductionVersionItem",
 	ProductionOrder:                  "data_platform_orders_header_data.ProductionOrder",
@@ -392,6 +402,8 @@ var DataPlatformOrdersHeaderDatumWhere = struct {
 	PaymentMethod                    whereHelperstring
 	Contract                         whereHelpernull_Int
 	ContractItem                     whereHelpernull_Int
+	Project                          whereHelpernull_Int
+	WBSElement                       whereHelpernull_Int
 	ProductionVersion                whereHelpernull_Int
 	ProductionVersionItem            whereHelpernull_Int
 	ProductionOrder                  whereHelpernull_Int
@@ -456,6 +468,8 @@ var DataPlatformOrdersHeaderDatumWhere = struct {
 	PaymentMethod:                    whereHelperstring{field: "`data_platform_orders_header_data`.`PaymentMethod`"},
 	Contract:                         whereHelpernull_Int{field: "`data_platform_orders_header_data`.`Contract`"},
 	ContractItem:                     whereHelpernull_Int{field: "`data_platform_orders_header_data`.`ContractItem`"},
+	Project:                          whereHelpernull_Int{field: "`data_platform_orders_header_data`.`Project`"},
+	WBSElement:                       whereHelpernull_Int{field: "`data_platform_orders_header_data`.`WBSElement`"},
 	ProductionVersion:                whereHelpernull_Int{field: "`data_platform_orders_header_data`.`ProductionVersion`"},
 	ProductionVersionItem:            whereHelpernull_Int{field: "`data_platform_orders_header_data`.`ProductionVersionItem`"},
 	ProductionOrder:                  whereHelpernull_Int{field: "`data_platform_orders_header_data`.`ProductionOrder`"},
@@ -692,8 +706,8 @@ func (r *dataPlatformOrdersHeaderDatumR) GetPrecedingOrderIDDataPlatformPurchase
 type dataPlatformOrdersHeaderDatumL struct{}
 
 var (
-	dataPlatformOrdersHeaderDatumAllColumns            = []string{"OrderID", "OrderDate", "OrderType", "OrderStatus", "SupplyChainRelationshipID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "Buyer", "Seller", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "InvoicePeriodStartDate", "InvoicePeriodEndDate", "TotalNetAmount", "TotalTaxAmount", "TotalGrossAmount", "HeaderDeliveryStatus", "HeaderBillingStatus", "HeaderDocReferenceStatus", "TransactionCurrency", "PricingDate", "PriceDetnExchangeRate", "RequestedDeliveryDate", "RequestedDeliveryTime", "HeaderCompleteDeliveryIsDefined", "Incoterms", "PaymentTerms", "PaymentMethod", "Contract", "ContractItem", "ProductionVersion", "ProductionVersionItem", "ProductionOrder", "ProductionOrderItem", "Operations", "OperationsItem", "OperationID", "ReferenceDocument", "ReferenceDocumentItem", "AccountAssignmentGroup", "AccountingExchangeRate", "InvoiceDocumentDate", "IsExportImport", "HeaderText", "HeaderBlockStatus", "HeaderDeliveryBlockStatus", "HeaderBillingBlockStatus", "ExternalReferenceDocument", "CertificateAuthorityChain", "UsageControlChain", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
-	dataPlatformOrdersHeaderDatumColumnsWithoutDefault = []string{"OrderID", "OrderDate", "OrderType", "OrderStatus", "SupplyChainRelationshipID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "Buyer", "Seller", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "InvoicePeriodStartDate", "InvoicePeriodEndDate", "TotalNetAmount", "TotalTaxAmount", "TotalGrossAmount", "HeaderDeliveryStatus", "HeaderBillingStatus", "HeaderDocReferenceStatus", "TransactionCurrency", "PricingDate", "PriceDetnExchangeRate", "RequestedDeliveryDate", "RequestedDeliveryTime", "HeaderCompleteDeliveryIsDefined", "Incoterms", "PaymentTerms", "PaymentMethod", "Contract", "ContractItem", "ProductionVersion", "ProductionVersionItem", "ProductionOrder", "ProductionOrderItem", "Operations", "OperationsItem", "OperationID", "ReferenceDocument", "ReferenceDocumentItem", "AccountAssignmentGroup", "AccountingExchangeRate", "InvoiceDocumentDate", "IsExportImport", "HeaderText", "HeaderBlockStatus", "HeaderDeliveryBlockStatus", "HeaderBillingBlockStatus", "ExternalReferenceDocument", "CertificateAuthorityChain", "UsageControlChain", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
+	dataPlatformOrdersHeaderDatumAllColumns            = []string{"OrderID", "OrderDate", "OrderType", "OrderStatus", "SupplyChainRelationshipID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "Buyer", "Seller", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "InvoicePeriodStartDate", "InvoicePeriodEndDate", "TotalNetAmount", "TotalTaxAmount", "TotalGrossAmount", "HeaderDeliveryStatus", "HeaderBillingStatus", "HeaderDocReferenceStatus", "TransactionCurrency", "PricingDate", "PriceDetnExchangeRate", "RequestedDeliveryDate", "RequestedDeliveryTime", "HeaderCompleteDeliveryIsDefined", "Incoterms", "PaymentTerms", "PaymentMethod", "Contract", "ContractItem", "Project", "WBSElement", "ProductionVersion", "ProductionVersionItem", "ProductionOrder", "ProductionOrderItem", "Operations", "OperationsItem", "OperationID", "ReferenceDocument", "ReferenceDocumentItem", "AccountAssignmentGroup", "AccountingExchangeRate", "InvoiceDocumentDate", "IsExportImport", "HeaderText", "HeaderBlockStatus", "HeaderDeliveryBlockStatus", "HeaderBillingBlockStatus", "ExternalReferenceDocument", "CertificateAuthorityChain", "UsageControlChain", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
+	dataPlatformOrdersHeaderDatumColumnsWithoutDefault = []string{"OrderID", "OrderDate", "OrderType", "OrderStatus", "SupplyChainRelationshipID", "SupplyChainRelationshipBillingID", "SupplyChainRelationshipPaymentID", "Buyer", "Seller", "BillToParty", "BillFromParty", "BillToCountry", "BillFromCountry", "Payer", "Payee", "ContractType", "OrderValidityStartDate", "OrderValidityEndDate", "InvoicePeriodStartDate", "InvoicePeriodEndDate", "TotalNetAmount", "TotalTaxAmount", "TotalGrossAmount", "HeaderDeliveryStatus", "HeaderBillingStatus", "HeaderDocReferenceStatus", "TransactionCurrency", "PricingDate", "PriceDetnExchangeRate", "RequestedDeliveryDate", "RequestedDeliveryTime", "HeaderCompleteDeliveryIsDefined", "Incoterms", "PaymentTerms", "PaymentMethod", "Contract", "ContractItem", "Project", "WBSElement", "ProductionVersion", "ProductionVersionItem", "ProductionOrder", "ProductionOrderItem", "Operations", "OperationsItem", "OperationID", "ReferenceDocument", "ReferenceDocumentItem", "AccountAssignmentGroup", "AccountingExchangeRate", "InvoiceDocumentDate", "IsExportImport", "HeaderText", "HeaderBlockStatus", "HeaderDeliveryBlockStatus", "HeaderBillingBlockStatus", "ExternalReferenceDocument", "CertificateAuthorityChain", "UsageControlChain", "CreationDate", "CreationTime", "LastChangeDate", "LastChangeTime", "IsCancelled", "IsMarkedForDeletion"}
 	dataPlatformOrdersHeaderDatumColumnsWithDefault    = []string{}
 	dataPlatformOrdersHeaderDatumPrimaryKeyColumns     = []string{"OrderID"}
 	dataPlatformOrdersHeaderDatumGeneratedColumns      = []string{}

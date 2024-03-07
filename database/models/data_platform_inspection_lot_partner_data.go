@@ -22,9 +22,9 @@ import (
 	"github.com/volatiletech/strmangle"
 )
 
-// DataPlatformOrdersPartnerDatum is an object representing the database table.
-type DataPlatformOrdersPartnerDatum struct {
-	OrderID                 int         `boil:"OrderID" json:"OrderID" toml:"OrderID" yaml:"OrderID"`
+// DataPlatformInspectionLotPartnerDatum is an object representing the database table.
+type DataPlatformInspectionLotPartnerDatum struct {
+	InspectionLot           int         `boil:"InspectionLot" json:"InspectionLot" toml:"InspectionLot" yaml:"InspectionLot"`
 	PartnerFunction         string      `boil:"PartnerFunction" json:"PartnerFunction" toml:"PartnerFunction" yaml:"PartnerFunction"`
 	BusinessPartner         int         `boil:"BusinessPartner" json:"BusinessPartner" toml:"BusinessPartner" yaml:"BusinessPartner"`
 	BusinessPartnerFullName null.String `boil:"BusinessPartnerFullName" json:"BusinessPartnerFullName,omitempty" toml:"BusinessPartnerFullName" yaml:"BusinessPartnerFullName,omitempty"`
@@ -37,12 +37,12 @@ type DataPlatformOrdersPartnerDatum struct {
 	AddressID               null.Int    `boil:"AddressID" json:"AddressID,omitempty" toml:"AddressID" yaml:"AddressID,omitempty"`
 	EmailAddress            null.String `boil:"EmailAddress" json:"EmailAddress,omitempty" toml:"EmailAddress" yaml:"EmailAddress,omitempty"`
 
-	R *dataPlatformOrdersPartnerDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
-	L dataPlatformOrdersPartnerDatumL  `boil:"-" json:"-" toml:"-" yaml:"-"`
+	R *dataPlatformInspectionLotPartnerDatumR `boil:"-" json:"-" toml:"-" yaml:"-"`
+	L dataPlatformInspectionLotPartnerDatumL  `boil:"-" json:"-" toml:"-" yaml:"-"`
 }
 
-var DataPlatformOrdersPartnerDatumColumns = struct {
-	OrderID                 string
+var DataPlatformInspectionLotPartnerDatumColumns = struct {
+	InspectionLot           string
 	PartnerFunction         string
 	BusinessPartner         string
 	BusinessPartnerFullName string
@@ -55,7 +55,7 @@ var DataPlatformOrdersPartnerDatumColumns = struct {
 	AddressID               string
 	EmailAddress            string
 }{
-	OrderID:                 "OrderID",
+	InspectionLot:           "InspectionLot",
 	PartnerFunction:         "PartnerFunction",
 	BusinessPartner:         "BusinessPartner",
 	BusinessPartnerFullName: "BusinessPartnerFullName",
@@ -69,8 +69,8 @@ var DataPlatformOrdersPartnerDatumColumns = struct {
 	EmailAddress:            "EmailAddress",
 }
 
-var DataPlatformOrdersPartnerDatumTableColumns = struct {
-	OrderID                 string
+var DataPlatformInspectionLotPartnerDatumTableColumns = struct {
+	InspectionLot           string
 	PartnerFunction         string
 	BusinessPartner         string
 	BusinessPartnerFullName string
@@ -83,24 +83,24 @@ var DataPlatformOrdersPartnerDatumTableColumns = struct {
 	AddressID               string
 	EmailAddress            string
 }{
-	OrderID:                 "data_platform_orders_partner_data.OrderID",
-	PartnerFunction:         "data_platform_orders_partner_data.PartnerFunction",
-	BusinessPartner:         "data_platform_orders_partner_data.BusinessPartner",
-	BusinessPartnerFullName: "data_platform_orders_partner_data.BusinessPartnerFullName",
-	BusinessPartnerName:     "data_platform_orders_partner_data.BusinessPartnerName",
-	Organization:            "data_platform_orders_partner_data.Organization",
-	Country:                 "data_platform_orders_partner_data.Country",
-	Language:                "data_platform_orders_partner_data.Language",
-	Currency:                "data_platform_orders_partner_data.Currency",
-	ExternalDocumentID:      "data_platform_orders_partner_data.ExternalDocumentID",
-	AddressID:               "data_platform_orders_partner_data.AddressID",
-	EmailAddress:            "data_platform_orders_partner_data.EmailAddress",
+	InspectionLot:           "data_platform_inspection_lot_partner_data.InspectionLot",
+	PartnerFunction:         "data_platform_inspection_lot_partner_data.PartnerFunction",
+	BusinessPartner:         "data_platform_inspection_lot_partner_data.BusinessPartner",
+	BusinessPartnerFullName: "data_platform_inspection_lot_partner_data.BusinessPartnerFullName",
+	BusinessPartnerName:     "data_platform_inspection_lot_partner_data.BusinessPartnerName",
+	Organization:            "data_platform_inspection_lot_partner_data.Organization",
+	Country:                 "data_platform_inspection_lot_partner_data.Country",
+	Language:                "data_platform_inspection_lot_partner_data.Language",
+	Currency:                "data_platform_inspection_lot_partner_data.Currency",
+	ExternalDocumentID:      "data_platform_inspection_lot_partner_data.ExternalDocumentID",
+	AddressID:               "data_platform_inspection_lot_partner_data.AddressID",
+	EmailAddress:            "data_platform_inspection_lot_partner_data.EmailAddress",
 }
 
 // Generated where
 
-var DataPlatformOrdersPartnerDatumWhere = struct {
-	OrderID                 whereHelperint
+var DataPlatformInspectionLotPartnerDatumWhere = struct {
+	InspectionLot           whereHelperint
 	PartnerFunction         whereHelperstring
 	BusinessPartner         whereHelperint
 	BusinessPartnerFullName whereHelpernull_String
@@ -113,29 +113,29 @@ var DataPlatformOrdersPartnerDatumWhere = struct {
 	AddressID               whereHelpernull_Int
 	EmailAddress            whereHelpernull_String
 }{
-	OrderID:                 whereHelperint{field: "`data_platform_orders_partner_data`.`OrderID`"},
-	PartnerFunction:         whereHelperstring{field: "`data_platform_orders_partner_data`.`PartnerFunction`"},
-	BusinessPartner:         whereHelperint{field: "`data_platform_orders_partner_data`.`BusinessPartner`"},
-	BusinessPartnerFullName: whereHelpernull_String{field: "`data_platform_orders_partner_data`.`BusinessPartnerFullName`"},
-	BusinessPartnerName:     whereHelpernull_String{field: "`data_platform_orders_partner_data`.`BusinessPartnerName`"},
-	Organization:            whereHelpernull_String{field: "`data_platform_orders_partner_data`.`Organization`"},
-	Country:                 whereHelpernull_String{field: "`data_platform_orders_partner_data`.`Country`"},
-	Language:                whereHelpernull_String{field: "`data_platform_orders_partner_data`.`Language`"},
-	Currency:                whereHelpernull_String{field: "`data_platform_orders_partner_data`.`Currency`"},
-	ExternalDocumentID:      whereHelpernull_String{field: "`data_platform_orders_partner_data`.`ExternalDocumentID`"},
-	AddressID:               whereHelpernull_Int{field: "`data_platform_orders_partner_data`.`AddressID`"},
-	EmailAddress:            whereHelpernull_String{field: "`data_platform_orders_partner_data`.`EmailAddress`"},
+	InspectionLot:           whereHelperint{field: "`data_platform_inspection_lot_partner_data`.`InspectionLot`"},
+	PartnerFunction:         whereHelperstring{field: "`data_platform_inspection_lot_partner_data`.`PartnerFunction`"},
+	BusinessPartner:         whereHelperint{field: "`data_platform_inspection_lot_partner_data`.`BusinessPartner`"},
+	BusinessPartnerFullName: whereHelpernull_String{field: "`data_platform_inspection_lot_partner_data`.`BusinessPartnerFullName`"},
+	BusinessPartnerName:     whereHelpernull_String{field: "`data_platform_inspection_lot_partner_data`.`BusinessPartnerName`"},
+	Organization:            whereHelpernull_String{field: "`data_platform_inspection_lot_partner_data`.`Organization`"},
+	Country:                 whereHelpernull_String{field: "`data_platform_inspection_lot_partner_data`.`Country`"},
+	Language:                whereHelpernull_String{field: "`data_platform_inspection_lot_partner_data`.`Language`"},
+	Currency:                whereHelpernull_String{field: "`data_platform_inspection_lot_partner_data`.`Currency`"},
+	ExternalDocumentID:      whereHelpernull_String{field: "`data_platform_inspection_lot_partner_data`.`ExternalDocumentID`"},
+	AddressID:               whereHelpernull_Int{field: "`data_platform_inspection_lot_partner_data`.`AddressID`"},
+	EmailAddress:            whereHelpernull_String{field: "`data_platform_inspection_lot_partner_data`.`EmailAddress`"},
 }
 
-// DataPlatformOrdersPartnerDatumRels is where relationship names are stored.
-var DataPlatformOrdersPartnerDatumRels = struct {
+// DataPlatformInspectionLotPartnerDatumRels is where relationship names are stored.
+var DataPlatformInspectionLotPartnerDatumRels = struct {
 	AddressIDDataPlatformAddressAddressDatum                       string
 	BusinessPartnerDataPlatformBusinessPartnerGeneralDatum         string
 	CountryDataPlatformCountryCountryDatum                         string
 	CurrencyDataPlatformCurrencyCurrencyDatum                      string
 	LanguageDataPlatformLanguageLanguageDatum                      string
 	PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum string
-	OrderIDDataPlatformOrdersHeaderDatum                           string
+	InspectionLotDataPlatformInspectionLotHeaderDatum              string
 }{
 	AddressIDDataPlatformAddressAddressDatum:                       "AddressIDDataPlatformAddressAddressDatum",
 	BusinessPartnerDataPlatformBusinessPartnerGeneralDatum:         "BusinessPartnerDataPlatformBusinessPartnerGeneralDatum",
@@ -143,106 +143,106 @@ var DataPlatformOrdersPartnerDatumRels = struct {
 	CurrencyDataPlatformCurrencyCurrencyDatum:                      "CurrencyDataPlatformCurrencyCurrencyDatum",
 	LanguageDataPlatformLanguageLanguageDatum:                      "LanguageDataPlatformLanguageLanguageDatum",
 	PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum: "PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum",
-	OrderIDDataPlatformOrdersHeaderDatum:                           "OrderIDDataPlatformOrdersHeaderDatum",
+	InspectionLotDataPlatformInspectionLotHeaderDatum:              "InspectionLotDataPlatformInspectionLotHeaderDatum",
 }
 
-// dataPlatformOrdersPartnerDatumR is where relationships are stored.
-type dataPlatformOrdersPartnerDatumR struct {
+// dataPlatformInspectionLotPartnerDatumR is where relationships are stored.
+type dataPlatformInspectionLotPartnerDatumR struct {
 	AddressIDDataPlatformAddressAddressDatum                       *DataPlatformAddressAddressDatum                 `boil:"AddressIDDataPlatformAddressAddressDatum" json:"AddressIDDataPlatformAddressAddressDatum" toml:"AddressIDDataPlatformAddressAddressDatum" yaml:"AddressIDDataPlatformAddressAddressDatum"`
 	BusinessPartnerDataPlatformBusinessPartnerGeneralDatum         *DataPlatformBusinessPartnerGeneralDatum         `boil:"BusinessPartnerDataPlatformBusinessPartnerGeneralDatum" json:"BusinessPartnerDataPlatformBusinessPartnerGeneralDatum" toml:"BusinessPartnerDataPlatformBusinessPartnerGeneralDatum" yaml:"BusinessPartnerDataPlatformBusinessPartnerGeneralDatum"`
 	CountryDataPlatformCountryCountryDatum                         *DataPlatformCountryCountryDatum                 `boil:"CountryDataPlatformCountryCountryDatum" json:"CountryDataPlatformCountryCountryDatum" toml:"CountryDataPlatformCountryCountryDatum" yaml:"CountryDataPlatformCountryCountryDatum"`
 	CurrencyDataPlatformCurrencyCurrencyDatum                      *DataPlatformCurrencyCurrencyDatum               `boil:"CurrencyDataPlatformCurrencyCurrencyDatum" json:"CurrencyDataPlatformCurrencyCurrencyDatum" toml:"CurrencyDataPlatformCurrencyCurrencyDatum" yaml:"CurrencyDataPlatformCurrencyCurrencyDatum"`
 	LanguageDataPlatformLanguageLanguageDatum                      *DataPlatformLanguageLanguageDatum               `boil:"LanguageDataPlatformLanguageLanguageDatum" json:"LanguageDataPlatformLanguageLanguageDatum" toml:"LanguageDataPlatformLanguageLanguageDatum" yaml:"LanguageDataPlatformLanguageLanguageDatum"`
 	PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum *DataPlatformPartnerFunctionPartnerFunctionDatum `boil:"PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum" json:"PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum" toml:"PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum" yaml:"PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum"`
-	OrderIDDataPlatformOrdersHeaderDatum                           *DataPlatformOrdersHeaderDatum                   `boil:"OrderIDDataPlatformOrdersHeaderDatum" json:"OrderIDDataPlatformOrdersHeaderDatum" toml:"OrderIDDataPlatformOrdersHeaderDatum" yaml:"OrderIDDataPlatformOrdersHeaderDatum"`
+	InspectionLotDataPlatformInspectionLotHeaderDatum              *DataPlatformInspectionLotHeaderDatum            `boil:"InspectionLotDataPlatformInspectionLotHeaderDatum" json:"InspectionLotDataPlatformInspectionLotHeaderDatum" toml:"InspectionLotDataPlatformInspectionLotHeaderDatum" yaml:"InspectionLotDataPlatformInspectionLotHeaderDatum"`
 }
 
 // NewStruct creates a new relationship struct
-func (*dataPlatformOrdersPartnerDatumR) NewStruct() *dataPlatformOrdersPartnerDatumR {
-	return &dataPlatformOrdersPartnerDatumR{}
+func (*dataPlatformInspectionLotPartnerDatumR) NewStruct() *dataPlatformInspectionLotPartnerDatumR {
+	return &dataPlatformInspectionLotPartnerDatumR{}
 }
 
-func (r *dataPlatformOrdersPartnerDatumR) GetAddressIDDataPlatformAddressAddressDatum() *DataPlatformAddressAddressDatum {
+func (r *dataPlatformInspectionLotPartnerDatumR) GetAddressIDDataPlatformAddressAddressDatum() *DataPlatformAddressAddressDatum {
 	if r == nil {
 		return nil
 	}
 	return r.AddressIDDataPlatformAddressAddressDatum
 }
 
-func (r *dataPlatformOrdersPartnerDatumR) GetBusinessPartnerDataPlatformBusinessPartnerGeneralDatum() *DataPlatformBusinessPartnerGeneralDatum {
+func (r *dataPlatformInspectionLotPartnerDatumR) GetBusinessPartnerDataPlatformBusinessPartnerGeneralDatum() *DataPlatformBusinessPartnerGeneralDatum {
 	if r == nil {
 		return nil
 	}
 	return r.BusinessPartnerDataPlatformBusinessPartnerGeneralDatum
 }
 
-func (r *dataPlatformOrdersPartnerDatumR) GetCountryDataPlatformCountryCountryDatum() *DataPlatformCountryCountryDatum {
+func (r *dataPlatformInspectionLotPartnerDatumR) GetCountryDataPlatformCountryCountryDatum() *DataPlatformCountryCountryDatum {
 	if r == nil {
 		return nil
 	}
 	return r.CountryDataPlatformCountryCountryDatum
 }
 
-func (r *dataPlatformOrdersPartnerDatumR) GetCurrencyDataPlatformCurrencyCurrencyDatum() *DataPlatformCurrencyCurrencyDatum {
+func (r *dataPlatformInspectionLotPartnerDatumR) GetCurrencyDataPlatformCurrencyCurrencyDatum() *DataPlatformCurrencyCurrencyDatum {
 	if r == nil {
 		return nil
 	}
 	return r.CurrencyDataPlatformCurrencyCurrencyDatum
 }
 
-func (r *dataPlatformOrdersPartnerDatumR) GetLanguageDataPlatformLanguageLanguageDatum() *DataPlatformLanguageLanguageDatum {
+func (r *dataPlatformInspectionLotPartnerDatumR) GetLanguageDataPlatformLanguageLanguageDatum() *DataPlatformLanguageLanguageDatum {
 	if r == nil {
 		return nil
 	}
 	return r.LanguageDataPlatformLanguageLanguageDatum
 }
 
-func (r *dataPlatformOrdersPartnerDatumR) GetPartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum() *DataPlatformPartnerFunctionPartnerFunctionDatum {
+func (r *dataPlatformInspectionLotPartnerDatumR) GetPartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum() *DataPlatformPartnerFunctionPartnerFunctionDatum {
 	if r == nil {
 		return nil
 	}
 	return r.PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum
 }
 
-func (r *dataPlatformOrdersPartnerDatumR) GetOrderIDDataPlatformOrdersHeaderDatum() *DataPlatformOrdersHeaderDatum {
+func (r *dataPlatformInspectionLotPartnerDatumR) GetInspectionLotDataPlatformInspectionLotHeaderDatum() *DataPlatformInspectionLotHeaderDatum {
 	if r == nil {
 		return nil
 	}
-	return r.OrderIDDataPlatformOrdersHeaderDatum
+	return r.InspectionLotDataPlatformInspectionLotHeaderDatum
 }
 
-// dataPlatformOrdersPartnerDatumL is where Load methods for each relationship are stored.
-type dataPlatformOrdersPartnerDatumL struct{}
+// dataPlatformInspectionLotPartnerDatumL is where Load methods for each relationship are stored.
+type dataPlatformInspectionLotPartnerDatumL struct{}
 
 var (
-	dataPlatformOrdersPartnerDatumAllColumns            = []string{"OrderID", "PartnerFunction", "BusinessPartner", "BusinessPartnerFullName", "BusinessPartnerName", "Organization", "Country", "Language", "Currency", "ExternalDocumentID", "AddressID", "EmailAddress"}
-	dataPlatformOrdersPartnerDatumColumnsWithoutDefault = []string{"OrderID", "PartnerFunction", "BusinessPartner", "BusinessPartnerFullName", "BusinessPartnerName", "Organization", "Country", "Language", "Currency", "ExternalDocumentID", "AddressID", "EmailAddress"}
-	dataPlatformOrdersPartnerDatumColumnsWithDefault    = []string{}
-	dataPlatformOrdersPartnerDatumPrimaryKeyColumns     = []string{"OrderID", "PartnerFunction", "BusinessPartner"}
-	dataPlatformOrdersPartnerDatumGeneratedColumns      = []string{}
+	dataPlatformInspectionLotPartnerDatumAllColumns            = []string{"InspectionLot", "PartnerFunction", "BusinessPartner", "BusinessPartnerFullName", "BusinessPartnerName", "Organization", "Country", "Language", "Currency", "ExternalDocumentID", "AddressID", "EmailAddress"}
+	dataPlatformInspectionLotPartnerDatumColumnsWithoutDefault = []string{"InspectionLot", "PartnerFunction", "BusinessPartner", "BusinessPartnerFullName", "BusinessPartnerName", "Organization", "Country", "Language", "Currency", "ExternalDocumentID", "AddressID", "EmailAddress"}
+	dataPlatformInspectionLotPartnerDatumColumnsWithDefault    = []string{}
+	dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns     = []string{"InspectionLot", "PartnerFunction", "BusinessPartner"}
+	dataPlatformInspectionLotPartnerDatumGeneratedColumns      = []string{}
 )
 
 type (
-	// DataPlatformOrdersPartnerDatumSlice is an alias for a slice of pointers to DataPlatformOrdersPartnerDatum.
-	// This should almost always be used instead of []DataPlatformOrdersPartnerDatum.
-	DataPlatformOrdersPartnerDatumSlice []*DataPlatformOrdersPartnerDatum
+	// DataPlatformInspectionLotPartnerDatumSlice is an alias for a slice of pointers to DataPlatformInspectionLotPartnerDatum.
+	// This should almost always be used instead of []DataPlatformInspectionLotPartnerDatum.
+	DataPlatformInspectionLotPartnerDatumSlice []*DataPlatformInspectionLotPartnerDatum
 
-	dataPlatformOrdersPartnerDatumQuery struct {
+	dataPlatformInspectionLotPartnerDatumQuery struct {
 		*queries.Query
 	}
 )
 
 // Cache for insert, update and upsert
 var (
-	dataPlatformOrdersPartnerDatumType                 = reflect.TypeOf(&DataPlatformOrdersPartnerDatum{})
-	dataPlatformOrdersPartnerDatumMapping              = queries.MakeStructMapping(dataPlatformOrdersPartnerDatumType)
-	dataPlatformOrdersPartnerDatumPrimaryKeyMapping, _ = queries.BindMapping(dataPlatformOrdersPartnerDatumType, dataPlatformOrdersPartnerDatumMapping, dataPlatformOrdersPartnerDatumPrimaryKeyColumns)
-	dataPlatformOrdersPartnerDatumInsertCacheMut       sync.RWMutex
-	dataPlatformOrdersPartnerDatumInsertCache          = make(map[string]insertCache)
-	dataPlatformOrdersPartnerDatumUpdateCacheMut       sync.RWMutex
-	dataPlatformOrdersPartnerDatumUpdateCache          = make(map[string]updateCache)
-	dataPlatformOrdersPartnerDatumUpsertCacheMut       sync.RWMutex
-	dataPlatformOrdersPartnerDatumUpsertCache          = make(map[string]insertCache)
+	dataPlatformInspectionLotPartnerDatumType                 = reflect.TypeOf(&DataPlatformInspectionLotPartnerDatum{})
+	dataPlatformInspectionLotPartnerDatumMapping              = queries.MakeStructMapping(dataPlatformInspectionLotPartnerDatumType)
+	dataPlatformInspectionLotPartnerDatumPrimaryKeyMapping, _ = queries.BindMapping(dataPlatformInspectionLotPartnerDatumType, dataPlatformInspectionLotPartnerDatumMapping, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns)
+	dataPlatformInspectionLotPartnerDatumInsertCacheMut       sync.RWMutex
+	dataPlatformInspectionLotPartnerDatumInsertCache          = make(map[string]insertCache)
+	dataPlatformInspectionLotPartnerDatumUpdateCacheMut       sync.RWMutex
+	dataPlatformInspectionLotPartnerDatumUpdateCache          = make(map[string]updateCache)
+	dataPlatformInspectionLotPartnerDatumUpsertCacheMut       sync.RWMutex
+	dataPlatformInspectionLotPartnerDatumUpsertCache          = make(map[string]insertCache)
 )
 
 var (
@@ -253,9 +253,9 @@ var (
 	_ = qmhelper.Where
 )
 
-// One returns a single dataPlatformOrdersPartnerDatum record from the query.
-func (q dataPlatformOrdersPartnerDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformOrdersPartnerDatum, error) {
-	o := &DataPlatformOrdersPartnerDatum{}
+// One returns a single dataPlatformInspectionLotPartnerDatum record from the query.
+func (q dataPlatformInspectionLotPartnerDatumQuery) One(ctx context.Context, exec boil.ContextExecutor) (*DataPlatformInspectionLotPartnerDatum, error) {
+	o := &DataPlatformInspectionLotPartnerDatum{}
 
 	queries.SetLimit(q.Query, 1)
 
@@ -264,26 +264,26 @@ func (q dataPlatformOrdersPartnerDatumQuery) One(ctx context.Context, exec boil.
 		if errors.Is(err, sql.ErrNoRows) {
 			return nil, sql.ErrNoRows
 		}
-		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_orders_partner_data")
+		return nil, errors.Wrap(err, "models: failed to execute a one query for data_platform_inspection_lot_partner_data")
 	}
 
 	return o, nil
 }
 
-// All returns all DataPlatformOrdersPartnerDatum records from the query.
-func (q dataPlatformOrdersPartnerDatumQuery) All(ctx context.Context, exec boil.ContextExecutor) (DataPlatformOrdersPartnerDatumSlice, error) {
-	var o []*DataPlatformOrdersPartnerDatum
+// All returns all DataPlatformInspectionLotPartnerDatum records from the query.
+func (q dataPlatformInspectionLotPartnerDatumQuery) All(ctx context.Context, exec boil.ContextExecutor) (DataPlatformInspectionLotPartnerDatumSlice, error) {
+	var o []*DataPlatformInspectionLotPartnerDatum
 
 	err := q.Bind(ctx, exec, &o)
 	if err != nil {
-		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformOrdersPartnerDatum slice")
+		return nil, errors.Wrap(err, "models: failed to assign all query results to DataPlatformInspectionLotPartnerDatum slice")
 	}
 
 	return o, nil
 }
 
-// Count returns the count of all DataPlatformOrdersPartnerDatum records in the query.
-func (q dataPlatformOrdersPartnerDatumQuery) Count(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
+// Count returns the count of all DataPlatformInspectionLotPartnerDatum records in the query.
+func (q dataPlatformInspectionLotPartnerDatumQuery) Count(ctx context.Context, exec boil.ContextExecutor) (int64, error) {
 	var count int64
 
 	queries.SetSelect(q.Query, nil)
@@ -291,14 +291,14 @@ func (q dataPlatformOrdersPartnerDatumQuery) Count(ctx context.Context, exec boi
 
 	err := q.Query.QueryRowContext(ctx, exec).Scan(&count)
 	if err != nil {
-		return 0, errors.Wrap(err, "models: failed to count data_platform_orders_partner_data rows")
+		return 0, errors.Wrap(err, "models: failed to count data_platform_inspection_lot_partner_data rows")
 	}
 
 	return count, nil
 }
 
 // Exists checks if the row exists in the table.
-func (q dataPlatformOrdersPartnerDatumQuery) Exists(ctx context.Context, exec boil.ContextExecutor) (bool, error) {
+func (q dataPlatformInspectionLotPartnerDatumQuery) Exists(ctx context.Context, exec boil.ContextExecutor) (bool, error) {
 	var count int64
 
 	queries.SetSelect(q.Query, nil)
@@ -307,14 +307,14 @@ func (q dataPlatformOrdersPartnerDatumQuery) Exists(ctx context.Context, exec bo
 
 	err := q.Query.QueryRowContext(ctx, exec).Scan(&count)
 	if err != nil {
-		return false, errors.Wrap(err, "models: failed to check if data_platform_orders_partner_data exists")
+		return false, errors.Wrap(err, "models: failed to check if data_platform_inspection_lot_partner_data exists")
 	}
 
 	return count > 0, nil
 }
 
 // AddressIDDataPlatformAddressAddressDatum pointed to by the foreign key.
-func (o *DataPlatformOrdersPartnerDatum) AddressIDDataPlatformAddressAddressDatum(mods ...qm.QueryMod) dataPlatformAddressAddressDatumQuery {
+func (o *DataPlatformInspectionLotPartnerDatum) AddressIDDataPlatformAddressAddressDatum(mods ...qm.QueryMod) dataPlatformAddressAddressDatumQuery {
 	queryMods := []qm.QueryMod{
 		qm.Where("`AddressID` = ?", o.AddressID),
 	}
@@ -325,7 +325,7 @@ func (o *DataPlatformOrdersPartnerDatum) AddressIDDataPlatformAddressAddressDatu
 }
 
 // BusinessPartnerDataPlatformBusinessPartnerGeneralDatum pointed to by the foreign key.
-func (o *DataPlatformOrdersPartnerDatum) BusinessPartnerDataPlatformBusinessPartnerGeneralDatum(mods ...qm.QueryMod) dataPlatformBusinessPartnerGeneralDatumQuery {
+func (o *DataPlatformInspectionLotPartnerDatum) BusinessPartnerDataPlatformBusinessPartnerGeneralDatum(mods ...qm.QueryMod) dataPlatformBusinessPartnerGeneralDatumQuery {
 	queryMods := []qm.QueryMod{
 		qm.Where("`BusinessPartner` = ?", o.BusinessPartner),
 	}
@@ -336,7 +336,7 @@ func (o *DataPlatformOrdersPartnerDatum) BusinessPartnerDataPlatformBusinessPart
 }
 
 // CountryDataPlatformCountryCountryDatum pointed to by the foreign key.
-func (o *DataPlatformOrdersPartnerDatum) CountryDataPlatformCountryCountryDatum(mods ...qm.QueryMod) dataPlatformCountryCountryDatumQuery {
+func (o *DataPlatformInspectionLotPartnerDatum) CountryDataPlatformCountryCountryDatum(mods ...qm.QueryMod) dataPlatformCountryCountryDatumQuery {
 	queryMods := []qm.QueryMod{
 		qm.Where("`Country` = ?", o.Country),
 	}
@@ -347,7 +347,7 @@ func (o *DataPlatformOrdersPartnerDatum) CountryDataPlatformCountryCountryDatum(
 }
 
 // CurrencyDataPlatformCurrencyCurrencyDatum pointed to by the foreign key.
-func (o *DataPlatformOrdersPartnerDatum) CurrencyDataPlatformCurrencyCurrencyDatum(mods ...qm.QueryMod) dataPlatformCurrencyCurrencyDatumQuery {
+func (o *DataPlatformInspectionLotPartnerDatum) CurrencyDataPlatformCurrencyCurrencyDatum(mods ...qm.QueryMod) dataPlatformCurrencyCurrencyDatumQuery {
 	queryMods := []qm.QueryMod{
 		qm.Where("`Currency` = ?", o.Currency),
 	}
@@ -358,7 +358,7 @@ func (o *DataPlatformOrdersPartnerDatum) CurrencyDataPlatformCurrencyCurrencyDat
 }
 
 // LanguageDataPlatformLanguageLanguageDatum pointed to by the foreign key.
-func (o *DataPlatformOrdersPartnerDatum) LanguageDataPlatformLanguageLanguageDatum(mods ...qm.QueryMod) dataPlatformLanguageLanguageDatumQuery {
+func (o *DataPlatformInspectionLotPartnerDatum) LanguageDataPlatformLanguageLanguageDatum(mods ...qm.QueryMod) dataPlatformLanguageLanguageDatumQuery {
 	queryMods := []qm.QueryMod{
 		qm.Where("`Language` = ?", o.Language),
 	}
@@ -369,7 +369,7 @@ func (o *DataPlatformOrdersPartnerDatum) LanguageDataPlatformLanguageLanguageDat
 }
 
 // PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum pointed to by the foreign key.
-func (o *DataPlatformOrdersPartnerDatum) PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum(mods ...qm.QueryMod) dataPlatformPartnerFunctionPartnerFunctionDatumQuery {
+func (o *DataPlatformInspectionLotPartnerDatum) PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum(mods ...qm.QueryMod) dataPlatformPartnerFunctionPartnerFunctionDatumQuery {
 	queryMods := []qm.QueryMod{
 		qm.Where("`PartnerFunction` = ?", o.PartnerFunction),
 	}
@@ -379,41 +379,41 @@ func (o *DataPlatformOrdersPartnerDatum) PartnerFunctionDataPlatformPartnerFunct
 	return DataPlatformPartnerFunctionPartnerFunctionData(queryMods...)
 }
 
-// OrderIDDataPlatformOrdersHeaderDatum pointed to by the foreign key.
-func (o *DataPlatformOrdersPartnerDatum) OrderIDDataPlatformOrdersHeaderDatum(mods ...qm.QueryMod) dataPlatformOrdersHeaderDatumQuery {
+// InspectionLotDataPlatformInspectionLotHeaderDatum pointed to by the foreign key.
+func (o *DataPlatformInspectionLotPartnerDatum) InspectionLotDataPlatformInspectionLotHeaderDatum(mods ...qm.QueryMod) dataPlatformInspectionLotHeaderDatumQuery {
 	queryMods := []qm.QueryMod{
-		qm.Where("`OrderID` = ?", o.OrderID),
+		qm.Where("`InspectionLot` = ?", o.InspectionLot),
 	}
 
 	queryMods = append(queryMods, mods...)
 
-	return DataPlatformOrdersHeaderData(queryMods...)
+	return DataPlatformInspectionLotHeaderData(queryMods...)
 }
 
 // LoadAddressIDDataPlatformAddressAddressDatum allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformOrdersPartnerDatumL) LoadAddressIDDataPlatformAddressAddressDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersPartnerDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformOrdersPartnerDatum
-	var object *DataPlatformOrdersPartnerDatum
+func (dataPlatformInspectionLotPartnerDatumL) LoadAddressIDDataPlatformAddressAddressDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionLotPartnerDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformInspectionLotPartnerDatum
+	var object *DataPlatformInspectionLotPartnerDatum
 
 	if singular {
 		var ok bool
-		object, ok = maybeDataPlatformOrdersPartnerDatum.(*DataPlatformOrdersPartnerDatum)
+		object, ok = maybeDataPlatformInspectionLotPartnerDatum.(*DataPlatformInspectionLotPartnerDatum)
 		if !ok {
-			object = new(DataPlatformOrdersPartnerDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersPartnerDatum)
+			object = new(DataPlatformInspectionLotPartnerDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformInspectionLotPartnerDatum)
 			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersPartnerDatum))
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformInspectionLotPartnerDatum))
 			}
 		}
 	} else {
-		s, ok := maybeDataPlatformOrdersPartnerDatum.(*[]*DataPlatformOrdersPartnerDatum)
+		s, ok := maybeDataPlatformInspectionLotPartnerDatum.(*[]*DataPlatformInspectionLotPartnerDatum)
 		if ok {
 			slice = *s
 		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersPartnerDatum)
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformInspectionLotPartnerDatum)
 			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersPartnerDatum))
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformInspectionLotPartnerDatum))
 			}
 		}
 	}
@@ -421,7 +421,7 @@ func (dataPlatformOrdersPartnerDatumL) LoadAddressIDDataPlatformAddressAddressDa
 	args := make([]interface{}, 0, 1)
 	if singular {
 		if object.R == nil {
-			object.R = &dataPlatformOrdersPartnerDatumR{}
+			object.R = &dataPlatformInspectionLotPartnerDatumR{}
 		}
 		if !queries.IsNil(object.AddressID) {
 			args = append(args, object.AddressID)
@@ -431,7 +431,7 @@ func (dataPlatformOrdersPartnerDatumL) LoadAddressIDDataPlatformAddressAddressDa
 	Outer:
 		for _, obj := range slice {
 			if obj.R == nil {
-				obj.R = &dataPlatformOrdersPartnerDatumR{}
+				obj.R = &dataPlatformInspectionLotPartnerDatumR{}
 			}
 
 			for _, a := range args {
@@ -500,28 +500,28 @@ func (dataPlatformOrdersPartnerDatumL) LoadAddressIDDataPlatformAddressAddressDa
 
 // LoadBusinessPartnerDataPlatformBusinessPartnerGeneralDatum allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformOrdersPartnerDatumL) LoadBusinessPartnerDataPlatformBusinessPartnerGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersPartnerDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformOrdersPartnerDatum
-	var object *DataPlatformOrdersPartnerDatum
+func (dataPlatformInspectionLotPartnerDatumL) LoadBusinessPartnerDataPlatformBusinessPartnerGeneralDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionLotPartnerDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformInspectionLotPartnerDatum
+	var object *DataPlatformInspectionLotPartnerDatum
 
 	if singular {
 		var ok bool
-		object, ok = maybeDataPlatformOrdersPartnerDatum.(*DataPlatformOrdersPartnerDatum)
+		object, ok = maybeDataPlatformInspectionLotPartnerDatum.(*DataPlatformInspectionLotPartnerDatum)
 		if !ok {
-			object = new(DataPlatformOrdersPartnerDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersPartnerDatum)
+			object = new(DataPlatformInspectionLotPartnerDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformInspectionLotPartnerDatum)
 			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersPartnerDatum))
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformInspectionLotPartnerDatum))
 			}
 		}
 	} else {
-		s, ok := maybeDataPlatformOrdersPartnerDatum.(*[]*DataPlatformOrdersPartnerDatum)
+		s, ok := maybeDataPlatformInspectionLotPartnerDatum.(*[]*DataPlatformInspectionLotPartnerDatum)
 		if ok {
 			slice = *s
 		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersPartnerDatum)
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformInspectionLotPartnerDatum)
 			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersPartnerDatum))
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformInspectionLotPartnerDatum))
 			}
 		}
 	}
@@ -529,7 +529,7 @@ func (dataPlatformOrdersPartnerDatumL) LoadBusinessPartnerDataPlatformBusinessPa
 	args := make([]interface{}, 0, 1)
 	if singular {
 		if object.R == nil {
-			object.R = &dataPlatformOrdersPartnerDatumR{}
+			object.R = &dataPlatformInspectionLotPartnerDatumR{}
 		}
 		args = append(args, object.BusinessPartner)
 
@@ -537,7 +537,7 @@ func (dataPlatformOrdersPartnerDatumL) LoadBusinessPartnerDataPlatformBusinessPa
 	Outer:
 		for _, obj := range slice {
 			if obj.R == nil {
-				obj.R = &dataPlatformOrdersPartnerDatumR{}
+				obj.R = &dataPlatformInspectionLotPartnerDatumR{}
 			}
 
 			for _, a := range args {
@@ -604,28 +604,28 @@ func (dataPlatformOrdersPartnerDatumL) LoadBusinessPartnerDataPlatformBusinessPa
 
 // LoadCountryDataPlatformCountryCountryDatum allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformOrdersPartnerDatumL) LoadCountryDataPlatformCountryCountryDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersPartnerDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformOrdersPartnerDatum
-	var object *DataPlatformOrdersPartnerDatum
+func (dataPlatformInspectionLotPartnerDatumL) LoadCountryDataPlatformCountryCountryDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionLotPartnerDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformInspectionLotPartnerDatum
+	var object *DataPlatformInspectionLotPartnerDatum
 
 	if singular {
 		var ok bool
-		object, ok = maybeDataPlatformOrdersPartnerDatum.(*DataPlatformOrdersPartnerDatum)
+		object, ok = maybeDataPlatformInspectionLotPartnerDatum.(*DataPlatformInspectionLotPartnerDatum)
 		if !ok {
-			object = new(DataPlatformOrdersPartnerDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersPartnerDatum)
+			object = new(DataPlatformInspectionLotPartnerDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformInspectionLotPartnerDatum)
 			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersPartnerDatum))
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformInspectionLotPartnerDatum))
 			}
 		}
 	} else {
-		s, ok := maybeDataPlatformOrdersPartnerDatum.(*[]*DataPlatformOrdersPartnerDatum)
+		s, ok := maybeDataPlatformInspectionLotPartnerDatum.(*[]*DataPlatformInspectionLotPartnerDatum)
 		if ok {
 			slice = *s
 		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersPartnerDatum)
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformInspectionLotPartnerDatum)
 			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersPartnerDatum))
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformInspectionLotPartnerDatum))
 			}
 		}
 	}
@@ -633,7 +633,7 @@ func (dataPlatformOrdersPartnerDatumL) LoadCountryDataPlatformCountryCountryDatu
 	args := make([]interface{}, 0, 1)
 	if singular {
 		if object.R == nil {
-			object.R = &dataPlatformOrdersPartnerDatumR{}
+			object.R = &dataPlatformInspectionLotPartnerDatumR{}
 		}
 		if !queries.IsNil(object.Country) {
 			args = append(args, object.Country)
@@ -643,7 +643,7 @@ func (dataPlatformOrdersPartnerDatumL) LoadCountryDataPlatformCountryCountryDatu
 	Outer:
 		for _, obj := range slice {
 			if obj.R == nil {
-				obj.R = &dataPlatformOrdersPartnerDatumR{}
+				obj.R = &dataPlatformInspectionLotPartnerDatumR{}
 			}
 
 			for _, a := range args {
@@ -712,28 +712,28 @@ func (dataPlatformOrdersPartnerDatumL) LoadCountryDataPlatformCountryCountryDatu
 
 // LoadCurrencyDataPlatformCurrencyCurrencyDatum allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformOrdersPartnerDatumL) LoadCurrencyDataPlatformCurrencyCurrencyDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersPartnerDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformOrdersPartnerDatum
-	var object *DataPlatformOrdersPartnerDatum
+func (dataPlatformInspectionLotPartnerDatumL) LoadCurrencyDataPlatformCurrencyCurrencyDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionLotPartnerDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformInspectionLotPartnerDatum
+	var object *DataPlatformInspectionLotPartnerDatum
 
 	if singular {
 		var ok bool
-		object, ok = maybeDataPlatformOrdersPartnerDatum.(*DataPlatformOrdersPartnerDatum)
+		object, ok = maybeDataPlatformInspectionLotPartnerDatum.(*DataPlatformInspectionLotPartnerDatum)
 		if !ok {
-			object = new(DataPlatformOrdersPartnerDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersPartnerDatum)
+			object = new(DataPlatformInspectionLotPartnerDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformInspectionLotPartnerDatum)
 			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersPartnerDatum))
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformInspectionLotPartnerDatum))
 			}
 		}
 	} else {
-		s, ok := maybeDataPlatformOrdersPartnerDatum.(*[]*DataPlatformOrdersPartnerDatum)
+		s, ok := maybeDataPlatformInspectionLotPartnerDatum.(*[]*DataPlatformInspectionLotPartnerDatum)
 		if ok {
 			slice = *s
 		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersPartnerDatum)
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformInspectionLotPartnerDatum)
 			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersPartnerDatum))
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformInspectionLotPartnerDatum))
 			}
 		}
 	}
@@ -741,7 +741,7 @@ func (dataPlatformOrdersPartnerDatumL) LoadCurrencyDataPlatformCurrencyCurrencyD
 	args := make([]interface{}, 0, 1)
 	if singular {
 		if object.R == nil {
-			object.R = &dataPlatformOrdersPartnerDatumR{}
+			object.R = &dataPlatformInspectionLotPartnerDatumR{}
 		}
 		if !queries.IsNil(object.Currency) {
 			args = append(args, object.Currency)
@@ -751,7 +751,7 @@ func (dataPlatformOrdersPartnerDatumL) LoadCurrencyDataPlatformCurrencyCurrencyD
 	Outer:
 		for _, obj := range slice {
 			if obj.R == nil {
-				obj.R = &dataPlatformOrdersPartnerDatumR{}
+				obj.R = &dataPlatformInspectionLotPartnerDatumR{}
 			}
 
 			for _, a := range args {
@@ -820,28 +820,28 @@ func (dataPlatformOrdersPartnerDatumL) LoadCurrencyDataPlatformCurrencyCurrencyD
 
 // LoadLanguageDataPlatformLanguageLanguageDatum allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformOrdersPartnerDatumL) LoadLanguageDataPlatformLanguageLanguageDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersPartnerDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformOrdersPartnerDatum
-	var object *DataPlatformOrdersPartnerDatum
+func (dataPlatformInspectionLotPartnerDatumL) LoadLanguageDataPlatformLanguageLanguageDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionLotPartnerDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformInspectionLotPartnerDatum
+	var object *DataPlatformInspectionLotPartnerDatum
 
 	if singular {
 		var ok bool
-		object, ok = maybeDataPlatformOrdersPartnerDatum.(*DataPlatformOrdersPartnerDatum)
+		object, ok = maybeDataPlatformInspectionLotPartnerDatum.(*DataPlatformInspectionLotPartnerDatum)
 		if !ok {
-			object = new(DataPlatformOrdersPartnerDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersPartnerDatum)
+			object = new(DataPlatformInspectionLotPartnerDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformInspectionLotPartnerDatum)
 			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersPartnerDatum))
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformInspectionLotPartnerDatum))
 			}
 		}
 	} else {
-		s, ok := maybeDataPlatformOrdersPartnerDatum.(*[]*DataPlatformOrdersPartnerDatum)
+		s, ok := maybeDataPlatformInspectionLotPartnerDatum.(*[]*DataPlatformInspectionLotPartnerDatum)
 		if ok {
 			slice = *s
 		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersPartnerDatum)
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformInspectionLotPartnerDatum)
 			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersPartnerDatum))
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformInspectionLotPartnerDatum))
 			}
 		}
 	}
@@ -849,7 +849,7 @@ func (dataPlatformOrdersPartnerDatumL) LoadLanguageDataPlatformLanguageLanguageD
 	args := make([]interface{}, 0, 1)
 	if singular {
 		if object.R == nil {
-			object.R = &dataPlatformOrdersPartnerDatumR{}
+			object.R = &dataPlatformInspectionLotPartnerDatumR{}
 		}
 		if !queries.IsNil(object.Language) {
 			args = append(args, object.Language)
@@ -859,7 +859,7 @@ func (dataPlatformOrdersPartnerDatumL) LoadLanguageDataPlatformLanguageLanguageD
 	Outer:
 		for _, obj := range slice {
 			if obj.R == nil {
-				obj.R = &dataPlatformOrdersPartnerDatumR{}
+				obj.R = &dataPlatformInspectionLotPartnerDatumR{}
 			}
 
 			for _, a := range args {
@@ -928,28 +928,28 @@ func (dataPlatformOrdersPartnerDatumL) LoadLanguageDataPlatformLanguageLanguageD
 
 // LoadPartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformOrdersPartnerDatumL) LoadPartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersPartnerDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformOrdersPartnerDatum
-	var object *DataPlatformOrdersPartnerDatum
+func (dataPlatformInspectionLotPartnerDatumL) LoadPartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionLotPartnerDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformInspectionLotPartnerDatum
+	var object *DataPlatformInspectionLotPartnerDatum
 
 	if singular {
 		var ok bool
-		object, ok = maybeDataPlatformOrdersPartnerDatum.(*DataPlatformOrdersPartnerDatum)
+		object, ok = maybeDataPlatformInspectionLotPartnerDatum.(*DataPlatformInspectionLotPartnerDatum)
 		if !ok {
-			object = new(DataPlatformOrdersPartnerDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersPartnerDatum)
+			object = new(DataPlatformInspectionLotPartnerDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformInspectionLotPartnerDatum)
 			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersPartnerDatum))
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformInspectionLotPartnerDatum))
 			}
 		}
 	} else {
-		s, ok := maybeDataPlatformOrdersPartnerDatum.(*[]*DataPlatformOrdersPartnerDatum)
+		s, ok := maybeDataPlatformInspectionLotPartnerDatum.(*[]*DataPlatformInspectionLotPartnerDatum)
 		if ok {
 			slice = *s
 		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersPartnerDatum)
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformInspectionLotPartnerDatum)
 			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersPartnerDatum))
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformInspectionLotPartnerDatum))
 			}
 		}
 	}
@@ -957,7 +957,7 @@ func (dataPlatformOrdersPartnerDatumL) LoadPartnerFunctionDataPlatformPartnerFun
 	args := make([]interface{}, 0, 1)
 	if singular {
 		if object.R == nil {
-			object.R = &dataPlatformOrdersPartnerDatumR{}
+			object.R = &dataPlatformInspectionLotPartnerDatumR{}
 		}
 		args = append(args, object.PartnerFunction)
 
@@ -965,7 +965,7 @@ func (dataPlatformOrdersPartnerDatumL) LoadPartnerFunctionDataPlatformPartnerFun
 	Outer:
 		for _, obj := range slice {
 			if obj.R == nil {
-				obj.R = &dataPlatformOrdersPartnerDatumR{}
+				obj.R = &dataPlatformInspectionLotPartnerDatumR{}
 			}
 
 			for _, a := range args {
@@ -1030,30 +1030,30 @@ func (dataPlatformOrdersPartnerDatumL) LoadPartnerFunctionDataPlatformPartnerFun
 	return nil
 }
 
-// LoadOrderIDDataPlatformOrdersHeaderDatum allows an eager lookup of values, cached into the
+// LoadInspectionLotDataPlatformInspectionLotHeaderDatum allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for an N-1 relationship.
-func (dataPlatformOrdersPartnerDatumL) LoadOrderIDDataPlatformOrdersHeaderDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformOrdersPartnerDatum interface{}, mods queries.Applicator) error {
-	var slice []*DataPlatformOrdersPartnerDatum
-	var object *DataPlatformOrdersPartnerDatum
+func (dataPlatformInspectionLotPartnerDatumL) LoadInspectionLotDataPlatformInspectionLotHeaderDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionLotPartnerDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformInspectionLotPartnerDatum
+	var object *DataPlatformInspectionLotPartnerDatum
 
 	if singular {
 		var ok bool
-		object, ok = maybeDataPlatformOrdersPartnerDatum.(*DataPlatformOrdersPartnerDatum)
+		object, ok = maybeDataPlatformInspectionLotPartnerDatum.(*DataPlatformInspectionLotPartnerDatum)
 		if !ok {
-			object = new(DataPlatformOrdersPartnerDatum)
-			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformOrdersPartnerDatum)
+			object = new(DataPlatformInspectionLotPartnerDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformInspectionLotPartnerDatum)
 			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformOrdersPartnerDatum))
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformInspectionLotPartnerDatum))
 			}
 		}
 	} else {
-		s, ok := maybeDataPlatformOrdersPartnerDatum.(*[]*DataPlatformOrdersPartnerDatum)
+		s, ok := maybeDataPlatformInspectionLotPartnerDatum.(*[]*DataPlatformInspectionLotPartnerDatum)
 		if ok {
 			slice = *s
 		} else {
-			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformOrdersPartnerDatum)
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformInspectionLotPartnerDatum)
 			if !ok {
-				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformOrdersPartnerDatum))
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformInspectionLotPartnerDatum))
 			}
 		}
 	}
@@ -1061,24 +1061,24 @@ func (dataPlatformOrdersPartnerDatumL) LoadOrderIDDataPlatformOrdersHeaderDatum(
 	args := make([]interface{}, 0, 1)
 	if singular {
 		if object.R == nil {
-			object.R = &dataPlatformOrdersPartnerDatumR{}
+			object.R = &dataPlatformInspectionLotPartnerDatumR{}
 		}
-		args = append(args, object.OrderID)
+		args = append(args, object.InspectionLot)
 
 	} else {
 	Outer:
 		for _, obj := range slice {
 			if obj.R == nil {
-				obj.R = &dataPlatformOrdersPartnerDatumR{}
+				obj.R = &dataPlatformInspectionLotPartnerDatumR{}
 			}
 
 			for _, a := range args {
-				if a == obj.OrderID {
+				if a == obj.InspectionLot {
 					continue Outer
 				}
 			}
 
-			args = append(args, obj.OrderID)
+			args = append(args, obj.InspectionLot)
 
 		}
 	}
@@ -1088,8 +1088,8 @@ func (dataPlatformOrdersPartnerDatumL) LoadOrderIDDataPlatformOrdersHeaderDatum(
 	}
 
 	query := NewQuery(
-		qm.From(`data_platform_orders_header_data`),
-		qm.WhereIn(`data_platform_orders_header_data.OrderID in ?`, args...),
+		qm.From(`data_platform_inspection_lot_header_data`),
+		qm.WhereIn(`data_platform_inspection_lot_header_data.InspectionLot in ?`, args...),
 	)
 	if mods != nil {
 		mods.Apply(query)
@@ -1097,19 +1097,19 @@ func (dataPlatformOrdersPartnerDatumL) LoadOrderIDDataPlatformOrdersHeaderDatum(
 
 	results, err := query.QueryContext(ctx, e)
 	if err != nil {
-		return errors.Wrap(err, "failed to eager load DataPlatformOrdersHeaderDatum")
+		return errors.Wrap(err, "failed to eager load DataPlatformInspectionLotHeaderDatum")
 	}
 
-	var resultSlice []*DataPlatformOrdersHeaderDatum
+	var resultSlice []*DataPlatformInspectionLotHeaderDatum
 	if err = queries.Bind(results, &resultSlice); err != nil {
-		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformOrdersHeaderDatum")
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformInspectionLotHeaderDatum")
 	}
 
 	if err = results.Close(); err != nil {
-		return errors.Wrap(err, "failed to close results of eager load for data_platform_orders_header_data")
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_inspection_lot_header_data")
 	}
 	if err = results.Err(); err != nil {
-		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_orders_header_data")
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_lot_header_data")
 	}
 
 	if len(resultSlice) == 0 {
@@ -1118,14 +1118,14 @@ func (dataPlatformOrdersPartnerDatumL) LoadOrderIDDataPlatformOrdersHeaderDatum(
 
 	if singular {
 		foreign := resultSlice[0]
-		object.R.OrderIDDataPlatformOrdersHeaderDatum = foreign
+		object.R.InspectionLotDataPlatformInspectionLotHeaderDatum = foreign
 		return nil
 	}
 
 	for _, local := range slice {
 		for _, foreign := range resultSlice {
-			if local.OrderID == foreign.OrderID {
-				local.R.OrderIDDataPlatformOrdersHeaderDatum = foreign
+			if local.InspectionLot == foreign.InspectionLot {
+				local.R.InspectionLotDataPlatformInspectionLotHeaderDatum = foreign
 				break
 			}
 		}
@@ -1134,9 +1134,9 @@ func (dataPlatformOrdersPartnerDatumL) LoadOrderIDDataPlatformOrdersHeaderDatum(
 	return nil
 }
 
-// SetAddressIDDataPlatformAddressAddressDatum of the dataPlatformOrdersPartnerDatum to the related item.
+// SetAddressIDDataPlatformAddressAddressDatum of the dataPlatformInspectionLotPartnerDatum to the related item.
 // Sets o.R.AddressIDDataPlatformAddressAddressDatum to related.
-func (o *DataPlatformOrdersPartnerDatum) SetAddressIDDataPlatformAddressAddressDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformAddressAddressDatum) error {
+func (o *DataPlatformInspectionLotPartnerDatum) SetAddressIDDataPlatformAddressAddressDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformAddressAddressDatum) error {
 	var err error
 	if insert {
 		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
@@ -1145,11 +1145,11 @@ func (o *DataPlatformOrdersPartnerDatum) SetAddressIDDataPlatformAddressAddressD
 	}
 
 	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_orders_partner_data` SET %s WHERE %s",
+		"UPDATE `data_platform_inspection_lot_partner_data` SET %s WHERE %s",
 		strmangle.SetParamNames("`", "`", 0, []string{"AddressID"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformOrdersPartnerDatumPrimaryKeyColumns),
+		strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns),
 	)
-	values := []interface{}{related.AddressID, o.OrderID, o.PartnerFunction, o.BusinessPartner}
+	values := []interface{}{related.AddressID, o.InspectionLot, o.PartnerFunction, o.BusinessPartner}
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -1162,7 +1162,7 @@ func (o *DataPlatformOrdersPartnerDatum) SetAddressIDDataPlatformAddressAddressD
 
 	queries.Assign(&o.AddressID, related.AddressID)
 	if o.R == nil {
-		o.R = &dataPlatformOrdersPartnerDatumR{
+		o.R = &dataPlatformInspectionLotPartnerDatumR{
 			AddressIDDataPlatformAddressAddressDatum: related,
 		}
 	} else {
@@ -1174,7 +1174,7 @@ func (o *DataPlatformOrdersPartnerDatum) SetAddressIDDataPlatformAddressAddressD
 
 // RemoveAddressIDDataPlatformAddressAddressDatum relationship.
 // Sets o.R.AddressIDDataPlatformAddressAddressDatum to nil.
-func (o *DataPlatformOrdersPartnerDatum) RemoveAddressIDDataPlatformAddressAddressDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformAddressAddressDatum) error {
+func (o *DataPlatformInspectionLotPartnerDatum) RemoveAddressIDDataPlatformAddressAddressDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformAddressAddressDatum) error {
 	var err error
 
 	queries.SetScanner(&o.AddressID, nil)
@@ -1192,9 +1192,9 @@ func (o *DataPlatformOrdersPartnerDatum) RemoveAddressIDDataPlatformAddressAddre
 	return nil
 }
 
-// SetBusinessPartnerDataPlatformBusinessPartnerGeneralDatum of the dataPlatformOrdersPartnerDatum to the related item.
+// SetBusinessPartnerDataPlatformBusinessPartnerGeneralDatum of the dataPlatformInspectionLotPartnerDatum to the related item.
 // Sets o.R.BusinessPartnerDataPlatformBusinessPartnerGeneralDatum to related.
-func (o *DataPlatformOrdersPartnerDatum) SetBusinessPartnerDataPlatformBusinessPartnerGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformBusinessPartnerGeneralDatum) error {
+func (o *DataPlatformInspectionLotPartnerDatum) SetBusinessPartnerDataPlatformBusinessPartnerGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformBusinessPartnerGeneralDatum) error {
 	var err error
 	if insert {
 		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
@@ -1203,11 +1203,11 @@ func (o *DataPlatformOrdersPartnerDatum) SetBusinessPartnerDataPlatformBusinessP
 	}
 
 	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_orders_partner_data` SET %s WHERE %s",
+		"UPDATE `data_platform_inspection_lot_partner_data` SET %s WHERE %s",
 		strmangle.SetParamNames("`", "`", 0, []string{"BusinessPartner"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformOrdersPartnerDatumPrimaryKeyColumns),
+		strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns),
 	)
-	values := []interface{}{related.BusinessPartner, o.OrderID, o.PartnerFunction, o.BusinessPartner}
+	values := []interface{}{related.BusinessPartner, o.InspectionLot, o.PartnerFunction, o.BusinessPartner}
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -1220,7 +1220,7 @@ func (o *DataPlatformOrdersPartnerDatum) SetBusinessPartnerDataPlatformBusinessP
 
 	o.BusinessPartner = related.BusinessPartner
 	if o.R == nil {
-		o.R = &dataPlatformOrdersPartnerDatumR{
+		o.R = &dataPlatformInspectionLotPartnerDatumR{
 			BusinessPartnerDataPlatformBusinessPartnerGeneralDatum: related,
 		}
 	} else {
@@ -1230,9 +1230,9 @@ func (o *DataPlatformOrdersPartnerDatum) SetBusinessPartnerDataPlatformBusinessP
 	return nil
 }
 
-// SetCountryDataPlatformCountryCountryDatum of the dataPlatformOrdersPartnerDatum to the related item.
+// SetCountryDataPlatformCountryCountryDatum of the dataPlatformInspectionLotPartnerDatum to the related item.
 // Sets o.R.CountryDataPlatformCountryCountryDatum to related.
-func (o *DataPlatformOrdersPartnerDatum) SetCountryDataPlatformCountryCountryDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformCountryCountryDatum) error {
+func (o *DataPlatformInspectionLotPartnerDatum) SetCountryDataPlatformCountryCountryDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformCountryCountryDatum) error {
 	var err error
 	if insert {
 		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
@@ -1241,11 +1241,11 @@ func (o *DataPlatformOrdersPartnerDatum) SetCountryDataPlatformCountryCountryDat
 	}
 
 	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_orders_partner_data` SET %s WHERE %s",
+		"UPDATE `data_platform_inspection_lot_partner_data` SET %s WHERE %s",
 		strmangle.SetParamNames("`", "`", 0, []string{"Country"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformOrdersPartnerDatumPrimaryKeyColumns),
+		strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns),
 	)
-	values := []interface{}{related.Country, o.OrderID, o.PartnerFunction, o.BusinessPartner}
+	values := []interface{}{related.Country, o.InspectionLot, o.PartnerFunction, o.BusinessPartner}
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -1258,7 +1258,7 @@ func (o *DataPlatformOrdersPartnerDatum) SetCountryDataPlatformCountryCountryDat
 
 	queries.Assign(&o.Country, related.Country)
 	if o.R == nil {
-		o.R = &dataPlatformOrdersPartnerDatumR{
+		o.R = &dataPlatformInspectionLotPartnerDatumR{
 			CountryDataPlatformCountryCountryDatum: related,
 		}
 	} else {
@@ -1270,7 +1270,7 @@ func (o *DataPlatformOrdersPartnerDatum) SetCountryDataPlatformCountryCountryDat
 
 // RemoveCountryDataPlatformCountryCountryDatum relationship.
 // Sets o.R.CountryDataPlatformCountryCountryDatum to nil.
-func (o *DataPlatformOrdersPartnerDatum) RemoveCountryDataPlatformCountryCountryDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformCountryCountryDatum) error {
+func (o *DataPlatformInspectionLotPartnerDatum) RemoveCountryDataPlatformCountryCountryDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformCountryCountryDatum) error {
 	var err error
 
 	queries.SetScanner(&o.Country, nil)
@@ -1288,9 +1288,9 @@ func (o *DataPlatformOrdersPartnerDatum) RemoveCountryDataPlatformCountryCountry
 	return nil
 }
 
-// SetCurrencyDataPlatformCurrencyCurrencyDatum of the dataPlatformOrdersPartnerDatum to the related item.
+// SetCurrencyDataPlatformCurrencyCurrencyDatum of the dataPlatformInspectionLotPartnerDatum to the related item.
 // Sets o.R.CurrencyDataPlatformCurrencyCurrencyDatum to related.
-func (o *DataPlatformOrdersPartnerDatum) SetCurrencyDataPlatformCurrencyCurrencyDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformCurrencyCurrencyDatum) error {
+func (o *DataPlatformInspectionLotPartnerDatum) SetCurrencyDataPlatformCurrencyCurrencyDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformCurrencyCurrencyDatum) error {
 	var err error
 	if insert {
 		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
@@ -1299,11 +1299,11 @@ func (o *DataPlatformOrdersPartnerDatum) SetCurrencyDataPlatformCurrencyCurrency
 	}
 
 	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_orders_partner_data` SET %s WHERE %s",
+		"UPDATE `data_platform_inspection_lot_partner_data` SET %s WHERE %s",
 		strmangle.SetParamNames("`", "`", 0, []string{"Currency"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformOrdersPartnerDatumPrimaryKeyColumns),
+		strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns),
 	)
-	values := []interface{}{related.Currency, o.OrderID, o.PartnerFunction, o.BusinessPartner}
+	values := []interface{}{related.Currency, o.InspectionLot, o.PartnerFunction, o.BusinessPartner}
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -1316,7 +1316,7 @@ func (o *DataPlatformOrdersPartnerDatum) SetCurrencyDataPlatformCurrencyCurrency
 
 	queries.Assign(&o.Currency, related.Currency)
 	if o.R == nil {
-		o.R = &dataPlatformOrdersPartnerDatumR{
+		o.R = &dataPlatformInspectionLotPartnerDatumR{
 			CurrencyDataPlatformCurrencyCurrencyDatum: related,
 		}
 	} else {
@@ -1328,7 +1328,7 @@ func (o *DataPlatformOrdersPartnerDatum) SetCurrencyDataPlatformCurrencyCurrency
 
 // RemoveCurrencyDataPlatformCurrencyCurrencyDatum relationship.
 // Sets o.R.CurrencyDataPlatformCurrencyCurrencyDatum to nil.
-func (o *DataPlatformOrdersPartnerDatum) RemoveCurrencyDataPlatformCurrencyCurrencyDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformCurrencyCurrencyDatum) error {
+func (o *DataPlatformInspectionLotPartnerDatum) RemoveCurrencyDataPlatformCurrencyCurrencyDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformCurrencyCurrencyDatum) error {
 	var err error
 
 	queries.SetScanner(&o.Currency, nil)
@@ -1346,9 +1346,9 @@ func (o *DataPlatformOrdersPartnerDatum) RemoveCurrencyDataPlatformCurrencyCurre
 	return nil
 }
 
-// SetLanguageDataPlatformLanguageLanguageDatum of the dataPlatformOrdersPartnerDatum to the related item.
+// SetLanguageDataPlatformLanguageLanguageDatum of the dataPlatformInspectionLotPartnerDatum to the related item.
 // Sets o.R.LanguageDataPlatformLanguageLanguageDatum to related.
-func (o *DataPlatformOrdersPartnerDatum) SetLanguageDataPlatformLanguageLanguageDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformLanguageLanguageDatum) error {
+func (o *DataPlatformInspectionLotPartnerDatum) SetLanguageDataPlatformLanguageLanguageDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformLanguageLanguageDatum) error {
 	var err error
 	if insert {
 		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
@@ -1357,11 +1357,11 @@ func (o *DataPlatformOrdersPartnerDatum) SetLanguageDataPlatformLanguageLanguage
 	}
 
 	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_orders_partner_data` SET %s WHERE %s",
+		"UPDATE `data_platform_inspection_lot_partner_data` SET %s WHERE %s",
 		strmangle.SetParamNames("`", "`", 0, []string{"Language"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformOrdersPartnerDatumPrimaryKeyColumns),
+		strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns),
 	)
-	values := []interface{}{related.Language, o.OrderID, o.PartnerFunction, o.BusinessPartner}
+	values := []interface{}{related.Language, o.InspectionLot, o.PartnerFunction, o.BusinessPartner}
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -1374,7 +1374,7 @@ func (o *DataPlatformOrdersPartnerDatum) SetLanguageDataPlatformLanguageLanguage
 
 	queries.Assign(&o.Language, related.Language)
 	if o.R == nil {
-		o.R = &dataPlatformOrdersPartnerDatumR{
+		o.R = &dataPlatformInspectionLotPartnerDatumR{
 			LanguageDataPlatformLanguageLanguageDatum: related,
 		}
 	} else {
@@ -1386,7 +1386,7 @@ func (o *DataPlatformOrdersPartnerDatum) SetLanguageDataPlatformLanguageLanguage
 
 // RemoveLanguageDataPlatformLanguageLanguageDatum relationship.
 // Sets o.R.LanguageDataPlatformLanguageLanguageDatum to nil.
-func (o *DataPlatformOrdersPartnerDatum) RemoveLanguageDataPlatformLanguageLanguageDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformLanguageLanguageDatum) error {
+func (o *DataPlatformInspectionLotPartnerDatum) RemoveLanguageDataPlatformLanguageLanguageDatum(ctx context.Context, exec boil.ContextExecutor, related *DataPlatformLanguageLanguageDatum) error {
 	var err error
 
 	queries.SetScanner(&o.Language, nil)
@@ -1404,9 +1404,9 @@ func (o *DataPlatformOrdersPartnerDatum) RemoveLanguageDataPlatformLanguageLangu
 	return nil
 }
 
-// SetPartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum of the dataPlatformOrdersPartnerDatum to the related item.
+// SetPartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum of the dataPlatformInspectionLotPartnerDatum to the related item.
 // Sets o.R.PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum to related.
-func (o *DataPlatformOrdersPartnerDatum) SetPartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformPartnerFunctionPartnerFunctionDatum) error {
+func (o *DataPlatformInspectionLotPartnerDatum) SetPartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformPartnerFunctionPartnerFunctionDatum) error {
 	var err error
 	if insert {
 		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
@@ -1415,11 +1415,11 @@ func (o *DataPlatformOrdersPartnerDatum) SetPartnerFunctionDataPlatformPartnerFu
 	}
 
 	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_orders_partner_data` SET %s WHERE %s",
+		"UPDATE `data_platform_inspection_lot_partner_data` SET %s WHERE %s",
 		strmangle.SetParamNames("`", "`", 0, []string{"PartnerFunction"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformOrdersPartnerDatumPrimaryKeyColumns),
+		strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns),
 	)
-	values := []interface{}{related.PartnerFunction, o.OrderID, o.PartnerFunction, o.BusinessPartner}
+	values := []interface{}{related.PartnerFunction, o.InspectionLot, o.PartnerFunction, o.BusinessPartner}
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -1432,7 +1432,7 @@ func (o *DataPlatformOrdersPartnerDatum) SetPartnerFunctionDataPlatformPartnerFu
 
 	o.PartnerFunction = related.PartnerFunction
 	if o.R == nil {
-		o.R = &dataPlatformOrdersPartnerDatumR{
+		o.R = &dataPlatformInspectionLotPartnerDatumR{
 			PartnerFunctionDataPlatformPartnerFunctionPartnerFunctionDatum: related,
 		}
 	} else {
@@ -1442,9 +1442,9 @@ func (o *DataPlatformOrdersPartnerDatum) SetPartnerFunctionDataPlatformPartnerFu
 	return nil
 }
 
-// SetOrderIDDataPlatformOrdersHeaderDatum of the dataPlatformOrdersPartnerDatum to the related item.
-// Sets o.R.OrderIDDataPlatformOrdersHeaderDatum to related.
-func (o *DataPlatformOrdersPartnerDatum) SetOrderIDDataPlatformOrdersHeaderDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformOrdersHeaderDatum) error {
+// SetInspectionLotDataPlatformInspectionLotHeaderDatum of the dataPlatformInspectionLotPartnerDatum to the related item.
+// Sets o.R.InspectionLotDataPlatformInspectionLotHeaderDatum to related.
+func (o *DataPlatformInspectionLotPartnerDatum) SetInspectionLotDataPlatformInspectionLotHeaderDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformInspectionLotHeaderDatum) error {
 	var err error
 	if insert {
 		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
@@ -1453,11 +1453,11 @@ func (o *DataPlatformOrdersPartnerDatum) SetOrderIDDataPlatformOrdersHeaderDatum
 	}
 
 	updateQuery := fmt.Sprintf(
-		"UPDATE `data_platform_orders_partner_data` SET %s WHERE %s",
-		strmangle.SetParamNames("`", "`", 0, []string{"OrderID"}),
-		strmangle.WhereClause("`", "`", 0, dataPlatformOrdersPartnerDatumPrimaryKeyColumns),
+		"UPDATE `data_platform_inspection_lot_partner_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"InspectionLot"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns),
 	)
-	values := []interface{}{related.OrderID, o.OrderID, o.PartnerFunction, o.BusinessPartner}
+	values := []interface{}{related.InspectionLot, o.InspectionLot, o.PartnerFunction, o.BusinessPartner}
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -1468,97 +1468,97 @@ func (o *DataPlatformOrdersPartnerDatum) SetOrderIDDataPlatformOrdersHeaderDatum
 		return errors.Wrap(err, "failed to update local table")
 	}
 
-	o.OrderID = related.OrderID
+	o.InspectionLot = related.InspectionLot
 	if o.R == nil {
-		o.R = &dataPlatformOrdersPartnerDatumR{
-			OrderIDDataPlatformOrdersHeaderDatum: related,
+		o.R = &dataPlatformInspectionLotPartnerDatumR{
+			InspectionLotDataPlatformInspectionLotHeaderDatum: related,
 		}
 	} else {
-		o.R.OrderIDDataPlatformOrdersHeaderDatum = related
+		o.R.InspectionLotDataPlatformInspectionLotHeaderDatum = related
 	}
 
 	return nil
 }
 
-// DataPlatformOrdersPartnerData retrieves all the records using an executor.
-func DataPlatformOrdersPartnerData(mods ...qm.QueryMod) dataPlatformOrdersPartnerDatumQuery {
-	mods = append(mods, qm.From("`data_platform_orders_partner_data`"))
+// DataPlatformInspectionLotPartnerData retrieves all the records using an executor.
+func DataPlatformInspectionLotPartnerData(mods ...qm.QueryMod) dataPlatformInspectionLotPartnerDatumQuery {
+	mods = append(mods, qm.From("`data_platform_inspection_lot_partner_data`"))
 	q := NewQuery(mods...)
 	if len(queries.GetSelect(q)) == 0 {
-		queries.SetSelect(q, []string{"`data_platform_orders_partner_data`.*"})
+		queries.SetSelect(q, []string{"`data_platform_inspection_lot_partner_data`.*"})
 	}
 
-	return dataPlatformOrdersPartnerDatumQuery{q}
+	return dataPlatformInspectionLotPartnerDatumQuery{q}
 }
 
-// FindDataPlatformOrdersPartnerDatum retrieves a single record by ID with an executor.
+// FindDataPlatformInspectionLotPartnerDatum retrieves a single record by ID with an executor.
 // If selectCols is empty Find will return all columns.
-func FindDataPlatformOrdersPartnerDatum(ctx context.Context, exec boil.ContextExecutor, orderID int, partnerFunction string, businessPartner int, selectCols ...string) (*DataPlatformOrdersPartnerDatum, error) {
-	dataPlatformOrdersPartnerDatumObj := &DataPlatformOrdersPartnerDatum{}
+func FindDataPlatformInspectionLotPartnerDatum(ctx context.Context, exec boil.ContextExecutor, inspectionLot int, partnerFunction string, businessPartner int, selectCols ...string) (*DataPlatformInspectionLotPartnerDatum, error) {
+	dataPlatformInspectionLotPartnerDatumObj := &DataPlatformInspectionLotPartnerDatum{}
 
 	sel := "*"
 	if len(selectCols) > 0 {
 		sel = strings.Join(strmangle.IdentQuoteSlice(dialect.LQ, dialect.RQ, selectCols), ",")
 	}
 	query := fmt.Sprintf(
-		"select %s from `data_platform_orders_partner_data` where `OrderID`=? AND `PartnerFunction`=? AND `BusinessPartner`=?", sel,
+		"select %s from `data_platform_inspection_lot_partner_data` where `InspectionLot`=? AND `PartnerFunction`=? AND `BusinessPartner`=?", sel,
 	)
 
-	q := queries.Raw(query, orderID, partnerFunction, businessPartner)
+	q := queries.Raw(query, inspectionLot, partnerFunction, businessPartner)
 
-	err := q.Bind(ctx, exec, dataPlatformOrdersPartnerDatumObj)
+	err := q.Bind(ctx, exec, dataPlatformInspectionLotPartnerDatumObj)
 	if err != nil {
 		if errors.Is(err, sql.ErrNoRows) {
 			return nil, sql.ErrNoRows
 		}
-		return nil, errors.Wrap(err, "models: unable to select from data_platform_orders_partner_data")
+		return nil, errors.Wrap(err, "models: unable to select from data_platform_inspection_lot_partner_data")
 	}
 
-	return dataPlatformOrdersPartnerDatumObj, nil
+	return dataPlatformInspectionLotPartnerDatumObj, nil
 }
 
 // Insert a single record using an executor.
 // See boil.Columns.InsertColumnSet documentation to understand column list inference for inserts.
-func (o *DataPlatformOrdersPartnerDatum) Insert(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
+func (o *DataPlatformInspectionLotPartnerDatum) Insert(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	if o == nil {
-		return errors.New("models: no data_platform_orders_partner_data provided for insertion")
+		return errors.New("models: no data_platform_inspection_lot_partner_data provided for insertion")
 	}
 
 	var err error
 
-	nzDefaults := queries.NonZeroDefaultSet(dataPlatformOrdersPartnerDatumColumnsWithDefault, o)
+	nzDefaults := queries.NonZeroDefaultSet(dataPlatformInspectionLotPartnerDatumColumnsWithDefault, o)
 
 	key := makeCacheKey(columns, nzDefaults)
-	dataPlatformOrdersPartnerDatumInsertCacheMut.RLock()
-	cache, cached := dataPlatformOrdersPartnerDatumInsertCache[key]
-	dataPlatformOrdersPartnerDatumInsertCacheMut.RUnlock()
+	dataPlatformInspectionLotPartnerDatumInsertCacheMut.RLock()
+	cache, cached := dataPlatformInspectionLotPartnerDatumInsertCache[key]
+	dataPlatformInspectionLotPartnerDatumInsertCacheMut.RUnlock()
 
 	if !cached {
 		wl, returnColumns := columns.InsertColumnSet(
-			dataPlatformOrdersPartnerDatumAllColumns,
-			dataPlatformOrdersPartnerDatumColumnsWithDefault,
-			dataPlatformOrdersPartnerDatumColumnsWithoutDefault,
+			dataPlatformInspectionLotPartnerDatumAllColumns,
+			dataPlatformInspectionLotPartnerDatumColumnsWithDefault,
+			dataPlatformInspectionLotPartnerDatumColumnsWithoutDefault,
 			nzDefaults,
 		)
 
-		cache.valueMapping, err = queries.BindMapping(dataPlatformOrdersPartnerDatumType, dataPlatformOrdersPartnerDatumMapping, wl)
+		cache.valueMapping, err = queries.BindMapping(dataPlatformInspectionLotPartnerDatumType, dataPlatformInspectionLotPartnerDatumMapping, wl)
 		if err != nil {
 			return err
 		}
-		cache.retMapping, err = queries.BindMapping(dataPlatformOrdersPartnerDatumType, dataPlatformOrdersPartnerDatumMapping, returnColumns)
+		cache.retMapping, err = queries.BindMapping(dataPlatformInspectionLotPartnerDatumType, dataPlatformInspectionLotPartnerDatumMapping, returnColumns)
 		if err != nil {
 			return err
 		}
 		if len(wl) != 0 {
-			cache.query = fmt.Sprintf("INSERT INTO `data_platform_orders_partner_data` (`%s`) %%sVALUES (%s)%%s", strings.Join(wl, "`,`"), strmangle.Placeholders(dialect.UseIndexPlaceholders, len(wl), 1, 1))
+			cache.query = fmt.Sprintf("INSERT INTO `data_platform_inspection_lot_partner_data` (`%s`) %%sVALUES (%s)%%s", strings.Join(wl, "`,`"), strmangle.Placeholders(dialect.UseIndexPlaceholders, len(wl), 1, 1))
 		} else {
-			cache.query = "INSERT INTO `data_platform_orders_partner_data` () VALUES ()%s%s"
+			cache.query = "INSERT INTO `data_platform_inspection_lot_partner_data` () VALUES ()%s%s"
 		}
 
 		var queryOutput, queryReturning string
 
 		if len(cache.retMapping) != 0 {
-			cache.retQuery = fmt.Sprintf("SELECT `%s` FROM `data_platform_orders_partner_data` WHERE %s", strings.Join(returnColumns, "`,`"), strmangle.WhereClause("`", "`", 0, dataPlatformOrdersPartnerDatumPrimaryKeyColumns))
+			cache.retQuery = fmt.Sprintf("SELECT `%s` FROM `data_platform_inspection_lot_partner_data` WHERE %s", strings.Join(returnColumns, "`,`"), strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns))
 		}
 
 		cache.query = fmt.Sprintf(cache.query, queryOutput, queryReturning)
@@ -1575,7 +1575,7 @@ func (o *DataPlatformOrdersPartnerDatum) Insert(ctx context.Context, exec boil.C
 	_, err = exec.ExecContext(ctx, cache.query, vals...)
 
 	if err != nil {
-		return errors.Wrap(err, "models: unable to insert into data_platform_orders_partner_data")
+		return errors.Wrap(err, "models: unable to insert into data_platform_inspection_lot_partner_data")
 	}
 
 	var identifierCols []interface{}
@@ -1585,7 +1585,7 @@ func (o *DataPlatformOrdersPartnerDatum) Insert(ctx context.Context, exec boil.C
 	}
 
 	identifierCols = []interface{}{
-		o.OrderID,
+		o.InspectionLot,
 		o.PartnerFunction,
 		o.BusinessPartner,
 	}
@@ -1597,47 +1597,47 @@ func (o *DataPlatformOrdersPartnerDatum) Insert(ctx context.Context, exec boil.C
 	}
 	err = exec.QueryRowContext(ctx, cache.retQuery, identifierCols...).Scan(queries.PtrsFromMapping(value, cache.retMapping)...)
 	if err != nil {
-		return errors.Wrap(err, "models: unable to populate default values for data_platform_orders_partner_data")
+		return errors.Wrap(err, "models: unable to populate default values for data_platform_inspection_lot_partner_data")
 	}
 
 CacheNoHooks:
 	if !cached {
-		dataPlatformOrdersPartnerDatumInsertCacheMut.Lock()
-		dataPlatformOrdersPartnerDatumInsertCache[key] = cache
-		dataPlatformOrdersPartnerDatumInsertCacheMut.Unlock()
+		dataPlatformInspectionLotPartnerDatumInsertCacheMut.Lock()
+		dataPlatformInspectionLotPartnerDatumInsertCache[key] = cache
+		dataPlatformInspectionLotPartnerDatumInsertCacheMut.Unlock()
 	}
 
 	return nil
 }
 
-// Update uses an executor to update the DataPlatformOrdersPartnerDatum.
+// Update uses an executor to update the DataPlatformInspectionLotPartnerDatum.
 // See boil.Columns.UpdateColumnSet documentation to understand column list inference for updates.
 // Update does not automatically update the record in case of default values. Use .Reload() to refresh the records.
-func (o *DataPlatformOrdersPartnerDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
+func (o *DataPlatformInspectionLotPartnerDatum) Update(ctx context.Context, exec boil.ContextExecutor, columns boil.Columns) error {
 	var err error
 	key := makeCacheKey(columns, nil)
-	dataPlatformOrdersPartnerDatumUpdateCacheMut.RLock()
-	cache, cached := dataPlatformOrdersPartnerDatumUpdateCache[key]
-	dataPlatformOrdersPartnerDatumUpdateCacheMut.RUnlock()
+	dataPlatformInspectionLotPartnerDatumUpdateCacheMut.RLock()
+	cache, cached := dataPlatformInspectionLotPartnerDatumUpdateCache[key]
+	dataPlatformInspectionLotPartnerDatumUpdateCacheMut.RUnlock()
 
 	if !cached {
 		wl := columns.UpdateColumnSet(
-			dataPlatformOrdersPartnerDatumAllColumns,
-			dataPlatformOrdersPartnerDatumPrimaryKeyColumns,
+			dataPlatformInspectionLotPartnerDatumAllColumns,
+			dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns,
 		)
 
 		if !columns.IsWhitelist() {
 			wl = strmangle.SetComplement(wl, []string{"created_at"})
 		}
 		if len(wl) == 0 {
-			return errors.New("models: unable to update data_platform_orders_partner_data, could not build whitelist")
+			return errors.New("models: unable to update data_platform_inspection_lot_partner_data, could not build whitelist")
 		}
 
-		cache.query = fmt.Sprintf("UPDATE `data_platform_orders_partner_data` SET %s WHERE %s",
+		cache.query = fmt.Sprintf("UPDATE `data_platform_inspection_lot_partner_data` SET %s WHERE %s",
 			strmangle.SetParamNames("`", "`", 0, wl),
-			strmangle.WhereClause("`", "`", 0, dataPlatformOrdersPartnerDatumPrimaryKeyColumns),
+			strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns),
 		)
-		cache.valueMapping, err = queries.BindMapping(dataPlatformOrdersPartnerDatumType, dataPlatformOrdersPartnerDatumMapping, append(wl, dataPlatformOrdersPartnerDatumPrimaryKeyColumns...))
+		cache.valueMapping, err = queries.BindMapping(dataPlatformInspectionLotPartnerDatumType, dataPlatformInspectionLotPartnerDatumMapping, append(wl, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns...))
 		if err != nil {
 			return err
 		}
@@ -1652,32 +1652,32 @@ func (o *DataPlatformOrdersPartnerDatum) Update(ctx context.Context, exec boil.C
 	}
 	_, err = exec.ExecContext(ctx, cache.query, values...)
 	if err != nil {
-		return errors.Wrap(err, "models: unable to update data_platform_orders_partner_data row")
+		return errors.Wrap(err, "models: unable to update data_platform_inspection_lot_partner_data row")
 	}
 
 	if !cached {
-		dataPlatformOrdersPartnerDatumUpdateCacheMut.Lock()
-		dataPlatformOrdersPartnerDatumUpdateCache[key] = cache
-		dataPlatformOrdersPartnerDatumUpdateCacheMut.Unlock()
+		dataPlatformInspectionLotPartnerDatumUpdateCacheMut.Lock()
+		dataPlatformInspectionLotPartnerDatumUpdateCache[key] = cache
+		dataPlatformInspectionLotPartnerDatumUpdateCacheMut.Unlock()
 	}
 
 	return nil
 }
 
 // UpdateAll updates all rows with the specified column values.
-func (q dataPlatformOrdersPartnerDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
+func (q dataPlatformInspectionLotPartnerDatumQuery) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	queries.SetUpdate(q.Query, cols)
 
 	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return errors.Wrap(err, "models: unable to update all for data_platform_orders_partner_data")
+		return errors.Wrap(err, "models: unable to update all for data_platform_inspection_lot_partner_data")
 	}
 
 	return nil
 }
 
 // UpdateAll updates all rows with the specified column values, using an executor.
-func (o DataPlatformOrdersPartnerDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
+func (o DataPlatformInspectionLotPartnerDatumSlice) UpdateAll(ctx context.Context, exec boil.ContextExecutor, cols M) error {
 	ln := int64(len(o))
 	if ln == 0 {
 		return nil
@@ -1699,13 +1699,13 @@ func (o DataPlatformOrdersPartnerDatumSlice) UpdateAll(ctx context.Context, exec
 
 	// Append all of the primary key values for each column
 	for _, obj := range o {
-		pkeyArgs := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(obj)), dataPlatformOrdersPartnerDatumPrimaryKeyMapping)
+		pkeyArgs := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(obj)), dataPlatformInspectionLotPartnerDatumPrimaryKeyMapping)
 		args = append(args, pkeyArgs...)
 	}
 
-	sql := fmt.Sprintf("UPDATE `data_platform_orders_partner_data` SET %s WHERE %s",
+	sql := fmt.Sprintf("UPDATE `data_platform_inspection_lot_partner_data` SET %s WHERE %s",
 		strmangle.SetParamNames("`", "`", 0, colNames),
-		strmangle.WhereClauseRepeated(string(dialect.LQ), string(dialect.RQ), 0, dataPlatformOrdersPartnerDatumPrimaryKeyColumns, len(o)))
+		strmangle.WhereClauseRepeated(string(dialect.LQ), string(dialect.RQ), 0, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns, len(o)))
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -1714,23 +1714,23 @@ func (o DataPlatformOrdersPartnerDatumSlice) UpdateAll(ctx context.Context, exec
 	}
 	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return errors.Wrap(err, "models: unable to update all in dataPlatformOrdersPartnerDatum slice")
+		return errors.Wrap(err, "models: unable to update all in dataPlatformInspectionLotPartnerDatum slice")
 	}
 
 	return nil
 }
 
-var mySQLDataPlatformOrdersPartnerDatumUniqueColumns = []string{}
+var mySQLDataPlatformInspectionLotPartnerDatumUniqueColumns = []string{}
 
 // Upsert attempts an insert using an executor, and does an update or ignore on conflict.
 // See boil.Columns documentation for how to properly use updateColumns and insertColumns.
-func (o *DataPlatformOrdersPartnerDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
+func (o *DataPlatformInspectionLotPartnerDatum) Upsert(ctx context.Context, exec boil.ContextExecutor, updateColumns, insertColumns boil.Columns) error {
 	if o == nil {
-		return errors.New("models: no data_platform_orders_partner_data provided for upsert")
+		return errors.New("models: no data_platform_inspection_lot_partner_data provided for upsert")
 	}
 
-	nzDefaults := queries.NonZeroDefaultSet(dataPlatformOrdersPartnerDatumColumnsWithDefault, o)
-	nzUniques := queries.NonZeroDefaultSet(mySQLDataPlatformOrdersPartnerDatumUniqueColumns, o)
+	nzDefaults := queries.NonZeroDefaultSet(dataPlatformInspectionLotPartnerDatumColumnsWithDefault, o)
+	nzUniques := queries.NonZeroDefaultSet(mySQLDataPlatformInspectionLotPartnerDatumUniqueColumns, o)
 
 	if len(nzUniques) == 0 {
 		return errors.New("cannot upsert with a table that cannot conflict on a unique column")
@@ -1758,43 +1758,43 @@ func (o *DataPlatformOrdersPartnerDatum) Upsert(ctx context.Context, exec boil.C
 	key := buf.String()
 	strmangle.PutBuffer(buf)
 
-	dataPlatformOrdersPartnerDatumUpsertCacheMut.RLock()
-	cache, cached := dataPlatformOrdersPartnerDatumUpsertCache[key]
-	dataPlatformOrdersPartnerDatumUpsertCacheMut.RUnlock()
+	dataPlatformInspectionLotPartnerDatumUpsertCacheMut.RLock()
+	cache, cached := dataPlatformInspectionLotPartnerDatumUpsertCache[key]
+	dataPlatformInspectionLotPartnerDatumUpsertCacheMut.RUnlock()
 
 	var err error
 
 	if !cached {
 		insert, ret := insertColumns.InsertColumnSet(
-			dataPlatformOrdersPartnerDatumAllColumns,
-			dataPlatformOrdersPartnerDatumColumnsWithDefault,
-			dataPlatformOrdersPartnerDatumColumnsWithoutDefault,
+			dataPlatformInspectionLotPartnerDatumAllColumns,
+			dataPlatformInspectionLotPartnerDatumColumnsWithDefault,
+			dataPlatformInspectionLotPartnerDatumColumnsWithoutDefault,
 			nzDefaults,
 		)
 
 		update := updateColumns.UpdateColumnSet(
-			dataPlatformOrdersPartnerDatumAllColumns,
-			dataPlatformOrdersPartnerDatumPrimaryKeyColumns,
+			dataPlatformInspectionLotPartnerDatumAllColumns,
+			dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns,
 		)
 
 		if !updateColumns.IsNone() && len(update) == 0 {
-			return errors.New("models: unable to upsert data_platform_orders_partner_data, could not build update column list")
+			return errors.New("models: unable to upsert data_platform_inspection_lot_partner_data, could not build update column list")
 		}
 
 		ret = strmangle.SetComplement(ret, nzUniques)
-		cache.query = buildUpsertQueryMySQL(dialect, "`data_platform_orders_partner_data`", update, insert)
+		cache.query = buildUpsertQueryMySQL(dialect, "`data_platform_inspection_lot_partner_data`", update, insert)
 		cache.retQuery = fmt.Sprintf(
-			"SELECT %s FROM `data_platform_orders_partner_data` WHERE %s",
+			"SELECT %s FROM `data_platform_inspection_lot_partner_data` WHERE %s",
 			strings.Join(strmangle.IdentQuoteSlice(dialect.LQ, dialect.RQ, ret), ","),
 			strmangle.WhereClause("`", "`", 0, nzUniques),
 		)
 
-		cache.valueMapping, err = queries.BindMapping(dataPlatformOrdersPartnerDatumType, dataPlatformOrdersPartnerDatumMapping, insert)
+		cache.valueMapping, err = queries.BindMapping(dataPlatformInspectionLotPartnerDatumType, dataPlatformInspectionLotPartnerDatumMapping, insert)
 		if err != nil {
 			return err
 		}
 		if len(ret) != 0 {
-			cache.retMapping, err = queries.BindMapping(dataPlatformOrdersPartnerDatumType, dataPlatformOrdersPartnerDatumMapping, ret)
+			cache.retMapping, err = queries.BindMapping(dataPlatformInspectionLotPartnerDatumType, dataPlatformInspectionLotPartnerDatumMapping, ret)
 			if err != nil {
 				return err
 			}
@@ -1816,7 +1816,7 @@ func (o *DataPlatformOrdersPartnerDatum) Upsert(ctx context.Context, exec boil.C
 	_, err = exec.ExecContext(ctx, cache.query, vals...)
 
 	if err != nil {
-		return errors.Wrap(err, "models: unable to upsert for data_platform_orders_partner_data")
+		return errors.Wrap(err, "models: unable to upsert for data_platform_inspection_lot_partner_data")
 	}
 
 	var uniqueMap []uint64
@@ -1826,9 +1826,9 @@ func (o *DataPlatformOrdersPartnerDatum) Upsert(ctx context.Context, exec boil.C
 		goto CacheNoHooks
 	}
 
-	uniqueMap, err = queries.BindMapping(dataPlatformOrdersPartnerDatumType, dataPlatformOrdersPartnerDatumMapping, nzUniques)
+	uniqueMap, err = queries.BindMapping(dataPlatformInspectionLotPartnerDatumType, dataPlatformInspectionLotPartnerDatumMapping, nzUniques)
 	if err != nil {
-		return errors.Wrap(err, "models: unable to retrieve unique values for data_platform_orders_partner_data")
+		return errors.Wrap(err, "models: unable to retrieve unique values for data_platform_inspection_lot_partner_data")
 	}
 	nzUniqueCols = queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), uniqueMap)
 
@@ -1839,28 +1839,28 @@ func (o *DataPlatformOrdersPartnerDatum) Upsert(ctx context.Context, exec boil.C
 	}
 	err = exec.QueryRowContext(ctx, cache.retQuery, nzUniqueCols...).Scan(returns...)
 	if err != nil {
-		return errors.Wrap(err, "models: unable to populate default values for data_platform_orders_partner_data")
+		return errors.Wrap(err, "models: unable to populate default values for data_platform_inspection_lot_partner_data")
 	}
 
 CacheNoHooks:
 	if !cached {
-		dataPlatformOrdersPartnerDatumUpsertCacheMut.Lock()
-		dataPlatformOrdersPartnerDatumUpsertCache[key] = cache
-		dataPlatformOrdersPartnerDatumUpsertCacheMut.Unlock()
+		dataPlatformInspectionLotPartnerDatumUpsertCacheMut.Lock()
+		dataPlatformInspectionLotPartnerDatumUpsertCache[key] = cache
+		dataPlatformInspectionLotPartnerDatumUpsertCacheMut.Unlock()
 	}
 
 	return nil
 }
 
-// Delete deletes a single DataPlatformOrdersPartnerDatum record with an executor.
+// Delete deletes a single DataPlatformInspectionLotPartnerDatum record with an executor.
 // Delete will match against the primary key column to find the record to delete.
-func (o *DataPlatformOrdersPartnerDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
+func (o *DataPlatformInspectionLotPartnerDatum) Delete(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil {
-		return errors.New("models: no DataPlatformOrdersPartnerDatum provided for delete")
+		return errors.New("models: no DataPlatformInspectionLotPartnerDatum provided for delete")
 	}
 
-	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformOrdersPartnerDatumPrimaryKeyMapping)
-	sql := "DELETE FROM `data_platform_orders_partner_data` WHERE `OrderID`=? AND `PartnerFunction`=? AND `BusinessPartner`=?"
+	args := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(o)), dataPlatformInspectionLotPartnerDatumPrimaryKeyMapping)
+	sql := "DELETE FROM `data_platform_inspection_lot_partner_data` WHERE `InspectionLot`=? AND `PartnerFunction`=? AND `BusinessPartner`=?"
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -1869,42 +1869,42 @@ func (o *DataPlatformOrdersPartnerDatum) Delete(ctx context.Context, exec boil.C
 	}
 	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return errors.Wrap(err, "models: unable to delete from data_platform_orders_partner_data")
+		return errors.Wrap(err, "models: unable to delete from data_platform_inspection_lot_partner_data")
 	}
 
 	return nil
 }
 
 // DeleteAll deletes all matching rows.
-func (q dataPlatformOrdersPartnerDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
+func (q dataPlatformInspectionLotPartnerDatumQuery) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if q.Query == nil {
-		return errors.New("models: no dataPlatformOrdersPartnerDatumQuery provided for delete all")
+		return errors.New("models: no dataPlatformInspectionLotPartnerDatumQuery provided for delete all")
 	}
 
 	queries.SetDelete(q.Query)
 
 	_, err := q.Query.ExecContext(ctx, exec)
 	if err != nil {
-		return errors.Wrap(err, "models: unable to delete all from data_platform_orders_partner_data")
+		return errors.Wrap(err, "models: unable to delete all from data_platform_inspection_lot_partner_data")
 	}
 
 	return nil
 }
 
 // DeleteAll deletes all rows in the slice, using an executor.
-func (o DataPlatformOrdersPartnerDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
+func (o DataPlatformInspectionLotPartnerDatumSlice) DeleteAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if len(o) == 0 {
 		return nil
 	}
 
 	var args []interface{}
 	for _, obj := range o {
-		pkeyArgs := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(obj)), dataPlatformOrdersPartnerDatumPrimaryKeyMapping)
+		pkeyArgs := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(obj)), dataPlatformInspectionLotPartnerDatumPrimaryKeyMapping)
 		args = append(args, pkeyArgs...)
 	}
 
-	sql := "DELETE FROM `data_platform_orders_partner_data` WHERE " +
-		strmangle.WhereClauseRepeated(string(dialect.LQ), string(dialect.RQ), 0, dataPlatformOrdersPartnerDatumPrimaryKeyColumns, len(o))
+	sql := "DELETE FROM `data_platform_inspection_lot_partner_data` WHERE " +
+		strmangle.WhereClauseRepeated(string(dialect.LQ), string(dialect.RQ), 0, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns, len(o))
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
@@ -1913,7 +1913,7 @@ func (o DataPlatformOrdersPartnerDatumSlice) DeleteAll(ctx context.Context, exec
 	}
 	_, err := exec.ExecContext(ctx, sql, args...)
 	if err != nil {
-		return errors.Wrap(err, "models: unable to delete all from dataPlatformOrdersPartnerDatum slice")
+		return errors.Wrap(err, "models: unable to delete all from dataPlatformInspectionLotPartnerDatum slice")
 	}
 
 	return nil
@@ -1921,8 +1921,8 @@ func (o DataPlatformOrdersPartnerDatumSlice) DeleteAll(ctx context.Context, exec
 
 // Reload refetches the object from the database
 // using the primary keys with an executor.
-func (o *DataPlatformOrdersPartnerDatum) Reload(ctx context.Context, exec boil.ContextExecutor) error {
-	ret, err := FindDataPlatformOrdersPartnerDatum(ctx, exec, o.OrderID, o.PartnerFunction, o.BusinessPartner)
+func (o *DataPlatformInspectionLotPartnerDatum) Reload(ctx context.Context, exec boil.ContextExecutor) error {
+	ret, err := FindDataPlatformInspectionLotPartnerDatum(ctx, exec, o.InspectionLot, o.PartnerFunction, o.BusinessPartner)
 	if err != nil {
 		return err
 	}
@@ -1933,26 +1933,26 @@ func (o *DataPlatformOrdersPartnerDatum) Reload(ctx context.Context, exec boil.C
 
 // ReloadAll refetches every row with matching primary key column values
 // and overwrites the original object slice with the newly updated slice.
-func (o *DataPlatformOrdersPartnerDatumSlice) ReloadAll(ctx context.Context, exec boil.ContextExecutor) error {
+func (o *DataPlatformInspectionLotPartnerDatumSlice) ReloadAll(ctx context.Context, exec boil.ContextExecutor) error {
 	if o == nil || len(*o) == 0 {
 		return nil
 	}
 
-	slice := DataPlatformOrdersPartnerDatumSlice{}
+	slice := DataPlatformInspectionLotPartnerDatumSlice{}
 	var args []interface{}
 	for _, obj := range *o {
-		pkeyArgs := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(obj)), dataPlatformOrdersPartnerDatumPrimaryKeyMapping)
+		pkeyArgs := queries.ValuesFromMapping(reflect.Indirect(reflect.ValueOf(obj)), dataPlatformInspectionLotPartnerDatumPrimaryKeyMapping)
 		args = append(args, pkeyArgs...)
 	}
 
-	sql := "SELECT `data_platform_orders_partner_data`.* FROM `data_platform_orders_partner_data` WHERE " +
-		strmangle.WhereClauseRepeated(string(dialect.LQ), string(dialect.RQ), 0, dataPlatformOrdersPartnerDatumPrimaryKeyColumns, len(*o))
+	sql := "SELECT `data_platform_inspection_lot_partner_data`.* FROM `data_platform_inspection_lot_partner_data` WHERE " +
+		strmangle.WhereClauseRepeated(string(dialect.LQ), string(dialect.RQ), 0, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns, len(*o))
 
 	q := queries.Raw(sql, args...)
 
 	err := q.Bind(ctx, exec, &slice)
 	if err != nil {
-		return errors.Wrap(err, "models: unable to reload all in DataPlatformOrdersPartnerDatumSlice")
+		return errors.Wrap(err, "models: unable to reload all in DataPlatformInspectionLotPartnerDatumSlice")
 	}
 
 	*o = slice
@@ -1960,27 +1960,27 @@ func (o *DataPlatformOrdersPartnerDatumSlice) ReloadAll(ctx context.Context, exe
 	return nil
 }
 
-// DataPlatformOrdersPartnerDatumExists checks if the DataPlatformOrdersPartnerDatum row exists.
-func DataPlatformOrdersPartnerDatumExists(ctx context.Context, exec boil.ContextExecutor, orderID int, partnerFunction string, businessPartner int) (bool, error) {
+// DataPlatformInspectionLotPartnerDatumExists checks if the DataPlatformInspectionLotPartnerDatum row exists.
+func DataPlatformInspectionLotPartnerDatumExists(ctx context.Context, exec boil.ContextExecutor, inspectionLot int, partnerFunction string, businessPartner int) (bool, error) {
 	var exists bool
-	sql := "select exists(select 1 from `data_platform_orders_partner_data` where `OrderID`=? AND `PartnerFunction`=? AND `BusinessPartner`=? limit 1)"
+	sql := "select exists(select 1 from `data_platform_inspection_lot_partner_data` where `InspectionLot`=? AND `PartnerFunction`=? AND `BusinessPartner`=? limit 1)"
 
 	if boil.IsDebug(ctx) {
 		writer := boil.DebugWriterFrom(ctx)
 		fmt.Fprintln(writer, sql)
-		fmt.Fprintln(writer, orderID, partnerFunction, businessPartner)
+		fmt.Fprintln(writer, inspectionLot, partnerFunction, businessPartner)
 	}
-	row := exec.QueryRowContext(ctx, sql, orderID, partnerFunction, businessPartner)
+	row := exec.QueryRowContext(ctx, sql, inspectionLot, partnerFunction, businessPartner)
 
 	err := row.Scan(&exists)
 	if err != nil {
-		return false, errors.Wrap(err, "models: unable to check if data_platform_orders_partner_data exists")
+		return false, errors.Wrap(err, "models: unable to check if data_platform_inspection_lot_partner_data exists")
 	}
 
 	return exists, nil
 }
 
-// Exists checks if the DataPlatformOrdersPartnerDatum row exists.
-func (o *DataPlatformOrdersPartnerDatum) Exists(ctx context.Context, exec boil.ContextExecutor) (bool, error) {
-	return DataPlatformOrdersPartnerDatumExists(ctx, exec, o.OrderID, o.PartnerFunction, o.BusinessPartner)
+// Exists checks if the DataPlatformInspectionLotPartnerDatum row exists.
+func (o *DataPlatformInspectionLotPartnerDatum) Exists(ctx context.Context, exec boil.ContextExecutor) (bool, error) {
+	return DataPlatformInspectionLotPartnerDatumExists(ctx, exec, o.InspectionLot, o.PartnerFunction, o.BusinessPartner)
 }

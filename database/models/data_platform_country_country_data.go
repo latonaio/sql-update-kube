@@ -66,6 +66,7 @@ var DataPlatformCountryCountryDatumRels = struct {
 	BillToCountryDataPlatformDeliveryDocumentHeaderData   string
 	CountryOfOriginDataPlatformDeliveryDocumentItemData   string
 	CountryDataPlatformDeliveryDocumentPartnerData        string
+	CountryDataPlatformInspectionLotPartnerData           string
 	BillFromCountryDataPlatformInvoiceDocumentHeaderData  string
 	BillToCountryDataPlatformInvoiceDocumentHeaderData    string
 	CountryOfOriginDataPlatformInvoiceDocumentItemData    string
@@ -79,6 +80,7 @@ var DataPlatformCountryCountryDatumRels = struct {
 	CountryDataPlatformProductionOrderPartnerData         string
 	BillFromCountryDataPlatformQuotationsHeaderData       string
 	BillToCountryDataPlatformQuotationsHeaderData         string
+	CountryOfOriginDataPlatformQuotationsItemData         string
 	CountryDataPlatformQuotationsPartnerData              string
 }{
 	GlobalRegionDataPlatformGlobalRegionGlobalRegionDatum: "GlobalRegionDataPlatformGlobalRegionGlobalRegionDatum",
@@ -89,6 +91,7 @@ var DataPlatformCountryCountryDatumRels = struct {
 	BillToCountryDataPlatformDeliveryDocumentHeaderData:   "BillToCountryDataPlatformDeliveryDocumentHeaderData",
 	CountryOfOriginDataPlatformDeliveryDocumentItemData:   "CountryOfOriginDataPlatformDeliveryDocumentItemData",
 	CountryDataPlatformDeliveryDocumentPartnerData:        "CountryDataPlatformDeliveryDocumentPartnerData",
+	CountryDataPlatformInspectionLotPartnerData:           "CountryDataPlatformInspectionLotPartnerData",
 	BillFromCountryDataPlatformInvoiceDocumentHeaderData:  "BillFromCountryDataPlatformInvoiceDocumentHeaderData",
 	BillToCountryDataPlatformInvoiceDocumentHeaderData:    "BillToCountryDataPlatformInvoiceDocumentHeaderData",
 	CountryOfOriginDataPlatformInvoiceDocumentItemData:    "CountryOfOriginDataPlatformInvoiceDocumentItemData",
@@ -102,6 +105,7 @@ var DataPlatformCountryCountryDatumRels = struct {
 	CountryDataPlatformProductionOrderPartnerData:         "CountryDataPlatformProductionOrderPartnerData",
 	BillFromCountryDataPlatformQuotationsHeaderData:       "BillFromCountryDataPlatformQuotationsHeaderData",
 	BillToCountryDataPlatformQuotationsHeaderData:         "BillToCountryDataPlatformQuotationsHeaderData",
+	CountryOfOriginDataPlatformQuotationsItemData:         "CountryOfOriginDataPlatformQuotationsItemData",
 	CountryDataPlatformQuotationsPartnerData:              "CountryDataPlatformQuotationsPartnerData",
 }
 
@@ -115,6 +119,7 @@ type dataPlatformCountryCountryDatumR struct {
 	BillToCountryDataPlatformDeliveryDocumentHeaderData   DataPlatformDeliveryDocumentHeaderDatumSlice  `boil:"BillToCountryDataPlatformDeliveryDocumentHeaderData" json:"BillToCountryDataPlatformDeliveryDocumentHeaderData" toml:"BillToCountryDataPlatformDeliveryDocumentHeaderData" yaml:"BillToCountryDataPlatformDeliveryDocumentHeaderData"`
 	CountryOfOriginDataPlatformDeliveryDocumentItemData   DataPlatformDeliveryDocumentItemDatumSlice    `boil:"CountryOfOriginDataPlatformDeliveryDocumentItemData" json:"CountryOfOriginDataPlatformDeliveryDocumentItemData" toml:"CountryOfOriginDataPlatformDeliveryDocumentItemData" yaml:"CountryOfOriginDataPlatformDeliveryDocumentItemData"`
 	CountryDataPlatformDeliveryDocumentPartnerData        DataPlatformDeliveryDocumentPartnerDatumSlice `boil:"CountryDataPlatformDeliveryDocumentPartnerData" json:"CountryDataPlatformDeliveryDocumentPartnerData" toml:"CountryDataPlatformDeliveryDocumentPartnerData" yaml:"CountryDataPlatformDeliveryDocumentPartnerData"`
+	CountryDataPlatformInspectionLotPartnerData           DataPlatformInspectionLotPartnerDatumSlice    `boil:"CountryDataPlatformInspectionLotPartnerData" json:"CountryDataPlatformInspectionLotPartnerData" toml:"CountryDataPlatformInspectionLotPartnerData" yaml:"CountryDataPlatformInspectionLotPartnerData"`
 	BillFromCountryDataPlatformInvoiceDocumentHeaderData  DataPlatformInvoiceDocumentHeaderDatumSlice   `boil:"BillFromCountryDataPlatformInvoiceDocumentHeaderData" json:"BillFromCountryDataPlatformInvoiceDocumentHeaderData" toml:"BillFromCountryDataPlatformInvoiceDocumentHeaderData" yaml:"BillFromCountryDataPlatformInvoiceDocumentHeaderData"`
 	BillToCountryDataPlatformInvoiceDocumentHeaderData    DataPlatformInvoiceDocumentHeaderDatumSlice   `boil:"BillToCountryDataPlatformInvoiceDocumentHeaderData" json:"BillToCountryDataPlatformInvoiceDocumentHeaderData" toml:"BillToCountryDataPlatformInvoiceDocumentHeaderData" yaml:"BillToCountryDataPlatformInvoiceDocumentHeaderData"`
 	CountryOfOriginDataPlatformInvoiceDocumentItemData    DataPlatformInvoiceDocumentItemDatumSlice     `boil:"CountryOfOriginDataPlatformInvoiceDocumentItemData" json:"CountryOfOriginDataPlatformInvoiceDocumentItemData" toml:"CountryOfOriginDataPlatformInvoiceDocumentItemData" yaml:"CountryOfOriginDataPlatformInvoiceDocumentItemData"`
@@ -128,6 +133,7 @@ type dataPlatformCountryCountryDatumR struct {
 	CountryDataPlatformProductionOrderPartnerData         DataPlatformProductionOrderPartnerDatumSlice  `boil:"CountryDataPlatformProductionOrderPartnerData" json:"CountryDataPlatformProductionOrderPartnerData" toml:"CountryDataPlatformProductionOrderPartnerData" yaml:"CountryDataPlatformProductionOrderPartnerData"`
 	BillFromCountryDataPlatformQuotationsHeaderData       DataPlatformQuotationsHeaderDatumSlice        `boil:"BillFromCountryDataPlatformQuotationsHeaderData" json:"BillFromCountryDataPlatformQuotationsHeaderData" toml:"BillFromCountryDataPlatformQuotationsHeaderData" yaml:"BillFromCountryDataPlatformQuotationsHeaderData"`
 	BillToCountryDataPlatformQuotationsHeaderData         DataPlatformQuotationsHeaderDatumSlice        `boil:"BillToCountryDataPlatformQuotationsHeaderData" json:"BillToCountryDataPlatformQuotationsHeaderData" toml:"BillToCountryDataPlatformQuotationsHeaderData" yaml:"BillToCountryDataPlatformQuotationsHeaderData"`
+	CountryOfOriginDataPlatformQuotationsItemData         DataPlatformQuotationsItemDatumSlice          `boil:"CountryOfOriginDataPlatformQuotationsItemData" json:"CountryOfOriginDataPlatformQuotationsItemData" toml:"CountryOfOriginDataPlatformQuotationsItemData" yaml:"CountryOfOriginDataPlatformQuotationsItemData"`
 	CountryDataPlatformQuotationsPartnerData              DataPlatformQuotationsPartnerDatumSlice       `boil:"CountryDataPlatformQuotationsPartnerData" json:"CountryDataPlatformQuotationsPartnerData" toml:"CountryDataPlatformQuotationsPartnerData" yaml:"CountryDataPlatformQuotationsPartnerData"`
 }
 
@@ -190,6 +196,13 @@ func (r *dataPlatformCountryCountryDatumR) GetCountryDataPlatformDeliveryDocumen
 		return nil
 	}
 	return r.CountryDataPlatformDeliveryDocumentPartnerData
+}
+
+func (r *dataPlatformCountryCountryDatumR) GetCountryDataPlatformInspectionLotPartnerData() DataPlatformInspectionLotPartnerDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.CountryDataPlatformInspectionLotPartnerData
 }
 
 func (r *dataPlatformCountryCountryDatumR) GetBillFromCountryDataPlatformInvoiceDocumentHeaderData() DataPlatformInvoiceDocumentHeaderDatumSlice {
@@ -281,6 +294,13 @@ func (r *dataPlatformCountryCountryDatumR) GetBillToCountryDataPlatformQuotation
 		return nil
 	}
 	return r.BillToCountryDataPlatformQuotationsHeaderData
+}
+
+func (r *dataPlatformCountryCountryDatumR) GetCountryOfOriginDataPlatformQuotationsItemData() DataPlatformQuotationsItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.CountryOfOriginDataPlatformQuotationsItemData
 }
 
 func (r *dataPlatformCountryCountryDatumR) GetCountryDataPlatformQuotationsPartnerData() DataPlatformQuotationsPartnerDatumSlice {
@@ -501,6 +521,20 @@ func (o *DataPlatformCountryCountryDatum) CountryDataPlatformDeliveryDocumentPar
 	return DataPlatformDeliveryDocumentPartnerData(queryMods...)
 }
 
+// CountryDataPlatformInspectionLotPartnerData retrieves all the data_platform_inspection_lot_partner_datum's DataPlatformInspectionLotPartnerData with an executor via Country column.
+func (o *DataPlatformCountryCountryDatum) CountryDataPlatformInspectionLotPartnerData(mods ...qm.QueryMod) dataPlatformInspectionLotPartnerDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_inspection_lot_partner_data`.`Country`=?", o.Country),
+	)
+
+	return DataPlatformInspectionLotPartnerData(queryMods...)
+}
+
 // BillFromCountryDataPlatformInvoiceDocumentHeaderData retrieves all the data_platform_invoice_document_header_datum's DataPlatformInvoiceDocumentHeaderData with an executor via BillFromCountry column.
 func (o *DataPlatformCountryCountryDatum) BillFromCountryDataPlatformInvoiceDocumentHeaderData(mods ...qm.QueryMod) dataPlatformInvoiceDocumentHeaderDatumQuery {
 	var queryMods []qm.QueryMod
@@ -681,6 +715,20 @@ func (o *DataPlatformCountryCountryDatum) BillToCountryDataPlatformQuotationsHea
 	)
 
 	return DataPlatformQuotationsHeaderData(queryMods...)
+}
+
+// CountryOfOriginDataPlatformQuotationsItemData retrieves all the data_platform_quotations_item_datum's DataPlatformQuotationsItemData with an executor via CountryOfOrigin column.
+func (o *DataPlatformCountryCountryDatum) CountryOfOriginDataPlatformQuotationsItemData(mods ...qm.QueryMod) dataPlatformQuotationsItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_quotations_item_data`.`CountryOfOrigin`=?", o.Country),
+	)
+
+	return DataPlatformQuotationsItemData(queryMods...)
 }
 
 // CountryDataPlatformQuotationsPartnerData retrieves all the data_platform_quotations_partner_datum's DataPlatformQuotationsPartnerData with an executor via Country column.
@@ -1472,6 +1520,103 @@ func (dataPlatformCountryCountryDatumL) LoadCountryDataPlatformDeliveryDocumentP
 		for _, local := range slice {
 			if queries.Equal(local.Country, foreign.Country) {
 				local.R.CountryDataPlatformDeliveryDocumentPartnerData = append(local.R.CountryDataPlatformDeliveryDocumentPartnerData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// LoadCountryDataPlatformInspectionLotPartnerData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformCountryCountryDatumL) LoadCountryDataPlatformInspectionLotPartnerData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformCountryCountryDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformCountryCountryDatum
+	var object *DataPlatformCountryCountryDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformCountryCountryDatum.(*DataPlatformCountryCountryDatum)
+		if !ok {
+			object = new(DataPlatformCountryCountryDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformCountryCountryDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformCountryCountryDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformCountryCountryDatum.(*[]*DataPlatformCountryCountryDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformCountryCountryDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformCountryCountryDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformCountryCountryDatumR{}
+		}
+		args = append(args, object.Country)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformCountryCountryDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Country) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Country)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_inspection_lot_partner_data`),
+		qm.WhereIn(`data_platform_inspection_lot_partner_data.Country in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_inspection_lot_partner_data")
+	}
+
+	var resultSlice []*DataPlatformInspectionLotPartnerDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_lot_partner_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_lot_partner_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_lot_partner_data")
+	}
+
+	if singular {
+		object.R.CountryDataPlatformInspectionLotPartnerData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Country, foreign.Country) {
+				local.R.CountryDataPlatformInspectionLotPartnerData = append(local.R.CountryDataPlatformInspectionLotPartnerData, foreign)
 				break
 			}
 		}
@@ -2741,6 +2886,103 @@ func (dataPlatformCountryCountryDatumL) LoadBillToCountryDataPlatformQuotationsH
 	return nil
 }
 
+// LoadCountryOfOriginDataPlatformQuotationsItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformCountryCountryDatumL) LoadCountryOfOriginDataPlatformQuotationsItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformCountryCountryDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformCountryCountryDatum
+	var object *DataPlatformCountryCountryDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformCountryCountryDatum.(*DataPlatformCountryCountryDatum)
+		if !ok {
+			object = new(DataPlatformCountryCountryDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformCountryCountryDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformCountryCountryDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformCountryCountryDatum.(*[]*DataPlatformCountryCountryDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformCountryCountryDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformCountryCountryDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformCountryCountryDatumR{}
+		}
+		args = append(args, object.Country)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformCountryCountryDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Country) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Country)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_quotations_item_data`),
+		qm.WhereIn(`data_platform_quotations_item_data.CountryOfOrigin in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_quotations_item_data")
+	}
+
+	var resultSlice []*DataPlatformQuotationsItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_quotations_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_quotations_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_quotations_item_data")
+	}
+
+	if singular {
+		object.R.CountryOfOriginDataPlatformQuotationsItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Country, foreign.CountryOfOrigin) {
+				local.R.CountryOfOriginDataPlatformQuotationsItemData = append(local.R.CountryOfOriginDataPlatformQuotationsItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // LoadCountryDataPlatformQuotationsPartnerData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
 func (dataPlatformCountryCountryDatumL) LoadCountryDataPlatformQuotationsPartnerData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformCountryCountryDatum interface{}, mods queries.Applicator) error {
@@ -3536,6 +3778,110 @@ func (o *DataPlatformCountryCountryDatum) RemoveCountryDataPlatformDeliveryDocum
 				o.R.CountryDataPlatformDeliveryDocumentPartnerData[i] = o.R.CountryDataPlatformDeliveryDocumentPartnerData[ln-1]
 			}
 			o.R.CountryDataPlatformDeliveryDocumentPartnerData = o.R.CountryDataPlatformDeliveryDocumentPartnerData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddCountryDataPlatformInspectionLotPartnerData adds the given related objects to the existing relationships
+// of the data_platform_country_country_datum, optionally inserting them as new records.
+// Appends related to o.R.CountryDataPlatformInspectionLotPartnerData.
+func (o *DataPlatformCountryCountryDatum) AddCountryDataPlatformInspectionLotPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotPartnerDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Country, o.Country)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_inspection_lot_partner_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Country"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Country, rel.InspectionLot, rel.PartnerFunction, rel.BusinessPartner}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Country, o.Country)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformCountryCountryDatumR{
+			CountryDataPlatformInspectionLotPartnerData: related,
+		}
+	} else {
+		o.R.CountryDataPlatformInspectionLotPartnerData = append(o.R.CountryDataPlatformInspectionLotPartnerData, related...)
+	}
+
+	return nil
+}
+
+// SetCountryDataPlatformInspectionLotPartnerData removes all previously related items of the
+// data_platform_country_country_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.CountryDataPlatformCountryCountryDatum's CountryDataPlatformInspectionLotPartnerData accordingly.
+// Replaces o.R.CountryDataPlatformInspectionLotPartnerData with related.
+func (o *DataPlatformCountryCountryDatum) SetCountryDataPlatformInspectionLotPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotPartnerDatum) error {
+	query := "update `data_platform_inspection_lot_partner_data` set `Country` = null where `Country` = ?"
+	values := []interface{}{o.Country}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.CountryDataPlatformInspectionLotPartnerData = nil
+	}
+
+	return o.AddCountryDataPlatformInspectionLotPartnerData(ctx, exec, insert, related...)
+}
+
+// RemoveCountryDataPlatformInspectionLotPartnerData relationships from objects passed in.
+// Removes related items from R.CountryDataPlatformInspectionLotPartnerData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformCountryCountryDatum) RemoveCountryDataPlatformInspectionLotPartnerData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformInspectionLotPartnerDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Country, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Country")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.CountryDataPlatformInspectionLotPartnerData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.CountryDataPlatformInspectionLotPartnerData)
+			if ln > 1 && i < ln-1 {
+				o.R.CountryDataPlatformInspectionLotPartnerData[i] = o.R.CountryDataPlatformInspectionLotPartnerData[ln-1]
+			}
+			o.R.CountryDataPlatformInspectionLotPartnerData = o.R.CountryDataPlatformInspectionLotPartnerData[:ln-1]
 			break
 		}
 	}
@@ -4766,6 +5112,110 @@ func (o *DataPlatformCountryCountryDatum) RemoveBillToCountryDataPlatformQuotati
 				o.R.BillToCountryDataPlatformQuotationsHeaderData[i] = o.R.BillToCountryDataPlatformQuotationsHeaderData[ln-1]
 			}
 			o.R.BillToCountryDataPlatformQuotationsHeaderData = o.R.BillToCountryDataPlatformQuotationsHeaderData[:ln-1]
+			break
+		}
+	}
+
+	return nil
+}
+
+// AddCountryOfOriginDataPlatformQuotationsItemData adds the given related objects to the existing relationships
+// of the data_platform_country_country_datum, optionally inserting them as new records.
+// Appends related to o.R.CountryOfOriginDataPlatformQuotationsItemData.
+func (o *DataPlatformCountryCountryDatum) AddCountryOfOriginDataPlatformQuotationsItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformQuotationsItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.CountryOfOrigin, o.Country)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_quotations_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"CountryOfOrigin"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformQuotationsItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Country, rel.Quotation, rel.QuotationItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.CountryOfOrigin, o.Country)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformCountryCountryDatumR{
+			CountryOfOriginDataPlatformQuotationsItemData: related,
+		}
+	} else {
+		o.R.CountryOfOriginDataPlatformQuotationsItemData = append(o.R.CountryOfOriginDataPlatformQuotationsItemData, related...)
+	}
+
+	return nil
+}
+
+// SetCountryOfOriginDataPlatformQuotationsItemData removes all previously related items of the
+// data_platform_country_country_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.CountryOfOriginDataPlatformCountryCountryDatum's CountryOfOriginDataPlatformQuotationsItemData accordingly.
+// Replaces o.R.CountryOfOriginDataPlatformQuotationsItemData with related.
+func (o *DataPlatformCountryCountryDatum) SetCountryOfOriginDataPlatformQuotationsItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformQuotationsItemDatum) error {
+	query := "update `data_platform_quotations_item_data` set `CountryOfOrigin` = null where `CountryOfOrigin` = ?"
+	values := []interface{}{o.Country}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.CountryOfOriginDataPlatformQuotationsItemData = nil
+	}
+
+	return o.AddCountryOfOriginDataPlatformQuotationsItemData(ctx, exec, insert, related...)
+}
+
+// RemoveCountryOfOriginDataPlatformQuotationsItemData relationships from objects passed in.
+// Removes related items from R.CountryOfOriginDataPlatformQuotationsItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformCountryCountryDatum) RemoveCountryOfOriginDataPlatformQuotationsItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformQuotationsItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.CountryOfOrigin, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("CountryOfOrigin")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.CountryOfOriginDataPlatformQuotationsItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.CountryOfOriginDataPlatformQuotationsItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.CountryOfOriginDataPlatformQuotationsItemData[i] = o.R.CountryOfOriginDataPlatformQuotationsItemData[ln-1]
+			}
+			o.R.CountryOfOriginDataPlatformQuotationsItemData = o.R.CountryOfOriginDataPlatformQuotationsItemData[:ln-1]
 			break
 		}
 	}

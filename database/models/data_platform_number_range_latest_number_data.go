@@ -73,15 +73,26 @@ var DataPlatformNumberRangeLatestNumberDatumWhere = struct {
 
 // DataPlatformNumberRangeLatestNumberDatumRels is where relationship names are stored.
 var DataPlatformNumberRangeLatestNumberDatumRels = struct {
-}{}
+	FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum string
+}{
+	FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum: "FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum",
+}
 
 // dataPlatformNumberRangeLatestNumberDatumR is where relationships are stored.
 type dataPlatformNumberRangeLatestNumberDatumR struct {
+	FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum *DataPlatformNumberRangeNumberRangeDatum `boil:"FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum" json:"FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum" toml:"FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum" yaml:"FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum"`
 }
 
 // NewStruct creates a new relationship struct
 func (*dataPlatformNumberRangeLatestNumberDatumR) NewStruct() *dataPlatformNumberRangeLatestNumberDatumR {
 	return &dataPlatformNumberRangeLatestNumberDatumR{}
+}
+
+func (r *dataPlatformNumberRangeLatestNumberDatumR) GetFieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum() *DataPlatformNumberRangeNumberRangeDatum {
+	if r == nil {
+		return nil
+	}
+	return r.FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum
 }
 
 // dataPlatformNumberRangeLatestNumberDatumL is where Load methods for each relationship are stored.
@@ -184,6 +195,159 @@ func (q dataPlatformNumberRangeLatestNumberDatumQuery) Exists(ctx context.Contex
 	}
 
 	return count > 0, nil
+}
+
+// FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum pointed to by the foreign key.
+func (o *DataPlatformNumberRangeLatestNumberDatum) FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum(mods ...qm.QueryMod) dataPlatformNumberRangeNumberRangeDatumQuery {
+	queryMods := []qm.QueryMod{
+		qm.Where("`FieldNameWithNumberRange` = ?", o.FieldNameWithNumberRange),
+	}
+
+	queryMods = append(queryMods, mods...)
+
+	return DataPlatformNumberRangeNumberRangeData(queryMods...)
+}
+
+// LoadFieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for an N-1 relationship.
+func (dataPlatformNumberRangeLatestNumberDatumL) LoadFieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformNumberRangeLatestNumberDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformNumberRangeLatestNumberDatum
+	var object *DataPlatformNumberRangeLatestNumberDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformNumberRangeLatestNumberDatum.(*DataPlatformNumberRangeLatestNumberDatum)
+		if !ok {
+			object = new(DataPlatformNumberRangeLatestNumberDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformNumberRangeLatestNumberDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformNumberRangeLatestNumberDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformNumberRangeLatestNumberDatum.(*[]*DataPlatformNumberRangeLatestNumberDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformNumberRangeLatestNumberDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformNumberRangeLatestNumberDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformNumberRangeLatestNumberDatumR{}
+		}
+		args = append(args, object.FieldNameWithNumberRange)
+
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformNumberRangeLatestNumberDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.FieldNameWithNumberRange {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.FieldNameWithNumberRange)
+
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_number_range_number_range_data`),
+		qm.WhereIn(`data_platform_number_range_number_range_data.FieldNameWithNumberRange in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load DataPlatformNumberRangeNumberRangeDatum")
+	}
+
+	var resultSlice []*DataPlatformNumberRangeNumberRangeDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice DataPlatformNumberRangeNumberRangeDatum")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results of eager load for data_platform_number_range_number_range_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_number_range_number_range_data")
+	}
+
+	if len(resultSlice) == 0 {
+		return nil
+	}
+
+	if singular {
+		foreign := resultSlice[0]
+		object.R.FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum = foreign
+		return nil
+	}
+
+	for _, local := range slice {
+		for _, foreign := range resultSlice {
+			if local.FieldNameWithNumberRange == foreign.FieldNameWithNumberRange {
+				local.R.FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum = foreign
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
+// SetFieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum of the dataPlatformNumberRangeLatestNumberDatum to the related item.
+// Sets o.R.FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum to related.
+func (o *DataPlatformNumberRangeLatestNumberDatum) SetFieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformNumberRangeNumberRangeDatum) error {
+	var err error
+	if insert {
+		if err = related.Insert(ctx, exec, boil.Infer()); err != nil {
+			return errors.Wrap(err, "failed to insert into foreign table")
+		}
+	}
+
+	updateQuery := fmt.Sprintf(
+		"UPDATE `data_platform_number_range_latest_number_data` SET %s WHERE %s",
+		strmangle.SetParamNames("`", "`", 0, []string{"FieldNameWithNumberRange"}),
+		strmangle.WhereClause("`", "`", 0, dataPlatformNumberRangeLatestNumberDatumPrimaryKeyColumns),
+	)
+	values := []interface{}{related.FieldNameWithNumberRange, o.NumberRangeID, o.ServiceLabel, o.FieldNameWithNumberRange}
+
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, updateQuery)
+		fmt.Fprintln(writer, values)
+	}
+	if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+		return errors.Wrap(err, "failed to update local table")
+	}
+
+	o.FieldNameWithNumberRange = related.FieldNameWithNumberRange
+	if o.R == nil {
+		o.R = &dataPlatformNumberRangeLatestNumberDatumR{
+			FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum: related,
+		}
+	} else {
+		o.R.FieldNameWithNumberRangeDataPlatformNumberRangeNumberRangeDatum = related
+	}
+
+	return nil
 }
 
 // DataPlatformNumberRangeLatestNumberData retrieves all the records using an executor.

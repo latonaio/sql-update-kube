@@ -155,12 +155,14 @@ var DataPlatformProjectProjectDatumRels = struct {
 	ProjectDataPlatformDeliveryDocumentItemData                 string
 	ProjectDataPlatformOrdersItemData                           string
 	ProjectDataPlatformProjectWBSElementData                    string
+	ProjectDataPlatformQuotationsItemData                       string
 }{
 	OwnerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum: "OwnerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum",
 	OwnerBusinessPartnerDataPlatformPlantGeneralDatum:           "OwnerBusinessPartnerDataPlatformPlantGeneralDatum",
 	ProjectDataPlatformDeliveryDocumentItemData:                 "ProjectDataPlatformDeliveryDocumentItemData",
 	ProjectDataPlatformOrdersItemData:                           "ProjectDataPlatformOrdersItemData",
 	ProjectDataPlatformProjectWBSElementData:                    "ProjectDataPlatformProjectWBSElementData",
+	ProjectDataPlatformQuotationsItemData:                       "ProjectDataPlatformQuotationsItemData",
 }
 
 // dataPlatformProjectProjectDatumR is where relationships are stored.
@@ -170,6 +172,7 @@ type dataPlatformProjectProjectDatumR struct {
 	ProjectDataPlatformDeliveryDocumentItemData                 DataPlatformDeliveryDocumentItemDatumSlice `boil:"ProjectDataPlatformDeliveryDocumentItemData" json:"ProjectDataPlatformDeliveryDocumentItemData" toml:"ProjectDataPlatformDeliveryDocumentItemData" yaml:"ProjectDataPlatformDeliveryDocumentItemData"`
 	ProjectDataPlatformOrdersItemData                           DataPlatformOrdersItemDatumSlice           `boil:"ProjectDataPlatformOrdersItemData" json:"ProjectDataPlatformOrdersItemData" toml:"ProjectDataPlatformOrdersItemData" yaml:"ProjectDataPlatformOrdersItemData"`
 	ProjectDataPlatformProjectWBSElementData                    DataPlatformProjectWBSElementDatumSlice    `boil:"ProjectDataPlatformProjectWBSElementData" json:"ProjectDataPlatformProjectWBSElementData" toml:"ProjectDataPlatformProjectWBSElementData" yaml:"ProjectDataPlatformProjectWBSElementData"`
+	ProjectDataPlatformQuotationsItemData                       DataPlatformQuotationsItemDatumSlice       `boil:"ProjectDataPlatformQuotationsItemData" json:"ProjectDataPlatformQuotationsItemData" toml:"ProjectDataPlatformQuotationsItemData" yaml:"ProjectDataPlatformQuotationsItemData"`
 }
 
 // NewStruct creates a new relationship struct
@@ -210,6 +213,13 @@ func (r *dataPlatformProjectProjectDatumR) GetProjectDataPlatformProjectWBSEleme
 		return nil
 	}
 	return r.ProjectDataPlatformProjectWBSElementData
+}
+
+func (r *dataPlatformProjectProjectDatumR) GetProjectDataPlatformQuotationsItemData() DataPlatformQuotationsItemDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.ProjectDataPlatformQuotationsItemData
 }
 
 // dataPlatformProjectProjectDatumL is where Load methods for each relationship are stored.
@@ -376,6 +386,20 @@ func (o *DataPlatformProjectProjectDatum) ProjectDataPlatformProjectWBSElementDa
 	)
 
 	return DataPlatformProjectWBSElementData(queryMods...)
+}
+
+// ProjectDataPlatformQuotationsItemData retrieves all the data_platform_quotations_item_datum's DataPlatformQuotationsItemData with an executor via Project column.
+func (o *DataPlatformProjectProjectDatum) ProjectDataPlatformQuotationsItemData(mods ...qm.QueryMod) dataPlatformQuotationsItemDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_quotations_item_data`.`Project`=?", o.Project),
+	)
+
+	return DataPlatformQuotationsItemData(queryMods...)
 }
 
 // LoadOwnerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum allows an eager lookup of values, cached into the
@@ -877,6 +901,103 @@ func (dataPlatformProjectProjectDatumL) LoadProjectDataPlatformProjectWBSElement
 	return nil
 }
 
+// LoadProjectDataPlatformQuotationsItemData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformProjectProjectDatumL) LoadProjectDataPlatformQuotationsItemData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformProjectProjectDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformProjectProjectDatum
+	var object *DataPlatformProjectProjectDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformProjectProjectDatum.(*DataPlatformProjectProjectDatum)
+		if !ok {
+			object = new(DataPlatformProjectProjectDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformProjectProjectDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformProjectProjectDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformProjectProjectDatum.(*[]*DataPlatformProjectProjectDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformProjectProjectDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformProjectProjectDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformProjectProjectDatumR{}
+		}
+		args = append(args, object.Project)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformProjectProjectDatumR{}
+			}
+
+			for _, a := range args {
+				if queries.Equal(a, obj.Project) {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.Project)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_quotations_item_data`),
+		qm.WhereIn(`data_platform_quotations_item_data.Project in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_quotations_item_data")
+	}
+
+	var resultSlice []*DataPlatformQuotationsItemDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_quotations_item_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_quotations_item_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_quotations_item_data")
+	}
+
+	if singular {
+		object.R.ProjectDataPlatformQuotationsItemData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if queries.Equal(local.Project, foreign.Project) {
+				local.R.ProjectDataPlatformQuotationsItemData = append(local.R.ProjectDataPlatformQuotationsItemData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // SetOwnerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum of the dataPlatformProjectProjectDatum to the related item.
 // Sets o.R.OwnerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum to related.
 func (o *DataPlatformProjectProjectDatum) SetOwnerBusinessPartnerDataPlatformBusinessPartnerGeneralDatum(ctx context.Context, exec boil.ContextExecutor, insert bool, related *DataPlatformBusinessPartnerGeneralDatum) error {
@@ -1199,6 +1320,110 @@ func (o *DataPlatformProjectProjectDatum) AddProjectDataPlatformProjectWBSElemen
 		}
 	} else {
 		o.R.ProjectDataPlatformProjectWBSElementData = append(o.R.ProjectDataPlatformProjectWBSElementData, related...)
+	}
+
+	return nil
+}
+
+// AddProjectDataPlatformQuotationsItemData adds the given related objects to the existing relationships
+// of the data_platform_project_project_datum, optionally inserting them as new records.
+// Appends related to o.R.ProjectDataPlatformQuotationsItemData.
+func (o *DataPlatformProjectProjectDatum) AddProjectDataPlatformQuotationsItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformQuotationsItemDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			queries.Assign(&rel.Project, o.Project)
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_quotations_item_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"Project"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformQuotationsItemDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.Project, rel.Quotation, rel.QuotationItem}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			queries.Assign(&rel.Project, o.Project)
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformProjectProjectDatumR{
+			ProjectDataPlatformQuotationsItemData: related,
+		}
+	} else {
+		o.R.ProjectDataPlatformQuotationsItemData = append(o.R.ProjectDataPlatformQuotationsItemData, related...)
+	}
+
+	return nil
+}
+
+// SetProjectDataPlatformQuotationsItemData removes all previously related items of the
+// data_platform_project_project_datum replacing them completely with the passed
+// in related items, optionally inserting them as new records.
+// Sets o.R.ProjectDataPlatformProjectProjectDatum's ProjectDataPlatformQuotationsItemData accordingly.
+// Replaces o.R.ProjectDataPlatformQuotationsItemData with related.
+func (o *DataPlatformProjectProjectDatum) SetProjectDataPlatformQuotationsItemData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformQuotationsItemDatum) error {
+	query := "update `data_platform_quotations_item_data` set `Project` = null where `Project` = ?"
+	values := []interface{}{o.Project}
+	if boil.IsDebug(ctx) {
+		writer := boil.DebugWriterFrom(ctx)
+		fmt.Fprintln(writer, query)
+		fmt.Fprintln(writer, values)
+	}
+	_, err := exec.ExecContext(ctx, query, values...)
+	if err != nil {
+		return errors.Wrap(err, "failed to remove relationships before set")
+	}
+
+	if o.R != nil {
+		o.R.ProjectDataPlatformQuotationsItemData = nil
+	}
+
+	return o.AddProjectDataPlatformQuotationsItemData(ctx, exec, insert, related...)
+}
+
+// RemoveProjectDataPlatformQuotationsItemData relationships from objects passed in.
+// Removes related items from R.ProjectDataPlatformQuotationsItemData (uses pointer comparison, removal does not keep order)
+func (o *DataPlatformProjectProjectDatum) RemoveProjectDataPlatformQuotationsItemData(ctx context.Context, exec boil.ContextExecutor, related ...*DataPlatformQuotationsItemDatum) error {
+	if len(related) == 0 {
+		return nil
+	}
+
+	var err error
+	for _, rel := range related {
+		queries.SetScanner(&rel.Project, nil)
+		if err = rel.Update(ctx, exec, boil.Whitelist("Project")); err != nil {
+			return err
+		}
+	}
+	if o.R == nil {
+		return nil
+	}
+
+	for _, rel := range related {
+		for i, ri := range o.R.ProjectDataPlatformQuotationsItemData {
+			if rel != ri {
+				continue
+			}
+
+			ln := len(o.R.ProjectDataPlatformQuotationsItemData)
+			if ln > 1 && i < ln-1 {
+				o.R.ProjectDataPlatformQuotationsItemData[i] = o.R.ProjectDataPlatformQuotationsItemData[ln-1]
+			}
+			o.R.ProjectDataPlatformQuotationsItemData = o.R.ProjectDataPlatformQuotationsItemData[:ln-1]
+			break
+		}
 	}
 
 	return nil

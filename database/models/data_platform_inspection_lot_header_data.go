@@ -221,6 +221,7 @@ var DataPlatformInspectionLotHeaderDatumRels = struct {
 	InspectionLotDataPlatformInspectionLotComponentCompositionData string
 	InspectionLotDataPlatformInspectionLotHeaderDocData            string
 	InspectionLotDataPlatformInspectionLotInspectionData           string
+	InspectionLotDataPlatformInspectionLotPartnerData              string
 	InspectionLotDataPlatformInspectionLotSpecDetailData           string
 	InspectionLotDataPlatformOrdersItemData                        string
 }{
@@ -232,6 +233,7 @@ var DataPlatformInspectionLotHeaderDatumRels = struct {
 	InspectionLotDataPlatformInspectionLotComponentCompositionData: "InspectionLotDataPlatformInspectionLotComponentCompositionData",
 	InspectionLotDataPlatformInspectionLotHeaderDocData:            "InspectionLotDataPlatformInspectionLotHeaderDocData",
 	InspectionLotDataPlatformInspectionLotInspectionData:           "InspectionLotDataPlatformInspectionLotInspectionData",
+	InspectionLotDataPlatformInspectionLotPartnerData:              "InspectionLotDataPlatformInspectionLotPartnerData",
 	InspectionLotDataPlatformInspectionLotSpecDetailData:           "InspectionLotDataPlatformInspectionLotSpecDetailData",
 	InspectionLotDataPlatformOrdersItemData:                        "InspectionLotDataPlatformOrdersItemData",
 }
@@ -246,6 +248,7 @@ type dataPlatformInspectionLotHeaderDatumR struct {
 	InspectionLotDataPlatformInspectionLotComponentCompositionData DataPlatformInspectionLotComponentCompositionDatumSlice `boil:"InspectionLotDataPlatformInspectionLotComponentCompositionData" json:"InspectionLotDataPlatformInspectionLotComponentCompositionData" toml:"InspectionLotDataPlatformInspectionLotComponentCompositionData" yaml:"InspectionLotDataPlatformInspectionLotComponentCompositionData"`
 	InspectionLotDataPlatformInspectionLotHeaderDocData            DataPlatformInspectionLotHeaderDocDatumSlice            `boil:"InspectionLotDataPlatformInspectionLotHeaderDocData" json:"InspectionLotDataPlatformInspectionLotHeaderDocData" toml:"InspectionLotDataPlatformInspectionLotHeaderDocData" yaml:"InspectionLotDataPlatformInspectionLotHeaderDocData"`
 	InspectionLotDataPlatformInspectionLotInspectionData           DataPlatformInspectionLotInspectionDatumSlice           `boil:"InspectionLotDataPlatformInspectionLotInspectionData" json:"InspectionLotDataPlatformInspectionLotInspectionData" toml:"InspectionLotDataPlatformInspectionLotInspectionData" yaml:"InspectionLotDataPlatformInspectionLotInspectionData"`
+	InspectionLotDataPlatformInspectionLotPartnerData              DataPlatformInspectionLotPartnerDatumSlice              `boil:"InspectionLotDataPlatformInspectionLotPartnerData" json:"InspectionLotDataPlatformInspectionLotPartnerData" toml:"InspectionLotDataPlatformInspectionLotPartnerData" yaml:"InspectionLotDataPlatformInspectionLotPartnerData"`
 	InspectionLotDataPlatformInspectionLotSpecDetailData           DataPlatformInspectionLotSpecDetailDatumSlice           `boil:"InspectionLotDataPlatformInspectionLotSpecDetailData" json:"InspectionLotDataPlatformInspectionLotSpecDetailData" toml:"InspectionLotDataPlatformInspectionLotSpecDetailData" yaml:"InspectionLotDataPlatformInspectionLotSpecDetailData"`
 	InspectionLotDataPlatformOrdersItemData                        DataPlatformOrdersItemDatumSlice                        `boil:"InspectionLotDataPlatformOrdersItemData" json:"InspectionLotDataPlatformOrdersItemData" toml:"InspectionLotDataPlatformOrdersItemData" yaml:"InspectionLotDataPlatformOrdersItemData"`
 }
@@ -309,6 +312,13 @@ func (r *dataPlatformInspectionLotHeaderDatumR) GetInspectionLotDataPlatformInsp
 		return nil
 	}
 	return r.InspectionLotDataPlatformInspectionLotInspectionData
+}
+
+func (r *dataPlatformInspectionLotHeaderDatumR) GetInspectionLotDataPlatformInspectionLotPartnerData() DataPlatformInspectionLotPartnerDatumSlice {
+	if r == nil {
+		return nil
+	}
+	return r.InspectionLotDataPlatformInspectionLotPartnerData
 }
 
 func (r *dataPlatformInspectionLotHeaderDatumR) GetInspectionLotDataPlatformInspectionLotSpecDetailData() DataPlatformInspectionLotSpecDetailDatumSlice {
@@ -525,6 +535,20 @@ func (o *DataPlatformInspectionLotHeaderDatum) InspectionLotDataPlatformInspecti
 	)
 
 	return DataPlatformInspectionLotInspectionData(queryMods...)
+}
+
+// InspectionLotDataPlatformInspectionLotPartnerData retrieves all the data_platform_inspection_lot_partner_datum's DataPlatformInspectionLotPartnerData with an executor via InspectionLot column.
+func (o *DataPlatformInspectionLotHeaderDatum) InspectionLotDataPlatformInspectionLotPartnerData(mods ...qm.QueryMod) dataPlatformInspectionLotPartnerDatumQuery {
+	var queryMods []qm.QueryMod
+	if len(mods) != 0 {
+		queryMods = append(queryMods, mods...)
+	}
+
+	queryMods = append(queryMods,
+		qm.Where("`data_platform_inspection_lot_partner_data`.`InspectionLot`=?", o.InspectionLot),
+	)
+
+	return DataPlatformInspectionLotPartnerData(queryMods...)
 }
 
 // InspectionLotDataPlatformInspectionLotSpecDetailData retrieves all the data_platform_inspection_lot_spec_detail_datum's DataPlatformInspectionLotSpecDetailData with an executor via InspectionLot column.
@@ -1356,6 +1380,103 @@ func (dataPlatformInspectionLotHeaderDatumL) LoadInspectionLotDataPlatformInspec
 	return nil
 }
 
+// LoadInspectionLotDataPlatformInspectionLotPartnerData allows an eager lookup of values, cached into the
+// loaded structs of the objects. This is for a 1-M or N-M relationship.
+func (dataPlatformInspectionLotHeaderDatumL) LoadInspectionLotDataPlatformInspectionLotPartnerData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionLotHeaderDatum interface{}, mods queries.Applicator) error {
+	var slice []*DataPlatformInspectionLotHeaderDatum
+	var object *DataPlatformInspectionLotHeaderDatum
+
+	if singular {
+		var ok bool
+		object, ok = maybeDataPlatformInspectionLotHeaderDatum.(*DataPlatformInspectionLotHeaderDatum)
+		if !ok {
+			object = new(DataPlatformInspectionLotHeaderDatum)
+			ok = queries.SetFromEmbeddedStruct(&object, &maybeDataPlatformInspectionLotHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", object, maybeDataPlatformInspectionLotHeaderDatum))
+			}
+		}
+	} else {
+		s, ok := maybeDataPlatformInspectionLotHeaderDatum.(*[]*DataPlatformInspectionLotHeaderDatum)
+		if ok {
+			slice = *s
+		} else {
+			ok = queries.SetFromEmbeddedStruct(&slice, maybeDataPlatformInspectionLotHeaderDatum)
+			if !ok {
+				return errors.New(fmt.Sprintf("failed to set %T from embedded struct %T", slice, maybeDataPlatformInspectionLotHeaderDatum))
+			}
+		}
+	}
+
+	args := make([]interface{}, 0, 1)
+	if singular {
+		if object.R == nil {
+			object.R = &dataPlatformInspectionLotHeaderDatumR{}
+		}
+		args = append(args, object.InspectionLot)
+	} else {
+	Outer:
+		for _, obj := range slice {
+			if obj.R == nil {
+				obj.R = &dataPlatformInspectionLotHeaderDatumR{}
+			}
+
+			for _, a := range args {
+				if a == obj.InspectionLot {
+					continue Outer
+				}
+			}
+
+			args = append(args, obj.InspectionLot)
+		}
+	}
+
+	if len(args) == 0 {
+		return nil
+	}
+
+	query := NewQuery(
+		qm.From(`data_platform_inspection_lot_partner_data`),
+		qm.WhereIn(`data_platform_inspection_lot_partner_data.InspectionLot in ?`, args...),
+	)
+	if mods != nil {
+		mods.Apply(query)
+	}
+
+	results, err := query.QueryContext(ctx, e)
+	if err != nil {
+		return errors.Wrap(err, "failed to eager load data_platform_inspection_lot_partner_data")
+	}
+
+	var resultSlice []*DataPlatformInspectionLotPartnerDatum
+	if err = queries.Bind(results, &resultSlice); err != nil {
+		return errors.Wrap(err, "failed to bind eager loaded slice data_platform_inspection_lot_partner_data")
+	}
+
+	if err = results.Close(); err != nil {
+		return errors.Wrap(err, "failed to close results in eager load on data_platform_inspection_lot_partner_data")
+	}
+	if err = results.Err(); err != nil {
+		return errors.Wrap(err, "error occurred during iteration of eager loaded relations for data_platform_inspection_lot_partner_data")
+	}
+
+	if singular {
+		object.R.InspectionLotDataPlatformInspectionLotPartnerData = resultSlice
+		return nil
+	}
+
+	for _, foreign := range resultSlice {
+		for _, local := range slice {
+			if local.InspectionLot == foreign.InspectionLot {
+				local.R.InspectionLotDataPlatformInspectionLotPartnerData = append(local.R.InspectionLotDataPlatformInspectionLotPartnerData, foreign)
+				break
+			}
+		}
+	}
+
+	return nil
+}
+
 // LoadInspectionLotDataPlatformInspectionLotSpecDetailData allows an eager lookup of values, cached into the
 // loaded structs of the objects. This is for a 1-M or N-M relationship.
 func (dataPlatformInspectionLotHeaderDatumL) LoadInspectionLotDataPlatformInspectionLotSpecDetailData(ctx context.Context, e boil.ContextExecutor, singular bool, maybeDataPlatformInspectionLotHeaderDatum interface{}, mods queries.Applicator) error {
@@ -1934,6 +2055,49 @@ func (o *DataPlatformInspectionLotHeaderDatum) AddInspectionLotDataPlatformInspe
 		}
 	} else {
 		o.R.InspectionLotDataPlatformInspectionLotInspectionData = append(o.R.InspectionLotDataPlatformInspectionLotInspectionData, related...)
+	}
+
+	return nil
+}
+
+// AddInspectionLotDataPlatformInspectionLotPartnerData adds the given related objects to the existing relationships
+// of the data_platform_inspection_lot_header_datum, optionally inserting them as new records.
+// Appends related to o.R.InspectionLotDataPlatformInspectionLotPartnerData.
+func (o *DataPlatformInspectionLotHeaderDatum) AddInspectionLotDataPlatformInspectionLotPartnerData(ctx context.Context, exec boil.ContextExecutor, insert bool, related ...*DataPlatformInspectionLotPartnerDatum) error {
+	var err error
+	for _, rel := range related {
+		if insert {
+			rel.InspectionLot = o.InspectionLot
+			if err = rel.Insert(ctx, exec, boil.Infer()); err != nil {
+				return errors.Wrap(err, "failed to insert into foreign table")
+			}
+		} else {
+			updateQuery := fmt.Sprintf(
+				"UPDATE `data_platform_inspection_lot_partner_data` SET %s WHERE %s",
+				strmangle.SetParamNames("`", "`", 0, []string{"InspectionLot"}),
+				strmangle.WhereClause("`", "`", 0, dataPlatformInspectionLotPartnerDatumPrimaryKeyColumns),
+			)
+			values := []interface{}{o.InspectionLot, rel.InspectionLot, rel.PartnerFunction, rel.BusinessPartner}
+
+			if boil.IsDebug(ctx) {
+				writer := boil.DebugWriterFrom(ctx)
+				fmt.Fprintln(writer, updateQuery)
+				fmt.Fprintln(writer, values)
+			}
+			if _, err = exec.ExecContext(ctx, updateQuery, values...); err != nil {
+				return errors.Wrap(err, "failed to update foreign table")
+			}
+
+			rel.InspectionLot = o.InspectionLot
+		}
+	}
+
+	if o.R == nil {
+		o.R = &dataPlatformInspectionLotHeaderDatumR{
+			InspectionLotDataPlatformInspectionLotPartnerData: related,
+		}
+	} else {
+		o.R.InspectionLotDataPlatformInspectionLotPartnerData = append(o.R.InspectionLotDataPlatformInspectionLotPartnerData, related...)
 	}
 
 	return nil
